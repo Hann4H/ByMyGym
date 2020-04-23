@@ -6,14 +6,19 @@ body {
   font-family: "Lato", sans-serif;
 }
 
-.body {
-  margin: 15px;
-}
+
 
 h1,
 h2,
 h3 {
-  color: #f0582a;
+  color: white;
+}
+
+header img {
+  max-width: 100vw;
+  max-height:100vh;
+  overflow:hidden;
+  position: absolute;
 }
 
 button {
@@ -22,12 +27,19 @@ button {
   color: #FFFFFF;
   text-align: center;
   font-size: 24px;
-  width: 135px;
   height: 51px;
   margin: 10px;
+  font-weight: bold;
 
 }
 
+#zalogujButton {
+  width: 135px;
+}
+
+#dodajSaleButton {
+  width: 187px;
+}
 
 ul.unstyled {
   list-style-type: none;
@@ -49,6 +61,7 @@ nav li {
 
 #logo {
   float:left;
+  padding: 15px 0px 0px 20px;
 }
 
 
@@ -56,7 +69,6 @@ nav li a {
   display: block;
   color: white;
   text-align: center;
-  padding: 14px 16px;
   text-decoration: none;
 }
 
@@ -65,5 +77,6 @@ nav li a:hover {
 }
 
 nav button {
-  margin-top: 13px;
+  margin-top: 29px;
+  font-family: "Lato";
 }
