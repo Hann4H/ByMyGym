@@ -6,9 +6,10 @@ class Home extends Component {
     const { isAuthenticated, login } = this.props.auth;
     return (
       <header>
+        
         <img src={require("./img/header_img.png")} />
         <h1>Zarezerwuj salę</h1>
-        <h2>bez zbędnych telefonów</h2>
+        <p>bez zbędnych telefonów</p>
       </header>
     );
   }
