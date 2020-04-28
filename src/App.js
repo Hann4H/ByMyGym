@@ -6,6 +6,10 @@ import Nav from "./Nav";
 import Auth from "./Auth/Auth";
 import Callback from "./Callback";
 
+import mobiscroll from "@mobiscroll/react";
+import "@mobiscroll/react/dist/css/mobiscroll.min.css";
+
+
 class App extends Component {
   constructor(props) {
     super(props);

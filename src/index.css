@@ -122,3 +122,7 @@ nav button {
   margin-top: 29px;
   font-family: "Lato";
 }
+
+calendar {
+  float: initial;
+}
