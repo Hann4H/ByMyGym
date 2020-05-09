@@ -16,14 +16,14 @@ class Home extends Component {
       <>
       <header>
         
-        <img src={require("./img/header_img.png")} />
+        <img src={require("./img/header_img.png")} style={{width: "100%"}} />
         <h1>Zarezerwuj salę</h1>
         <p>bez zbędnych telefonów</p>
       </header>
 
       <slider><h2>Znajdź odpowiednią salę gimnastyczną</h2></slider>
 
-      <calendar>
+      {/*<calendar>
       <mobiscroll.Form>
                 <div className="mbsc-grid">
                     <div className="mbsc-row">
@@ -40,7 +40,7 @@ class Home extends Component {
                     </div>
                 </div>
             </mobiscroll.Form>
-      </calendar>
+      </calendar>*/}
 
       </>
 
