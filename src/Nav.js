@@ -1,8 +1,15 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { FaAlignRight } from 'react-icons/fa'
 
 
 class Nav extends Component {
+  state={
+    isOpen:false
+  }
+  handleToggle= () => {
+    this.setState({isOpen:!this.state.isOpen})
+  }
   render() {
     const { isAuthenticated, login, logout } = this.props.auth;
     return (
@@ -11,9 +18,13 @@ class Nav extends Component {
           <li id="logo">
             <Link to="/"><img src={require('./img/logo.png')} /></Link>
           </li>
-          <li>
+          {/*<li>
             <Link to="/profile">Profile</Link>
+          </li>*/}
+          <li>
+            <button className="dropDown" onClick={this.handleToggle}><FaAlignRight></FaAlignRight></button>
           </li>
+          <ul>
           <li>
             <button id="zalogujButton" onClick={isAuthenticated() ? logout : login}>
               {isAuthenticated() ? "WYLOGUJ" : "ZALOGUJ"}
@@ -22,6 +33,7 @@ class Nav extends Component {
           <li>
             <button id="dodajSaleButton">DODAJ SALĘ</button>
           </li>
+          </ul>
         </ul>
       </nav>
     );
