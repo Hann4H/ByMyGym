@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Hero from "./Hero";
+import Banner from "./Banner";
+
 
 import mobiscroll from "@mobiscroll/react";
 import "@mobiscroll/react/dist/css/mobiscroll.min.css";
@@ -13,7 +15,13 @@ mobiscroll.settings = {
 class Home extends Component {
   render() {
     const { isAuthenticated, login } = this.props.auth;
-    return <Hero></Hero>;
+    return <Hero>
+      <Banner title="ZAREZERWUJ SALĘ" subtitle="bez zbędnych telefonów">
+        <Link to='/gyms' className='btn-primary'>
+          ZOBACZ SALE
+        </Link>
+      </Banner>
+    </Hero>;
     {/*(
       <>
       <header>

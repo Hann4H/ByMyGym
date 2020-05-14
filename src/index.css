@@ -13,11 +13,18 @@
   --mainWhite: #FFFFFF;
   --mainBlack: #222222;
   --darkOrange: #FF8119;
+  --lowOpWhite: rgba(255, 255, 255, 0.1);
+  --highOpWhite: rgba(255, 255, 255, 0.9);
+  --lowOpBlack: rgba(0, 0, 0, 0.2);
+  --transparent: rgba(0, 0, 0, 0);
+  --mainSpacing: 3px;
+  --mainTransition: all 0.3s linear;
 }
 
 
 body {
-  font-family: "Lato", sans-serif;
+  /*font-family: "Lato", sans-serif;*/
+  font-family: Arial, Helvetica, sans-serif;
   background-color: var(--mainGrey);
   color: var(--mainBlack);
 }
@@ -25,7 +32,7 @@ body {
 /*Hero*/
 .defaultHero,
 .gymsHero {
-  min-height: calc(100vh - 150px);
+  min-height: calc(100vh - 200px);
   min-width: calc(100vw - 66px);
   background: url("./img/header_img.png") center/cover no-repeat;
   display: flex;
@@ -39,6 +46,69 @@ body {
 
 }
 
+.banner {
+  display: inline-block;
+  background: var(--lowOpBlack);
+  color: var(--mainWhite);
+  padding: 2rem 1rem;
+  text-align: center;
+  letter-spacing: var(--mainSpacing);
+  font-family: Arial, Helvetica, sans-serif;
+}
+.banner h1 {
+  font-size: 60px;
+  letter-spacing: var(--mainSpacing);
+  font-weight: 300;
+  color: var(--mainWhite);
+
+
+}
+
+
+.banner p {
+  font-size: 30px;
+  color: var(--mainWhite);
+  margin-bottom: 2rem;
+  font-weight: 100;
+}
+
+@media screen and (min-width: 576px) {
+  .banner {
+    padding: 2rem 3rem;
+  }
+  .banner h1 {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .banner {
+    padding: 2rem 6rem;
+  }
+  .banner h1 {
+    font-size: 4rem;
+  }
+}
+
+.btn-primary {
+  display: inline-block;
+  text-decoration: none;
+  letter-spacing: var(--mainSpacing);
+  color: var(--highOpWhite);
+  /*background: var(--highOpWhite);*/
+  padding: 0.9rem 1.2rem;
+  border: 3px solid var(--highOpWhite);
+  transition: var(--mainTransition);
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 27px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.btn-primary:hover {
+  background: var(--lowOpWhite);
+}
+
 .dropDown {
   color: var(--mainOrange);
   background-color: transparent;
@@ -48,7 +118,7 @@ body {
   color: var(--darkOrange);
   background-color: transparent;
 }
-
+/*
 .header {
   position: relative;
   text-align: center;
@@ -95,7 +165,7 @@ slider h2 {
   margin-top: 60px; 
   text-align: center;
   font-weight: bold;
-}
+}*/
 
 button {
   background-color: var(--mainOrange);
@@ -106,6 +176,7 @@ button {
   height: 45px;
   margin: 10px;
   font-weight: bold;
+  cursor: pointer;
 }
 
 button:hover {
