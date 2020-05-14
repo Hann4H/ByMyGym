@@ -24,15 +24,15 @@ class Nav extends Component {
           <li>
             <button className="dropDown" onClick={this.handleToggle}><FaAlignRight></FaAlignRight></button>
           </li>
-          <ul>
-          <li>
-            <button id="zalogujButton" onClick={isAuthenticated() ? logout : login}>
-              {isAuthenticated() ? "WYLOGUJ" : "ZALOGUJ"}
-            </button>
-          </li>
-          <li>
-            <button id="dodajSaleButton">DODAJ SALĘ</button>
-          </li>
+          <ul> {/*className={this.state.isOpen?"nav-links show-nav":"nav-links"}>*/}
+            <li>
+              <button id="zalogujButton" onClick={isAuthenticated() ? logout : login}>
+                {isAuthenticated() ? "WYLOGUJ" : "ZALOGUJ"}
+              </button>
+            </li>
+            <li>
+              <button id="dodajSaleButton">DODAJ SALĘ</button>
+            </li>
           </ul>
         </ul>
       </nav>

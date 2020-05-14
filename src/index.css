@@ -1,18 +1,52 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
-body {
+* {
   margin: 0;
   padding: 0;
-  font-family: "Lato", sans-serif;
-  background-color: #ECECEC;
+  box-sizing: border-box;
+}
+
+:root {
+  --mainGrey: #ECECEC;
+  --lightShadow: #2E2E2E;
+  --mainOrange: #FFA841;
+  --mainWhite: #FFFFFF;
+  --mainBlack: #222222;
+  --darkOrange: #FF8119;
 }
 
 
+body {
+  font-family: "Lato", sans-serif;
+  background-color: var(--mainGrey);
+  color: var(--mainBlack);
+}
 
-h1,
-h2,
-h3 {
-  color: black;
+/*Hero*/
+.defaultHero,
+.gymsHero {
+  min-height: calc(100vh - 150px);
+  min-width: calc(100vw - 66px);
+  background: url("./img/header_img.png") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.gymsHero{
+
+
+}
+
+.dropDown {
+  color: var(--mainOrange);
+  background-color: transparent;
+}
+
+.dropDown:hover {
+  color: var(--darkOrange);
+  background-color: transparent;
 }
 
 .header {
@@ -34,10 +68,10 @@ header h1 {
   top: 20%;
   text-align: center;
   width: 100%;
-  color: white;
+  color:var(--mainWhite);
   font-size: 60px;
   font-weight: 900;
-  text-shadow: 0px 4px 4px #2e2e2e;
+  text-shadow: 0px 4px 4px var(--lightShadow);
 }
 
 header p {
@@ -45,10 +79,10 @@ header p {
   top: 33%;
   text-align: center;
   width: 100%;
-  color: white;
+  color: var(--mainWhite);
   font-size: 30px;
   font-weight: 900;
-  text-shadow: 0px 2px 2px #2e2e2e;
+  text-shadow: 0px 2px 2px var(--lightShadow);
 }
 
 .slider {
@@ -64,26 +98,35 @@ slider h2 {
 }
 
 button {
-  background-color: #FFA841;
+  background-color: var(--mainOrange);
   border: none;
-  color: #FFFFFF;
+  color: var(--mainWhite);
   text-align: center;
-  font-size: 24px;
-  height: 51px;
+  font-size: 20px;
+  height: 45px;
   margin: 10px;
   font-weight: bold;
-
 }
 
-.dropDown {
-  color: #FFA841;
-  background-color: transparent;
+button:hover {
+  background-color: var(--darkOrange);
 }
+
+
 
 @media screen and (min-width: 768px) {
   .dropDown {
     display: none;
   }
+}
+
+.nav-links {
+  height: 0;
+  overflow: hidden;
+}
+
+.show-nav {
+  height: 100px;
 }
 
 #zalogujButton {
@@ -105,7 +148,7 @@ nav ul {
   margin: 0;
   padding: 0px 0px 10px 0px;
   overflow: hidden;
-  background-color: #FFFFFF;
+  background-color: var(--mainWhite);
 }
 
 nav li {
@@ -120,14 +163,11 @@ nav li {
 
 nav li a {
   display: block;
-  color: white;
+  color: var(--mainWhite);
   text-align: center;
   text-decoration: none;
 }
 
-nav li a:hover {
-  background-color: #EDEDED;
-}
 
 nav button {
   margin-top: 29px;

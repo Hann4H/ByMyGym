@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Hero from "./Hero";
 
 import mobiscroll from "@mobiscroll/react";
 import "@mobiscroll/react/dist/css/mobiscroll.min.css";
@@ -12,7 +13,8 @@ mobiscroll.settings = {
 class Home extends Component {
   render() {
     const { isAuthenticated, login } = this.props.auth;
-    return (
+    return <Hero></Hero>;
+    {/*(
       <>
       <header>
         
@@ -20,6 +22,7 @@ class Home extends Component {
         <h1>Zarezerwuj salę</h1>
         <p>bez zbędnych telefonów</p>
       </header>
+      
 
       <slider><h2>Znajdź odpowiednią salę gimnastyczną</h2></slider>
 
@@ -40,11 +43,11 @@ class Home extends Component {
                     </div>
                 </div>
             </mobiscroll.Form>
-      </calendar>*/}
+      </calendar>*
 
       </>
 
-    );
+    ); */}
   }
 }
 
