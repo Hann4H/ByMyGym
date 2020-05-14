@@ -41,8 +41,8 @@ class App extends Component {
                 )
               }
             />
-            <Route path="/404" component={Error} />
-            <Redirect to="/404" />
+            <Route exact path="/404" component={Error} />
+
           </div>
           
         </Switch>

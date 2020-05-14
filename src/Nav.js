@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { FaAlignRight } from 'react-icons/fa'
+import { FaAlignRight } from 'react-icons/fa';
+import { FaSearch } from 'react-icons/fa';
 
 
 class Nav extends Component {
@@ -32,6 +33,9 @@ class Nav extends Component {
             </li>
             <li>
               <button id="dodajSaleButton">DODAJ SALĘ</button>
+            </li>
+            <li>
+              <button className="searchButton"><FaSearch size="43px"></FaSearch></button>
             </li>
           </ul>
         </ul>

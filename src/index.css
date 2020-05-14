@@ -118,6 +118,16 @@ body {
   color: var(--darkOrange);
   background-color: transparent;
 }
+
+.searchButton {
+  background-color: transparent;
+  color: var(--mainOrange);
+  size: 28;
+} .searchButton:hover {
+  color: var(--darkOrange);
+  background-color: transparent;
+}
+
 /*
 .header {
   position: relative;
