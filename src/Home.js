@@ -9,7 +9,7 @@ import Services from "./Services";
 class Home extends Component {
   render() {
     const { isAuthenticated, login } = this.props.auth;
-    return <><Hero>
+    return <><div id="pls"></div><Hero>
       <Banner title="ZAREZERWUJ SALĘ" subtitle="bez zbędnych telefonów">
         <Link to='/gyms' className='btn-primary'>
           ZOBACZ DOSTĘPNE SALE

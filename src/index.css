@@ -32,6 +32,7 @@ body {
 /*Hero*/
 .defaultHero,
 .gymsHero {
+  top: 100px;
   min-height: calc(100vh - 200px);
   min-width: calc(100vw - 66px);
   background: url("./img/header_img.png") center/cover no-repeat;
@@ -39,6 +40,10 @@ body {
   align-items: center;
   justify-content: center;
 
+}
+
+#pls {
+  padding-bottom: 100px;
 }
 
 .gymsHero{
@@ -257,10 +262,6 @@ button:hover {
   overflow: hidden;
 }
 
-.show-nav {
-  height: 100px;
-}
-
 #zalogujButton {
   width: 135px;
 }
@@ -275,6 +276,11 @@ ul.unstyled {
   padding: 0;
 }
 
+nav {
+  width: 100%;
+  position: fixed;
+}
+
 nav ul {
   list-style-type: none;
   margin: 0;
@@ -285,6 +291,7 @@ nav ul {
 
 nav li {
   float: right;
+  transition: var(--mainTransition);
 }
 
 #logo {
@@ -298,6 +305,7 @@ nav li a {
   color: var(--mainWhite);
   text-align: center;
   text-decoration: none;
+  transition: var(--mainTransition);
 }
 
 
