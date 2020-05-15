@@ -146,7 +146,7 @@ body {
 }
 
 .services-center {
-  width: 3vw;
+  width: 90vw;
   margin: auto auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
