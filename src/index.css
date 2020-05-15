@@ -141,8 +141,8 @@ body {
 }
 .services {
   text-align: center;
-  background-color: #CFCFCF;
-  color: var(--mainWhite);
+  background-color: var(--mainWhite);
+  color: var(--mainOrange);
 }
 
 .services-center {
@@ -157,7 +157,7 @@ body {
   display: inline-block;
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
-  color: var(--mainWhite);
+  color: var(--mainOrange);
 }
 .services h6 {
   letter-spacing: var(--mainSpacing);
