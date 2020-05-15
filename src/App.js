@@ -41,7 +41,7 @@ class App extends Component {
                 )
               }
             />
-            <Route exact path="/404" component={Error} />
+            <Route path="/404" component={Error} />
 
           </div>
           
