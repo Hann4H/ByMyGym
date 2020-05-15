@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { FaAlignRight } from 'react-icons/fa';
 import { FaSearch } from 'react-icons/fa';
-
+import { Route, Redirect, Switch } from "react-router-dom";
 
 class Nav extends Component {
   state={
@@ -32,7 +32,8 @@ class Nav extends Component {
               </button>
             </li>
             <li>
-              <button id="dodajSaleButton">DODAJ SALĘ</button>
+              <button id="dodajSaleButton"><Link to='/add'>DODAJ SALĘ</Link></button>
+              
             </li>
             <li>
               <button className="searchButton"><FaSearch size="43px"></FaSearch></button>

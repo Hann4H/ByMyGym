@@ -6,6 +6,7 @@ import Nav from "./Nav";
 import Auth from "./Auth/Auth";
 import Error from "./Error";
 import Callback from "./Callback";
+import AddGym from "./AddGym";
 
 import mobiscroll from "@mobiscroll/react";
 import "@mobiscroll/react/dist/css/mobiscroll.min.css";
@@ -42,7 +43,7 @@ class App extends Component {
               }
             />
             <Route path="/404" component={Error} />
-
+            <Route path="/add" component={AddGym} />
           </div>
           
         </Switch>
