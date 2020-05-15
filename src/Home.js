@@ -4,6 +4,7 @@ import Hero from "./Hero";
 import Banner from "./Banner";
 import Slider from "./Slider";
 import Services from "./Services";
+import SampleGyms from "./SampleGyms";
 
 
 class Home extends Component {
@@ -17,7 +18,8 @@ class Home extends Component {
       </Banner>
     </Hero>
     <Services></Services>
-    <div id="testSlider"><Slider></Slider></div>
+    {/*<div id="testSlider"><Slider></Slider></div>*/}
+    <SampleGyms />
     </>;
   }
 }
