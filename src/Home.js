@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Hero from "./Hero";
 import Banner from "./Banner";
-import Slider from "./Slider"
+import Slider from "./Slider";
+import Services from "./Services";
 
 
 class Home extends Component {
@@ -11,11 +12,13 @@ class Home extends Component {
     return <><Hero>
       <Banner title="ZAREZERWUJ SALĘ" subtitle="bez zbędnych telefonów">
         <Link to='/gyms' className='btn-primary'>
-          ZOBACZ SALE
+          ZOBACZ DOSTĘPNE SALE
         </Link>
       </Banner>
     </Hero>
-    <div id="testSlider"><Slider></Slider></div></>;
+    <Services></Services>
+    <div id="testSlider"><Slider></Slider></div>
+    </>;
   }
 }
 

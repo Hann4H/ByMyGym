@@ -132,9 +132,52 @@ body {
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
-
+  align-items: center; 
 }
+
+
+.services {
+  padding: 5rem 0;
+}
+.services {
+  text-align: center;
+  background-color: #CFCFCF;
+  color: var(--mainWhite);
+}
+
+.services-center {
+  width: 3vw;
+  margin: auto auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+  grid-row-gap: 2rem;
+  grid-column-gap: 50px;
+}
+.service span {
+  display: inline-block;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--mainWhite);
+}
+.services h6 {
+  letter-spacing: var(--mainSpacing);
+  text-align: center;
+  font-size: 15px;
+}
+
+@media screen and (min-width: 992px) {
+  .services-center {
+    width: 95vw;
+    max-width: 1170px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .services p {
+    width: 100%;
+  }
+}
+
 
 /*
 .header {
