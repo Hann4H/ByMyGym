@@ -336,3 +336,12 @@ nav button {
 calendar {
   float: initial;
 }
+
+.custom-file-container {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.custom-file-container__image-clear {
+  color: var(--mainBlack);
+}

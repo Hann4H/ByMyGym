@@ -5,6 +5,8 @@ import Form from "../components/gymForm";
 import Banner from "../components/Banner";
 import Title from "../components/Title";
 import Spinner from "../components/Spinner";
+import ImageUpload from "../components/ImageUpload"
+
 
 
 class AddGym extends Component {
@@ -18,6 +20,7 @@ class AddGym extends Component {
         </Hero>
         <Title title="wypełnij dane"></Title>
         <Form></Form>
+        <ImageUpload></ImageUpload>
         </>;
 
     }
