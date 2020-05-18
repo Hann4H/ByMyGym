@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Hero from "./Hero";
+import Hero from "../components/Hero";
 import { useForm } from "react-hook-form";
-import Form from "./gymForm";
-import Banner from "./Banner";
+import Form from "../components/gymForm";
+import Banner from "../components/Banner";
 
 
 class AddGym extends Component {

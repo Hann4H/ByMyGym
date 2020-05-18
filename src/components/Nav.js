@@ -17,7 +17,7 @@ class Nav extends Component {
       <nav>
         <ul>
           <li id="logo">
-            <Link to="/"><img src={require('./img/logo.png')} /></Link>
+            <Link to="/"><img src={require('../img/logo.png')} /></Link>
           </li>
           {/*<li>
             <Link to="/profile">Profile</Link>

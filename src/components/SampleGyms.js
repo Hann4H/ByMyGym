@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { GymContext } from './Context';
+import { GymContext } from '../Context';
 
 export default class SampleGyms extends Component {
     static contextType = GymContext

@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Hero from "./Hero";
-import Banner from "./Banner";
-import Slider from "./Slider";
-import Services from "./Services";
-import SampleGyms from "./SampleGyms";
+import Hero from "../components/Hero";
+import Banner from "../components/Banner";
+import Slider from "../components/Slider";
+import Services from "../components/Services";
+import SampleGyms from "../components/SampleGyms";
 
 
 class Home extends Component {

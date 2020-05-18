@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
-import Home from "./Home";
-import Profile from "./Profile";
-import Nav from "./Nav";
+import Home from "./pages/Home";
+import Profile from "./components/Profile";
+import Nav from "./components/Nav";
 import Auth from "./Auth/Auth";
-import Error from "./Error";
+import Error from "./pages/Error";
 import Callback from "./Callback";
-import AddGym from "./AddGym";
+import AddGym from "./pages/AddGym";
 
 import mobiscroll from "@mobiscroll/react";
 import "@mobiscroll/react/dist/css/mobiscroll.min.css";
