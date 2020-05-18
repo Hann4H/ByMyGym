@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import Form from "../components/gymForm";
 import Banner from "../components/Banner";
 import Title from "../components/Title";
+import Spinner from "../components/Spinner";
 
 
 class AddGym extends Component {
