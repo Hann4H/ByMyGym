@@ -29,6 +29,8 @@ body {
   color: var(--mainBlack);
 }
 
+
+
 /*Hero*/
 .defaultHero,
 .gymsHero {
@@ -50,6 +52,8 @@ body {
 #pls {
   padding-bottom: 100px;
 }
+
+
 
 /*Banner*/
 .banner {
@@ -192,54 +196,60 @@ body {
 }
 
 
-/*
-.header {
-  position: relative;
+.gymForm {
   text-align: center;
-  display: inline-block;
+  margin: 50px auto auto auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-row-gap: 2rem;
+  grid-column-gap: 50px;
 }
 
-header img {
-
-  max-width: 100vw;
-  max-height:100vh;
-  overflow:hidden;
-  position: relative;
+label {
+  line-height: 2;
+  margin-right: 10px;
+  margin-bottom: 13px;
+  margin-top: 20px;
+  color: var(--darkOrange);
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--mainSpacing);
 }
 
-header h1 {
-  position: absolute;
-  top: 20%;
+input {
+  display: block;
+  box-sizing: border-box;
+  width: 80%;
+  border-radius: 4px;
+  border: 1px solid white;
+  padding: 10px 15px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  margin-left: 10%;
+}
+
+.section-title {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   text-align: center;
-  width: 100%;
-  color:var(--mainWhite);
-  font-size: 60px;
-  font-weight: 900;
-  text-shadow: 0px 4px 4px var(--lightShadow);
+  margin-bottom: 1rem;
+  background-color: var(--mainWhite);
+}
+.section-title h4 {
+  font-size: 2rem;
+  letter-spacing: var(--mainSpacing);
+  margin-bottom: 1rem;
+  color: var(--darkOrange);
+  ;
+}
+.section-title div {
+  width: 5rem;
+  height: 5px;
+  margin: 0 auto;
+  background: var(--darkOrange);
 }
 
-header p {
-  position: absolute;
-  top: 33%;
-  text-align: center;
-  width: 100%;
-  color: var(--mainWhite);
-  font-size: 30px;
-  font-weight: 900;
-  text-shadow: 0px 2px 2px var(--lightShadow);
-}
-
-.slider {
-  position: relative;
-  display: inline-block;
-
-}
-
-slider h2 {
-  margin-top: 60px; 
-  text-align: center;
-  font-weight: bold;
-}*/
 
 button {
   background-color: var(--mainOrange);
@@ -256,6 +266,7 @@ button {
 button:hover {
   background-color: var(--darkOrange);
 }
+
 
 
 

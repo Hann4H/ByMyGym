@@ -10,7 +10,7 @@ export default function gymForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} className="gymForm">
             <div>
                 <label>Nazwa budynku</label>
                 <input type="text" name="gymName" ref={register} required/>
@@ -29,29 +29,31 @@ export default function gymForm() {
             </div>
             <div>
                 <label>Wysokość</label>
-                <input type="number" name="height" min="1" ref={register} required/>
+                <input type="text" name="height" min="1" ref={register} required/>
             </div>
             <div>
                 <label>Szerokość</label>
-                <input type="number" name="width" min="1" ref={register} required/>
+                <input type="text" name="width" min="1" ref={register} required/>
             </div>
             <div>
                 <label>Długość</label>
-                <input type="number" name="length" min="1" ref={register} required/>
+                <input type="text" name="length" min="1" ref={register} required/>
             </div>
             <div>
                 <label>Ilość miejsc na widowni</label>
-                <input type="number" name="audience" min="0" ref={register}/>
+                <input type="text" name="audience" min="0" ref={register}/>
             </div>
             <div>
                 <label>Ilość szatń</label>
-                <input type="number" name="changingRooms" min="0" ref={register} required/>
+                <input type="text" name="changingRooms" min="0" ref={register} required/>
             </div>
             <div>
                 <label>Cena za godzinę</label>
-                <input type="number" name="price" min="1" ref={register} required/>
-            </div><br />
-            <button>Dodaj</button>
+                <input type="text" name="price" min="1" ref={register} required/>
+            </div>
+            <div></div><div></div>
+            <button class="addButton">DODAJ</button>
+            
         </form>
     )
 }

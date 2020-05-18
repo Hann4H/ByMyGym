@@ -3,6 +3,7 @@ import Hero from "../components/Hero";
 import { useForm } from "react-hook-form";
 import Form from "../components/gymForm";
 import Banner from "../components/Banner";
+import Title from "../components/Title";
 
 
 class AddGym extends Component {
@@ -14,6 +15,7 @@ class AddGym extends Component {
                 <div id="bar"></div>
             </Banner>
         </Hero>
+        <Title title="wypełnij dane"></Title>
         <Form></Form>
         </>;
 
