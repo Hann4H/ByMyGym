@@ -7,7 +7,7 @@ import Auth from "./Auth/Auth";
 import Error from "./pages/Error";
 import Callback from "./Callback";
 import AddGym from "./pages/AddGym";
-
+import GymProfile from "./pages/GymProfile";
 
 
 import mobiscroll from "@mobiscroll/react";
@@ -46,6 +46,10 @@ class App extends Component {
             />
             <Route path="/404" component={Error} />
             <Route path="/add" component={AddGym} />
+
+            {/*SAMPLE GYM PROFILE*/}
+            <Route path="/gym_profile" component={GymProfile} />
+
           </div>
           
         </Switch>
