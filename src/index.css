@@ -116,8 +116,7 @@ body {
 
 .gym-name {
   padding-top: 3rem;
-  padding-bottom: 2rem;
-  margin-bottom: 1rem;
+  padding-bottom: 1rem;
   margin-left: 10rem;
   font-size: 40px;
   letter-spacing: var(--mainSpacing);
@@ -125,6 +124,20 @@ body {
   color: var(--darkGrey);
   font-family: "Lato";
 }
+
+.gym-details {
+  color: var(--darkGrey);
+  font-family: "Lato";
+  font-size: 15px;
+  margin-left: 10rem;
+  overflow: hidden;
+  word-break: normal;
+}
+
+#constrain {
+  width: 40vw;
+}
+
 
 
 .btn-primary {
@@ -270,6 +283,8 @@ input {
   margin: 0 auto;
   background: var(--darkOrange);
 }
+
+
 
 
 button {
