@@ -20,6 +20,9 @@ var config = {
 
 firebase.initializeApp(config);
 
+var storage = firebase.storage();
+
+
 ReactDOM.render(
   <GymProvider>
     <Router>
