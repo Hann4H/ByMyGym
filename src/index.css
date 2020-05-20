@@ -13,6 +13,7 @@
   --mainWhite: #FFFFFF;
   --mainBlack: #222222;
   --darkOrange: #FF8119;
+  --darkGrey: rgb(97, 97, 97);
   --lowOpWhite: rgba(255, 255, 255, 0.1);
   --highOpWhite: rgba(255, 255, 255, 0.9);
   --lowOpBlack: rgba(0, 0, 0, 0.2);
@@ -106,6 +107,25 @@ body {
   background: var(--darkOrange);
   margin: 0.1rem auto;
 }
+
+
+#slash {
+  height: 20px;
+  background-color: var(--mainOrange);
+}
+
+.gym-name {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+  margin-bottom: 1rem;
+  margin-left: 10rem;
+  font-size: 40px;
+  letter-spacing: var(--mainSpacing);
+  font-weight: 100;
+  color: var(--darkGrey);
+  font-family: "Lato";
+}
+
 
 .btn-primary {
   display: inline-block;
@@ -241,6 +261,7 @@ input {
   letter-spacing: var(--mainSpacing);
   margin-bottom: 1rem;
   color: var(--darkOrange);
+  font-family: "Lato";
   ;
 }
 .section-title div {
