@@ -5,6 +5,8 @@ import 'file-upload-with-preview/dist/file-upload-with-preview.min.css'
 export default class ImageUpload extends Component {
     render() {
         return (
+        <div id="test-gallery">gallery</div>
+        /*
         <div class="custom-file-container" data-upload-id="myUniqueUploadId">
             <label>dodaj zdjęcia<a href="javascript:void(0)" class="custom-file-container__image-clear" title="Clear Image">wyczyść</a></label>
             <label class="custom-file-container__custom-file" >
@@ -14,6 +16,7 @@ export default class ImageUpload extends Component {
             </label>
             <div class="custom-file-container__image-preview"></div>
         </div>
+        */
         )
     }
 }

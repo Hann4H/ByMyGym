@@ -19,8 +19,11 @@ class AddGym extends Component {
             </Banner>
         </Hero>
         <Title title="wypełnij dane"></Title>
-        <Form></Form>
-        <ImageUpload></ImageUpload>
+        <div id="container-1">
+            <Form></Form>
+            <div id="test-gallery">dodaj zdjęcie</div>
+            {/*<ImageUpload></ImageUpload>*/}
+        </div>
         </>;
 
     }
