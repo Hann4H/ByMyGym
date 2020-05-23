@@ -2,7 +2,6 @@ import React, { Component, useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import firebase from "../firebase"
 
-
 export default function gymForm() {
     const {register, handleSubmit, errors} = useForm();
 
@@ -78,9 +77,132 @@ export default function gymForm() {
                 <label>Cena za godzinę</label>
                 <input type="text" value ={price} name="price" onChange={e => setPrice(e.currentTarget.value)} min="1" ref={register} required/>
             </div>
-            <div></div><div></div>
-            <button>DODAJ</button>
             
-        </form>
-    )
+
+      {/* ////////////////////////////////////////////// */}
+      <div className="container-3">
+        <label>
+          {" "}
+          <b>Typ boiska:</b>
+        </label>
+
+        <div className="form-check form-check-inline">
+          <label className="form-check-label" htmlFor="inlineCheckbox1">
+            boisko do piłki nożnej
+          </label>
+          <input
+            className="form-check-input"
+            type="checkbox"
+            id="inlineCheckbox1"
+            value="option1"
+          />
+        </div>
+
+        <div className="form-check form-check-inline">
+          <label className="form-check-label" htmlFor="inlineCheckbox2">
+            boisko do siatkówki
+          </label>
+          <input
+            className="form-check-input"
+            type="checkbox"
+            id="inlineCheckbox2"
+            value="option2"
+          />
+        </div>
+
+        <div className="form-check form-check-inline">
+          <label className="form-check-label" htmlFor="inlineCheckbox2">
+            boisko do koszykówki
+          </label>
+          <input
+            className="form-check-input"
+            type="checkbox"
+            id="inlineCheckbox3"
+            value="option3"
+          />
+        </div>
+        <div className="form-check form-check-inline">
+          <label className="form-check-label" htmlFor="inlineCheckbox2">
+            boisko do tenisa ziemego
+          </label>
+          <input
+            className="form-check-input"
+            type="checkbox"
+            id="inlineCheckbox4"
+            value="option4"
+          />
+        </div>
+      </div>
+      {/* 2////////////////////////////////////////////// */}
+      <br />
+      <div className="container-3">
+        <label>
+          {" "}
+          <b>Dodatkowe wyposażenie:</b>
+        </label>
+
+        <div className="form-check form-check-inline">
+          <label className="form-check-label" htmlFor="inlineCheckbox1">
+            toaleta wewnątrz budynku
+          </label>
+          <input
+            className="form-check-input"
+            type="checkbox"
+            id="inlineCheckbox1"
+            value="option1"
+          />
+        </div>
+
+        <div className="form-check form-check-inline">
+          <label className="form-check-label" htmlFor="inlineCheckbox2">
+            TOJ TOJ na zewnątrz budynku
+          </label>
+          <input
+            className="form-check-input"
+            type="checkbox"
+            id="inlineCheckbox2"
+            value="option2"
+          />
+        </div>
+
+        <div className="form-check form-check-inline">
+          <label className="form-check-label" htmlFor="inlineCheckbox3">
+            parking
+          </label>
+          <input
+            className="form-check-input"
+            type="checkbox"
+            id="inlineCheckbox3"
+            value="option3"
+          />
+        </div>
+        <div className="form-check form-check-inline">
+          <label className="form-check-label" htmlFor="inlineCheckbox4">
+            maszyny z jedzeniem
+          </label>
+          <input
+            className="form-check-input"
+            type="checkbox"
+            id="inlineCheckbox4"
+            value="option4"
+          />
+        </div>
+        <div className="form-check form-check-inline">
+          <label className="form-check-label" htmlFor="inlineCheckbox5">
+            bufet/stołówka
+          </label>
+          <input
+            className="form-check-input"
+            type="checkbox"
+            id="inlineCheckbox5"
+            value="option5"
+          />
+        </div>
+      </div>
+
+      <div></div>
+      <div></div>
+      <button>DODAJ</button>
+    </form>
+  );
 }

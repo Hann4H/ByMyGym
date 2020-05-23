@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url("https://fonts.googleapis.com/css?family=Lato");
 
 * {
   margin: 0;
@@ -7,12 +7,12 @@
 }
 
 :root {
-  --mainGrey: #ECECEC;
-  --lightShadow: #2E2E2E;
-  --mainOrange: #FFA841;
-  --mainWhite: #FFFFFF;
+  --mainGrey: #ececec;
+  --lightShadow: #2e2e2e;
+  --mainOrange: #ffa841;
+  --mainWhite: #ffffff;
   --mainBlack: #222222;
-  --darkOrange: #FF8119;
+  --darkOrange: #ff8119;
   --darkGrey: rgb(97, 97, 97);
   --lowOpWhite: rgba(255, 255, 255, 0.1);
   --highOpWhite: rgba(255, 255, 255, 0.9);
@@ -22,15 +22,12 @@
   --mainTransition: all 0.3s linear;
 }
 
-
 body {
   /*font-family: "Lato", sans-serif;*/
   font-family: Arial, Helvetica, sans-serif;
   background-color: var(--mainGrey);
   color: var(--mainBlack);
 }
-
-
 
 /*Hero*/
 .defaultHero,
@@ -42,10 +39,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
-.gymsHero{
+.gymsHero {
   background-image: url("./img/header_img_3.jpg");
   min-height: 60vh;
 }
@@ -53,8 +49,6 @@ body {
 #pls {
   padding-bottom: 100px;
 }
-
-
 
 /*Banner*/
 .banner {
@@ -73,7 +67,6 @@ body {
   font-weight: 300;
   color: var(--mainWhite);
 }
-
 
 .banner p {
   font-size: 30px;
@@ -100,14 +93,12 @@ body {
   }
 }
 
-
 #bar {
   width: 20rem;
   height: 5px;
   background: var(--darkOrange);
   margin: 0.1rem auto;
 }
-
 
 #slash {
   height: 20px;
@@ -137,8 +128,6 @@ body {
 #constrain {
   width: 40vw;
 }
-
-
 
 .btn-primary {
   display: inline-block;
@@ -173,7 +162,8 @@ body {
   background-color: transparent;
   color: var(--mainOrange);
   size: 28;
-} .searchButton:hover {
+}
+.searchButton:hover {
   color: var(--darkOrange);
   background-color: transparent;
 }
@@ -182,9 +172,8 @@ body {
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
 }
-
 
 .services {
   padding: 5rem 0;
@@ -244,8 +233,13 @@ body {
 .container-2 {
   display: flex;
   justify-content: right;
-  
+
   vertical-align: middle;
+}
+
+.container-3 {
+  text-align: left;
+  max-width: ;
 }
 
 .gymForm {
@@ -270,7 +264,6 @@ label {
   font-size: 14px;
   font-weight: 500;
   text-transform: uppercase;
-  
 }
 
 input {
@@ -282,9 +275,13 @@ input {
   padding: 2px 10px;
   margin-bottom: 10px;
   font-size: 14px;
-
 }
 
+.container-3 input {
+  display: inline-flex;
+  width: 20px;
+  height: 20px;
+}
 
 .section-title {
   padding-top: 2rem;
@@ -299,7 +296,6 @@ input {
   margin-bottom: 1rem;
   color: var(--darkOrange);
   font-family: "Lato";
-  ;
 }
 .section-title div {
   width: 5rem;
@@ -307,9 +303,6 @@ input {
   margin: 0 auto;
   background: var(--darkOrange);
 }
-
-
-
 
 button {
   background-color: var(--mainOrange);
@@ -326,9 +319,6 @@ button {
 button:hover {
   background-color: var(--darkOrange);
 }
-
-
-
 
 @media screen and (min-width: 768px) {
   .dropDown {
@@ -348,8 +338,6 @@ button:hover {
 #dodajSaleButton {
   width: 187px;
 }
-
-
 
 ul.unstyled {
   list-style-type: none;
@@ -376,10 +364,9 @@ nav li {
 }
 
 #logo {
-  float:left;
+  float: left;
   padding: 15px 0px 0px 20px;
 }
-
 
 nav li a {
   display: block;
@@ -388,7 +375,6 @@ nav li a {
   text-decoration: none;
   transition: var(--mainTransition);
 }
-
 
 nav button {
   margin-top: 29px;
@@ -399,11 +385,8 @@ calendar {
   float: initial;
 }
 
-
-
 .custom-file-container {
   max-width: 200px;
-
 }
 
 .custom-file-container__image-clear {
