@@ -78,162 +78,162 @@ export default function gymForm() {
                 <input type="text" value ={price} name="price" onChange={e => setPrice(e.currentTarget.value)} min="1" ref={register} required/>
             </div>
       {/* ////////////////////////////////////////////// */}
-      <div className="container-3">
-        <label>
-          {" "}
-          <b>Typ boiska:</b>
-        </label>
+        <div className="container-3">
+            <label>
+            {" "}
+            <b>Typ boiska:</b>
+            </label>
 
-        <div className="form-check form-check-inline">
-          <label className="form-check-label" htmlFor="inlineCheckbox1">
-            boisko do piłki nożnej
-          </label>
-          <input
-            className="form-check-input"
-            type="checkbox"
-            id="inlineCheckbox1"
-            value="option1"
-          />
+            <div className="form-check form-check-inline">
+            <label className="form-check-label" htmlFor="inlineCheckbox1">
+                boisko do piłki nożnej
+            </label>
+            <input
+                className="form-check-input"
+                type="checkbox"
+                id="inlineCheckbox1"
+                value="option1"
+            />
+            </div>
+
+            <div className="form-check form-check-inline">
+            <label className="form-check-label" htmlFor="inlineCheckbox2">
+                boisko do siatkówki
+            </label>
+            <input
+                className="form-check-input"
+                type="checkbox"
+                id="inlineCheckbox2"
+                value="option2"
+            />
+            </div>
+
+            <div className="form-check form-check-inline">
+            <label className="form-check-label" htmlFor="inlineCheckbox3">
+                boisko do koszykówki
+            </label>
+            <input
+                className="form-check-input"
+                type="checkbox"
+                id="inlineCheckbox3"
+                value="option3"
+            />
+            </div>
+            <div className="form-check form-check-inline">
+            <label className="form-check-label" htmlFor="inlineCheckbox4">
+                boisko do tenisa ziemnego
+            </label>
+            <input
+                className="form-check-input"
+                type="checkbox"
+                id="inlineCheckbox4"
+                value="option4"
+            />
+            </div>
+            <div className="form-check form-check-inline">
+            <label className="form-check-label" htmlFor="inlineCheckbox5">
+                sala do aerobiku
+            </label>
+            <input
+                className="form-check-input"
+                type="checkbox"
+                id="inlineCheckbox5"
+                value="option5"
+            />
+            </div>
+            <div className="form-check form-check-inline">
+            <label className="form-check-label" htmlFor="inlineCheckbox6">
+                siłownia
+            </label>
+            <input
+                className="form-check-input"
+                type="checkbox"
+                id="inlineCheckbox6"
+                value="option6"
+            />
+            </div>
+            </div>
+            {/* 2////////////////////////////////////////////// */}
+            <br />
+            <div className="container-3">
+            <label>
+            {" "}
+            <b>Udogodnienia:</b>
+            </label>
+
+            <div className="form-check form-check-inline">
+            <label className="form-check-label" htmlFor="inlineCheckbox1">
+                toaleta wewnątrz budynku
+            </label>
+            <input
+                className="form-check-input"
+                type="checkbox"
+                id="inlineCheckbox1"
+                value="option1"
+            />
+            </div>
+
+            <div className="form-check form-check-inline">
+            <label className="form-check-label" htmlFor="inlineCheckbox2">
+                TOJ TOJ na zewnątrz budynku
+            </label>
+            <input
+                className="form-check-input"
+                type="checkbox"
+                id="inlineCheckbox2"
+                value="option2"
+            />
+            </div>
+            <div className="form-check form-check-inline">
+            <label className="form-check-label" htmlFor="inlineCheckbox3">
+                prysznice
+            </label>
+            <input
+                className="form-check-input"
+                type="checkbox"
+                id="inlineCheckbox3"
+                value="option3"
+            />
+            </div>
+
+            <div className="form-check form-check-inline">
+            <label className="form-check-label" htmlFor="inlineCheckbox4">
+                parking
+            </label>
+            <input
+                className="form-check-input"
+                type="checkbox"
+                id="inlineCheckbox4"
+                value="option4"
+            />
+            </div>
+            <div className="form-check form-check-inline">
+            <label className="form-check-label" htmlFor="inlineCheckbox5">
+                maszyny z jedzeniem
+            </label>
+            <input
+                className="form-check-input"
+                type="checkbox"
+                id="inlineCheckbox5"
+                value="option5"
+            />
+            </div>
+            <div className="form-check form-check-inline">
+            <label className="form-check-label" htmlFor="inlineCheckbox6">
+                bufet/stołówka
+            </label>
+            <input
+                className="form-check-input"
+                type="checkbox"
+                id="inlineCheckbox6"
+                value="option6"
+            />
+            </div>
         </div>
 
-        <div className="form-check form-check-inline">
-          <label className="form-check-label" htmlFor="inlineCheckbox2">
-            boisko do siatkówki
-          </label>
-          <input
-            className="form-check-input"
-            type="checkbox"
-            id="inlineCheckbox2"
-            value="option2"
-          />
-        </div>
-
-        <div className="form-check form-check-inline">
-          <label className="form-check-label" htmlFor="inlineCheckbox3">
-            boisko do koszykówki
-          </label>
-          <input
-            className="form-check-input"
-            type="checkbox"
-            id="inlineCheckbox3"
-            value="option3"
-          />
-        </div>
-        <div className="form-check form-check-inline">
-          <label className="form-check-label" htmlFor="inlineCheckbox4">
-            boisko do tenisa ziemnego
-          </label>
-          <input
-            className="form-check-input"
-            type="checkbox"
-            id="inlineCheckbox4"
-            value="option4"
-          />
-        </div>
-        <div className="form-check form-check-inline">
-          <label className="form-check-label" htmlFor="inlineCheckbox5">
-            sala do aerobiku
-          </label>
-          <input
-            className="form-check-input"
-            type="checkbox"
-            id="inlineCheckbox5"
-            value="option5"
-          />
-        </div>
-        <div className="form-check form-check-inline">
-          <label className="form-check-label" htmlFor="inlineCheckbox6">
-            siłownia
-          </label>
-          <input
-            className="form-check-input"
-            type="checkbox"
-            id="inlineCheckbox6"
-            value="option6"
-          />
-        </div>
-      </div>
-      {/* 2////////////////////////////////////////////// */}
-      <br />
-      <div className="container-3">
-        <label>
-          {" "}
-          <b>Udogodnienia:</b>
-        </label>
-
-        <div className="form-check form-check-inline">
-          <label className="form-check-label" htmlFor="inlineCheckbox1">
-            toaleta wewnątrz budynku
-          </label>
-          <input
-            className="form-check-input"
-            type="checkbox"
-            id="inlineCheckbox1"
-            value="option1"
-          />
-        </div>
-
-        <div className="form-check form-check-inline">
-          <label className="form-check-label" htmlFor="inlineCheckbox2">
-            TOJ TOJ na zewnątrz budynku
-          </label>
-          <input
-            className="form-check-input"
-            type="checkbox"
-            id="inlineCheckbox2"
-            value="option2"
-          />
-        </div>
-        <div className="form-check form-check-inline">
-          <label className="form-check-label" htmlFor="inlineCheckbox3">
-            prysznice
-          </label>
-          <input
-            className="form-check-input"
-            type="checkbox"
-            id="inlineCheckbox3"
-            value="option3"
-          />
-        </div>
-
-        <div className="form-check form-check-inline">
-          <label className="form-check-label" htmlFor="inlineCheckbox4">
-            parking
-          </label>
-          <input
-            className="form-check-input"
-            type="checkbox"
-            id="inlineCheckbox4"
-            value="option4"
-          />
-        </div>
-        <div className="form-check form-check-inline">
-          <label className="form-check-label" htmlFor="inlineCheckbox5">
-            maszyny z jedzeniem
-          </label>
-          <input
-            className="form-check-input"
-            type="checkbox"
-            id="inlineCheckbox5"
-            value="option5"
-          />
-        </div>
-        <div className="form-check form-check-inline">
-          <label className="form-check-label" htmlFor="inlineCheckbox6">
-            bufet/stołówka
-          </label>
-          <input
-            className="form-check-input"
-            type="checkbox"
-            id="inlineCheckbox6"
-            value="option6"
-          />
-        </div>
-      </div>
-
-      <div></div>
-      <div></div>
-      <button>DODAJ</button>
-    </form>
+        <div></div>
+        <div></div>
+        <button>DODAJ</button>
+        </form>
   );
 }

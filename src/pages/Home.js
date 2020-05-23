@@ -18,7 +18,7 @@ class Home extends Component {
       </Banner>
     </Hero>
     <Services></Services>
-    {/*<div id="testSlider"><Slider></Slider></div>*/}
+    <div id="testSlider"><Slider></Slider></div>
     <SampleGyms />
     </>;
   }

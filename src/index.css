@@ -237,6 +237,16 @@ body {
   vertical-align: middle;
 }
 
+.container-4 {
+  display: flex;
+  width: 95%;
+  justify-content: space-between;
+}
+
+#sup {
+  width:45%;
+}
+
 .container-3 {
   text-align: left;
   width: 100%;
