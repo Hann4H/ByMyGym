@@ -27,6 +27,14 @@ export default function gymForm() {
         <input type="text" name="zip" ref={register} required />
       </div>
       <div className="container-2">
+        <label>numer telefonu</label>
+        <input type="text" name="zip" ref={register} required />
+      </div>
+      <div className="container-2">
+        <label>adres email</label>
+        <input type="text" name="zip" ref={register} required />
+      </div>
+      <div className="container-2">
         <label>Wysokość</label>
         <input type="text" name="height" min="1" ref={register} required />
       </div>
@@ -88,7 +96,7 @@ export default function gymForm() {
         </div>
 
         <div className="form-check form-check-inline">
-          <label className="form-check-label" htmlFor="inlineCheckbox2">
+          <label className="form-check-label" htmlFor="inlineCheckbox3">
             boisko do koszykówki
           </label>
           <input
@@ -99,8 +107,8 @@ export default function gymForm() {
           />
         </div>
         <div className="form-check form-check-inline">
-          <label className="form-check-label" htmlFor="inlineCheckbox2">
-            boisko do tenisa ziemego
+          <label className="form-check-label" htmlFor="inlineCheckbox4">
+            boisko do tenisa ziemnego
           </label>
           <input
             className="form-check-input"
@@ -109,13 +117,35 @@ export default function gymForm() {
             value="option4"
           />
         </div>
+        <div className="form-check form-check-inline">
+          <label className="form-check-label" htmlFor="inlineCheckbox5">
+            sala do aerobiku
+          </label>
+          <input
+            className="form-check-input"
+            type="checkbox"
+            id="inlineCheckbox5"
+            value="option5"
+          />
+        </div>
+        <div className="form-check form-check-inline">
+          <label className="form-check-label" htmlFor="inlineCheckbox6">
+            siłownia
+          </label>
+          <input
+            className="form-check-input"
+            type="checkbox"
+            id="inlineCheckbox6"
+            value="option6"
+          />
+        </div>
       </div>
       {/* 2////////////////////////////////////////////// */}
       <br />
       <div className="container-3">
         <label>
           {" "}
-          <b>Dodatkowe wyposażenie:</b>
+          <b>Udogodnienia:</b>
         </label>
 
         <div className="form-check form-check-inline">
@@ -141,10 +171,9 @@ export default function gymForm() {
             value="option2"
           />
         </div>
-
         <div className="form-check form-check-inline">
           <label className="form-check-label" htmlFor="inlineCheckbox3">
-            parking
+            prysznice
           </label>
           <input
             className="form-check-input"
@@ -153,9 +182,10 @@ export default function gymForm() {
             value="option3"
           />
         </div>
+
         <div className="form-check form-check-inline">
           <label className="form-check-label" htmlFor="inlineCheckbox4">
-            maszyny z jedzeniem
+            parking
           </label>
           <input
             className="form-check-input"
@@ -166,13 +196,24 @@ export default function gymForm() {
         </div>
         <div className="form-check form-check-inline">
           <label className="form-check-label" htmlFor="inlineCheckbox5">
-            bufet/stołówka
+            maszyny z jedzeniem
           </label>
           <input
             className="form-check-input"
             type="checkbox"
             id="inlineCheckbox5"
             value="option5"
+          />
+        </div>
+        <div className="form-check form-check-inline">
+          <label className="form-check-label" htmlFor="inlineCheckbox6">
+            bufet/stołówka
+          </label>
+          <input
+            className="form-check-input"
+            type="checkbox"
+            id="inlineCheckbox6"
+            value="option6"
           />
         </div>
       </div>
