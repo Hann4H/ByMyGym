@@ -3,7 +3,7 @@ import React, { Component } from "react";
 class Profile extends Component {
   state = {
     profile: null,
-    error: ""
+    error: "",
   };
 
   componentDidMount() {
@@ -21,14 +21,42 @@ class Profile extends Component {
     if (!profile) return null;
     return (
       <>
-        <h1>Profile</h1>
-        <p>{profile.nickname}</p>
-        <img
-          style={{ maxWidth: 50, maxHeight: 50 }}
-          src={profile.picture}
-          alt="profile pic"
-        />
-        <pre>{JSON.stringify(profile, null, 2)}</pre>
+        <div id="pls"></div>
+        <div id="slash"></div>
+        <div className="profile-info">
+          <div className="profile-div">
+            <img
+              className="profile-picture"
+              src={profile.picture}
+              alt="profile pic"
+            />
+            <h1>{profile.name}</h1>
+          </div>
+          <div className="profile-info-table">
+            <table className="table table-borderless">
+              <tr>
+                <td className="headline-info">First Name</td>
+                <td>{profile.given_name}</td>
+              </tr>
+              <tr>
+                <td className="headline-info">Last Name</td>
+                <td>{profile.family_name}</td>
+              </tr>
+              <tr>
+                <td className="headline-info">Login</td>
+                <td>{profile.nickname}</td>
+              </tr>
+              <tr>
+                <td className="headline-info">Email</td>
+                <td>{profile.email}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <pre style={{ display: "none" }}>
+          {JSON.stringify(profile, null, 2)}
+        </pre>
       </>
     );
   }
