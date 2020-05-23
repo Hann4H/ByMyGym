@@ -8,6 +8,8 @@ import Error from "./pages/Error";
 import Callback from "./Callback";
 import AddGym from "./pages/AddGym";
 import GymProfile from "./pages/GymProfile";
+import firebase from "./firebase";
+
 
 import mobiscroll from "@mobiscroll/react";
 import "@mobiscroll/react/dist/css/mobiscroll.min.css";

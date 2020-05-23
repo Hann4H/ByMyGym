@@ -392,3 +392,58 @@ calendar {
 .custom-file-container__image-clear {
   color: var(--mainBlack);
 }
+
+/* user profile */
+
+.profile-info {
+  background-color: whitesmoke;
+  margin-left: 15px;
+  margin-top: 15px;
+  width: 50%;
+}
+
+.profile-info-table {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  padding-bottom: 50px;
+}
+
+.profile-picture {
+  min-width: 100px;
+  width: 100px;
+  height: 100px;
+  background-color: rgb(241, 241, 241);
+  text-align: center;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 25px;
+}
+
+.profile-div {
+  color: var(--darkOrange);
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  letter-spacing: 1px;
+}
+
+.headline-info {
+  color: rgb(117, 117, 117);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 10px;
+}
