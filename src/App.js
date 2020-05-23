@@ -9,10 +9,8 @@ import Callback from "./Callback";
 import AddGym from "./pages/AddGym";
 import GymProfile from "./pages/GymProfile";
 
-
 import mobiscroll from "@mobiscroll/react";
 import "@mobiscroll/react/dist/css/mobiscroll.min.css";
-
 
 class App extends Component {
   constructor(props) {
@@ -28,15 +26,15 @@ class App extends Component {
             <Route
               path="/"
               exact
-              render={props => <Home auth={this.auth} {...props} />}
+              render={(props) => <Home auth={this.auth} {...props} />}
             />
             <Route
               path="/callback"
-              render={props => <Callback auth={this.auth} {...props} />}
+              render={(props) => <Callback auth={this.auth} {...props} />}
             />
             <Route
               path="/profile"
-              render={props =>
+              render={(props) =>
                 this.auth.isAuthenticated() ? (
                   <Profile auth={this.auth} {...props} />
                 ) : (
@@ -49,9 +47,7 @@ class App extends Component {
 
             {/*SAMPLE GYM PROFILE*/}
             <Route path="/gym_profile" component={GymProfile} />
-
           </div>
-          
         </Switch>
       </>
     );
