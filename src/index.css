@@ -237,6 +237,11 @@ body {
   vertical-align: middle;
 }
 
+.container-3 {
+  text-align: left;
+  width: 100%;
+}
+
 .gymForm {
   text-align: right;
   margin: 50px;
@@ -270,6 +275,12 @@ input {
   padding: 2px 10px;
   margin-bottom: 10px;
   font-size: 14px;
+}
+
+.container-3 input {
+  display: inline-flex;
+  width: 20px;
+  height: 20px;
 }
 
 .section-title {
