@@ -4,11 +4,11 @@ import Banner from '../components/Banner';
 import { Link } from "react-router-dom";
 
 export default function Error() {
-    return <Hero>
+    return <><div id="pls"></div><Hero>
         <Banner title='404' subtitle="nie znaleziono strony">
             <Link to="/" className="btn-primary">
                 wróć
             </Link>
         </Banner>
-    </Hero>;
+    </Hero></>;
 }
