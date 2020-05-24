@@ -101,7 +101,7 @@ body {
 }
 
 #slash {
-  height: 20px;
+  height: 10px;
   background-color: var(--mainOrange);
 }
 
@@ -405,7 +405,7 @@ button {
   color: var(--mainWhite);
   text-align: center;
   font-size: 20px;
-  height: 45px;
+  height: 35px;
   margin: 10px;
   font-weight: bold;
   cursor: pointer;
@@ -419,11 +419,6 @@ button:hover {
   .dropDown {
     display: none;
   }
-}
-
-.nav-links {
-  height: 0;
-  overflow: hidden;
 }
 
 #zalogujButton {
@@ -440,45 +435,41 @@ ul.unstyled {
   padding: 0;
 }
 
-nav {
+/* nav {
   width: 100%;
   position: fixed;
-}
+} */
 
-nav ul {
+/* nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0px 0px 10px 0px;
   overflow: hidden;
   background-color: var(--mainWhite);
-}
+} */
 
-nav li {
+/* nav li {
   float: right;
   transition: var(--mainTransition);
-}
+} */
 
-#logo {
+/* #logo {
   float: left;
   padding: 15px 0px 0px 20px;
-}
+} */
 
-nav li a {
+/* nav li a {
   display: block;
   color: var(--mainWhite);
   text-align: center;
   text-decoration: none;
   transition: var(--mainTransition);
-}
+} */
 
-nav button {
+/* nav button {
   margin-top: 29px;
   font-family: "Lato";
-}
-
-calendar {
-  float: initial;
-}
+} */
 
 .custom-file-container {
   max-width: 200px;

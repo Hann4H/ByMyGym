@@ -20,7 +20,6 @@ class Home extends Component {
   render() {
     return (
       <>
-        <div id="pls"></div>
         <div id="slash"></div>
         <div id="idk3"></div>
         <div id="idk2">

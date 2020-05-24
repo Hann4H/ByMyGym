@@ -21,7 +21,6 @@ class Profile extends Component {
     if (!profile) return null;
     return (
       <>
-        <div id="pls"></div>
         <div id="slash"></div>
         <div className="profile-info">
           <div className="profile-div">

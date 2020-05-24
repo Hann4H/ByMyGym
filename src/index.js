@@ -1,19 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
+import "./navbar.css";
 import App from "./App";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
-import {GymProvider} from './Context';
-
+import { GymProvider } from "./Context";
 
 ReactDOM.render(
   <GymProvider>
     <Router>
       <Route component={App} />
     </Router>
-  </GymProvider>
-  ,
+  </GymProvider>,
   document.getElementById("root")
 );
 

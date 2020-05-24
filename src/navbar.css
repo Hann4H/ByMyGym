@@ -1,0 +1,90 @@
+:root {
+  --mainGrey: #ececec;
+  --lightShadow: #2e2e2e;
+  --mainOrange: #ffa841;
+  --mainWhite: #ffffff;
+  --mainBlack: #222222;
+  --darkOrange: #ff8119;
+  --darkGrey: rgb(97, 97, 97);
+  --lowOpWhite: rgba(255, 255, 255, 0.1);
+  --highOpWhite: rgba(255, 255, 255, 0.9);
+  --lowOpBlack: rgba(0, 0, 0, 0.2);
+  --transparent: rgba(0, 0, 0, 0);
+  --mainSpacing: 3px;
+  --mainTransition: all 0.3s linear;
+}
+
+/* Elements */
+li {
+  padding: 10px 0;
+}
+
+body {
+  margin: 0;
+}
+
+/* Class */
+.navBar {
+  width: 100%;
+  background-color: white;
+  color: black;
+}
+
+.hamburger-button {
+  font-size: 30px;
+  margin-right: 30px;
+  color: var(--mainOrange);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  float: right;
+}
+
+.nav-links {
+  height: 0;
+  overflow: hidden;
+  list-style-type: none;
+  font-weight: bold;
+  padding: 0;
+}
+
+.show-nav {
+  height: 100%;
+  display: block;
+}
+
+/* Media screen size */
+
+@media screen and (min-width: 768px) {
+  .hamburger-button {
+    display: none;
+  }
+
+  .nav-links {
+    height: auto;
+    display: flex;
+  }
+
+  li {
+    padding: 0 10px;
+  }
+}
+
+#logo {
+  height: 60px;
+  width: auto;
+  padding: 5px;
+}
+
+.navBar li a {
+  display: block;
+  color: var(--mainWhite);
+  text-align: center;
+  text-decoration: none;
+  transition: var(--mainTransition);
+}
+
+.navBar button {
+  font-family: "Lato";
+}
