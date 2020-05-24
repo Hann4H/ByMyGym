@@ -13,7 +13,7 @@ class AddGym extends Component {
     render(){
         return <>
         <div id="pls"></div>
-        <div id="slash"></div>
+        
         <Hero hero="gymsHero">
             <Banner title="DODAJ SALĘ" banner="gymsBanner">
                 <div id="bar"></div>

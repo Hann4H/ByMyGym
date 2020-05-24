@@ -13,7 +13,8 @@ class Home extends Component {
       <>
         <div id="pls"></div>
         <div id="slash"></div>
-        
+        <div id="idk3"></div>
+        <div id="idk2">
           <GymName title="NAZWA OBIEKTU"></GymName>
           <div className="container-4">
           <div id="constrain">
@@ -22,7 +23,7 @@ class Home extends Component {
 
           <div id="sup"><Slider /></div>
         </div>
-        
+        </div>
         <Calendar />
       </>
     );
