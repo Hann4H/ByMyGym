@@ -34,22 +34,24 @@ class Profile extends Component {
           </div>
           <div className="profile-info-table">
             <table className="table table-borderless">
-              <tr>
-                <td className="headline-info">First Name</td>
-                <td>{profile.given_name}</td>
-              </tr>
-              <tr>
-                <td className="headline-info">Last Name</td>
-                <td>{profile.family_name}</td>
-              </tr>
-              <tr>
-                <td className="headline-info">Login</td>
-                <td>{profile.nickname}</td>
-              </tr>
-              <tr>
-                <td className="headline-info">Email</td>
-                <td>{profile.email}</td>
-              </tr>
+              <tbody>
+                <tr>
+                  <td className="headline-info">First Name</td>
+                  <td>{profile.given_name}</td>
+                </tr>
+                <tr>
+                  <td className="headline-info">Last Name</td>
+                  <td>{profile.family_name}</td>
+                </tr>
+                <tr>
+                  <td className="headline-info">Login</td>
+                  <td>{profile.nickname}</td>
+                </tr>
+                <tr>
+                  <td className="headline-info">Email</td>
+                  <td>{profile.email}</td>
+                </tr>
+              </tbody>
             </table>
           </div>
         </div>
