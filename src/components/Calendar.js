@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import moment from "moment";
+import "moment/locale/pl";
 import "./calendar.css";
 
 class Calendar extends Component {
@@ -18,9 +19,9 @@ class Calendar extends Component {
     this.style.width = this.width; // add this
   }
 
-  weekdays = moment.weekdays(); //["Sunday", "Monday", "Tuesday", "Wednessday", "Thursday", "Friday", "Saturday"]
-  weekdaysShort = moment.weekdaysShort(); // ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
-  months = moment.months();
+  weekdays = moment.weekdays(true); //["Sunday", "Monday", "Tuesday", "Wednessday", "Thursday", "Friday", "Saturday"]
+  weekdaysShort = moment.weekdaysShort(true); // ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+  months = moment.months(true);
 
   year = () => {
     return this.state.dateContext.format("Y");

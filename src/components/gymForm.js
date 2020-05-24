@@ -1,6 +1,7 @@
 import React, { Component, useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import firebase from "../firebase"
+import ImageUpload from "./ImageUpload"
 
 export default function gymForm() {
     const {register, handleSubmit, errors} = useForm();
@@ -77,6 +78,8 @@ export default function gymForm() {
                 <label>Cena za godzinę</label>
                 <input type="text" value ={price} name="price" onChange={e => setPrice(e.currentTarget.value)} min="1" ref={register} required/>
             </div>
+
+            <ImageUpload></ImageUpload>
 
         <div className="container-3">
             <label>
@@ -230,6 +233,7 @@ export default function gymForm() {
             />
             </div>
         </div>
+        
 
         <div></div>
         <div></div>

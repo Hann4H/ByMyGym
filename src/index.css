@@ -217,11 +217,12 @@ body {
   }
 }
 
-#test-gallery {
+#gallery {
   font-size: 50px;
   text-align: center;
-  width: 50%;
+  width: 200%;
   margin-top: 10%;
+  margin-bottom: 10%;
 }
 
 #container-1 {
@@ -241,6 +242,10 @@ body {
   display: flex;
   width: 95%;
   justify-content: space-between;
+}
+
+#container-6 {
+  display: flex;
 }
 
 #sup {

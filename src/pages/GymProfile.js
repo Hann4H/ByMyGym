@@ -23,6 +23,7 @@ class Home extends Component {
         <div id="slash"></div>
         <div id="idk3"></div>
         <div id="idk2">
+        <GymName title="NAZWA OBIEKTU"></GymName>
           <div className="container-4">
             <div id="constrain">
               <GymDetails details="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla massa sapien, vehicula et lacus sit amet, rhoncus tincidunt sapien. Etiam vitae felis at nisi ultrices ultricies vitae non ipsum. Nunc pharetra nibh ac tellus vestibulum, quis mattis lacus ornare. Fusce euismod vel mauris ut porta. Praesent ullamcorper lacus quis felis hendrerit porttitor. Aenean consectetur turpis lacus. Phasellus eget velit imperdiet, facilisis neque tincidunt, sagittis ipsum. Nunc risus nulla, dictum ultrices neque eu, dapibus porttitor quam. Donec vestibulum dolor nec nibh condimentum interdum. Praesent interdum hendrerit auctor. Nullam ante tortor, molestie quis purus et, dictum convallis ante. Suspendisse eget risus tincidunt, imperdiet sem in, pellentesque elit. "></GymDetails>
@@ -33,7 +34,7 @@ class Home extends Component {
             </div>
           </div>
 
-          <GymName title="NAZWA OBIEKTU"></GymName>
+          
           <Calendar
             style={style}
             width="302px"
