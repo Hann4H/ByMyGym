@@ -78,6 +78,8 @@ export default function gymForm() {
                 <input type="text" value ={price} name="price" onChange={e => setPrice(e.currentTarget.value)} min="1" ref={register} required/>
             </div>
 
+            
+
         <div className="container-3">
             <label>
             {" "}
@@ -230,6 +232,7 @@ export default function gymForm() {
             />
             </div>
         </div>
+        
 
         <div></div>
         <div></div>
