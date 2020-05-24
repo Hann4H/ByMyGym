@@ -26,7 +26,7 @@ class AddGym extends Component {
         <hr />
             <div id="container-1">
                 <Form></Form>
-                <ImageUpload></ImageUpload>
+                
             </div>
         </div>
         </>;
