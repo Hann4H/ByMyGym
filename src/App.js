@@ -9,8 +9,7 @@ import Callback from "./Callback";
 import AddGym from "./pages/AddGym";
 import GymProfile from "./pages/GymProfile";
 import firebase from "./firebase";
-import Footer from "./components/Footer"
-
+import Footer from "./components/Footer";
 
 import mobiscroll from "@mobiscroll/react";
 import "@mobiscroll/react/dist/css/mobiscroll.min.css";
@@ -20,6 +19,7 @@ class App extends Component {
     super(props);
     this.auth = new Auth(this.props.history);
   }
+
   render() {
     return (
       <>

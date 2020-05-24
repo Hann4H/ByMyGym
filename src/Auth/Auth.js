@@ -9,7 +9,7 @@ export default class Auth {
       clientID: process.env.REACT_APP_AUTH0_CLIENT_ID,
       redirectUri: process.env.REACT_APP_AUTH0_CALLBACK_URL,
       responseType: "token id_token",
-      scope: "openid profile email"
+      scope: "openid profile email",
     });
   }
 
@@ -30,7 +30,8 @@ export default class Auth {
     });
   };
 
-  setSession = authResult => {
+  setSession = (authResult) => {
+    console.log("authResult you can see below");
     console.log(authResult);
     // set the time that the access token will expire
     const expiresAt = JSON.stringify(
@@ -40,6 +41,7 @@ export default class Auth {
     localStorage.setItem("access_token", authResult.accessToken);
     localStorage.setItem("id_token", authResult.idToken);
     localStorage.setItem("expires_at", expiresAt);
+    localStorage.setItem("user_name", authResult.idTokenPayload.name);
   };
 
   isAuthenticated() {
@@ -51,10 +53,11 @@ export default class Auth {
     localStorage.removeItem("access_token");
     localStorage.removeItem("id_token");
     localStorage.removeItem("expires_at");
+    localStorage.removeItem("user_name");
     this.userProfile = null;
     this.auth0.logout({
       clientID: process.env.REACT_APP_AUTH0_CLIENT_ID,
-      returnTo: "http://localhost:3000"
+      returnTo: "http://localhost:3000",
     });
   };
 
@@ -66,7 +69,7 @@ export default class Auth {
     return accessToken;
   };
 
-  getProfile = cb => {
+  getProfile = (cb) => {
     if (this.userProfile) return cb(this.userProfile);
     this.auth0.client.userInfo(this.getAccessToken(), (err, profile) => {
       if (profile) this.userProfile = profile;
