@@ -1,12 +1,20 @@
 import React, { Component } from 'react';
 import FileUploadWithPreview from 'file-upload-with-preview'
 import 'file-upload-with-preview/dist/file-upload-with-preview.min.css'
+import gymName from "./gymForm"
+import firebase from "../firebase"
 
 export default class ImageUpload extends Component {
+    
+
     render() {
+
+        
+
+
         return (
-        <div id="gallery">
-            <input type="file"></input>
+        <div>
+            
         </div>
         /*
         <div class="custom-file-container" data-upload-id="myUniqueUploadId">
