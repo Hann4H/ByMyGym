@@ -3,10 +3,18 @@ import { useForm } from "react-hook-form";
 import firebase from "../firebase"
 import ImageUpload from "./ImageUpload"
 
+
 export default function gymForm() {
     const {register, handleSubmit, errors} = useForm();
 
     function onSubmit(e) {
+
+        var fileButton = document.getElementById('fileButton');
+        fileButton.addEventListener('change', function(e) {
+            var file = e.target.files[0];
+            var storageRef = firebase.storage.ref('photos/' + file.name);
+            storageRef.put(file);
+        })
 
         firebase.firestore().collection('gyms').add({
             gymName,
@@ -23,6 +31,8 @@ export default function gymForm() {
         .then(() => {
             setGymName('')
         })
+
+        
     }
 
     const [gymName, setGymName] = useState('')
@@ -35,6 +45,7 @@ export default function gymForm() {
     const [audience, setAudience] = useState('')
     const [changingRooms, setChangingRooms] = useState('')
     const [price, setPrice] = useState('')
+
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="gymForm">
@@ -79,7 +90,9 @@ export default function gymForm() {
                 <input type="text" value ={price} name="price" onChange={e => setPrice(e.currentTarget.value)} min="1" ref={register} required/>
             </div>
 
-            <ImageUpload></ImageUpload>
+            <div id="gallery">
+                <input type="file" id="fileButton" ></input>
+            </div>
 
         <div className="container-3">
             <label>
