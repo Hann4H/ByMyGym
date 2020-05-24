@@ -77,11 +77,11 @@ export default function gymForm() {
                 <label>Cena za godzinę</label>
                 <input type="text" value ={price} name="price" onChange={e => setPrice(e.currentTarget.value)} min="1" ref={register} required/>
             </div>
-      {/* ////////////////////////////////////////////// */}
+
         <div className="container-3">
             <label>
             {" "}
-            <b>Typ boiska:</b>
+            <b>Typ:</b>
             </label>
 
             <div className="form-check form-check-inline">

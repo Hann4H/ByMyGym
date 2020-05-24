@@ -9,6 +9,7 @@ import Callback from "./Callback";
 import AddGym from "./pages/AddGym";
 import GymProfile from "./pages/GymProfile";
 import firebase from "./firebase";
+import Footer from "./components/Footer"
 
 
 import mobiscroll from "@mobiscroll/react";
@@ -51,6 +52,7 @@ class App extends Component {
             <Route path="/gym_profile" component={GymProfile} />
           </div>
         </Switch>
+        <Footer />
       </>
     );
   }

@@ -18,8 +18,12 @@ class Home extends Component {
       </Banner>
     </Hero>
     <Services></Services>
+    <div id="pls"></div>
+    <div id="idk5"></div>
+    
     <div id="testSlider"><Slider></Slider></div>
     <SampleGyms />
+    
     </>;
   }
 }
