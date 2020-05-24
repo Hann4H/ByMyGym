@@ -41,7 +41,7 @@ class Nav extends Component {
               </button>
             </li>
             <li style={isAuthenticated() ? {} : { display: "none" }}>
-              <Link class="user-profile-link" to="/profile">
+              <Link className="user-profile-link" to="/profile">
                 {user_name}
               </Link>
             </li>
