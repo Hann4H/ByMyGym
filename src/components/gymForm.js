@@ -19,38 +19,12 @@ export default function gymForm() {
     }
 
     var storage = firebase.storage();
+    const db = firebase.firestore();
 
-
-
+    const ref = db.collection('gyms').doc()
     function onSubmit(e) {
-        {/*}
-        var fileButton = document.getElementById('fileButton');
-        fileButton.addEventListener('change', function(e) {
-            var file = e.target.files[0];
-            var storageRef = firebase.storage.ref('photos/' + file.name);
-            storageRef.put(file);
-        })*/}
-        
-        const uploadTask = storage.ref(`/images/${imageAsFile.name}`).put(imageAsFile)
 
-        uploadTask.on('state_changed', 
-            (snapShot) => {
-            //takes a snap shot of the process as it is happening
-            console.log(snapShot)
-        }, (err) => {
-            //catches the errors
-            console.log(err)
-        }, () => {
-            // gets the functions from storage refences the image storage in firebase by the children
-            // gets the download url then sets the image from firebase as the value for the imgUrl key:
-            storage.ref('images').child(imageAsFile.name).getDownloadURL()
-            .then(fireBaseUrl => {
-                setImageAsUrl(prevObject => ({...prevObject, imgUrl: fireBaseUrl}))
-            })
-        })
-
-
-        firebase.firestore().collection('gyms').add({
+        db.collection('gyms').add({
             gymName,
             street,
             city,
@@ -60,12 +34,27 @@ export default function gymForm() {
             length, 
             audience,
             changingRooms, 
-            price
+            price,
+            id: ref.id
         })
         .then(() => {
             setGymName('')
         })
 
+        const uploadTask = storage.ref(`/${ref.id}/${imageAsFile.name}`).put(imageAsFile)
+
+        uploadTask.on('state_changed', 
+            (snapShot) => {
+            console.log(snapShot)
+            console.log(snapShot)
+        }, (err) => {
+            console.log(err)
+        }, () => {
+            storage.ref('images').child(imageAsFile.name).getDownloadURL()
+            .then(fireBaseUrl => {
+                setImageAsUrl(prevObject => ({...prevObject, imgUrl: fireBaseUrl}))
+            })
+        })
         
     }
 
@@ -285,6 +274,8 @@ export default function gymForm() {
         <div></div>
         <div></div>
         <button>DODAJ</button>
+        <img src={imageAsUrl.imgUrl}/>
+        <div>snapshot.key</div>
         </form>
   );
 }
