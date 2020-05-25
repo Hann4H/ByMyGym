@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { FaAlignRight } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
-import { Route, Redirect, Switch } from "react-router-dom";
 
 class Nav extends Component {
   state = {
@@ -28,18 +27,21 @@ class Nav extends Component {
           >
             <li>
               <Link to="/">
-                <img src={require("../img/logo.png")} alt="logo" id="logo" />
+                <img
+                  src={require("../img/logo.png")}
+                  alt="logo"
+                  className="logo"
+                />
               </Link>
             </li>
             <li style={{ width: "100%" }}></li>
-
             <li>
               <button className="searchButton">
-                <FaSearch size="43px"></FaSearch>
+                <FaSearch size="30px"></FaSearch>
               </button>
             </li>
             <li>
-              <button id="dodajSaleButton">
+              <button>
                 <Link to="/add">DODAJ SALĘ</Link>
               </button>
             </li>

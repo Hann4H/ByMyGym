@@ -165,16 +165,6 @@
   background-color: transparent;
 }
 
-.searchButton {
-  background-color: transparent;
-  color: var(--mainOrange);
-  size: 28;
-}
-.searchButton:hover {
-  color: var(--darkOrange);
-  background-color: transparent;
-}
-
 #testSlider {
   height: 100vh;
   display: flex;
@@ -412,6 +402,7 @@ hr {
 }
 
 button {
+  font-family: "Lato";
   background-color: var(--mainOrange);
   border: none;
   color: var(--mainWhite);
@@ -442,42 +433,6 @@ ul.unstyled {
   margin: 0;
   padding: 0;
 }
-
-/* nav {
-  width: 100%;
-  position: fixed;
-} */
-
-/* nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0px 0px 10px 0px;
-  overflow: hidden;
-  background-color: var(--mainWhite);
-} */
-
-/* nav li {
-  float: right;
-  transition: var(--mainTransition);
-} */
-
-/* #logo {
-  float: left;
-  padding: 15px 0px 0px 20px;
-} */
-
-/* nav li a {
-  display: block;
-  color: var(--mainWhite);
-  text-align: center;
-  text-decoration: none;
-  transition: var(--mainTransition);
-} */
-
-/* nav button {
-  margin-top: 29px;
-  font-family: "Lato";
-} */
 
 .custom-file-container {
   max-width: 200px;
