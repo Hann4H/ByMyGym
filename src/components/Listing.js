@@ -111,10 +111,12 @@ state = { Gyms: [] };
 
         return (
             <div>
-                hello from gymListing
+                
                 {this.state.Gyms.map((gym) => {
                     return (
-                        <h3>{gym.gymName}</h3>
+                        <div className="single-listing">
+                            <h3>{gym.gymName}</h3>
+                        </div>
                     )
                 })}
     

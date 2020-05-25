@@ -22,8 +22,9 @@ class Home extends Component {
         </Hero>
         <Services></Services>
         <div id="pls"></div>
-        <div id="idk5">
-        
+        <div className="listing-container">
+          <h1>zbiór sal</h1>
+          <Listing />
 
 
 
@@ -31,7 +32,7 @@ class Home extends Component {
         <div id="testSlider">
           <Slider></Slider>
         </div>
-        <Listing />
+        
         <SampleGyms />
         
       </>
