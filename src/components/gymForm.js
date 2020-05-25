@@ -41,6 +41,7 @@ export default function gymForm() {
             setGymName('')
         })
 
+        const key = ref.id;
         const uploadTask = storage.ref(`/${ref.id}/${imageAsFile.name}`).put(imageAsFile)
 
         uploadTask.on('state_changed', 
@@ -50,7 +51,7 @@ export default function gymForm() {
         }, (err) => {
             console.log(err)
         }, () => {
-            storage.ref('images').child(imageAsFile.name).getDownloadURL()
+            storage.ref(`/${ref.id}/`).child(imageAsFile.name).getDownloadURL()
             .then(fireBaseUrl => {
                 setImageAsUrl(prevObject => ({...prevObject, imgUrl: fireBaseUrl}))
             })
@@ -274,8 +275,7 @@ export default function gymForm() {
         <div></div>
         <div></div>
         <button>DODAJ</button>
-        <img src={imageAsUrl.imgUrl}/>
-        <div>snapshot.key</div>
+        {/*<img src={imageAsUrl.imgUrl}/>*/}
         </form>
   );
 }
