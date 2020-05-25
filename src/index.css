@@ -303,9 +303,9 @@
 }
 
 .footer {
-  height: 7rem;
+  height: 11rem;
   background-color: var(--darkGrey);
-  margin-top: 2rem;
+
 }
 
 .gymForm {
