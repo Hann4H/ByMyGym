@@ -1,26 +1,6 @@
-:root {
-  --mainGrey: #ececec;
-  --lightShadow: #2e2e2e;
-  --mainOrange: #ffa841;
-  --mainWhite: #ffffff;
-  --mainBlack: #222222;
-  --darkOrange: #ff8119;
-  --darkGrey: rgb(97, 97, 97);
-  --lowOpWhite: rgba(255, 255, 255, 0.1);
-  --highOpWhite: rgba(255, 255, 255, 0.9);
-  --lowOpBlack: rgba(0, 0, 0, 0.2);
-  --transparent: rgba(0, 0, 0, 0);
-  --mainSpacing: 3px;
-  --mainTransition: all 0.3s linear;
-}
-
 /* Elements */
 li {
   padding: 10px 0;
-}
-
-body {
-  margin: 0;
 }
 
 /* Class */
@@ -28,6 +8,7 @@ body {
   width: 100%;
   background-color: white;
   color: black;
+  position: fixed;
 }
 
 .hamburger-button {
@@ -39,6 +20,10 @@ body {
   cursor: pointer;
   outline: none;
   float: right;
+}
+
+.hamburger-button:hover {
+  background-color: transparent;
 }
 
 .nav-links {
@@ -65,9 +50,11 @@ body {
     height: auto;
     display: flex;
   }
+}
 
-  li {
-    padding: 0 10px;
+@media screen and (max-width: 768px) {
+  .navBar {
+    position: sticky;
   }
 }
 

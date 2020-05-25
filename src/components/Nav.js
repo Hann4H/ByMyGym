@@ -48,10 +48,7 @@ class Nav extends Component {
               </button>
             </li>
             <li>
-              <button
-                id="zalogujButton"
-                onClick={isAuthenticated() ? logout : login}
-              >
+              <button onClick={isAuthenticated() ? logout : login}>
                 {isAuthenticated() ? "WYLOGUJ" : "ZALOGUJ"}
               </button>
             </li>
