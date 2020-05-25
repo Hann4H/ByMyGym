@@ -22,6 +22,7 @@ export default function gymForm() {
     const db = firebase.firestore();
 
     const ref = db.collection('gyms').doc()
+
     function onSubmit(e) {
 
         db.collection('gyms').add({
@@ -69,6 +70,7 @@ export default function gymForm() {
     const [audience, setAudience] = useState('')
     const [changingRooms, setChangingRooms] = useState('')
     const [price, setPrice] = useState('')
+
 
 
     return (

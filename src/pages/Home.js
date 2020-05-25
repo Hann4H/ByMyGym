@@ -5,6 +5,8 @@ import Banner from "../components/Banner";
 import Slider from "../components/Slider";
 import Services from "../components/Services";
 import SampleGyms from "../components/SampleGyms";
+import Listing from "../components/Listing";
+
 
 class Home extends Component {
   render() {
@@ -21,15 +23,17 @@ class Home extends Component {
         <Services></Services>
         <div id="pls"></div>
         <div id="idk5">
+        
 
 
 
-          
         </div>
         <div id="testSlider">
           <Slider></Slider>
         </div>
+        <Listing />
         <SampleGyms />
+        
       </>
     );
   }
