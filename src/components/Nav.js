@@ -35,26 +35,26 @@ class Nav extends Component {
               </Link>
             </li>
             <li style={{ width: "100%" }}></li>
-            <li>
-              <button className="searchButton">
-                <FaSearch size="30px"></FaSearch>
-              </button>
-            </li>
-            <li>
-              <button>
-                <Link to="/add">DODAJ SALĘ</Link>
-              </button>
-            </li>
-            <li style={isAuthenticated() ? {} : { display: "none" }}>
-              <button>
-                <Link to="/profile">{user_name}</Link>
-              </button>
-            </li>
-            <li>
-              <button onClick={isAuthenticated() ? logout : login}>
-                {isAuthenticated() ? "WYLOGUJ" : "ZALOGUJ"}
-              </button>
-            </li>
+              <li>
+                <button className="searchButton">
+                  <FaSearch size="30px"></FaSearch>
+                </button>
+              </li>
+              <li>
+                <button>
+                  <Link to="/add">DODAJ SALĘ</Link>
+                </button>
+              </li>
+              <li style={isAuthenticated() ? {} : { display: "none" }}>
+                <button>
+                  <Link to="/profile">{user_name}</Link>
+                </button>
+              </li>
+              <li>
+                <button onClick={isAuthenticated() ? logout : login}>
+                  {isAuthenticated() ? "WYLOGUJ" : "ZALOGUJ"}
+                </button>
+              </li>
           </ul>
         </div>
       </>
