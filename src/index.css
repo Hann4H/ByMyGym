@@ -423,6 +423,8 @@ button {
   cursor: pointer;
   padding-left: 10px;
   padding-right: 10px;
+  border-radius: 2px;
+  white-space: nowrap;
 }
 
 button:hover {

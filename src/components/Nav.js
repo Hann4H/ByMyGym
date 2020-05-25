@@ -31,6 +31,7 @@ class Nav extends Component {
                 <img src={require("../img/logo.png")} alt="logo" id="logo" />
               </Link>
             </li>
+            <li style={{ width: "100%" }}></li>
 
             <li>
               <button className="searchButton">

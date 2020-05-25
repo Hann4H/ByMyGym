@@ -50,6 +50,10 @@ li {
     height: auto;
     display: flex;
   }
+
+  .navBar ul li:last-child {
+    float: right;
+  }
 }
 
 @media screen and (max-width: 768px) {
