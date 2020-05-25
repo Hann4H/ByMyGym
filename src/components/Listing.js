@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import firebase from 'firebase';
 import 'firebase/firestore';
+import "firebase/storage";
 
 
 class Listing extends Component {
@@ -17,7 +18,8 @@ state = { Gyms: [] };
 
         querySnapshot.forEach(function(doc) {
           Gyms.push({
-            gymName: doc.data().gymName
+            gymName: doc.data().gymName,
+            id: doc.data().id
           });
         });
 
@@ -28,8 +30,10 @@ state = { Gyms: [] };
       });
     }
 
+/*
+    
 
-  /*
+  
     constructor(props) {
         super(props);
         this.state = {
@@ -115,6 +119,7 @@ state = { Gyms: [] };
                 {this.state.Gyms.map((gym) => {
                     return (
                         <div className="single-listing">
+                            {/*<img src={imageAsUrl.imgUrl}/>*/}
                             <h3>{gym.gymName}</h3>
                         </div>
                     )
