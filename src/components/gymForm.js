@@ -115,7 +115,7 @@ export default function gymForm() {
             </div>
 
             <div id="gallery">
-                <input type="file" id="fileButton" onChange={handleImageAsFile}></input>
+                <input type="file" multiple="multiple" id="fileButton" onChange={handleImageAsFile}></input>
             </div>
 
         <div className="container-3">
