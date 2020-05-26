@@ -55,6 +55,8 @@
 
 #pls {
   padding-bottom: 100px;
+  background-color: var(--mainGrey);
+  z-index: -1;
 }
 
 /*Banner*/
@@ -219,12 +221,18 @@
   display: flex;
 }
 
-#place-for-img {
+.place-for-img {
   width: 500px;
-  margin-right: 2rem;
-  margin-top: 3rem;
-  text-align: center;
 }
+
+.place-for-img img {
+  margin: 2rem 1rem 2rem 1rem;
+  padding-left: 2rem;
+  text-align: center;
+  width: 450px;
+  height: auto;
+}
+
 
 .single-listing {
   border-radius: 3px;
@@ -234,8 +242,10 @@
 }
 
 .gym-short-info {
-  margin-top: 2rem;
+  margin-top: 5rem;
   margin-bottom: 2rem;
+  overflow: hidden;
+  margin-left: 2rem;
 }
 
 .listing-header {
@@ -351,8 +361,10 @@
 }
 
 .footer {
+  margin-top:auto; 
   height: 10rem;
   background-color: var(--darkGrey);
+  padding-top: 10px;
 }
 
 .gymForm {

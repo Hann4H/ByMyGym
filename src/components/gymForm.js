@@ -3,14 +3,19 @@ import { useForm } from "react-hook-form";
 import firebase from "../firebase"
 import "firebase/storage"
 import ImageUpload from "./ImageUpload"
-
+import Listing from "./Listing"
 
 export default function gymForm() {
+
+    
+
     const {register, handleSubmit, errors} = useForm();
 
     const allInputs = {imgUrl: ''}
     const [imageAsFile, setImageAsFile] = useState('')
     const [imageAsUrl, setImageAsUrl] = useState(allInputs)
+
+    
 
     console.log(imageAsFile)
     const handleImageAsFile = (e) => {
@@ -43,7 +48,7 @@ export default function gymForm() {
         })
 
         const key = ref.id;
-        const uploadTask = storage.ref(`/${ref.id}/${imageAsFile.name}`).put(imageAsFile)
+        const uploadTask = storage.ref(`/${ref.id}/${imageAsFile.name}`).put(imageAsFile);
 
         uploadTask.on('state_changed', 
             (snapShot) => {
@@ -52,13 +57,15 @@ export default function gymForm() {
         }, (err) => {
             console.log(err)
         }, () => {
-            storage.ref(`/${ref.id}/`).child(imageAsFile.name).getDownloadURL()
+            storage.ref(`/${ref.id}/`).child(imageAsFile.name).getDownloadURL() 
             .then(fireBaseUrl => {
                 setImageAsUrl(prevObject => ({...prevObject, imgUrl: fireBaseUrl}))
             })
         })
-        
+
     }
+
+
 
     const [gymName, setGymName] = useState('')
     const [street, setStreet] = useState('')
@@ -117,7 +124,7 @@ export default function gymForm() {
             </div>
 
             <div id="gallery">
-                <input type="file" multiple="multiple" id="fileButton" onChange={handleImageAsFile}></input>
+                <input type="file" multiple="multiple" id="img_url" onChange={handleImageAsFile}></input>
             </div>
 
         <div className="container-3">
@@ -277,7 +284,7 @@ export default function gymForm() {
         <div></div>
         <div></div>
         <button>DODAJ</button>
-        {/*<img src={imageAsUrl.imgUrl}/>*/}
+
         </form>
   );
 }

@@ -6,6 +6,8 @@ import "firebase/storage";
 
 class Listing extends Component {
 
+
+
 state = { Gyms: [] };
 
   componentDidMount() {
@@ -28,95 +30,16 @@ state = { Gyms: [] };
             price: doc.data().price,
             id: doc.data().id
           });
-        });
 
+        });
+        
         this.setState({ Gyms });
       })
       .catch(function(error) {
         console.log("Error getting documents: ", error);
       });
+
     }
-
-/*
-    
-
-  
-    constructor(props) {
-        super(props);
-        this.state = {
-            gyms: []
-        };
-    };
-
-    componentDidMount() {
-        let ref = firebase.database().ref('gyms');
-        ref.on('child_added', snapshot => {
-            let gyms = snapshot.val();
-            console.log(snapshot.val());
-            let newState = [];
-            for (let gym in gyms) {
-                newState.push({
-                    gymName: gyms[gym].gymName,
-                    street: gyms[gym].street,
-                    city: gyms[gym].city,
-                    zip: gyms[gym].zip, 
-                    height: gyms[gym].height,
-                    width: gyms[gym].width,
-                    length: gyms[gym].length, 
-                    audience: gyms[gym].audience,
-                    changingRooms: gyms[gym].changingRooms, 
-                    price: gyms[gym].price,
-                    id: gyms[gym].id
-                });
-            }
-            this.setState({
-                gyms: newState
-            });
-            console.log('DATA RETRIEVED');
-        })
-    }
-
-    
-    getData = () => {
-        let ref = firebase.firestore().collection('gyms').doc();
-        ref.on('value', function(snapshot) {
-            const state = snapshot.val();
-            this.setState(state);
-        });
-        console.log('DATA RETRIEVED');
-    }
-
-    componentDidMount() {
-        this.getData();
-      }
-
-    
-    componentDidMount() {
-        const gymRef = firebase.firestore().collection('gyms').doc();
-        gymRef.on('value', (snapshot) => {
-            let gyms = snapshot.val();
-            let newState = [];
-            for (let gym in gyms) {
-                newState.push({
-                    gymName: gyms[gym].gymName,
-                    street: gyms[gym].street,
-                    city: gyms[gym].city,
-                    zip: gyms[gym].zip, 
-                    height: gyms[gym].height,
-                    width: gyms[gym].width,
-                    length: gyms[gym].length, 
-                    audience: gyms[gym].audience,
-                    changingRooms: gyms[gym].changingRooms, 
-                    price: gyms[gym].price,
-                    id: gyms[gym].id
-                });
-            }
-            this.setState({
-                gyms: newState
-            });
-        })
-    }
-*/
 
     render() {
 
@@ -126,9 +49,8 @@ state = { Gyms: [] };
                 {this.state.Gyms.map((gym) => {
                     return (
                         <div className="single-listing">
-                            {/*<img src={imageAsUrl.imgUrl}/>*/}
                             <div className="listing-content">
-                                <div id="place-for-img">miejsce na zdjęcie</div>
+                                <div className="place-for-img"><img src={require("../img/sample_gym_2.jpg")}></img></div>
                                 <div className="gym-short-info">                            
                                     <h3 className="listing-header">{gym.gymName}</h3>
                                     <p>Adres: {gym.street}, {gym.city} {gym.zip}</p>

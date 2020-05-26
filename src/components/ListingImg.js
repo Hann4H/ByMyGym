@@ -4,23 +4,18 @@ import 'firebase/firestore';
 import "firebase/storage";
 
 
-const ListingImg = ({gym_id}) => {
+class ListingImg extends Component {
 
-    state = { Imgs: [] };
 
-    const getImage = (image) => {
-        let { state } = this;
-        firebase.storage().ref(`/${gym_id}/${gym_id}`).getDownloadURL().then((url) => {
-        img_state[image] = url
-        this.setState(img_state)
-        }).catch((error) => {
-        // Handle any errors
-        })
-    }
 
+    render() {
         return (
-            <div></div>
+            <div>
+                <img src={ this.state.img }/>
+            </div>
         )
+
+    }
 }
 
 export default ListingImg;

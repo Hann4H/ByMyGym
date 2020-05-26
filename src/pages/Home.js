@@ -6,7 +6,7 @@ import Slider from "../components/Slider";
 import Services from "../components/Services";
 import SampleGyms from "../components/SampleGyms";
 import Listing from "../components/Listing";
-
+import ListingImg from "../components/ListingImg";
 
 class Home extends Component {
   render() {
@@ -33,8 +33,8 @@ class Home extends Component {
           <Slider></Slider>
         </div>
         
-        <SampleGyms />*/}
-        
+        <SampleGyms />
+        <ListingImg></ListingImg>*/}
       </>
     );
   }
