@@ -215,16 +215,45 @@
 }
 
 /* single listing */
+.listing-content {
+  display: flex;
+}
+
+#place-for-img {
+  width: 500px;
+  margin-right: 2rem;
+  margin-top: 3rem;
+  text-align: center;
+}
+
 .single-listing {
   border-radius: 3px;
   border: 2px solid var(--darkOrange);
   margin: 5rem;
-  height: 10rem;
+  height: auto;
+}
+
+.gym-short-info {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.listing-header {
+  margin-bottom: 1rem;
+  letter-spacing: var(--mainSpacing);
+}
+
+.single-listing p {
+  margin-bottom: 1rem;
+}
+
+.single-listing button {
+  font-weight: lighter;
 }
 
 .listing-container {
   margin-top: 10rem;
-  width: 90vw;
+  width: 80vw;
   height: auto;
   overflow: hidden;
   background-color: var(--mainWhite);

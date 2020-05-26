@@ -19,6 +19,13 @@ state = { Gyms: [] };
         querySnapshot.forEach(function(doc) {
           Gyms.push({
             gymName: doc.data().gymName,
+            street: doc.data().street,
+            zip: doc.data().zip,
+            city: doc.data().city,
+            height: doc.data().height,
+            width: doc.data().width,
+            length: doc.data().width,
+            price: doc.data().price,
             id: doc.data().id
           });
         });
@@ -120,7 +127,16 @@ state = { Gyms: [] };
                     return (
                         <div className="single-listing">
                             {/*<img src={imageAsUrl.imgUrl}/>*/}
-                            <h3>{gym.gymName}</h3>
+                            <div className="listing-content">
+                                <div id="place-for-img">miejsce na zdjęcie</div>
+                                <div className="gym-short-info">                            
+                                    <h3 className="listing-header">{gym.gymName}</h3>
+                                    <p>Adres: {gym.street}, {gym.city} {gym.zip}</p>
+                                    <p>Wymiary: {gym.length}m x {gym.width}m x {gym.height}m</p>
+                                    <p>Cena za godzinę: {gym.price}zł</p>
+                                    <button>więcej informacji</button>
+                                </div>
+                            </div>
                         </div>
                     )
                 })}

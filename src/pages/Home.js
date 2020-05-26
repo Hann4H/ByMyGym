@@ -25,9 +25,6 @@ class Home extends Component {
         <div className="listing-container">
           <h1>zbiór sal</h1>
           <Listing />
-
-
-
         </div>
         <div id="testSlider">
           <Slider></Slider>
