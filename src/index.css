@@ -22,11 +22,18 @@
   --mainTransition: all 0.3s linear;
 }
 
-body {
-  /*font-family: "Lato", sans-serif;*/
+.body {
+  /* font-family: "Lato", sans-serif; */
   font-family: Arial, Helvetica, sans-serif;
   background-color: var(--mainGrey);
   color: var(--mainBlack);
+  padding-top: 84px;
+}
+
+@media screen and (max-width: 768px) {
+  .body {
+    padding-top: 0px;
+  }
 }
 
 /*Hero*/
@@ -101,7 +108,7 @@ body {
 }
 
 #slash {
-  height: 20px;
+  height: 10px;
   background-color: var(--mainOrange);
 }
 
@@ -158,16 +165,6 @@ body {
   background-color: transparent;
 }
 
-.searchButton {
-  background-color: transparent;
-  color: var(--mainOrange);
-  size: 28;
-}
-.searchButton:hover {
-  color: var(--darkOrange);
-  background-color: transparent;
-}
-
 #testSlider {
   height: 100vh;
   display: flex;
@@ -217,11 +214,81 @@ body {
   }
 }
 
+/* single listing */
+.listing-content {
+  display: flex;
+}
+
+#place-for-img {
+  width: 500px;
+  margin-right: 2rem;
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.single-listing {
+  border-radius: 3px;
+  border: 2px solid var(--darkOrange);
+  margin: 5rem;
+  height: auto;
+}
+
+.gym-short-info {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.listing-header {
+  margin-bottom: 1rem;
+  letter-spacing: var(--mainSpacing);
+}
+
+.single-listing p {
+  margin-bottom: 1rem;
+}
+
+.single-listing button {
+  font-weight: lighter;
+}
+
+.listing-container {
+  margin-top: 10rem;
+  width: 80vw;
+  height: auto;
+  overflow: hidden;
+  background-color: var(--mainWhite);
+  margin: auto;
+  border-radius: 20px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
+    0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07),
+    0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
+}
+
+.listing-container h1 {
+  font-size: 30px;
+  letter-spacing: var(--mainSpacing);
+  margin-bottom: 1rem;
+  color: var(--darkOrange);
+  font-family: "Lato";
+  margin-top: 2rem;
+  text-align: center;
+  padding-top: 2rem;
+}
+
+
+#search-bar-place {
+  text-align: center;
+  padding-top: 3rem;
+  font-size: 20px;
+}
+
+
 #gallery {
   font-size: 50px;
   text-align: center;
-  width: 50%;
+  width: 200%;
   margin-top: 10%;
+  margin-bottom: 10%;
 }
 
 #container-1 {
@@ -241,6 +308,10 @@ body {
   display: flex;
   width: 95%;
   justify-content: space-between;
+}
+
+#container-6 {
+  display: flex;
 }
 
 #sup {
@@ -272,17 +343,7 @@ body {
   padding-top: 3rem;
 }
 
-#idk5 {
-  margin-top: 10rem;
-  width: 90vw;
-  height: 90vh;
-  background-color: var(--mainWhite);
-  margin: 0 auto;
-  border-radius: 20px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
-    0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07),
-    0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
-}
+
 
 .container-3 {
   text-align: left;
@@ -290,9 +351,8 @@ body {
 }
 
 .footer {
-  height: 7rem;
+  height: 10rem;
   background-color: var(--darkGrey);
-  margin-top: 2rem;
 }
 
 .gymForm {
@@ -400,6 +460,7 @@ hr {
 }
 
 button {
+  font-family: "Lato";
   background-color: var(--mainOrange);
   border: none;
   color: var(--mainWhite);
@@ -409,6 +470,10 @@ button {
   margin: 10px;
   font-weight: bold;
   cursor: pointer;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 2px;
+  white-space: nowrap;
 }
 
 button:hover {
@@ -421,63 +486,10 @@ button:hover {
   }
 }
 
-.nav-links {
-  height: 0;
-  overflow: hidden;
-}
-
-#zalogujButton {
-  width: 135px;
-}
-
-#dodajSaleButton {
-  width: 187px;
-}
-
 ul.unstyled {
   list-style-type: none;
   margin: 0;
   padding: 0;
-}
-
-nav {
-  width: 100%;
-  position: fixed;
-}
-
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0px 0px 10px 0px;
-  overflow: hidden;
-  background-color: var(--mainWhite);
-}
-
-nav li {
-  float: right;
-  transition: var(--mainTransition);
-}
-
-#logo {
-  float: left;
-  padding: 15px 0px 0px 20px;
-}
-
-nav li a {
-  display: block;
-  color: var(--mainWhite);
-  text-align: center;
-  text-decoration: none;
-  transition: var(--mainTransition);
-}
-
-nav button {
-  margin-top: 29px;
-  font-family: "Lato";
-}
-
-calendar {
-  float: initial;
 }
 
 .custom-file-container {

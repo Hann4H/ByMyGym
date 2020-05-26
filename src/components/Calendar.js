@@ -42,7 +42,9 @@ class Calendar extends Component {
 
   firstDayOfMonth = () => {
     let dateContext = this.state.dateContext;
-    let firstDay = moment(dateContext).startOf("month").format("d"); // Day of week 0...1..5...6
+    let firstDay = moment(dateContext)
+      .startOf("month")
+      .format("d"); // Day of week 0...1..5...6
     return firstDay;
   };
 

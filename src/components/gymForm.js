@@ -1,13 +1,31 @@
 import React, { Component, useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import firebase from "../firebase"
+import "firebase/storage"
+import ImageUpload from "./ImageUpload"
+
 
 export default function gymForm() {
     const {register, handleSubmit, errors} = useForm();
 
+    const allInputs = {imgUrl: ''}
+    const [imageAsFile, setImageAsFile] = useState('')
+    const [imageAsUrl, setImageAsUrl] = useState(allInputs)
+
+    console.log(imageAsFile)
+    const handleImageAsFile = (e) => {
+        const image = e.target.files[0]
+        setImageAsFile(imageFile => (image))
+    }
+
+    var storage = firebase.storage();
+    const db = firebase.firestore();
+
+    const ref = db.collection('gyms').doc()
+
     function onSubmit(e) {
 
-        firebase.firestore().collection('gyms').add({
+        db.collection('gyms').add({
             gymName,
             street,
             city,
@@ -17,11 +35,29 @@ export default function gymForm() {
             length, 
             audience,
             changingRooms, 
-            price
+            price,
+            id: ref.id
         })
         .then(() => {
             setGymName('')
         })
+
+        const key = ref.id;
+        const uploadTask = storage.ref(`/${ref.id}/${imageAsFile.name}`).put(imageAsFile)
+
+        uploadTask.on('state_changed', 
+            (snapShot) => {
+            console.log(snapShot)
+            console.log(snapShot)
+        }, (err) => {
+            console.log(err)
+        }, () => {
+            storage.ref(`/${ref.id}/`).child(imageAsFile.name).getDownloadURL()
+            .then(fireBaseUrl => {
+                setImageAsUrl(prevObject => ({...prevObject, imgUrl: fireBaseUrl}))
+            })
+        })
+        
     }
 
     const [gymName, setGymName] = useState('')
@@ -34,6 +70,8 @@ export default function gymForm() {
     const [audience, setAudience] = useState('')
     const [changingRooms, setChangingRooms] = useState('')
     const [price, setPrice] = useState('')
+
+
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="gymForm">
@@ -78,7 +116,9 @@ export default function gymForm() {
                 <input type="text" value ={price} name="price" onChange={e => setPrice(e.currentTarget.value)} min="1" ref={register} required/>
             </div>
 
-            
+            <div id="gallery">
+                <input type="file" multiple="multiple" id="fileButton" onChange={handleImageAsFile}></input>
+            </div>
 
         <div className="container-3">
             <label>
@@ -237,6 +277,7 @@ export default function gymForm() {
         <div></div>
         <div></div>
         <button>DODAJ</button>
+        {/*<img src={imageAsUrl.imgUrl}/>*/}
         </form>
   );
 }
