@@ -23,14 +23,17 @@ class Home extends Component {
         <Services></Services>
         <div id="pls"></div>
         <div className="listing-container">
-          <h1>zbiór sal</h1>
+          <h1>wyszukaj salę</h1>
+          <hr />
+          <div id="search-bar-place">miejsce na search bar</div>
           <Listing />
         </div>
+        {/*}
         <div id="testSlider">
           <Slider></Slider>
         </div>
         
-        <SampleGyms />
+        <SampleGyms />*/}
         
       </>
     );
