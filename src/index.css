@@ -136,6 +136,18 @@
 
 #constrain {
   width: 40vw;
+  flex:2;
+}
+
+.gym-info {
+  margin-left: 6rem;
+  margin-top: 1rem;
+}
+
+.gym-info p {
+  margin-bottom: 1rem;
+  font-size: 20px;
+  color: var(--darkGrey);
 }
 
 .btn-primary {
@@ -326,6 +338,7 @@
 
 #sup {
   width: 45%;
+  margin-top: 8rem;
 }
 
 #idk {
