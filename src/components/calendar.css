@@ -71,9 +71,9 @@ tr {
 
 .nav-month {
   position: absolute;
-  top: 0.6em;
-  font-size: 0.6em;
-  right: 3px;
+  top: 1em;
+  font-size: 1em;
+  right: 2px;
 }
 
 .prev {
@@ -83,12 +83,12 @@ tr {
 }
 
 .editor-year {
-  max-width: 3.6em;
+  max-width: 6em;
 }
 
 .label-month,
 .label-year {
-  font-size: 0.6em;
+  font-size: 1em;
 }
 
 .label-month {

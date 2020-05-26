@@ -19,8 +19,8 @@ class Calendar extends Component {
     this.style.width = this.width; // add this
   }
 
-  weekdays = moment.weekdays(true); //["Sunday", "Monday", "Tuesday", "Wednessday", "Thursday", "Friday", "Saturday"]
-  weekdaysShort = moment.weekdaysShort(true); // ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+  weekdays = moment.weekdays(true); //[ "Monday", "Tuesday", "Wednessday", "Thursday", "Friday", "Saturday", "Sunday"]
+  weekdaysShort = moment.weekdaysShort(true); // ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
   months = moment.months(true);
 
   year = () => {
