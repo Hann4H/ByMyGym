@@ -4,7 +4,7 @@ import React, { useEffect } from 'react';
 const JsonData = () => {
 
     useEffect( () => {
-
+        getHalls();
     }, []);
 
     const getHalls = async () => {
