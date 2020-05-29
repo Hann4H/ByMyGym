@@ -7,6 +7,7 @@ import Services from "../components/Services";
 import SampleGyms from "../components/SampleGyms";
 import Listing from "../components/Listing";
 import ListingImg from "../components/ListingImg";
+import JsonData from '../JsonData';
 
 class Home extends Component {
   render() {
@@ -28,6 +29,7 @@ class Home extends Component {
           <div id="search-bar-place">miejsce na search bar</div>
           <Listing />
         </div>
+        <JsonData></JsonData>
         {/*}
         <div id="testSlider">
           <Slider></Slider>
