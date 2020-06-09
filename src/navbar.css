@@ -9,6 +9,7 @@ li {
   background-color: white;
   color: black;
   position: fixed;
+  z-index: 9999;
 }
 
 .navBar li {
