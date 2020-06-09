@@ -11,8 +11,8 @@ class Slider extends Component {
         return (
             <div>
                 <SimpleImageSlider
-                    width={600}
-                    height={300}
+                    width={1076}
+                    height={500}
                     images={images}
                 />
             </div>

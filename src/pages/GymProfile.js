@@ -22,16 +22,18 @@ class Home extends Component {
       <>
         <div id="slash"></div>
         <div id="idk3"></div>
-        <div id="idk2">
+        <div id="idk4">
+
+          <div id="sup">
+            <Slider />
+          </div>
         
           <div className="container-4">
             <div id="constrain">
               <GymDetails></GymDetails>
             </div>
 
-            <div id="sup">
-              <Slider />
-            </div>
+            
           </div>
           
           <Calendar

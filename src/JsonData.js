@@ -18,8 +18,18 @@ const JsonData = () => {
         const data = await response.json();
         const halls = data.features;
         console.log(halls[0].properties.nazwa);
+        console.log(halls);
+        getDetails(halls);
+        console.log(names);
+        
         
 
+    }
+
+    const getDetails = (data) => {
+        const details = data.map(hall => {
+            const names = hall.properties.nazwa;
+        })
     }
 
 
@@ -28,9 +38,10 @@ const JsonData = () => {
         return (
 
             <div>
+                
                 {
                 halls.map(function(hall, i) {
-                    console.log('test')
+                    console.log(halls)
                     return <li key={i}>{hall}</li>
                 })
                 }
