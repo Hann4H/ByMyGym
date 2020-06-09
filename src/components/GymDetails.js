@@ -53,13 +53,15 @@ class GymDetails extends Component {
                             <div>
                                 <div>
                                   <GymName title={gym.gymName}></GymName> 
-                                  <div className="gym-info">                           
-                                    <p>Adres: {gym.street}, {gym.city} {gym.zip}</p>
-                                    <p>Wymiary: {gym.length}m x {gym.width}m x {gym.height}m</p>
-                                    <p>Cena za godzinę: {gym.price}zł</p>
-                                    <p>Szatnie: {gym.changingRooms}</p>
-                                    <p>Ilość miejsc na widowni: {gym.audience}</p>
-                                    <p>Parking: </p>
+                                  <div id="text-constrain">
+                                    <p id="address">{gym.street}<br /> {gym.city} {gym.zip}</p>
+                                    <div className="gym-info">
+                                      <p>Wymiary: {gym.length}m x {gym.width}m x {gym.height}m</p>
+                                      <p>Cena za godzinę: {gym.price}zł</p>
+                                      <p>Szatnie: {gym.changingRooms}</p>
+                                      <p>Ilość miejsc na widowni: {gym.audience}</p>
+                                      <p>Parking: </p>
+                                    </div>
                                   </div>
                                 </div>
                             </div>

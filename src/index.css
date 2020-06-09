@@ -116,7 +116,7 @@
 
 .gym-name {
   padding-top: 3rem;
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
   margin-left: 5rem;
   font-size: 40px;
   letter-spacing: var(--mainSpacing);
@@ -135,19 +135,29 @@
 }
 
 #constrain {
-  width: 40vw;
+  width: 0vw;
   flex:2;
 }
 
 .gym-info {
-  margin-left: 6rem;
-  margin-top: 1rem;
+  margin-left: 5rem;
+  margin-top: 0rem;
 }
 
 .gym-info p {
   margin-bottom: 1rem;
   font-size: 20px;
   color: var(--darkGrey);
+}
+
+#address {
+  margin-left: 5rem;
+  color: var(--darkGrey);
+  font-size: 25px;
+}
+
+#text-constrain {
+  display: flex;
 }
 
 .btn-primary {
