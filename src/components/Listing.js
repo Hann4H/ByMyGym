@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import firebase from 'firebase';
 import 'firebase/firestore';
 import "firebase/storage";
+import ListingImg from './ListingImg';
 
 
 class Listing extends Component {
@@ -27,8 +28,7 @@ state = { Gyms: [] };
             width: doc.data().width,
             length: doc.data().width,
             price: doc.data().price,
-            id: doc.data().id,
-            url: firebase.storage().ref(`${doc.data().id}/1.png`)
+            id: doc.data().id
           });
           
         });
@@ -53,7 +53,7 @@ state = { Gyms: [] };
                     return (
                         <div className="single-listing">
                             <div className="listing-content">
-                                <div className="place-for-img"><img className="błagam" src={gym.url}></img></div>
+                                <div className="place-for-img"><ListingImg id={gym.id}></ListingImg></div>
                                 <div className="gym-short-info">                            
                                     <h3 className="listing-header">{gym.gymName}</h3>
                                     <p>Adres: {gym.street}, {gym.city} {gym.zip}</p>
