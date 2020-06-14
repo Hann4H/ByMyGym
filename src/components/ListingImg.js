@@ -4,18 +4,15 @@ import 'firebase/firestore';
 import "firebase/storage";
 
 
-class ListingImg extends Component {
-
-
-
-    render() {
+export default function ListingImg({children, title, subtitle}) {
         return (
-            <div>
-                <img src={ this.state.img }/>
+            <div className="img-listing">
+                <h1>{title}</h1>
+                <div></div>
+                <p>{subtitle}</p>
+                {children}
             </div>
         )
-
     }
-}
-
-export default ListingImg;
+    
+    

@@ -7,7 +7,6 @@ import "firebase/storage";
 class Listing extends Component {
 
 
-
 state = { Gyms: [] };
 
   componentDidMount() {
@@ -28,18 +27,22 @@ state = { Gyms: [] };
             width: doc.data().width,
             length: doc.data().width,
             price: doc.data().price,
-            id: doc.data().id
+            id: doc.data().id,
+            url: firebase.storage().ref(`${doc.data().id}/1.png`)
           });
-
+          
         });
-        
         this.setState({ Gyms });
+        
       })
       .catch(function(error) {
         console.log("Error getting documents: ", error);
       });
 
+
     }
+
+    
 
     render() {
 
@@ -50,7 +53,7 @@ state = { Gyms: [] };
                     return (
                         <div className="single-listing">
                             <div className="listing-content">
-                                <div className="place-for-img"><img src={require("../img/sample_gym_2.jpg")}></img></div>
+                                <div className="place-for-img"><img className="błagam" src={gym.url}></img></div>
                                 <div className="gym-short-info">                            
                                     <h3 className="listing-header">{gym.gymName}</h3>
                                     <p>Adres: {gym.street}, {gym.city} {gym.zip}</p>
