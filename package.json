@@ -27,6 +27,7 @@
     "react-glide": "^3.2.0",
     "react-hook-form": "^5.7.2",
     "react-icons": "^3.10.0",
+    "react-input-mask": "^2.0.4",
     "react-moment": "^0.9.7",
     "react-redux": "^7.2.0",
     "react-router": "^5.2.0",

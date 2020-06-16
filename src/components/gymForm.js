@@ -6,6 +6,8 @@ import ImageUpload from "./ImageUpload"
 import Listing from "./Listing"
 import FileUploader from 'react-firebase-file-uploader'
 
+import InputMask from 'react-input-mask';
+
 export default function gymForm() {
 
     
@@ -102,11 +104,11 @@ export default function gymForm() {
             </div>
             <div className="container-2">
                 <label>Miasto</label>
-                <input type="text" value ={city} name="city" onChange={e => setCity(e.currentTarget.value)} ref={register} required/>
+                <InputMask type="text" value ={city} name="city" onChange={e => setCity(e.currentTarget.value)} ref={register} required/>
             </div>
             <div className="container-2">
                 <label>Kod pocztowy</label>
-                <input type="text" value ={zip} name="zip" onChange={e => setZip(e.currentTarget.value)} ref={register} required/>
+                <InputMask type="text" value ={zip} name="zip" pattern="^\d{2}-\d{3}$" mask="99-999" onChange={e => setZip(e.currentTarget.value)} ref={register} required/>
             </div>
             <div className="container-2">
                 <label>Wysokość</label>
@@ -137,11 +139,6 @@ export default function gymForm() {
                 <input type="file" multiple="multiple" id="img_url" onChange={handleImageAsFile}></input>
             </div>
 
-            <FileUploader
-                accept="image/*"
-                storageRef={firebase.storage().ref('gyms')}
-                
-            />
 
         <div className="container-3">
             <label>
