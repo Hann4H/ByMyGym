@@ -4,25 +4,19 @@ import 'firebase/firestore';
 import "firebase/storage";
 
 
-export default function ListingImg({children, id}) {
+export default function ListingImg({id}) {
 
-    var storage = firebase.storage();
-    var storageRef = storage.ref();
-
-    storageRef.child(`${id}/1.png`).getDownloadURL().then(function(url) {
-        var img = document.getElementById('myimg');
-        img.src = url;
-      }).catch(function(error) {
-        // Handle any errors
-      });
-      
-
+        firebase.storage().ref().child(`${id}/1.png`).getDownloadURL().then(url => {
+            var img = document.getElementById('myimg');
+            img.src = url;
+            console.log(id, url)
+        }).catch(function(error) {
+            // Handle any errors
+        })
 
         return (
-            <div className="img-listing">
+            <div >
                 <img id="myimg"></img>
-                <div></div>
-                {children}
             </div>
         )
     }

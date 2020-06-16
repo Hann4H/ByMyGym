@@ -61,6 +61,7 @@ state = { Gyms: [] };
                                     <p>Cena za godzinę: {gym.price}zł</p>
                                     <button>więcej informacji</button>
                                 </div>
+                                
                             </div>
                         </div>
                     )

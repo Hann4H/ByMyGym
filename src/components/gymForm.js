@@ -57,11 +57,14 @@ export default function gymForm() {
         }, (err) => {
             console.log(err)
         }, () => {
-            storage.ref(`/${ref.id}/`).child(imageAsFile.name).getDownloadURL() 
-            .then(fireBaseUrl => {
-                setImageAsUrl(prevObject => ({...prevObject, imgUrl: fireBaseUrl}))
+            storage.ref(`${ref.id}`).child(`1.png`).getDownloadURL().then(url => {
+                setImageAsUrl(url)
             })
+            console.log(imageAsUrl)
         })
+
+        
+
 
     }
 
