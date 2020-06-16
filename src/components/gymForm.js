@@ -112,27 +112,27 @@ export default function gymForm() {
             </div>
             <div className="container-2">
                 <label>Wysokość</label>
-                <input type="text" value ={height} name="height" onChange={e => setHeight(e.currentTarget.value)} min="1" ref={register} required/>
+                <input type="text" value ={height} name="height" placeholder="w metrach" pattern="[0-9]+([\.,][0-9]+)?" onChange={e => setHeight(e.currentTarget.value)} min="1" ref={register} required/>
             </div>
             <div className="container-2">
                 <label>Szerokość</label>
-                <input type="text" value ={width} name="width" onChange={e => setWidth(e.currentTarget.value)} min="1" ref={register} required/>
+                <input type="text" value ={width} name="width" placeholder="w metrach" pattern="[0-9]+([\.,][0-9]+)?" onChange={e => setWidth(e.currentTarget.value)} min="1" ref={register} required/>
             </div>
             <div className="container-2">
                 <label>Długość</label>
-                <input type="text" value ={length} name="length" onChange={e => setLength(e.currentTarget.value)} min="1" ref={register} required/>
+                <input type="text" value ={length} name="length" placeholder="w metrach" pattern="[0-9]+([\.,][0-9]+)?" placeholder="w metrach" onChange={e => setLength(e.currentTarget.value)} min="1" ref={register} required/>
             </div>
             <div className="container-2">
                 <label>Ilość miejsc na widowni</label>
-                <input type="text" value ={audience} name="audience" onChange={e => setAudience(e.currentTarget.value)} min="0" ref={register}/>
+                <input type="number" value ={audience} name="audience" onChange={e => setAudience(e.currentTarget.value)} min="0" ref={register}/>
             </div>
             <div className="container-2">
                 <label>Ilość szatń</label>
-                <input type="text" value ={changingRooms} name="changingRooms" onChange={e => setChangingRooms(e.currentTarget.value)} min="0" ref={register} required/>
+                <input type="number" value ={changingRooms} name="changingRooms" onChange={e => setChangingRooms(e.currentTarget.value)} min="0" ref={register} required/>
             </div>
             <div className="container-2">
                 <label>Cena za godzinę</label>
-                <input type="text" value ={price} name="price" onChange={e => setPrice(e.currentTarget.value)} min="1" ref={register} required/>
+                <input type="text" value ={price} name="price" pattern="[0-9]+([\.,][0-9]{0,2})?" onChange={e => setPrice(e.currentTarget.value)} min="1" ref={register} required/>
             </div>
 
             <div id="gallery">
