@@ -15,9 +15,8 @@ export default function ListingImg({id}) {
         })
 
         return (
-            <div >
-                <img id="myimg"></img>
-            </div>
+            <img id="myimg"></img>
+
         )
     }
     

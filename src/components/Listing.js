@@ -30,7 +30,6 @@ state = { Gyms: [] };
             price: doc.data().price,
             id: doc.data().id
           });
-          
         });
         this.setState({ Gyms });
         
@@ -39,6 +38,7 @@ state = { Gyms: [] };
         console.log("Error getting documents: ", error);
       });
 
+      
 
     }
 

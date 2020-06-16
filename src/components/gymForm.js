@@ -4,6 +4,7 @@ import firebase from "../firebase"
 import "firebase/storage"
 import ImageUpload from "./ImageUpload"
 import Listing from "./Listing"
+import FileUploader from 'react-firebase-file-uploader'
 
 export default function gymForm() {
 
@@ -13,7 +14,7 @@ export default function gymForm() {
 
     const allInputs = {imgUrl: ''}
     const [imageAsFile, setImageAsFile] = useState('')
-    const [imageAsUrl, setImageAsUrl] = useState(allInputs)
+    const [imageAsUrl, setImageAsUrl] = useState('')
 
     
 
@@ -48,27 +49,33 @@ export default function gymForm() {
         })
 
         const key = ref.id;
-        const uploadTask = storage.ref(`/${ref.id}/1.png`).put(imageAsFile);
+        const uploadTask = storage.ref(`/${ref.id}/${imageAsFile.name}`).put(imageAsFile);
 
-        uploadTask.on('state_changed', 
-            (snapShot) => {
+        uploadTask
+            .then(uploadTaskSnapshot => {
+                return uploadTaskSnapshot.ref.getDownloadURL();
+            })
+            .then(url => {
+                setImageAsUrl(url);
+                console.log(imageAsUrl);
+            }) 
+        /*    (snapShot) => {
             console.log(snapShot)
             console.log(snapShot)
         }, (err) => {
             console.log(err)
         }, () => {
-            storage.ref(`${ref.id}`).child(`1.png`).getDownloadURL().then(url => {
+            storage.ref(`${ref.id}`).child(`${imageAsFile.name}`).getDownloadURL().then(url => {
                 setImageAsUrl(url)
             })
+            console.log(imageAsFile.name)
             console.log(imageAsUrl)
-        })
+        })*/
 
         
-
+        
 
     }
-
-
 
     const [gymName, setGymName] = useState('')
     const [street, setStreet] = useState('')
@@ -129,6 +136,12 @@ export default function gymForm() {
             <div id="gallery">
                 <input type="file" multiple="multiple" id="img_url" onChange={handleImageAsFile}></input>
             </div>
+
+            <FileUploader
+                accept="image/*"
+                storageRef={firebase.storage().ref('gyms')}
+                
+            />
 
         <div className="container-3">
             <label>
