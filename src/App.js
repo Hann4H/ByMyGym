@@ -11,6 +11,7 @@ import GymProfile from "./pages/GymProfile";
 import firebase from "./firebase";
 import Footer from "./components/Footer";
 import Login from "./pages/Login";
+import SignUp from "./components/SignUp";
 
 class App extends Component {
   constructor(props) {
@@ -46,6 +47,7 @@ class App extends Component {
             <Route path="/404" component={Error} />
             <Route path="/add" component={AddGym} />
             <Route path="/login" component={Login} />
+            <Route exact path="/signup" component={SignUp}/>
 
             {/*SAMPLE GYM PROFILE*/}
             <Route path="/gym_profile" component={GymProfile} />
