@@ -11,7 +11,7 @@ import JsonData from '../JsonData';
 
 class Home extends Component {
   render() {
-    const { isAuthenticated, login } = this.props.auth;
+
     return (
       <>
         <Hero>
