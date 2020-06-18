@@ -683,9 +683,27 @@ ul.unstyled {
 .login-external button{
   width: 100%;
 
-  
 }
 
+.login-external .firebaseui-idp-google .firebaseui-idp-text-long
+{
+  font-size: 0;
+}.login-external .firebaseui-idp-google .firebaseui-idp-text-long::after{
+  font-size: 14px;
+  content: "Zaloguj się z Google";
+}
+
+.login-external .firebaseui-idp-facebook .firebaseui-idp-text-long
+{
+  font-size: 0;
+}.login-external .firebaseui-idp-facebook .firebaseui-idp-text-long::after{
+  font-size: 14px;
+  content: "Zaloguj się z Facebook";
+}
+
+#signup-link {
+  color: var(--darkOrange);
+}
 
 .login-logo {
   display: block;
