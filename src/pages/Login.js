@@ -3,8 +3,16 @@ import { Link } from "react-router-dom";
 import firebase from "../firebase";
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+import FirebaseAuth from 'react-firebaseui/FirebaseAuth';
 
-
+const uiConfig = {
+  signInFlow: "popup",
+  signInOptions: [
+    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+    firebase.auth.FacebookAuthProvider.PROVIDER_ID
+  ]
+}
 
 class Login extends Component{
     constructor(props)
@@ -18,6 +26,9 @@ class Login extends Component{
             password : ""
         }
     }
+
+    
+
 
     login(e){
         e.preventDefault();
@@ -52,7 +63,7 @@ class Login extends Component{
                 {/*<img className="login-wave" src={require("../img/wave.png")}></img>*/}
                 <div className="login-background">
                     <img className="login-logo" src={require("../img/logo.png")}/>
-                    <form noValidate autoComplete="off">
+                    <form className="login-form" noValidate autoComplete="off">
                         <TextField
                         type="email"
                         id="email"
@@ -73,8 +84,11 @@ class Login extends Component{
                         <button onClick={this.login}>Zaloguj</button>
                         {/*<button onClick={this.signup}>Signup</button>*/}
                         <Link to="/signup" className="login-link-signup"><p>Nie masz konta? Zarejestruj się!</p></Link>
+                        
                     </form>
+                    <FirebaseAuth className="login-external" uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
                 </div>
+                
             </div>
         )
     }

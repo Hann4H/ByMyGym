@@ -6,7 +6,7 @@ import TextField from '@material-ui/core/TextField';
 
 
 
-class Login extends Component{
+class SignUp extends Component{
     constructor(props)
     {
         super(props);
@@ -15,7 +15,9 @@ class Login extends Component{
         this.signup = this.signup.bind(this);
         this.state={
             email : "",
-            password : ""
+            password : "",
+            name: "",
+            surname: ""
         }
     }
 
@@ -54,6 +56,20 @@ class Login extends Component{
                     <img className="login-logo" src={require("../img/logo.png")}/>
                     <form noValidate autoComplete="off">
                         <TextField
+                        name="name"
+                        onChange={this.handleChange}
+                        id="name"
+                        placeholder="imię"
+                        value={this.state.name}
+                        />
+                        <TextField
+                        name="surname"
+                        onChange={this.handleChange}
+                        id="surname"
+                        placeholder="nazwisko"
+                        value={this.state.surname}
+                        />
+                        <TextField
                         type="email"
                         id="email"
                         name="email"
@@ -77,4 +93,4 @@ class Login extends Component{
         )
     }
 }
-export default Login;
+export default SignUp;
