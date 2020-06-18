@@ -29,6 +29,7 @@ class Home extends Component {
           <div id="search-bar-place">miejsce na search bar</div>
           <Listing />
         </div>
+        <div id="pls"></div>
         <JsonData></JsonData>
         {/*}
         <div id="testSlider">

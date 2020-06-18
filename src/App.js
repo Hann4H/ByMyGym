@@ -49,7 +49,7 @@ class App extends Component{
               <Route path="/gym_profile" exact component={GymProfile} />
             </div>
           </Switch>
-          <div id="pls"></div>
+
           <Footer />
           </div>
     );

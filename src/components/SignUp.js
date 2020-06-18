@@ -31,40 +31,42 @@ class Login extends Component{
             console.log(err);
         })
     }
-
+    
     handleChange(e){
         this.setState({
             [e.target.name] : e.target.value
         })
     }
 
-    render()
-    {
-    return(
-        <div className="login-page">
-            <form>
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="enter email address"
-                    onChange={this.handleChange}
-                    value={this.state.email}
-                />
-                <input
-                    name="password"
-                    type= "password"
-                    onChange={this.handleChange}
-                    id="password"
-                    placeholder="enter password"
-                    value={this.state.password}
-                />
-                <button onClick={this.login}>Login</button>
-                <button onClick={this.signup}>Signup</button>
-            </form>
-
-        </div>
-    )
-}
+    render() {
+        return(
+            <div className="login-page">
+                <div className="login-wave"></div>
+                {/*<img className="login-wave" src={require("../img/wave.png")}></img>*/}
+                <div className="login-background">
+                    <form>
+                        <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="enter email address"
+                        onChange={this.handleChange}
+                        value={this.state.email}
+                        />
+                        <input
+                        name="password"
+                        type= "password"
+                        onChange={this.handleChange}
+                        id="password"
+                        placeholder="enter password"
+                        value={this.state.password}
+                        />
+                        <button onClick={this.login}>Login</button>
+                        <button onClick={this.signup}>Signup</button>
+                    </form>
+                </div>
+            </div>
+        )
+    }
 }
 export default Login;
