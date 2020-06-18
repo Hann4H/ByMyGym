@@ -15,6 +15,7 @@ class Nav extends Component {
 
   render() {
     if (window.location.pathname === '/signup') return null;
+    if (window.location.pathname === '/login') return null;
     return (
       <>
         <div className="navBar">
@@ -46,7 +47,7 @@ class Nav extends Component {
               </li>
               <li>
                 <button>
-                  <Link to="/signup">ZALOGUJ</Link>
+                  <Link to="/login">ZALOGUJ</Link>
                 </button>
               </li>
           </ul>

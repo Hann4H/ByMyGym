@@ -1,5 +1,10 @@
 import React , { Component } from "react";
+import { Link } from "react-router-dom";
 import firebase from "../firebase";
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+
+
 
 class Login extends Component{
     constructor(props)
@@ -38,6 +43,8 @@ class Login extends Component{
         })
     }
 
+    
+
     render() {
         return(
             <div className="login-page">
@@ -45,25 +52,25 @@ class Login extends Component{
                 {/*<img className="login-wave" src={require("../img/wave.png")}></img>*/}
                 <div className="login-background">
                     <img className="login-logo" src={require("../img/logo.png")}/>
-                    <form>
-                        <input
+                    <form noValidate autoComplete="off">
+                        <TextField
                         type="email"
                         id="email"
                         name="email"
-                        placeholder="enter email address"
+                        placeholder="adres e-mail"
                         onChange={this.handleChange}
                         value={this.state.email}
+                        color="#ffa841"
                         />
-                        <input
+                        <TextField
                         name="password"
                         type= "password"
                         onChange={this.handleChange}
                         id="password"
-                        placeholder="enter password"
+                        placeholder="hasło"
                         value={this.state.password}
                         />
-                        <button onClick={this.login}>Login</button>
-                        <button onClick={this.signup}>Signup</button>
+                        <button onClick={this.signup}>Zarejestruj</button>
                     </form>
                 </div>
             </div>
