@@ -7,12 +7,11 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
 import { GymProvider } from "./Context";
 
+
 ReactDOM.render(
-  <GymProvider>
     <Router>
       <Route component={App} />
-    </Router>
-  </GymProvider>,
+    </Router>,
   document.getElementById("root")
 );
 
