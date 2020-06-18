@@ -14,7 +14,7 @@ class Nav extends Component {
   };
 
   render() {
-
+    if (window.location.pathname === '/signup') return null;
     return (
       <>
         <div className="navBar">
