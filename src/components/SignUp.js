@@ -44,6 +44,7 @@ class Login extends Component{
                 <div className="login-wave"></div>
                 {/*<img className="login-wave" src={require("../img/wave.png")}></img>*/}
                 <div className="login-background">
+                    <img className="login-logo" src={require("../img/logo.png")}/>
                     <form>
                         <input
                         type="email"
