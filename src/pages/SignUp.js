@@ -21,6 +21,15 @@ class SignUp extends Component{
         }
     }
 
+    componentDidMount() {
+        const script = document.createElement("script");
+    
+        script.src = "https://www.gstatic.com/firebasejs/ui/4.5.1/firebase-ui-auth__pl.js";
+        script.async = true;
+    
+        document.body.appendChild(script);
+      }
+
     login(e){
         e.preventDefault();
         firebase.auth().signInWithEmailAndPassword(this.state.email,this.state.password).then((u)=>{
