@@ -14,8 +14,8 @@ class Nav extends Component {
   };
 
   render() {
-    const { isAuthenticated, login, logout } = this.props.auth;
-    const user_name = localStorage.getItem("user_name");
+    if (window.location.pathname === '/signup') return null;
+    if (window.location.pathname === '/login') return null;
     return (
       <>
         <div className="navBar">
@@ -45,14 +45,9 @@ class Nav extends Component {
                   <Link to="/add">DODAJ SALĘ</Link>
                 </button>
               </li>
-              <li style={isAuthenticated() ? {} : { display: "none" }}>
-                <button>
-                  <Link to="/profile">{user_name}</Link>
-                </button>
-              </li>
               <li>
-                <button onClick={isAuthenticated() ? logout : login}>
-                  {isAuthenticated() ? "WYLOGUJ" : "ZALOGUJ"}
+                <button>
+                  <Link to="/login">ZALOGUJ</Link>
                 </button>
               </li>
           </ul>

@@ -3,18 +3,10 @@ import { Link } from "react-router-dom";
 import firebase from "../firebase";
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-import FirebaseAuth from 'react-firebaseui/FirebaseAuth';
 
-const uiConfig = {
-  signInFlow: "popup",
-  signInOptions: [
-    firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    firebase.auth.FacebookAuthProvider.PROVIDER_ID
-  ]
-}
 
-class Login extends Component{
+
+class SignUp extends Component{
     constructor(props)
     {
         super(props);
@@ -23,12 +15,20 @@ class Login extends Component{
         this.signup = this.signup.bind(this);
         this.state={
             email : "",
-            password : ""
+            password : "",
+            name: "",
+            surname: ""
         }
     }
 
+    componentDidMount() {
+        const script = document.createElement("script");
     
-
+        script.src = "https://www.gstatic.com/firebasejs/ui/4.5.1/firebase-ui-auth__pl.js";
+        script.async = true;
+    
+        document.body.appendChild(script);
+      }
 
     login(e){
         e.preventDefault();
@@ -65,6 +65,20 @@ class Login extends Component{
                     <img className="login-logo" src={require("../img/logo.png")}/>
                     <form className="login-form" noValidate autoComplete="off">
                         <TextField
+                        name="name"
+                        onChange={this.handleChange}
+                        id="name"
+                        placeholder="imię"
+                        value={this.state.name}
+                        />
+                        <TextField
+                        name="surname"
+                        onChange={this.handleChange}
+                        id="surname"
+                        placeholder="nazwisko"
+                        value={this.state.surname}
+                        />
+                        <TextField
                         type="email"
                         id="email"
                         name="email"
@@ -81,16 +95,11 @@ class Login extends Component{
                         placeholder="hasło"
                         value={this.state.password}
                         />
-                        <button onClick={this.login}>Zaloguj</button>
-                        {/*<button onClick={this.signup}>Signup</button>*/}
-                        <Link to="/signup" className="login-link-signup"><p>Nie masz konta? Zarejestruj się!</p></Link>
-                        
+                        <button onClick={this.signup}>Zarejestruj</button>
                     </form>
-                    <FirebaseAuth className="login-external" uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
                 </div>
-                
             </div>
         )
     }
 }
-export default Login;
+export default SignUp;

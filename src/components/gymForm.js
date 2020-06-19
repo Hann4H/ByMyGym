@@ -4,6 +4,9 @@ import firebase from "../firebase"
 import "firebase/storage"
 import ImageUpload from "./ImageUpload"
 import Listing from "./Listing"
+import FileUploader from 'react-firebase-file-uploader'
+
+import InputMask from 'react-input-mask';
 
 export default function gymForm() {
 
@@ -13,7 +16,7 @@ export default function gymForm() {
 
     const allInputs = {imgUrl: ''}
     const [imageAsFile, setImageAsFile] = useState('')
-    const [imageAsUrl, setImageAsUrl] = useState(allInputs)
+    const [imageAsUrl, setImageAsUrl] = useState('')
 
     
 
@@ -48,24 +51,33 @@ export default function gymForm() {
         })
 
         const key = ref.id;
-        const uploadTask = storage.ref(`/${ref.id}/1.png`).put(imageAsFile);
+        const uploadTask = storage.ref(`/${ref.id}/${imageAsFile.name}`).put(imageAsFile);
 
-        uploadTask.on('state_changed', 
-            (snapShot) => {
+        uploadTask
+            .then(uploadTaskSnapshot => {
+                return uploadTaskSnapshot.ref.getDownloadURL();
+            })
+            .then(url => {
+                setImageAsUrl(url);
+                console.log(imageAsUrl);
+            }) 
+        /*    (snapShot) => {
             console.log(snapShot)
             console.log(snapShot)
         }, (err) => {
             console.log(err)
         }, () => {
-            storage.ref(`/${ref.id}/`).child(imageAsFile.name).getDownloadURL() 
-            .then(fireBaseUrl => {
-                setImageAsUrl(prevObject => ({...prevObject, imgUrl: fireBaseUrl}))
+            storage.ref(`${ref.id}`).child(`${imageAsFile.name}`).getDownloadURL().then(url => {
+                setImageAsUrl(url)
             })
-        })
+            console.log(imageAsFile.name)
+            console.log(imageAsUrl)
+        })*/
+
+        
+        
 
     }
-
-
 
     const [gymName, setGymName] = useState('')
     const [street, setStreet] = useState('')
@@ -92,40 +104,41 @@ export default function gymForm() {
             </div>
             <div className="container-2">
                 <label>Miasto</label>
-                <input type="text" value ={city} name="city" onChange={e => setCity(e.currentTarget.value)} ref={register} required/>
+                <InputMask type="text" value ={city} name="city" onChange={e => setCity(e.currentTarget.value)} ref={register} required/>
             </div>
             <div className="container-2">
                 <label>Kod pocztowy</label>
-                <input type="text" value ={zip} name="zip" onChange={e => setZip(e.currentTarget.value)} ref={register} required/>
+                <InputMask type="text" value ={zip} name="zip" pattern="^\d{2}-\d{3}$" mask="99-999" onChange={e => setZip(e.currentTarget.value)} ref={register} required/>
             </div>
             <div className="container-2">
                 <label>Wysokość</label>
-                <input type="text" value ={height} name="height" onChange={e => setHeight(e.currentTarget.value)} min="1" ref={register} required/>
+                <input type="text" value ={height} name="height" placeholder="w metrach" pattern="[0-9]+([\.,][0-9]+)?" onChange={e => setHeight(e.currentTarget.value)} min="1" ref={register} required/>
             </div>
             <div className="container-2">
                 <label>Szerokość</label>
-                <input type="text" value ={width} name="width" onChange={e => setWidth(e.currentTarget.value)} min="1" ref={register} required/>
+                <input type="text" value ={width} name="width" placeholder="w metrach" pattern="[0-9]+([\.,][0-9]+)?" onChange={e => setWidth(e.currentTarget.value)} min="1" ref={register} required/>
             </div>
             <div className="container-2">
                 <label>Długość</label>
-                <input type="text" value ={length} name="length" onChange={e => setLength(e.currentTarget.value)} min="1" ref={register} required/>
+                <input type="text" value ={length} name="length" placeholder="w metrach" pattern="[0-9]+([\.,][0-9]+)?" placeholder="w metrach" onChange={e => setLength(e.currentTarget.value)} min="1" ref={register} required/>
             </div>
             <div className="container-2">
                 <label>Ilość miejsc na widowni</label>
-                <input type="text" value ={audience} name="audience" onChange={e => setAudience(e.currentTarget.value)} min="0" ref={register}/>
+                <input type="number" value ={audience} name="audience" onChange={e => setAudience(e.currentTarget.value)} min="0" ref={register}/>
             </div>
             <div className="container-2">
                 <label>Ilość szatń</label>
-                <input type="text" value ={changingRooms} name="changingRooms" onChange={e => setChangingRooms(e.currentTarget.value)} min="0" ref={register} required/>
+                <input type="number" value ={changingRooms} name="changingRooms" onChange={e => setChangingRooms(e.currentTarget.value)} min="0" ref={register} required/>
             </div>
             <div className="container-2">
                 <label>Cena za godzinę</label>
-                <input type="text" value ={price} name="price" onChange={e => setPrice(e.currentTarget.value)} min="1" ref={register} required/>
+                <input type="text" value ={price} name="price" pattern="[0-9]+([\.,][0-9]{0,2})?" onChange={e => setPrice(e.currentTarget.value)} min="1" ref={register} required/>
             </div>
 
             <div id="gallery">
                 <input type="file" multiple="multiple" id="img_url" onChange={handleImageAsFile}></input>
             </div>
+
 
         <div className="container-3">
             <label>

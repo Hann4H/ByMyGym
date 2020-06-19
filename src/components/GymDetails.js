@@ -12,7 +12,7 @@ class GymDetails extends Component {
     firebase
       .firestore()
       .collection("gyms")
-      .where('id', '==', 'F4fQlpqhN55cC6PuIkZn')
+      .where('id', '==', 'RQ98U7VdSWQpsJBibC5g')
       .get()
       .then(querySnapshot => {
         const Gyms = [];
