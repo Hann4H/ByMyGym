@@ -136,7 +136,7 @@
 
 #constrain {
   width: 0vw;
-  flex:2;
+  flex: 2;
 }
 
 .gym-info {
@@ -255,7 +255,6 @@
   height: auto;
 }
 
-
 .single-listing {
   border-radius: 3px;
   border: 2px solid var(--darkOrange);
@@ -307,13 +306,11 @@
   padding-top: 2rem;
 }
 
-
 #search-bar-place {
   text-align: center;
   padding-top: 3rem;
   font-size: 20px;
 }
-
 
 #gallery {
   font-size: 50px;
@@ -348,7 +345,7 @@
 
 #sup {
   width: 45%;
-  position:relative;
+  position: relative;
   z-index: 0;
 }
 
@@ -390,15 +387,13 @@
     0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
 }
 
-
-
 .container-3 {
   text-align: left;
   width: 100%;
 }
 
 .footer {
-  margin-top:auto; 
+  margin-top: auto;
   height: 10rem;
   background-color: var(--darkGrey);
   padding-top: 10px;
@@ -610,8 +605,14 @@ ul.unstyled {
   padding-top: 40px;
 }
 
-
 .błagam {
   height: 100px;
-  width:100px;
+  width: 100px;
+}
+
+/* style for map */
+.leaflet-container {
+  height: 400px;
+  width: 80%;
+  margin: 0 auto;
 }

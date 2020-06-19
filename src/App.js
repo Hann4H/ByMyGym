@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
 import Home from "./pages/Home";
 import Profile from "./components/Profile";
