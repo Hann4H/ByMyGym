@@ -197,7 +197,8 @@
 }
 
 .services {
-  padding: 5rem 0;
+  padding: 2% 0;
+  margin-top: 3%;
 }
 .services {
   text-align: center;
@@ -680,9 +681,9 @@ ul.unstyled {
   color: var(--darkGrey);
 }
 
+
 .login-external button{
   width: 100%;
-
 }
 
 .login-external .firebaseui-idp-google .firebaseui-idp-text-long

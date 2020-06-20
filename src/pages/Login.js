@@ -71,7 +71,7 @@ class Login extends Component{
                         placeholder="adres e-mail"
                         onChange={this.handleChange}
                         value={this.state.email}
-                        color="#ffa841"
+                        color="secondary"
                         />
                         <TextField
                         name="password"
@@ -80,6 +80,7 @@ class Login extends Component{
                         id="password"
                         placeholder="hasło"
                         value={this.state.password}
+                        color="secondary"
                         />
                         <button onClick={this.login}>Zaloguj</button>
                         {/*<button onClick={this.signup}>Signup</button>*/}
