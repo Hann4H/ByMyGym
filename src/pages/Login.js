@@ -62,7 +62,7 @@ class Login extends Component{
                 <div className="login-wave"></div>
                 {/*<img className="login-wave" src={require("../img/wave.png")}></img>*/}
                 <div className="login-background">
-                    <img className="login-logo" src={require("../img/logo.png")}/>
+                    <Link to="/"><img className="login-logo" src={require("../img/logo.png")}/></Link>
                     <form className="login-form" noValidate autoComplete="off">
                         <TextField
                         type="email"
@@ -71,7 +71,7 @@ class Login extends Component{
                         placeholder="adres e-mail"
                         onChange={this.handleChange}
                         value={this.state.email}
-                        color="#ffa841"
+                        color="secondary"
                         />
                         <TextField
                         name="password"
@@ -80,10 +80,11 @@ class Login extends Component{
                         id="password"
                         placeholder="hasło"
                         value={this.state.password}
+                        color="secondary"
                         />
                         <button onClick={this.login}>Zaloguj</button>
                         {/*<button onClick={this.signup}>Signup</button>*/}
-                        <Link to="/signup" className="login-link-signup"><p>Nie masz konta? Zarejestruj się!</p></Link>
+                        <Link to="/signup" className="login-link-signup"><p>Nie masz konta? <span>Zarejestruj się!</span></p></Link>
                         
                     </form>
                     <FirebaseAuth className="login-external" uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>

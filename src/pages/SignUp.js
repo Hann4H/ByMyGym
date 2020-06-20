@@ -62,7 +62,7 @@ class SignUp extends Component{
                 <div className="login-wave"></div>
                 {/*<img className="login-wave" src={require("../img/wave.png")}></img>*/}
                 <div className="login-background">
-                    <img className="login-logo" src={require("../img/logo.png")}/>
+                    <Link to="/"><img className="login-logo" src={require("../img/logo.png")}/></Link>
                     <form className="login-form" noValidate autoComplete="off">
                         <TextField
                         name="name"
@@ -70,6 +70,7 @@ class SignUp extends Component{
                         id="name"
                         placeholder="imię"
                         value={this.state.name}
+                        color="secondary"
                         />
                         <TextField
                         name="surname"
@@ -77,6 +78,7 @@ class SignUp extends Component{
                         id="surname"
                         placeholder="nazwisko"
                         value={this.state.surname}
+                        color="secondary"
                         />
                         <TextField
                         type="email"
@@ -85,7 +87,7 @@ class SignUp extends Component{
                         placeholder="adres e-mail"
                         onChange={this.handleChange}
                         value={this.state.email}
-                        color="#ffa841"
+                        color="secondary"
                         />
                         <TextField
                         name="password"
@@ -94,6 +96,7 @@ class SignUp extends Component{
                         id="password"
                         placeholder="hasło"
                         value={this.state.password}
+                        color="secondary"
                         />
                         <button onClick={this.signup}>Zarejestruj</button>
                     </form>

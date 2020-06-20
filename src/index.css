@@ -196,7 +196,8 @@
 }
 
 .services {
-  padding: 5rem 0;
+  padding: 2% 0;
+  margin-top: 3%;
 }
 .services {
   text-align: center;
@@ -668,6 +669,10 @@ ul.unstyled {
   font-size: 15px;
   text-decoration: none;
   color: var(--darkGrey);
+}
+
+.login-link-signup span {
+  color: var(--darkOrange);
 }
 
 .login-external button {
