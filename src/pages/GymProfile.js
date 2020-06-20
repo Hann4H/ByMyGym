@@ -15,12 +15,11 @@ class Home extends Component {
 
   render() {
     return (
-      <>
+      <body>
+        <Slider />
         <div id="idk3"></div>
         <div id="idk4">
-          <div id="sup">
-            <Slider />
-          </div>
+          <div id="sup">{/* <Slider /> */}</div>
 
           <div className="container-4">
             <div id="constrain">
@@ -36,9 +35,11 @@ class Home extends Component {
             }}
             onDayClick={(e, day) => this.onDayClick(e, day)}
           />
-          <Localization id="mapid" />
+          <div>
+            <Localization id="mapid" />
+          </div>
         </div>
-      </>
+      </body>
     );
   }
 }
