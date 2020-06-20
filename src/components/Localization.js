@@ -12,7 +12,7 @@ class Localization extends Component {
   state = {
     lat: 51.505,
     lng: -0.09,
-    zoom: 12,
+    zoom: 10,
   };
 
   render() {
