@@ -35,9 +35,8 @@ class Home extends Component {
             }}
             onDayClick={(e, day) => this.onDayClick(e, day)}
           />
-          <div>
-            <Localization id="mapid" />
-          </div>
+
+          <Localization id="mapid" />
         </div>
       </body>
     );

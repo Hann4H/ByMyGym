@@ -1,18 +1,11 @@
 import React, { Component } from "react";
 import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 
-// source:
-// https://www.smashingmagazine.com/2020/02/javascript-maps-react-leaflet/
-// https://leafletjs.com/examples.html
-// npm install react-leaflet
-// https://react-leaflet.js.org/
-// https://www.latlong.net/
-
 class Localization extends Component {
   state = {
-    lat: 51.505,
-    lng: -0.09,
-    zoom: 10,
+    lat: 52.406376,
+    lng: 16.925167,
+    zoom: 15,
   };
 
   render() {
@@ -25,7 +18,7 @@ class Localization extends Component {
         />
         <Marker position={position}>
           <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
+            Latitude and longitude: <br /> {this.state.lat}, {this.state.lng}
           </Popup>
         </Marker>
       </Map>
