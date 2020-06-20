@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import Hero from "../components/Hero";
 import Banner from "../components/Banner";
 import { Link } from "react-router-dom";
@@ -6,11 +6,7 @@ import GymName from "../components/GymName";
 import GymDetails from "../components/GymDetails";
 import Calendar from "../components/Calendar";
 import Slider from "../components/Slider";
-
-const style = {
-  position: "relative",
-  margin: "50px auto",
-};
+import Localization from "../components/Localization";
 
 class Home extends Component {
   onDayClick = (e, day) => {
@@ -19,29 +15,31 @@ class Home extends Component {
 
   render() {
     return (
-      <>
+      <body>
+        <Slider />
         <div id="idk3"></div>
         <div id="idk4">
+          <div id="sup">{/* <Slider /> */}</div>
 
-          <div id="sup">
-            <Slider />
-          </div>
-        
           <div className="container-4">
             <div id="constrain">
               <GymDetails></GymDetails>
             </div>
-
-            
           </div>
-          
+
           <Calendar
-            style={style}
-            width="302px"
+            style={{
+              position: "relative",
+              margin: "50px auto",
+              width: "302px",
+            }}
             onDayClick={(e, day) => this.onDayClick(e, day)}
           />
+          <div>
+            <Localization id="mapid" />
+          </div>
         </div>
-      </>
+      </body>
     );
   }
 }

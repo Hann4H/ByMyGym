@@ -27,7 +27,6 @@
   font-family: Arial, Helvetica, sans-serif;
   background-color: var(--mainGrey);
   color: var(--mainBlack);
-
 }
 
 @media screen and (max-width: 768px) {
@@ -136,7 +135,7 @@
 
 #constrain {
   width: 0vw;
-  flex:2;
+  flex: 2;
 }
 
 .gym-info {
@@ -256,7 +255,6 @@
   height: auto;
 }
 
-
 .single-listing {
   border-radius: 3px;
   border: 2px solid var(--darkOrange);
@@ -313,13 +311,11 @@
   padding-top: 2rem;
 }
 
-
 #search-bar-place {
   text-align: center;
   padding-top: 3rem;
   font-size: 20px;
 }
-
 
 #gallery {
   font-size: 50px;
@@ -354,7 +350,7 @@
 
 #sup {
   width: 45%;
-  position:relative;
+  position: relative;
   z-index: 0;
 }
 
@@ -395,8 +391,6 @@
     0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07),
     0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
 }
-
-
 
 .container-3 {
   text-align: left;
@@ -614,12 +608,10 @@ ul.unstyled {
   padding-top: 40px;
 }
 
-
 .błagam {
   height: 100px;
-  width:100px;
+  width: 100px;
 }
-
 
 /*login*/
 
@@ -638,7 +630,6 @@ ul.unstyled {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
 }
 
 .login-background {
@@ -653,12 +644,11 @@ ul.unstyled {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
     0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07),
     0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
-
 }
 
 .login-form {
   padding-top: 10%;
-  display:flex;
+  display: flex;
   flex-direction: column;
   width: 70%;
   margin-left: auto;
@@ -681,23 +671,22 @@ ul.unstyled {
   color: var(--darkGrey);
 }
 
-
-.login-external button{
+.login-external button {
   width: 100%;
 }
 
-.login-external .firebaseui-idp-google .firebaseui-idp-text-long
-{
+.login-external .firebaseui-idp-google .firebaseui-idp-text-long {
   font-size: 0;
-}.login-external .firebaseui-idp-google .firebaseui-idp-text-long::after{
+}
+.login-external .firebaseui-idp-google .firebaseui-idp-text-long::after {
   font-size: 14px;
   content: "Zaloguj się z Google";
 }
 
-.login-external .firebaseui-idp-facebook .firebaseui-idp-text-long
-{
+.login-external .firebaseui-idp-facebook .firebaseui-idp-text-long {
   font-size: 0;
-}.login-external .firebaseui-idp-facebook .firebaseui-idp-text-long::after{
+}
+.login-external .firebaseui-idp-facebook .firebaseui-idp-text-long::after {
   font-size: 14px;
   content: "Zaloguj się z Facebook";
 }
@@ -717,6 +706,11 @@ ul.unstyled {
   .login-logo {
     display: none;
   }
-
 }
 
+/* style for map */
+.leaflet-container {
+  height: 400px;
+  width: 80%;
+  margin: 0 auto;
+}
