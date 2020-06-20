@@ -62,7 +62,7 @@ class SignUp extends Component{
                 <div className="login-wave"></div>
                 {/*<img className="login-wave" src={require("../img/wave.png")}></img>*/}
                 <div className="login-background">
-                    <img className="login-logo" src={require("../img/logo.png")}/>
+                    <Link to="/"><img className="login-logo" src={require("../img/logo.png")}/></Link>
                     <form className="login-form" noValidate autoComplete="off">
                         <TextField
                         name="name"

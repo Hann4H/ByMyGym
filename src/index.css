@@ -671,6 +671,10 @@ ul.unstyled {
   color: var(--darkGrey);
 }
 
+.login-link-signup span {
+  color: var(--darkOrange);
+}
+
 .login-external button {
   width: 100%;
 }
