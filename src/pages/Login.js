@@ -16,20 +16,17 @@ const uiConfig = {
 }
 
 class Login extends Component{
-    constructor(props)
+    constructor()
     {
-        super(props);
+        super();
         this.login = this.login.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.signup = this.signup.bind(this);
         this.state={
             email : "",
             password : ""
-        }
+        };
     }
-
-    
-
 
     login(e){
         e.preventDefault();
@@ -92,6 +89,7 @@ class Login extends Component{
                 </div>
                 
             </div>
+            
         )
     }
 }

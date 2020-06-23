@@ -8,6 +8,7 @@ import * as serviceWorker from "./serviceWorker";
 import { GymProvider } from "./Context";
 
 
+
 ReactDOM.render(
     <Router>
       <Route component={App} />

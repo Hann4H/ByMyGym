@@ -2,12 +2,24 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { FaAlignRight } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
+import firebase from '../firebase'
 
 class Nav extends Component {
-  state = {
-    error: "",
-    toggle: false,
-  };
+
+    constructor(props) {
+      super(props);
+      this.logout = this.logout.bind(this);
+      this.state = {
+        error: "",
+        toggle: false,
+      };
+  }
+
+
+  logout() {
+      firebase.auth().signOut();
+  }
+    
 
   Toggle = () => {
     this.setState({ toggle: !this.state.toggle });
@@ -45,11 +57,13 @@ class Nav extends Component {
                   <Link to="/add">DODAJ SALĘ</Link>
                 </button>
               </li>
-              <li>
-                <button>
-                  <Link to="/login">ZALOGUJ</Link>
-                </button>
-              </li>
+
+                <li>
+                  <button>
+                    <Link to="/login">ZALOGUJ</Link>
+                  </button>
+                </li>
+
           </ul>
         </div>
       </>

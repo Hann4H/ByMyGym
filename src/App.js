@@ -16,6 +16,8 @@ import GymProfile from "./pages/GymProfile";
 import firebase from "./firebase";
 import Footer from "./components/Footer";
 import Login from "./pages/Login";
+import UserProvder from "./UserProvider";
+import { UserContext } from "./UserProvider";
 
 class App extends Component {
   constructor(props) {
@@ -23,6 +25,7 @@ class App extends Component {
     this.state = {
       user: {},
     };
+    this.authListener = this.authListener.bind(this);
   }
   componentDidMount() {
     this.authListener();
@@ -31,14 +34,19 @@ class App extends Component {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({ user });
+        localStorage.setItem('user', user.uid);
       } else {
         this.setState({ user: null });
+        localStorage.removeItem('user');
       }
     });
   }
   render() {
+
     return (
+
       <div>
+        
         <Nav />
         <Switch>
           <div className="body">
@@ -52,7 +60,9 @@ class App extends Component {
         </Switch>
 
         <Footer />
+        
       </div>
+
     );
   }
 }
