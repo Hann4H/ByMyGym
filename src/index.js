@@ -6,12 +6,15 @@ import App from "./App";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
 import { GymProvider } from "./Context";
-
+import firebase from './firebase';
+import  AppContext  from "./Context";
 
 
 ReactDOM.render(
     <Router>
-      <Route component={App} />
+      <AppContext.Provider>
+        <App />
+      </AppContext.Provider>
     </Router>,
   document.getElementById("root")
 );

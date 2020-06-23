@@ -18,6 +18,7 @@ import Footer from "./components/Footer";
 import Login from "./pages/Login";
 import UserProvder from "./UserProvider";
 import { UserContext } from "./UserProvider";
+import Routes from "./Routes"
 
 class App extends Component {
   constructor(props) {
@@ -48,16 +49,7 @@ class App extends Component {
       <div>
         
         <Nav />
-        <Switch>
-          <div className="body">
-            <Route path="/" exact component={Home} />
-            <Route path="/404" exact component={Error} />
-            <Route path="/add" exact component={AddGym} />
-            <Route path="/login" exact component={Login} />
-            <Route path="/signup" exact component={SignUp} />
-            <Route path="/gym_profile" exact component={GymProfile} />
-          </div>
-        </Switch>
+        <Routes />
 
         <Footer />
         

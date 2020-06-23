@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import items from "./testData";
+const AppContext = React.createContext();
+export default AppContext;
 
 
-const GymContext = React.createContext();
+{/*const GymContext = React.createContext();
 
 
 
@@ -41,4 +43,4 @@ class GymProvider extends Component {
 
 const GymConsumer = GymContext.Consumer;
 
-export{GymProvider, GymConsumer, GymContext}
+export{GymProvider, GymConsumer, GymContext}*/}
