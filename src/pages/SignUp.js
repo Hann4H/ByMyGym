@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import firebase from "../firebase";
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import { AuthProvider } from "../AuthProvider";
 
 
 class SignUp extends Component{

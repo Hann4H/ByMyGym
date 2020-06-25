@@ -5,15 +5,10 @@ import "./navbar.css";
 import App from "./App";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
-import AuthContext, { AuthProvider } from "./AuthProvider"
-
-
 
 ReactDOM.render(
     <Router>   
-      <AuthProvider>
         <App />
-      </AuthProvider>
     </Router>,
   document.getElementById("root")
 );
