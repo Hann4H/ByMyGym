@@ -6,7 +6,7 @@ import Profile from "./components/Profile";
 import Nav from "./components/Nav";
 import { AuthProvider } from "./Auth/Auth";
 import Error from "./pages/Error";
-import SignUp from "./pages/SignUp";
+import SignUpComponent from "./pages/SignUp";
 import AddGym from "./pages/AddGym";
 import GymProfile from "./pages/GymProfile";
 import firebase from "./firebase";
@@ -21,7 +21,7 @@ const Routes = () => (
             <Route path="/404" exact component={Error} />
             <Route path="/add" exact component={AddGym} />
             <Route path="/login" exact component={Login} />
-            <Route path="/signup" exact component={SignUp} />
+            <Route path="/signup" exact component={SignUpComponent} />
             <Route path="/gym_profile" exact component={GymProfile} />
           </div>
     </Switch>

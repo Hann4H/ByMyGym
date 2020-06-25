@@ -5,16 +5,15 @@ import "./navbar.css";
 import App from "./App";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
-import { GymProvider } from "./Context";
-import firebase from './firebase';
-import  AppContext  from "./Context";
+import AuthContext, { AuthProvider } from "./AuthProvider"
+
 
 
 ReactDOM.render(
-    <Router>
-      <AppContext.Provider>
+    <Router>   
+      <AuthProvider>
         <App />
-      </AppContext.Provider>
+      </AuthProvider>
     </Router>,
   document.getElementById("root")
 );

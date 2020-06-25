@@ -1,9 +1,9 @@
-import React , { Component } from "react";
+import React , { Component, useContext } from "react";
 import { Link } from "react-router-dom";
 import firebase from "../firebase";
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-
+import { AuthProvider } from "../AuthProvider";
 
 
 class SignUp extends Component{
@@ -50,7 +50,7 @@ class SignUp extends Component{
     
     handleChange(e){
         this.setState({
-            [e.target.name] : e.target.value
+            [e.target.name] : e.target.value,
         })
     }
 
@@ -100,9 +100,18 @@ class SignUp extends Component{
                         />
                         <button onClick={this.signup}>Zarejestruj</button>
                     </form>
+                    
                 </div>
             </div>
         )
     }
 }
-export default SignUp;
+
+
+export function SignUpComponent() {
+
+  
+    return <SignUp></SignUp>
+  };
+
+export default SignUpComponent;
