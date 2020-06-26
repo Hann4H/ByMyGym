@@ -318,7 +318,7 @@
 }
 
 #gallery {
-  font-size: 50px;
+  font-size: 30px;
   text-align: center;
   width: 200%;
   margin-top: 10%;
@@ -333,8 +333,7 @@
 
 .container-2 {
   display: flex;
-  justify-content: right;
-
+  justify-content: flex-end;
   vertical-align: middle;
 }
 
