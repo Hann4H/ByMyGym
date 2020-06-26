@@ -30,7 +30,7 @@ class Home extends Component {
           <Listing />
         </div>
         <div id="pls"></div>
-        <JsonData></JsonData>
+        {/*<JsonData></JsonData>*/}
         {/*}
         <div id="testSlider">
           <Slider></Slider>
