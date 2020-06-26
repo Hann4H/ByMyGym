@@ -51,7 +51,7 @@ export default function gymForm() {
         })
 
         const key = ref.id;
-        const uploadTask = storage.ref(`/${ref.id}/${imageAsFile.name}`).put(imageAsFile);
+        const uploadTask = storage.ref(`/${ref.id}/1.png`).put(imageAsFile);
 
         uploadTask
             .then(uploadTaskSnapshot => {

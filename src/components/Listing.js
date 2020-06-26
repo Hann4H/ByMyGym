@@ -42,6 +42,13 @@ state = { Gyms: [] };
 
     }
 
+    image(id) {
+      firebase.storage().ref().child(`${id}/1.png`).getDownloadURL().then(url => {
+        console.log(url)
+        return url;
+
+    })}
+
     
 
     render() {
@@ -53,7 +60,9 @@ state = { Gyms: [] };
                     return (
                         <div className="single-listing">
                             <div className="listing-content">
-                                <div className="place-for-img"><ListingImg id={gym.id}></ListingImg></div>
+                                <div className="place-for-img">
+                                  <img id="myimg" src={this.image(gym.id)} />
+                                </div>
                                 <div className="gym-short-info">                            
                                     <h3 className="listing-header">{gym.gymName}</h3>
                                     <p>Adres: {gym.street}, {gym.city} {gym.zip}</p>
