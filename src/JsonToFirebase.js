@@ -11,8 +11,7 @@ function JsonToFirebase(props) {
         db.collection('gyms').add({
             gymName: item.properties.nazwa,
             street: item.properties.adres,
-            city: item.properties.miasto,
-            id: ref.id
+            city: item.properties.miasto
         })    
     ))
 
