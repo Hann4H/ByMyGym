@@ -10,6 +10,9 @@ li {
   color: black;
   position: fixed;
   z-index: 9999;
+  -webkit-box-shadow: 0 8px 6px -6px var(--darkGrey);
+    -moz-box-shadow: 0 8px 6px -6px var(--darkGrey);
+    box-shadow: 0 8px 6px -6px var(--darkGrey);
 }
 
 .navBar li {
