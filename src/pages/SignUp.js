@@ -9,34 +9,21 @@ class SignUp extends Component{
     constructor(props)
     {
         super(props);
-        this.login = this.login.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.signup = this.signup.bind(this);
         this.state={
             email : "",
             password : "",
             name: "",
-            surname: ""
+            surname: "",
+            number: ""
         }
     }
 
     componentDidMount() {
-        const script = document.createElement("script");
-    
-        script.src = "https://www.gstatic.com/firebasejs/ui/4.5.1/firebase-ui-auth__pl.js";
-        script.async = true;
-    
-        document.body.appendChild(script);
+
       }
 
-    login(e){
-        e.preventDefault();
-        firebase.auth().signInWithEmailAndPassword(this.state.email,this.state.password).then((u)=>{
-            console.log(u)
-        }).catch((err)=>{
-            console.log(err);
-        })
-    }
 
     signup(e){
         e.preventDefault();
@@ -86,6 +73,15 @@ class SignUp extends Component{
                         placeholder="adres e-mail"
                         onChange={this.handleChange}
                         value={this.state.email}
+                        color="secondary"
+                        />
+                        <TextField
+                        type="string"
+                        id="number"
+                        name="number"
+                        placeholder="numer telefonu"
+                        onChange={this.handleChange}
+                        value={this.state.number}
                         color="secondary"
                         />
                         <TextField

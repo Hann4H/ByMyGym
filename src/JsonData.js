@@ -1,53 +1,54 @@
 import React, { useEffect, useState, Component } from 'react';
+import { divIcon } from 'leaflet';
 
 
-const JsonData = () => {
+class JsonData extends Component {
 
-    const initialState = {};
+    constructor(props) {
 
-    const [halls, setHalls] = useState([]);
+        super(props);
 
-    const names = []; 
-
-    useEffect( () => {
-        getHalls();
-    }, []);
-
-    const getHalls = async () => {
-        const response = await fetch(`https://www.poznan.pl/mim/plan/map_service.html?mtype=pub_transport&co=class_objects&class_id=331&lang=pl&fbclid=IwAR2NxBA6WgC3kymw6uG8ZTfHPvOkAOfhn-d54FNCATm2yWt79JDTgJaKIq0`);
-        const data = await response.json();
-        const halls = data.features;
-        console.log(halls[0].properties.nazwa);
-        console.log(halls);
-        getDetails(halls);
-        console.log(names);
-        
-        
+        this.state = {
+            items: [],
+            isLoaded: false
+        }
 
     }
 
-    const getDetails = (data) => {
-        const details = data.map(hall => {
-            const names = hall.properties.nazwa;
-        })
+    componentDidMount() {
+
+        fetch(`https://www.poznan.pl/mim/plan/map_service.html?mtype=pub_transport&co=class_objects&class_id=331&lang=pl&fbclid=IwAR2NxBA6WgC3kymw6uG8ZTfHPvOkAOfhn-d54FNCATm2yWt79JDTgJaKIq0`)
+            .then(res => res.json())
+            .then(json => {
+                this.setState({
+                    items: json.features,
+                    isLoaded: true, 
+                })
+                console.log(json.features)
+            }).catch((err) => {
+                console.log(err);
+            });
+
     }
 
 
 
+    render() {
+        const { isLoaded, items } = this.state;
+
+        if(!isLoaded)
+            return <div>Loading...</div>
 
         return (
-
-            <div>
-                
-                {
-                halls.map(function(hall, i) {
-                    console.log(halls)
-                    return <li key={i}>{hall}</li>
-                })
-                }
-            </div>
+            <ul>
+                {items.map(item => (
+                    <li key={item.id}>
+                        {item.properties.nazwa}
+                    </li>
+                ))}
+            </ul>
         )
-   
+  }
 }
 
 export default JsonData;
