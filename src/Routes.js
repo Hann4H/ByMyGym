@@ -23,6 +23,7 @@ const Routes = () => (
             <Route path="/login" exact component={Login} />
             <Route path="/signup" exact component={SignUpComponent} />
             <Route path="/gym_profile" exact component={GymProfile} />
+            {/*<Route path='/profile' exact component={Profile} />*/}
           </div>
     </Switch>
 
