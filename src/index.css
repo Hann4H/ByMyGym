@@ -717,3 +717,17 @@ ul.unstyled {
   width: 80%;
   margin: 0 auto;
 }
+
+
+/* drag and drop */
+.drag-drop-duo {
+  display: flex;
+  flex-direction: column;
+}
+
+.drag-drop-button {
+  font-size: 15px;
+  padding: 0px;
+  height: 2rem;
+  max-width: 5rem;
+}

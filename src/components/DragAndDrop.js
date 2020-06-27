@@ -66,13 +66,23 @@ function Previews(props) {
     },
   });
 
+  const removeFile = file => () => {
+    const newFiles = [...files]
+    newFiles.splice(newFiles.indexOf(file), 1)
+    setFiles(newFiles)
+  }
+
   const thumbs = files.map((file) => (
-    <div style={thumb} key={file.name}>
-      <div style={thumbInner}>
-        <img src={file.preview} style={img} />
+    <div className="drag-drop-duo">
+      <div style={thumb} key={file.name}>
+        <div style={thumbInner}>
+          <img src={file.preview} style={img} />
+        </div>
       </div>
+      <button className="drag-drop-button" onClick={removeFile(file)}>Usuń</button>
     </div>
   ));
+
 
   useEffect(
     () => () => {
