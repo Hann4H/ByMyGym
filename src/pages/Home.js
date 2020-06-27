@@ -5,10 +5,10 @@ import Banner from "../components/Banner";
 import Services from "../components/Services";
 import Listing from "../components/Listing";
 import Loading from "../components/Loading";
+import JsonData from "../JsonData";
 
 class Home extends Component {
   render() {
-
     return (
       <>
         <Hero>
@@ -27,14 +27,14 @@ class Home extends Component {
           <Listing />
         </div>
         <div id="pls"></div>
-        {/*<JsonData></JsonData>*/}
-        {/*}
-        <div id="testSlider">
+        <JsonData></JsonData>
+
+        {/* <div id="testSlider">
           <Slider></Slider>
         </div>
         
         <SampleGyms />
-        <ListingImg></ListingImg>*/}
+        <ListingImg></ListingImg> */}
       </>
     );
   }

@@ -7,14 +7,18 @@ import GymDetails from "../components/GymDetails";
 import Calendar from "../components/Calendar";
 import Slider from "../components/Slider";
 import Localization from "../components/Localization";
-import SportsFacilities from "../components/SportsFacilities";
+import HallProfile from "../components/HallProfile";
 
 class Home extends Component {
   onDayClick = (e, day) => {
     alert(day);
   };
-
   render() {
+    const { hall } = this.props.location.state;
+
+    console.log("TU POWINNO BYC ID:");
+    console.log(hall);
+
     return (
       <body>
         <Slider />
@@ -36,8 +40,7 @@ class Home extends Component {
             }}
             onDayClick={(e, day) => this.onDayClick(e, day)}
           />
-
-          <SportsFacilities></SportsFacilities>
+          <HallProfile hall={hall} />
         </div>
       </body>
     );
