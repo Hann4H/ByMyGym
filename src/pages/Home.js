@@ -2,12 +2,9 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Hero from "../components/Hero";
 import Banner from "../components/Banner";
-import Slider from "../components/Slider";
 import Services from "../components/Services";
-import SampleGyms from "../components/SampleGyms";
 import Listing from "../components/Listing";
-import ListingImg from "../components/ListingImg";
-import JsonData from '../JsonData';
+import Loading from "../components/Loading";
 
 class Home extends Component {
   render() {
