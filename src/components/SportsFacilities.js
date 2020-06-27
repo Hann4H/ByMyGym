@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import HallProfile from "./HallProfile";
+import Loading from "./Loading";
 
 export default class SportsFacilities extends Component {
   constructor(props) {
@@ -40,7 +41,7 @@ export default class SportsFacilities extends Component {
     if (error) {
       return <div>Błąd: {error.message}</div>;
     } else if (!isLoaded) {
-      return <div>Ładowanie...</div>;
+      return <div className="loading-container"><Loading /></div>;
     } else {
       return (
         <ul style={{ listStyleType: "none" }}>

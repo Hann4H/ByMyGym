@@ -2,6 +2,7 @@ import React, { useEffect, useState, Component } from 'react';
 import { divIcon } from 'leaflet';
 import firebase from "./firebase"
 import JsonToFirebase from "./JsonToFirebase"
+import Loading from "./components/Loading";
 
 class JsonData extends Component {
 
@@ -39,7 +40,7 @@ class JsonData extends Component {
         const { isLoaded, items } = this.state;
 
         if(!isLoaded)
-            return <div>Loading...</div>
+            return <div className="loading-container"><Loading /></div>
 
         return (
             <>

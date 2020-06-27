@@ -3,7 +3,7 @@ import loadingGif from "../img/loading.gif"
 
 const Loading = () => {
   return (
-    <div className="loading">
+    <div>
       <img className="loading-gif" src={loadingGif} alt="" />
     </div>
   );
