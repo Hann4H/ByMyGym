@@ -73,11 +73,13 @@ class Listing extends Component {
                   {this.image(gym.id) ? (
                     <img id="myimg" src={this.image(gym.id)} alt="gym" />
                   ) : (
+                    <div className="place-for-img">
                     <img
                       id="myimg"
                       src={require("../img/no_image.svg.png")}
                       alt="nothing"
                     />
+                    </div>
                   )}
                 </div>
                 <div className="gym-short-info">

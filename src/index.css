@@ -255,6 +255,12 @@
   height: auto;
 }
 
+#myimg {
+  width: 15rem;
+  margin-left: 7rem;
+  margin-top: 3rem;
+}
+
 .single-listing {
   border-radius: 3px;
   border: 2px solid var(--darkOrange);
@@ -741,3 +747,4 @@ ul.unstyled {
   text-align:center;
   display:block;
 }
+
