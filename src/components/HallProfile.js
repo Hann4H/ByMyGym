@@ -12,21 +12,34 @@ const textStyle = {
 
 class HallProfile extends Component {
   render() {
-    const position = [
-      this.props.hall.geometry.coordinates[1],
-      this.props.hall.geometry.coordinates[0],
-    ];
+    // const position = [
+    //   this.props.hall.geometry.coordinates[1],
+    //   this.props.hall.geometry.coordinates[0],
+    // ];
+    // const id = this.props.hall.id;
+    // const kod = this.props.hall.properties.kod;
+    // const nazwa = this.props.hall.properties.nazwa;
+    // const url = this.props.hall.properties.url;
+    // const opis_klasy = this.props.hall.properties.opis_klasy;
+    // const telefon = this.props.hall.properties.telefon;
+    // const adres = this.props.hall.properties.adres;
+    // const miasto = this.props.hall.properties.miasto;
+    // const email = this.props.hall.properties.email;
+    // const grafika = this.props.hall.properties.grafika;
+    // const opis = this.props.hall.properties.opis;
+
+    const position = [this.props.hall.lat, this.props.hall.lng];
     const id = this.props.hall.id;
-    const kod = this.props.hall.properties.kod;
-    const nazwa = this.props.hall.properties.nazwa;
-    const url = this.props.hall.properties.url;
-    const opis_klasy = this.props.hall.properties.opis_klasy;
-    const telefon = this.props.hall.properties.telefon;
-    const adres = this.props.hall.properties.adres;
-    const miasto = this.props.hall.properties.miasto;
-    const email = this.props.hall.properties.email;
-    const grafika = this.props.hall.properties.grafika;
-    const opis = this.props.hall.properties.opis;
+    const kod = this.props.hall.kod;
+    const nazwa = this.props.hall.nazwa;
+    const url = this.props.hall.url;
+    const opis_klasy = this.props.hall.opis_klasy;
+    const telefon = this.props.hall.telefon;
+    const adres = this.props.hall.adres;
+    const miasto = this.props.hall.miasto;
+    const email = this.props.hall.email;
+    const grafika = this.props.hall.grafika;
+    const opis = this.props.hall.opis;
 
     return (
       <div style={{ padding: "10px " }}>
