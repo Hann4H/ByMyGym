@@ -731,3 +731,14 @@ ul.unstyled {
   height: 2rem;
   max-width: 5rem;
 }
+
+/* loading */
+.loading-gif {
+  height: 5rem;
+} 
+
+
+.loading-container {
+  text-align:center;
+  display:block;
+}
