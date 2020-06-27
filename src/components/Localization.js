@@ -9,7 +9,8 @@ class Localization extends Component {
   };
 
   render() {
-    const position = [this.state.lat, this.state.lng];
+    // const position = [this.state.lat, this.state.lng];
+    const position = this.props.position;
     return (
       <Map center={position} zoom={this.state.zoom}>
         <TileLayer

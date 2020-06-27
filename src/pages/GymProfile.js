@@ -7,6 +7,7 @@ import GymDetails from "../components/GymDetails";
 import Calendar from "../components/Calendar";
 import Slider from "../components/Slider";
 import Localization from "../components/Localization";
+import SportsFacilities from "../components/SportsFacilities";
 
 class Home extends Component {
   onDayClick = (e, day) => {
@@ -36,7 +37,7 @@ class Home extends Component {
             onDayClick={(e, day) => this.onDayClick(e, day)}
           />
 
-          <Localization id="mapid" />
+          <SportsFacilities></SportsFacilities>
         </div>
       </body>
     );
