@@ -48,6 +48,7 @@ const styleContainer = {
   color: "#bdbdbd",
   outline: "none",
   transition: "border .24s ease-in-out",
+  cursor: "pointer",
 };
 
 function Previews(props) {
