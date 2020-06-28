@@ -18,6 +18,8 @@ class Listing extends Component {
 
         querySnapshot.forEach(function(doc) {
           Gyms.push({
+            docId: doc.id,
+
             gymName: doc.data().gymName,
             street: doc.data().street,
             zip: doc.data().zip,
@@ -50,17 +52,17 @@ class Listing extends Component {
       });
   }
 
-  image(id) {
-    firebase
-      .storage()
-      .ref()
-      .child(`${id}/1.png`)
-      .getDownloadURL()
-      .then((url) => {
-        console.log(url);
-        return url;
-      });
-  }
+  // image(id) {
+  //   firebase
+  //     .storage()
+  //     .ref()
+  //     .child(`${id}/1.png`)
+  //     .getDownloadURL()
+  //     .then((url) => {
+  //       console.log(url);
+  //       return url;
+  //     });
+  // }
 
   render() {
     return (
@@ -70,7 +72,7 @@ class Listing extends Component {
             <div className="single-listing">
               <div className="listing-content">
                 <div className="place-for-img">
-                  {this.image(gym.id) ? (
+                  {/* {this.image(gym.id) ? (
                     <img id="myimg" src={this.image(gym.id)} alt="gym" />
                   ) : (
                     <div className="place-for-img">
@@ -80,7 +82,7 @@ class Listing extends Component {
                         alt="nothing"
                       />
                     </div>
-                  )}
+                  )} */}
                 </div>
                 <div className="gym-short-info">
                   <h3 className="listing-header">{gym.gymName}</h3>
@@ -94,8 +96,7 @@ class Listing extends Component {
 
                   <Link
                     to={{
-                      pathname: `/gym_profile/00d4ketGH6NrN2HO1xlf`,
-                      // pathname: `/gym_profile/${gym.id}`,
+                      pathname: `/gym_profile/${gym.docId}`,
                     }}
                   >
                     <button>więcej informacji</button>
