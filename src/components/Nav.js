@@ -25,9 +25,15 @@ class Nav extends Component {
       if (user) {
         this.setState({ user });
         localStorage.setItem("user", user.uid);
+        localStorage.setItem("email", user.email);
+        localStorage.setItem("photoURL", user.photoURL);
+        localStorage.setItem("user_name", user.displayName);
       } else {
         this.setState({ user: null });
         localStorage.removeItem("user");
+        localStorage.removeItem("email");
+        localStorage.removeItem("photoURL");
+        localStorage.removeItem("user_name");
       }
     });
   }
@@ -43,6 +49,22 @@ class Nav extends Component {
   render() {
     if (window.location.pathname === "/signup") return null;
     if (window.location.pathname === "/login") return null;
+
+    let name;
+    var user = firebase.auth().currentUser;
+    if (user != null) {
+      user.providerData.forEach(function(profile) {
+        console.log("Sign-in provider: " + profile.providerId);
+        console.log("  Provider-specific UID: " + profile.uid);
+        console.log("  Name: " + profile.displayName);
+        name = profile.displayName;
+        console.log("  Email: " + profile.email);
+        console.log("  Photo URL: " + profile.photoURL);
+      });
+    } else {
+      console.log("user is null :(");
+    }
+
     return (
       <>
         <div className="navBar">
@@ -71,6 +93,15 @@ class Nav extends Component {
               <button>
                 <Link to="/add">DODAJ SALĘ</Link>
               </button>
+            </li>
+            <li>
+              {this.state.user ? (
+                <button>
+                  <Link to="/profile">{name}</Link>
+                </button>
+              ) : (
+                ""
+              )}
             </li>
             <li>
               {this.state.user ? (

@@ -5,6 +5,8 @@ import "firebase/storage";
 import ListingImg from "./ListingImg";
 import { Link, withRouter } from "react-router-dom";
 
+const db = firebase.firestore();
+
 class Listing extends Component {
   state = { Gyms: [] };
 
@@ -12,9 +14,19 @@ class Listing extends Component {
     firebase
       .firestore()
       .collection("gyms")
+      .orderBy("nazwa")
+      .limit(10)
       .get()
       .then((querySnapshot) => {
         const Gyms = [];
+        var lastVisible = querySnapshot.docs[querySnapshot.docs.length - 1];
+        console.log("last", lastVisible);
+
+        // var next = db
+        //   .collection("cities")
+        //   .orderBy("nazwa")
+        //   .startAfter(lastVisible)
+        //   .limit(10);
 
         querySnapshot.forEach(function(doc) {
           Gyms.push({
@@ -67,9 +79,9 @@ class Listing extends Component {
   render() {
     return (
       <div>
-        {this.state.Gyms.map((gym) => {
+        {this.state.Gyms.map((gym, index) => {
           return (
-            <div className="single-listing">
+            <div key={index} className="single-listing">
               <div className="listing-content">
                 <div className="place-for-img">
                   {/* {this.image(gym.id) ? (
