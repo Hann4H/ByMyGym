@@ -241,10 +241,24 @@
 /* single listing */
 .listing-content {
   display: flex;
+
+}
+
+@media screen and (max-width: 1200px) {
+  .listing-content {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .place-for-img {
   width: 500px;
+}
+
+@media screen and (max-width: 780px) {
+  .place-for-img {
+    width: 200px;
+  }
 }
 
 .place-for-img img {
@@ -261,11 +275,23 @@
   margin-top: 3rem;
 }
 
+@media screen and (max-width: 780px) {
+  #myimg {
+    width:10rem;
+  }
+}
+
 .single-listing {
   border-radius: 3px;
   border: 2px solid var(--darkOrange);
   margin: 5rem;
   height: auto;
+}
+
+@media screen and (max-width: 780px) {
+  .single-listing {
+    margin: 1rem;
+  }
 }
 
 .gym-short-info {
