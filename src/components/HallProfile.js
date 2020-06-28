@@ -36,18 +36,9 @@ class HallProfile extends Component {
   }
 
   render() {
-    const lat = this.state.data.lat;
-    const lng = this.state.data.lng;
-    console.log("lat:" + typeof this.props.hall.lat);
-    console.log("lat:" + this.props.hall.lat);
-    console.log("lat:" + typeof lat);
-    console.log("lat:" + lat);
-    console.log("lng:" + typeof this.props.hall.lng);
-    console.log("lng:" + this.props.hall.lng);
-    console.log("lng:" + typeof lng);
-    console.log("lng:" + lng);
-    const position = [this.props.hall.lat, this.props.hall.lng];
-    // const position = [lat, lng];
+    const lat = this.state.data.lat ? this.state.data.lat : 52.409538;
+    const lng = this.state.data.lng ? this.state.data.lng : 16.931992;
+    const position = [lat, lng];
     const kod = this.state.data.kod;
     const nazwa = this.state.data.nazwa;
     const url = this.state.data.url;

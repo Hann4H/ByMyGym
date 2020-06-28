@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import SimpleImageSlider from "react-simple-image-slider";
-import Media from "react-media";
 
 // const GLOBAL_MEDIA_QUERIES = {
 //   small: "(max-width: 599px)",
@@ -37,7 +36,7 @@ class Slider extends Component {
     return (
       <div>
         <SimpleImageSlider
-          width={this.state.width}
+          width={this.state.width - 400}
           height={504}
           images={images}
         />
