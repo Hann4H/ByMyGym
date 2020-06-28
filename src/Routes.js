@@ -14,19 +14,17 @@ import Footer from "./components/Footer";
 import Login from "./pages/Login";
 
 const Routes = () => (
-
-    <Switch>
-          <div className="body">
-            <Route path="/" exact component={Home} />
-            <Route path="/404" exact component={Error} />
-            <Route path="/add" exact component={AddGym} />
-            <Route path="/login" exact component={Login} />
-            <Route path="/signup" exact component={SignUpComponent} />
-            <Route path="/gym_profile" exact component={GymProfile} />
-            {/*<Route path='/profile' exact component={Profile} />*/}
-          </div>
-    </Switch>
-
+  <Switch>
+    <div className="body">
+      <Route path="/" exact component={Home} />
+      <Route path="/404" exact component={Error} />
+      <Route path="/add" exact component={AddGym} />
+      <Route path="/login" exact component={Login} />
+      <Route path="/signup" exact component={SignUpComponent} />
+      <Route path="/gym_profile/:id" component={GymProfile} />
+      {/*<Route path='/profile' exact component={Profile} />*/}
+    </div>
+  </Switch>
 );
 
 export default Routes;

@@ -1,7 +1,7 @@
-import React, { useEffect, useState, Component } from 'react';
-import { divIcon } from 'leaflet';
-import firebase from "./firebase"
-import JsonToFirebase from "./JsonToFirebase"
+import React, { useEffect, useState, Component } from "react";
+import { divIcon } from "leaflet";
+import firebase from "./firebase";
+import JsonToFirebase from "./JsonToFirebase";
 import Loading from "./components/Loading";
 
 class JsonData extends Component {
@@ -39,11 +39,11 @@ class JsonData extends Component {
     return (
       <>
         {/* <JsonToFirebase json={items}></JsonToFirebase> */}
-        <ul>
+        {/* <ul>
           {items.map((item) => (
             <li key={item.id}>{item.properties.nazwa}</li>
           ))}
-        </ul>
+        </ul> */}
       </>
     );
   }

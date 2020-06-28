@@ -9,7 +9,7 @@ import Slider from "../components/Slider";
 import Localization from "../components/Localization";
 import HallProfile from "../components/HallProfile";
 
-class Home extends Component {
+class GymProfile extends Component {
   onDayClick = (e, day) => {
     alert(day);
   };
@@ -17,10 +17,10 @@ class Home extends Component {
     const { hall } = this.props.location.state;
 
     console.log("TU POWINNO BYC ID:");
-    console.log(hall);
+    console.log(this.props.match.params.id);
 
     return (
-      <body>
+      <>
         <Slider />
         <div id="idk3"></div>
         <div id="idk4">
@@ -40,11 +40,13 @@ class Home extends Component {
             }}
             onDayClick={(e, day) => this.onDayClick(e, day)}
           />
-          <HallProfile hall={hall} />
+          <HallProfile hall={hall} dataId={this.props.match.params.id} />
+
+          {/* <GymDetails></GymDetails> */}
         </div>
-      </body>
+      </>
     );
   }
 }
 
-export default Home;
+export default GymProfile;

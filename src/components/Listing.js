@@ -74,11 +74,11 @@ class Listing extends Component {
                     <img id="myimg" src={this.image(gym.id)} alt="gym" />
                   ) : (
                     <div className="place-for-img">
-                    <img
-                      id="myimg"
-                      src={require("../img/no_image.svg.png")}
-                      alt="nothing"
-                    />
+                      <img
+                        id="myimg"
+                        src={require("../img/no_image.svg.png")}
+                        alt="nothing"
+                      />
                     </div>
                   )}
                 </div>
@@ -94,7 +94,9 @@ class Listing extends Component {
 
                   <Link
                     to={{
-                      pathname: "/gym_profile",
+                      pathname: `/gym_profile/00d4ketGH6NrN2HO1xlf`,
+                      // pathname: `/gym_profile/${gym.id}`,
+                      query: { the: "query" },
                       state: {
                         hall: gym,
                       },
