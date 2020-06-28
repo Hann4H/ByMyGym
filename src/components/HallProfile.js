@@ -46,7 +46,7 @@ class HallProfile extends Component {
     const adres = this.state.data.adres;
     const miasto = this.state.data.miasto;
     const email = this.state.data.email;
-    const grafika = this.state.data.grafika;
+    // const grafika = this.state.data.grafika;
     const opis = this.state.data.opis;
 
     return (

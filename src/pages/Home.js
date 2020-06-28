@@ -4,7 +4,6 @@ import Hero from "../components/Hero";
 import Banner from "../components/Banner";
 import Services from "../components/Services";
 import Listing from "../components/Listing";
-import Loading from "../components/Loading";
 import JsonData from "../JsonData";
 
 class Home extends Component {

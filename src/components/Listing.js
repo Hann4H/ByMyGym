@@ -96,10 +96,6 @@ class Listing extends Component {
                     to={{
                       pathname: `/gym_profile/00d4ketGH6NrN2HO1xlf`,
                       // pathname: `/gym_profile/${gym.id}`,
-                      // query: { the: "query" },
-                      // state: {
-                      //   hall: gym,
-                      // },
                     }}
                   >
                     <button>więcej informacji</button>

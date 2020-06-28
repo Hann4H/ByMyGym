@@ -1,57 +1,52 @@
-import React, { Component, useState, useEffect, useContext } from "react";
-import { Link, withRouter } from "react-router-dom";
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { FaAlignRight } from "react-icons/fa";
 import { FaSearch } from "react-icons/fa";
-import firebase from '../firebase'
-
+import firebase from "../firebase";
 
 class Nav extends Component {
-
   constructor(props) {
     super(props);
     this.logout = this.logout.bind(this);
     this.state = {
       user: {},
       error: "",
-      toggle: false
+      toggle: false,
     };
     this.authListener = this.authListener.bind(this);
-}
+  }
 
   componentDidMount() {
-    this.authListener(); 
-}
-
+    this.authListener();
+  }
 
   authListener() {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({ user });
-        localStorage.setItem('user', user.uid);
+        localStorage.setItem("user", user.uid);
       } else {
         this.setState({ user: null });
-        localStorage.removeItem('user');
-
+        localStorage.removeItem("user");
       }
     });
-}
+  }
 
   logout() {
-      firebase.auth().signOut();
+    firebase.auth().signOut();
   }
-    
 
   Toggle = () => {
     this.setState({ toggle: !this.state.toggle });
   };
 
   render() {
-    if (window.location.pathname === '/signup') return null;
-    if (window.location.pathname === '/login') return null;
+    if (window.location.pathname === "/signup") return null;
+    if (window.location.pathname === "/login") return null;
     return (
       <>
         <div className="navBar">
-          <button class="hamburger-button" onClick={this.Toggle}>
+          <button className="hamburger-button" onClick={this.Toggle}>
             <FaAlignRight />
           </button>
           <ul
@@ -67,31 +62,30 @@ class Nav extends Component {
               </Link>
             </li>
             <li style={{ width: "100%" }}></li>
-              <li>
-                <button className="searchButton">
-                  <FaSearch size="30px"></FaSearch>
-                </button>
-              </li>
-              <li>
+            <li>
+              <button className="searchButton">
+                <FaSearch size="30px"></FaSearch>
+              </button>
+            </li>
+            <li>
+              <button>
+                <Link to="/add">DODAJ SALĘ</Link>
+              </button>
+            </li>
+            <li>
+              {this.state.user ? (
+                <button onClick={this.logout}>WYLOGUJ</button>
+              ) : (
                 <button>
-                  <Link to="/add">DODAJ SALĘ</Link>
+                  <Link to="login">ZALOGUJ</Link>
                 </button>
-              </li>
-              <li>
-              {this.state.user ?
-                <button onClick={this.logout}>WYLOGUJ</button>                
-                :
-                <button><Link to='login'>ZALOGUJ</Link></button>              
-              
-              }
-            
+              )}
             </li>
           </ul>
         </div>
       </>
-  );
+    );
+  }
 }
-}
-
 
 export default Nav;
