@@ -22,32 +22,41 @@ class Profile extends Component {
 
     return (
       <>
-        <div id="slash"></div>
-        <div id="idk3"></div>
-        <div className="profile-info">
-          <div className="profile-div">
-            <img
-              className="profile-picture"
-              src={localStorage.getItem("photoURL")}
-              alt="profile pic"
-            />
-            <h1>{localStorage.getItem("user_name")}</h1>
-          </div>
-          <div className="profile-info-table">
-            <table className="table table-borderless">
-              <tbody>
-                <tr>
-                  <td className="headline-info">Full Name</td>
-                  <td>{localStorage.getItem("user_name")}</td>
-                </tr>
-                <tr>
-                  <td className="headline-info">Email</td>
-                  <td>{localStorage.getItem("email")}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+
+
+        <div className="login-page">
+        <div className="login-wave"></div>
+
+        <div className="profile-container">
+
+
+            <div className="profile-div">
+              <img
+                className="profile-picture"
+                src={localStorage.getItem("photoURL")}
+                alt="profile pic"
+              />
+              <h1>{localStorage.getItem("user_name")}</h1>
+            </div>
+            <div className="profile-info-table">
+              <table className="table table-borderless">
+                <tbody>
+                  <tr className="profile-info">
+                    <td className="headline-info">Full Name</td>
+                    <td>{localStorage.getItem("user_name")}</td>
+                  </tr>
+                  <tr className="profile-info">
+                    <td className="headline-info">Email</td>
+                    <td>{localStorage.getItem("email")}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <button className="profile-gym-button">ZARZĄDZAJ SALAMI</button>
+
         </div>
+        </div>
+
 
         <pre style={{ display: "none" }}>{JSON.stringify(user, null, 2)}</pre>
       </>
