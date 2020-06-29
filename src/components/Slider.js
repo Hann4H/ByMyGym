@@ -36,7 +36,7 @@ class Slider extends Component {
     return (
       <div>
         <SimpleImageSlider
-          width={this.state.width - 400}
+          width={"70vw"}
           height={504}
           images={images}
         />
