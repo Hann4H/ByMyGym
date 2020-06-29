@@ -117,11 +117,17 @@
   padding-top: 3rem;
   padding-bottom: 1rem;
   margin-left: 5rem;
-  font-size: 40px;
+  font-size: 30px;
   letter-spacing: var(--mainSpacing);
   font-weight: 100;
   color: var(--darkGrey);
   font-family: "Lato";
+}
+
+@media screen and (max-width: 768px) {
+  .gym-name {
+    font-size: 20px;
+  }
 }
 
 .gym-details {
@@ -133,6 +139,11 @@
   word-break: normal;
 }
 
+.external-url {
+  text-decoration: none;
+  color: var(--mainOrange);
+}
+
 #constrain {
   width: 0vw;
   flex: 2;
@@ -141,12 +152,25 @@
 .gym-info {
   margin-left: 5rem;
   margin-top: 0rem;
+  font-size: 1rem;
 }
 
 .gym-info p {
   margin-bottom: 1rem;
   font-size: 20px;
   color: var(--darkGrey);
+}
+
+.gym-button {
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  margin-bottom: 10rem;
+}
+
+.map {
+  margin: 2rem;
 }
 
 #address {
@@ -374,6 +398,13 @@
   width: 95%;
   justify-content: space-between;
 }
+
+.gym-name {
+  text-transform: uppercase;
+}
+
+.gym-info
+
 
 #container-6 {
   display: flex;

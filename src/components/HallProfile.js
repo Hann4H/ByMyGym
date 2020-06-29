@@ -17,6 +17,7 @@ class HallProfile extends Component {
   constructor(props) {
     super(props);
     this.state = { data: [] };
+    this.showing = false;
   }
 
   async componentDidMount(props) {
@@ -49,32 +50,41 @@ class HallProfile extends Component {
     // const grafika = this.state.data.grafika;
     const opis = this.state.data.opis;
 
+    const { showing } = this.state;
+
     return (
-      <div style={{ padding: "10px " }}>
-        <h1 style={{ textAlign: "center", color: "var(--darkOrange)" }}>
+      <div>
+        <h1 className="gym-name" style={{ color: "var(--darkOrange)" }}>
           {nazwa}
         </h1>
-        <p style={nameStyle}>Opis</p>
-        <p style={textStyle} dangerouslySetInnerHTML={{ __html: opis }} />
-        <br />
-        <p style={nameStyle}>Adres</p>
-        <p style={textStyle}>
-          {adres}, {kod} {miasto}
-        </p>
-        <br />
-        <p style={nameStyle}>Strona WWW</p>
-        <p style={textStyle}>{url}</p>
-        <br />
-        <p style={nameStyle}>E-mail</p>
-        <p style={textStyle}>{email}</p>
-        <br />
-        <p style={nameStyle}>Telefon</p>
-        <p style={textStyle}>{telefon}</p>
-        <br />
+        
+          <div className="gym-details">
+            <p style={nameStyle}>Opis</p>
+            <p style={textStyle} dangerouslySetInnerHTML={{ __html: opis }} />
+            <br />
+            <p style={nameStyle}>Adres</p>
+            <p style={textStyle}>
+              {adres}, {kod} {miasto}
+            </p>
+            <br />
+            <p style={nameStyle}>Strona WWW</p>
+            <a href={'http ://' + url} className="external-url"><p>{url}</p></a>
+            <br />
+            <p style={nameStyle}>E-mail</p>
+            <p style={textStyle}>{email}</p>
+            <br />
+            <p style={nameStyle}>Telefon</p>
+            <p style={textStyle}>{telefon}</p>
+          </div>
+          <div className="map">
+          <Localization position={position} />
+        </div>
+        <button className="gym-button" onClick={() => this.setState({ showing: !showing })}>ZAREZERWUJ</button>
+                { showing 
+                    ? <div>This is visible</div>
+                    : null
+                }
 
-        <Localization position={position} />
-        <br />
-        <hr />
       </div>
     );
   }
