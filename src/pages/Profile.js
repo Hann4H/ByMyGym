@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import firebase from "../firebase"
+import { FirebaseAuth } from "react-firebaseui";
+
 
 class Profile extends Component {
   state = {
@@ -15,6 +18,7 @@ class Profile extends Component {
     const user = localStorage.getItem("user");
     this.setState({ user });
   }
+
 
   render() {
     let { user } = this.state;
