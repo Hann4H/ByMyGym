@@ -31,6 +31,7 @@
     "path-to-regexp": "^1.8.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
+    "react-admin-date-inputs2": "^1.1.9",
     "react-dom": "^16.13.1",
     "react-dropzone": "^11.0.1",
     "react-firebase-file-uploader": "^2.4.3",

@@ -55,7 +55,7 @@ class HallProfile extends Component {
     const { showing } = this.state;
 
     return (
-      <div>
+      <div className="idk5">
         <h1 className="gym-name" style={{ color: "var(--darkOrange)" }}>
           {nazwa}
         </h1>
@@ -81,13 +81,13 @@ class HallProfile extends Component {
           <div className="map">
           <Localization position={position} />
         </div>
-        <button className="gym-button" onClick={() => this.setState({ showing: !showing })}>ZAREZERWUJ</button>
+        {/*<button className="gym-button" onClick={() => this.setState({ showing: !showing })}>ZAREZERWUJ</button>
                 { showing 
-                    ? <Booking />
+                    ? <div className="booking"><Booking /></div>
                     : null
-                }
-
-      </div>
+                }*/}
+        <div className="booking"><Booking /></div>
+        </div>
     );
   }
 }

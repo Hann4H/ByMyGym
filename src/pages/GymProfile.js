@@ -26,14 +26,15 @@ class GymProfile extends Component {
             </div>
           </div>
 
-          <Calendar
+          {/*<Calendar
             style={{
               position: "relative",
               margin: "50px auto",
               width: "302px",
             }}
             onDayClick={(e, day) => this.onDayClick(e, day)}
-          />
+          />*/}
+          
         </div>
       </>
     );

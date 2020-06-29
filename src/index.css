@@ -852,3 +852,16 @@ ul.unstyled {
   text-align: center;
   display: block;
 }
+
+/* booking */
+.booking {
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+
+}
+
+.booking-grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
