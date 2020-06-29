@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Localization from "../components/Localization";
 import firebase from "../firebase";
+import Booking from "./Booking";
+import FormControl from '@material-ui/core/FormControl';
 
 const nameStyle = {
   fontWeight: "bold",
@@ -81,7 +83,7 @@ class HallProfile extends Component {
         </div>
         <button className="gym-button" onClick={() => this.setState({ showing: !showing })}>ZAREZERWUJ</button>
                 { showing 
-                    ? <div>This is visible</div>
+                    ? <Booking />
                     : null
                 }
 
