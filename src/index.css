@@ -352,8 +352,8 @@
 #gallery {
   font-size: 30px;
   text-align: center;
-  width: 200%;
-  margin-top: 10%;
+  width: 50%;
+  margin-top: 5%;
   margin-bottom: 10%;
 }
 
@@ -436,7 +436,7 @@
 .gymForm {
   text-align: right;
   margin: 50px;
-  width: 40%;
+  width: 100%;
 }
 
 .gymForm button {
@@ -444,6 +444,16 @@
   font-family: "Lato";
   text-align: center;
   letter-spacing: var(--mainSpacing);
+}
+
+.form-n-gallery {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.form-only {
+  width: 50%;
+  margin-right: 10%;
 }
 
 label {

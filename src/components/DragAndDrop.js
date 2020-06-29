@@ -80,7 +80,7 @@ function Previews(props) {
         </div>
       </div>
       <button className="drag-drop-button" onClick={removeFile(file)}>
-        Usuń
+        USUŃ
       </button>
     </div>
   ));
