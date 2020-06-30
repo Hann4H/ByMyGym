@@ -863,5 +863,34 @@ ul.unstyled {
 .booking-grid {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
+}
+
+.booking-container {
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+  justify-content: space-around;
+}
+
+.booking-field {
+  margin-bottom: 1rem;
+}
+
+.booking-button {
+  font-size: 15px;
+  padding: 0px;
+  height: 2rem;
+  max-width: 5rem;
+  padding-right: 40%;
+  padding-left: 6%;
+}
+
+.larger-field {
+  padding-right: 40%;
+}
+
+#booking-weekday {
+  margin-top: 15%;
+  width: 40%;
 }

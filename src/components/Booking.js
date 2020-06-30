@@ -73,8 +73,16 @@ export function MaterialUIPickers(props) {
 
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
-
+      <div className="booking-container">
+      <Grid
+        container
+        direction="column"
+        justify="center"
+        alignItems="flex-start"
+      >
       <form onSubmit={handleSubmit(onSubmit)} className="gymForm">
+      <div className="larger-field">
+      <div className="booking-field">
       <TextField 
         id="name" 
         label="imię"
@@ -85,6 +93,8 @@ export function MaterialUIPickers(props) {
         color="secondary" 
         required
         />
+        </div>
+        <div className="booking-field">
       <TextField 
         id="surname" 
         label="nazwisko"
@@ -95,6 +105,8 @@ export function MaterialUIPickers(props) {
         color="secondary" 
         required
       />
+      </div>
+        <div className="booking-field">
       <TextField 
         id="email" 
         label="e-mail" 
@@ -105,6 +117,8 @@ export function MaterialUIPickers(props) {
         color="secondary"
         required
       />
+      </div>
+        <div className="booking-field">
       <TextField 
         id="phoneNumber" 
         label="numer telefonu"
@@ -115,9 +129,13 @@ export function MaterialUIPickers(props) {
         color="secondary" 
         required
       />
+      </div>
+        <div className="booking-field" id="booking-weekday">
       <Select
           labelId="select-weekday"
           id="weekday"
+          label="dzień tygodnia"
+          placeholder="dzień tygodnia"
           value={weekday}
           onChange={handleChange}
         >
@@ -129,6 +147,9 @@ export function MaterialUIPickers(props) {
           <MenuItem value={"Saturday"}>Sobota</MenuItem>
           <MenuItem value={"Sunday"}>Niedziela</MenuItem>
         </Select>
+        </div>
+        </div>
+        <div className="booking-field">
         <KeyboardDatePicker
           disableToolbar
           variant="inline"
@@ -142,6 +163,8 @@ export function MaterialUIPickers(props) {
             'aria-label': 'change date',
           }}
         />
+        </div>
+        <div className="booking-field">
         <KeyboardDatePicker
           disableToolbar
           variant="inline"
@@ -155,6 +178,8 @@ export function MaterialUIPickers(props) {
             'aria-label': 'change date',
           }}
         />
+        </div>
+        <div className="booking-field">
         <KeyboardTimePicker
           variant="inline"
           margin="normal"
@@ -167,6 +192,8 @@ export function MaterialUIPickers(props) {
             'aria-label': 'change time',
           }}
         />
+        </div>
+        <div className="booking-field">
         <KeyboardTimePicker
           variant="inline"
           margin="normal"
@@ -179,8 +206,12 @@ export function MaterialUIPickers(props) {
             'aria-label': 'change time',
           }}
         />
-        <button>Zarezerwuj</button>
+        </div>
+
+        <button className="booking-button">Zarezerwuj</button>
         </form>
+        </Grid>
+        </div>
       </MuiPickersUtilsProvider>
   );
 }
