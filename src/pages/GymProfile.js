@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import Calendar from "../components/Calendar";
 import Slider from "../components/Slider";
 import HallProfile from "../components/HallProfile";
+import {MaterialUIPickers} from "../components/Booking"
 
 class GymProfile extends Component {
   onDayClick = (e, day) => {
@@ -23,18 +23,9 @@ class GymProfile extends Component {
             <div id="constrain">
               {/* <GymDetails></GymDetails> */}
               <HallProfile dataId={this.props.match.params.id} />
+              <MaterialUIPickers props={this.props.match.params.id}/>
             </div>
           </div>
-
-          {/*<Calendar
-            style={{
-              position: "relative",
-              margin: "50px auto",
-              width: "302px",
-            }}
-            onDayClick={(e, day) => this.onDayClick(e, day)}
-          />*/}
-          
         </div>
       </>
     );

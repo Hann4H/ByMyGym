@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import Localization from "../components/Localization";
 import firebase from "../firebase";
-import Booking from "./Booking";
-import FormControl from '@material-ui/core/FormControl';
 
 const nameStyle = {
   fontWeight: "bold",
@@ -20,6 +18,7 @@ class HallProfile extends Component {
     super(props);
     this.state = { data: [] };
     this.showing = false;
+    this.selectedBooking = null;
   }
 
   async componentDidMount(props) {
@@ -86,7 +85,7 @@ class HallProfile extends Component {
                     ? <div className="booking"><Booking /></div>
                     : null
                 }*/}
-        <div className="booking"><Booking /></div>
+          
         </div>
     );
   }

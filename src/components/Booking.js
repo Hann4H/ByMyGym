@@ -10,9 +10,13 @@ import {
 import TextField from '@material-ui/core/TextField';
 import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
+import firebase from "../firebase";
+import "firebase/storage";
 
-export default function MaterialUIPickers() {
-  // The first commit of Material-UI
+
+
+export function MaterialUIPickers(props) {
+
   const [selectedDate_start, setSelectedDate_start] = React.useState(new Date());
   const [selectedDate_end, setSelectedDate_end] = React.useState(new Date());
   const [selectedTime_start, setSelectedTime_start] = React.useState(new Date());
@@ -40,11 +44,20 @@ export default function MaterialUIPickers() {
     setWeekday(event.target.value);
   };
 
+  var db = firebase.firestore();
+
+  function onSubmit(e) {
+    db.collection("bookings")
+      .add({
+        
+      });
+  }
 
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <Grid container justify="space-around">
       <div className="booking-grid">
+      <form>
       <TextField id="name" label="imię" />
       <TextField id="surname" label="nazwisko" required/>
       <TextField id="email" label="e-mail" required/>
@@ -113,6 +126,8 @@ export default function MaterialUIPickers() {
             'aria-label': 'change time',
           }}
         />
+        <button onClick={onSubmit}>Zarezerwuj</button>
+        </form>
         </div>
       </Grid>
     </MuiPickersUtilsProvider>
