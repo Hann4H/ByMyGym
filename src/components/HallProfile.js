@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Localization from "../components/Localization";
 import firebase from "../firebase";
 
+
 const nameStyle = {
   fontWeight: "bold",
   color: "var(--darkOrange)",

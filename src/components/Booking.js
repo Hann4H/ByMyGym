@@ -14,6 +14,8 @@ import firebase from "../firebase";
 import "firebase/storage";
 import { useForm } from "react-hook-form";
 import Modal from 'react-modal';
+import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
 
 Modal.setAppElement('#root');
 const customStyles = {
@@ -31,6 +33,16 @@ const customStyles = {
   }
 };
 
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      light: '#ffb967',
+      main: '#ffa841',
+      dark: '#ff8119',
+      contrastText: '#fff',
+    },
+  },
+});
 
 export function MaterialUIPickers(props) {
 
@@ -104,6 +116,7 @@ export function MaterialUIPickers(props) {
         justify="center"
         alignItems="flex-start"
       >
+        <ThemeProvider theme={theme}>
       <form onSubmit={handleSubmit(onSubmit)} className="gymForm">
       <div className="larger-field">
       <div className="booking-field">
@@ -136,6 +149,7 @@ export function MaterialUIPickers(props) {
         name="email"
         onChange={(e) => setEmail(e.currentTarget.value)}
         value={email}
+        color="primary"
         required
       />
       </div>
@@ -236,6 +250,7 @@ export function MaterialUIPickers(props) {
           contentLabel="dasds"
         >Sala została zarezerwowana<button onClick={closeModal}>x</button></Modal>
         </form>
+        </ThemeProvider>
         </Grid>
         </div>
       </MuiPickersUtilsProvider>
