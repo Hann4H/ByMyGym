@@ -23,7 +23,7 @@ class GymProfile extends Component {
             <div id="constrain">
               {/* <GymDetails></GymDetails> */}
               <HallProfile dataId={this.props.match.params.id} />
-              <MaterialUIPickers props={this.props.match.params.id}/>
+              <MaterialUIPickers gym_id={this.props.match.params.id}/>
             </div>
           </div>
         </div>

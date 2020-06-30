@@ -12,16 +12,24 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 import firebase from "../firebase";
 import "firebase/storage";
+import { useForm } from "react-hook-form";
 
 
 
 export function MaterialUIPickers(props) {
+
+  const { register, handleSubmit, errors } = useForm();
 
   const [selectedDate_start, setSelectedDate_start] = React.useState(new Date());
   const [selectedDate_end, setSelectedDate_end] = React.useState(new Date());
   const [selectedTime_start, setSelectedTime_start] = React.useState(new Date());
   const [selectedTime_end, setSelectedTime_end] = React.useState(new Date());
   const [weekday, setWeekday] = React.useState('');
+  const [name, setName] = React.useState('');
+  const [surname, setSurname] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [phoneNumber, setPhoneNumber] = React.useState('');
+
 
 
   const handleDateChange_start = (date) => {
@@ -45,26 +53,71 @@ export function MaterialUIPickers(props) {
   };
 
   var db = firebase.firestore();
+  const ref = db.collection("bookings").doc();
 
   function onSubmit(e) {
     db.collection("bookings")
       .add({
-        
+        gym_id: props.gym_id,
+        name,
+        surname,
+        email,
+        phoneNumber,
+        weekday,
+        selectedDate_start,
+        selectedDate_end
       });
   }
 
+ 
+
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <Grid container justify="space-around">
-      <div className="booking-grid">
-      <form>
-      <TextField id="name" label="imię" />
-      <TextField id="surname" label="nazwisko" required/>
-      <TextField id="email" label="e-mail" required/>
-      <TextField id="number" label="numer telefonu" required/>
+
+      <form onSubmit={handleSubmit(onSubmit)} className="gymForm">
+      <TextField 
+        id="name" 
+        label="imię"
+        type="text"
+        name="name"
+        onChange={(e) => setName(e.currentTarget.value)}
+        value={name}
+        color="secondary" 
+        required
+        />
+      <TextField 
+        id="surname" 
+        label="nazwisko"
+        type="text"
+        name="surname"
+        onChange={(e) => setSurname(e.currentTarget.value)}
+        value={surname}
+        color="secondary" 
+        required
+      />
+      <TextField 
+        id="email" 
+        label="e-mail" 
+        type="text"
+        name="email"
+        onChange={(e) => setEmail(e.currentTarget.value)}
+        value={email}
+        color="secondary"
+        required
+      />
+      <TextField 
+        id="phoneNumber" 
+        label="numer telefonu"
+        type="text"
+        name="phoneNumber"
+        onChange={(e) => setPhoneNumber(e.currentTarget.value)}
+        value={phoneNumber}
+        color="secondary" 
+        required
+      />
       <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
+          labelId="select-weekday"
+          id="weekday"
           value={weekday}
           onChange={handleChange}
         >
@@ -84,7 +137,7 @@ export function MaterialUIPickers(props) {
           id="date_start"
           label="OD"
           value={selectedDate_start}
-          onChange={handleDateChange_start}
+          onChange={setSelectedDate_start}
           KeyboardButtonProps={{
             'aria-label': 'change date',
           }}
@@ -97,7 +150,7 @@ export function MaterialUIPickers(props) {
           id="date_end"
           label="DO"
           value={selectedDate_end}
-          onChange={handleDateChange_end}
+          onChange={setSelectedDate_end}
           KeyboardButtonProps={{
             'aria-label': 'change date',
           }}
@@ -109,7 +162,7 @@ export function MaterialUIPickers(props) {
           label="OD"
           ampm={false}
           value={selectedDate_start}
-          onChange={handleDateChange_start}
+          onChange={setSelectedDate_start}
           KeyboardButtonProps={{
             'aria-label': 'change time',
           }}
@@ -121,15 +174,13 @@ export function MaterialUIPickers(props) {
           label="DO"
           ampm={false}
           value={selectedDate_end}
-          onChange={handleDateChange_end}
+          onChange={setSelectedDate_end}
           KeyboardButtonProps={{
             'aria-label': 'change time',
           }}
         />
-        <button onClick={onSubmit}>Zarezerwuj</button>
+        <button>Zarezerwuj</button>
         </form>
-        </div>
-      </Grid>
-    </MuiPickersUtilsProvider>
+      </MuiPickersUtilsProvider>
   );
 }
