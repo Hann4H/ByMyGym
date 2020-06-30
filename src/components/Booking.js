@@ -13,10 +13,34 @@ import MenuItem from '@material-ui/core/MenuItem';
 import firebase from "../firebase";
 import "firebase/storage";
 import { useForm } from "react-hook-form";
+import Modal from 'react-modal';
 
+Modal.setAppElement('#root');
+const customStyles = {
+  content : {
+    width: '19rem',
+    height: 'auto',
+    color: 'black',
+    top: '50%',
+    bottom: 'auto',
+    marginLeft : '50%',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    fontSize: '1rem',
+    fontFamily: 'Arial'
+  }
+};
 
 
 export function MaterialUIPickers(props) {
+
+  const [modalIsOpen,setIsOpen] = React.useState(false);
+  function openModal() {
+    setIsOpen(true);
+  }
+  function closeModal(){
+    setIsOpen(false);
+  }
 
   const { register, handleSubmit, errors } = useForm();
 
@@ -90,7 +114,6 @@ export function MaterialUIPickers(props) {
         name="name"
         onChange={(e) => setName(e.currentTarget.value)}
         value={name}
-        color="secondary" 
         required
         />
         </div>
@@ -102,7 +125,6 @@ export function MaterialUIPickers(props) {
         name="surname"
         onChange={(e) => setSurname(e.currentTarget.value)}
         value={surname}
-        color="secondary" 
         required
       />
       </div>
@@ -114,7 +136,6 @@ export function MaterialUIPickers(props) {
         name="email"
         onChange={(e) => setEmail(e.currentTarget.value)}
         value={email}
-        color="secondary"
         required
       />
       </div>
@@ -126,7 +147,6 @@ export function MaterialUIPickers(props) {
         name="phoneNumber"
         onChange={(e) => setPhoneNumber(e.currentTarget.value)}
         value={phoneNumber}
-        color="secondary" 
         required
       />
       </div>
@@ -208,7 +228,13 @@ export function MaterialUIPickers(props) {
         />
         </div>
 
-        <button className="booking-button">Zarezerwuj</button>
+        <button className="booking-button" onClick={openModal}>Zarezerwuj</button>
+        <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          style={customStyles}
+          contentLabel="dasds"
+        >Sala została zarezerwowana<button onClick={closeModal}>x</button></Modal>
         </form>
         </Grid>
         </div>

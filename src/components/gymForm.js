@@ -6,10 +6,38 @@ import ImageUpload from "./ImageUpload";
 import Listing from "./Listing";
 import FileUploader from "react-firebase-file-uploader";
 import DragAndDrop from "./DragAndDrop";
-
+import Modal from 'react-modal';
 import InputMask from "react-input-mask";
 
+
+Modal.setAppElement('#root');
+const customStyles = {
+  content : {
+    width: '15rem',
+    height: 'auto',
+    color: 'black',
+    top: '50%',
+    bottom: 'auto',
+    marginLeft: '50%',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    fontSize: '1rem',
+    fontFamily: 'Arial'
+    
+  }
+};
+
 export default function gymForm() {
+
+
+  const [modalIsOpen,setIsOpen] = React.useState(false);
+  function openModal() {
+    setIsOpen(true);
+  }
+  function closeModal(){
+    setIsOpen(false);
+  }
+
   const { register, handleSubmit, errors } = useForm();
 
   const allInputs = { imgUrl: "" };
@@ -372,7 +400,13 @@ export default function gymForm() {
 
       <div></div>
       <div></div>
-      <button>DODAJ</button>
+      <button  onClick={openModal}>DODAJ</button>
+      <Modal
+          isOpen={modalIsOpen}
+          onRequestClose={closeModal}
+          style={customStyles}
+          contentLabel="dasds"
+        >Sala została dodana<button onClick={closeModal}>x</button></Modal>
     </form>
   );
 }
