@@ -906,20 +906,45 @@ ul.unstyled {
   margin-bottom: 2rem;
 }
 
+.calendar table {
+  table-layout: fixed;
+}
+
 .calendar-day-name {
   height: 5rem;
   background-color: var(--mainOrange);
+  width: 57rem;
 }
 
 .calendar-day-name tr {
   display: flex;
+  justify-content: space-evenly;
+  border: 2px solid var(--darkOrange);
+  height: 5rem;
+  padding-top: 10px;
+  flex-grow: 7;
+  table-layout: fixed;
 }
 
-.calendar th {
+.week-day {
   padding: 1rem;
-  
+  border: 2px solid var(--darkOrange);
+  border-radius: 5px;
+  font-size: 15px;
 }
 
-.weekday-name {
+.calendar-hours {
+  height: 30rem;
+  background-color: var(--mainOrange);
 
 }
+
+.hour-td {
+  border: 2px solid var(--darkOrange);
+  padding: 5px;
+  font-size: 13px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.calendar-hours tr {}
