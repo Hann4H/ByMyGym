@@ -106,7 +106,7 @@ class Nav extends Component {
             </li>
             <li>
               {this.state.user ? (
-                <button onClick={this.logout}>WYLOGUJ</button>
+                <button onClick={this.logout}><Link to="/">WYLOGUJ</Link></button>
               ) : (
                 <button>
                   <Link to="login">ZALOGUJ</Link>
