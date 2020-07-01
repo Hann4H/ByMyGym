@@ -40,7 +40,6 @@ export default function gymForm() {
 
   const { register, handleSubmit, errors } = useForm();
 
-  const allInputs = { imgUrl: "" };
   const [imageAsFile, setImageAsFile] = useState("");
   const [imageAsUrl, setImageAsUrl] = useState("");
 
@@ -56,26 +55,8 @@ export default function gymForm() {
   const ref = db.collection("gyms").doc();
 
   function onSubmit(e) {
-    db.collection("gyms")
-      .add({
-        gymName,
-        street,
-        city,
-        zip,
-        height,
-        width,
-        length,
-        audience,
-        changingRooms,
-        price,
-        id: ref.id,
-      })
-      .then(() => {
-        setGymName("");
-      });
 
-    const key = ref.id;
-    const uploadTask = storage.ref(`/${ref.id}/1.png`).put(imageAsFile);
+    const uploadTask = storage.ref(`/photos/${imageAsFile.name}`).put(imageAsFile);
 
     uploadTask
       .then((uploadTaskSnapshot) => {
@@ -83,20 +64,26 @@ export default function gymForm() {
       })
       .then((url) => {
         setImageAsUrl(url);
-        console.log(imageAsUrl);
+        db.collection("gyms")
+          .add({
+            gymName,
+            street,
+            city,
+            zip,
+            height,
+            width,
+            length,
+            audience,
+            changingRooms,
+            price,
+            id: ref.id,
+            photo: url
+          })
+          .then(() => {
+            setGymName("");
+          });
       });
-    /*    (snapShot) => {
-            console.log(snapShot)
-            console.log(snapShot)
-        }, (err) => {
-            console.log(err)
-        }, () => {
-            storage.ref(`${ref.id}`).child(`${imageAsFile.name}`).getDownloadURL().then(url => {
-                setImageAsUrl(url)
-            })
-            console.log(imageAsFile.name)
-            console.log(imageAsUrl)
-        })*/
+
   }
 
   const [gymName, setGymName] = useState("");
@@ -241,8 +228,12 @@ export default function gymForm() {
         </div>
 
         <div id="gallery">
+                <input type="file" multiple="multiple" id="img_url" onChange={handleImageAsFile}></input>
+            </div>
+
+        {/*<div id="gallery">
           <DragAndDrop id="img_url" onChange={handleImageAsFile} />
-        </div>
+        </div>*/}
       </div>
 
       <div className="container-3">
@@ -400,13 +391,13 @@ export default function gymForm() {
 
       <div></div>
       <div></div>
-      <button  onClick={openModal}>DODAJ</button>
+      <button onClick={openModal}>DODAJ</button>
       <Modal
           isOpen={modalIsOpen}
           onRequestClose={closeModal}
           style={customStyles}
           contentLabel="dasds"
-        >Sala została dodana<button onClick={closeModal}>x</button></Modal>
+      >Sala została dodana<button onClick={closeModal}>x</button></Modal>
     </form>
   );
 }

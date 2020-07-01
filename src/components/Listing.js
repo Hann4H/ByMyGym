@@ -14,6 +14,31 @@ class Listing extends Component {
     firebase
       .firestore()
       .collection("gyms")
+    //   .doc('OZiOSBKvQMcYsSPZIJuN')
+    //   .get()
+    //   .then(doc => {
+    //     const Gyms = [];
+    //       Gyms.push({
+    //         docId: doc.id,
+    //         gymName: doc.data().gymName,
+    //         street: doc.data().street,
+    //         zip: doc.data().zip,
+    //         city: doc.data().city,
+    //         height: doc.data().height,
+    //         width: doc.data().width,
+    //         length: doc.data().width,
+    //         price: doc.data().price,
+    //         id: doc.data().id,
+    //         photo: doc.data().photo
+        
+    //     });
+    //     this.setState({ Gyms });
+        
+    //   })
+    //   .catch(function(error) {
+    //     console.log("Error getting documents: ", error);
+    //   });
+    // }
       .orderBy("nazwa")
       .limit(10)
       .get()
@@ -64,18 +89,6 @@ class Listing extends Component {
       });
   }
 
-  // image(id) {
-  //   firebase
-  //     .storage()
-  //     .ref()
-  //     .child(`${id}/1.png`)
-  //     .getDownloadURL()
-  //     .then((url) => {
-  //       console.log(url);
-  //       return url;
-  //     });
-  // }
-
   render() {
     return (
       <div>
@@ -84,6 +97,7 @@ class Listing extends Component {
             <div key={index} className="single-listing">
               <div className="listing-content">
                 <div className="place-for-img">
+                  {/* <img id="myimg" src={gym.photo} /> */}
                   {/* {this.image(gym.id) ? (
                     <img id="myimg" src={this.image(gym.id)} alt="gym" />
                   ) : (
