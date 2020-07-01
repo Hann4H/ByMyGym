@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Localization from "../components/Localization";
 import firebase from "../firebase";
+import Scheduler, { ViewTypes, DATE_FORMAT, SchedulerData } from 'react-big-scheduler'
+import moment from 'moment'
 
 
 const nameStyle = {
@@ -13,6 +15,8 @@ const textStyle = {
 };
 
 const db = firebase.firestore();
+
+
 
 class HallProfile extends Component {
   constructor(props) {
@@ -54,6 +58,7 @@ class HallProfile extends Component {
 
     const { showing } = this.state;
 
+
     return (
       <div className="idk5">
         <h1 className="gym-name" style={{ color: "var(--darkOrange)" }}>
@@ -86,6 +91,8 @@ class HallProfile extends Component {
                     ? <div className="booking"><Booking /></div>
                     : null
                 }*/}
+
+
           
         </div>
     );
