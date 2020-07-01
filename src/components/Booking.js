@@ -183,6 +183,7 @@ export function MaterialUIPickers(props) {
         label="numer telefonu"
         type="text"
         name="phoneNumber"
+        pattern="(?<!\w)(\(?(\+|00)?48\)?)?[ -]?\d{3}[ -]?\d{3}[ -]?\d{3}(?!\w)"
         onChange={(e) => setPhoneNumber(e.currentTarget.value)}
         value={phoneNumber}
         required

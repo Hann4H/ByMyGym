@@ -80,6 +80,7 @@ class SignUp extends Component{
                         id="number"
                         name="number"
                         placeholder="numer telefonu"
+                        pattern="(?<!\w)(\(?(\+|00)?48\)?)?[ -]?\d{3}[ -]?\d{3}[ -]?\d{3}(?!\w)"
                         onChange={this.handleChange}
                         value={this.state.number}
                         color="secondary"
