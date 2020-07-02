@@ -911,7 +911,7 @@ ul.unstyled {
 }
 
 .calendar-day-name {
-  height: 5rem;
+  height: 50rem;
   background-color: var(--mainOrange);
   width: 57rem;
 }
@@ -920,7 +920,7 @@ ul.unstyled {
   display: flex;
   justify-content: space-evenly;
   border: 2px solid var(--darkOrange);
-  height: 5rem;
+  height: 70rem;
   padding-top: 10px;
   flex-grow: 7;
   table-layout: fixed;
@@ -931,6 +931,7 @@ ul.unstyled {
   border: 2px solid var(--darkOrange);
   border-radius: 5px;
   font-size: 15px;
+  margin-bottom: 2rem;
 }
 
 .calendar-hours {
@@ -948,3 +949,8 @@ ul.unstyled {
 }
 
 .calendar-hours tr {}
+
+.idk-pls {
+  display: flex;
+  flex-direction: column;
+}

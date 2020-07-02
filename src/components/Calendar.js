@@ -2,6 +2,9 @@ import React from 'react'
 import moment from 'moment'
 import 'moment/locale/pl'
 import { toDate } from 'date-fns';
+import Scheduler, {SchedulerData, ViewTypes, DATE_FORMAT} from 'react-big-scheduler'
+
+
 
 moment.updateLocale('pl', { week : { dow : 2, doy : 4 } }); 
 
@@ -40,27 +43,29 @@ export function Calendar() {
         "20:00",
         "20:30"
       ]
+      let timeList = hours.map(hour => {
+        return(
+        <div className="hour">
+            <td key={hour} className="hour-td">
+                {hour}
+            </td>
+      </div>
+        );
+    })
     
     let weekdayshortname = weekdayshort.map(day => {
         return (
           <div className="weekday-name">
             <th key={day} className="week-day">
             {day}
+            <tr className="idk-pls">{timeList}</tr>
             </th>
           </div>
 
         );
      });
 
-    let timeList = hours.map(hour => {
-            return(
-            <div className="hour">
-                <td key={hour} className="hour-td">
-                    {hour}
-                </td>
-          </div>
-            );
-        })
+    
     
 
     return (
