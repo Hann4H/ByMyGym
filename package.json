@@ -55,6 +55,7 @@
     "react-scripts": "^2.0.4",
     "react-search": "^2.1.1",
     "react-simple-image-slider": "^1.0.3",
+    "react-timeslot-calendar": "^0.2.0",
     "reactjs-popup": "^1.5.0",
     "redux": "^4.0.5",
     "semantic-ui-css": "^2.4.1",

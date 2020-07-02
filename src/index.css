@@ -1034,3 +1034,57 @@ ul.unstyled {
   display: flex;
   flex-direction: column;
 }
+
+
+
+
+
+.container-6 {
+  width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.grid td {
+  width: 80px;
+  height: auto;
+  border: 2px solid orange;
+  text-align: center;
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.grid td:hover {
+  opacity: .7;
+  cursor: pointer;
+}
+
+.buagam {
+  display: flex !important;
+}
+
+.reserved {
+  background: orange;
+  color: #fff;
+  display: inline-block;
+}
+
+.body-t {
+  display: flex;
+  flex-direction: row;
+}
+
+.available {
+  color: #333;
+}
+
+.idk-2 {
+  display: flex;
+}
+
+.idk-3 {
+  display: flex;
+  flex-direction: column;
+}

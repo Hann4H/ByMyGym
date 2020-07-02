@@ -19,6 +19,8 @@ import { ThemeProvider } from '@material-ui/styles';
 import { Calendar } from './Calendar';
 import { startTimeSelectOptions, endTimeSelectOptions } from './BookingHelpers';
 
+import moment from 'moment'
+
 Modal.setAppElement('#root');
 const customStyles = {
   content : {
@@ -100,6 +102,34 @@ export function MaterialUIPickers(props) {
     setSelectedTime_end(event.target.value);
   };
 
+  function checkAvail() {
+    let id = props.gym_id;
+
+    firebase
+      .firestore()
+      .collection("bookings")
+      .where("gym_id", "==", props.gym_id)
+      .get()
+      .then(doc => {
+        const bookings = [];
+          doc.data().dates.map(date => {
+            console.log("PYKŁO " + date)
+          })
+            bookings.push({
+              startTimes: doc.data().selectedTime_start,
+              endTimes: doc.data().selectedTime_end
+          });
+          
+      })
+      .catch(function(error) {
+        console.log("NIE PYKŁO")
+      })
+    }
+
+    
+
+
+
 
   var db = firebase.firestore();
   const ref = db.collection("bookings").doc();
@@ -148,7 +178,7 @@ export function MaterialUIPickers(props) {
 
   return (
     <div className="type-button">
-    
+    {checkAvail()}
       <div>
       <button className="showing-button" onClick={() => setShowingLong({ showingLong: !showingLong })}>Rezerwacja długoterminowa</button>
         { showingLong 
@@ -426,7 +456,7 @@ export function MaterialUIPickers(props) {
         }
       </div>
 
-      
+
       </div>
   );
 }
