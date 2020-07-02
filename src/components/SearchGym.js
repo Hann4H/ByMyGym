@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import firebase from "../firebase";
-import { Search, Grid, Header, Segment } from "semantic-ui-react";
+import { Search, Grid, Header, Segment, Label } from "semantic-ui-react";
 import _ from "lodash";
+import PropTypes from "prop-types";
 import faker from "faker";
 // https://codesandbox.io/s/uyowr?module=/example.js&file=/example.js:0-22
 // https://react.semantic-ui.com/usage
+// https://react.semantic-ui.com/modules/search/
 
 // https://stackoverflow.com/questions/39065786/auto-increment-a-value-in-firebase-with-javascript
 // https://firebase.google.com/docs/database/web/lists-of-data
@@ -19,6 +21,33 @@ const initialState = { isLoading: false, results: [], value: "" };
 //   image: faker.internet.avatar(),
 //   price: faker.finance.amount(0, 100, 2, "$"),
 // }));
+
+// const categoryLayoutRenderer = ({ categoryContent, resultsContent }) => (
+//     <div>
+//       <h3 className='name'>{categoryContent}</h3>
+//       <div style={{ background: 'red' }} className='results'>
+//         {resultsContent}
+//       </div>
+//     </div>
+//   )
+
+//   categoryLayoutRenderer.propTypes = {
+//     categoryContent: PropTypes.node,
+//     resultsContent: PropTypes.node,
+//   }
+
+//   const categoryRenderer = ({ name }) => <Label as='span' content={name} />
+
+//   categoryRenderer.propTypes = {
+//     name: PropTypes.string,
+//   }
+
+const resultRenderer = ({ nazwa }) => <Label content={nazwa} />;
+
+resultRenderer.propTypes = {
+  nazwa: PropTypes.string,
+  opis: PropTypes.string,
+};
 
 export default class SearchGym extends Component {
   constructor(props) {
@@ -37,6 +66,17 @@ export default class SearchGym extends Component {
 
       const re = new RegExp(_.escapeRegExp(this.state.value), "i");
       const isMatch = (result) => re.test(result.nazwa);
+
+      //   const filteredResults = _.reduce(
+      //     source,
+      //     (memo, data, name) => {
+      //       const results = _.filter(data.results, isMatch)
+      //       if (results.length) memo[name] = { name, results } // eslint-disable-line no-param-reassign
+
+      //       return memo
+      //     },
+      //     {},
+      //   )
 
       this.setState({
         isLoading: false,
@@ -61,13 +101,15 @@ export default class SearchGym extends Component {
 
   render() {
     const { isLoading, value, results } = this.state;
-    console.log("nr 3:" + this.gymData);
     return (
       <>
         <div id="idk3"></div>
         <Grid>
           <Grid.Column width={6}>
             <Search
+              // category
+              // categoryLayoutRenderer={categoryLayoutRenderer}
+              // categoryRenderer={categoryRenderer}
               loading={isLoading}
               onResultSelect={this.handleResultSelect}
               onSearchChange={_.debounce(this.handleSearchChange, 500, {
@@ -75,6 +117,7 @@ export default class SearchGym extends Component {
               })}
               results={results}
               value={value}
+              resultRenderer={resultRenderer}
               {...this.props}
             />
           </Grid.Column>
