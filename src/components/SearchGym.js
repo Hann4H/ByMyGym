@@ -28,27 +28,12 @@ const initialState = {
 //   price: faker.finance.amount(0, 100, 2, "$"),
 // }));
 
-// const categoryLayoutRenderer = ({ categoryContent, resultsContent }) => (
-//     <div>
-//       <h3 className='name'>{categoryContent}</h3>
-//       <div style={{ background: 'red' }} className='results'>
-//         {resultsContent}
-//       </div>
-//     </div>
-//   )
-
-//   categoryLayoutRenderer.propTypes = {
-//     categoryContent: PropTypes.node,
-//     resultsContent: PropTypes.node,
-//   }
-
-//   const categoryRenderer = ({ name }) => <Label as='span' content={name} />
-
-//   categoryRenderer.propTypes = {
-//     name: PropTypes.string,
-//   }
-
-const resultRenderer = ({ nazwa }) => <Label content={nazwa} />;
+const resultRenderer = ({ nazwa }) => (
+  <div style={{ color: "rgb(117, 117, 117)" }}>
+    {nazwa}
+    {/* <Label content={nazwa} /> */}
+  </div>
+);
 
 resultRenderer.propTypes = {
   nazwa: PropTypes.string,
@@ -72,18 +57,6 @@ export default class SearchGym extends Component {
 
       const re = new RegExp(_.escapeRegExp(this.state.value), "i");
       const isMatch = (result) => re.test(result.nazwa);
-
-      //   const filteredResults = _.reduce(
-      //     source,
-      //     (memo, data, name) => {
-      //       const results = _.filter(data.results, isMatch)
-      //       if (results.length) memo[name] = { name, results } // eslint-disable-line no-param-reassign
-
-      //       return memo
-      //     },
-      //     {},
-      //   )
-
       this.setState({
         isLoading: false,
         results: _.filter(this.state.data, isMatch),
@@ -96,7 +69,7 @@ export default class SearchGym extends Component {
       .get()
       .then((snapshot) => {
         const links = snapshot.docs.map((doc) => {
-          return { id: doc.id, ...doc.data() };
+          return { docId: doc.id, ...doc.data() };
         });
         this.setState({ data: links });
         this.gymData = links;
@@ -109,13 +82,14 @@ export default class SearchGym extends Component {
     const { isLoading, value, results } = this.state;
     return (
       <>
-        <div id="idk3"></div>
+        <div style={{ height: "100px" }}></div>
         <Grid>
           <Grid.Column width={17}>
             <Search
-              // category
-              // categoryLayoutRenderer={categoryLayoutRenderer}
-              // categoryRenderer={categoryRenderer}
+              autoFocus
+              fluid
+              // size="large"
+              // aligned="left"
               placeholder="Wprowadź nazwę"
               loading={isLoading}
               onResultSelect={this.handleResultSelect}
