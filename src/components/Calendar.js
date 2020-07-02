@@ -10,8 +10,10 @@ import { momentLocalizer } from 'react-big-calendar';
 moment.updateLocale('pl', { week : { dow : 2, doy : 4 } }); 
 
 
+moment.updateLocale("pl", { week: { dow: 1 } });
 
 export function Calendar() {
+  const weekdayshort = moment.weekdays(true);
 
     const [currentMonth, setCurrentMonth] = React.useState(new Date());
     const [selectedDate, setSelectedDate] = React.useState(new Date());
@@ -33,7 +35,7 @@ export function Calendar() {
     const DAYS_OF_THE_WEEK = ['poniedziałek', 'wtorek', 'środa', 'czwartek', 'piątek', 'sobota', 'niedziela'];
     const MONTHS = ['styczeń', 'luty', 'marzec', 'kwiecień', 'maj', 'czerwiec', 'lipiec', 'sierpień', 'wrzesień', 'październik', 'listopad', 'grudzień'];
 
-    const weekdayshort = moment.weekdays();
+
     const hours = [
         "\xa07:00\xa0",
         "\xa07:30\xa0",
@@ -99,23 +101,19 @@ export function Calendar() {
         );
      });
 
- 
 
-    
-    
-
-    return (
-        <div className="calendar">
-            <table>
-                <div className="calendar-day-name">
-                    <tr>{weekdayshortname}</tr>
-                </div>
-                <div className="calendar-hours">
-                    {/* <tr>{timeList}</tr>
-                    <tr>{timeList}</tr> */}
-                </div>
-            </table>
+  return (
+    <div className="calendar">
+      <table>
+        <div className="calendar-day-name">
+          <tr>{weekdayshortname}</tr>
         </div>
-    )
+        <div className="calendar-hours">
+          {/* <tr>{timeList}</tr>
+                    <tr>{timeList}</tr> */}
+        </div>
+      </table>
+    </div>
+  );
 
 }
