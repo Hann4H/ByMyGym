@@ -506,7 +506,7 @@
 }
 
 .gymForm {
-  text-align: right;
+  /* text-align: right; */
   margin: 50px;
   width: 100%;
 }
@@ -933,7 +933,6 @@ ul.unstyled {
   padding-right: 47%;
   padding-left: 6%;
   margin-left: 130%;
-  
 }
 
 .showing-button {
@@ -946,12 +945,11 @@ ul.unstyled {
 
 #booking-weekday {
   margin-top: 15%;
-  width: 40%;
-  margin-left: 32rem;
+  /* width: 40%; */
+  /* margin-left: 32rem; */
 }
 
 .type-button {
-
 }
 
 /* calendar */
