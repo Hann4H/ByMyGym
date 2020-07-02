@@ -70,7 +70,6 @@ export default class SearchGym extends Component {
     const { isLoading, value, results } = this.state;
     return (
       <>
-        <div style={{ height: "100px" }}></div>
         <Grid>
           <Grid.Column width={17}>
             <Search
