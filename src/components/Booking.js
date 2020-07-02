@@ -281,7 +281,7 @@ export function MaterialUIPickers(props) {
         </Grid>
         </div>
       </MuiPickersUtilsProvider>
-      <Calendar />
+      <Calendar gymId={props.gym_id}/>
       </div>
   );
 }

@@ -22,7 +22,6 @@ class Home extends Component {
         <div id="pls"></div>
         <div className="listing-container">
           <h1>wyszukaj salę</h1>
-          <Calendar />
           <hr />
           <div id="search-bar-place">miejsce na search bar</div>
           <Listing />

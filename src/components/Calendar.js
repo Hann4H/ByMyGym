@@ -13,13 +13,13 @@ moment.updateLocale('pl', { week : { dow : 2, doy : 4 } });
 
 moment.updateLocale("pl", { week: { dow: 1 } });
 
-export function Calendar() {
+export function Calendar(props) {
   const weekdayshort = moment.weekdays(true);
 
     const [currentMonth, setCurrentMonth] = React.useState(new Date());
     const [selectedDate, setSelectedDate] = React.useState(new Date());
-    const [indexStart, setIndexStart] = React.useState(14);
-    const [indexEnd, setIndexEnd] = React.useState(21);
+    const [indexStart, setIndexStart] = React.useState(7);
+    const [indexEnd, setIndexEnd] = React.useState(14);
 
 
    
@@ -104,15 +104,13 @@ let lastWeek = dates.getISOWeek(end)
 
     function iterateDays() {
         var a = moment('2020-06-22');
-        var b = moment('2020-10-01');
+        var b = moment('2022-10-01');
         let array = [];
 
-        // If you want an exclusive end date (half-open interval)
         for (var m = moment(a); m.isBefore(b); m.add(1, 'days')) {
             array.push(m.format('DD.MM'));
             
         }
-        console.log(array);
         return array;
     }
     
@@ -129,11 +127,6 @@ let lastWeek = dates.getISOWeek(end)
         );
      });
 
-
-     function nextWeek() {
-        setIndexStart(indexStart + 7);
-        setIndexEnd(indexEnd + 7);
-     }
 
      let actualDates = iterateDays().slice(indexStart, indexEnd).map(day => {
         return (
