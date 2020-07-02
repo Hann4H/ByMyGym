@@ -67,6 +67,8 @@ export function MaterialUIPickers(props) {
   const [surname, setSurname] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [phoneNumber, setPhoneNumber] = React.useState('');
+  const [showingShort, setShowingShort] = React.useState(false);
+  const [showingLong, setShowingLong] = React.useState(false);
 
 
 
@@ -156,7 +158,7 @@ export function MaterialUIPickers(props) {
       >
         <ThemeProvider theme={theme}>
       <form onSubmit={handleSubmit(onSubmit)} className="gymForm">
-      <div className="larger-field">
+
       <div className="booking-field">
       <TextField 
         id="name" 
@@ -215,187 +217,102 @@ export function MaterialUIPickers(props) {
         required
       />
       </div>
-        <div className="booking-field" id="booking-weekday">
-      <Select
-          labelId="select-weekday"
-          id="weekday"
-          label="dzień tygodnia"
-          placeholder="dzień tygodnia"
-          value={weekday}
-          onChange={handleChange}
-        >
-          <MenuItem value={"Monday"}>Poniedziałek</MenuItem>
-          <MenuItem value={"Tuesday"}>Wtorek</MenuItem>
-          <MenuItem value={"Wednesday"}>Środa</MenuItem>
-          <MenuItem value={"Thursday"}>Czwartek</MenuItem>
-          <MenuItem value={"Friday"}>Piątek</MenuItem>
-          <MenuItem value={"Saturday"}>Sobota</MenuItem>
-          <MenuItem value={"Sunday"}>Niedziela</MenuItem>
-        </Select>
-        </div>
-        </div>
-        <div className="booking-field">
-        <KeyboardDatePicker
-          disableToolbar
-          variant="inline"
-          format="dd/MM/yyyy"
-          margin="normal"
-          id="date_start"
-          label="OD"
-          value={selectedDate_start}
-          onChange={setSelectedDate_start}
-          KeyboardButtonProps={{
-            'aria-label': 'change date',
-          }}
-        />
-        </div>
-        <div className="booking-field">
-        <KeyboardDatePicker
-          disableToolbar
-          variant="inline"
-          format="dd/MM/yyyy"
-          margin="normal"
-          id="date_end"
-          label="DO"
-          value={selectedDate_end}
-          onChange={setSelectedDate_end}
-          KeyboardButtonProps={{
-            'aria-label': 'change date',
-          }}
-        />
-        </div>
-        <div className="booking-field">
-        <TextField
-          id="time"
-          label="Od"
-          type="time"
-          defaultValue="08:00"
-          value={selectedTime_start}
-          onChange={setSelectedTime_start}
-          InputLabelProps={{
-            shrink: true,
-          }}
-          inputProps={{
-            step: 3600,
-          }}
-        />
-        </div>
-        <div className="booking-field">
-        <TextField
-          id="time"
-          label="Do"
-          type="time"
-          defaultValue="09:00"
-          value={selectedTime_end}
-          onChange={setSelectedTime_end}
-          InputLabelProps={{
-            shrink: true,
-          }}
-          inputProps={{
-            step: 3600,
-          }}
-        />
-        </div>
+      <div>
+      <button onClick={() => setShowingLong({ showingLong: !showingLong })}>Rezerwacja długoterminowa</button>
+        { showingLong 
+          ? <div><div className="booking-field">
+          <KeyboardDatePicker
+            disableToolbar
+            variant="inline"
+            format="dd/MM/yyyy"
+            margin="normal"
+            id="date_start"
+            label="OD"
+            value={selectedDate_start}
+            onChange={setSelectedDate_start}
+            KeyboardButtonProps={{
+              'aria-label': 'change date',
+            }}
+          />
+          </div>
+          <div className="booking-field">
+          <KeyboardDatePicker
+            disableToolbar
+            variant="inline"
+            format="dd/MM/yyyy"
+            margin="normal"
+            id="date_end"
+            label="DO"
+            value={selectedDate_end}
+            onChange={setSelectedDate_end}
+            KeyboardButtonProps={{
+              'aria-label': 'change date',
+            }}
+          />
+          </div>
+          <div className="booking-field" id="booking-weekday">
+        <Select
+            labelId="select-weekday"
+            id="weekday"
+            label="dzień tygodnia"
+            placeholder="dzień tygodnia"
+            value={weekday}
+            onChange={handleChange}
+          >
+            <MenuItem value={"Monday"}>Poniedziałek</MenuItem>
+            <MenuItem value={"Tuesday"}>Wtorek</MenuItem>
+            <MenuItem value={"Wednesday"}>Środa</MenuItem>
+            <MenuItem value={"Thursday"}>Czwartek</MenuItem>
+            <MenuItem value={"Friday"}>Piątek</MenuItem>
+            <MenuItem value={"Saturday"}>Sobota</MenuItem>
+            <MenuItem value={"Sunday"}>Niedziela</MenuItem>
+          </Select>
+          </div>
+          <div className="booking-field">
+          <TextField
+            id="time"
+            label="Od"
+            type="time"
+            defaultValue="08:00"
+            value={selectedTime_start}
+            onChange={setSelectedTime_start}
+            InputLabelProps={{
+              shrink: true,
+            }}
+            inputProps={{
+              step: 3600,
+            }}
+          />
+          </div>
+          <div className="booking-field">
+          <TextField
+            id="time"
+            label="Do"
+            type="time"
+            defaultValue="09:00"
+            value={selectedTime_end}
+            onChange={setSelectedTime_end}
+            InputLabelProps={{
+              shrink: true,
+            }}
+            inputProps={{
+              step: 3600,
+            }}
+          />
+          </div></div>
+          : null
+        }
+      </div>
+      <div>
+      <button onClick={() => setShowingShort({ showingShort: !showingShort })}>Rezerwacja krótkoterminowa</button>
+      { showingShort 
+          ? <div><Calendar gymId={props.gym_id}/></div>
 
-        {/* <div className="booking-field">
-        <Select
-          labelId="select-startTime"
-          id="startTime"
-          label="startTime"
-          placeholder="Od"
-          value={selectedTime_start}
-          onChange={handleChangeStart}
-        >
-          <MenuItem value={"7:00"}>7:00</MenuItem>
-          <MenuItem value={"8:00"}>8:00</MenuItem>
-          <MenuItem value={"9:00"}>9:00</MenuItem>
-          <MenuItem value={"10:00"}>10:00</MenuItem>
-          <MenuItem value={"11:00"}>11:00</MenuItem>
-          <MenuItem value={"12:00"}>12:00</MenuItem>
-          <MenuItem value={"13:00"}>13:00</MenuItem>
-          <MenuItem value={"14:00"}>14:00</MenuItem>
-          <MenuItem value={"15:00"}>15:00</MenuItem>
-          <MenuItem value={"16:00"}>16:00</MenuItem>
-          <MenuItem value={"17:00"}>17:00</MenuItem>
-          <MenuItem value={"18:00"}>18:00</MenuItem>
-          <MenuItem value={"19:00"}>19:00</MenuItem>
-          <MenuItem value={"20:00"}>20:00</MenuItem>
-        </Select>
-        </div>
-        <div className="booking-field">
-        <Select
-          labelId="select-startTime"
-          id="endTime"
-          label="endTime"
-          placeholder="Do"
-          value={selectedTime_end}
-          onChange={handleChangeEnd}
-        >
-          <MenuItem value={"8:00"}>8:00</MenuItem>
-          <MenuItem value={"9:00"}>9:00</MenuItem>
-          <MenuItem value={"10:00"}>10:00</MenuItem>
-          <MenuItem value={"11:00"}>11:00</MenuItem>
-          <MenuItem value={"12:00"}>12:00</MenuItem>
-          <MenuItem value={"13:00"}>13:00</MenuItem>
-          <MenuItem value={"14:00"}>14:00</MenuItem>
-          <MenuItem value={"15:00"}>15:00</MenuItem>
-          <MenuItem value={"16:00"}>16:00</MenuItem>
-          <MenuItem value={"17:00"}>17:00</MenuItem>
-          <MenuItem value={"18:00"}>18:00</MenuItem>
-          <MenuItem value={"19:00"}>19:00</MenuItem>
-          <MenuItem value={"20:00"}>20:00</MenuItem>
-        </Select>
-        </div> */}
-        {/* <label>
-              {'Od '}
-              <select name="startTime" onChange={setSelectedTime_start}>
-                {startTimeSelectOptions.map(option => {
-                  return option
-                })}
-              </select>
-            </label> */}
+          : null
+        }
+      </div>
+
         
-        {/* <div className="booking-field">
-          <label>
-              {'Do '}
-              <select name="endTime" onChange={setSelectedTime_end}>
-                {endTimeSelectOptions.map(option => {
-                  return option
-                })}
-              </select>
-            </label>
-        </div> */}
-        {/* <KeyboardTimePicker
-          variant="inline"
-          margin="normal"
-          id="time_start"
-          label="OD"
-          minutesStep="60"
-          ampm={false}
-          value={selectedDate_start}
-          onChange={setSelectedDate_start}
-          KeyboardButtonProps={{
-            'aria-label': 'change time',
-          }}
-        />
-        </div>
-        <div className="booking-field">
-        <KeyboardTimePicker
-          variant="inline"
-          margin="normal"
-          id="time_end"
-          label="DO"
-          minutesStep="60"
-          ampm={false}
-          value={selectedDate_end}
-          onChange={setSelectedDate_end}
-          KeyboardButtonProps={{
-            'aria-label': 'change time',
-          }}
-        />
-        </div> */}
-
-        <Calendar gymId={props.gym_id}/>
 
         <button className="booking-button" onClick={openModal}>Zarezerwuj</button>
         <Modal
