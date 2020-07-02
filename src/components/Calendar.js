@@ -1,30 +1,27 @@
-import React from 'react'
-import moment from 'moment'
-import 'moment/locale/pl'
+import React from "react";
+import moment from "moment";
+import "moment/locale/pl";
 
-moment.updateLocale('pl', { week : { dow : 2, doy : 4 } }); 
-
+moment.updateLocale("pl", { week: { dow: 1 } });
 
 export function Calendar() {
+  const weekdayshort = moment.weekdays(true);
 
-    const weekdayshort = moment.weekdays();
-    
-    let weekdayshortname = weekdayshort.map(day => {
-        return (
-          <div className="weekday-name">
-            <th key={day} className="week-day">
-            {day}
-            </th>
-          </div>
-        );
-     });
-
+  let weekdayshortname = weekdayshort.map((day) => {
     return (
-        <div className="calendar">
-            <div className="calendar-day-name">
-                <tr>{weekdayshortname}</tr>
-            </div>
-        </div>
-    )
+      <div className="weekday-name">
+        <th key={day} className="week-day">
+          {day}
+        </th>
+      </div>
+    );
+  });
 
+  return (
+    <div className="calendar">
+      <div className="calendar-day-name">
+        <tr>{weekdayshortname}</tr>
+      </div>
+    </div>
+  );
 }
