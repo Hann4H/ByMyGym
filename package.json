@@ -19,6 +19,7 @@
     "express": "^4.17.1",
     "express-jwt": "^5.3.1",
     "express-jwt-authz": "^1.0.0",
+    "faker": "^4.1.0",
     "file-upload-with-preview": "^4.0.8",
     "firebase": "^7.14.4",
     "firebase-admin": "^8.12.1",
@@ -52,9 +53,12 @@
     "react-router": "^5.2.0",
     "react-router-dom": "^4.3.1",
     "react-scripts": "^2.0.4",
+    "react-search": "^2.1.1",
     "react-simple-image-slider": "^1.0.3",
     "reactjs-popup": "^1.5.0",
-    "redux": "^4.0.5"
+    "redux": "^4.0.5",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.88.2"
   },
   "scripts": {
     "start": "react-scripts start",

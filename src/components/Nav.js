@@ -50,7 +50,6 @@ class Nav extends Component {
     if (window.location.pathname === "/signup") return null;
     if (window.location.pathname === "/login") return null;
 
-
     let name;
     var user = firebase.auth().currentUser;
     if (user != null) {
@@ -86,8 +85,9 @@ class Nav extends Component {
             </li>
             <li style={{ width: "100%" }}></li>
             <li>
-              <button className="searchButton">
+              <button to="/search" className="searchButton">
                 <FaSearch size="30px"></FaSearch>
+                <Link to="/search">Search</Link>
               </button>
             </li>
             <li>
@@ -106,7 +106,9 @@ class Nav extends Component {
             </li>
             <li>
               {this.state.user ? (
-                <button onClick={this.logout}><Link to="/">WYLOGUJ</Link></button>
+                <button onClick={this.logout}>
+                  <Link to="/">WYLOGUJ</Link>
+                </button>
               ) : (
                 <button>
                   <Link to="login">ZALOGUJ</Link>
