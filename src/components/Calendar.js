@@ -4,6 +4,7 @@ import 'moment/locale/pl'
 import { toDate } from 'date-fns';
 import Scheduler, {SchedulerData, ViewTypes, DATE_FORMAT} from 'react-big-scheduler'
 import { momentLocalizer } from 'react-big-calendar';
+import * as dates from 'date-fns'
 
 
 
@@ -12,12 +13,16 @@ moment.updateLocale('pl', { week : { dow : 2, doy : 4 } });
 
 moment.updateLocale("pl", { week: { dow: 1 } });
 
-export function Calendar() {
+export function Calendar(props) {
   const weekdayshort = moment.weekdays(true);
 
     const [currentMonth, setCurrentMonth] = React.useState(new Date());
     const [selectedDate, setSelectedDate] = React.useState(new Date());
+    const [indexStart, setIndexStart] = React.useState(7);
+    const [indexEnd, setIndexEnd] = React.useState(14);
 
+
+   
 
     function getWeek(start) {
         start = start || 0;
@@ -30,6 +35,8 @@ export function Calendar() {
         return [StartDate, EndDate];
     }
 
+
+
     const DAYS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     const DAYS_LEAP = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     const DAYS_OF_THE_WEEK = ['poniedziałek', 'wtorek', 'środa', 'czwartek', 'piątek', 'sobota', 'niedziela'];
@@ -38,33 +45,33 @@ export function Calendar() {
 
     const hours = [
         "\xa07:00\xa0",
-        "\xa07:30\xa0",
+        // "\xa07:30\xa0",
         "\xa08:00\xa0",
-        "\xa08:30\xa0",
+        // "\xa08:30\xa0",
         "\xa09:00\xa0",
-        "\xa09:30\xa0",
+        // "\xa09:30\xa0",
         "10:00",
-        "10:30",
+        // "10:30",
         "11:00",
-        "11:30",
+        // "11:30",
         "12:00",
-        "12:30",
+        // "12:30",
         "13:00",
-        "13:30",
+        // "13:30",
         "14:00",
-        "14:30",
+        // "14:30",
         "15:00",
-        "15:30",
+        // "15:30",
         "16:00",
-        "16:30",
+        // "16:30",
         "17:00",
-        "17:30",
+        // "17:30",
         "18:00",
-        "18:30",
+        // "18:30",
         "19:00",
-        "19:30",
+        // "19:30",
         "20:00",
-        "20:30"
+        // "20:30"
       ]
 
       let timeList = hours.map(hour => {
@@ -87,6 +94,29 @@ export function Calendar() {
         
         return `${separator}${date}.${month<10?`0${month}`:`${month}`}`
     }
+
+    let start = dates.startOfMonth(new Date())
+    let firstWeek = dates.getISOWeek(start)
+    let end = dates.endOfMonth(new Date())
+
+    let lastWeek = dates.getISOWeek(end)
+
+    function checkIfBooked() {
+
+    }
+
+
+    function iterateDays() {
+        var a = moment('2020-06-22');
+        var b = moment('2022-10-01');
+        let array = [];
+
+        for (var m = moment(a); m.isBefore(b); m.add(1, 'days')) {
+            array.push(m.format('DD.MM'));
+            
+        }
+        return array;
+    }
     
     let weekdayshortname = weekdayshort.map(day => {
         return (
@@ -102,11 +132,32 @@ export function Calendar() {
      });
 
 
+     let actualDates = iterateDays().slice(indexStart, indexEnd).map(day => {
+        return (
+            <div className="weekday-name">
+              <th key={day} className="week-day">
+              {day+"\xa0\xa0\xa0\xa0\xa0"}
+              {/* {getCurrentDate( )} */}
+              <tr className="idk-pls">{timeList}</tr>
+              </th>
+            </div>
+  
+          );
+
+     })
+
   return (
     <div className="calendar">
+
+        <div className="icon" onClick={() => {setIndexStart(indexStart-7); setIndexEnd(indexEnd-7)}}>chevron_left</div>
+        <span>
+
+        </span>
+        <div className="icon" onClick={() => {setIndexStart(indexStart+7); setIndexEnd(indexEnd+7)}}>chevron_right</div>
+
       <table>
         <div className="calendar-day-name">
-          <tr>{weekdayshortname}</tr>
+          <tr>{actualDates}</tr>
         </div>
         <div className="calendar-hours">
           {/* <tr>{timeList}</tr>
