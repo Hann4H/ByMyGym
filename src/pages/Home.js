@@ -25,12 +25,10 @@ class Home extends Component {
         <div className="listing-container">
           <h1>wyszukaj salę</h1>
           <hr />
-          <div id="search-bar-place">
-            <SearchCSS>
-              <SearchGym />
-            </SearchCSS>
-          </div>
-          <Listing />
+          <div id="search-bar-place"></div>
+          <SearchCSS>
+            <SearchGym />
+          </SearchCSS>
         </div>
         <div id="pls"></div>
         {/* <JsonData></JsonData> */}
