@@ -4,6 +4,7 @@ import 'moment/locale/pl'
 import { toDate } from 'date-fns';
 import Scheduler, {SchedulerData, ViewTypes, DATE_FORMAT} from 'react-big-scheduler'
 import { momentLocalizer } from 'react-big-calendar';
+import * as dates from 'date-fns'
 
 
 
@@ -17,7 +18,11 @@ export function Calendar() {
 
     const [currentMonth, setCurrentMonth] = React.useState(new Date());
     const [selectedDate, setSelectedDate] = React.useState(new Date());
+    const [indexStart, setIndexStart] = React.useState(14);
+    const [indexEnd, setIndexEnd] = React.useState(21);
 
+
+   
 
     function getWeek(start) {
         start = start || 0;
@@ -29,6 +34,8 @@ export function Calendar() {
         var EndDate = new Date(today.setDate(date + 6));
         return [StartDate, EndDate];
     }
+
+
 
     const DAYS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
     const DAYS_LEAP = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -87,6 +94,27 @@ export function Calendar() {
         
         return `${separator}${date}.${month<10?`0${month}`:`${month}`}`
     }
+
+    let start = dates.startOfMonth(new Date())
+    let firstWeek = dates.getISOWeek(start)
+    let end = dates.endOfMonth(new Date())
+
+let lastWeek = dates.getISOWeek(end)
+
+
+    function iterateDays() {
+        var a = moment('2020-06-22');
+        var b = moment('2020-10-01');
+        let array = [];
+
+        // If you want an exclusive end date (half-open interval)
+        for (var m = moment(a); m.isBefore(b); m.add(1, 'days')) {
+            array.push(m.format('DD.MM'));
+            
+        }
+        console.log(array);
+        return array;
+    }
     
     let weekdayshortname = weekdayshort.map(day => {
         return (
@@ -102,11 +130,37 @@ export function Calendar() {
      });
 
 
+     function nextWeek() {
+        setIndexStart(indexStart + 7);
+        setIndexEnd(indexEnd + 7);
+     }
+
+     let actualDates = iterateDays().slice(indexStart, indexEnd).map(day => {
+        return (
+            <div className="weekday-name">
+              <th key={day} className="week-day">
+              {day}
+              {/* {getCurrentDate( )} */}
+              <tr className="idk-pls">{timeList}</tr>
+              </th>
+            </div>
+  
+          );
+
+     })
+
   return (
     <div className="calendar">
+
+        <div className="icon" onClick={() => {setIndexStart(indexStart-7); setIndexEnd(indexEnd-7)}}>chevron_left</div>
+        <span>
+
+        </span>
+        <div className="icon" onClick={() => {setIndexStart(indexStart+7); setIndexEnd(indexEnd+7)}}>chevron_right</div>
+
       <table>
         <div className="calendar-day-name">
-          <tr>{weekdayshortname}</tr>
+          <tr>{actualDates}</tr>
         </div>
         <div className="calendar-hours">
           {/* <tr>{timeList}</tr>
