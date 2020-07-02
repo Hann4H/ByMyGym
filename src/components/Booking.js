@@ -16,6 +16,7 @@ import { useForm } from "react-hook-form";
 import Modal from 'react-modal';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
+import { Calendar } from './Calendar';
 
 Modal.setAppElement('#root');
 const customStyles = {
@@ -132,6 +133,7 @@ export function MaterialUIPickers(props) {
  
 
   return (
+    <div>
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <div className="booking-container">
       <Grid
@@ -279,5 +281,7 @@ export function MaterialUIPickers(props) {
         </Grid>
         </div>
       </MuiPickersUtilsProvider>
+      <Calendar />
+      </div>
   );
 }
