@@ -5,7 +5,9 @@ import Banner from "../components/Banner";
 import Services from "../components/Services";
 import Listing from "../components/Listing";
 import JsonData from "../JsonData";
-import { Calendar } from "../components/Calendar"
+import { Calendar } from "../components/Calendar";
+import SearchGym from "../components/SearchGym";
+import SearchCSS from "../theme/SearchCSS";
 
 class Home extends Component {
   render() {
@@ -23,7 +25,11 @@ class Home extends Component {
         <div className="listing-container">
           <h1>wyszukaj salę</h1>
           <hr />
-          <div id="search-bar-place">miejsce na search bar</div>
+          <div id="search-bar-place">
+            <SearchCSS>
+              <SearchGym />
+            </SearchCSS>
+          </div>
           <Listing />
         </div>
         <div id="pls"></div>

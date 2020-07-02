@@ -4,6 +4,8 @@ import { Search, Grid, Header, Segment, Label } from "semantic-ui-react";
 import _ from "lodash";
 import PropTypes from "prop-types";
 import faker from "faker";
+import GymItem from "../components/GymItem";
+
 // https://codesandbox.io/s/uyowr?module=/example.js&file=/example.js:0-22
 // https://react.semantic-ui.com/usage
 // https://react.semantic-ui.com/modules/search/
@@ -13,7 +15,11 @@ import faker from "faker";
 
 const db = firebase.firestore();
 
-const initialState = { isLoading: false, results: [], value: "" };
+const initialState = {
+  isLoading: false,
+  results: [],
+  value: "",
+};
 
 // const source = _.times(5, () => ({
 //   title: faker.company.companyName(),
@@ -105,7 +111,7 @@ export default class SearchGym extends Component {
       <>
         <div id="idk3"></div>
         <Grid>
-          <Grid.Column width={6}>
+          <Grid.Column width={17}>
             <Search
               // category
               // categoryLayoutRenderer={categoryLayoutRenderer}
@@ -120,8 +126,12 @@ export default class SearchGym extends Component {
               resultRenderer={resultRenderer}
               {...this.props}
             />
+            {this.state.results.map((gym, index) => (
+              <GymItem key={gym.id} showCount={false} gym={gym} index={index} />
+            ))}
           </Grid.Column>
-          <Grid.Column width={10}>
+
+          {/* <Grid.Column width={10}>
             <Segment>
               <Header>State</Header>
               <pre style={{ overflowX: "auto" }}>
@@ -132,7 +142,7 @@ export default class SearchGym extends Component {
                 {JSON.stringify(this.state.data, null, 2)}
               </pre>
             </Segment>
-          </Grid.Column>
+          </Grid.Column> */}
         </Grid>
       </>
     );
