@@ -9,17 +9,17 @@ class GymItem extends Component {
           <div className="listing-content">
             <div className="place-for-img">
               {/* <img id="myimg" src={gym.photo} /> */}
-              {/* {this.image(gym.id) ? (
-                    <img id="myimg" src={this.image(gym.id)} alt="gym" />
-                  ) : (
-                    <div className="place-for-img">
-                      <img
-                        id="myimg"
-                        src={require("../img/no_image.svg.png")}
-                        alt="nothing"
-                      />
-                    </div>
-                  )} */}
+              {this.props.url ? (
+                <img id="myimg" src={this.props.url} alt="gym" />
+              ) : (
+                <div className="place-for-img">
+                  <img
+                    id="myimg"
+                    src={require("../img/no_image.svg.png")}
+                    alt="nothing"
+                  />
+                </div>
+              )}
             </div>
             <div className="gym-short-info">
               <h3 className="listing-header">{this.props.gym.gymName}</h3>

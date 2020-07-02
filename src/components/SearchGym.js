@@ -116,6 +116,7 @@ export default class SearchGym extends Component {
               // category
               // categoryLayoutRenderer={categoryLayoutRenderer}
               // categoryRenderer={categoryRenderer}
+              placeholder="Wprowadź nazwę"
               loading={isLoading}
               onResultSelect={this.handleResultSelect}
               onSearchChange={_.debounce(this.handleSearchChange, 500, {
