@@ -10,6 +10,8 @@
   --mainGrey: #ececec;
   --lightShadow: #2e2e2e;
   --mainOrange: #ffa841;
+  --mainOrangeLight: rgba(255,168,65, 0.3);
+  --mainOrangeMedium: rgba(255,168,65, 0.5);
   --mainWhite: #ffffff;
   --mainBlack: #222222;
   --darkOrange: #ff8119;
@@ -911,15 +913,14 @@ ul.unstyled {
 }
 
 .calendar-day-name {
-  height: 50rem;
-  background-color: var(--mainOrange);
+  height: 45rem;
   width: 57rem;
 }
 
 .calendar-day-name tr {
   display: flex;
   justify-content: space-evenly;
-  border: 2px solid var(--darkOrange);
+  /* border: 2px solid var(--darkOrange); */
   height: 70rem;
   padding-top: 10px;
   flex-grow: 7;
@@ -928,24 +929,31 @@ ul.unstyled {
 
 .week-day {
   padding: 1rem;
-  border: 2px solid var(--darkOrange);
+  /* border: 2px solid rgb(228, 10, 10); */
   border-radius: 5px;
   font-size: 15px;
   margin-bottom: 2rem;
+  color: var(--darkOrange);
 }
 
 .calendar-hours {
   height: 30rem;
-  background-color: var(--mainOrange);
+  align-items: center;
 
 }
 
 .hour-td {
-  border: 2px solid var(--darkOrange);
+  border: 2px solid var(--mainOrangeMedium);
+  -webkit-box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.18);
+-moz-box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.18);
+box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.18);
+  border-radius: 5px;
   padding: 5px;
   font-size: 13px;
   padding-left: 20px;
   padding-right: 20px;
+  font-family: "Lato";
+  font-weight: lighter;
 }
 
 .calendar-hours tr {}
