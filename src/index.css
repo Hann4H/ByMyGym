@@ -11,8 +11,8 @@
   --mainGrey: #ececec;
   --lightShadow: #2e2e2e;
   --mainOrange: #ffa841;
-  --mainOrangeLight: rgba(255,168,65, 0.3);
-  --mainOrangeMedium: rgba(255,168,65, 0.5);
+  --mainOrangeLight: rgba(255, 168, 65, 0.3);
+  --mainOrangeMedium: rgba(255, 168, 65, 0.5);
   --mainWhite: #ffffff;
   --mainBlack: #222222;
   --darkOrange: #ff8119;
@@ -39,7 +39,7 @@
 }
 
 .icon {
-  font-family: 'Material Icons', serif;
+  font-family: "Material Icons", serif;
   font-style: normal;
   display: inline-block;
   vertical-align: middle;
@@ -56,7 +56,7 @@
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   -moz-osx-font-smoothing: grayscale;
-  font-feature-settings: 'liga';
+  font-feature-settings: "liga";
 }
 
 .icon:hover {
@@ -293,7 +293,6 @@
 /* single listing */
 .listing-content {
   display: flex;
-
 }
 
 @media screen and (max-width: 1200px) {
@@ -329,7 +328,7 @@
 
 @media screen and (max-width: 780px) {
   #myimg {
-    width:10rem;
+    width: 10rem;
   }
 }
 
@@ -432,10 +431,7 @@
   text-transform: uppercase;
 }
 
-.gym-info
-
-
-#container-6 {
+.gym-info #container-6 {
   display: flex;
 }
 
@@ -720,7 +716,7 @@ ul.unstyled {
 }
 
 @media screen and (max-width: 700px) {
-  .profile-gym-button{
+  .profile-gym-button {
     margin-left: 15%;
     font-size: 15px;
   }
@@ -888,7 +884,6 @@ ul.unstyled {
 .booking {
   margin-bottom: 2rem;
   margin-top: 2rem;
-
 }
 
 .booking-grid {
@@ -974,14 +969,13 @@ ul.unstyled {
 .calendar-hours {
   height: 10rem;
   align-items: center;
-
 }
 
 .hour-td {
   border: 2px solid var(--mainOrangeMedium);
-  -webkit-box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.18);
-  -moz-box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.18);
-  box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.18);
+  -webkit-box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.18);
+  -moz-box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.18);
+  box-shadow: 2px 2px 3px 0px rgba(0, 0, 0, 0.18);
   border-radius: 5px;
   padding: 5px;
   font-size: 13px;
@@ -989,18 +983,20 @@ ul.unstyled {
   padding-right: 20px;
   font-family: "Lato";
   font-weight: lighter;
-}
-
-.hour-td:hover {
   background-color: var(--mainOrangeLight);
   cursor: pointer;
 }
 
-
-
-.calendar-hours tr {}
-
-.idk-pls {
+.calendar-hours tr {
   display: flex;
   flex-direction: column;
+}
+
+.ui.icon.input {
+  width: 70% !important;
+}
+
+.results.transition.visible {
+  margin-left: 20% !important;
+  width: 70% !important;
 }

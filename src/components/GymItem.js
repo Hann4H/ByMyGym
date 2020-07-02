@@ -1,16 +1,34 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import "firebase/firestore";
+import "firebase/storage";
+import firebase from "../firebase";
+
+let storage = firebase.storage();
 
 class GymItem extends Component {
   render() {
+    let url = null;
+    // let url = `https://firebasestorage.googleapis.com/v0/b/bemygym-123.appspot.com/o/${this.props.gym.docId}/1.png?alt=media`;
+    // console.log("id of the document: " + this.props.gym.docId);
+    // try {
+    //   url = storage.refFromURL(
+    //     `https://firebasestorage.googleapis.com/v0/b/bemygym-123.appspot.com/o/${this.props.gym.docId}/1.png`
+    //   );
+    //   console.log("is ok");
+    // } catch (err) {
+    //   url = null;
+    //   console.log("is not ok");
+    // }
+
     return (
       <div>
         <div key={this.props.index} className="single-listing">
           <div className="listing-content">
             <div className="place-for-img">
               {/* <img id="myimg" src={gym.photo} /> */}
-              {this.props.url ? (
-                <img id="myimg" src={this.props.url} alt="gym" />
+              {url ? (
+                <img id="myimg" src={url} alt="gym" />
               ) : (
                 <div className="place-for-img">
                   <img
