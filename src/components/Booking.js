@@ -17,6 +17,7 @@ import Modal from 'react-modal';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import { Calendar } from './Calendar';
+import { startTimeSelectOptions, endTimeSelectOptions } from './BookingHelpers';
 
 Modal.setAppElement('#root');
 const customStyles = {
@@ -59,8 +60,8 @@ export function MaterialUIPickers(props) {
 
   const [selectedDate_start, setSelectedDate_start] = React.useState(new Date());
   const [selectedDate_end, setSelectedDate_end] = React.useState(new Date());
-  const [selectedTime_start, setSelectedTime_start] = React.useState(new Date());
-  const [selectedTime_end, setSelectedTime_end] = React.useState(new Date());
+  const [selectedTime_start, setSelectedTime_start] = React.useState("08:00");
+  const [selectedTime_end, setSelectedTime_end] = React.useState("09:00");
   const [weekday, setWeekday] = React.useState('');
   const [name, setName] = React.useState('');
   const [surname, setSurname] = React.useState('');
@@ -89,6 +90,15 @@ export function MaterialUIPickers(props) {
     setWeekday(event.target.value);
   };
 
+  const handleChangeStart = (event) => {
+    setSelectedTime_start(event.target.value);
+  };
+
+  const handleChangeEnd = (event) => {
+    setSelectedTime_end(event.target.value);
+  };
+
+
   var db = firebase.firestore();
   const ref = db.collection("bookings").doc();
 
@@ -103,6 +113,8 @@ export function MaterialUIPickers(props) {
         weekday,
         selectedDate_start,
         selectedDate_end,
+        selectedTime_start,
+        selectedTime_end,
         dates: (getDaysBetweenDates(
           new Date(selectedDate_start),
           new Date(selectedDate_end),
@@ -151,6 +163,9 @@ export function MaterialUIPickers(props) {
         label="imię"
         type="text"
         name="name"
+        InputLabelProps={{
+          shrink: true,
+        }}
         onChange={(e) => setName(e.currentTarget.value)}
         value={name}
         required
@@ -162,6 +177,9 @@ export function MaterialUIPickers(props) {
         label="nazwisko"
         type="text"
         name="surname"
+        InputLabelProps={{
+          shrink: true,
+        }}
         onChange={(e) => setSurname(e.currentTarget.value)}
         value={surname}
         required
@@ -173,6 +191,9 @@ export function MaterialUIPickers(props) {
         label="e-mail" 
         type="text"
         name="email"
+        InputLabelProps={{
+          shrink: true,
+        }}
         onChange={(e) => setEmail(e.currentTarget.value)}
         value={email}
         color="primary"
@@ -185,6 +206,9 @@ export function MaterialUIPickers(props) {
         label="numer telefonu"
         type="text"
         name="phoneNumber"
+        InputLabelProps={{
+          shrink: true,
+        }}
         pattern="(?<!\w)(\(?(\+|00)?48\)?)?[ -]?\d{3}[ -]?\d{3}[ -]?\d{3}(?!\w)"
         onChange={(e) => setPhoneNumber(e.currentTarget.value)}
         value={phoneNumber}
@@ -241,11 +265,112 @@ export function MaterialUIPickers(props) {
         />
         </div>
         <div className="booking-field">
-        <KeyboardTimePicker
+        <TextField
+          id="time"
+          label="Od"
+          type="time"
+          defaultValue="08:00"
+          value={selectedTime_start}
+          onChange={setSelectedTime_start}
+          InputLabelProps={{
+            shrink: true,
+          }}
+          inputProps={{
+            step: 3600,
+          }}
+        />
+        </div>
+        <div className="booking-field">
+        <TextField
+          id="time"
+          label="Do"
+          type="time"
+          defaultValue="09:00"
+          value={selectedTime_end}
+          onChange={setSelectedTime_end}
+          InputLabelProps={{
+            shrink: true,
+          }}
+          inputProps={{
+            step: 3600,
+          }}
+        />
+        </div>
+
+        {/* <div className="booking-field">
+        <Select
+          labelId="select-startTime"
+          id="startTime"
+          label="startTime"
+          placeholder="Od"
+          value={selectedTime_start}
+          onChange={handleChangeStart}
+        >
+          <MenuItem value={"7:00"}>7:00</MenuItem>
+          <MenuItem value={"8:00"}>8:00</MenuItem>
+          <MenuItem value={"9:00"}>9:00</MenuItem>
+          <MenuItem value={"10:00"}>10:00</MenuItem>
+          <MenuItem value={"11:00"}>11:00</MenuItem>
+          <MenuItem value={"12:00"}>12:00</MenuItem>
+          <MenuItem value={"13:00"}>13:00</MenuItem>
+          <MenuItem value={"14:00"}>14:00</MenuItem>
+          <MenuItem value={"15:00"}>15:00</MenuItem>
+          <MenuItem value={"16:00"}>16:00</MenuItem>
+          <MenuItem value={"17:00"}>17:00</MenuItem>
+          <MenuItem value={"18:00"}>18:00</MenuItem>
+          <MenuItem value={"19:00"}>19:00</MenuItem>
+          <MenuItem value={"20:00"}>20:00</MenuItem>
+        </Select>
+        </div>
+        <div className="booking-field">
+        <Select
+          labelId="select-startTime"
+          id="endTime"
+          label="endTime"
+          placeholder="Do"
+          value={selectedTime_end}
+          onChange={handleChangeEnd}
+        >
+          <MenuItem value={"8:00"}>8:00</MenuItem>
+          <MenuItem value={"9:00"}>9:00</MenuItem>
+          <MenuItem value={"10:00"}>10:00</MenuItem>
+          <MenuItem value={"11:00"}>11:00</MenuItem>
+          <MenuItem value={"12:00"}>12:00</MenuItem>
+          <MenuItem value={"13:00"}>13:00</MenuItem>
+          <MenuItem value={"14:00"}>14:00</MenuItem>
+          <MenuItem value={"15:00"}>15:00</MenuItem>
+          <MenuItem value={"16:00"}>16:00</MenuItem>
+          <MenuItem value={"17:00"}>17:00</MenuItem>
+          <MenuItem value={"18:00"}>18:00</MenuItem>
+          <MenuItem value={"19:00"}>19:00</MenuItem>
+          <MenuItem value={"20:00"}>20:00</MenuItem>
+        </Select>
+        </div> */}
+        {/* <label>
+              {'Od '}
+              <select name="startTime" onChange={setSelectedTime_start}>
+                {startTimeSelectOptions.map(option => {
+                  return option
+                })}
+              </select>
+            </label> */}
+        
+        {/* <div className="booking-field">
+          <label>
+              {'Do '}
+              <select name="endTime" onChange={setSelectedTime_end}>
+                {endTimeSelectOptions.map(option => {
+                  return option
+                })}
+              </select>
+            </label>
+        </div> */}
+        {/* <KeyboardTimePicker
           variant="inline"
           margin="normal"
           id="time_start"
           label="OD"
+          minutesStep="60"
           ampm={false}
           value={selectedDate_start}
           onChange={setSelectedDate_start}
@@ -260,6 +385,7 @@ export function MaterialUIPickers(props) {
           margin="normal"
           id="time_end"
           label="DO"
+          minutesStep="60"
           ampm={false}
           value={selectedDate_end}
           onChange={setSelectedDate_end}
@@ -267,7 +393,9 @@ export function MaterialUIPickers(props) {
             'aria-label': 'change time',
           }}
         />
-        </div>
+        </div> */}
+
+        <Calendar gymId={props.gym_id}/>
 
         <button className="booking-button" onClick={openModal}>Zarezerwuj</button>
         <Modal
@@ -281,7 +409,7 @@ export function MaterialUIPickers(props) {
         </Grid>
         </div>
       </MuiPickersUtilsProvider>
-      <Calendar gymId={props.gym_id}/>
+      
       </div>
   );
 }
