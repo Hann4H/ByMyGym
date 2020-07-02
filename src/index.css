@@ -938,6 +938,7 @@ ul.unstyled {
 
 .calendar table {
   table-layout: fixed;
+  margin-left: 3.7rem;
 }
 
 .calendar-day-name {
@@ -949,7 +950,7 @@ ul.unstyled {
   display: flex;
   justify-content: space-evenly;
   /* border: 2px solid var(--darkOrange); */
-  height: 70rem;
+  height: 80rem;
   padding-top: 10px;
   flex-grow: 7;
   table-layout: fixed;
@@ -965,7 +966,7 @@ ul.unstyled {
 }
 
 .calendar-hours {
-  height: 30rem;
+  height: 40rem;
   align-items: center;
 
 }
