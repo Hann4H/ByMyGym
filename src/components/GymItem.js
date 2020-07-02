@@ -32,7 +32,7 @@ class GymItem extends Component {
               ) : (
                 <div className="place-for-img">
                   <img
-                    id="myimg"
+                    id="myimg_none"
                     src={require("../img/no_image.svg.png")}
                     alt="nothing"
                   />

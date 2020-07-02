@@ -75,8 +75,9 @@ class HallProfile extends Component {
           </p>
           <br />
           <p style={nameStyle}>Strona WWW</p>
-          <a href={`https://${url}`} className="external-url">
+          <a href={`http://${url}`} className="external-url">
             {url}
+            < hr />
           </a>
           <br />
           <p style={nameStyle}>E-mail</p>

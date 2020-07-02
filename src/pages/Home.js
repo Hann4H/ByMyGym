@@ -24,7 +24,6 @@ class Home extends Component {
         <div id="pls"></div>
         <div className="listing-container">
           <h1>wyszukaj salę</h1>
-          <hr />
           <div id="search-bar-place">
             <SearchCSS>
               <SearchGym />

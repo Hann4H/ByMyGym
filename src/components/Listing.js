@@ -10,6 +10,7 @@ const db = firebase.firestore();
 
 class Listing extends Component {
   state = { Gyms: [] };
+  
 
   componentDidMount() {
     firebase

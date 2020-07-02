@@ -150,7 +150,7 @@ export function MaterialUIPickers(props) {
     <div className="type-button">
     
       <div>
-      <button onClick={() => setShowingLong({ showingLong: !showingLong })}>Rezerwacja długoterminowa</button>
+      <button className="showing-button" onClick={() => setShowingLong({ showingLong: !showingLong })}>Rezerwacja długoterminowa</button>
         { showingLong 
           ? <div>
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
@@ -311,7 +311,7 @@ export function MaterialUIPickers(props) {
               />
             </div>
 
-            <button className="booking-button" onClick={openModal}>Zarezerwuj</button>
+            <button className="booking-button" onClick={openModal}>ZAREZERWUJ</button>
               <Modal
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
@@ -329,7 +329,7 @@ export function MaterialUIPickers(props) {
       </div>
       
       <div>
-      <button onClick={() => setShowingShort({ showingShort: !showingShort })}>Rezerwacja krótkoterminowa</button>
+      <button className="showing-button" onClick={() => setShowingShort({ showingShort: !showingShort })}>Rezerwacja krótkoterminowa</button>
         { showingShort 
           ? <div>
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
@@ -407,7 +407,7 @@ export function MaterialUIPickers(props) {
 
             <Calendar gymId={props.gym_id}/>
 
-            <button className="booking-button" onClick={openModal}>Zarezerwuj</button>
+            <button className="booking-button" onClick={openModal}>ZAREZERWUJ</button>
               <Modal
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}

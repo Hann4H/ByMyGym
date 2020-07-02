@@ -167,6 +167,10 @@
   word-break: normal;
 }
 
+.gym-details p {
+  margin-bottom: 2px;
+}
+
 .external-url {
   text-decoration: none;
   color: var(--mainOrange);
@@ -326,6 +330,11 @@
   margin-top: 3rem;
 }
 
+#myimg_none {
+  width: 20rem;
+  margin-left: 6rem;
+}
+
 @media screen and (max-width: 780px) {
   #myimg {
     width: 10rem;
@@ -387,7 +396,6 @@
 .listing-container h1 {
   font-size: 30px;
   letter-spacing: var(--mainSpacing);
-  margin-bottom: 1rem;
   color: var(--darkOrange);
   font-family: "Lato";
   margin-top: 2rem;
@@ -397,7 +405,7 @@
 
 #search-bar-place {
   text-align: center;
-  padding-top: 3rem;
+  padding-top: -1rem;
   font-size: 20px;
 }
 
@@ -407,6 +415,10 @@
   width: 50%;
   margin-top: 5%;
   margin-bottom: 10%;
+}
+
+#gallery input {
+  font-size: 10px;
 }
 
 #container-1 {
@@ -419,6 +431,10 @@
   display: flex;
   justify-content: flex-end;
   vertical-align: middle;
+}
+
+.container-2 input {
+  margin-bottom: 0.5rem;
 }
 
 .container-4 {
@@ -614,6 +630,7 @@ button {
   margin-left: 2rem;
   /* font-weight: bold; */
   letter-spacing: var(--mainSpacing);
+  margin-top: 10px !important;
 
   cursor: pointer;
   padding-left: 10px;
@@ -901,15 +918,26 @@ ul.unstyled {
 
 .booking-field {
   margin-bottom: 1rem;
+  translate: (40%, 10%) !important;
+
+  margin-left: 2rem;
+  width: 35vw;
 }
 
 .booking-button {
   font-size: 15px;
+  font-weight: bold;
   padding: 0px;
-  height: 2rem;
+  height: 3rem;
   max-width: 5rem;
-  padding-right: 40%;
+  padding-right: 47%;
   padding-left: 6%;
+  margin-left: 130%;
+  
+}
+
+.showing-button {
+  margin-left: 40%;
 }
 
 .larger-field {
@@ -999,4 +1027,9 @@ ul.unstyled {
 .results.transition.visible {
   margin-left: 20% !important;
   width: 70% !important;
+}
+
+.idk-pls {
+  display: flex;
+  flex-direction: column;
 }

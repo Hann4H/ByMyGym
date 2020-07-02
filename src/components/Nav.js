@@ -84,20 +84,19 @@ class Nav extends Component {
               </Link>
             </li>
             <li style={{ width: "100%" }}></li>
+
             <li>
-              <button to="/search" className="searchButton">
-                <FaSearch size="30px"></FaSearch>
-                <Link to="/search">Search</Link>
-              </button>
-            </li>
-            <li>
-              <button>
+            {this.state.user ? (
+              <button className="nav-button">
                 <Link to="/add">DODAJ SALĘ</Link>
               </button>
+            ) : (
+              ""
+            )}
             </li>
             <li>
               {this.state.user ? (
-                <button>
+                <button className="nav-button">
                   <Link to="/profile">PROFIL</Link>
                 </button>
               ) : (
@@ -106,11 +105,11 @@ class Nav extends Component {
             </li>
             <li>
               {this.state.user ? (
-                <button onClick={this.logout}>
+                <button className="nav-button" onClick={this.logout}>
                   <Link to="/">WYLOGUJ</Link>
                 </button>
               ) : (
-                <button>
+                <button className="nav-button">
                   <Link to="login">ZALOGUJ</Link>
                 </button>
               )}

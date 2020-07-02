@@ -43,11 +43,21 @@ export default function gymForm() {
   const [imageAsFile, setImageAsFile] = useState("");
   const [imageAsUrl, setImageAsUrl] = useState("");
 
+  const [userUID, setUserUID] = useState("");
+
   console.log(imageAsFile);
   const handleImageAsFile = (e) => {
     const image = e.target.files[0];
     setImageAsFile((imageFile) => image);
   };
+
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      setUserUID(user.uid)
+    } else {
+      console.log("nie pykło")
+    }
+    });
 
   var storage = firebase.storage();
   const db = firebase.firestore();
@@ -77,7 +87,8 @@ export default function gymForm() {
             changingRooms,
             price,
             id: ref.id,
-            photo: url
+            photo: url,
+            owner: userUID
           })
           .then(() => {
             setGymName("");

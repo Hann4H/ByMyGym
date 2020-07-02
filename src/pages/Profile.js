@@ -46,7 +46,7 @@ class Profile extends Component {
               <table className="table table-borderless">
                 <tbody>
                   <tr className="profile-info">
-                    <td className="headline-info">Full Name</td>
+                    <td className="headline-info">Imię</td>
                     <td>{localStorage.getItem("user_name")}</td>
                   </tr>
                   <tr className="profile-info">
@@ -56,7 +56,7 @@ class Profile extends Component {
                 </tbody>
               </table>
             </div>
-            <button className="profile-gym-button">ZARZĄDZAJ SALAMI</button>
+            {/* <button className="profile-gym-button">ZARZĄDZAJ SALAMI</button> */}
 
         </div>
         </div>
