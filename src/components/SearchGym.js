@@ -54,6 +54,7 @@ export default class SearchGym extends Component {
 
   componentDidMount() {
     db.collection("gyms")
+      .orderBy("nazwa")
       .get()
       .then((snapshot) => {
         const links = snapshot.docs.map((doc) => {
@@ -70,7 +71,6 @@ export default class SearchGym extends Component {
     const { isLoading, value, results } = this.state;
     return (
       <>
-        <div style={{ height: "100px" }}></div>
         <Grid>
           <Grid.Column width={17}>
             <Search
