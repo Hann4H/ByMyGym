@@ -25,6 +25,7 @@ class AddGym extends Component {
             <Form></Form>
           </div>
         </div>
+        <div id="pls"></div>
       </>
     );
   }

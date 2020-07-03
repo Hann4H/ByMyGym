@@ -25,16 +25,16 @@ class Home extends Component {
         </Hero>
         <Services></Services>
         <div id="pls"></div>
-        <div className="listing-container">
+          <div className="listing-container">
 
-          <h1>wyszukaj salę</h1>
-          <hr />
-          <div id="search-bar-place"></div>
-          <SearchCSS>
-            <SearchGym />
-          </SearchCSS>
+            <h1>wyszukaj salę</h1>
+            <hr />
+            <div id="search-bar-place"></div>
+            <SearchCSS>
+              <SearchGym />
+            </SearchCSS>
 
-        </div>
+          </div>
         <div id="pls"></div>
         {/* <JsonData></JsonData> */}
 

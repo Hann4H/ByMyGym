@@ -3,6 +3,8 @@ import { Link, Redirect } from "react-router-dom";
 import firebase from "../firebase";
 import TextField from '@material-ui/core/TextField';
 import FirebaseAuth from 'react-firebaseui/FirebaseAuth';
+import { useHistory } from "react-router-dom";
+
 
 const uiConfig = {
     signInFlow: "popup",
@@ -13,6 +15,7 @@ const uiConfig = {
     signInSuccessUrl: "/"
   }
 
+  
   
   class Login extends Component{
 

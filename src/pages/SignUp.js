@@ -47,6 +47,7 @@ class SignUp extends Component{
     render() {
 
 
+
         return(
             <div className="login-page">
                 <div className="login-wave"></div>

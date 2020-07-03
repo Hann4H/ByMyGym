@@ -27,6 +27,7 @@ class GymProfile extends Component {
             </div>
           </div>
         </div>
+        <div id="pls" />
       </>
     );
   }
