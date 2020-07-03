@@ -412,9 +412,9 @@
 #gallery {
   font-size: 30px;
   text-align: center;
-  width: 50%;
-  margin-top: 5%;
+  width: 40%;
   margin-bottom: 10%;
+  margin-left: 30%;
 }
 
 #gallery input {
@@ -520,12 +520,14 @@
 
 .form-n-gallery {
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
+  width: 80vw;
 }
 
 .form-only {
-  width: 50%;
-  margin-right: 10%;
+  width: 40%;
+  margin-left: 10%;
 }
 
 label {
@@ -633,10 +635,15 @@ button {
   margin-top: 10px !important;
 
   cursor: pointer;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 25px;
+  padding-right: 25px;
   border-radius: 2px;
   white-space: nowrap;
+}
+
+.form_button {
+  margin-left: 30rem !important;
+  transform: translate(20%, -190%);
 }
 
 button:hover {

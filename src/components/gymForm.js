@@ -224,7 +224,7 @@ export default function gymForm() {
             />
           </div>
           <div className="container-2">
-            <label>Cena za godzinę</label>
+            <label>Cena</label>
             <input
               type="text"
               value={price}
@@ -247,7 +247,7 @@ export default function gymForm() {
         </div>*/}
       </div>
 
-      <div className="container-3">
+      {/* <div className="container-3">
         <label>
           {" "}
           <b>Typ:</b>
@@ -322,7 +322,7 @@ export default function gymForm() {
           />
         </div>
       </div>
-      {/* 2////////////////////////////////////////////// */}
+
       <br />
       <div className="container-3">
         <label>
@@ -398,11 +398,11 @@ export default function gymForm() {
             value="option6"
           />
         </div>
-      </div>
+      </div> */}
 
       <div></div>
       <div></div>
-      <button onClick={openModal}>DODAJ</button>
+      <button className="form_button" onClick={openModal}>DODAJ</button>
       <Modal
           isOpen={modalIsOpen}
           onRequestClose={closeModal}

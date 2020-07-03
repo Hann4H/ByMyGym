@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import firebase from "../firebase";
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import { Redirect } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 
 
 class SignUp extends Component{
@@ -28,7 +30,7 @@ class SignUp extends Component{
     signup(e){
         e.preventDefault();
         firebase.auth().createUserWithEmailAndPassword(this.state.email,this.state.password).then((u)=>{
-            console.log(u)
+            return <Redirect to="/login" />;
         }).catch((err)=>{
             console.log(err);
         })
@@ -43,6 +45,8 @@ class SignUp extends Component{
     
 
     render() {
+
+
         return(
             <div className="login-page">
                 <div className="login-wave"></div>
