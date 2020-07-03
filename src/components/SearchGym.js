@@ -9,12 +9,12 @@ import GymItem from "../components/GymItem";
 
 const db = firebase.firestore();
 
-const resultRenderer = ({ nazwa }) => (
-  <div style={{ color: "rgb(117, 117, 117)" }}>{nazwa}</div>
+const resultRenderer = ({ gymName }) => (
+  <div style={{ color: "rgb(117, 117, 117)" }}>{gymName}</div>
 );
 
 resultRenderer.propTypes = {
-  nazwa: PropTypes.string,
+  gymName: PropTypes.string,
   opis: PropTypes.string,
 };
 
@@ -30,7 +30,7 @@ export default class SearchGym extends Component {
   }
 
   handleResultSelect = (e, { result }) =>
-    this.setState({ value: result.nazwa });
+    this.setState({ value: result.gymName });
 
   handleSearchChange = (e, { value }) => {
     this.setState({ isLoading: true, value });
@@ -44,7 +44,7 @@ export default class SearchGym extends Component {
         });
 
       const re = new RegExp(_.escapeRegExp(this.state.value), "i");
-      const isMatch = (result) => re.test(result.nazwa);
+      const isMatch = (result) => re.test(result.gymName);
       this.setState({
         isLoading: false,
         results: _.filter(this.state.data, isMatch),
@@ -54,7 +54,7 @@ export default class SearchGym extends Component {
 
   componentDidMount() {
     db.collection("gyms")
-      .orderBy("nazwa")
+      .orderBy("gymName")
       .get()
       .then((snapshot) => {
         const links = snapshot.docs.map((doc) => {
