@@ -48,10 +48,13 @@ class HallProfile extends Component {
     const lng = this.state.data.lng ? this.state.data.lng : 16.931992;
     const position = [lat, lng];
     const kod = this.state.data.kod;
+    const zip = this.state.data.zip;
+
     const nazwa = this.state.data.gymName;
     const url = this.state.data.url;
     const telefon = this.state.data.telefon;
     const adres = this.state.data.adres;
+    const adres2 = this.state.data.street;
     const miasto = this.state.data.miasto;
     const miasto2 = this.state.data.city;
     const email = this.state.data.email;
@@ -72,7 +75,8 @@ class HallProfile extends Component {
           <br />
           <p style={nameStyle}>Adres</p>
           <p style={textStyle}>
-            {adres}, {kod} {miasto2}
+            {adres2}, {kod}
+            {zip} {miasto2}
           </p>
           <br />
           <p style={nameStyle}>Strona WWW</p>
