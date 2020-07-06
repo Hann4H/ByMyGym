@@ -9,7 +9,7 @@ import {
   TimePicker
 } from "@material-ui/pickers";
 import TextField from "@material-ui/core/TextField";
-import Select from "@material-ui/core/Select";
+// import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import firebase from "../firebase";
 import "firebase/storage";
@@ -19,7 +19,7 @@ import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import { Calendar } from "./Calendar";
 import { startTimeSelectOptions, endTimeSelectOptions } from "./BookingHelpers";
-
+import Select from 'react-select';
 
 Modal.setAppElement("#root");
 const customStyles = {
@@ -87,6 +87,10 @@ export function MaterialUIPickers(props) {
 
   const handleTimeChange_end = (date) => {
     setSelectedTime_end(date);
+  };
+
+  const handleWeekday = (date) => {
+    setWeekday(date);
   };
 
   const handleChange = (event) => {
@@ -264,7 +268,7 @@ export function MaterialUIPickers(props) {
                         />
                       </div>
 
-                      <div className="booking-field" id="booking-weekday">
+                      {/* <div className="booking-field" id="booking-weekday">
                         <p>Wybierz dzień tygodnia</p>
                         <Select
                           labelId="select-weekday"
@@ -282,9 +286,69 @@ export function MaterialUIPickers(props) {
                           <MenuItem value={"Saturday"}>Sobota</MenuItem>
                           <MenuItem value={"Sunday"}>Niedziela</MenuItem>
                         </Select>
+                      </div> */}
+
+                      <div className="booking-field">
+                        <Select
+                          value={weekday}
+                          onChange={handleWeekday}
+                          options = {[
+                            { value: "monday", label: "Poniedziałek" },
+                            { value: "tuesday", label: "Wtorek" },
+                            { value: "wednesday", label: "Środa" },
+                            { value: "thursday", label: "Czwartek" },
+                            { value: "friday", label: "Piątek" },
+                            { value: "saturday", label: "Sobota" },
+                            { value: "sunday", label: "Niedziela"}
+                          ]}
+                        />
                       </div>
 
                       <div className="booking-field">
+                        <Select
+                          value={selectedTime_start}
+                          onChange={setSelectedTime_start}
+                          options = {[
+                            { value: "8:00", label: "8:00" },
+                            { value: "9:00", label: "9:00" },
+                            { value: "10:00", label: "10:00" },
+                            { value: "11:00", label: "11:00" },
+                            { value: "12:00", label: "12:00" },
+                            { value: "13:00", label: "13:00" },
+                            { value: "14:00", label: "14:00" },
+                            { value: "15:00", label: "15:00"},
+                            { value: "16:00", label: "16:00"},
+                            { value: "17:00", label: "17:00"},
+                            { value: "18:00", label: "18:00"},
+                            { value: "19:00", label: "19:00"},
+                            { value: "20:00", label: "20:00"}
+                          ]}
+                        />
+                      </div>
+
+                      <div className="booking-field">
+                        <Select
+                          value={selectedTime_end}
+                          onChange={setSelectedTime_end}
+                          options = {[
+                            { value: "9:00", label: "9:00" },
+                            { value: "10:00", label: "10:00" },
+                            { value: "11:00", label: "11:00" },
+                            { value: "12:00", label: "12:00" },
+                            { value: "13:00", label: "13:00" },
+                            { value: "14:00", label: "14:00" },
+                            { value: "15:00", label: "15:00"},
+                            { value: "16:00", label: "16:00"},
+                            { value: "17:00", label: "17:00"},
+                            { value: "18:00", label: "18:00"},
+                            { value: "19:00", label: "19:00"},
+                            { value: "20:00", label: "20:00"},
+                            { value: "21:00", label: "21:00"}
+                          ]}
+                        />
+                      </div>
+
+                      {/* <div className="booking-field">
                         <TimePicker
                           clearable
                           helperText={''}
@@ -314,7 +378,7 @@ export function MaterialUIPickers(props) {
                             shrink: true,
                           }}
                         />
-                      </div>
+                      </div> */}
 
                       <button className="booking-button" onClick={openModal}>
                         ZAREZERWUJ
