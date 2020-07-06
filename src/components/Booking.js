@@ -6,6 +6,7 @@ import {
   MuiPickersUtilsProvider,
   KeyboardTimePicker,
   KeyboardDatePicker,
+  TimePicker
 } from "@material-ui/pickers";
 import TextField from "@material-ui/core/TextField";
 import Select from "@material-ui/core/Select";
@@ -18,6 +19,7 @@ import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import { Calendar } from "./Calendar";
 import { startTimeSelectOptions, endTimeSelectOptions } from "./BookingHelpers";
+
 
 Modal.setAppElement("#root");
 const customStyles = {
@@ -283,35 +285,33 @@ export function MaterialUIPickers(props) {
                       </div>
 
                       <div className="booking-field">
-                        <TextField
+                        <TimePicker
+                          clearable
+                          helperText={''}
                           id="time"
                           label="Od"
-                          type="time"
-                          defaultValue="08:00"
+                          // type="time"
+                          ampm={false}
                           value={selectedTime_start}
                           onChange={setSelectedTime_start}
                           InputLabelProps={{
                             shrink: true,
                           }}
-                          inputProps={{
-                            step: 3600,
-                          }}
                         />
                       </div>
 
                       <div className="booking-field">
-                        <TextField
+                        <TimePicker
+                          clearable
+                          helperText={''}
                           id="time"
                           label="Do"
-                          type="time"
-                          defaultValue="09:00"
+                          // type="time"
+                          ampm={false}
                           value={selectedTime_end}
                           onChange={setSelectedTime_end}
                           InputLabelProps={{
                             shrink: true,
-                          }}
-                          inputProps={{
-                            step: 3600,
                           }}
                         />
                       </div>
