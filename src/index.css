@@ -923,17 +923,16 @@ ul.unstyled {
 .booking-container {
   display: flex;
   flex-direction: column;
-  width: 20vw;
   justify-content: space-around;
 }
 
 .booking-field {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   translate: (40%, 10%) !important;
-
   margin-left: 2rem;
-  width: 35vw;
+  width: 25vw;
 }
+
 
 .booking-button {
   font-size: 15px;

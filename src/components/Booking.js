@@ -20,13 +20,14 @@ import { ThemeProvider } from "@material-ui/styles";
 import { Calendar } from "./Calendar";
 import { startTimeSelectOptions, endTimeSelectOptions } from "./BookingHelpers";
 import Select from 'react-select';
+import "moment/locale/pl";
 
 Modal.setAppElement("#root");
 const customStyles = {
   content: {
     width: "19rem",
     height: "auto",
-    color: "black",
+    color: "green",
     top: "50%",
     bottom: "auto",
     marginLeft: "50%",
@@ -47,6 +48,8 @@ const theme = createMuiTheme({
     },
   },
 });
+
+
 
 export function MaterialUIPickers(props) {
   const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -183,6 +186,7 @@ export function MaterialUIPickers(props) {
                           }}
                           onChange={(e) => setName(e.currentTarget.value)}
                           value={name}
+                          fullWidth
                           required
                         />
                       </div>
@@ -198,6 +202,7 @@ export function MaterialUIPickers(props) {
                           }}
                           onChange={(e) => setSurname(e.currentTarget.value)}
                           value={surname}
+                          fullWidth
                           required
                         />
                       </div>
@@ -214,6 +219,7 @@ export function MaterialUIPickers(props) {
                           onChange={(e) => setEmail(e.currentTarget.value)}
                           value={email}
                           color="primary"
+                          fullWidth
                           required
                         />
                       </div>
@@ -232,6 +238,7 @@ export function MaterialUIPickers(props) {
                             setPhoneNumber(e.currentTarget.value)
                           }
                           value={phoneNumber}
+                          fullWidth
                           required
                         />
                       </div>
@@ -249,6 +256,7 @@ export function MaterialUIPickers(props) {
                           KeyboardButtonProps={{
                             "aria-label": "change date",
                           }}
+                          fullWidth
                         />
                       </div>
 
@@ -265,6 +273,7 @@ export function MaterialUIPickers(props) {
                           KeyboardButtonProps={{
                             "aria-label": "change date",
                           }}
+                          fullWidth
                         />
                       </div>
 
@@ -290,6 +299,15 @@ export function MaterialUIPickers(props) {
 
                       <div className="booking-field">
                         <Select
+                          isMulti
+                          theme={theme => ({
+                            ...theme,
+                            colors: {
+                              ...theme.colors,
+                              primary: '#ffa841',
+                              primary25: '#ffb967',
+                            }})}
+                          placeholder="Dzień tygodnia"
                           value={weekday}
                           onChange={handleWeekday}
                           options = {[
@@ -306,6 +324,14 @@ export function MaterialUIPickers(props) {
 
                       <div className="booking-field">
                         <Select
+                          theme={theme => ({
+                            ...theme,
+                            colors: {
+                              ...theme.colors,
+                              primary: '#ffa841',
+                              primary25: '#ffb967',
+                            }})}
+                          placeholder="Od"
                           value={selectedTime_start}
                           onChange={setSelectedTime_start}
                           options = {[
@@ -328,6 +354,14 @@ export function MaterialUIPickers(props) {
 
                       <div className="booking-field">
                         <Select
+                          theme={theme => ({
+                            ...theme,
+                            colors: {
+                              ...theme.colors,
+                              primary: '#ffa841',
+                              primary25: '#ffb967',
+                            }})}
+                          placeholder="Do"
                           value={selectedTime_end}
                           onChange={setSelectedTime_end}
                           options = {[
@@ -431,6 +465,7 @@ export function MaterialUIPickers(props) {
                           }}
                           onChange={(e) => setName(e.currentTarget.value)}
                           value={name}
+                          fullWidth
                           required
                         />
                       </div>
@@ -446,6 +481,7 @@ export function MaterialUIPickers(props) {
                           }}
                           onChange={(e) => setSurname(e.currentTarget.value)}
                           value={surname}
+                          fullWidth
                           required
                         />
                       </div>
@@ -462,6 +498,7 @@ export function MaterialUIPickers(props) {
                           onChange={(e) => setEmail(e.currentTarget.value)}
                           value={email}
                           color="primary"
+                          fullWidth
                           required
                         />
                       </div>
@@ -480,6 +517,7 @@ export function MaterialUIPickers(props) {
                             setPhoneNumber(e.currentTarget.value)
                           }
                           value={phoneNumber}
+                          fullWidth
                           required
                         />
                       </div>
