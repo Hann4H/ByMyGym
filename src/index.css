@@ -509,6 +509,27 @@
   background-color: var(--darkGrey);
 }
 
+.contact-link {
+  padding-top: 2.5rem;
+  padding-left: 15rem;
+}
+
+.contact-link a {
+  display: flex;
+}
+
+.footer p {
+  color: var(--mainGrey);
+  margin-left: 0.5rem;
+  margin-top: 0.3rem;
+}
+
+.msg-icon {
+  height: 2rem;
+  width: auto;
+  color: aquamarine;
+}
+
 .gymForm {
   /* text-align: right; */
   margin: 50px;

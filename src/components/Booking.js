@@ -52,6 +52,7 @@ const theme = createMuiTheme({
 
 
 export function MaterialUIPickers(props) {
+
   const [modalIsOpen, setIsOpen] = React.useState(false);
   function openModal() {
     setIsOpen(true);
@@ -138,6 +139,11 @@ export function MaterialUIPickers(props) {
     );
   }
 
+  function handleValidation () {
+
+
+  }
+
   function getDaysBetweenDates(start, end, dayName) {
     var result = [];
     var days = { sun: 0, mon: 1, tue: 2, wed: 3, thu: 4, fri: 5, sat: 6 };
@@ -219,9 +225,16 @@ export function MaterialUIPickers(props) {
                           onChange={(e) => setEmail(e.currentTarget.value)}
                           value={email}
                           color="primary"
+                          ref={register({
+                            required: "Required",
+                            pattern: {
+                              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                              message: "zły email"
+                            }
+                          })}
                           fullWidth
                           required
-                        />
+                        /> 
                       </div>
 
                       <div className="booking-field">

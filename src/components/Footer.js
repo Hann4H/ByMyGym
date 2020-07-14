@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class Footer extends Component {
   render() {
@@ -7,7 +8,15 @@ class Footer extends Component {
     if (window.location.pathname === "/profile") return null;
     return (
       <>
-        <div className="footer"></div>
+        <div className="footer">
+          <div className="contact-link">
+            <Link to="/contact">
+              <img className="msg-icon"
+                  src={require("../img/msg-icon.png")}/>
+              <p>Skontaktuj się z nami!</p>
+            </Link>
+          </div>
+        </div>
       </>
     );
   }
