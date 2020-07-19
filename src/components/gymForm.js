@@ -6,35 +6,31 @@ import ImageUpload from "./ImageUpload";
 import Listing from "./Listing";
 import FileUploader from "react-firebase-file-uploader";
 import DragAndDrop from "./DragAndDrop";
-import Modal from 'react-modal';
+import Modal from "react-modal";
 import InputMask from "react-input-mask";
 
-
-Modal.setAppElement('#root');
+Modal.setAppElement("#root");
 const customStyles = {
-  content : {
-    width: '15rem',
-    height: 'auto',
-    color: 'black',
-    top: '50%',
-    bottom: 'auto',
-    marginLeft: '50%',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-    fontSize: '1rem',
-    fontFamily: 'Arial'
-    
-  }
+  content: {
+    width: "15rem",
+    height: "auto",
+    color: "black",
+    top: "50%",
+    bottom: "auto",
+    marginLeft: "50%",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+    fontSize: "1rem",
+    fontFamily: "Arial",
+  },
 };
 
 export default function gymForm() {
-
-
-  const [modalIsOpen,setIsOpen] = React.useState(false);
+  const [modalIsOpen, setIsOpen] = React.useState(false);
   function openModal() {
     setIsOpen(true);
   }
-  function closeModal(){
+  function closeModal() {
     setIsOpen(false);
   }
 
@@ -51,13 +47,13 @@ export default function gymForm() {
     setImageAsFile((imageFile) => image);
   };
 
-  firebase.auth().onAuthStateChanged(function(user) {
+  firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-      setUserUID(user.uid)
+      setUserUID(user.uid);
     } else {
-      console.log("nie pykło")
+      console.log("nie pykło");
     }
-    });
+  });
 
   var storage = firebase.storage();
   const db = firebase.firestore();
@@ -65,8 +61,9 @@ export default function gymForm() {
   const ref = db.collection("gyms").doc();
 
   function onSubmit(e) {
-
-    const uploadTask = storage.ref(`/photos/${imageAsFile.name}`).put(imageAsFile);
+    const uploadTask = storage
+      .ref(`/photos/${imageAsFile.name}`)
+      .put(imageAsFile);
 
     uploadTask
       .then((uploadTaskSnapshot) => {
@@ -88,19 +85,21 @@ export default function gymForm() {
             price,
             id: ref.id,
             photo: url,
-            owner: userUID
+            owner: userUID,
           })
           .then(() => {
             setGymName("");
           });
       });
-
   }
 
   const [gymName, setGymName] = useState("");
   const [street, setStreet] = useState("");
   const [city, setCity] = useState("");
   const [zip, setZip] = useState("");
+  const [pageWWW, setPageWWW] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [height, setHeight] = useState("");
   const [width, setWidth] = useState("");
   const [length, setLength] = useState("");
@@ -158,6 +157,40 @@ export default function gymForm() {
               required
             />
           </div>
+          <div className="container-2">
+            <label>Strona WWW</label>
+            <InputMask
+              type="text"
+              value={pageWWW}
+              name="pageWWW"
+              onChange={(e) => setPageWWW(e.currentTarget.value)}
+              ref={register}
+              required
+            />
+          </div>
+          <div className="container-2">
+            <label>E-mail</label>
+            <InputMask
+              type="text"
+              value={email}
+              name="pageWWW"
+              onChange={(e) => setEmail(e.currentTarget.value)}
+              ref={register}
+              required
+            />
+          </div>
+          <div className="container-2">
+            <label>Telefon</label>
+            <InputMask
+              type="text"
+              value={phone}
+              name="pageWWW"
+              onChange={(e) => setPhone(e.currentTarget.value)}
+              ref={register}
+              required
+            />
+          </div>
+
           <div className="container-2">
             <label>Wysokość</label>
             <input
@@ -239,8 +272,13 @@ export default function gymForm() {
         </div>
 
         <div id="gallery">
-                <input type="file" multiple="multiple" id="img_url" onChange={handleImageAsFile}></input>
-            </div>
+          <input
+            type="file"
+            multiple="multiple"
+            id="img_url"
+            onChange={handleImageAsFile}
+          ></input>
+        </div>
 
         {/*<div id="gallery">
           <DragAndDrop id="img_url" onChange={handleImageAsFile} />
@@ -402,13 +440,17 @@ export default function gymForm() {
 
       <div></div>
       <div></div>
-      <button className="form_button" onClick={openModal}>DODAJ</button>
+      <button className="form_button" onClick={openModal}>
+        DODAJ
+      </button>
       <Modal
-          isOpen={modalIsOpen}
-          onRequestClose={closeModal}
-          style={customStyles}
-          contentLabel="dasds"
-      >Sala została dodana<button onClick={closeModal}>x</button></Modal>
+        isOpen={modalIsOpen}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="dasds"
+      >
+        Sala została dodana<button onClick={closeModal}>x</button>
+      </Modal>
     </form>
   );
 }
