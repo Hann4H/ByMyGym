@@ -1,27 +1,62 @@
 import React, { Component } from 'react';
 import Listing from "../components/Listing";
+import firebase from "firebase";
+
 
 class Gyms extends Component {
-
-    render() {
+  state = { Gyms: [] };
   
-      return (
-        <>
-        <div id="idk3" />
-        <div id="pls" />
-        
-        <div id="idk4">
-            <div className="container-4">
-                <div id="constrain">
-                    <Listing />
-                </div>
-            </div>
-        </div>
 
-        <div id="pls" />
-        </>
-      )
-    }
+  componentDidMount() {
+    firebase
+      .firestore()
+      .collection("gyms")
+      .get()
+      .then((querySnapshot) => {
+        const Gyms = [];
+
+        querySnapshot.forEach(function(doc) {
+          Gyms.push({
+            gymName: doc.data().gymName,
+            street: doc.data().street,
+            zip: doc.data().zip,
+            city: doc.data().city,
+            height: doc.data().height,
+            width: doc.data().width,
+            length: doc.data().width,
+            price: doc.data().price,
+            id: doc.data().id,
+
+            kod: doc.data().kod,
+            url: doc.data().url,
+            opis_klasy: doc.data().opis_klasy,
+            telefon: doc.data().telefon,
+            email: doc.data().email,
+            grafika: doc.data().grafika,
+            opis: doc.data().opis,
+            lat: doc.data().lat,
+            lng: doc.data().lng,
+
+            nazwa: doc.data().nazwa,
+            adres: doc.data().adres,
+            miasto: doc.data().miasto,
+          });
+        });
+        this.setState({ Gyms });
+      })
+      .catch(function(error) {
+        console.log("Error getting documents: ", error);
+      });
+  }
+
+  render() {
+    return (
+      <div>
+        {this.state.Gyms.map((gym, index) => (
+          <p>{gym.gymName}</p>
+        ))}
+      </div>
+    );
+  }
 }
-
 export default Gyms;
