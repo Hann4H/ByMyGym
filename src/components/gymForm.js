@@ -69,15 +69,15 @@ export default function gymForm() {
       .then((uploadTaskSnapshot) => {
         return uploadTaskSnapshot.ref.getDownloadURL();
       })
-      .then((url) => {
-        setImageAsUrl(url);
+      .then((gymURL) => {
+        setImageAsUrl(gymURL);
         db.collection("gyms")
           .add({
             gymName,
             gymStreet,
             gymCity,
-            zip,
-            url,
+            gymZip,
+            gymURL,
             email,
             telefon,
             height,
@@ -87,7 +87,7 @@ export default function gymForm() {
             changingRooms,
             price,
             id: ref.id,
-            photo: url,
+            photo: gymURL,
             owner: userUID,
           })
           .then(() => {
@@ -99,8 +99,8 @@ export default function gymForm() {
   const [gymName, setGymName] = useState("");
   const [gymStreet, setStreet] = useState("");
   const [gymCity, setCity] = useState("");
-  const [zip, setZip] = useState("");
-  const [url, setUrl] = useState("");
+  const [gymZip, setZip] = useState("");
+  const [gymURL, setUrl] = useState("");
   const [email, setEmail] = useState("");
   const [telefon, setTelefon] = useState("");
   const [height, setHeight] = useState("");
@@ -151,8 +151,8 @@ export default function gymForm() {
             <label>Kod pocztowy</label>
             <InputMask
               type="text"
-              value={zip}
-              name="zip"
+              value={gymZip}
+              name="gymZip"
               pattern="^\d{2}-\d{3}$"
               mask="99-999"
               onChange={(e) => setZip(e.currentTarget.value)}
@@ -164,7 +164,7 @@ export default function gymForm() {
             <label>Strona WWW</label>
             <InputMask
               type="text"
-              value={url}
+              value={gymURL}
               name="pageWWW"
               onChange={(e) => setUrl(e.currentTarget.value)}
               ref={register}

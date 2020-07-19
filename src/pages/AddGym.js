@@ -1,11 +1,7 @@
 import React, { Component } from "react";
 import Hero from "../components/Hero";
-import { useForm } from "react-hook-form";
 import Form from "../components/gymForm";
 import Banner from "../components/Banner";
-import Title from "../components/Title";
-import Spinner from "../components/Spinner";
-import ImageUpload from "../components/ImageUpload";
 
 class AddGym extends Component {
   render() {

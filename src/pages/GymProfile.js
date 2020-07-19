@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Slider from "../components/Slider";
-import HallProfile from "../components/HallProfile";
-import {MaterialUIPickers} from "../components/Booking"
+import GymDetails from "../components/GymDetails";
+import { MaterialUIPickers } from "../components/Booking";
 
 class GymProfile extends Component {
   onDayClick = (e, day) => {
@@ -22,10 +22,10 @@ class GymProfile extends Component {
           <div className="container-4">
             <div id="constrain">
               {/* <GymDetails></GymDetails> */}
-              <HallProfile dataId={this.props.match.params.id} />
+              <GymDetails dataId={this.props.match.params.id} />
             </div>
           </div>
-          <MaterialUIPickers gym_id={this.props.match.params.id}/>
+          <MaterialUIPickers gym_id={this.props.match.params.id} />
         </div>
         <div id="pls" />
       </>

@@ -11,9 +11,9 @@ export default function ListingImg(props) {
     .ref()
     .child(`${id}/1.png`)
     .getDownloadURL()
-    .then((url) => {
-      console.log(url);
-      return url;
+    .then((gymURL) => {
+      console.log(gymURL);
+      return gymURL;
     })
     .catch(function(error) {
       console.log("Error getting prop: ", error);

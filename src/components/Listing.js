@@ -29,16 +29,15 @@ class Listing extends Component {
 
             gymName: doc.data().gymName,
             gymStreet: doc.data().gymStreet,
-            zip: doc.data().zip,
             gymCity: doc.data().gymCity,
+            gymZip: doc.data().gymZip,
             height: doc.data().height,
             width: doc.data().width,
             length: doc.data().width,
             price: doc.data().price,
             id: doc.data().id,
 
-            kod: doc.data().kod,
-            url: doc.data().url,
+            gymURL: doc.data().gymURL,
             opis_klasy: doc.data().opis_klasy,
             telefon: doc.data().telefon,
             email: doc.data().email,

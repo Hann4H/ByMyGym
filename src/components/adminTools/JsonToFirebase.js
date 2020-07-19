@@ -38,10 +38,8 @@ function JsonToFirebase(props) {
       gymName: item.properties.nazwa,
       gymStreet: item.properties.adres,
       gymCity: item.properties.miasto,
-
-      id: item.id,
-      kod: item.properties.kod,
-      url: item.properties.url,
+      gymZip: item.properties.kod,
+      gymURL: item.properties.url,
       opis_klasy: item.properties.opis_klasy,
       telefon: item.properties.telefon,
       email: item.properties.email,
@@ -49,6 +47,7 @@ function JsonToFirebase(props) {
       opis: item.properties.opis,
       lat: item.geometry.coordinates[1],
       lng: item.geometry.coordinates[0],
+      id: item.id,
     })
   );
 
