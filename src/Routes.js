@@ -8,7 +8,7 @@ import AddGym from "./pages/AddGym";
 import GymProfile from "./pages/GymProfile";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
-import Search from "./pages/Search";
+import Admin from "./pages/Admin";
 
 const Routes = () => (
   <Switch>
@@ -22,7 +22,7 @@ const Routes = () => (
         <Route path="/gym_profile/:id" component={GymProfile} />
         <Route path="/profile" exact component={Profile} />
         <Route path="/gyms" exact component={Gyms} />
-        <Route path="/search" exact component={Search} />
+        <Route path="/admin" exact component={Admin} />
       </div>
     </React.Fragment>
   </Switch>

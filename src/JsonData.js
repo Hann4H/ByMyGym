@@ -38,7 +38,7 @@ class JsonData extends Component {
 
     return (
       <>
-        {/* <JsonToFirebase json={items}></JsonToFirebase> */}
+        <JsonToFirebase json={items}></JsonToFirebase>
         {/* <ul>
           {items.map((item) => (
             <li key={item.id}>{item.properties.nazwa}</li>
