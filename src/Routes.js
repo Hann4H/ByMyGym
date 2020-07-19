@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-
+import Gyms from "./pages/Gyms";
 import Home from "./pages/Home";
 import Error from "./pages/Error";
 import SignUpComponent from "./pages/SignUp";
@@ -21,6 +21,7 @@ const Routes = () => (
         <Route path="/signup" exact component={SignUpComponent} />
         <Route path="/gym_profile/:id" component={GymProfile} />
         <Route path="/profile" exact component={Profile} />
+        <Route path="/gyms" exact component={Gyms} />
         <Route path="/search" exact component={Search} />
       </div>
     </React.Fragment>
