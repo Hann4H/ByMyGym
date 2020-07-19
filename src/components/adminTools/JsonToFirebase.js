@@ -1,12 +1,8 @@
-import React from "react";
-import firebase from "./firebase";
-import moment from "moment"
-import { array } from "prop-types";
+import firebase from "../../firebase";
+import moment from "moment";
 
 function JsonToFirebase(props) {
   const db = firebase.firestore();
-
-  const ref = db.collection("gyms").doc();
 
   const hoursObj = {
     "07:00": false,
@@ -22,24 +18,20 @@ function JsonToFirebase(props) {
     "17:00": false,
     "18:00": false,
     "19:00": false,
-    "20:00": false
-  }
+    "20:00": false,
+  };
 
   function iterateDays() {
-    var a = moment('2020-06-22');
-    var b = moment('2022-10-01');
-    let array = []
-    let data = []
+    var a = moment("2020-06-22");
+    var b = moment("2022-10-01");
+    let array = [];
 
-    for (var m = moment(a); m.isBefore(b); m.add(1, 'days')) {
-        array.push([m.format('DD.MM'), {hoursObj}]);
-        
+    for (var m = moment(a); m.isBefore(b); m.add(1, "days")) {
+      array.push([m.format("DD.MM"), { hoursObj }]);
     }
-    console.log(array)
+    console.log(array);
     return array;
-    
-}
-
+  }
 
   props.json.map((item) =>
     db.collection("gyms").add({
@@ -61,8 +53,6 @@ function JsonToFirebase(props) {
       nazwa: item.properties.nazwa,
       adres: item.properties.adres,
       miasto: item.properties.miasto,
-
-
     })
   );
 

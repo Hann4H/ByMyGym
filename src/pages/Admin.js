@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import JsonData from "../JsonData";
+import JsonData from "../components/adminTools/JsonData";
 
 class Admin extends Component {
   constructor(props) {
