@@ -49,7 +49,6 @@ class HallProfile extends Component {
     const position = [lat, lng];
     const kod = this.state.data.kod;
     const zip = this.state.data.zip;
-
     const nazwa = this.state.data.gymName;
     const url = this.state.data.url;
     const telefon = this.state.data.telefon;
