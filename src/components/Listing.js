@@ -10,38 +10,12 @@ const db = firebase.firestore();
 
 class Listing extends Component {
   state = { Gyms: [] };
-  
 
   componentDidMount() {
     firebase
       .firestore()
       .collection("gyms")
-      //   .doc('OZiOSBKvQMcYsSPZIJuN')
-      //   .get()
-      //   .then(doc => {
-      //     const Gyms = [];
-      //       Gyms.push({
-      //         docId: doc.id,
-      //         gymName: doc.data().gymName,
-      //         street: doc.data().street,
-      //         zip: doc.data().zip,
-      //         city: doc.data().city,
-      //         height: doc.data().height,
-      //         width: doc.data().width,
-      //         length: doc.data().width,
-      //         price: doc.data().price,
-      //         id: doc.data().id,
-      //         photo: doc.data().photo
-
-      //     });
-      //     this.setState({ Gyms });
-
-      //   })
-      //   .catch(function(error) {
-      //     console.log("Error getting documents: ", error);
-      //   });
-      // }
-      .orderBy("nazwa")
+      .orderBy("gymName")
       .limit(10)
       .get()
       .then((querySnapshot) => {
@@ -49,20 +23,14 @@ class Listing extends Component {
         var lastVisible = querySnapshot.docs[querySnapshot.docs.length - 1];
         console.log("last", lastVisible);
 
-        // var next = db
-        //   .collection("cities")
-        //   .orderBy("nazwa")
-        //   .startAfter(lastVisible)
-        //   .limit(10);
-
         querySnapshot.forEach(function(doc) {
           Gyms.push({
             docId: doc.id,
 
             gymName: doc.data().gymName,
-            street: doc.data().street,
+            gymStreet: doc.data().gymStreet,
             zip: doc.data().zip,
-            city: doc.data().city,
+            gymCity: doc.data().gymCity,
             height: doc.data().height,
             width: doc.data().width,
             length: doc.data().width,
@@ -78,10 +46,6 @@ class Listing extends Component {
             opis: doc.data().opis,
             lat: doc.data().lat,
             lng: doc.data().lng,
-
-            nazwa: doc.data().nazwa,
-            adres: doc.data().adres,
-            miasto: doc.data().miasto,
           });
         });
         this.setState({ Gyms });

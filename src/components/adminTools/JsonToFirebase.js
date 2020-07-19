@@ -36,8 +36,8 @@ function JsonToFirebase(props) {
   props.json.map((item) =>
     db.collection("gyms").add({
       gymName: item.properties.nazwa,
-      street: item.properties.adres,
-      city: item.properties.miasto,
+      gymStreet: item.properties.adres,
+      gymCity: item.properties.miasto,
 
       id: item.id,
       kod: item.properties.kod,
@@ -49,10 +49,6 @@ function JsonToFirebase(props) {
       opis: item.properties.opis,
       lat: item.geometry.coordinates[1],
       lng: item.geometry.coordinates[0],
-
-      nazwa: item.properties.nazwa,
-      adres: item.properties.adres,
-      miasto: item.properties.miasto,
     })
   );
 

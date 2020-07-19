@@ -47,7 +47,7 @@ export default function gymForm() {
     setImageAsFile((imageFile) => image);
   };
 
-  firebase.auth().onAuthStateChanged(function (user) {
+  firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       setUserUID(user.uid);
     } else {
@@ -74,8 +74,8 @@ export default function gymForm() {
         db.collection("gyms")
           .add({
             gymName,
-            street,
-            city,
+            gymStreet,
+            gymCity,
             zip,
             url,
             email,
@@ -97,8 +97,8 @@ export default function gymForm() {
   }
 
   const [gymName, setGymName] = useState("");
-  const [street, setStreet] = useState("");
-  const [city, setCity] = useState("");
+  const [gymStreet, setStreet] = useState("");
+  const [gymCity, setCity] = useState("");
   const [zip, setZip] = useState("");
   const [url, setUrl] = useState("");
   const [email, setEmail] = useState("");
@@ -129,8 +129,8 @@ export default function gymForm() {
             <label>Ulica</label>
             <input
               type="text"
-              value={street}
-              name="street"
+              value={gymStreet}
+              name="gymStreet"
               onChange={(e) => setStreet(e.currentTarget.value)}
               ref={register}
               required
@@ -140,8 +140,8 @@ export default function gymForm() {
             <label>Miasto</label>
             <InputMask
               type="text"
-              value={city}
-              name="city"
+              value={gymCity}
+              name="gymCity"
               onChange={(e) => setCity(e.currentTarget.value)}
               ref={register}
               required

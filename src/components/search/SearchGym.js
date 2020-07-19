@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import firebase from "../firebase";
+import firebase from "../../firebase";
 import { Search, Grid } from "semantic-ui-react";
 import _ from "lodash";
 import PropTypes from "prop-types";
-import GymItem from "../components/GymItem";
+import GymItem from "../GymItem";
 
 // search source page: https://react.semantic-ui.com/modules/search/
 

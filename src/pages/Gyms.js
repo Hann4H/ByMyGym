@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import Listing from "../components/Listing";
 import firebase from "firebase";
 
-
 class Gyms extends Component {
   state = { Gyms: [] };
-  
 
   componentDidMount() {
     firebase
@@ -18,9 +16,9 @@ class Gyms extends Component {
         querySnapshot.forEach(function(doc) {
           Gyms.push({
             gymName: doc.data().gymName,
-            street: doc.data().street,
+            gymStreet: doc.data().gymStreet,
             zip: doc.data().zip,
-            city: doc.data().city,
+            gymCity: doc.data().gymCity,
             height: doc.data().height,
             width: doc.data().width,
             length: doc.data().width,
@@ -36,10 +34,6 @@ class Gyms extends Component {
             opis: doc.data().opis,
             lat: doc.data().lat,
             lng: doc.data().lng,
-
-            nazwa: doc.data().nazwa,
-            adres: doc.data().adres,
-            miasto: doc.data().miasto,
           });
         });
         this.setState({ Gyms });

@@ -42,7 +42,7 @@ class GymItem extends Component {
             <div className="gym-short-info">
               <h3 className="listing-header">{this.props.gym.gymName}</h3>
               <p>
-                Adres: {this.props.gym.street}, {this.props.gym.city}{" "}
+                Adres: {this.props.gym.gymStreet}, {this.props.gym.gymCity}{" "}
                 {this.props.gym.zip}
               </p>
               <p>

@@ -6,8 +6,8 @@ import Services from "../components/Services";
 import Listing from "../components/Listing";
 
 import { Calendar } from "../components/Calendar";
-import SearchGym from "../components/SearchGym";
-import SearchCSS from "../theme/SearchCSS";
+import SearchGym from "../components/search/SearchGym";
+import SearchCSS from "../components/search/SearchCSS";
 import moment from "moment";
 import { Calendar2 } from "../components/Calendar2";
 import { idk } from "../components/idk";

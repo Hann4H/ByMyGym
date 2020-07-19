@@ -19,9 +19,9 @@ class GymDetails extends Component {
         querySnapshot.forEach(function(doc) {
           Gyms.push({
             gymName: doc.data().gymName,
-            street: doc.data().street,
+            gymStreet: doc.data().gymStreet,
             zip: doc.data().zip,
-            city: doc.data().city,
+            gymCity: doc.data().gymCity,
             height: doc.data().height,
             width: doc.data().width,
             length: doc.data().width,
@@ -51,8 +51,8 @@ class GymDetails extends Component {
                   <GymName title={gym.gymName}></GymName>
                   <div id="text-constrain">
                     <p id="address">
-                      {gym.street}
-                      <br /> {gym.city} {gym.zip}
+                      {gym.gymStreet}
+                      <br /> {gym.gymCity} {gym.zip}
                     </p>
                     <div className="gym-info">
                       <p>

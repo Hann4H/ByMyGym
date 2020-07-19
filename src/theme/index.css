@@ -69,14 +69,14 @@
   padding-top: 5rem;
   min-height: calc(100vh - 200px);
   min-width: calc(100vw - 66px);
-  background: url("./img/header_img.png") center/cover no-repeat;
+  background: url("../img/header_img.png") center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .gymsHero {
-  background-image: url("./img/header_img_3.jpg");
+  background-image: url("../img/header_img_3.jpg");
   min-height: 60vh;
 }
 
@@ -812,7 +812,7 @@ ul.unstyled {
 }
 
 .login-wave {
-  background-image: url("./img/wave.png");
+  background-image: url("../img/wave.png");
   height: 100%;
   background-position: center;
   background-repeat: no-repeat;
@@ -954,7 +954,6 @@ ul.unstyled {
   width: 25vw;
 }
 
-
 .booking-button {
   font-size: 15px;
   font-weight: bold;
@@ -1066,10 +1065,6 @@ ul.unstyled {
   flex-direction: column;
 }
 
-
-
-
-
 .container-6 {
   width: 600px;
   margin: auto;
@@ -1088,7 +1083,7 @@ ul.unstyled {
 }
 
 .grid td:hover {
-  opacity: .7;
+  opacity: 0.7;
   cursor: pointer;
 }
 

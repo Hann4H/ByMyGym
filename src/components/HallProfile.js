@@ -52,13 +52,11 @@ class HallProfile extends Component {
     const height = this.state.data.height;
     const width = this.state.data.width;
     const length = this.state.data.length;
-    const nazwa = this.state.data.gymName;
+    const gymName = this.state.data.gymName;
     const url = this.state.data.url;
     const telefon = this.state.data.telefon;
-    const adres = this.state.data.adres;
-    const adres2 = this.state.data.street;
-    const miasto = this.state.data.miasto;
-    const miasto2 = this.state.data.city;
+    const gymStreet = this.state.data.gymStreet;
+    const gymCity = this.state.data.gymCity;
     const email = this.state.data.email;
     // const grafika = this.state.data.grafika;
     const opis = this.state.data.opis;
@@ -68,7 +66,7 @@ class HallProfile extends Component {
     return (
       <div className="idk5">
         <h1 className="gym-name" style={{ color: "var(--darkOrange)" }}>
-          {nazwa}
+          {gymName}
         </h1>
 
         <div className="gym-details">
@@ -86,8 +84,8 @@ class HallProfile extends Component {
           <br />
           <p style={nameStyle}>Adres</p>
           <p style={textStyle}>
-            {adres2}, {kod}
-            {zip} {miasto2}
+            {gymStreet}, {kod}
+            {zip} {gymCity}
           </p>
           <br />
           <p style={nameStyle}>Strona WWW</p>
