@@ -77,6 +77,9 @@ export default function gymForm() {
             street,
             city,
             zip,
+            url,
+            email,
+            telefon,
             height,
             width,
             length,
@@ -97,9 +100,9 @@ export default function gymForm() {
   const [street, setStreet] = useState("");
   const [city, setCity] = useState("");
   const [zip, setZip] = useState("");
-  const [pageWWW, setPageWWW] = useState("");
+  const [url, setUrl] = useState("");
   const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
+  const [telefon, setTelefon] = useState("");
   const [height, setHeight] = useState("");
   const [width, setWidth] = useState("");
   const [length, setLength] = useState("");
@@ -161,9 +164,9 @@ export default function gymForm() {
             <label>Strona WWW</label>
             <InputMask
               type="text"
-              value={pageWWW}
+              value={url}
               name="pageWWW"
-              onChange={(e) => setPageWWW(e.currentTarget.value)}
+              onChange={(e) => setUrl(e.currentTarget.value)}
               ref={register}
               required
             />
@@ -183,9 +186,9 @@ export default function gymForm() {
             <label>Telefon</label>
             <InputMask
               type="text"
-              value={phone}
+              value={telefon}
               name="pageWWW"
-              onChange={(e) => setPhone(e.currentTarget.value)}
+              onChange={(e) => setTelefon(e.currentTarget.value)}
               ref={register}
               required
             />

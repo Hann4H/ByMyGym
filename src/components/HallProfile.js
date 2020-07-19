@@ -49,7 +49,9 @@ class HallProfile extends Component {
     const position = [lat, lng];
     const kod = this.state.data.kod;
     const zip = this.state.data.zip;
-
+    const height = this.state.data.height;
+    const width = this.state.data.width;
+    const length = this.state.data.length;
     const nazwa = this.state.data.gymName;
     const url = this.state.data.url;
     const telefon = this.state.data.telefon;
@@ -72,6 +74,15 @@ class HallProfile extends Component {
         <div className="gym-details">
           <p style={nameStyle}>Opis</p>
           <p style={textStyle} dangerouslySetInnerHTML={{ __html: opis }} />
+          <br />
+          <p style={nameStyle}>Wysokość</p>
+          <p style={textStyle}>{height}</p>
+          <br />
+          <p style={nameStyle}>Szerokość</p>
+          <p style={textStyle}>{width}</p>
+          <br />
+          <p style={nameStyle}>Długość</p>
+          <p style={textStyle}>{length}</p>
           <br />
           <p style={nameStyle}>Adres</p>
           <p style={textStyle}>
