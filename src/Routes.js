@@ -9,6 +9,7 @@ import GymProfile from "./pages/GymProfile";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Admin from "./pages/Admin";
+import Contact from "./pages/Contact";
 
 const Routes = () => (
   <Switch>
@@ -16,6 +17,7 @@ const Routes = () => (
       <div className="RouterBody">
         <Route path="/" exact component={Home} />
         <Route path="/404" exact component={Error} />
+        <Route path="/contact" exact component={Contact} />
         <Route path="/add" exact component={AddGym} />
         <Route path="/login" exact component={Login} />
         <Route path="/signup" exact component={SignUpComponent} />
