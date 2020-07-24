@@ -945,6 +945,7 @@ ul.unstyled {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  margin-left: 25%;
 }
 
 .booking-field {
@@ -965,10 +966,17 @@ ul.unstyled {
   padding-left: 6%;
   margin-left: 130%; */
   margin: auto;
+  margin-left: 2rem;
+}
+
+.calendar-style {
+  margin-right: 20%;
+  margin-left: -25%;
 }
 
 .showing-button {
-  margin-left: 40%;
+  margin-left: 37%;
+  padding-left: 2rem;
 }
 
 .larger-field {

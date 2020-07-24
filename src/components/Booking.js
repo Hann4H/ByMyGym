@@ -535,7 +535,7 @@ export function MaterialUIPickers(props) {
                         />
                       </div>
 
-                      <Calendar gymId={props.gym_id} />
+                      <div className="calendar-style"><Calendar gymId={props.gym_id} /></div>
 
                       <button className="booking-button" onClick={openModal}>
                         ZAREZERWUJ
