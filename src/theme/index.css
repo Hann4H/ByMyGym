@@ -1122,3 +1122,54 @@ ul.unstyled {
   display: flex;
   flex-direction: column;
 }
+
+#idk-8 {
+  width: 35vw;
+  background-color: var(--mainWhite);
+  margin: 0 auto;
+  border-radius: 20px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
+    0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07),
+    0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
+  margin-bottom: 6rem;
+}
+
+.contact-form {
+  margin-top: 5%;
+  margin-left: 10%;
+  margin-bottom: 5%;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  letter-spacing: var(--mainSpacing);
+}
+
+.contact-p {
+  font-family: Lato;
+  padding-bottom: 1rem;
+  text-align: center;
+}
+
+.name-input {
+  padding-top: 7px;
+  padding-bottom: 7px;
+  border: 2px solid var(--mainOrange);
+  margin-top: 10px;
+}
+
+.contact-input {
+  margin-bottom: 2rem;
+}
+
+.message-contact {
+  display: flex;
+  flex-direction: column;
+}
+
+.message-contact textarea {
+  border: 2px solid var(--mainOrange);
+  border-radius: 4px;
+  resize: vertical;
+}
