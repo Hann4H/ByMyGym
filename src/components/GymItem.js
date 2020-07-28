@@ -46,10 +46,10 @@ class GymItem extends Component {
                 {this.props.gym.gymZip}
               </p>
               <p>
-                Wymiary: {this.props.gym.length}m x {this.props.gym.width}m x{" "}
-                {this.props.gym.height}m
+                Wymiary: {this.props.gym.gymWidth}m x {this.props.gym.gymLength}
+                m x {this.props.gym.gymHeight}m
               </p>
-              <p>Cena za godzinę: {this.props.gym.price}zł</p>
+              <p>Cena za godzinę: {this.props.gym.gymPrice}zł</p>
 
               <Link
                 to={{

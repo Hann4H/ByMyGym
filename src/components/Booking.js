@@ -6,7 +6,7 @@ import {
   MuiPickersUtilsProvider,
   KeyboardTimePicker,
   KeyboardDatePicker,
-  TimePicker
+  TimePicker,
 } from "@material-ui/pickers";
 import TextField from "@material-ui/core/TextField";
 // import Select from "@material-ui/core/Select";
@@ -19,7 +19,7 @@ import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 import { Calendar } from "./Calendar";
 import { startTimeSelectOptions, endTimeSelectOptions } from "./BookingHelpers";
-import Select from 'react-select';
+import Select from "react-select";
 import "moment/locale/pl";
 
 Modal.setAppElement("#root");
@@ -49,10 +49,7 @@ const theme = createMuiTheme({
   },
 });
 
-
-
 export function MaterialUIPickers(props) {
-
   const [modalIsOpen, setIsOpen] = React.useState(false);
   function openModal() {
     setIsOpen(true);
@@ -139,10 +136,7 @@ export function MaterialUIPickers(props) {
     );
   }
 
-  function handleValidation () {
-
-
-  }
+  function handleValidation() {}
 
   function getDaysBetweenDates(start, end, dayName) {
     var result = [];
@@ -229,12 +223,12 @@ export function MaterialUIPickers(props) {
                             required: "Required",
                             pattern: {
                               value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                              message: "zły email"
-                            }
+                              message: "zły email",
+                            },
                           })}
                           fullWidth
                           required
-                        /> 
+                        />
                       </div>
 
                       <div className="booking-field">
@@ -313,41 +307,43 @@ export function MaterialUIPickers(props) {
                       <div className="booking-field">
                         <Select
                           isMulti
-                          theme={theme => ({
+                          theme={(theme) => ({
                             ...theme,
                             colors: {
                               ...theme.colors,
-                              primary: '#ffa841',
-                              primary25: '#ffb967',
-                            }})}
+                              primary: "#ffa841",
+                              primary25: "#ffb967",
+                            },
+                          })}
                           placeholder="Dzień tygodnia"
                           value={weekday}
                           onChange={handleWeekday}
-                          options = {[
+                          options={[
                             { value: "monday", label: "Poniedziałek" },
                             { value: "tuesday", label: "Wtorek" },
                             { value: "wednesday", label: "Środa" },
                             { value: "thursday", label: "Czwartek" },
                             { value: "friday", label: "Piątek" },
                             { value: "saturday", label: "Sobota" },
-                            { value: "sunday", label: "Niedziela"}
+                            { value: "sunday", label: "Niedziela" },
                           ]}
                         />
                       </div>
 
                       <div className="booking-field">
                         <Select
-                          theme={theme => ({
+                          theme={(theme) => ({
                             ...theme,
                             colors: {
                               ...theme.colors,
-                              primary: '#ffa841',
-                              primary25: '#ffb967',
-                            }})}
+                              primary: "#ffa841",
+                              primary25: "#ffb967",
+                            },
+                          })}
                           placeholder="Od"
                           value={selectedTime_start}
                           onChange={setSelectedTime_start}
-                          options = {[
+                          options={[
                             { value: "8:00", label: "8:00" },
                             { value: "9:00", label: "9:00" },
                             { value: "10:00", label: "10:00" },
@@ -355,42 +351,43 @@ export function MaterialUIPickers(props) {
                             { value: "12:00", label: "12:00" },
                             { value: "13:00", label: "13:00" },
                             { value: "14:00", label: "14:00" },
-                            { value: "15:00", label: "15:00"},
-                            { value: "16:00", label: "16:00"},
-                            { value: "17:00", label: "17:00"},
-                            { value: "18:00", label: "18:00"},
-                            { value: "19:00", label: "19:00"},
-                            { value: "20:00", label: "20:00"}
+                            { value: "15:00", label: "15:00" },
+                            { value: "16:00", label: "16:00" },
+                            { value: "17:00", label: "17:00" },
+                            { value: "18:00", label: "18:00" },
+                            { value: "19:00", label: "19:00" },
+                            { value: "20:00", label: "20:00" },
                           ]}
                         />
                       </div>
 
                       <div className="booking-field">
                         <Select
-                          theme={theme => ({
+                          theme={(theme) => ({
                             ...theme,
                             colors: {
                               ...theme.colors,
-                              primary: '#ffa841',
-                              primary25: '#ffb967',
-                            }})}
+                              primary: "#ffa841",
+                              primary25: "#ffb967",
+                            },
+                          })}
                           placeholder="Do"
                           value={selectedTime_end}
                           onChange={setSelectedTime_end}
-                          options = {[
+                          options={[
                             { value: "9:00", label: "9:00" },
                             { value: "10:00", label: "10:00" },
                             { value: "11:00", label: "11:00" },
                             { value: "12:00", label: "12:00" },
                             { value: "13:00", label: "13:00" },
                             { value: "14:00", label: "14:00" },
-                            { value: "15:00", label: "15:00"},
-                            { value: "16:00", label: "16:00"},
-                            { value: "17:00", label: "17:00"},
-                            { value: "18:00", label: "18:00"},
-                            { value: "19:00", label: "19:00"},
-                            { value: "20:00", label: "20:00"},
-                            { value: "21:00", label: "21:00"}
+                            { value: "15:00", label: "15:00" },
+                            { value: "16:00", label: "16:00" },
+                            { value: "17:00", label: "17:00" },
+                            { value: "18:00", label: "18:00" },
+                            { value: "19:00", label: "19:00" },
+                            { value: "20:00", label: "20:00" },
+                            { value: "21:00", label: "21:00" },
                           ]}
                         />
                       </div>
@@ -535,7 +532,9 @@ export function MaterialUIPickers(props) {
                         />
                       </div>
 
-                      <div className="calendar-style"><Calendar gymId={props.gym_id} /></div>
+                      <div className="calendar-style">
+                        <Calendar gymId={props.gym_id} />
+                      </div>
 
                       <button className="booking-button" onClick={openModal}>
                         ZAREZERWUJ
