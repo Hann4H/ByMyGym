@@ -8,7 +8,6 @@ import FileUploader from "react-firebase-file-uploader";
 import DragAndDrop from "./DragAndDrop";
 import Modal from "react-modal";
 import InputMask from "react-input-mask";
-import useForm from "./useForm";
 import validate from './FormValidationRules';
 
 Modal.setAppElement("#root");
@@ -29,12 +28,9 @@ const customStyles = {
 
 export default function gymForm() {
 
-  const {
-    values,
-    errors,
-    handleChange,
-    handleSubmit,
-  } = useForm(login, validate);
+  const [values, setValues] = useState({});
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // modal
   // const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -79,7 +75,11 @@ export default function gymForm() {
 
   const ref = db.collection("gyms").doc();
 
-  function onSubmit(e) {
+  const handleSubmit = (event) => {
+    if (event) event.preventDefault();
+    setErrors(validate(values));
+    setIsSubmitting(true);
+    
     const uploadTask = storage
       .ref(`/photos/${imageAsFile.name}`)
       .put(imageAsFile);
@@ -93,28 +93,71 @@ export default function gymForm() {
         db.collection("gyms")
           .add({
             gymName: values.gymName,
-            gymStreet,
-            gymCity,
-            gymZip,
-            gymURL,
-            gymEmail,
-            gymPhone,
-            gymPhoto,
-            gymDescription,
-            gymHeight,
-            gymWidth,
-            gymLength,
-            gymPrice,
-            audience,
-            changingRooms,
-            id: ref.id,
-            owner: userUID,
+            // gymStreet,
+            // gymCity,
+            // gymZip,
+            // gymURL,
+            // gymEmail,
+            // gymPhone,
+            // gymPhoto,
+            // gymDescription,
+            // gymHeight,
+            // gymWidth,
+            // gymLength,
+            // gymPrice,
+            // audience,
+            // changingRooms,
+            // id: ref.id,
+            // owner: userUID,
           })
           .then(() => {
             setGymName("");
           });
       });
-  }
+  };
+
+  const handleChange = (event) => {
+    event.persist();
+    setValues(values => ({ ...values, [event.target.name]: event.target.value }));
+  };
+
+  // function onSubmit(e) {
+  //   const uploadTask = storage
+  //     .ref(`/photos/${imageAsFile.name}`)
+  //     .put(imageAsFile);
+
+  //   uploadTask
+  //     .then((uploadTaskSnapshot) => {
+  //       return uploadTaskSnapshot.ref.getDownloadURL();
+  //     })
+  //     .then((gymPhoto) => {
+  //       setImageAsUrl(gymPhoto);
+  //       db.collection("gyms")
+  //         .add({
+  //           gymName: values.gymName,
+  //           gymStreet,
+  //           gymCity,
+  //           gymZip,
+  //           gymURL,
+  //           gymEmail,
+  //           gymPhone,
+  //           gymPhoto,
+  //           gymDescription,
+  //           gymHeight,
+  //           gymWidth,
+  //           gymLength,
+  //           gymPrice,
+  //           audience,
+  //           changingRooms,
+  //           id: ref.id,
+  //           owner: userUID,
+  //         })
+  //         .then(() => {
+  //           setGymName("");
+  //         });
+  //     });
+  // }
+
   function login() {
     console.log('No errors, submit callback called!');
   }
@@ -160,17 +203,23 @@ export default function gymForm() {
               required
             /> */}
           </div>
-          {/* <div className="container-2">
+          <div className="container-2">
             <label>Ulica</label>
-            <input
+            <div className="control">
+                  <input autoComplete="off" className={`input ${errors.gymStreet && 'is-danger'}`} type="text" name="gymStreet" onChange={handleChange} value={values.gymStreet || ''} required />
+                  {errors.gymStreet && (
+                    <p className="help is-danger">{errors.gymStreet}</p>
+                  )}
+            </div>
+            {/* <input
               type="text"
               value={gymStreet}
               name="gymStreet"
               onChange={(e) => setGymStreet(e.currentTarget.value)}
               ref={register}
               required
-            />
-          </div> */}
+            /> */}
+          </div>
           {/* <div className="container-2">
             <label>Miasto</label>
             <InputMask
