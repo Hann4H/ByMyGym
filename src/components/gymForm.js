@@ -1,5 +1,5 @@
 import React, { Component, useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
+// import { useForm } from "react-hook-form";
 import firebase from "../firebase";
 import "firebase/storage";
 import ImageUpload from "./ImageUpload";
@@ -8,6 +8,8 @@ import FileUploader from "react-firebase-file-uploader";
 import DragAndDrop from "./DragAndDrop";
 import Modal from "react-modal";
 import InputMask from "react-input-mask";
+import useForm from "./useForm";
+import validate from './FormValidationRules';
 
 Modal.setAppElement("#root");
 const customStyles = {
@@ -26,15 +28,28 @@ const customStyles = {
 };
 
 export default function gymForm() {
-  const [modalIsOpen, setIsOpen] = React.useState(false);
-  function openModal() {
-    setIsOpen(true);
-  }
-  function closeModal() {
-    setIsOpen(false);
-  }
 
-  const { register, handleSubmit, errors } = useForm();
+  const {
+    values,
+    errors,
+    handleChange,
+    handleSubmit,
+  } = useForm(login, validate);
+
+  // modal
+  // const [modalIsOpen, setIsOpen] = React.useState(false);
+
+  // function openModal() {
+  //   if (validate()) {
+  //     setIsOpen(true);
+  //   }
+    
+  // }
+  // function closeModal() {
+  //   setIsOpen(false);
+  // }
+
+  // const { register, handleSubmit, errors } = useForm();
 
   const [imageAsFile, setImageAsFile] = useState("");
   const [imageAsUrl, setImageAsUrl] = useState("");
@@ -55,6 +70,10 @@ export default function gymForm() {
     }
   });
 
+  // function handleValidation() {
+
+  // }
+
   var storage = firebase.storage();
   const db = firebase.firestore();
 
@@ -73,7 +92,7 @@ export default function gymForm() {
         setImageAsUrl(gymURL);
         db.collection("gyms")
           .add({
-            gymName,
+            gymName: values.gymName,
             gymStreet,
             gymCity,
             gymZip,
@@ -95,6 +114,9 @@ export default function gymForm() {
           });
       });
   }
+  function login() {
+    console.log('No errors, submit callback called!');
+  }
 
   const [gymName, setGymName] = useState("");
   const [gymStreet, setStreet] = useState("");
@@ -111,21 +133,27 @@ export default function gymForm() {
   const [price, setPrice] = useState("");
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="gymForm">
+    <form onSubmit={handleSubmit} className="gymForm" noValidate>
       <div className="form-n-gallery">
         <div className="form-only">
           <div className="container-2">
             <label>Nazwa budynku</label>
-            <input
+            <div className="control">
+                  <input autoComplete="off" className={`input ${errors.gymName && 'is-danger'}`} type="text" name="gymName" onChange={handleChange} value={values.gymName || ''} required />
+                  {errors.gymName && (
+                    <p className="help is-danger">{errors.gymName}</p>
+                  )}
+            </div>
+            {/* <input
               type="text"
               value={gymName}
               name="gymName"
               onChange={(e) => setGymName(e.currentTarget.value)}
               ref={register}
               required
-            />
+            /> */}
           </div>
-          <div className="container-2">
+          {/* <div className="container-2">
             <label>Ulica</label>
             <input
               type="text"
@@ -135,8 +163,8 @@ export default function gymForm() {
               ref={register}
               required
             />
-          </div>
-          <div className="container-2">
+          </div> */}
+          {/* <div className="container-2">
             <label>Miasto</label>
             <InputMask
               type="text"
@@ -271,7 +299,7 @@ export default function gymForm() {
               ref={register}
               required
             />
-          </div>
+          </div> */}
         </div>
 
         <div id="gallery">
@@ -443,17 +471,17 @@ export default function gymForm() {
 
       <div></div>
       <div></div>
-      <button className="form_button" onClick={openModal}>
+      <button className="form_button"> {/*onClick={openModal}>*/}
         DODAJ
       </button>
-      <Modal
+      {/* <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel="dasds"
       >
         Sala została dodana<button onClick={closeModal}>x</button>
-      </Modal>
+      </Modal> */}
     </form>
   );
 }
