@@ -44,21 +44,23 @@ class GymDetails extends Component {
   }
 
   render() {
-    const lat = this.state.data.lat ? this.state.data.lat : 52.409538;
-    const lng = this.state.data.lng ? this.state.data.lng : 16.931992;
-    const position = [lat, lng];
+    const gymLat = this.state.data.gymLat ? this.state.data.gymLat : 52.409538;
+    const gymLng = this.state.data.gymLng ? this.state.data.gymLng : 16.931992;
+    const position = [gymLat, gymLng];
     const gymZip = this.state.data.gymZip;
-    const height = this.state.data.height;
-    const width = this.state.data.width;
-    const length = this.state.data.length;
     const gymName = this.state.data.gymName;
     const gymURL = this.state.data.gymURL;
-    const telefon = this.state.data.telefon;
+    const gymPhone = this.state.data.gymPhone;
     const gymStreet = this.state.data.gymStreet;
     const gymCity = this.state.data.gymCity;
-    const email = this.state.data.email;
-    // const grafika = this.state.data.grafika;
-    const opis = this.state.data.opis;
+    const gymEmail = this.state.data.gymEmail;
+    const gymPhoto = this.state.data.gymPhoto;
+    const gymDescription = this.state.data.gymDescription;
+
+    const gymHeight = this.state.data.gymHeight;
+    const gymWidth = this.state.data.gymWidth;
+    const gymLength = this.state.data.gymLength;
+    const gymPrice = this.state.data.gymPrice;
 
     const { showing } = this.state;
 
@@ -70,16 +72,19 @@ class GymDetails extends Component {
 
         <div className="gym-details">
           <p style={nameStyle}>Opis</p>
-          <p style={textStyle} dangerouslySetInnerHTML={{ __html: opis }} />
+          <p
+            style={textStyle}
+            dangerouslySetInnerHTML={{ __html: gymDescription }}
+          />
           <br />
           <p style={nameStyle}>Wysokość</p>
-          <p style={textStyle}>{height}</p>
+          <p style={textStyle}>{gymHeight}</p>
           <br />
           <p style={nameStyle}>Szerokość</p>
-          <p style={textStyle}>{width}</p>
+          <p style={textStyle}>{gymWidth}</p>
           <br />
           <p style={nameStyle}>Długość</p>
-          <p style={textStyle}>{length}</p>
+          <p style={textStyle}>{gymLength}</p>
           <br />
           <p style={nameStyle}>Adres</p>
           <p style={textStyle}>
@@ -93,10 +98,14 @@ class GymDetails extends Component {
           </a>
           <br />
           <p style={nameStyle}>E-mail</p>
-          <p style={textStyle}>{email}</p>
+          <p style={textStyle}>{gymEmail}</p>
           <br />
           <p style={nameStyle}>Telefon</p>
-          <p style={textStyle}>{telefon}</p>
+          <p style={textStyle}>{gymPhone}</p>
+          <br />
+          <p style={nameStyle}>Cena</p>
+          <p style={textStyle}>{gymPrice}</p>
+          <br />
         </div>
         <div className="map">
           <Localization position={position} />

@@ -13,31 +13,30 @@ class Gyms extends Component {
       .then((querySnapshot) => {
         const Gyms = [];
 
-        querySnapshot.forEach(function(doc) {
+        querySnapshot.forEach(function (doc) {
           Gyms.push({
             gymName: doc.data().gymName,
             gymStreet: doc.data().gymStreet,
             gymCity: doc.data().gymCity,
             gymZip: doc.data().gymZip,
-            height: doc.data().height,
-            width: doc.data().width,
-            length: doc.data().width,
-            price: doc.data().price,
-            id: doc.data().id,
-
             gymURL: doc.data().gymURL,
-            opis_klasy: doc.data().opis_klasy,
-            telefon: doc.data().telefon,
-            email: doc.data().email,
-            grafika: doc.data().grafika,
-            opis: doc.data().opis,
-            lat: doc.data().lat,
-            lng: doc.data().lng,
+            gymPhone: doc.data().gymPhone,
+            gymEmail: doc.data().gymEmail,
+            gymPhoto: doc.data().gymPhoto,
+            gymDescription: doc.data().gymDescription,
+            gymLat: doc.data().gymLat,
+            gymLng: doc.data().gymLng,
+
+            gymHeight: doc.data().gymHeight,
+            gymWidth: doc.data().gymWidth,
+            gymLength: doc.data().gymLength,
+            gymPrice: doc.data().gymPrice,
+            id: doc.data().id,
           });
         });
         this.setState({ Gyms });
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log("Error getting documents: ", error);
       });
   }

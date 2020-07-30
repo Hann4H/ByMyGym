@@ -15,7 +15,7 @@ const resultRenderer = ({ gymName }) => (
 
 resultRenderer.propTypes = {
   gymName: PropTypes.string,
-  opis: PropTypes.string,
+  gymDescription: PropTypes.string,
 };
 
 export default class SearchGym extends Component {

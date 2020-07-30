@@ -62,7 +62,7 @@ export default function gymForm() {
     setImageAsFile((imageFile) => image);
   };
 
-  firebase.auth().onAuthStateChanged(function(user) {
+  firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
       setUserUID(user.uid);
     } else {
@@ -88,8 +88,8 @@ export default function gymForm() {
       .then((uploadTaskSnapshot) => {
         return uploadTaskSnapshot.ref.getDownloadURL();
       })
-      .then((gymURL) => {
-        setImageAsUrl(gymURL);
+      .then((gymPhoto) => {
+        setImageAsUrl(gymPhoto);
         db.collection("gyms")
           .add({
             gymName: values.gymName,
@@ -97,16 +97,17 @@ export default function gymForm() {
             gymCity,
             gymZip,
             gymURL,
-            email,
-            telefon,
-            height,
-            width,
-            length,
+            gymEmail,
+            gymPhone,
+            gymPhoto,
+            gymDescription,
+            gymHeight,
+            gymWidth,
+            gymLength,
+            gymPrice,
             audience,
             changingRooms,
-            price,
             id: ref.id,
-            photo: gymURL,
             owner: userUID,
           })
           .then(() => {
@@ -119,23 +120,29 @@ export default function gymForm() {
   }
 
   const [gymName, setGymName] = useState("");
-  const [gymStreet, setStreet] = useState("");
-  const [gymCity, setCity] = useState("");
-  const [gymZip, setZip] = useState("");
-  const [gymURL, setUrl] = useState("");
-  const [email, setEmail] = useState("");
-  const [telefon, setTelefon] = useState("");
-  const [height, setHeight] = useState("");
-  const [width, setWidth] = useState("");
-  const [length, setLength] = useState("");
+  const [gymStreet, setGymStreet] = useState("");
+  const [gymCity, setGymCity] = useState("");
+  const [gymZip, setGymZip] = useState("");
+  const [gymURL, setGymUrl] = useState("");
+  const [gymEmail, setGymEmail] = useState("");
+  const [gymPhone, setGymPhone] = useState("");
+  const [gymPhoto, setGymPhoto] = useState("");
+  const [gymDescription, setGymDescription] = useState("");
+  const [gymHeight, setGymHeight] = useState("");
+  const [gymWidth, setGymWidth] = useState("");
+  const [gymLength, setGymLength] = useState("");
+  const [gymPrice, setGymPrice] = useState("");
   const [audience, setAudience] = useState("");
   const [changingRooms, setChangingRooms] = useState("");
-  const [price, setPrice] = useState("");
 
   return (
     <form onSubmit={handleSubmit} className="gymForm" noValidate>
       <div className="form-n-gallery">
         <div className="form-only">
+          <h5>
+            Uwaga! Sala dodaje się, tylko gdy jest załączone zdjęcie. To do
+            poprawienia
+          </h5>
           <div className="container-2">
             <label>Nazwa budynku</label>
             <div className="control">
@@ -159,7 +166,7 @@ export default function gymForm() {
               type="text"
               value={gymStreet}
               name="gymStreet"
-              onChange={(e) => setStreet(e.currentTarget.value)}
+              onChange={(e) => setGymStreet(e.currentTarget.value)}
               ref={register}
               required
             />
@@ -170,7 +177,7 @@ export default function gymForm() {
               type="text"
               value={gymCity}
               name="gymCity"
-              onChange={(e) => setCity(e.currentTarget.value)}
+              onChange={(e) => setGymCity(e.currentTarget.value)}
               ref={register}
               required
             />
@@ -183,7 +190,7 @@ export default function gymForm() {
               name="gymZip"
               pattern="^\d{2}-\d{3}$"
               mask="99-999"
-              onChange={(e) => setZip(e.currentTarget.value)}
+              onChange={(e) => setGymZip(e.currentTarget.value)}
               ref={register}
               required
             />
@@ -194,7 +201,7 @@ export default function gymForm() {
               type="text"
               value={gymURL}
               name="pageWWW"
-              onChange={(e) => setUrl(e.currentTarget.value)}
+              onChange={(e) => setGymUrl(e.currentTarget.value)}
               ref={register}
               required
             />
@@ -203,9 +210,9 @@ export default function gymForm() {
             <label>E-mail</label>
             <InputMask
               type="text"
-              value={email}
+              value={gymEmail}
               name="pageWWW"
-              onChange={(e) => setEmail(e.currentTarget.value)}
+              onChange={(e) => setGymEmail(e.currentTarget.value)}
               ref={register}
               required
             />
@@ -214,9 +221,9 @@ export default function gymForm() {
             <label>Telefon</label>
             <InputMask
               type="text"
-              value={telefon}
+              value={gymPhone}
               name="pageWWW"
-              onChange={(e) => setTelefon(e.currentTarget.value)}
+              onChange={(e) => setGymPhone(e.currentTarget.value)}
               ref={register}
               required
             />
@@ -226,11 +233,11 @@ export default function gymForm() {
             <label>Wysokość</label>
             <input
               type="text"
-              value={height}
-              name="height"
+              value={gymHeight}
+              name="gymHeight"
               placeholder="w metrach"
               pattern="[0-9]+([\.,][0-9]+)?"
-              onChange={(e) => setHeight(e.currentTarget.value)}
+              onChange={(e) => setGymHeight(e.currentTarget.value)}
               min="1"
               ref={register}
               required
@@ -240,11 +247,11 @@ export default function gymForm() {
             <label>Szerokość</label>
             <input
               type="text"
-              value={width}
-              name="width"
+              value={gymWidth}
+              name="gymWidth"
               placeholder="w metrach"
               pattern="[0-9]+([\.,][0-9]+)?"
-              onChange={(e) => setWidth(e.currentTarget.value)}
+              onChange={(e) => setGymWidth(e.currentTarget.value)}
               min="1"
               ref={register}
               required
@@ -254,11 +261,11 @@ export default function gymForm() {
             <label>Długość</label>
             <input
               type="text"
-              value={length}
-              name="length"
+              value={gymLength}
+              name="gymLength"
               placeholder="w metrach"
               pattern="[0-9]+([\.,][0-9]+)?"
-              onChange={(e) => setLength(e.currentTarget.value)}
+              onChange={(e) => setGymLength(e.currentTarget.value)}
               min="1"
               ref={register}
               required
@@ -291,10 +298,22 @@ export default function gymForm() {
             <label>Cena</label>
             <input
               type="text"
-              value={price}
-              name="price"
+              value={gymPrice}
+              name="gymPrice"
               pattern="[0-9]+([\.,][0-9]{0,2})?"
-              onChange={(e) => setPrice(e.currentTarget.value)}
+              onChange={(e) => setGymPrice(e.currentTarget.value)}
+              min="1"
+              ref={register}
+              required
+            />
+          </div>
+          <div className="container-2">
+            <label>Opis</label>
+            <input
+              type="text"
+              value={gymDescription}
+              name="gymDescription"
+              onChange={(e) => setGymDescription(e.currentTarget.value)}
               min="1"
               ref={register}
               required

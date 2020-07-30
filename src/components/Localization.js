@@ -3,13 +3,13 @@ import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 
 class Localization extends Component {
   state = {
-    lat: 52.406376,
-    lng: 16.925167,
+    gymLat: 52.406376,
+    gymLng: 16.925167,
     zoom: 15,
   };
 
   render() {
-    // const position = [this.state.lat, this.state.lng];
+    // const position = [this.state.gymLat, this.state.gymLng];
     const position = this.props.position;
     return (
       <Map center={position} zoom={this.state.zoom}>
@@ -19,7 +19,8 @@ class Localization extends Component {
         />
         <Marker position={position}>
           <Popup>
-            Latitude and longitude: <br /> {this.state.lat}, {this.state.lng}
+            Latitude and longitude: <br /> {this.state.gymLat},{" "}
+            {this.state.gymLng}
           </Popup>
         </Marker>
       </Map>

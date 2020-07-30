@@ -8,27 +8,13 @@ let storage = firebase.storage();
 
 class GymItem extends Component {
   render() {
-    let gymURL = null;
-    // let gymURL = `https://firebasestorage.googleapis.com/v0/b/bemygym-123.appspot.com/o/${this.props.gym.docId}/1.png?alt=media`;
-    // console.log("id of the document: " + this.props.gym.docId);
-    // try {
-    //   gymURL = storage.refFromURL(
-    //     `https://firebasestorage.googleapis.com/v0/b/bemygym-123.appspot.com/o/${this.props.gym.docId}/1.png`
-    //   );
-    //   console.log("is ok");
-    // } catch (err) {
-    //   gymURL = null;
-    //   console.log("is not ok");
-    // }
-
     return (
       <div>
         <div key={this.props.index} className="single-listing">
           <div className="listing-content">
             <div className="place-for-img">
-              {/* <img id="myimg" src={gym.photo} /> */}
-              {gymURL ? (
-                <img id="myimg" src={gymURL} alt="gym" />
+              {this.props.gym.gymPhoto ? (
+                <img id="myimg" src={this.props.gym.gymPhoto} alt="gym" />
               ) : (
                 <div className="place-for-img">
                   <img
@@ -46,10 +32,10 @@ class GymItem extends Component {
                 {this.props.gym.gymZip}
               </p>
               <p>
-                Wymiary: {this.props.gym.length}m x {this.props.gym.width}m x{" "}
-                {this.props.gym.height}m
+                Wymiary: {this.props.gym.gymWidth}m x {this.props.gym.gymLength}
+                m x {this.props.gym.gymHeight}m
               </p>
-              <p>Cena za godzinę: {this.props.gym.price}zł</p>
+              <p>Cena za godzinę: {this.props.gym.gymPrice}zł</p>
 
               <Link
                 to={{
