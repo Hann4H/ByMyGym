@@ -1,6 +1,3 @@
-import { set } from "date-fns";
-
-
 export default function validate(values) {
     let verdict = false;
     if (!values.gymName) {

@@ -76,11 +76,12 @@ export default function gymForm() {
   var hasOwnProperty = Object.prototype.hasOwnProperty;
 
   const handleSubmit = (event) => {
+    setErrors({});
     event.preventDefault();
     setErrors(validate(values));
     setIsSubmitting(true);
 
-
+    // console.log(errors)
 
     console.log(validated(values));
 
@@ -98,22 +99,22 @@ export default function gymForm() {
           db.collection("gyms")
             .add({
               gymName: values.gymName,
-              gymStreet: values.gymStreet,
-              gymCity: values.gymCity,
-              gymZip: values.gymZip,
-              // gymURL,
-              // gymEmail,
-              // gymPhone,
-              // gymPhoto,
-              // gymDescription,
-              gymHeight: values.gymHeight,
-              gymWidth: values.gymWidth,
-              gymLength: values.gymLength,
-              gymPrice: values.gymPrice,
-              audience: values.audience,
-              changingRooms: values.changingRooms,
-              id: ref.id,
-              owner: userUID,
+              // gymStreet: values.gymStreet,
+              // gymCity: values.gymCity,
+              // gymZip: values.gymZip,
+              // // gymURL,
+              // // gymEmail,
+              // // gymPhone,
+              // // gymPhoto,
+              // // gymDescription,
+              // gymHeight: values.gymHeight,
+              // gymWidth: values.gymWidth,
+              // gymLength: values.gymLength,
+              // gymPrice: values.gymPrice,
+              // audience: values.audience,
+              // changingRooms: values.changingRooms,
+              // id: ref.id,
+              // owner: userUID,
             })
             .then(() => {
               setGymName("");
@@ -121,7 +122,7 @@ export default function gymForm() {
         });
     }
 
-      setErrors({});
+      
   };
 
   const handleChange = (event) => {
@@ -192,10 +193,18 @@ export default function gymForm() {
           </h5>
           <div className="container-2">
             <label>Nazwa budynku</label>
-              <input autoComplete="off" className={`input ${errors.gymName && 'is-danger'}`} type="text" name="gymName" onChange={handleChange} value={values.gymName || ''} required />
-                {errors.gymName && (
-                  <p className="help is-danger">{errors.gymName}</p>
-                )}
+            <div className="input-n-error">
+              <input 
+                autoComplete="off" 
+                type="text" 
+                name="gymName" 
+                onChange={handleChange} 
+                value={values.gymName || ''} 
+                required />
+                  {errors.gymName && (
+                    <p className="help">{errors.gymName}</p>
+                  )}
+            </div>
             {/* <input
               type="text"
               value={gymName}
@@ -207,10 +216,18 @@ export default function gymForm() {
           </div>
           <div className="container-2">
             <label>Ulica</label>
-              <input autoComplete="off" className={`input ${errors.gymStreet && 'is-danger'}`} type="text" name="gymStreet" onChange={handleChange} value={values.gymStreet || ''} required />
-                {errors.gymStreet && (
-                  <p className="help is-danger">{errors.gymStreet}</p>
-                )}
+            <div className="input-n-error">
+              <input 
+                autoComplete="off"
+                type="text" 
+                name="gymStreet" 
+                onChange={handleChange} 
+                value={values.gymStreet || ''} 
+                required />
+                  {errors.gymStreet && (
+                    <p className="help">{errors.gymStreet}</p>
+                  )}
+            </div>
 
             {/* <input
               type="text"
@@ -223,21 +240,22 @@ export default function gymForm() {
           </div>
           <div className="container-2">
             <label>Miasto</label>
+            <div className="input-n-error">
             <InputMask
-              autoComplete="off" 
-              className={`input ${errors.gymCity && 'is-danger'}`}
+              autoComplete="off"
               type="text"
               value={values.gymCity || ''}
               name="gymCity"
               onChange={handleChange}
               required
             />
+            </div>
           </div>
           <div className="container-2">
             <label>Kod pocztowy</label>
+            <div className="input-n-error">
             <InputMask
-              autoComplete="off" 
-              className={`input ${errors.gymZip && 'is-danger'}`}
+              autoComplete="off"
               type="text"
               value={values.gymZip || ''}
               name="gymZip"
@@ -246,7 +264,111 @@ export default function gymForm() {
               onChange={handleChange}
               required
             />
+            </div>
           </div>
+          <div className="container-2">
+            <label>Wysokość</label>
+            <div className="input-n-error">
+            <input
+              autoComplete="off" 
+              type="text"
+              value={values.gymHeight || ''}
+              name="gymHeight"
+              placeholder="w metrach"
+              pattern="[0-9]+([\.,][0-9]+)?"
+              min="1"
+              onChange={handleChange}
+              required
+            />
+            </div>
+          </div>
+          <div className="container-2">
+            <label>Szerokość</label>
+            <div className="input-n-error">
+            <input
+              autoComplete="off"
+              type="text"
+              value={values.gymWidth || ''}
+              name="gymWidth"
+              placeholder="w metrach"
+              pattern="[0-9]+([\.,][0-9]+)?"
+              min="1"
+              onChange={handleChange}
+              required
+            />
+            </div>
+          </div>
+          <div className="container-2">
+            <label>Długość</label>
+            <div className="input-n-error">
+            <input
+              autoComplete="off" 
+              type="text"
+              value={values.gymLength || ''}
+              name="gymLength"
+              placeholder="w metrach"
+              pattern="[0-9]+([\.,][0-9]+)?"
+              min="1"
+              onChange={handleChange}
+              required
+            />
+            </div>
+          </div>
+         <div className="container-2">
+            <label>Ilość miejsc na widowni</label>
+            <div className="input-n-error">
+            <input
+              autoComplete="off"
+              type="number"
+              value={values.audience || ''}
+              name="audience"
+              min="1"
+              onChange={handleChange}
+              required
+            />
+            </div>
+          </div>
+           <div className="container-2">
+            <label>Ilość szatń</label>
+            <div className="input-n-error">
+            <input
+              autoComplete="off" 
+              type="number"
+              value={values.changingRooms || ''}
+              name="changingRooms"
+              min="0"
+              onChange={handleChange}
+              required
+            />
+            </div>
+          </div>
+          <div className="container-2">
+            <label>Cena</label>
+            <div className="input-n-error">
+            <input
+              autoComplete="off"
+              type="text"
+              value={values.gymPrice || ''}
+              name="gymPrice"
+              pattern="[0-9]+([\.,][0-9]{0,2})?"
+              min="1"
+              onChange={handleChange}
+              required
+            />
+            </div>
+          </div>
+          {/* <div className="container-2">
+            <label>Opis</label>
+            <input
+              type="text"
+              value={gymDescription}
+              name="gymDescription"
+              onChange={(e) => setGymDescription(e.currentTarget.value)}
+              min="1"
+              ref={register}
+              required
+            />
+          </div> */}
           {/* <div className="container-2">
             <label>Strona WWW</label>
             <InputMask
@@ -279,104 +401,6 @@ export default function gymForm() {
               value={gymPhone}
               name="pageWWW"
               onChange={(e) => setGymPhone(e.currentTarget.value)}
-              ref={register}
-              required
-            />
-          </div> */}
-
-          <div className="container-2">
-            <label>Wysokość</label>
-            <input
-              autoComplete="off" 
-              className={`input ${errors.gymHeight && 'is-danger'}`}
-              type="text"
-              value={values.gymHeight || ''}
-              name="gymHeight"
-              placeholder="w metrach"
-              pattern="[0-9]+([\.,][0-9]+)?"
-              min="1"
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="container-2">
-            <label>Szerokość</label>
-            <input
-              autoComplete="off" 
-              className={`input ${errors.gymWidth && 'is-danger'}`}
-              type="text"
-              value={values.gymWidth || ''}
-              name="gymWidth"
-              placeholder="w metrach"
-              pattern="[0-9]+([\.,][0-9]+)?"
-              min="1"
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="container-2">
-            <label>Długość</label>
-            <input
-              autoComplete="off" 
-              className={`input ${errors.gymLength && 'is-danger'}`}
-              type="text"
-              value={values.gymLength || ''}
-              name="gymLength"
-              placeholder="w metrach"
-              pattern="[0-9]+([\.,][0-9]+)?"
-              min="1"
-              onChange={handleChange}
-              required
-            />
-          </div>
-         <div className="container-2">
-            <label>Ilość miejsc na widowni</label>
-            <input
-              autoComplete="off" 
-              className={`input ${errors.audience && 'is-danger'}`}
-              type="number"
-              value={values.audience || ''}
-              name="audience"
-              min="1"
-              onChange={handleChange}
-              required
-            />
-          </div>
-           <div className="container-2">
-            <label>Ilość szatń</label>
-            <input
-              autoComplete="off" 
-              className={`input ${errors.changingRooms && 'is-danger'}`}
-              type="number"
-              value={values.changingRooms || ''}
-              name="changingRooms"
-              min="0"
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="container-2">
-            <label>Cena</label>
-            <input
-              autoComplete="off" 
-              className={`input ${errors.gymPrice && 'is-danger'}`}
-              type="text"
-              value={values.gymPrice || ''}
-              name="gymPrice"
-              pattern="[0-9]+([\.,][0-9]{0,2})?"
-              min="1"
-              onChange={handleChange}
-              required
-            />
-          </div>
-          {/* <div className="container-2">
-            <label>Opis</label>
-            <input
-              type="text"
-              value={gymDescription}
-              name="gymDescription"
-              onChange={(e) => setGymDescription(e.currentTarget.value)}
-              min="1"
               ref={register}
               required
             />
