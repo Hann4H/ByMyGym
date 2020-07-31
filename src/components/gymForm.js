@@ -98,22 +98,22 @@ export default function gymForm() {
           db.collection("gyms")
             .add({
               gymName: values.gymName,
-              // gymStreet,
-              // gymCity,
-              // gymZip,
+              gymStreet: values.gymStreet,
+              gymCity: values.gymCity,
+              gymZip: values.gymZip,
               // gymURL,
               // gymEmail,
               // gymPhone,
               // gymPhoto,
               // gymDescription,
-              // gymHeight,
-              // gymWidth,
-              // gymLength,
-              // gymPrice,
-              // audience,
-              // changingRooms,
-              // id: ref.id,
-              // owner: userUID,
+              gymHeight: values.gymHeight,
+              gymWidth: values.gymWidth,
+              gymLength: values.gymLength,
+              gymPrice: values.gymPrice,
+              audience: values.audience,
+              changingRooms: values.changingRooms,
+              id: ref.id,
+              owner: userUID,
             })
             .then(() => {
               setGymName("");
