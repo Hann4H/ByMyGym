@@ -9,6 +9,7 @@ import DragAndDrop from "./DragAndDrop";
 import Modal from "react-modal";
 import InputMask from "react-input-mask";
 import validate from './FormValidationRules';
+import validated from './Validated';
 
 Modal.setAppElement("#root");
 const customStyles = {
@@ -76,7 +77,7 @@ export default function gymForm() {
   const ref = db.collection("gyms").doc();
 
   const handleSubmit = (event) => {
-    if (event) event.preventDefault();
+    event.preventDefault();
     setErrors(validate(values));
     setIsSubmitting(true);
     
@@ -114,6 +115,8 @@ export default function gymForm() {
             setGymName("");
           });
       });
+
+      setErrors({});
   };
 
   const handleChange = (event) => {

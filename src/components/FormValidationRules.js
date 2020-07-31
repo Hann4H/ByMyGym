@@ -10,5 +10,6 @@ export default function validate(values) {
       } else if (!/(.*[a-z]){3}/.test(values.gymStreet)) {
         errors.gymStreet = 'Nazwa ulicy jest nieprawidłowa - minimum 3 znaki';
       }
+      console.log(errors);
     return errors;
   };
