@@ -192,12 +192,10 @@ export default function gymForm() {
           </h5>
           <div className="container-2">
             <label>Nazwa budynku</label>
-            <div className="control">
-                  <input autoComplete="off" className={`input ${errors.gymName && 'is-danger'}`} type="text" name="gymName" onChange={handleChange} value={values.gymName || ''} required />
-                  {errors.gymName && (
-                    <p className="help is-danger">{errors.gymName}</p>
-                  )}
-            </div>
+              <input autoComplete="off" className={`input ${errors.gymName && 'is-danger'}`} type="text" name="gymName" onChange={handleChange} value={values.gymName || ''} required />
+                {errors.gymName && (
+                  <p className="help is-danger">{errors.gymName}</p>
+                )}
             {/* <input
               type="text"
               value={gymName}
@@ -209,12 +207,11 @@ export default function gymForm() {
           </div>
           <div className="container-2">
             <label>Ulica</label>
-            <div className="control">
-                  <input autoComplete="off" className={`input ${errors.gymStreet && 'is-danger'}`} type="text" name="gymStreet" onChange={handleChange} value={values.gymStreet || ''} required />
-                  {errors.gymStreet && (
-                    <p className="help is-danger">{errors.gymStreet}</p>
-                  )}
-            </div>
+              <input autoComplete="off" className={`input ${errors.gymStreet && 'is-danger'}`} type="text" name="gymStreet" onChange={handleChange} value={values.gymStreet || ''} required />
+                {errors.gymStreet && (
+                  <p className="help is-danger">{errors.gymStreet}</p>
+                )}
+
             {/* <input
               type="text"
               value={gymStreet}
@@ -224,53 +221,58 @@ export default function gymForm() {
               required
             /> */}
           </div>
-          {/* <div className="container-2">
+          <div className="container-2">
             <label>Miasto</label>
             <InputMask
+              autoComplete="off" 
+              className={`input ${errors.gymCity && 'is-danger'}`}
               type="text"
-              value={gymCity}
+              value={values.gymCity || ''}
               name="gymCity"
-              onChange={(e) => setGymCity(e.currentTarget.value)}
-              ref={register}
+              onChange={handleChange}
               required
             />
           </div>
           <div className="container-2">
             <label>Kod pocztowy</label>
             <InputMask
+              autoComplete="off" 
+              className={`input ${errors.gymZip && 'is-danger'}`}
               type="text"
-              value={gymZip}
+              value={values.gymZip || ''}
               name="gymZip"
               pattern="^\d{2}-\d{3}$"
               mask="99-999"
-              onChange={(e) => setGymZip(e.currentTarget.value)}
-              ref={register}
+              onChange={handleChange}
               required
             />
           </div>
-          <div className="container-2">
+          {/* <div className="container-2">
             <label>Strona WWW</label>
             <InputMask
+              autoComplete="off" 
+              className={`input ${errors.pageWWW && 'is-danger'}`}
               type="text"
-              value={gymURL}
+              value={values.pageWWW || ''}
               name="pageWWW"
-              onChange={(e) => setGymUrl(e.currentTarget.value)}
-              ref={register}
+              onChange={handleChange}
               required
             />
-          </div>
-          <div className="container-2">
+          </div> */}
+          {/* <div className="container-2">
             <label>E-mail</label>
             <InputMask
+              autoComplete="off" 
+              className={`input ${errors.gymZip && 'is-danger'}`}
               type="text"
-              value={gymEmail}
+              value={values.gymZip || ''}
               name="pageWWW"
               onChange={(e) => setGymEmail(e.currentTarget.value)}
               ref={register}
               required
             />
-          </div>
-          <div className="container-2">
+          </div> */}
+          {/* <div className="container-2">
             <label>Telefon</label>
             <InputMask
               type="text"
@@ -280,87 +282,94 @@ export default function gymForm() {
               ref={register}
               required
             />
-          </div>
+          </div> */}
 
           <div className="container-2">
             <label>Wysokość</label>
             <input
+              autoComplete="off" 
+              className={`input ${errors.gymHeight && 'is-danger'}`}
               type="text"
-              value={gymHeight}
+              value={values.gymHeight || ''}
               name="gymHeight"
               placeholder="w metrach"
               pattern="[0-9]+([\.,][0-9]+)?"
-              onChange={(e) => setGymHeight(e.currentTarget.value)}
               min="1"
-              ref={register}
+              onChange={handleChange}
               required
             />
           </div>
           <div className="container-2">
             <label>Szerokość</label>
             <input
+              autoComplete="off" 
+              className={`input ${errors.gymWidth && 'is-danger'}`}
               type="text"
-              value={gymWidth}
+              value={values.gymWidth || ''}
               name="gymWidth"
               placeholder="w metrach"
               pattern="[0-9]+([\.,][0-9]+)?"
-              onChange={(e) => setGymWidth(e.currentTarget.value)}
               min="1"
-              ref={register}
+              onChange={handleChange}
               required
             />
           </div>
           <div className="container-2">
             <label>Długość</label>
             <input
+              autoComplete="off" 
+              className={`input ${errors.gymLength && 'is-danger'}`}
               type="text"
-              value={gymLength}
+              value={values.gymLength || ''}
               name="gymLength"
               placeholder="w metrach"
               pattern="[0-9]+([\.,][0-9]+)?"
-              onChange={(e) => setGymLength(e.currentTarget.value)}
               min="1"
-              ref={register}
+              onChange={handleChange}
               required
             />
           </div>
-          <div className="container-2">
+         <div className="container-2">
             <label>Ilość miejsc na widowni</label>
             <input
+              autoComplete="off" 
+              className={`input ${errors.audience && 'is-danger'}`}
               type="number"
-              value={audience}
+              value={values.audience || ''}
               name="audience"
-              onChange={(e) => setAudience(e.currentTarget.value)}
-              min="0"
-              ref={register}
+              min="1"
+              onChange={handleChange}
+              required
             />
           </div>
-          <div className="container-2">
+           <div className="container-2">
             <label>Ilość szatń</label>
             <input
+              autoComplete="off" 
+              className={`input ${errors.changingRooms && 'is-danger'}`}
               type="number"
-              value={changingRooms}
+              value={values.changingRooms || ''}
               name="changingRooms"
-              onChange={(e) => setChangingRooms(e.currentTarget.value)}
               min="0"
-              ref={register}
+              onChange={handleChange}
               required
             />
           </div>
           <div className="container-2">
             <label>Cena</label>
             <input
+              autoComplete="off" 
+              className={`input ${errors.gymPrice && 'is-danger'}`}
               type="text"
-              value={gymPrice}
+              value={values.gymPrice || ''}
               name="gymPrice"
               pattern="[0-9]+([\.,][0-9]{0,2})?"
-              onChange={(e) => setGymPrice(e.currentTarget.value)}
               min="1"
-              ref={register}
+              onChange={handleChange}
               required
             />
           </div>
-          <div className="container-2">
+          {/* <div className="container-2">
             <label>Opis</label>
             <input
               type="text"
