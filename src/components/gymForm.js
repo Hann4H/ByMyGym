@@ -99,22 +99,22 @@ export default function gymForm() {
           db.collection("gyms")
             .add({
               gymName: values.gymName,
-              // gymStreet: values.gymStreet,
-              // gymCity: values.gymCity,
-              // gymZip: values.gymZip,
-              // // gymURL,
-              // // gymEmail,
-              // // gymPhone,
-              // // gymPhoto,
-              // // gymDescription,
-              // gymHeight: values.gymHeight,
-              // gymWidth: values.gymWidth,
-              // gymLength: values.gymLength,
-              // gymPrice: values.gymPrice,
-              // audience: values.audience,
-              // changingRooms: values.changingRooms,
-              // id: ref.id,
-              // owner: userUID,
+              gymStreet: values.gymStreet,
+              gymCity: values.gymCity,
+              gymZip: values.gymZip,
+              // gymURL,
+              // gymEmail,
+              // gymPhone,
+              // gymPhoto,
+              // gymDescription,
+              gymHeight: values.gymHeight,
+              gymWidth: values.gymWidth,
+              gymLength: values.gymLength,
+              gymPrice: values.gymPrice,
+              audience: values.audience,
+              changingRooms: values.changingRooms,
+              id: ref.id,
+              owner: userUID,
             })
             .then(() => {
               setGymName("");
@@ -205,14 +205,6 @@ export default function gymForm() {
                     <p className="help">{errors.gymName}</p>
                   )}
             </div>
-            {/* <input
-              type="text"
-              value={gymName}
-              name="gymName"
-              onChange={(e) => setGymName(e.currentTarget.value)}
-              ref={register}
-              required
-            /> */}
           </div>
           <div className="container-2">
             <label>Ulica</label>
@@ -228,15 +220,6 @@ export default function gymForm() {
                     <p className="help">{errors.gymStreet}</p>
                   )}
             </div>
-
-            {/* <input
-              type="text"
-              value={gymStreet}
-              name="gymStreet"
-              onChange={(e) => setGymStreet(e.currentTarget.value)}
-              ref={register}
-              required
-            /> */}
           </div>
           <div className="container-2">
             <label>Miasto</label>
@@ -249,6 +232,9 @@ export default function gymForm() {
               onChange={handleChange}
               required
             />
+              {errors.gymCity && (
+                <p className="help">{errors.gymCity}</p>
+              )}
             </div>
           </div>
           <div className="container-2">
@@ -264,6 +250,9 @@ export default function gymForm() {
               onChange={handleChange}
               required
             />
+              {errors.gymZip && (
+                <p className="help">{errors.gymZip}</p>
+              )}
             </div>
           </div>
           <div className="container-2">
@@ -280,6 +269,9 @@ export default function gymForm() {
               onChange={handleChange}
               required
             />
+              {errors.gymHeight && (
+                <p className="help">{errors.gymHeight}</p>
+              )}
             </div>
           </div>
           <div className="container-2">
@@ -296,6 +288,9 @@ export default function gymForm() {
               onChange={handleChange}
               required
             />
+              {errors.gymWidth && (
+                <p className="help">{errors.gymWidth}</p>
+              )}
             </div>
           </div>
           <div className="container-2">
@@ -312,6 +307,9 @@ export default function gymForm() {
               onChange={handleChange}
               required
             />
+              {errors.gymLength && (
+                <p className="help">{errors.gymLength}</p>
+              )}
             </div>
           </div>
          <div className="container-2">
@@ -326,6 +324,9 @@ export default function gymForm() {
               onChange={handleChange}
               required
             />
+              {errors.audience && (
+                <p className="help">{errors.audience}</p>
+              )}
             </div>
           </div>
            <div className="container-2">
@@ -340,6 +341,9 @@ export default function gymForm() {
               onChange={handleChange}
               required
             />
+              {errors.changingRooms && (
+                <p className="help">{errors.changingRooms}</p>
+              )}
             </div>
           </div>
           <div className="container-2">
@@ -355,6 +359,9 @@ export default function gymForm() {
               onChange={handleChange}
               required
             />
+              {errors.gymPrice && (
+                <p className="help">{errors.gymPrice}</p>
+              )}
             </div>
           </div>
           {/* <div className="container-2">
