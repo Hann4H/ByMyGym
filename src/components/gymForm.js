@@ -413,7 +413,7 @@ export default function gymForm() {
             />
           </div> */}
         </div>
-
+          <p style={{color: "red", textAlign: "center"}}>to check if everything is fine</p>
         <div id="gallery">
           <input
             type="file"
