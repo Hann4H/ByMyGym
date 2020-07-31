@@ -9,7 +9,8 @@ import DragAndDrop from "./DragAndDrop";
 import Modal from "react-modal";
 import InputMask from "react-input-mask";
 import validate from './FormValidationRules';
-import validated from './Validated';
+import { IsEmpty, Map } from "react-lodash"
+import validated from "./Validated";
 
 Modal.setAppElement("#root");
 const customStyles = {
@@ -76,10 +77,43 @@ export default function gymForm() {
 
   const ref = db.collection("gyms").doc();
 
+  var hasOwnProperty = Object.prototype.hasOwnProperty;
+
+function isEmpty(obj) {
+
+    // if (obj == null) return true;
+
+
+    // if (obj.length > 0)    return false;
+    // if (obj.length === 0)  return true;
+
+    // if (typeof obj !== "object") return true;
+
+
+    for (var key in obj) {
+        if (hasOwnProperty.call(obj, key)) return false;
+    }
+
+    return true;
+}
+
   const handleSubmit = (event) => {
     event.preventDefault();
     setErrors(validate(values));
     setIsSubmitting(true);
+
+
+
+    console.log(validated(values));
+
+    // if (typeof(errors) !== "object") {
+    //   // console.log(isEmpty(errors));
+    //   console.log("zero errors");
+    // } else {
+    //   // console.log(isEmpty(errors));
+    //   console.log("errors");
+    // }
+
     
     const uploadTask = storage
       .ref(`/photos/${imageAsFile.name}`)
