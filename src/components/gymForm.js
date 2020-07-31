@@ -68,34 +68,12 @@ export default function gymForm() {
     }
   });
 
-  // function handleValidation() {
-
-  // }
-
   var storage = firebase.storage();
   const db = firebase.firestore();
 
   const ref = db.collection("gyms").doc();
 
   var hasOwnProperty = Object.prototype.hasOwnProperty;
-
-function isEmpty(obj) {
-
-    // if (obj == null) return true;
-
-
-    // if (obj.length > 0)    return false;
-    // if (obj.length === 0)  return true;
-
-    // if (typeof obj !== "object") return true;
-
-
-    for (var key in obj) {
-        if (hasOwnProperty.call(obj, key)) return false;
-    }
-
-    return true;
-}
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -106,49 +84,42 @@ function isEmpty(obj) {
 
     console.log(validated(values));
 
-    // if (typeof(errors) !== "object") {
-    //   // console.log(isEmpty(errors));
-    //   console.log("zero errors");
-    // } else {
-    //   // console.log(isEmpty(errors));
-    //   console.log("errors");
-    // }
+    if (validated(values)) {
+      const uploadTask = storage
+        .ref(`/photos/${imageAsFile.name}`)
+        .put(imageAsFile);
 
-    
-    const uploadTask = storage
-      .ref(`/photos/${imageAsFile.name}`)
-      .put(imageAsFile);
-
-    uploadTask
-      .then((uploadTaskSnapshot) => {
-        return uploadTaskSnapshot.ref.getDownloadURL();
-      })
-      .then((gymPhoto) => {
-        setImageAsUrl(gymPhoto);
-        db.collection("gyms")
-          .add({
-            gymName: values.gymName,
-            // gymStreet,
-            // gymCity,
-            // gymZip,
-            // gymURL,
-            // gymEmail,
-            // gymPhone,
-            // gymPhoto,
-            // gymDescription,
-            // gymHeight,
-            // gymWidth,
-            // gymLength,
-            // gymPrice,
-            // audience,
-            // changingRooms,
-            // id: ref.id,
-            // owner: userUID,
-          })
-          .then(() => {
-            setGymName("");
-          });
-      });
+      uploadTask
+        .then((uploadTaskSnapshot) => {
+          return uploadTaskSnapshot.ref.getDownloadURL();
+        })
+        .then((gymPhoto) => {
+          setImageAsUrl(gymPhoto);
+          db.collection("gyms")
+            .add({
+              gymName: values.gymName,
+              // gymStreet,
+              // gymCity,
+              // gymZip,
+              // gymURL,
+              // gymEmail,
+              // gymPhone,
+              // gymPhoto,
+              // gymDescription,
+              // gymHeight,
+              // gymWidth,
+              // gymLength,
+              // gymPrice,
+              // audience,
+              // changingRooms,
+              // id: ref.id,
+              // owner: userUID,
+            })
+            .then(() => {
+              setGymName("");
+            });
+        });
+    }
 
       setErrors({});
   };
@@ -194,10 +165,6 @@ function isEmpty(obj) {
   //         });
   //     });
   // }
-
-  function login() {
-    console.log('No errors, submit callback called!');
-  }
 
   const [gymName, setGymName] = useState("");
   const [gymStreet, setGymStreet] = useState("");
