@@ -2,31 +2,36 @@ import React, { Component } from "react";
 import Slider from "../components/Slider";
 import GymDetails from "../components/GymDetails";
 import { MaterialUIPickers } from "../components/Booking";
+import firebase from "firebase"
 import $ from "jquery";
+
+const db = firebase.firestore();
 
 class GymProfile extends Component {
   onDayClick = (e, day) => {
     alert(day);
   };
 
-  // componentDidMount(){
-  //   this.initDatepicker();
-  // }
+  constructor(props) {
+    super(props);
+    this.state = { data: [] };
+    this.showing = false;
+    this.selectedBooking = null;
+  }
 
-  // initDatepicker(){
-  //   $('#target').weekly_schedule();
-  // }
 
   render() {
     console.log("TU POWINNO BYC ID:");
     console.log(this.props.match.params.id);
+
+    const gymPhoto = this.state.data.gymPhoto;
 
     return (
       <>
         <div id="idk3"></div>
         <div id="idk4">
           <div id="sup">
-            <Slider />
+            <Slider dataId={this.props.match.params.id}/>
           </div>
 
           <div className="container-4">

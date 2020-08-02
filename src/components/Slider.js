@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import SimpleImageSlider from "react-simple-image-slider";
+import firebase from "firebase"
 
-// const GLOBAL_MEDIA_QUERIES = {
-//   small: "(max-width: 599px)",
-//   medium: "(min-width: 600px) and (max-width: 1199px)",
-//   large: "(min-width: 1200px)",
-// };
+const db = firebase.firestore();
+
 
 class Slider extends Component {
   constructor(props) {
@@ -14,9 +12,23 @@ class Slider extends Component {
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
 
-  componentDidMount() {
+  async componentDidMount(props) {
     this.updateWindowDimensions();
     window.addEventListener("resize", this.updateWindowDimensions);
+
+    try {
+      const cityRef = db.collection("gyms").doc(this.props.dataId);
+      const doc = await cityRef.get();
+      if (!doc.exists) {
+        console.log("No such document!");
+      } else {
+        console.log("Document data:", doc.data());
+        this.setState({ data: doc.data() });
+      }
+    } catch (error) {
+      console.log("Wystapił błąd");
+      console.log(error);
+    }
   }
 
   componentWillUnmount() {
