@@ -24,7 +24,7 @@ class GymProfile extends Component {
     console.log("TU POWINNO BYC ID:");
     console.log(this.props.match.params.id);
 
-    const gymPhoto = this.state.data.gymPhoto;
+    
 
     return (
       <>
