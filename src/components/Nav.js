@@ -87,31 +87,39 @@ class Nav extends Component {
 
             <li>
             {this.state.user ? (
-              <button className="nav-button">
-                <Link to="/add">DODAJ SALĘ</Link>
-              </button>
+              <Link to="/add">
+                <button className="nav-button">
+                  DODAJ SALĘ
+                </button>
+              </Link>
             ) : (
               ""
             )}
             </li>
             <li>
               {this.state.user ? (
-                <button className="nav-button">
-                  <Link to="/profile">PROFIL</Link>
-                </button>
+                <Link to="/profile">
+                  <button className="nav-button">
+                    PROFIL
+                  </button>
+                </Link>
               ) : (
                 ""
               )}
             </li>
             <li>
               {this.state.user ? (
-                <button className="nav-button" onClick={this.logout}>
-                  <Link to="/">WYLOGUJ</Link>
-                </button>
+                <Link to="/">
+                  <button className="nav-button" onClick={this.logout}>
+                    WYLOGUJ
+                  </button>
+                </Link>
               ) : (
-                <button className="nav-button">
-                  <Link to="login">ZALOGUJ</Link>
-                </button>
+                <Link to="login">
+                  <button className="nav-button">
+                    ZALOGUJ
+                  </button>
+                </Link>
               )}
             </li>
           </ul>
