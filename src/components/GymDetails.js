@@ -71,41 +71,71 @@ class GymDetails extends Component {
         </h1>
 
         <div className="gym-details">
-          <p style={nameStyle}>Opis</p>
-          <p
-            style={textStyle}
-            dangerouslySetInnerHTML={{ __html: gymDescription }}
-          />
-          <br />
-          <p style={nameStyle}>Wysokość</p>
-          <p style={textStyle}>{gymHeight}</p>
-          <br />
-          <p style={nameStyle}>Szerokość</p>
-          <p style={textStyle}>{gymWidth}</p>
-          <br />
-          <p style={nameStyle}>Długość</p>
-          <p style={textStyle}>{gymLength}</p>
-          <br />
-          <p style={nameStyle}>Adres</p>
-          <p style={textStyle}>
-            {gymStreet}, {gymZip} {gymCity}
-          </p>
-          <br />
-          <p style={nameStyle}>Strona WWW</p>
-          <a href={`http://${gymURL}`} className="external-url">
-            {gymURL}
-            <hr />
-          </a>
-          <br />
-          <p style={nameStyle}>E-mail</p>
-          <p style={textStyle}>{gymEmail}</p>
-          <br />
-          <p style={nameStyle}>Telefon</p>
-          <p style={textStyle}>{gymPhone}</p>
-          <br />
-          <p style={nameStyle}>Cena</p>
-          <p style={textStyle}>{gymPrice}</p>
-          <br />
+          <div className="gym-details-column1">
+            <p style={nameStyle}>Adres</p>
+            <p style={textStyle}>
+              {gymStreet}, {gymZip} {gymCity}
+            </p>
+            <br />
+            <div className="dimensions">
+              <div className="dimensions-p">
+                <p style={nameStyle}>Wysokość</p>
+                <p style={textStyle}>{gymHeight} m</p>
+              </div>
+              <br />
+              <div className="dimensions-p">
+                <p style={nameStyle}>Szerokość</p>
+                <p style={textStyle}>{gymWidth} m</p>
+              </div>
+              <br />
+              <div className="dimensions-p">
+                <p style={nameStyle}>Długość</p>
+                <p style={textStyle}>{gymLength} m</p>
+              </div>
+            </div>
+            <br />
+            <p style={nameStyle}>Cena</p>
+            <p style={textStyle}>{gymPrice} zł</p>
+            <br />
+            <p style={nameStyle}>Opis</p>
+            {this.state.data.gymDescription? (
+                <p
+                style={textStyle}
+                dangerouslySetInnerHTML={{ __html: gymDescription }}
+              />
+              ) : (
+                <p className="no-data-p">brak</p>
+              )}
+            
+            <br />
+          </div>
+          <div className="gym-details-column2">
+            <p style={nameStyle}>Strona WWW</p>
+            {this.state.data.gymEmail? (
+                <a href={`http://${gymURL}`} className="external-url">
+                  {gymURL}
+                  <hr />
+                </a>
+              ) : (
+                <p className="no-data-p">brak</p>
+              )}
+            <br />
+            <p style={nameStyle}>E-mail</p>
+            {this.state.data.gymEmail? (
+                {gymEmail}
+              ) : (
+                <p className="no-data-p">brak</p>
+              )}
+            <br />
+            <p style={nameStyle}>Telefon</p>
+            {this.state.data.gymPhone? (
+                {gymPhone}
+              ) : (
+                <p className="no-data-p">brak</p>
+              )}
+            <br />
+          </div>
+          
         </div>
         <div className="map">
           <Localization position={position} />

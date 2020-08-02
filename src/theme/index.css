@@ -165,10 +165,28 @@
   margin-left: 5rem;
   overflow: hidden;
   word-break: normal;
+  display: flex;
+  justify-content: space-between;
+  width: 40vw;
 }
 
 .gym-details p {
   margin-bottom: 2px;
+}
+
+.dimensions {
+  display: flex;
+  justify-content: space-between;
+  width: 20rem;
+}
+
+.dimensions-p {
+  display: flex;
+  flex-direction: column;
+}
+
+.no-data-p {
+  font-style: italic;
 }
 
 .external-url {
@@ -309,6 +327,7 @@
 
 .place-for-img {
   width: 500px;
+
 }
 
 @media screen and (max-width: 780px) {
@@ -321,12 +340,12 @@
   margin: 2rem 1rem 2rem 1rem;
   padding-left: 2rem;
   text-align: center;
-  width: 450px;
+  width: 500px;
   height: auto;
 }
 
 #myimg {
-  width: 25rem;
+  width: 30rem;
   margin-left: 3rem;
   margin-top: 3rem;
 }

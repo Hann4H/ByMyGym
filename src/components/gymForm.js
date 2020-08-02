@@ -105,7 +105,7 @@ export default function gymForm() {
               // gymURL,
               // gymEmail,
               // gymPhone,
-              // gymPhoto,
+              gymPhoto,
               // gymDescription,
               gymHeight: values.gymHeight,
               gymWidth: values.gymWidth,
