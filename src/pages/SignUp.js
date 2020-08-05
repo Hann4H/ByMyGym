@@ -5,97 +5,105 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { Redirect } from 'react-router-dom';
 import { useHistory } from "react-router-dom";
+import { render } from 'react-dom';
 
+const validEmailRegex = 
+RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i);
+
+const validateForm = (errors) => {
+    let valid = true;
+    Object.values(errors).forEach(
+      (val) => val.length > 0 && (valid = false)
+    );
+    return valid;
+  }
+  
+  const countErrors = (errors) => {
+    let count = 0;
+    Object.values(errors).forEach(
+      (val) => val.length > 0 && (count = count+1)
+    );
+    return count;
+  }
 
 class SignUp extends Component{
-    constructor(props)
-    {
+    constructor(props) {
         super(props);
-        this.handleChange = this.handleChange.bind(this);
-        this.signup = this.signup.bind(this);
-        this.state={
-            email : "",
-            password : "",
-            name: "",
-            surname: "",
-            number: "",
-            fields: {},
-            errors: {}
-        }
-    }
-
-    componentDidMount() {
-
+        this.state = {
+          name: null,
+          surname: null,
+          email: null,
+          number: null,
+          password: null,
+          errors: {
+            name: '',
+            surname: '',
+            email: '',
+            number: '',
+            password: '',
+          }
+        };
       }
+      
 
 
-    signup(e){
-        e.preventDefault();
-
-        if(this.handleValidation()){
-            firebase.auth().createUserWithEmailAndPassword(this.state.email,this.state.password).then((u)=>{
-                return <Redirect to="/login" />;
-            }).catch((err)=>{
-                console.log(err);
-            })
-         }else{
-            alert("Form has errors.")
-         }
-        
-    }
     
-    handleChange(field, e){
-        this.setState({
-            [e.target.name] : e.target.value,
+    
+    handleChange = (event) => {
+        event.preventDefault();
+        const { names, value } = event.target;
+        let errors = this.state.errors;
+      
+        switch (names) {
+          case 'name': 
+            errors.name = 
+              value.length < 5
+                ? 'name must be 5 characters long!'
+                : '';
+            break;
+          case 'surname': 
+            errors.surname = 
+              value.length < 5
+                ? 'surname must be 5 characters long!'
+                : '';
+            break;
+          case 'email': 
+            errors.email = 
+              validEmailRegex.test(value)
+                ? ''
+                : 'Email is not valid!';
+            break;
+          case 'number': 
+            errors.number = 
+              value.length < 5
+                ? 'number must be 5 characters long!'
+                : '';
+            break;
+          case 'password': 
+            errors.password = 
+              value.length < 8
+                ? 'Password must be 8 characters long!'
+                : '';
+            break;
+          default:
+            break;
+        }
+      
+        this.setState({errors, [names]: value}, ()=> {
+            console.log(errors)
         })
-        let fields = this.state.fields;
-        fields[field] = e.target.value;        
-        this.setState({fields});
-    }
-
-    handleValidation() {
-        let fields = this.state.fields;
-        let errors = {};
-        let formIsValid = true;
-
-        //Name
-        if(!fields["name"]){
-           formIsValid = false;
-           errors["name"] = "Cannot be empty";
-        }
-
-        if(typeof fields["name"] !== "undefined"){
-           if(!fields["name"].match(/^[a-zA-Z]+$/)){
-              formIsValid = false;
-              errors["name"] = "Only letters";
-           }        
-        }
-
-        //Email
-        if(!fields["email"]){
-           formIsValid = false;
-           errors["email"] = "Cannot be empty";
-        }
-
-        if(typeof fields["email"] !== "undefined"){
-           let lastAtPos = fields["email"].lastIndexOf('@');
-           let lastDotPos = fields["email"].lastIndexOf('.');
-
-           if (!(lastAtPos < lastDotPos && lastAtPos > 0 && fields["email"].indexOf('@@') == -1 && lastDotPos > 2 && (fields["email"].length - lastDotPos) > 2)) {
-              formIsValid = false;
-              errors["email"] = "Email is not valid";
-            }
-       }  
-
-       this.setState({errors: errors});
-       return formIsValid;
-    }
-
+      }
+      
+      handleSubmit = (event) => {
+        event.preventDefault();
+        this.setState({formValid: validateForm(this.state.errors)});
+        this.setState({errorCount: countErrors(this.state.errors)});
+      }
     
 
     render() {
 
-
+        const {errors, formValid} = this.state;
 
         return(
             <div className="login-page">
@@ -103,15 +111,19 @@ class SignUp extends Component{
                 {/*<img className="login-wave" src={require("../img/wave.png")}></img>*/}
                 <div className="login-background">
                     <Link to="/"><img className="login-logo" src={require("../img/logo.png")}/></Link>
-                    <form className="login-form" noValidate  onSubmit={this.signup.bind(this)} autoComplete="off">
-                        <TextField
-                        name="name"
-                        onChange={this.handleChange}
-                        id="name"
-                        placeholder="imię"
-                        value={this.state.name}
-                        color="secondary"
-                        />
+                    <form className="login-form" noValidate  onSubmit={this.handleSubmit} autoComplete="off">
+                        <div className="reg-name">
+                            <TextField
+                            name="name"
+                            onChange={this.handleChange}
+                            id="name"
+                            placeholder="imię"
+                            // value={this.state.name}
+                            // color="secondary"
+                            />
+                            {errors.name.length > 0 && 
+                                <span className='error'>{errors.name}</span>}
+                        </div>
                         <TextField
                         name="surname"
                         onChange={this.handleChange}
@@ -158,10 +170,4 @@ class SignUp extends Component{
 }
 
 
-export function SignUpComponent() {
-
-  
-    return <SignUp></SignUp>
-  };
-
-export default SignUpComponent;
+export default SignUp;
