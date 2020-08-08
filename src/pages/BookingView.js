@@ -22,8 +22,8 @@ class BookingView extends Component {
   }
 
   componentDidMount() {
-    db.collection("gyms")
-      .orderBy("gymName")
+    db.collection("bookings")
+      // .orderBy("gymName")
       .get()
       .then((items) => {
         const bookingItems = items.docs.map((doc) => {
