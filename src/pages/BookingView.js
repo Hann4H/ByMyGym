@@ -1,6 +1,14 @@
 import React, { Component } from "react";
 import firebase from "firebase";
 
+import WeeklyScheduler from "../components/booking/WeeklyScheduler";
+import "../theme/react-week-scheduler.css";
+
+const startingDefault = { event: "default", color: "#d4d8dd" };
+const blockingEvent = { event: "block", color: "#b66363" };
+const limitingEvent = { event: "limit", color: "#d6bd43" };
+const eventList = [startingDefault, blockingEvent, limitingEvent];
+
 const db = firebase.firestore();
 
 function ListItems(props) {
@@ -49,6 +57,14 @@ class BookingView extends Component {
               gymName={JSON.stringify(item.gymName)}
             />
           ))}
+
+          <div>
+            <WeeklyScheduler
+              defaultEvent={startingDefault}
+              selectedEvent={blockingEvent}
+              events={eventList}
+            />
+          </div>
         </div>
       </div>
     );
