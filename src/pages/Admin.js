@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import JsonData from "../components/adminTools/JsonData";
+import { Link } from "react-router-dom";
 
 class Admin extends Component {
   constructor(props) {
@@ -25,6 +26,10 @@ class Admin extends Component {
             Add halls from API to firebase
           </button>
           {this.state.showComponent ? <JsonData /> : null}
+          <br />
+          <Link to="/booking">
+            <button>Go to booking view</button>
+          </Link>
         </div>
       </div>
     );
