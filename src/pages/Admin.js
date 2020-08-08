@@ -20,10 +20,12 @@ class Admin extends Component {
     return (
       <div>
         <div id="pls"></div>
-        <button onClick={this._onButtonClick}>
-          Add halls from API to firebase
-        </button>
-        {this.state.showComponent ? <JsonData /> : null}
+        <div className="admin-page">
+          <button onClick={this._onButtonClick}>
+            Add halls from API to firebase
+          </button>
+          {this.state.showComponent ? <JsonData /> : null}
+        </div>
       </div>
     );
   }

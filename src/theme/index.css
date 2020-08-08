@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Lato");
-@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+@import url(https://fonts.googleapis.com/icon?family=Material + Icons);
 
 * {
   margin: 0;
@@ -327,7 +327,6 @@
 
 .place-for-img {
   width: 500px;
-
 }
 
 @media screen and (max-width: 780px) {
@@ -439,7 +438,6 @@
 
 #gallery input {
   font-size: 10px;
-
 }
 
 #container-1 {
@@ -1208,7 +1206,12 @@ ul.unstyled {
 }
 
 .error {
-  color:#db2269;
+  color: #db2269;
   font-size: 0.625em;
   display: relative;
+}
+
+.admin-page {
+  padding: 2rem;
+  background-color: white;
 }

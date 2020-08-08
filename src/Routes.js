@@ -10,6 +10,7 @@ import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Admin from "./pages/Admin";
 import Contact from "./pages/Contact";
+import BookingView from "./pages/BookingView";
 
 const Routes = () => (
   <Switch>
@@ -25,6 +26,7 @@ const Routes = () => (
         <Route path="/profile" exact component={Profile} />
         <Route path="/gyms" exact component={Gyms} />
         <Route path="/admin" exact component={Admin} />
+        <Route path="/booking" exact component={BookingView} />
       </div>
     </React.Fragment>
   </Switch>
