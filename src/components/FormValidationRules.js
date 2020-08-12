@@ -2,17 +2,17 @@ export default function validate(values) {
     let errors = {};
     if (!values.gymName) {
       errors.gymName = 'Należy wprowadzić nazwę sali';
-    } else if (!/(.*[a-z]){3}/.test(values.gymName)) {
+    } else if (!/(.*[A-Za-z]){3}/.test(values.gymName)) {
       errors.gymName = 'Nazwa sali jest nieprawidłowa - minimum 3 znaki';
     }
     if (!values.gymStreet) {
       errors.gymStreet = 'Należy wprowadzić ulicę';
-    } else if (!/(.*[a-z]){3}/.test(values.gymStreet)) {
+    } else if (!/(.*[A-Za-z]){3}/.test(values.gymStreet)) {
       errors.gymStreet = 'Nazwa ulicy jest nieprawidłowa - minimum 3 znaki';
     }
     if (!values.gymCity) {
       errors.gymCity = 'Należy wprowadzić miasto';
-    } else if (!/(.*[a-z]){3}/.test(values.gymCity)) {
+    } else if (!/(.*[A-Za-z]){3}/.test(values.gymCity)) {
       errors.gymCity = 'Nazwa miasta jest nieprawidłowa - minimum 3 znaki';
     }
     if (!values.gymZip) {
@@ -50,6 +50,9 @@ export default function validate(values) {
     } else if (!/[0-9]{1,}/.test(values.gymPrice)) {
       errors.gymPrice = 'Cena jest nieprawidłowa';
     }      
+    if (!values.gymPhoto) {
+      errors.gymPhoto = 'Należy dodać zdjęcie';
+    } 
     // console.log(errors);
     return errors;
   };

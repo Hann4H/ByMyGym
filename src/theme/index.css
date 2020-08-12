@@ -583,7 +583,7 @@
 
 .form-only {
   width: 40%;
-  margin-left: 10%;
+  margin-left: 5%;
 }
 
 label {
@@ -600,7 +600,7 @@ label {
 input {
   display: block;
   box-sizing: border-box;
-  width: 110%;
+  width: 120%;
   border-radius: 3px;
   border: 1px solid var(--darkOrange);
   padding: 2px 10px;

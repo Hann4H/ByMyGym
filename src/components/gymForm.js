@@ -421,6 +421,9 @@ export default function gymForm() {
             id="img_url"
             onChange={handleImageAsFile}
           ></input>
+          {errors.gymPhoto && (
+                <p className="help">{errors.gymPhoto}</p>
+              )}
         </div>
 
         {/*<div id="gallery">
