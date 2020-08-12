@@ -16,7 +16,7 @@ class AddGym extends Component {
 
         <div id="idk9">
           <div id="addGym_title">WYPEŁNIJ DANE</div>
-          <hr />
+
           <div id="container-1">
             <Form></Form>
           </div>

@@ -454,9 +454,49 @@
   vertical-align: middle;
 }
 
+.container-2 label {
+  text-align: right;
+}
+
 .container-2 input {
   width: 18rem;
   margin-top: 0.5rem;
+}
+
+@media screen and (max-width: 1020px) {
+  .container-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    vertical-align: middle;
+  }
+  .container-2 label {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 14px;
+    text-align: center;
+  }
+  .container-2 input {
+    width: 80%;
+    margin-top: -0.7rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #gallery {
+    font-size: 30px;
+    text-align: center;
+    width: 10%;
+    margin-bottom: 10%;
+    margin-left: 5%;
+    margin-top: 0.5rem;
+  }
+  .form_button {
+    margin-left: 5% !important;
+    /* transform: translate(10%, 200%); */
+    margin-top: 15% !important;
+  }
 }
 
 .container-4 {
@@ -712,7 +752,7 @@ button {
 }
 
 .form_button {
-  margin-left: 20rem !important;
+  margin-left: 20rem;
   transform: translate(20%, -190%);
 }
 
