@@ -14,7 +14,7 @@ class AddGym extends Component {
         </Hero>
         <div id="slash"></div>
 
-        <div id="idk">
+        <div id="idk9">
           <div id="addGym_title">WYPEŁNIJ DANE</div>
           <hr />
           <div id="container-1">

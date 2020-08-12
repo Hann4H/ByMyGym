@@ -433,7 +433,7 @@
   text-align: center;
   width: 20%;
   margin-bottom: 10%;
-  margin-left: 29.5%;
+  margin-left: 20.5%;
   margin-top: 0.5rem;
 }
 
@@ -520,6 +520,17 @@
   margin-bottom: 6rem;
 }
 
+#idk9 {
+  width: 50vw;
+  background-color: var(--mainWhite);
+  margin: 0 auto;
+  border-radius: 20px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07),
+    0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07),
+    0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
+  margin-bottom: 6rem;
+}
+
 .container-3 {
   text-align: left;
   width: 100%;
@@ -586,7 +597,7 @@
 
 .form-only {
   width: 40%;
-  margin-left: 10%;
+  margin-left: 1%;
 }
 
 label {
@@ -701,7 +712,7 @@ button {
 }
 
 .form_button {
-  margin-left: 30rem !important;
+  margin-left: 20rem !important;
   transform: translate(20%, -190%);
 }
 
