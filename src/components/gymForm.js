@@ -187,10 +187,7 @@ export default function gymForm() {
     <form onSubmit={handleSubmit} className="gymForm" noValidate>
       <div className="form-n-gallery">
         <div className="form-only">
-          <h5>
-            Uwaga! Sala dodaje się, tylko gdy jest załączone zdjęcie. To do
-            poprawienia
-          </h5>
+
           <div className="container-2">
             <label>Nazwa budynku</label>
             <div className="input-n-error">
@@ -413,7 +410,6 @@ export default function gymForm() {
             />
           </div> */}
         </div>
-          <p style={{color: "red", textAlign: "center"}}>to check if everything is fine</p>
         <div id="gallery">
           <input
             type="file"
