@@ -11,6 +11,8 @@ import InputMask from "react-input-mask";
 import validate from './FormValidationRules';
 import { IsEmpty, Map } from "react-lodash"
 import validated from "./Validated";
+import  { Redirect } from 'react-router-dom' 
+
 
 Modal.setAppElement("#root");
 const customStyles = {
@@ -49,10 +51,14 @@ export default function gymForm() {
 
   // const { register, handleSubmit, errors } = useForm();
 
+
+
   const [imageAsFile, setImageAsFile] = useState("");
   const [imageAsUrl, setImageAsUrl] = useState("");
 
   const [userUID, setUserUID] = useState("");
+
+
 
   console.log(imageAsFile);
   const handleImageAsFile = (e) => {
@@ -74,6 +80,18 @@ export default function gymForm() {
   const ref = db.collection("gyms").doc();
 
   var hasOwnProperty = Object.prototype.hasOwnProperty;
+
+  const [navigate, setNavigate] = useState(false);
+
+  if (navigate === true) {
+    return <Redirect to="/" />
+  }
+
+  const redirect = () => {
+    if (validated(values)) {
+      setNavigate(true);
+    }
+  }
 
   const handleSubmit = (event) => {
     setErrors({});
@@ -118,11 +136,12 @@ export default function gymForm() {
             })
             .then(() => {
               setGymName("");
+              window.location.href = "/";
             });
         });
     }
 
-      
+    
   };
 
   const handleChange = (event) => {
@@ -582,7 +601,8 @@ export default function gymForm() {
 
       <div></div>
       <div></div>
-      <button className="form_button"> {/*onClick={openModal}>*/}
+      
+      <button className="form_button"> 
         DODAJ
       </button>
       {/* <Modal

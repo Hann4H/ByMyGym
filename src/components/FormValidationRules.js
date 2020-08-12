@@ -50,9 +50,7 @@ export default function validate(values) {
     } else if (!/[0-9]{1,}/.test(values.gymPrice)) {
       errors.gymPrice = 'Cena jest nieprawidłowa';
     }      
-    if (!values.gymPhoto) {
-      errors.gymPhoto = 'Należy dodać zdjęcie';
-    } 
+
     // console.log(errors);
     return errors;
   };
