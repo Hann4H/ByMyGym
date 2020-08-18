@@ -111,7 +111,7 @@
   font-weight: 100;
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (max-width: 576px) {
   .banner {
     padding: 2rem 3rem;
   }
@@ -253,6 +253,12 @@
   color: var(--mainWhite);
 }
 
+@media screen and (max-width: 576px) {
+  .btn-primary {
+    font-size: 20px;
+  }
+}
+
 .dropDown {
   color: var(--mainOrange);
   background-color: transparent;
@@ -354,9 +360,26 @@
   margin-left: 6rem;
 }
 
-@media screen and (max-width: 780px) {
-  #myimg {
+@media screen and (max-width: 567px) {
+  #myimg_none {
     width: 10rem;
+    margin-left: 5rem;
+    margin-top: 3rem;
+  }
+  #myimg {
+    width: 15rem;
+    margin-left: 0rem;
+  }
+}
+
+@media screen and (min-width: 525px)  and (max-width: 780px) {
+  #myimg {
+    width: 23rem;
+    margin-left: 1.5rem;
+  }
+  #myimg_none {
+    margin-left: 5rem;
+    margin-top: 3rem;
   }
 }
 
@@ -378,6 +401,15 @@
   margin-bottom: 2rem;
   overflow: hidden;
   margin-left: 2rem;
+}
+
+@media screen and (max-width: 567px) {
+  .gym-short-info {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    overflow: hidden;
+    margin-left: 2rem;
+  }
 }
 
 .listing-header {

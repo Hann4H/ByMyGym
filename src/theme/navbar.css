@@ -65,7 +65,7 @@ li {
   list-style-type: none;
   font-weight: bold;
   padding: 0;
-  margin-top: 5px;
+  padding-top: 5px;
 }
 
 
@@ -113,6 +113,11 @@ li {
   .nav-links li{
     width: 100vw;
   }
+
+  .nav-links {
+    padding-top: 0;
+  }
+  
   
 }
 
