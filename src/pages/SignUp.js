@@ -30,13 +30,15 @@ class SignUp extends Component{
     constructor(props) {
         super(props);
         this.state = {
-          name: null,
-          surname: null,
-          email: null,
-          number: null,
-          password: null,
+          formValid: false,
+          errorCount: null,
+          // name: null,
+          // surname: null,
+          // email: null,
+          // number: null,
+          // password: null,
           errors: {
-            name: '',
+            firstName: '',
             surname: '',
             email: '',
             number: '',
@@ -51,45 +53,45 @@ class SignUp extends Component{
     
     handleChange = (event) => {
         event.preventDefault();
-        const { names, value } = event.target;
+        const { name, value } = event.target;
         let errors = this.state.errors;
       
-        switch (names) {
-          case 'name': 
-            errors.name = 
-              value.length < 5
-                ? 'name must be 5 characters long!'
+        switch (name) {
+          case 'firstName': 
+            errors.firstName = 
+              value.length < 3
+                ? 'imię jest niepoprawne'
                 : '';
             break;
           case 'surname': 
             errors.surname = 
-              value.length < 5
-                ? 'surname must be 5 characters long!'
+              value.length < 3
+                ? 'nazwisko jest niepoprawne'
                 : '';
             break;
           case 'email': 
             errors.email = 
               validEmailRegex.test(value)
                 ? ''
-                : 'Email is not valid!';
+                : 'e-mail jest niepoprawny';
             break;
           case 'number': 
             errors.number = 
-              value.length < 5
-                ? 'number must be 5 characters long!'
+              value.length < 9
+                ? 'numer telefonu jest niepoprawny'
                 : '';
             break;
           case 'password': 
             errors.password = 
               value.length < 8
-                ? 'Password must be 8 characters long!'
+                ? 'hasło powinno mieć przynajmniej 8 znaków'
                 : '';
             break;
           default:
             break;
         }
       
-        this.setState({errors, [names]: value}, ()=> {
+        this.setState({errors, [name]: value}, ()=> {
             console.log(errors)
         })
       }
@@ -111,55 +113,71 @@ class SignUp extends Component{
                 {/*<img className="login-wave" src={require("../img/wave.png")}></img>*/}
                 <div className="login-background">
                     <Link to="/"><img className="login-logo" src={require("../img/logo.png")}/></Link>
-                    <form className="login-form" noValidate  onSubmit={this.handleSubmit} autoComplete="off">
-                        <div className="reg-name">
-                            <TextField
-                            name="name"
-                            onChange={this.handleChange}
-                            id="name"
-                            placeholder="imię"
-                            // value={this.state.name}
-                            // color="secondary"
-                            />
-                            {errors.name.length > 0 && 
-                                <span className='error'>{errors.name}</span>}
+                    <form className="login-form" noValidate  onSubmit={this.handleSubmit}>
+                        <div className="row">
+                          <TextField
+                          name="firstName"
+                          onChange={this.handleChange}
+                          id="firstName"
+                          placeholder="imię"
+                          // value={this.state.name}
+                          color="secondary"
+                          />
+                          {errors.firstName.length > 0 && 
+                            <span className='error'>{errors.firstName}</span>}
                         </div>
-                        <TextField
-                        name="surname"
-                        onChange={this.handleChange}
-                        id="surname"
-                        placeholder="nazwisko"
-                        value={this.state.surname}
-                        color="secondary"
-                        />
-                        <TextField
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="adres e-mail"
-                        onChange={this.handleChange}
-                        value={this.state.email}
-                        color="secondary"
-                        />
-                        <TextField
-                        type="string"
-                        id="number"
-                        name="number"
-                        placeholder="numer telefonu"
-                        pattern="(?<!\w)(\(?(\+|00)?48\)?)?[ -]?\d{3}[ -]?\d{3}[ -]?\d{3}(?!\w)"
-                        onChange={this.handleChange}
-                        value={this.state.number}
-                        color="secondary"
-                        />
-                        <TextField
-                        name="password"
-                        type= "password"
-                        onChange={this.handleChange}
-                        id="password"
-                        placeholder="hasło"
-                        value={this.state.password}
-                        color="secondary"
-                        />
+                        <div className="row">
+                          <TextField
+                          name="surname"
+                          onChange={this.handleChange}
+                          id="surname"
+                          placeholder="nazwisko"
+                          // value={this.state.surname}
+                          color="secondary"
+                          />
+                          {errors.surname.length > 0 && 
+                            <span className='error'>{errors.surname}</span>}
+                        </div>
+                        <div className="row">
+                          <TextField 
+                          type='email' 
+                          name='email' 
+                          id="email" 
+                          placeholder="adres e-mail" 
+                          onChange={this.handleChange} 
+                          color="secondary"
+                          noValidate />
+                          {errors.email.length > 0 && 
+                            <span className='error'>{errors.email}</span>}
+                        </div>
+                        
+                        <div className="row">
+                          <TextField
+                          type="string"
+                          id="number"
+                          name="number"
+                          placeholder="numer telefonu"
+                          pattern="(?<!\w)(\(?(\+|00)?48\)?)?[ -]?\d{3}[ -]?\d{3}[ -]?\d{3}(?!\w)"
+                          onChange={this.handleChange}
+                          // value={this.state.number}
+                          color="secondary"
+                          />
+                          {errors.number.length > 0 && 
+                            <span className='error'>{errors.number}</span>}
+                        </div>
+                        <div className="row">
+                          <TextField
+                          name="password"
+                          type= "password"
+                          onChange={this.handleChange}
+                          id="password"
+                          placeholder="hasło"
+                          // value={this.state.password}
+                          color="secondary"
+                          />
+                          {errors.password.length > 0 && 
+                            <span className='error'>{errors.password}</span>}
+                        </div>
                         <button>Zarejestruj</button>
                     </form>
                     

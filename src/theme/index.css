@@ -1304,3 +1304,8 @@ ul.unstyled {
   padding: 2rem;
   background-color: white;
 }
+
+.row {
+  display: flex;
+  flex-direction: column;
+}

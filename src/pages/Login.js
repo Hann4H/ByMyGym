@@ -78,7 +78,7 @@ const uiConfig = {
                           />
                           <button onClick={this.login}>Zaloguj</button>
                           
-                          <Link to="/signup" className="login-link-signup"><p>Nie masz konta? <span>Zarejestruj się!</span></p></Link>
+                          <p className="login-link-signup">Nie masz konta? <Link to="/signup"><span>Zarejestruj się!</span></Link></p>
                           
                       </form>
                       <FirebaseAuth className="login-external" uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
