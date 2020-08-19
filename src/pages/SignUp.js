@@ -32,11 +32,11 @@ class SignUp extends Component{
         this.state = {
           formValid: false,
           errorCount: null,
-          // name: null,
-          // surname: null,
-          // email: null,
-          // number: null,
-          // password: null,
+          firstName: null,
+          surname: null,
+          email: null,
+          number: null,
+          password: null,
           errors: {
             firstName: '',
             surname: '',
@@ -100,7 +100,29 @@ class SignUp extends Component{
         event.preventDefault();
         this.setState({formValid: validateForm(this.state.errors)});
         this.setState({errorCount: countErrors(this.state.errors)});
+
+        console.log(this.state.formValid);
+        console.log(this.state.firstName);
+        console.log(this.state.number);
+        console.log(this.state.errors);
+
+        if (this.state.errorCount == null) {
+          firebase.auth().createUserWithEmailAndPassword(this.state.email,this.state.password).then((u)=>{
+            firebase.firestore().collection("users").add({
+              firstName: this.state.firstName,
+              surname: this.state.surname,
+              email: this.state.email,
+              phone: this.state.number
+            })
+            .then(() => {
+              window.location.href = "/";
+            });
+          })
+            
+            // return <Redirect to="/login" />;
+          
       }
+    }
     
 
     render() {
@@ -120,7 +142,7 @@ class SignUp extends Component{
                           onChange={this.handleChange}
                           id="firstName"
                           placeholder="imię"
-                          // value={this.state.name}
+                          value={this.state.name}
                           color="secondary"
                           />
                           {errors.firstName.length > 0 && 
@@ -132,7 +154,7 @@ class SignUp extends Component{
                           onChange={this.handleChange}
                           id="surname"
                           placeholder="nazwisko"
-                          // value={this.state.surname}
+                          value={this.state.surname}
                           color="secondary"
                           />
                           {errors.surname.length > 0 && 
@@ -146,6 +168,7 @@ class SignUp extends Component{
                           placeholder="adres e-mail" 
                           onChange={this.handleChange} 
                           color="secondary"
+                          value={this.state.email}
                           noValidate />
                           {errors.email.length > 0 && 
                             <span className='error'>{errors.email}</span>}
@@ -159,7 +182,7 @@ class SignUp extends Component{
                           placeholder="numer telefonu"
                           pattern="(?<!\w)(\(?(\+|00)?48\)?)?[ -]?\d{3}[ -]?\d{3}[ -]?\d{3}(?!\w)"
                           onChange={this.handleChange}
-                          // value={this.state.number}
+                          value={this.state.number}
                           color="secondary"
                           />
                           {errors.number.length > 0 && 
@@ -172,7 +195,7 @@ class SignUp extends Component{
                           onChange={this.handleChange}
                           id="password"
                           placeholder="hasło"
-                          // value={this.state.password}
+                          value={this.state.password}
                           color="secondary"
                           />
                           {errors.password.length > 0 && 
