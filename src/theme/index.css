@@ -367,15 +367,18 @@
     margin-top: 3rem;
   }
   #myimg {
-    width: 15rem;
-    margin-left: 0rem;
+    width: 20rem;
+
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 }
 
 @media screen and (min-width: 525px)  and (max-width: 780px) {
   #myimg {
-    width: 23rem;
-    margin-left: 1.5rem;
+    width: 25rem;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
   #myimg_none {
     margin-left: 5rem;
