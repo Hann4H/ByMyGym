@@ -35,6 +35,7 @@ const uiConfig = {
           e.preventDefault();
           firebase.auth().signInWithEmailAndPassword(this.state.email,this.state.password).then((u)=>{
               console.log(u);
+              window.location.href = "/";
           }).catch((err)=>{
               console.log(err);
           })
@@ -57,7 +58,7 @@ const uiConfig = {
   
                   <div className="login-background">
                       <Link to="/"><img className="login-logo" src={require("../img/logo.png")}/></Link>
-                      <form className="login-form" noValidate autoComplete="off">
+                      <form className="login-form" noValidate>
                           <TextField
                           type="email"
                           id="email"
