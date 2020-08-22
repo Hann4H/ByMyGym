@@ -31,6 +31,7 @@ class SignUp extends Component{
         super(props);
         this.state = {
           formValid: false,
+          phoneVer: false,
           errorCount: null,
           firstName: null,
           surname: null,
@@ -48,8 +49,46 @@ class SignUp extends Component{
       }
       
 
+    setUpRecaptcha = () => {
+      window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
+        'size': 'invisible',
+        'callback': function(response) {
+          // reCAPTCHA solved, allow signInWithPhoneNumber.
+          var phoneNumber = this.state.number;
+          var appVerifier = window.recaptchaVerifier;
+          firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
+              .then(function (confirmationResult) {
+                // SMS sent. Prompt user to type the code from the message, then sign the
+                // user in with confirmationResult.confirm(code).
+                window.confirmationResult = confirmationResult;
 
+                var code = window.prompt("Wpisz numer weryfikacyjny");
+                confirmationResult.confirm(code).then(function (result) {
+                  // User signed in successfully.
+                  var user = result.user;
+                  this.state.phoneVer = true;
+                  console.log("poszuo" + this.state.phoneVer);
+                  // ...
+                }).catch(function (error) {
+                  // User couldn't sign in (bad verification code?)
+                  // ...
+                });
+
+              }).catch(function (error) {
+                // Error; SMS not sent
+                // ...
+              });
+
+        },
+        'expired-callback': function() {
+          // Response expired. Ask user to solve reCAPTCHA again.
+          // ...
+        }
+      });
+      
+    }
     
+
     
     handleChange = (event) => {
         event.preventDefault();
@@ -101,27 +140,29 @@ class SignUp extends Component{
         this.setState({formValid: validateForm(this.state.errors)});
         this.setState({errorCount: countErrors(this.state.errors)});
 
-        console.log(this.state.formValid);
-        console.log(this.state.firstName);
-        console.log(this.state.number);
-        console.log(this.state.errors);
+        // this.setUpRecaptcha();
 
-        if (this.state.errorCount == null) {
-          firebase.auth().createUserWithEmailAndPassword(this.state.email,this.state.password).then((u)=>{
-            firebase.firestore().collection("users").add({
-              firstName: this.state.firstName,
-              surname: this.state.surname,
-              email: this.state.email,
-              phone: this.state.number
+        // if(this.state.phoneVer == 'true') {
+          if (this.state.errorCount == null) {
+            firebase.auth().createUserWithEmailAndPassword(this.state.email,this.state.password).then((u)=>{
+              firebase.firestore().collection("users").add({
+                firstName: this.state.firstName,
+                surname: this.state.surname,
+                email: this.state.email,
+                phone: this.state.number
+              })
+              .then(() => {
+                window.location.href = "/";
+              });
             })
-            .then(() => {
-              window.location.href = "/";
-            });
-          })
+              
+              // return <Redirect to="/login" />;
             
-            // return <Redirect to="/login" />;
-          
-      }
+        }
+
+        
+
+        
     }
     
 
@@ -201,6 +242,7 @@ class SignUp extends Component{
                           {errors.password.length > 0 && 
                             <span className='error'>{errors.password}</span>}
                         </div>
+                        <div id='recaptcha-container'></div>
                         <button>Zarejestruj</button>
                     </form>
                     
