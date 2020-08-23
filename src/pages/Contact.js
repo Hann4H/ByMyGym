@@ -13,7 +13,7 @@ class Contact extends Component {
         <div id="idk-8">
 
           
-          <div id="container-1">
+          <div className="container-contact">
               <form className="contact-form">
 
                 <p className="contact-p">Masz pytania? Chcesz uzyskać uprawnienia właściciela istniejącej już sali? <br />Napisz do nas!</p>

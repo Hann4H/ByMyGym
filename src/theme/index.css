@@ -1254,6 +1254,13 @@ ul.unstyled {
   margin-bottom: 6rem;
 }
 
+.container-contact {
+  display: flex;
+  width: 95%;
+  justify-content: space-between;
+  position: relative;
+}
+
 .contact-form {
   margin-top: 5%;
   margin-left: 10%;
@@ -1270,6 +1277,30 @@ ul.unstyled {
   font-family: Lato;
   padding-bottom: 1rem;
   text-align: center;
+
+}
+
+@media screen and (max-width: 921px) {
+  .contact-p {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:20%;
+  }
+  .name-input{
+    width: auto;
+  }
+}
+
+
+@media screen and (max-width: 620px) {
+  .contact-p {
+    width:40%;
+    margin-left: auto;
+  }
+  .name-input{
+    width: auto;
+  }
 }
 
 .name-input {
@@ -1277,6 +1308,7 @@ ul.unstyled {
   padding-bottom: 7px;
   border: 2px solid var(--mainOrange);
   margin-top: 10px;
+  width: 20rem;
 }
 
 .contact-input {
