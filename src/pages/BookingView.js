@@ -4,6 +4,8 @@ import firebase from "firebase";
 import WeeklyScheduler from "../components/booking/WeeklyScheduler";
 import "../theme/react-week-scheduler.css";
 
+import Basic from "../components/calendar/Basic";
+
 const startingDefault = { event: "default", color: "#d4d8dd" };
 const blockingEvent = { event: "block", color: "#b66363" };
 const limitingEvent = { event: "limit", color: "#d6bd43" };
@@ -66,6 +68,8 @@ class BookingView extends Component {
             />
           </div>
         </div>
+        <br></br>
+        <Basic />
       </div>
     );
   }
