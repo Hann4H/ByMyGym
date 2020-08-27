@@ -9,13 +9,18 @@ import Scheduler, {
 } from "./Scheduler";
 import withDragDropContext from "./withDnDContext";
 
+// class Basic extends Component {
+//   render() {
+//     return <></>;
+//   }
+// }
+
 class Basic extends Component {
   constructor(props) {
     super(props);
 
-    //let schedulerData = new SchedulerData(new moment("2017-12-18").format(DATE_FORMAT), ViewTypes.Week);
-    let schedulerData = new SchedulerData("2017-12-18", ViewTypes.Week);
-    schedulerData.localeMoment.locale("en");
+    let schedulerData = new SchedulerData("2020-09-01", ViewTypes.Week);
+    schedulerData.localeMoment.locale("pl");
     schedulerData.setResources(DemoData.resources);
     schedulerData.setEvents(DemoData.events);
     this.state = {
@@ -26,7 +31,7 @@ class Basic extends Component {
   render() {
     const { viewModel } = this.state;
     return (
-      <div>
+      <div style={{ backgroundColor: "white" }}>
         <div>
           <h3 style={{ textAlign: "center" }}>Basic example</h3>
           <Scheduler

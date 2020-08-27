@@ -60,7 +60,7 @@ export default {
   relativeMove: true,
   defaultExpanded: true,
 
-  resourceName: "Resource Name",
+  resourceName: "",
   taskName: "Task Name",
   agendaViewHeader: "Agenda",
   addMorePopoverHeaderFormat: "MMM D, YYYY dddd",
@@ -72,31 +72,31 @@ export default {
 
   views: [
     {
-      viewName: "Day",
+      viewName: "Dzień",
       viewType: ViewTypes.Day,
       showAgenda: false,
       isEventPerspective: false,
     },
     {
-      viewName: "Week",
+      viewName: "Tydzień",
       viewType: ViewTypes.Week,
       showAgenda: false,
       isEventPerspective: false,
     },
     {
-      viewName: "Month",
+      viewName: "Miesiąc",
       viewType: ViewTypes.Month,
       showAgenda: false,
       isEventPerspective: false,
     },
     {
-      viewName: "Quarter",
+      viewName: "Kwartał",
       viewType: ViewTypes.Quarter,
       showAgenda: false,
       isEventPerspective: false,
     },
     {
-      viewName: "Year",
+      viewName: "Rok",
       viewType: ViewTypes.Year,
       showAgenda: false,
       isEventPerspective: false,
