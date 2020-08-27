@@ -224,12 +224,12 @@ class Scheduler extends Component {
       let resourceEventsList = displayRenderData.map((item) => {
         return (
           <>
-            {/* <DndResourceEvents
-            {...this.props}
-            key={item.slotId}
-            resourceEvents={item}
-            dndSource={eventDndSource}
-          /> */}
+            <DndResourceEvents
+              {...this.props}
+              key={item.slotId}
+              resourceEvents={item}
+              dndSource={eventDndSource}
+            />
           </>
         );
       });

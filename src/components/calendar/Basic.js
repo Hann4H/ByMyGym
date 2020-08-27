@@ -9,6 +9,9 @@ import Scheduler, {
 } from "./Scheduler";
 import withDragDropContext from "./withDnDContext";
 
+import { HTML5Backend } from "react-dnd-html5-backend";
+import { DndProvider } from "react-dnd";
+
 // class Basic extends Component {
 //   render() {
 //     return <></>;
@@ -33,7 +36,7 @@ class Basic extends Component {
     return (
       <div style={{ backgroundColor: "white" }}>
         <div>
-          <h3 style={{ textAlign: "center" }}>Basic example</h3>
+          <h3 style={{ textAlign: "center" }}>Kalendarz</h3>
           <Scheduler
             schedulerData={viewModel}
             prevClick={this.prevClick}
@@ -221,4 +224,6 @@ class Basic extends Component {
 
 // export default withDragDropContext(Basic);
 // export default createDndContext(HTML5Backend)(Basic);
+// export default Basic;
+
 export default Basic;

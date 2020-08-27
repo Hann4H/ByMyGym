@@ -5,6 +5,8 @@ import WeeklyScheduler from "../components/booking/WeeklyScheduler";
 import "../theme/react-week-scheduler.css";
 
 import Basic from "../components/calendar/Basic";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import { DndProvider } from "react-dnd";
 
 const startingDefault = { event: "default", color: "#d4d8dd" };
 const blockingEvent = { event: "block", color: "#b66363" };
@@ -69,7 +71,10 @@ class BookingView extends Component {
           </div> */}
         </div>
         <br></br>
-        <Basic />
+
+        <DndProvider backend={HTML5Backend}>
+          <Basic />
+        </DndProvider>
       </div>
     );
   }
