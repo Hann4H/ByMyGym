@@ -1,7 +1,5 @@
 import React, { Component } from "react";
 import { PropTypes } from "prop-types";
-//import moment from 'moment'
-//import 'moment/locale/zh-cn';
 import "antd/lib/style/index.less"; //Add this code for locally example
 import Scheduler, {
   SchedulerData,
@@ -10,9 +8,6 @@ import Scheduler, {
   DemoData,
 } from "./Scheduler";
 import withDragDropContext from "./withDnDContext";
-
-import { createDndContext } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
 
 class Basic extends Component {
   constructor(props) {

@@ -60,13 +60,13 @@ class BookingView extends Component {
             />
           ))}
 
-          <div>
+          {/* <div>
             <WeeklyScheduler
               defaultEvent={startingDefault}
               selectedEvent={blockingEvent}
               events={eventList}
             />
-          </div>
+          </div> */}
         </div>
         <br></br>
         <Basic />

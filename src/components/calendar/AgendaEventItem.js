@@ -92,6 +92,7 @@ class AgendaEventItem extends Component {
     return config.eventItemPopoverEnabled ? (
       <Popover placement="bottomLeft" content={content} trigger="hover">
         <a
+          href="/#"
           className="day-event"
           onClick={() => {
             if (!!eventItemClick) eventItemClick(schedulerData, eventItem);
@@ -103,6 +104,7 @@ class AgendaEventItem extends Component {
     ) : (
       <span>
         <a
+          href="/#"
           className="day-event"
           onClick={() => {
             if (!!eventItemClick) eventItemClick(schedulerData, eventItem);

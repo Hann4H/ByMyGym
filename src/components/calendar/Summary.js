@@ -43,6 +43,7 @@ class Summary extends Component {
 
     return (
       <a
+        href="/#"
         className="timeline-event header2-text"
         style={{ left: left, width: width, top: top, cursor: "default" }}
       >

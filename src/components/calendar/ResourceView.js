@@ -68,6 +68,7 @@ class ResourceView extends Component {
           <span className="slot-cell">
             {indents}
             <a
+              href="/#"
               className="slot-text"
               onClick={() => {
                 slotClickedFunc(schedulerData, item);

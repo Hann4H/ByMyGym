@@ -64,6 +64,7 @@ class AgendaResourceEvents extends Component {
     let a =
       slotClickedFunc != undefined ? (
         <a
+          href="/#"
           onClick={() => {
             slotClickedFunc(schedulerData, resourceEvents);
           }}
