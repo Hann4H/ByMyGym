@@ -44,9 +44,17 @@ class Gyms extends Component {
   render() {
     return (
       <div>
-        {this.state.Gyms.map((gym, index) => (
-          <p>{gym.gymName}</p>
-        ))}
+        <div id="pls" />
+          <div className="gyms-container">
+            <div className="flex-row-container">
+              {this.state.Gyms.map((gym, index) => (
+                <div className="flex-row-item">
+                  <p>{gym.gymName}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        <div id="pls" />
       </div>
     );
   }
