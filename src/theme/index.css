@@ -1373,29 +1373,39 @@ ul.unstyled {
   margin: 1rem;
 }
 
+.pagination-out{
+  /* background-color: var(--darkOrange); */
+  /* width: 20vw; */
+  margin-left: 28vw;
+  /* width: 2000px; */
+}
+
 .pagination {
   margin: 15px auto;
   display: flex;
   list-style: none;
   outline: none;
+  /* width: auto; */
+  /* position: relative; */
   
 }
 .pagination > .active > a{
   background-color: var(--mainOrange);
   border-color: var(--mainOrange) ;
-  color: #fff;
-  
+  color: #fff; 
+  min-width: 5rem;
 }
 .pagination > li > a{
   border: 1px solid var(--mainOrange);
   padding: 5px 10px;
   outline: none;
   cursor: pointer;
+  
 }
 .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{
   background-color: var(--mainOrange);
   border-color: var(--mainOrange);
-  outline: none ;
+  outline: none;
 }
 .pagination > li > a, .pagination > li > span{
   color: var(--darkOrange)

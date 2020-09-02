@@ -56,7 +56,7 @@ class Gyms extends Component {
         this.setState({ Gyms });
         // console.log(Gyms);
         this.receivedData()
-        this.state.loading = false;
+        this.state.loading = true;
       })
       .catch(function (error) {
         console.log("Error getting documents: ", error);
@@ -109,18 +109,20 @@ class Gyms extends Component {
               <div className="flex-row-container">
                 {this.state.postData}
               </div>
+              <div className="pagination-out">
                 <ReactPaginate
-                    previousLabel={"poprzednie"}
-                    nextLabel={"następne"}
+                    previousLabel={"<"}
+                    nextLabel={">"}
                     breakLabel={"..."}
                     breakClassName={"break-me"}
                     pageCount={this.state.pageCount}
-                    marginPagesDisplayed={2}
-                    pageRangeDisplayed={5}
+                    marginPagesDisplayed={1}
+                    pageRangeDisplayed={0}
                     onPageChange={this.handlePageClick}
                     containerClassName={"pagination"}
                     subContainerClassName={"pages pagination"}
                     activeClassName={"active"}/>
+              </div>
             </div>
           </div>
         <div id="pls" />
