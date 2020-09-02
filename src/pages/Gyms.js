@@ -11,7 +11,7 @@ class Gyms extends Component {
     this.state = { 
       Gyms: [],
       offset: 0,
-      perPage: 12,
+      perPage: 9,
       currentPage: 1,
       loading: false
     };
@@ -68,6 +68,15 @@ class Gyms extends Component {
     
     const postData = slice.map(pd => <React.Fragment>
       <div className="flex-row-item">
+      {pd.gymPhoto ? (
+        <img className="small-pic" src={pd.gymPhoto} />
+        ) : (
+        <img
+          className="small-pic"
+          src={require("../img/no_image.svg.png")}
+          alt="nothing"
+        />
+        )}
       <p>{pd.gymName}</p>
       </div>
     </React.Fragment>)
