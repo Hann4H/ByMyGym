@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Listing from "../components/Listing";
 import firebase from "firebase";
 import ReactPaginate from 'react-paginate';
+import Loading from "../components/Loading";
 
 class Gyms extends Component {
 
@@ -11,7 +12,8 @@ class Gyms extends Component {
       Gyms: [],
       offset: 0,
       perPage: 12,
-      currentPage: 1 
+      currentPage: 1,
+      loading: false
     };
     this.handlePageClick = this
             .handlePageClick
@@ -27,6 +29,8 @@ class Gyms extends Component {
       .get()
       .then((querySnapshot) => {
         const Gyms = [];
+
+        this.state.loading = true;
 
         querySnapshot.forEach(function (doc) {
           Gyms.push({
@@ -52,6 +56,7 @@ class Gyms extends Component {
         this.setState({ Gyms });
         // console.log(Gyms);
         this.receivedData()
+        this.state.loading = false;
       })
       .catch(function (error) {
         console.log("Error getting documents: ", error);
@@ -96,14 +101,11 @@ class Gyms extends Component {
       <div>
         <div id="pls" />
           <div className="gyms-container">
-            {/* <div className="flex-row-container">
-              {this.state.Gyms.map((gym, index) => (
-                <div className="flex-row-item">
-                  <p>{gym.gymName}</p>
-                </div>
-              ))}
-            </div> */}
+          <div className="gyms-load">
+                {this.state.loading ? null : <Loading />}
+              </div>
             <div>
+              
               <div className="flex-row-container">
                 {this.state.postData}
               </div>
