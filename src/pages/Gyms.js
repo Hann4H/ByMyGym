@@ -4,6 +4,7 @@ import firebase from "firebase";
 import ReactPaginate from 'react-paginate';
 import Loading from "../components/Loading";
 import { FaSearch } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 class Gyms extends Component {
 
@@ -52,6 +53,7 @@ class Gyms extends Component {
             gymLength: doc.data().gymLength,
             gymPrice: doc.data().gymPrice,
             id: doc.data().id,
+            docId: doc.id
           });
         });
         this.setState({ Gyms });
@@ -79,7 +81,14 @@ class Gyms extends Component {
               alt="nothing"
             />
           )}
-          <FaSearch className="gym-fa" />
+          
+          <Link
+                to={{
+                  pathname: `/gym_profile/${pd.docId}`,
+                }}
+              >
+                <FaSearch className="gym-fa" />
+          </Link>
         </div>
       <p className="gym-p">{pd.gymName}</p>
       

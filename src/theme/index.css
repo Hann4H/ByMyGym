@@ -1422,6 +1422,8 @@ ul.unstyled {
   min-height: 5rem;
   /* margin-left: 35%; */
   position: relative;
+  margin-top: 5px;
+  margin-left: 10px;
 }
 
 .gym-p {
