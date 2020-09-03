@@ -4,7 +4,7 @@ import Hero from "../components/Hero";
 import Banner from "../components/Banner";
 import Services from "../components/Services";
 import Listing from "../components/Listing";
-
+import ReactDOM from "react-dom";
 import { Calendar } from "../components/Calendar";
 import SearchGym from "../components/search/SearchGym";
 import SearchCSS from "../components/search/SearchCSS";
@@ -13,6 +13,11 @@ import { Calendar2 } from "../components/Calendar2";
 import { idk } from "../components/idk";
 
 class Home extends Component {
+
+  componentDidMount() {
+    ReactDOM.findDOMNode(this).scrollIntoView();
+  }
+
   render() {
     return (
       <>

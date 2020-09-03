@@ -3,6 +3,7 @@ import Listing from "../components/Listing";
 import firebase from "firebase";
 import ReactPaginate from 'react-paginate';
 import Loading from "../components/Loading";
+import { FaSearch } from "react-icons/fa";
 
 class Gyms extends Component {
 
@@ -11,7 +12,7 @@ class Gyms extends Component {
     this.state = { 
       Gyms: [],
       offset: 0,
-      perPage: 9,
+      perPage: 8,
       currentPage: 1,
       loading: false
     };
@@ -68,16 +69,20 @@ class Gyms extends Component {
     
     const postData = slice.map(pd => <React.Fragment>
       <div className="flex-row-item">
-      {pd.gymPhoto ? (
-        <img className="small-pic" src={pd.gymPhoto} />
-        ) : (
-        <img
-          className="small-pic"
-          src={require("../img/no_image.svg.png")}
-          alt="nothing"
-        />
-        )}
-      <p>{pd.gymName}</p>
+        <div className="pic-fa">
+          {pd.gymPhoto ? (
+            <img className="small-pic" src={pd.gymPhoto} />
+            ) : (
+            <img
+              className="small-pic"
+              src={require("../img/no_image.svg.png")}
+              alt="nothing"
+            />
+          )}
+          <FaSearch className="gym-fa" />
+        </div>
+      <p className="gym-p">{pd.gymName}</p>
+      
       </div>
     </React.Fragment>)
 
