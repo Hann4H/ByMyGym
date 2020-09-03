@@ -73,7 +73,7 @@ class Gyms extends Component {
       <div className="flex-row-item">
         <div className="pic-fa">
           {pd.gymPhoto ? (
-            <img className="small-pic" src={pd.gymPhoto} />
+            <img className="small-pic-ac" src={pd.gymPhoto} />
             ) : (
             <img
               className="small-pic"
