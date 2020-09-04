@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import Listing from "../components/Listing";
 import firebase from "firebase";
 import ReactPaginate from 'react-paginate';
+import Loading from "../components/Loading";
+import { FaSearch } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 class Gyms extends Component {
 
@@ -10,8 +13,9 @@ class Gyms extends Component {
     this.state = { 
       Gyms: [],
       offset: 0,
-      perPage: 12,
-      currentPage: 1 
+      perPage: 8,
+      currentPage: 1,
+      loading: false
     };
     this.handlePageClick = this
             .handlePageClick
@@ -27,6 +31,8 @@ class Gyms extends Component {
       .get()
       .then((querySnapshot) => {
         const Gyms = [];
+
+        this.state.loading = true;
 
         querySnapshot.forEach(function (doc) {
           Gyms.push({
@@ -47,11 +53,13 @@ class Gyms extends Component {
             gymLength: doc.data().gymLength,
             gymPrice: doc.data().gymPrice,
             id: doc.data().id,
+            docId: doc.id
           });
         });
         this.setState({ Gyms });
         // console.log(Gyms);
         this.receivedData()
+        this.state.loading = true;
       })
       .catch(function (error) {
         console.log("Error getting documents: ", error);
@@ -63,7 +71,27 @@ class Gyms extends Component {
     
     const postData = slice.map(pd => <React.Fragment>
       <div className="flex-row-item">
-      <p>{pd.gymName}</p>
+        <div className="pic-fa">
+          {pd.gymPhoto ? (
+            <img className="small-pic-ac" src={pd.gymPhoto} />
+            ) : (
+            <img
+              className="small-pic"
+              src={require("../img/no_image.svg.png")}
+              alt="nothing"
+            />
+          )}
+          
+          <Link
+                to={{
+                  pathname: `/gym_profile/${pd.docId}`,
+                }}
+              >
+                <FaSearch className="gym-fa" />
+          </Link>
+        </div>
+      <p className="gym-p">{pd.gymName}</p>
+      
       </div>
     </React.Fragment>)
 
@@ -96,29 +124,28 @@ class Gyms extends Component {
       <div>
         <div id="pls" />
           <div className="gyms-container">
-            {/* <div className="flex-row-container">
-              {this.state.Gyms.map((gym, index) => (
-                <div className="flex-row-item">
-                  <p>{gym.gymName}</p>
-                </div>
-              ))}
-            </div> */}
+          <div className="gyms-load">
+                {this.state.loading ? null : <Loading />}
+              </div>
             <div>
+              
               <div className="flex-row-container">
                 {this.state.postData}
               </div>
+              <div className="pagination-out">
                 <ReactPaginate
-                    previousLabel={"poprzednie"}
-                    nextLabel={"następne"}
+                    previousLabel={"<"}
+                    nextLabel={">"}
                     breakLabel={"..."}
                     breakClassName={"break-me"}
                     pageCount={this.state.pageCount}
-                    marginPagesDisplayed={2}
-                    pageRangeDisplayed={5}
+                    marginPagesDisplayed={1}
+                    pageRangeDisplayed={0}
                     onPageChange={this.handlePageClick}
                     containerClassName={"pagination"}
                     subContainerClassName={"pages pagination"}
                     activeClassName={"active"}/>
+              </div>
             </div>
           </div>
         <div id="pls" />
