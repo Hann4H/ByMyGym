@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { PropTypes } from "prop-types";
-import Icon from "antd/lib/icon";
+
+import Icon from "@ant-design/icons";
 
 class ResourceView extends Component {
   constructor(props) {

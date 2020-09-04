@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { PropTypes } from "prop-types";
-import Col from "antd/lib/col";
-import Row from "antd/lib/row";
-import Icon from "antd/lib/icon";
-import "antd/lib/grid/style/index.css";
+
+import "antd/dist/antd.css";
+import { Row, Col } from "antd";
+import Icon from "@ant-design/icons";
+
 import EventItem from "./EventItem";
 import DnDSource from "./DnDSource";
 

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { PropTypes } from "prop-types";
-import "antd/lib/style/index.less"; //Add this code for locally example
+//import "antd/lib/style/index.less"; //Add this code for locally example
 import Scheduler, {
   SchedulerData,
   ViewTypes,

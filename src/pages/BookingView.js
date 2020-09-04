@@ -27,6 +27,11 @@ function ListItems(props) {
   );
 }
 
+//TODO: created for test
+function onPanelChange(value, mode) {
+  console.log(value, mode);
+}
+
 class BookingView extends Component {
   constructor(props) {
     super(props);

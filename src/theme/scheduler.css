@@ -208,6 +208,12 @@ table.scheduler-table tr:last-child td {
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0) !important;
 }
 
+.site-calendar-demo-card {
+  width: 300px;
+  border: 1px solid #f0f0f0;
+  border-radius: 2px;
+}
+
 .event-resizer {
   position: absolute;
   z-index: 4;

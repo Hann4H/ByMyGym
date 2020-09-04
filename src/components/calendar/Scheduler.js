@@ -3,43 +3,18 @@
 //npm i rrule@2.6.4
 //npm install --save react-dnd-html5-backend
 
+//npm install cpy
+//npm install webpack-dev-server --save-dev
+
 import React, { Component } from "react";
 import { PropTypes } from "prop-types";
-// Col, Row and Icon do not have their own less files for styling. They use
-// rules declared in antd's global css. If these styles are imported directly
-// from within antd, they'll include, for instance, reset rules. These will
-// affect everything on the page and in essence would leak antd's global styles
-// into all projects using this library. Instead of doing that, we are using
-// a hack which allows us to wrap all antd styles to target specific root. In
-// this case the root id will be "RBS-Scheduler-root". This way the reset styles
-// won't be applied to elements declared outside of <Scheduler /> component.
-//
-// You can get more context for the issue by reading:
-// https://github.com/ant-design/ant-design/issues/4331
-// The solution is based on:
-// https://github.com/ant-design/ant-design/issues/4331#issuecomment-391066131
-//
-// For development
-// This fix is implemented with webpack's NormalModuleReplacementPlugin in
-// webpack/webpack-dev.config.js.
-//
-// For library builds
-// This fix is implemented by the build script in scripts/build.js
-//
-// The next components have their own specific stylesheets which we import
-// separately here to avoid importing from files which have required the global
-// antd styles.
-import Col from "antd/lib/col";
-import Row from "antd/lib/row";
-import Icon from "antd/lib/icon";
-import "antd/lib/select/style/index.css";
-import "antd/lib/grid/style/index.css";
-import Radio from "antd/lib/radio";
-import "antd/lib/radio/style/index.css";
-import Popover from "antd/lib/popover";
-import "antd/lib/popover/style/index.css";
-import Calendar from "antd/lib/calendar";
-import "antd/lib/calendar/style/index.css";
+
+import "antd/dist/antd.css";
+import { Calendar, Row, Col, Radio, Popover } from "antd";
+import Icon from "@ant-design/icons";
+
+// import { SmileOutlined } from '@ant-design/icons';
+
 import EventItem from "./EventItem";
 import DnDSource from "./DnDSource";
 import DnDContext from "./DnDContext";
@@ -376,7 +351,8 @@ class Scheduler extends Component {
     }
 
     let popover = (
-      <div className="popover-calendar">
+      // TODO: old class: popover-calendar
+      <div className="site-calendar-demo-card">
         <Calendar fullscreen={false} onSelect={this.onSelect} />
       </div>
     );

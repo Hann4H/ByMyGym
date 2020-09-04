@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { PropTypes } from "prop-types";
-import Col from "antd/lib/col";
-import Row from "antd/lib/row";
-import "antd/lib/grid/style/index.css";
+
+import "antd/dist/antd.css";
+import { Row, Col } from "antd";
 
 class EventItemPopover extends Component {
   constructor(props) {
