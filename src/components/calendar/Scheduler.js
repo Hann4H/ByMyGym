@@ -11,7 +11,7 @@ import { PropTypes } from "prop-types";
 
 import "antd/dist/antd.css";
 import { Calendar, Row, Col, Radio, Popover } from "antd";
-import Icon from "@ant-design/icons";
+import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 
 // import { SmileOutlined } from '@ant-design/icons';
 
@@ -368,12 +368,7 @@ class Scheduler extends Component {
           {leftCustomHeader}
           <Col>
             <div className="header2-text">
-              <Icon
-                type="left"
-                style={{ marginRight: "8px" }}
-                className="icon-nav"
-                onClick={this.goBack}
-              />
+              <LeftOutlined onClick={this.goBack} />
               {calendarPopoverEnabled ? (
                 <Popover
                   content={popover}
@@ -392,12 +387,7 @@ class Scheduler extends Component {
               ) : (
                 <span className={"header2-text-label"}>{dateLabel}</span>
               )}
-              <Icon
-                type="right"
-                style={{ marginLeft: "8px" }}
-                className="icon-nav"
-                onClick={this.goNext}
-              />
+              <RightOutlined onClick={this.goNext} />
             </div>
           </Col>
           <Col>
