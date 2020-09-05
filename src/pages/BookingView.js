@@ -48,9 +48,9 @@ class BookingView extends Component {
         });
         this.setState({ bookingItems: bookingItems });
         this.bookingItems = bookingItems;
-        console.log(
-          "Show booking items: " + JSON.stringify(bookingItems, null, 4)
-        );
+        // console.log(
+        //   "Show booking items: " + JSON.stringify(bookingItems, null, 4)
+        // );
       });
   }
 
@@ -59,9 +59,10 @@ class BookingView extends Component {
       <div>
         <div id="pls"></div>
         <div className="admin-page">
-          {this.state.bookingItems.map((item) => (
+          {this.state.bookingItems.map((item, index) => (
             <ListItems
-              key={JSON.stringify(this.state.bookingItems.docId)}
+              key={index}
+              // key={this.state.bookingItems.docId}
               value={JSON.stringify(item, null, 4)}
               gymName={JSON.stringify(item.gymName)}
             />

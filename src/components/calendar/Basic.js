@@ -1,22 +1,12 @@
 import React, { Component } from "react";
 import { PropTypes } from "prop-types";
-//import "antd/lib/style/index.less"; //Add this code for locally example
+
 import Scheduler, {
   SchedulerData,
   ViewTypes,
   DATE_FORMAT,
   DemoData,
 } from "./Scheduler";
-import withDragDropContext from "./withDnDContext";
-
-import { HTML5Backend } from "react-dnd-html5-backend";
-import { DndProvider } from "react-dnd";
-
-// class Basic extends Component {
-//   render() {
-//     return <></>;
-//   }
-// }
 
 class Basic extends Component {
   constructor(props) {

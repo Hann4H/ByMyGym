@@ -13,8 +13,6 @@ import "antd/dist/antd.css";
 import { Calendar, Row, Col, Radio, Popover } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
 
-// import { SmileOutlined } from '@ant-design/icons';
-
 import EventItem from "./EventItem";
 import DnDSource from "./DnDSource";
 import DnDContext from "./DnDContext";
@@ -651,10 +649,3 @@ export {
   DemoData,
 };
 export default Scheduler;
-
-// render(
-//   <Router>
-//     <Route exact path="/" component={Basic} />
-//   </Router>,
-//   document.getElementById("root")
-// );
