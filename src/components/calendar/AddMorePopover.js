@@ -3,7 +3,7 @@ import { PropTypes } from "prop-types";
 
 import "antd/dist/antd.css";
 import { Row, Col } from "antd";
-import Icon from "@ant-design/icons";
+import { CloseOutlined } from "@ant-design/icons";
 
 import EventItem from "./EventItem";
 import DnDSource from "./DnDSource";
@@ -97,7 +97,7 @@ class AddMorePopover extends Component {
                 closeAction(undefined);
               }}
             >
-              <Icon type="cross"></Icon>
+              <CloseOutlined />
             </span>
           </Col>
         </Row>

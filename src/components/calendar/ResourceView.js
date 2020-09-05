@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { PropTypes } from "prop-types";
 
-import Icon from "@ant-design/icons";
+import { MinusSquareOutlined, PlusSquareOutlined } from "@ant-design/icons";
 
 class ResourceView extends Component {
   constructor(props) {
@@ -39,22 +39,16 @@ class ResourceView extends Component {
       );
       if (item.hasChildren) {
         indent = item.expanded ? (
-          <Icon
-            type="minus-square"
+          <MinusSquareOutlined
             key={`es${item.indent}`}
-            style={{}}
-            className=""
             onClick={() => {
               if (!!toggleExpandFunc)
                 toggleExpandFunc(schedulerData, item.slotId);
             }}
           />
         ) : (
-          <Icon
-            type="plus-square"
+          <PlusSquareOutlined
             key={`es${item.indent}`}
-            style={{}}
-            className=""
             onClick={() => {
               if (!!toggleExpandFunc)
                 toggleExpandFunc(schedulerData, item.slotId);
