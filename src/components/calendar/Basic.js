@@ -8,6 +8,14 @@ import Scheduler, {
   DemoData,
 } from "./Scheduler";
 
+// class Basic extends Component {
+//   render() {
+//     return (<>
+//     <p>something</p>
+//     </>);
+//   }
+// }
+
 class Basic extends Component {
   constructor(props) {
     super(props);
@@ -21,37 +29,7 @@ class Basic extends Component {
     };
   }
 
-  render() {
-    const { viewModel } = this.state;
-    return (
-      <div style={{ backgroundColor: "white" }}>
-        <div>
-          <h3 style={{ textAlign: "center" }}>Kalendarz</h3>
-          <Scheduler
-            schedulerData={viewModel}
-            prevClick={this.prevClick}
-            nextClick={this.nextClick}
-            onSelectDate={this.onSelectDate}
-            onViewChange={this.onViewChange}
-            eventItemClick={this.eventClicked}
-            viewEventClick={this.ops1}
-            viewEventText="Ops 1"
-            viewEvent2Text="Ops 2"
-            viewEvent2Click={this.ops2}
-            updateEventStart={this.updateEventStart}
-            updateEventEnd={this.updateEventEnd}
-            moveEvent={this.moveEvent}
-            newEvent={this.newEvent}
-            onScrollLeft={this.onScrollLeft}
-            onScrollRight={this.onScrollRight}
-            onScrollTop={this.onScrollTop}
-            onScrollBottom={this.onScrollBottom}
-            toggleExpandFunc={this.toggleExpandFunc}
-          />
-        </div>
-      </div>
-    );
-  }
+  //********** */
 
   prevClick = (schedulerData) => {
     schedulerData.prev();
@@ -210,6 +188,38 @@ class Basic extends Component {
       viewModel: schedulerData,
     });
   };
+
+  render() {
+    const { viewModel } = this.state;
+    return (
+      <div style={{ backgroundColor: "white" }}>
+        <div>
+          <h3 style={{ textAlign: "center" }}>Kalendarz</h3>
+          <Scheduler
+            schedulerData={viewModel}
+            prevClick={this.prevClick}
+            nextClick={this.nextClick}
+            onSelectDate={this.onSelectDate}
+            onViewChange={this.onViewChange}
+            eventItemClick={this.eventClicked}
+            viewEventClick={this.ops1}
+            viewEventText="Ops 1"
+            viewEvent2Text="Ops 2"
+            viewEvent2Click={this.ops2}
+            updateEventStart={this.updateEventStart}
+            updateEventEnd={this.updateEventEnd}
+            moveEvent={this.moveEvent}
+            newEvent={this.newEvent}
+            onScrollLeft={this.onScrollLeft}
+            onScrollRight={this.onScrollRight}
+            onScrollTop={this.onScrollTop}
+            onScrollBottom={this.onScrollBottom}
+            toggleExpandFunc={this.toggleExpandFunc}
+          />
+        </div>
+      </div>
+    );
+  }
 }
 
 // export default withDragDropContext(Basic);

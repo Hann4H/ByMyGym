@@ -28,9 +28,13 @@ import SummaryPos from "./SummaryPos";
 import SchedulerData from "./SchedulerData";
 import DemoData from "./DemoData";
 
-import { render } from "react-dom";
-import { HashRouter as Router, Route } from "react-router-dom";
-import Basic from "./Basic";
+import moment from "moment";
+import "moment/locale/pl";
+moment.locale("pl_PL");
+
+// import { render } from "react-dom";
+// import { HashRouter as Router, Route } from "react-router-dom";
+// import Basic from "./Basic";
 
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
