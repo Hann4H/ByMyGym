@@ -77,7 +77,7 @@ const uiConfig = {
                           value={this.state.password}
                           color="secondary"
                           />
-                          <button onClick={this.login}>Zaloguj</button>
+                          <button  className="button" onClick={this.login}>Zaloguj</button>
                           
                           <p className="login-link-signup">Nie masz konta? <Link to="/signup"><span>Zarejestruj się!</span></Link></p>
                           

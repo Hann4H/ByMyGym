@@ -240,7 +240,7 @@ class SignUp extends Component {
               )}
             </div>
             <div id="recaptcha-container"></div>
-            <button>Zarejestruj</button>
+            <button className="button">Zarejestruj</button>
           </form>
         </div>
       </div>
