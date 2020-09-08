@@ -4,6 +4,7 @@ import { Search, Grid } from "semantic-ui-react";
 import _ from "lodash";
 import PropTypes from "prop-types";
 import GymItem from "../GymItem";
+import Loading from "../Loading";
 
 // search source page: https://react.semantic-ui.com/modules/search/
 
@@ -23,6 +24,7 @@ export default class SearchGym extends Component {
     super(props);
     this.state = {
       isLoading: false,
+      loading: false,
       results: [],
       value: "",
       data: [],
@@ -60,6 +62,7 @@ export default class SearchGym extends Component {
         const links = snapshot.docs.map((doc) => {
           return { docId: doc.id, ...doc.data() };
         });
+        this.state.loading = true;
         this.setState({ data: links, results: links });
         this.gymData = links;
         console.log("links: " + links);
@@ -87,6 +90,9 @@ export default class SearchGym extends Component {
               resultRenderer={resultRenderer}
               {...this.props}
             />
+            <div className="gyms-load">
+                {this.state.loading ? null : <Loading />}
+              </div>
             {this.state.results.map((gym, index) => (
               <GymItem key={gym.id} showCount={false} gym={gym} index={index} />
             ))}
