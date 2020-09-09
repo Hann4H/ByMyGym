@@ -63,6 +63,13 @@
   color: var(--darkOrange);
 }
 
+.button {
+  color: var(--mainWhite);
+  font-family: 'Lato';
+  font-size: 1rem;
+  
+}
+
 /*Hero*/
 .defaultHero,
 .gymsHero {
@@ -301,6 +308,7 @@
   color: var(--mainOrange);
 }
 .services h6 {
+  font-family: 'Lato';
   letter-spacing: var(--mainSpacing);
   text-align: center;
   font-size: 15px;
@@ -413,6 +421,10 @@
     overflow: hidden;
     margin-left: 2rem;
   }
+}
+
+.gym-short-button {
+  color: var(--mainWhite);
 }
 
 .listing-header {
@@ -789,6 +801,7 @@ button {
 .form_button {
   margin-left: 20rem;
   transform: translate(20%, -190%);
+  color: var(--mainWhite);
 }
 
 button:hover {

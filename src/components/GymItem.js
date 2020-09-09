@@ -42,7 +42,7 @@ class GymItem extends Component {
                   pathname: `/gym_profile/${this.props.gym.docId}`,
                 }}
               >
-                <button>więcej informacji</button>
+                <button className="gym-short-button">więcej informacji</button>
               </Link>
             </div>
           </div>
