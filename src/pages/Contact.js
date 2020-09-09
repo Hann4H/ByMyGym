@@ -29,7 +29,7 @@ class Contact extends Component {
                   <textarea className="contact-input" rows="3"></textarea>
                 </div>
 
-                <button>
+                <button className="button">
                   WYŚLIJ
                 </button>
 

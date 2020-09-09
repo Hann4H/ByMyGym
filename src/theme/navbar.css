@@ -76,7 +76,8 @@ li {
 }
 
 .logo {
-  height: 65px;
+  height: 60px;
+  padding-top: 5px;
   width: auto;
   margin-left: 1rem;
 }
