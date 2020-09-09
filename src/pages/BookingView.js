@@ -57,29 +57,6 @@ class BookingView extends Component {
   }
 
   render() {
-    const bookingDataFromFirebase = <GetBookingData />;
-    const configData = {
-      resources: [
-        {
-          id: "r0",
-          name: "",
-          groupOnly: true,
-        },
-        {
-          id: "r1",
-          name: "Wolne",
-        },
-        {
-          id: "r2",
-          name: "Zarezerwowane",
-        },
-      ],
-    };
-
-    const bookingData = JSON.parse(localStorage.getItem("events"));
-
-    const resultData = { event: [...bookingData], ...configData };
-
     return (
       <div>
         <div id="pls"></div>
@@ -104,7 +81,6 @@ class BookingView extends Component {
           </div>  */}
           <div>
             <GetBookingData />
-            {console.log(resultData)}
           </div>
         </div>
 

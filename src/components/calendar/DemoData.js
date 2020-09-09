@@ -20,42 +20,42 @@ const bookingData = JSON.parse(localStorage.getItem("events"));
 
 const DemoData = { events: [...bookingData], ...configData };
 
-const DemoData2 = {
-  resources: [
-    {
-      id: "r0",
-      name: "",
-      groupOnly: true,
-    },
-    {
-      id: "r1",
-      name: "Wolne",
-    },
-    {
-      id: "r2",
-      name: "Zarezerwowane",
-    },
-  ],
-  events: [
-    {
-      id: 1,
-      start: "2020-09-10 09:30:00",
-      end: "2020-09-12 23:30:00",
-      resourceId: "r1",
-      title: "I am finished",
-      bgColor: "#D9D9D9",
-      showPopover: false,
-    },
-    {
-      id: 2,
-      start: "2020-09-08 12:30:00",
-      end: "2020-09-10 23:30:00",
-      resourceId: "r2",
-      title: "I am resizable",
-      resizable: true,
-    },
-  ],
-};
+// const DemoData2 = {
+//   resources: [
+//     {
+//       id: "r0",
+//       name: "",
+//       groupOnly: true,
+//     },
+//     {
+//       id: "r1",
+//       name: "Wolne",
+//     },
+//     {
+//       id: "r2",
+//       name: "Zarezerwowane",
+//     },
+//   ],
+//   events: [
+//     {
+//       id: 1,
+//       start: "2020-09-10 09:30:00",
+//       end: "2020-09-12 23:30:00",
+//       resourceId: "r1",
+//       title: "I am finished",
+//       bgColor: "#D9D9D9",
+//       showPopover: false,
+//     },
+//     {
+//       id: 2,
+//       start: "2020-09-08 12:30:00",
+//       end: "2020-09-10 23:30:00",
+//       resourceId: "r2",
+//       title: "I am resizable",
+//       resizable: true,
+//     },
+//   ],
+// };
 
 export default DemoData;
 
