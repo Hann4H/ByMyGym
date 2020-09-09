@@ -8,6 +8,8 @@ import Basic from "../components/calendar/Basic";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { DndProvider } from "react-dnd";
 
+import GetBookingData from "../components/calendar/GetBookingData";
+
 const startingDefault = { event: "default", color: "#d4d8dd" };
 const blockingEvent = { event: "block", color: "#b66363" };
 const limitingEvent = { event: "limit", color: "#d6bd43" };
@@ -55,11 +57,36 @@ class BookingView extends Component {
   }
 
   render() {
+    const bookingDataFromFirebase = <GetBookingData />;
+    const configData = {
+      resources: [
+        {
+          id: "r0",
+          name: "",
+          groupOnly: true,
+        },
+        {
+          id: "r1",
+          name: "Wolne",
+        },
+        {
+          id: "r2",
+          name: "Zarezerwowane",
+        },
+      ],
+    };
+
+    // const configJsonData = JSON.parse(bookingDataFromFirebase);
+
+    // const resultData = { event: [...bookingDataFromFirebase] };
+
     return (
       <div>
         <div id="pls"></div>
+
         <div className="admin-page">
-          {this.state.bookingItems.map((item, index) => (
+          {/* TODO: uncomment below rows.*/}
+          {/* {this.state.bookingItems.map((item, index) => (
             <ListItems
               key={index}
               // key={this.state.bookingItems.docId}
@@ -68,14 +95,19 @@ class BookingView extends Component {
             />
           ))}
 
-          {/* <div>
+           <div>
             <WeeklyScheduler
               defaultEvent={startingDefault}
               selectedEvent={blockingEvent}
               events={eventList}
             />
-          </div> */}
+          </div>  */}
+          <div>
+            {console.log(bookingDataFromFirebase)}
+            {/* {bookingDataFromFirebase}   */}
+          </div>
         </div>
+
         <br></br>
 
         <DndProvider backend={HTML5Backend}>
