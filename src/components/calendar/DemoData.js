@@ -1,4 +1,26 @@
-const DemoData = {
+const configData = {
+  resources: [
+    {
+      id: "r0",
+      name: "",
+      groupOnly: true,
+    },
+    {
+      id: "r1",
+      name: "Wolne",
+    },
+    {
+      id: "r2",
+      name: "Zarezerwowane",
+    },
+  ],
+};
+
+const bookingData = JSON.parse(localStorage.getItem("events"));
+
+const DemoData = { events: [...bookingData], ...configData };
+
+const DemoData2 = {
   resources: [
     {
       id: "r0",

@@ -3,8 +3,6 @@ import firebase from "firebase";
 
 const db = firebase.firestore();
 
-let testData = [];
-
 class GetBookingData extends Component {
   constructor(props) {
     super(props);
@@ -21,16 +19,15 @@ class GetBookingData extends Component {
         const events = items.docs.map((doc) => {
           return { docId: doc.id, ...doc.data() };
         });
+        localStorage.setItem("events", JSON.stringify(events, null, 4));
         this.setState({ events: events });
         this.events = events;
         console.log("Show booking items: " + JSON.stringify(events, null, 4));
       });
   }
 
-  testData = this.state.events;
-
   render() {
-    return this.state.events;
+    return <>{/* {"data:" + localStorage.getItem("events")} */}</>;
   }
 }
 
