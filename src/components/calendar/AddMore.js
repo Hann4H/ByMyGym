@@ -31,7 +31,7 @@ class AddMore extends Component {
 
     return (
       <a
-        href="/#"
+        href="."
         className="timeline-event"
         style={{ left: left, width: width, top: top }}
         onClick={() => {

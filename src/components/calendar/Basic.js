@@ -88,7 +88,8 @@ class Basic extends Component {
   newEvent = (schedulerData, slotId, slotName, start, end, type, item) => {
     if (
       window.confirm(
-        `Do you want to create a new event? {slotId: ${slotId}, slotName: ${slotName}, start: ${start}, end: ${end}, type: ${type}, item: ${item}}`
+        `Chcesz wybrać date/czas?`
+        // {slotId: ${slotId}, slotName: ${slotName}, start: ${start}, end: ${end}, type: ${type}, item: ${item}}
       )
     ) {
       let newFreshId = 0;
@@ -98,7 +99,7 @@ class Basic extends Component {
 
       let newEvent = {
         id: newFreshId,
-        title: "New event you just created",
+        title: "Zarezerwuj",
         start: start,
         end: end,
         resourceId: slotId,
