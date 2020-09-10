@@ -8,14 +8,14 @@ class Contact extends Component {
     message: '',
     email: '',
     sent: false,
-    buttonText: 'Send Message'
+    buttonText: 'Wyślij'
   }
 
   formSubmit = (e) => {
     e.preventDefault()
   
     this.setState({
-        buttonText: '...sending'
+        buttonText: '...wysyłanie'
     })
   
     let data = {
@@ -38,10 +38,9 @@ class Contact extends Component {
         name: '',
         message: '',
         email: '',
-        buttonText: 'Message Sent'
+        buttonText: 'Wiadomość wysłana!'
     })
 }
-
 
   render() {
     return (
@@ -55,23 +54,25 @@ class Contact extends Component {
 
           
           <div className="container-contact">
-              <form className="contact-form">
+              <form className="contact-form" onSubmit={ (e) => this.formSubmit(e)}>
 
                 <p className="contact-p">Masz pytania? Chcesz uzyskać uprawnienia właściciela istniejącej już sali? <br />Napisz do nas!</p>
                 <hr />
 
                 <div>
-                  <label>Imię</label>
-                  <input className="name-input contact-input" />
+                  <label class="message-email" htmlFor="message-email">E-mail</label>
+                  <input className="name-input contact-input" 
+                  onChange={(e) => this.setState({ email: e.target.value})} name="email" type="email" required value={this.state.email}/>
                 </div>
 
                 <div class="message-contact">
-                  <label>Wiadomość</label>
-                  <textarea className="contact-input" rows="3"></textarea>
+                  <label class="message" htmlFor="message-input">Wiadomość</label>
+                  <textarea className="contact-input" rows="3"
+                  onChange={e => this.setState({ message: e.target.value})} name="message" type="text" value={this.state.message} required></textarea>
                 </div>
 
-                <button className="button">
-                  WYŚLIJ
+                <button className="button" type="submit">
+                { this.state.buttonText }
                 </button>
 
               </form>
