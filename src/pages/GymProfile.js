@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Slider from "../components/Slider";
 import GymDetails from "../components/GymDetails";
 import { MaterialUIPickers } from "../components/Booking";
-import firebase from "firebase"
+import firebase from "firebase";
 import $ from "jquery";
 
 const db = firebase.firestore();
@@ -19,19 +19,16 @@ class GymProfile extends Component {
     this.selectedBooking = null;
   }
 
-
   render() {
     console.log("TU POWINNO BYC ID:");
     console.log(this.props.match.params.id);
-
-    
 
     return (
       <>
         <div id="idk3"></div>
         <div id="idk4">
           <div id="sup">
-            <Slider dataId={this.props.match.params.id}/>
+            <Slider dataId={this.props.match.params.id} />
           </div>
 
           <div className="container-4">
@@ -41,7 +38,7 @@ class GymProfile extends Component {
           </div>
           <MaterialUIPickers gym_id={this.props.match.params.id} />
         </div>
-        <div class="container">
+        <div className="container">
           <div id="target"></div>
         </div>
 
