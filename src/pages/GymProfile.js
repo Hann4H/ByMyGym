@@ -5,6 +5,12 @@ import { MaterialUIPickers } from "../components/Booking";
 import firebase from "firebase";
 import $ from "jquery";
 
+import Basic from "../components/calendar/Basic";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import { DndProvider } from "react-dnd";
+
+import GetBookingData from "../components/calendar/GetBookingData";
+
 const db = firebase.firestore();
 
 class GymProfile extends Component {
@@ -41,6 +47,11 @@ class GymProfile extends Component {
         <div className="container">
           <div id="target"></div>
         </div>
+
+        <GetBookingData />
+        <DndProvider backend={HTML5Backend}>
+          <Basic />
+        </DndProvider>
 
         <div id="pls" />
       </>
