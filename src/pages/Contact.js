@@ -9,17 +9,14 @@ class Contact extends Component {
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const message = document.getElementById('message').value;
-    axios.post('/contact', {
-        // method: "POST", 
-        // url:"http://localhost:3000/send", 
-        // data: {
-        //     name: name,   
-        //     email: email,  
-        //     messsage: message
-        // }
-        email,
-        name,
-        text: message
+    axios({
+      method: "POST", 
+      url:"http://localhost:4444/send", 
+      data: {
+          name: name,   
+          email: email,  
+          messsage: message
+      }
     }).then((response)=>{
         if (response.data.msg === 'success'){
             alert("Message Sent."); 
@@ -48,7 +45,7 @@ class Contact extends Component {
 
           
           <div className="container-contact">
-              <form className="contact-form" onSubmit={this.submitEmailForm} method="POST">
+              <form className="contact-form" onSubmit={this.handleSubmit.bind(this)} method="POST">
 
 
                 <p className="contact-p">Masz pytania? Chcesz uzyskać uprawnienia właściciela istniejącej już sali? <br />Napisz do nas!</p>

@@ -1,62 +1,56 @@
-const express = require('express')
-const sendToMeRouter = express.Router()
-const nodemailer = require('nodemailer')
+var express = require('express');
+var router = express.Router();
+var nodemailer = require('nodemailer');
+const creds = require('../config/config');
 
+var transport = {
+  host: 'smtp.gmail.com',
+  auth: {
+    user: "bemygym@gmail.com",
+    pass: "BeMyGym123!"
+  }
+}
 
+var transporter = nodemailer.createTransport(transport)
 
-console.log("from sendToMe")
+transporter.verify((error, success) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log('Server is ready to take messages');
+  }
+});
 
-
-const transport = {
-    //all of the configuration for making a site send an email.
-  
-    host: 'smtp.gmail.com',
-    port: 587,
-    secure: false,
-    auth: {
-      user: "bemygym@gmail.com",
-      pass: "BeMyGym123!"
-    }
-  };
-
-const transporter = nodemailer.createTransport(transport);
-  transporter.verify((error, success) => {
-    if(error) {
-      //if error happened code ends here
-      console.error(error)
-    } else {
-      //this means success
-      console.log('users ready to mail myself')
-    }
+router.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
   });
 
-sendToMeRouter.post('/', (req,res, next) => {
-    //make mailable object
-    const mail = {
-      from: req.body.email,
-      to: "bemygym@gmail.com",
-      text: `
-      from:
-      ${req.body.name} 
+router.post('/send', (req, res, next) => {
+  var name = req.body.name
+  var email = req.body.email
+  var message = req.body.message
+  var content = `name: ${name} \n email: ${email} \n message: ${content} `
 
-      contact: ${req.body.email}
+  var mail = {
+    from: name,
+    to: 'bemygym@gmail.com',  //Change to email address that you want to receive messages on
+    subject: 'New Message from Contact Form',
+    text: content
+  }
 
-      message: 
-
-      ${req.body.text}`
-    }
-    transporter.sendMail(mail, (err,data) => {
-        if(err) {
-          res.json({
-            status: 'fail'
-          })
-        } else {
-          res.json({
-            status: 'success'
-          })
-        }
+  transporter.sendMail(mail, (err, data) => {
+    if (err) {
+      res.json({
+        msg: 'fail'
       })
-  });
+    } else {
+      res.json({
+        msg: 'success'
+      })
+    }
+  })
+})
 
-  
-module.exports = sendToMeRouter
+module.exports = router;

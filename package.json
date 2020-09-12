@@ -2,7 +2,7 @@
   "name": "react-auth0",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3000/",
+  "proxy": "http://localhost:4444/",
   "dependencies": {
     "@ant-design/icons": "latest",
     "@auth0/auth0-spa-js": "^1.8.1",
