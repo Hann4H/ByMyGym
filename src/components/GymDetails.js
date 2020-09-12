@@ -111,6 +111,7 @@ class GymDetails extends Component {
                 )}
               </div>
             </div>
+
             <br />
             <p style={nameStyle}>Cena</p>
             {this.state.data.gymPrice ? (
@@ -141,23 +142,26 @@ class GymDetails extends Component {
             ) : (
               <p className="no-data-p">brak</p>
             )}
+
             <br />
             <p style={nameStyle}>E-mail</p>
             {this.state.data.gymEmail ? (
-              { gymEmail }
+              <p style={textStyle}>{gymEmail}</p>
             ) : (
               <p className="no-data-p">brak</p>
             )}
+
             <br />
             <p style={nameStyle}>Telefon</p>
             {this.state.data.gymPhone ? (
-              { gymPhone }
+              <p style={textStyle}>{gymPhone}</p>
             ) : (
               <p className="no-data-p">brak</p>
             )}
             <br />
           </div>
         </div>
+
         <div className="map">
           <Localization position={position} />
         </div>
