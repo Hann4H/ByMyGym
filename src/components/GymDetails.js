@@ -73,89 +73,90 @@ class GymDetails extends Component {
         <div className="gym-details">
           <div className="gym-details-column1">
             <p style={nameStyle}>Adres</p>
-            {this.state.data.gymStreet && this.state.data.gymZip && this.state.data.gymCity ? (
+            {this.state.data.gymStreet &&
+            this.state.data.gymZip &&
+            this.state.data.gymCity ? (
               <p style={textStyle}>
                 {gymStreet}, {gymZip} {gymCity}
               </p>
-              ) : (
-                <p className="no-data-p">brak</p>
+            ) : (
+              <p className="no-data-p">brak</p>
             )}
             <br />
             <div className="dimensions">
               <div className="dimensions-p">
                 <p style={nameStyle}>Wysokość</p>
-                {this.state.data.gymHeight? (
+                {this.state.data.gymHeight ? (
                   <p style={textStyle}>{gymHeight} m</p>
-                  ) : (
-                    <p className="no-data-p">brak</p>
-                  )}
+                ) : (
+                  <p className="no-data-p">brak</p>
+                )}
               </div>
               <br />
               <div className="dimensions-p">
                 <p style={nameStyle}>Szerokość</p>
-                {this.state.data.gymWidth? (
+                {this.state.data.gymWidth ? (
                   <p style={textStyle}>{gymWidth} m</p>
-                  ) : (
-                    <p className="no-data-p">brak</p>
-                  )}
+                ) : (
+                  <p className="no-data-p">brak</p>
+                )}
               </div>
               <br />
               <div className="dimensions-p">
                 <p style={nameStyle}>Długość</p>
-                {this.state.data.gymLength? (
+                {this.state.data.gymLength ? (
                   <p style={textStyle}>{gymLength} m</p>
-                  ) : (
+                ) : (
                   <p className="no-data-p">brak</p>
                 )}
               </div>
             </div>
             <br />
             <p style={nameStyle}>Cena</p>
-            {this.state.data.gymPrice? (
-                <p style={textStyle}>{gymLength} m</p>
-              ) : (
-                <p className="no-data-p">brak</p>
-              )}
+            {this.state.data.gymPrice ? (
+              <p style={textStyle}>{gymLength} m</p>
+            ) : (
+              <p className="no-data-p">brak</p>
+            )}
             <br />
             <p style={nameStyle}>Opis</p>
-            {this.state.data.gymDescription? (
-                <p
+            {this.state.data.gymDescription ? (
+              <p
                 style={textStyle}
                 dangerouslySetInnerHTML={{ __html: gymDescription }}
               />
-              ) : (
-                <p className="no-data-p">brak</p>
-              )}
-            
+            ) : (
+              <p className="no-data-p">brak</p>
+            )}
+
             <br />
           </div>
           <div className="gym-details-column2">
             <p style={nameStyle}>Strona WWW</p>
-            {this.state.data.gymEmail? (
-                <a href={`http://${gymURL}`} className="external-url">
-                  {gymURL}
-                  <hr />
-                </a>
-              ) : (
-                <p className="no-data-p">brak</p>
-              )}
+            {this.state.data.gymURL ? (
+              <a href={`http://${gymURL}`} className="external-url">
+                {gymURL}
+                <hr />
+              </a>
+            ) : (
+              <p className="no-data-p">brak</p>
+            )}
             <br />
             <p style={nameStyle}>E-mail</p>
-            {this.state.data.gymEmail? (
-                {gymEmail}
-              ) : (
-                <p className="no-data-p">brak</p>
-              )}
+            {this.state.data.gymEmail ? (
+              { gymEmail }
+            ) : (
+              <p className="no-data-p">brak</p>
+            )}
             <br />
             <p style={nameStyle}>Telefon</p>
-            {this.state.data.gymPhone? (
-                {gymPhone}
-              ) : (
-                <p className="no-data-p">brak</p>
-              )}
+            {this.state.data.gymPhone ? (
+              { gymPhone }
+            ) : (
+              <p className="no-data-p">brak</p>
+            )}
             <br />
           </div>
-          
         </div>
         <div className="map">
           <Localization position={position} />
