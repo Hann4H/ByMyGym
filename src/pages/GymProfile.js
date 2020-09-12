@@ -48,10 +48,10 @@ class GymProfile extends Component {
           <div id="target"></div>
         </div>
 
-        <GetBookingData />
+        {/* <GetBookingData />
         <DndProvider backend={HTML5Backend}>
           <Basic />
-        </DndProvider>
+        </DndProvider> */}
 
         <div id="pls" />
       </>
