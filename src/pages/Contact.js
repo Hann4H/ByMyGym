@@ -4,6 +4,26 @@ import { th } from "date-fns/locale";
 
 class Contact extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+      email: '',
+      message: ''
+    }
+  }
+
+  onNameChange(event) {
+    this.setState({name: event.target.value})
+  }    
+
+  onEmailChange(event) {
+    this.setState({email: event.target.value})
+  }    
+
+  onMsgChange(event) {
+    this.setState({message: event.target.value})
+  }
 
   handleSubmit(e){
     e.preventDefault();
@@ -14,21 +34,24 @@ class Contact extends Component {
       method: "POST", 
       url:"http://localhost:4444/send", 
       data: {
-          name: name,   
-          email: email,  
-          message: message
+          name: this.state.name,   
+          email: this.state.email,  
+          message: this.state.message
       }
     }).then((response)=>{
-        if (response.data.msg === 'success'){
-            alert("Message Sent."); 
+        if (response.data.status === 'success'){
+            alert("Wiadomość została wysłana"); 
             this.resetForm()
-        }else if(response.data.msg === 'fail'){
-            alert("Message failed to send.")
+        }else if(response.data.status === 'fail'){
+            alert("Błąd")
         }
     })
 
   }
 
+  resetForm(){
+    this.setState({name: '', email: '', message: ''})
+  }
 
   render() {
     return (
@@ -50,17 +73,17 @@ class Contact extends Component {
 
                 <div>
                   <label class="message-email" htmlFor="message-name">Imię</label>
-                  <input className="name-input contact-input" id="name" type="text" name="name" required />
+                  <input className="name-input contact-input" value={this.state.name} onChange={this.onNameChange.bind(this)} id="name" type="text" name="name" required />
                 </div>
 
                 <div>
                   <label class="message-email" htmlFor="message-email">E-mail</label>
-                  <input className="name-input contact-input" name="email" id="email" type="email" aria-describedby="emailHelp" required />
+                  <input className="name-input contact-input" value={this.state.email} onChange={this.onEmailChange.bind(this)} name="email" id="email" type="email" aria-describedby="emailHelp" required />
                 </div>
 
                 <div class="message-contact">
                   <label class="message" htmlFor="message-input">Wiadomość</label>
-                  <textarea className="contact-input" name="message" rows="3" id="message" type="text" required></textarea>
+                  <textarea className="contact-input" value={this.state.message} onChange={this.onMsgChange.bind(this)} name="message" rows="3" id="message" type="text" required></textarea>
                 </div>
 
                 <button className="button" type="submit">
