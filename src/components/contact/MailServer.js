@@ -33,7 +33,8 @@ router.post('/send', (req, res, next) => {
   var name = req.body.name
   var email = req.body.email
   var message = req.body.message
-  var content = `name: ${name} \n email: ${email} \n message: ${message} `
+
+  var content = `od: ${name} \n email: ${email} \n wiadomość: ${message}`
 
   var mail = {
     from: name,
