@@ -4,14 +4,6 @@ import { th } from "date-fns/locale";
 
 class Contact extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: '',
-      email: '',
-      message: ''
-    }
-}
 
   handleSubmit(e){
     e.preventDefault();
@@ -24,7 +16,7 @@ class Contact extends Component {
       data: {
           name: name,   
           email: email,  
-          message: message //this.state.message
+          message: message
       }
     }).then((response)=>{
         if (response.data.msg === 'success'){
@@ -36,16 +28,6 @@ class Contact extends Component {
     })
 
   }
-
-  resetForm(){
-      document.getElementById('contact-form').reset();
-      this.setState({name: '', email: '', message: ''})
-  }
-
-  onMsgChange(event) {
-    this.setState({message: event.target.value})
-  }
-
 
 
   render() {
@@ -78,8 +60,7 @@ class Contact extends Component {
 
                 <div class="message-contact">
                   <label class="message" htmlFor="message-input">Wiadomość</label>
-                  {/* <textarea className="contact-input" name="message" rows="3" id="message" type="text" value={this.state.message} onChange={this.onMsgChange.bind(this)} required></textarea> */}
-                  <input className="name-input contact-input" name="message" id="message" type="text" required />
+                  <textarea className="contact-input" name="message" rows="3" id="message" type="text" required></textarea>
                 </div>
 
                 <button className="button" type="submit">
