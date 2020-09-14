@@ -1345,6 +1345,12 @@ ul.unstyled {
   display: relative;
 }
 
+.contact-error {
+  color: #db2269;
+  font-size: 0.625em;
+  /* display: relative; */
+}
+
 .admin-page {
   padding: 2rem;
   background-color: white;

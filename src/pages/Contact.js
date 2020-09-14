@@ -2,21 +2,21 @@ import React, { Component } from "react";
 import axios from 'axios';
 import { th } from "date-fns/locale";
 
-const validEmailRegex = RegExp(
-  /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i
-);
+// const validEmailRegex = RegExp(
+//   /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i
+// );
 
-const validateForm = (errors) => {
-  let valid = true;
-  Object.values(errors).forEach((val) => val.length > 0 && (valid = false));
-  return valid;
-};
+// const validateForm = (errors) => {
+//   let valid = true;
+//   Object.values(errors).forEach((val) => val.length > 0 && (valid = false));
+//   return valid;
+// };
 
-const countErrors = (errors) => {
-  let count = 0;
-  Object.values(errors).forEach((val) => val.length > 0 && (count = count + 1));
-  return count;
-};
+// const countErrors = (errors) => {
+//   let count = 0;
+//   Object.values(errors).forEach((val) => val.length > 0 && (count = count + 1));
+//   return count;
+// };
 
 
 class Contact extends Component {
@@ -27,13 +27,13 @@ class Contact extends Component {
       nickname: '',
       email: '',
       message: '',
-      formValid: false,
-      errorCount: null,
-      errors: {
-        nickname: "",
-        email: "",
-        message: ""
-      },
+      // formValid: false,
+      // errorCount: null,
+      // errors: {
+      //   nickname: "",
+      //   email: "",
+      //   message: ""
+      // },
     }
   }
 
@@ -52,25 +52,25 @@ class Contact extends Component {
   handleSubmit(e){
     e.preventDefault();
     
-    const { name, value } = e.target;
-    let errors = this.state.errors;
+    // const { name, value } = e.target;
+    // let errors = this.state.errors;
 
-    switch (name) {
-      case "nickname":
-        errors.nickname = value.length < 2 ? "imię jest niepoprawne" : "";
-        break;
-      case "email":
-        errors.email = validEmailRegex.test(value)
-          ? ""
-          : "e-mail jest niepoprawny";
-        break;
-      case "message":
-        errors.number =
-          value.length < 9 ? "wpisz wiadomość" : "";
-        break;
-      default:
-        break;
-    }
+    // switch (name) {
+    //   case "nickname":
+    //     errors.nickname = value.length < 2 ? "imię jest niepoprawne" : "";
+    //     break;
+    //   case "email":
+    //     errors.email = validEmailRegex.test(value)
+    //       ? ""
+    //       : "e-mail jest niepoprawny";
+    //     break;
+    //   case "message":
+    //     errors.number =
+    //       value.length < 9 ? "wpisz wiadomość" : "";
+    //     break;
+    //   default:
+    //     break;
+    // }
 
     axios({
       method: "POST", 
@@ -96,7 +96,7 @@ class Contact extends Component {
   }
 
   render() {
-    const { errors, formValid } = this.state;
+    // const { errors, formValid } = this.state;
     
     return (
       <>
@@ -118,25 +118,25 @@ class Contact extends Component {
                 <div>
                   <label class="message-email" htmlFor="message-name">Imię</label>
                   <input className="name-input contact-input" value={this.state.nickname} onChange={this.onNameChange.bind(this)} id="nickname" type="text" name="nickname" required />
-                  {errors.nickname.length > 0 && (
+                  {/* {errors.nickname.length > 0 && (
                     <span className="error">{errors.nickname}</span>
-                  )}
+                  )} */}
                 </div>
 
                 <div>
                   <label class="message-email" htmlFor="message-email">E-mail</label>
                   <input className="name-input contact-input" value={this.state.email} onChange={this.onEmailChange.bind(this)} name="email" id="email" type="email" aria-describedby="emailHelp" required />
-                  {errors.email.length > 0 && (
+                  {/* {errors.email.length > 0 && (
                     <span className="error">{errors.email}</span>
-                  )}
+                  )} */}
                 </div>
 
                 <div class="message-contact">
                   <label class="message" htmlFor="message-input">Wiadomość</label>
                   <textarea className="contact-input" value={this.state.message} onChange={this.onMsgChange.bind(this)} name="message" rows="3" id="message" type="text" required></textarea>
-                  {errors.message.length > 0 && (
+                  {/* {errors.message.length > 0 && (
                     <span className="error">{errors.message}</span>
-                  )}
+                  )} */}
                 </div>
 
                 <button className="button" type="submit">
