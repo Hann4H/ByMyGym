@@ -128,7 +128,8 @@ class EventItemPopover extends Component {
             <Col span={2}>
               <div />
             </Col>
-            {col}
+            {/* TODO: Ops1 and Ops2 commented */}
+            {/* {col} */}
           </Row>
         );
       } else if (
@@ -154,7 +155,8 @@ class EventItemPopover extends Component {
             <Col span={2}>
               <div />
             </Col>
-            {col}
+            {/* TODO: Ops1 and Ops2 commented */}
+            {/* {col} */}
           </Row>
         );
       }
