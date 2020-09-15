@@ -24,7 +24,7 @@ class Basic extends Component {
   constructor(props) {
     super(props);
 
-    let schedulerData = new SchedulerData("2020-09-01", ViewTypes.Week);
+    let schedulerData = new SchedulerData(new Date(), ViewTypes.Week);
     schedulerData.localeMoment.locale("pl");
     schedulerData.setResources(DemoData.resources);
     schedulerData.setEvents(DemoData.events);

@@ -7,11 +7,11 @@ const configData = {
     },
     {
       id: "r1",
-      name: "Wolne",
+      name: "Rezerwacja",
     },
     {
       id: "r2",
-      name: "Zarezerwowane",
+      name: "Rezerwacja",
     },
   ],
 };
