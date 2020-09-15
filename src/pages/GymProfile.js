@@ -48,10 +48,10 @@ class GymProfile extends Component {
           <div id="target"></div>
         </div>
 
-        {/* <GetBookingData />
+        <GetBookingData gym_id={this.props.match.params.id} />
         <DndProvider backend={HTML5Backend}>
-          <Basic />
-        </DndProvider> */}
+          <Basic gym_id={this.props.match.params.id} />
+        </DndProvider>
 
         <div id="pls" />
       </>

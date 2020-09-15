@@ -80,14 +80,14 @@ class BookingView extends Component {
             />
           </div>  */}
           <div>
-            <GetBookingData />
+            <GetBookingData gym_id="tcNrOcq9U2TfqhIQAnVn" />
           </div>
         </div>
 
         <br></br>
 
         <DndProvider backend={HTML5Backend}>
-          <Basic />
+          <Basic gym_id="tcNrOcq9U2TfqhIQAnVn" />
         </DndProvider>
       </div>
     );

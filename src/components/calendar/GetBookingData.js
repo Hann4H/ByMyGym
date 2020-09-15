@@ -14,7 +14,7 @@ class GetBookingData extends Component {
 
   componentDidMount() {
     db.collection("reservation")
-      .where("gym_id", "==", "tcNrOcq9U2TfqhIQAnVn")
+      .where("gym_id", "==", this.props.gym_id)
       .get()
       .then((items) => {
         const events = items.docs.map((doc) => {

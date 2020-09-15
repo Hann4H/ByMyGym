@@ -8,6 +8,10 @@ import Scheduler, {
   DemoData,
 } from "./Scheduler";
 
+import firebase from "firebase";
+
+const db = firebase.firestore();
+
 // class Basic extends Component {
 //   render() {
 //     return (<>
@@ -105,9 +109,20 @@ class Basic extends Component {
         resourceId: slotId,
         bgColor: "purple",
       };
+
       schedulerData.addEvent(newEvent);
       this.setState({
         viewModel: schedulerData,
+      });
+
+      db.collection("reservation").add({
+        id: newEvent.id,
+        title: "Zarezerwowane",
+        start: newEvent.start,
+        end: newEvent.end,
+        resourceId: newEvent.resourceId,
+        bgColor: "#FFA841",
+        gym_id: this.props.gym_id,
       });
     }
   };
