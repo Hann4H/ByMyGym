@@ -18,9 +18,9 @@ const configData = {
 
 const bookingData = JSON.parse(localStorage.getItem("events"));
 
-const DemoData = { events: [...bookingData], ...configData };
+const DemoData = { events: [...bookingData.values()], ...configData };
 
-// const DemoData2 = {
+// const DemoData = {
 //   resources: [
 //     {
 //       id: "r0",
