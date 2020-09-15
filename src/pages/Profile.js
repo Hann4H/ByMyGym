@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import firebase from "../firebase"
 import { FirebaseAuth } from "react-firebaseui";
-
+import { Redirect, Route } from 'react-router-dom'
 
 class Profile extends Component {
   state = {
@@ -22,7 +22,12 @@ class Profile extends Component {
 
   render() {
     let { user } = this.state;
-    if (!user) return null;
+
+    if (!user) {
+      return (
+        <Redirect to="/login" />
+      )
+    }
 
     return (
       <>

@@ -2,9 +2,31 @@ import React, { Component } from "react";
 import Hero from "../components/Hero";
 import Form from "../components/gymForm";
 import Banner from "../components/Banner";
+import { Redirect, Route } from 'react-router-dom'
 
 class AddGym extends Component {
+
+  state = {
+    user: [],
+  };
+
+  componentDidMount() {
+    this.loadUserProfile();
+  }
+
+  loadUserProfile() {
+    const user = localStorage.getItem("user");
+    this.setState({ user });
+  }
+
   render() {
+
+    if (!this.state.user) {
+      return (
+        <Redirect to="/login" />
+      )
+    }
+
     return (
       <>
         <Hero hero="gymsHero">
