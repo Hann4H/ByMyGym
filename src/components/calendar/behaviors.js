@@ -144,10 +144,10 @@ export const isNonWorkingTime = (schedulerData, time) => {
   const { localeMoment } = schedulerData;
   if (schedulerData.cellUnit === CellUnits.Hour) {
     let hour = localeMoment(time).hour();
-    if (hour < 9 || hour > 18) return true;
+    if (hour < 6 || hour > 22) return true;
   } else {
     let dayOfWeek = localeMoment(time).weekday();
-    if (dayOfWeek === 0 || dayOfWeek === 6) return true;
+    if (dayOfWeek === 5 || dayOfWeek === 6) return true;
   }
 
   return false;
