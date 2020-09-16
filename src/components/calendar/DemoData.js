@@ -18,7 +18,13 @@ const configData = {
 
 const bookingData = JSON.parse(localStorage.getItem("events"));
 
-const DemoData = { events: [...bookingData.values()], ...configData };
+const dane2 = bookingData ? [...bookingData.values()] : [];
+
+console.log("booking data: " + typeof bookingData);
+console.log("configData data: " + typeof configData);
+
+const DemoData = { events: dane2, ...configData };
+// const DemoData = { events: [...bookingData.values()], ...configData };
 
 // const DemoData = {
 //   resources: [
