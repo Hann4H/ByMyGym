@@ -43,15 +43,14 @@ class GymProfile extends Component {
             </div>
           </div>
           <MaterialUIPickers gym_id={this.props.match.params.id} />
+          
+          
         </div>
         <div className="container">
           <div id="target"></div>
         </div>
 
-        <GetBookingData gym_id={this.props.match.params.id} />
-        <DndProvider backend={HTML5Backend}>
-          <Basic gym_id={this.props.match.params.id} />
-        </DndProvider>
+        
 
         <div id="pls" />
       </>

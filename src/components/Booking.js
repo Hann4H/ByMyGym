@@ -21,6 +21,11 @@ import { Calendar } from "./Calendar";
 import { startTimeSelectOptions, endTimeSelectOptions } from "./BookingHelpers";
 import Select from "react-select";
 import "moment/locale/pl";
+import Basic from "../components/calendar/Basic";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import { DndProvider } from "react-dnd";
+
+import GetBookingData from "../components/calendar/GetBookingData";
 
 Modal.setAppElement("#root");
 const customStyles = {
@@ -50,10 +55,13 @@ const theme = createMuiTheme({
 });
 
 export function MaterialUIPickers(props) {
+
   const [modalIsOpen, setIsOpen] = React.useState(false);
+
   function openModal() {
     setIsOpen(true);
   }
+
   function closeModal() {
     setIsOpen(false);
   }
@@ -416,6 +424,13 @@ export function MaterialUIPickers(props) {
                           }}
                         />
                       </div> */}
+
+                      <div className="calendar-position">
+                        <GetBookingData gym_id={props.gym_id} />
+                        <DndProvider backend={HTML5Backend}>
+                          <Basic gym_id={props.gym_id} />
+                        </DndProvider>
+                      </div>
 
                       <button className="booking-button" onClick={openModal}>
                         ZAREZERWUJ

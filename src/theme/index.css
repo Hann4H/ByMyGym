@@ -1078,7 +1078,7 @@ ul.unstyled {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin-left: 25%;
+  margin-left: 0%;
 }
 
 .booking-field {
@@ -1128,6 +1128,12 @@ ul.unstyled {
 }
 
 /* calendar */
+
+.calendar-position {
+  margin-left: 2rem;
+
+}
+
 .calendar {
   /* width: 270%; */
   margin-right: 2rem;

@@ -1,12 +1,11 @@
 import React, { Component } from "react";
 import Localization from "./Localization";
 import firebase from "../firebase";
-import Scheduler, {
-  ViewTypes,
-  DATE_FORMAT,
-  SchedulerData,
-} from "react-big-scheduler";
-import moment from "moment";
+import Basic from "../components/calendar/Basic";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import { DndProvider } from "react-dnd";
+
+import GetBookingData from "../components/calendar/GetBookingData";
 
 const nameStyle = {
   fontWeight: "bold",
