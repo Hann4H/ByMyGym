@@ -329,7 +329,7 @@ export default function gymForm() {
             </div>
           </div>
          <div className="container-2">
-            <label>Ilość miejsc na widowni</label>
+            <label>Liczba miejsc na widowni</label>
             <div className="input-n-error">
             <input
               autoComplete="off"
@@ -346,7 +346,7 @@ export default function gymForm() {
             </div>
           </div>
            <div className="container-2">
-            <label>Ilość szatń</label>
+            <label>Liczba szatń</label>
             <div className="input-n-error">
             <input
               autoComplete="off" 
