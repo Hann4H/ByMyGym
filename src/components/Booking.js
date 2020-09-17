@@ -157,13 +157,6 @@ export function MaterialUIPickers(props) {
   return (
     <div className="type-button">
       <div>
-        <button
-          className="showing-button"
-          onClick={() => setShowingLong({ showingLong: !showingLong })}
-        >
-          Rezerwacja długoterminowa
-        </button>
-        {showingLong ? (
           <div>
             <MuiPickersUtilsProvider utils={DateFnsUtils}>
               <div className="booking-container">
@@ -250,7 +243,7 @@ export function MaterialUIPickers(props) {
                         />
                       </div>
 
-                      <div className="booking-field">
+                      {/* <div className="booking-field">
                         <KeyboardDatePicker
                           disableToolbar
                           variant="inline"
@@ -282,7 +275,7 @@ export function MaterialUIPickers(props) {
                           }}
                           fullWidth
                         />
-                      </div>
+                      </div> */}
 
                       {/* <div className="booking-field" id="booking-weekday">
                         <p>Wybierz dzień tygodnia</p>
@@ -304,7 +297,7 @@ export function MaterialUIPickers(props) {
                         </Select>
                       </div> */}
 
-                      <div className="booking-field">
+                      {/* <div className="booking-field">
                         <Select
                           isMulti
                           theme={(theme) => ({
@@ -390,7 +383,7 @@ export function MaterialUIPickers(props) {
                             { value: "21:00", label: "21:00" },
                           ]}
                         />
-                      </div>
+                      </div> */}
 
                       {/* <div className="booking-field">
                         <TimePicker
@@ -442,120 +435,7 @@ export function MaterialUIPickers(props) {
               </div>
             </MuiPickersUtilsProvider>
           </div>
-        ) : null}
-      </div>
-
-      <div>
-        <button
-          className="showing-button"
-          onClick={() => setShowingShort({ showingShort: !showingShort })}
-        >
-          Rezerwacja krótkoterminowa
-        </button>
-        {showingShort ? (
-          <div>
-            <MuiPickersUtilsProvider utils={DateFnsUtils}>
-              <div className="booking-container">
-                <Grid
-                  container
-                  direction="column"
-                  justify="center"
-                  alignItems="flex-start"
-                >
-                  <ThemeProvider theme={theme}>
-                    <form onSubmit={handleSubmit(onSubmit)} className="gymForm">
-                      <div className="booking-field">
-                        <TextField
-                          id="name"
-                          label="imię"
-                          type="text"
-                          name="name"
-                          InputLabelProps={{
-                            shrink: true,
-                          }}
-                          onChange={(e) => setName(e.currentTarget.value)}
-                          value={name}
-                          fullWidth
-                          required
-                        />
-                      </div>
-
-                      <div className="booking-field">
-                        <TextField
-                          id="surname"
-                          label="nazwisko"
-                          type="text"
-                          name="surname"
-                          InputLabelProps={{
-                            shrink: true,
-                          }}
-                          onChange={(e) => setSurname(e.currentTarget.value)}
-                          value={surname}
-                          fullWidth
-                          required
-                        />
-                      </div>
-
-                      <div className="booking-field">
-                        <TextField
-                          id="email"
-                          label="e-mail"
-                          type="text"
-                          name="email"
-                          InputLabelProps={{
-                            shrink: true,
-                          }}
-                          onChange={(e) => setEmail(e.currentTarget.value)}
-                          value={email}
-                          color="primary"
-                          fullWidth
-                          required
-                        />
-                      </div>
-
-                      <div className="booking-field">
-                        <TextField
-                          id="phoneNumber"
-                          label="numer telefonu"
-                          type="text"
-                          name="phoneNumber"
-                          InputLabelProps={{
-                            shrink: true,
-                          }}
-                          pattern="(?<!\w)(\(?(\+|00)?48\)?)?[ -]?\d{3}[ -]?\d{3}[ -]?\d{3}(?!\w)"
-                          onChange={(e) =>
-                            setPhoneNumber(e.currentTarget.value)
-                          }
-                          value={phoneNumber}
-                          fullWidth
-                          required
-                        />
-                      </div>
-
-                      {/* <div className="calendar-style">
-                        <Calendar gymId={props.gym_id} />
-                      </div> */}
-
-                      <button className="booking-button" onClick={openModal}>
-                        ZAREZERWUJ
-                      </button>
-                      <Modal
-                        isOpen={modalIsOpen}
-                        onRequestClose={closeModal}
-                        style={customStyles}
-                        contentLabel="dasds"
-                      >
-                        Sala została zarezerwowana
-                        <button className="button" onClick={closeModal}>x</button>
-                      </Modal>
-                    </form>
-                  </ThemeProvider>
-                </Grid>
-              </div>
-            </MuiPickersUtilsProvider>
-          </div>
-        ) : null}
-      </div>
+      </div>                 
     </div>
   );
 }
