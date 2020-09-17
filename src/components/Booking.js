@@ -546,7 +546,7 @@ export function MaterialUIPickers(props) {
                         contentLabel="dasds"
                       >
                         Sala została zarezerwowana
-                        <button onClick={closeModal}>x</button>
+                        <button className="button" onClick={closeModal}>x</button>
                       </Modal>
                     </form>
                   </ThemeProvider>

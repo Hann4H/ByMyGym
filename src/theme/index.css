@@ -1100,6 +1100,7 @@ ul.unstyled {
   margin-left: 130%; */
   margin: auto;
   margin-left: 2rem;
+  color: var(--mainWhite);
 }
 
 .calendar-style {
@@ -1110,6 +1111,7 @@ ul.unstyled {
 .showing-button {
   margin-left: 37%;
   padding-left: 2rem;
+  color: var(--mainWhite);
 }
 
 .larger-field {
