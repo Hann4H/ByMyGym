@@ -15,14 +15,6 @@ import firebase from "firebase";
 
 const db = firebase.firestore();
 
-// class Basic extends Component {
-//   render() {
-//     return (<>
-//     <p>something</p>
-//     </>);
-//   }
-// }
-
 class Basic extends Component {
   constructor(props) {
     super(props);
@@ -213,7 +205,7 @@ class Basic extends Component {
     return (
       <div style={{ backgroundColor: "white" }}>
         <div>
-          <h3 style={{ textAlign: "center" }}>Kalendarz</h3>
+          <br />
           <ConfigProvider locale={plPL}>
             <Scheduler
               schedulerData={viewModel}

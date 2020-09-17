@@ -9,10 +9,10 @@ const configData = {
       id: "r1",
       name: "Rezerwacja",
     },
-    {
-      id: "r2",
-      name: "Rezerwacja",
-    },
+    // {
+    //   id: "r2",
+    //   name: "Rezerwacja",
+    // },
   ],
 };
 
