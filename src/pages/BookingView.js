@@ -3,6 +3,8 @@ import firebase from "firebase";
 import "../theme/react-week-scheduler.css";
 const db = firebase.firestore();
 
+// bookings
+
 function ListItems(props) {
   const data = JSON.parse(props.value);
   const docId = data.docId;
@@ -11,7 +13,7 @@ function ListItems(props) {
 
   function DeleteItemFromFirebase(e) {
     e.preventDefault();
-    db.collection("bookings")
+    db.collection("reservation")
       .doc(docId)
       .delete()
       .then(function () {
@@ -27,9 +29,9 @@ function ListItems(props) {
   function ChangeStatus(e) {
     e.preventDefault();
     console.log("change status run");
-    db.collection("bookings")
+    db.collection("reservation")
       .doc(docId)
-      .update({ title: "Zarezerwowane" })
+      .update({ title: "Zarezerwowane", bgColor: "#90EE90" })
       .then(function () {
         console.log("Status successfully changed! Doc: " + docId);
       })
@@ -44,25 +46,31 @@ function ListItems(props) {
         <table style={{ width: "100%", margin: "10px" }}>
           <tbody>
             <tr>
+              <td>Data dodania</td>
+              <td></td>
+            </tr>
+            <tr>
               <td>Nazwa budynku</td>
               <td></td>
             </tr>
             <tr>
               <td>Status rezerwacji</td>
-              <td></td>
+              <td>{data.title}</td>
             </tr>
             <tr>
-              <td>Data dodania</td>
-              <td></td>
+              <td>Czas rezerwacji</td>
+              <td>
+                {data.start} - {data.end}
+              </td>
             </tr>
             <tr>
               <td>Rezerwacja ID</td>
               <td>{data.docId}</td>
             </tr>
-            <tr>
+            {/* <tr>
               <td>Dane</td>
               <td>{props.value}</td>
-            </tr>
+            </tr> */}
           </tbody>
         </table>
         <button style={{ margin: "10px" }} onClick={DeleteItemFromFirebase}>
@@ -84,7 +92,7 @@ class BookingView extends Component {
   }
 
   componentDidMount() {
-    db.collection("bookings")
+    db.collection("reservation")
       // .orderBy("gymName")
       .get()
       .then((items) => {

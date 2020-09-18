@@ -98,11 +98,11 @@ class Basic extends Component {
 
       let newEvent = {
         id: newFreshId,
-        title: "Zarezerwuj",
+        title: "Do akceptacji",
         start: start,
         end: end,
         resourceId: slotId,
-        bgColor: "purple",
+        bgColor: "#FFD700",
       };
 
       schedulerData.addEvent(newEvent);
@@ -112,11 +112,11 @@ class Basic extends Component {
 
       db.collection("reservation").add({
         id: newEvent.id,
-        title: "Zarezerwowane",
+        title: "Do akceptacji",
         start: newEvent.start,
         end: newEvent.end,
         resourceId: newEvent.resourceId,
-        bgColor: "#FFA841",
+        bgColor: "#FFD700",
         gym_id: this.props.gym_id,
       });
     }
