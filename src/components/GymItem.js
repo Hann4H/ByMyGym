@@ -4,10 +4,26 @@ import "firebase/firestore";
 import "firebase/storage";
 import firebase from "../firebase";
 
-let storage = firebase.storage();
+const db = firebase.firestore();
 
 class GymItem extends Component {
   render() {
+    const docId = this.props.gym.docId;
+
+    function DeleteItemFromFirebase(e) {
+      e.preventDefault();
+      console.log("delete function run");
+      db.collection("gyms")
+        .doc(docId)
+        .delete()
+        .then(function () {
+          console.log("Document successfully deleted! Doc: " + docId);
+        })
+        .catch(function (error) {
+          console.error("Error removing document: ", error);
+        });
+    }
+
     return (
       <div>
         <div key={this.props.index} className="single-listing">
@@ -44,6 +60,12 @@ class GymItem extends Component {
               >
                 <button className="gym-short-button">więcej informacji</button>
               </Link>
+              <button
+                style={{ backgroundColor: "#e10000", margin: 5 }}
+                onClick={DeleteItemFromFirebase}
+              >
+                Usuń {this.props.gym.docId}
+              </button>
             </div>
           </div>
         </div>
