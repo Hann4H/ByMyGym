@@ -4,14 +4,13 @@ import "../theme/react-week-scheduler.css";
 const db = firebase.firestore();
 
 function ListItems(props) {
-  let data = JSON.parse(props.value);
-  let docId = data.docId;
+  const data = JSON.parse(props.value);
+  const docId = data.docId;
 
   const [idItem, setidItem] = useState([]);
 
   function DeleteItemFromFirebase(e) {
     e.preventDefault();
-    console.log("delete function run");
     db.collection("bookings")
       .doc(docId)
       .delete()
@@ -25,17 +24,55 @@ function ListItems(props) {
     // window.location.reload(false);
   }
 
+  function ChangeStatus(e) {
+    e.preventDefault();
+    console.log("change status run");
+    db.collection("bookings")
+      .doc(docId)
+      .update({ title: "Zarezerwowane" })
+      .then(function () {
+        console.log("Status successfully changed! Doc: " + docId);
+      })
+      .catch(function (error) {
+        console.error("Error changing status: ", error);
+      });
+  }
+
   return (
     <>
-      <li>
-        <p>Doc ID: {data.docId}</p>
-        <button onClick={DeleteItemFromFirebase}>Delete item</button>
-
-        {/* onClick={DeleteItemFromFirebase(data.docId)} */}
-        <br />
-        <p>Value:</p>
-        {props.value}
-      </li>
+      <div style={{ border: "2px solid var(--darkOrange)" }}>
+        <table style={{ width: "100%", margin: "10px" }}>
+          <tbody>
+            <tr>
+              <td>Nazwa budynku</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Status rezerwacji</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Data dodania</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>Rezerwacja ID</td>
+              <td>{data.docId}</td>
+            </tr>
+            <tr>
+              <td>Dane</td>
+              <td>{props.value}</td>
+            </tr>
+          </tbody>
+        </table>
+        <button style={{ margin: "10px" }} onClick={DeleteItemFromFirebase}>
+          Usuń
+        </button>
+        <button style={{ margin: "10px" }} onClick={ChangeStatus}>
+          Zmień status
+        </button>
+      </div>
+      <br />
     </>
   );
 }
@@ -68,6 +105,9 @@ class BookingView extends Component {
         <div id="pls"></div>
 
         <div className="admin-page">
+          <h1 style={{ textAlign: "center", color: "var(--darkOrange)" }}>
+            Zarządzaj rezerwacją
+          </h1>
           {this.state.bookingItems.map((item, index) => (
             <ListItems
               key={index}

@@ -61,7 +61,7 @@ class GymItem extends Component {
                 <button className="gym-short-button">więcej informacji</button>
               </Link>
               <button
-                style={{ backgroundColor: "#e10000", margin: 5 }}
+                style={{ backgroundColor: "#e10000" }}
                 onClick={DeleteItemFromFirebase}
               >
                 Usuń {this.props.gym.docId}
