@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { PropTypes } from "prop-types";
+import validated from "../ValidatedReservation";
+import validate from '../ReservationValidationRules';
 
 import Scheduler, {
   SchedulerData,
@@ -25,6 +27,8 @@ class Basic extends Component {
     schedulerData.setEvents(DemoData.events);
     this.state = {
       viewModel: schedulerData,
+      values: {},
+      errors: {}
     };
   }
 
@@ -109,6 +113,10 @@ class Basic extends Component {
       this.setState({
         viewModel: schedulerData,
       });
+
+      // setErrors({});
+      // setErrors(validate(values));
+      // setIsSubmitting(true);
 
       db.collection("reservation").add({
         id: newEvent.id,
