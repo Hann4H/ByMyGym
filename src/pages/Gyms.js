@@ -5,6 +5,8 @@ import ReactPaginate from 'react-paginate';
 import Loading from "../components/Loading";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import SearchGym from "../components/search/SearchGym";
+import SearchCSS from "../components/search/SearchCSS";
 
 class Gyms extends Component {
 
@@ -123,7 +125,16 @@ class Gyms extends Component {
     return (
       <div>
         <div id="pls" />
-          <div className="gyms-container">
+
+        <div className="listing-container">
+          <h1>wyszukaj salę</h1>
+          <hr />
+          <div id="search-bar-place"></div>
+          <SearchCSS>
+            <SearchGym />
+          </SearchCSS>
+        </div>
+          {/* <div className="gyms-container">
           <div className="gyms-load">
                 {this.state.loading ? null : <Loading />}
               </div>
@@ -147,7 +158,7 @@ class Gyms extends Component {
                     activeClassName={"active"}/>
               </div>
             </div>
-          </div>
+          </div> */}
         <div id="pls" />
       </div>
     );

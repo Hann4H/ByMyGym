@@ -14,9 +14,9 @@ import { idk } from "../components/idk";
 
 class Home extends Component {
 
-  componentDidMount() {
-    ReactDOM.findDOMNode(this).scrollIntoView();
-  }
+  // componentDidMount() {
+  //   ReactDOM.findDOMNode(this).scrollIntoView();
+  // }
 
   render() {
     return (
@@ -30,14 +30,14 @@ class Home extends Component {
         </Hero>
         <Services></Services>
         <div id="pls"></div>
-        <div className="listing-container">
+        {/* <div className="listing-container">
           <h1>wyszukaj salę</h1>
           <hr />
           <div id="search-bar-place"></div>
           <SearchCSS>
             <SearchGym />
           </SearchCSS>
-        </div>
+        </div> */}
         <div id="pls"></div>
 
         {/* <div id="testSlider">
