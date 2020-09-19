@@ -12,6 +12,8 @@ const validEmailRegex = RegExp(
 );
 // RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i);
 
+const validNumberRegex = RegExp(/^(?:\(?\?)?(?:[-\.\(\)\s]*(\d)){9}\)?$/);
+
 const validateForm = (errors) => {
   let valid = true;
   Object.values(errors).forEach((val) => val.length > 0 && (valid = false));
@@ -109,8 +111,9 @@ class SignUp extends Component {
           : "e-mail jest niepoprawny";
         break;
       case "number":
-        errors.number =
-          value.length < 9 ? "numer telefonu jest niepoprawny" : "";
+        errors.number = validNumberRegex.test(value)
+          ? ""
+          : value.length < 9 ? "numer telefonu jest niepoprawny" : "";
         break;
       case "password":
         errors.password =
