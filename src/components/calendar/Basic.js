@@ -87,7 +87,7 @@ class Basic extends Component {
   newEvent = (schedulerData, slotId, slotName, start, end, type, item) => {
     if (
       window.confirm(
-        `Chcesz wybrać date/czas?`
+        `Chcesz wybrać datę / czas?`
         // {slotId: ${slotId}, slotName: ${slotName}, start: ${start}, end: ${end}, type: ${type}, item: ${item}}
       )
     ) {
@@ -118,7 +118,9 @@ class Basic extends Component {
         resourceId: newEvent.resourceId,
         bgColor: "#FFD700",
         gym_id: this.props.gym_id,
-      });
+      }).then(() => {window.location.reload()});
+
+      
     }
   };
 
