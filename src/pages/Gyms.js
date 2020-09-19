@@ -125,7 +125,6 @@ class Gyms extends Component {
     return (
       <div>
         <div id="pls" />
-
         <div className="listing-container">
           <h1>wyszukaj salę</h1>
           <hr />

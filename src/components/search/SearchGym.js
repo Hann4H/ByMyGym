@@ -5,6 +5,7 @@ import _ from "lodash";
 import PropTypes from "prop-types";
 import GymItem from "../GymItem";
 import Loading from "../Loading";
+import ReactPaginate from 'react-paginate';
 
 // search source page: https://react.semantic-ui.com/modules/search/
 
@@ -28,7 +29,13 @@ export default class SearchGym extends Component {
       results: [],
       value: "",
       data: [],
+      offset: 0,
+      perPage: 8,
+      currentPage: 1,
     };
+    this.handlePageClick = this
+            .handlePageClick
+            .bind(this);
   }
 
   handleResultSelect = (e, { result }) =>
@@ -51,6 +58,7 @@ export default class SearchGym extends Component {
         isLoading: false,
         results: _.filter(this.state.data, isMatch),
       });
+      this.receivedData()
     }, 300);
   };
 
@@ -67,8 +75,38 @@ export default class SearchGym extends Component {
         this.gymData = links;
         console.log("links: " + links);
         console.log("links data: " + this.gymData);
+        
+        this.state.loading = true;
       });
   }
+
+  receivedData() {
+    const slice = this.state.results.slice(this.state.offset, this.state.offset + this.state.perPage)
+    
+    const postData = slice.map((gym, index) => (
+      <GymItem key={gym.id} showCount={false} gym={gym} index={index} />
+    ))
+
+    this.setState({
+        pageCount: Math.ceil(this.state.results.length / this.state.perPage),
+      
+        postData
+    })
+  }
+
+
+  handlePageClick = (e) => {
+    const selectedPage = e.selected;
+    const offset = selectedPage * this.state.perPage;
+
+    this.setState({
+        currentPage: selectedPage,
+        offset: offset
+    }, () => {
+        this.receivedData()
+    });
+
+};
 
   render() {
     const { isLoading, value, results } = this.state;
@@ -93,9 +131,26 @@ export default class SearchGym extends Component {
             <div className="gyms-load">
                 {this.state.loading ? null : <Loading />}
               </div>
-            {this.state.results.map((gym, index) => (
+            {/* {this.state.results.map((gym, index) => (
               <GymItem key={gym.id} showCount={false} gym={gym} index={index} />
-            ))}
+            ))} */}
+            <div>
+                {this.state.postData}
+              </div>
+              <div className="pagination-out">
+                <ReactPaginate
+                    previousLabel={"<"}
+                    nextLabel={">"}
+                    breakLabel={"..."}
+                    breakClassName={"break-me"}
+                    pageCount={this.state.pageCount}
+                    marginPagesDisplayed={1}
+                    pageRangeDisplayed={0}
+                    onPageChange={this.handlePageClick}
+                    containerClassName={"pagination"}
+                    subContainerClassName={"pages pagination"}
+                    activeClassName={"active"}/>
+              </div>
           </Grid.Column>
         </Grid>
       </>
