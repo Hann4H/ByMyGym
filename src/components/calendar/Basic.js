@@ -118,7 +118,12 @@ class Basic extends Component {
         resourceId: newEvent.resourceId,
         bgColor: "#FFD700",
         gym_id: this.props.gym_id,
+        name: this.props.name,
+        surname: this.props.surname, 
+        email: this.props.email,
+        phoneNumber: this.props.phoneNumber
       }).then(() => {window.location.reload()});
+      // insert stuff from booking
 
       
     }

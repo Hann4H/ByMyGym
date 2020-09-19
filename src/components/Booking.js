@@ -119,21 +119,22 @@ export function MaterialUIPickers(props) {
 
   function onSubmit(e) {
     db.collection("bookings").add({
+      // insert in basic.js
       gym_id: props.gym_id,
       name,
       surname,
       email,
       phoneNumber,
-      weekday,
-      selectedDate_start,
-      selectedDate_end,
-      selectedTime_start,
-      selectedTime_end,
-      dates: getDaysBetweenDates(
-        new Date(selectedDate_start),
-        new Date(selectedDate_end),
-        weekday
-      ),
+      // weekday,
+      // selectedDate_start,
+      // selectedDate_end,
+      // selectedTime_start,
+      // selectedTime_end,
+      // dates: getDaysBetweenDates(
+      //   new Date(selectedDate_start),
+      //   new Date(selectedDate_end),
+      //   weekday
+      // ),
     });
     console.log(
       getDaysBetweenDates(
@@ -428,7 +429,7 @@ export function MaterialUIPickers(props) {
                       <div className="calendar-position">
                         <GetBookingData gym_id={props.gym_id} />
                         <DndProvider backend={HTML5Backend}>
-                          <Basic gym_id={props.gym_id} />
+                          <Basic gym_id={props.gym_id} name={name} surname={surname} phoneNumber={phoneNumber} email={email} />
                         </DndProvider>
                       </div>
 
