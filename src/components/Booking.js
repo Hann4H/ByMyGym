@@ -164,19 +164,6 @@ export function MaterialUIPickers(props) {
     return result;
   }
 
-  function RedirectToFinishReservation(e) {
-    // e.preventDefault();
-    if (true) {
-      return (
-        <Link
-          to={{
-            pathname: `/finishReservation`,
-          }}
-        ></Link>
-      );
-    }
-  }
-
   return (
     <div className="type-button">
       <div>
@@ -451,16 +438,12 @@ export function MaterialUIPickers(props) {
                       </DndProvider>
                     </div>
 
-                    {/* <button className="booking-button" onClick={openModal}> */}
                     <Link
                       to={{
                         pathname: `/finishReservation`,
                       }}
                     >
-                      <button
-                        className="booking-button"
-                        onClick={RedirectToFinishReservation}
-                      >
+                      <button className="booking-button" onClick={openModal}>
                         ZAREZERWUJ
                       </button>
                     </Link>

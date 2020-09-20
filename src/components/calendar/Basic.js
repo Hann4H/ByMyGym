@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { PropTypes } from "prop-types";
 import validated from "../ValidatedReservation";
-import validate from '../ReservationValidationRules';
+import validate from "../ReservationValidationRules";
 
 import Scheduler, {
   SchedulerData,
@@ -28,7 +28,7 @@ class Basic extends Component {
     this.state = {
       viewModel: schedulerData,
       values: {},
-      errors: {}
+      errors: {},
     };
   }
 
@@ -118,22 +118,25 @@ class Basic extends Component {
       // setErrors(validate(values));
       // setIsSubmitting(true);
 
-      db.collection("reservation").add({
-        id: newEvent.id,
-        title: "Do akceptacji",
-        start: newEvent.start,
-        end: newEvent.end,
-        resourceId: newEvent.resourceId,
-        bgColor: "#FFD700",
-        gym_id: this.props.gym_id,
-        name: this.props.name,
-        surname: this.props.surname, 
-        email: this.props.email,
-        phoneNumber: this.props.phoneNumber
-      }).then(() => {window.location.reload()});
+      db.collection("reservation")
+        .add({
+          id: newEvent.id,
+          title: "Do akceptacji",
+          start: newEvent.start,
+          end: newEvent.end,
+          resourceId: newEvent.resourceId,
+          bgColor: "#FFD700",
+          gym_id: this.props.gym_id,
+          reservation_date: new Date().toISOString(),
+          name: this.props.name,
+          surname: this.props.surname,
+          email: this.props.email,
+          phoneNumber: this.props.phoneNumber,
+        })
+        .then(() => {
+          window.location.reload();
+        });
       // insert stuff from booking
-
-      
     }
   };
 
