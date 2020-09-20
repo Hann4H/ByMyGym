@@ -452,12 +452,19 @@ export function MaterialUIPickers(props) {
                     </div>
 
                     {/* <button className="booking-button" onClick={openModal}> */}
-                    <button
-                      // className="booking-button"
-                      onClick={RedirectToFinishReservation}
+                    <Link
+                      to={{
+                        pathname: `/finishReservation`,
+                      }}
                     >
-                      ZAREZERWUJ
-                    </button>
+                      <button
+                        className="booking-button"
+                        onClick={RedirectToFinishReservation}
+                      >
+                        ZAREZERWUJ
+                      </button>
+                    </Link>
+
                     <Modal
                       isOpen={modalIsOpen}
                       onRequestClose={closeModal}
