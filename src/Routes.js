@@ -14,11 +14,10 @@ import BookingView from "./pages/BookingView";
 import FinishReservation from "./pages/FinishReservation";
 
 const Routes = () => (
-  <Switch>
     <React.Fragment>
       <div className="RouterBody">
+      <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/404" exact component={Error} />
         <Route path="/contact" exact component={Contact} />
         <Route path="/add" exact component={AddGym} />
         <Route path="/login" exact component={Login} />
@@ -29,9 +28,10 @@ const Routes = () => (
         <Route path="/admin" exact component={Admin} />
         <Route path="/booking" exact component={BookingView} />
         <Route path="/finishReservation" exact component={FinishReservation} />
+        <Route path="*" component={Error} status={404}/>
+        </Switch>
       </div>
     </React.Fragment>
-  </Switch>
 );
 
 export default Routes;
