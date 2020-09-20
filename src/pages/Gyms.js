@@ -129,6 +129,7 @@ class Gyms extends Component {
           <h1>wyszukaj salę</h1>
           <hr />
           <div id="search-bar-place"></div>
+          
           <SearchCSS>
             <SearchGym />
           </SearchCSS>

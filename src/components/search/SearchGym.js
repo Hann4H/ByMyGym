@@ -10,16 +10,13 @@ import ReactPaginate from 'react-paginate';
 // search source page: https://react.semantic-ui.com/modules/search/
 
 const db = firebase.firestore();
-
 const resultRenderer = ({ gymName }) => (
   <div style={{ color: "rgb(117, 117, 117)" }}>{gymName}</div>
 );
-
 resultRenderer.propTypes = {
   gymName: PropTypes.string,
   gymDescription: PropTypes.string,
 };
-
 export default class SearchGym extends Component {
   constructor(props) {
     super(props);
@@ -40,10 +37,8 @@ export default class SearchGym extends Component {
 
   handleResultSelect = (e, { result }) =>
     this.setState({ value: result.gymName });
-
   handleSearchChange = (e, { value }) => {
     this.setState({ isLoading: true, value });
-
     setTimeout(() => {
       if (this.state.value.length < 1)
         return this.setState({
@@ -51,14 +46,13 @@ export default class SearchGym extends Component {
           results: this.state.data,
           value: "",
         });
-
       const re = new RegExp(_.escapeRegExp(this.state.value), "i");
       const isMatch = (result) => re.test(result.gymName);
       this.setState({
         isLoading: false,
         results: _.filter(this.state.data, isMatch),
       });
-      this.receivedData()
+      // this.receivedData()
     }, 300);
   };
 
@@ -75,24 +69,25 @@ export default class SearchGym extends Component {
         this.gymData = links;
         console.log("links: " + links);
         console.log("links data: " + this.gymData);
-        
         this.state.loading = true;
+
       });
   }
 
   receivedData() {
     const slice = this.state.results.slice(this.state.offset, this.state.offset + this.state.perPage)
-    
+
     const postData = slice.map((gym, index) => (
       <GymItem key={gym.id} showCount={false} gym={gym} index={index} />
     ))
 
     this.setState({
         pageCount: Math.ceil(this.state.results.length / this.state.perPage),
-      
+
         postData
     })
   }
+
 
 
   handlePageClick = (e) => {
@@ -131,12 +126,22 @@ export default class SearchGym extends Component {
             <div className="gyms-load">
                 {this.state.loading ? null : <Loading />}
               </div>
-            {/* {this.state.results.map((gym, index) => (
+
+
+            {this.state.results.slice(this.state.offset, this.state.offset + this.state.perPage).map((gym, index) => (
+            
               <GymItem key={gym.id} showCount={false} gym={gym} index={index} />
-            ))} */}
-            <div>
+            //   this.setState({
+            //     pageCount: Math.ceil(this.state.results.length / this.state.perPage),
+        
+            //     postData
+            // })
+              
+            ))}
+
+            {/* <div>
                 {this.state.postData}
-              </div>
+              </div> */}
               <div className="pagination-out">
                 <ReactPaginate
                     previousLabel={"<"}
@@ -151,6 +156,7 @@ export default class SearchGym extends Component {
                     subContainerClassName={"pages pagination"}
                     activeClassName={"active"}/>
               </div>
+            
           </Grid.Column>
         </Grid>
       </>
