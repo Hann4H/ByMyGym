@@ -16,8 +16,26 @@ import Scheduler, {
 import { ConfigProvider } from "antd";
 import plPL from "antd/es/locale/pl_PL";
 
+import TextField from "@material-ui/core/TextField";
+import Grid from "@material-ui/core/Grid";
+import { ThemeProvider } from "@material-ui/styles";
+import { createMuiTheme } from "@material-ui/core/styles";
+import DateFnsUtils from "@date-io/date-fns";
+import { MuiPickersUtilsProvider } from "@material-ui/pickers";
+
 import firebase from "firebase";
 const db = firebase.firestore();
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      light: "#ffb967",
+      main: "#ffa841",
+      dark: "#ff8119",
+      contrastText: "#fff",
+    },
+  },
+});
 
 class Basic extends Component {
   constructor(props) {
@@ -354,26 +372,29 @@ class Basic extends Component {
 
     return (
       <div style={{ backgroundColor: "white" }}>
-        <div>
-          {/* <form onSubmit={this.handleSubmit}>
-            <label>
-              Wypracowanie:
-              <textarea value={this.state.name} onChange={this.handleChange} />
-            </label> */}
-
-          <div className="Form col-md-8 col-lg-6">
-            <div className="card shadow">
-              <div className="card-body">
-                {/* Form Starts Here */}
-                <form onSubmit={(evt) => this.handleSubmit(evt)}>
+        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+          <div className="booking-container">
+            <Grid
+              container
+              direction="column"
+              justify="center"
+              alignItems="flex-start"
+            >
+              <ThemeProvider theme={theme}>
+                <form
+                  onSubmit={(evt) => this.handleSubmit(evt)}
+                  className="gymForm"
+                >
                   {/* Name field */}
                   <div className="form-group">
-                    <label>Imię</label>
-                    <input
+                    <TextField
+                      label="imię"
                       type="text"
                       name="name"
                       value={name.value}
-                      placeholder="Wprowadź imię"
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
                       className={classnames(
                         "form-control",
                         { "is-valid": name.error === false },
@@ -385,18 +406,22 @@ class Basic extends Component {
                       onBlur={(evt) =>
                         this.handleBlur(validateFields.validateName, evt)
                       }
+                      fullWidth
+                      required
                     />
                     <div className="invalid-feedback">{name.error}</div>
                   </div>
 
                   {/* Surname field */}
                   <div className="form-group">
-                    <label>Nazwisko</label>
-                    <input
+                    <TextField
+                      label="nazwisko"
                       type="text"
                       name="surname"
                       value={surname.value}
-                      placeholder="Wprowadź nazwisko"
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
                       className={classnames(
                         "form-control",
                         { "is-valid": surname.error === false },
@@ -408,18 +433,22 @@ class Basic extends Component {
                       onBlur={(evt) =>
                         this.handleBlur(validateFields.validateSurname, evt)
                       }
+                      fullWidth
+                      required
                     />
                     <div className="invalid-feedback">{surname.error}</div>
                   </div>
 
                   {/* Email field */}
                   <div className="form-group">
-                    <label>Email</label>
-                    <input
+                    <TextField
+                      label="Email"
                       type="text"
                       name="email"
                       value={email.value}
-                      placeholder="Wprowadź email"
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
                       className={classnames(
                         "form-control",
                         { "is-valid": email.error === false },
@@ -431,18 +460,22 @@ class Basic extends Component {
                       onBlur={(evt) =>
                         this.handleBlur(validateFields.validateEmail, evt)
                       }
+                      fullWidth
+                      required
                     />
                     <div className="invalid-feedback">{email.error}</div>
                   </div>
 
                   {/* phoneNumber field */}
                   <div className="form-group">
-                    <label>Telefon</label>
-                    <input
+                    <TextField
+                      label="Telefon"
                       type="text"
                       name="phoneNumber"
                       value={phoneNumber.value}
-                      placeholder="Wprowadź telefon"
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
                       className={classnames(
                         "form-control",
                         { "is-valid": phoneNumber.error === false },
@@ -457,13 +490,15 @@ class Basic extends Component {
                       onBlur={(evt) =>
                         this.handleBlur(validateFields.validatePhoneNumber, evt)
                       }
+                      fullWidth
+                      required
                     />
                     <div className="invalid-feedback">{phoneNumber.error}</div>
                   </div>
-
+                  <br />
                   <button
                     type="submit"
-                    className="btn btn-secondary btn-block"
+                    className="booking-button"
                     onMouseDown={() => this.setState({ submitCalled: true })}
                     value="Wybierz termin"
                   >
@@ -496,10 +531,10 @@ class Basic extends Component {
                     </ConfigProvider>
                   )}
                 </form>
-              </div>
-            </div>
+              </ThemeProvider>
+            </Grid>
           </div>
-        </div>
+        </MuiPickersUtilsProvider>
       </div>
     );
   }
