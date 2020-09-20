@@ -1,6 +1,7 @@
 import React, { Component, useState, useEffect } from "react";
 import firebase from "firebase";
 import "../theme/react-week-scheduler.css";
+import { Link } from "react-router-dom";
 const db = firebase.firestore();
 
 // bookings
@@ -47,11 +48,7 @@ function ListItems(props) {
           <tbody>
             <tr>
               <td>Data dodania</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>Nazwa budynku</td>
-              <td></td>
+              <td>{data.reservation_date ? data.reservation_date : ""}</td>
             </tr>
             <tr>
               <td>Status rezerwacji</td>
@@ -62,6 +59,10 @@ function ListItems(props) {
               <td>
                 {data.start} - {data.end}
               </td>
+            </tr>
+            <tr>
+              <td>Budynek ID</td>
+              <td>{data.gym_id}</td>
             </tr>
             <tr>
               <td>Rezerwacja ID</td>
@@ -79,6 +80,15 @@ function ListItems(props) {
         <button style={{ margin: "10px" }} onClick={ChangeStatus}>
           Zmień status
         </button>
+        <Link
+          to={{
+            pathname: `/gym_profile/${data.gym_id}`,
+          }}
+        >
+          <button style={{ margin: "10px", color: "black" }}>
+            Więcej informacji
+          </button>
+        </Link>
       </div>
       <br />
     </>
@@ -93,7 +103,7 @@ class BookingView extends Component {
 
   componentDidMount() {
     db.collection("reservation")
-      // .orderBy("gymName")
+      .orderBy("title")
       .get()
       .then((items) => {
         const bookingItems = items.docs.map((doc) => {
@@ -121,7 +131,6 @@ class BookingView extends Component {
               key={index}
               // key={this.state.bookingItems.docId}
               value={JSON.stringify(item, null, 4)}
-              gymName={JSON.stringify(item.gymName)}
             />
           ))}
         </div>
