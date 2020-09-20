@@ -61,6 +61,20 @@ function ListItems(props) {
               </td>
             </tr>
             <tr>
+              <td>Imię Nazwisko</td>
+              <td>
+                {data.name} {data.surname}
+              </td>
+            </tr>
+            <tr>
+              <td>E-mail</td>
+              <td>{data.email}</td>
+            </tr>
+            <tr>
+              <td>Telefon</td>
+              <td>{data.phoneNumber}</td>
+            </tr>
+            <tr>
               <td>Budynek ID</td>
               <td>{data.gym_id}</td>
             </tr>

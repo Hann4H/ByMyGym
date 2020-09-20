@@ -15,6 +15,9 @@ import plPL from "antd/es/locale/pl_PL";
 
 import firebase from "firebase";
 
+// added 20.09
+import { useForm } from "react-hook-form";
+
 const db = firebase.firestore();
 
 class Basic extends Component {
@@ -29,7 +32,11 @@ class Basic extends Component {
       viewModel: schedulerData,
       values: {},
       errors: {},
+      value: "Proszę napisać wypracowanie o swoim ulubionym elemencie DOM",
     };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   //********** */
@@ -218,11 +225,31 @@ class Basic extends Component {
     });
   };
 
+  // new changes 20.09
+
+  handleChange(event) {
+    this.setState({ value: event.target.value });
+  }
+
+  handleSubmit(event) {
+    alert("Wysłano następujące wypracowanie: " + this.state.value);
+    event.preventDefault();
+  }
+
   render() {
     const { viewModel } = this.state;
     return (
       <div style={{ backgroundColor: "white" }}>
         <div>
+          <form onSubmit={this.handleSubmit}>
+            <label>
+              Wypracowanie:
+              <textarea value={this.state.value} onChange={this.handleChange} />
+            </label>
+            <input type="submit" value="Wyślij" />
+          </form>
+
+          <p>coś tam</p>
           <br />
           <ConfigProvider locale={plPL}>
             <Scheduler
@@ -252,9 +279,5 @@ class Basic extends Component {
     );
   }
 }
-
-// export default withDragDropContext(Basic);
-// export default createDndContext(HTML5Backend)(Basic);
-// export default Basic;
 
 export default Basic;
