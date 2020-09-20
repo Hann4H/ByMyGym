@@ -22,6 +22,7 @@ import { ThemeProvider } from "@material-ui/styles";
 import { createMuiTheme } from "@material-ui/core/styles";
 import DateFnsUtils from "@date-io/date-fns";
 import { MuiPickersUtilsProvider } from "@material-ui/pickers";
+import { Redirect } from "react-router-dom";
 
 import firebase from "firebase";
 const db = firebase.firestore();
@@ -120,7 +121,7 @@ class Basic extends Component {
   newEvent = (schedulerData, slotId, slotName, start, end, type, item) => {
     if (
       window.confirm(
-        `Chcesz wybrać datę / czas?`
+        `Chcesz zarezerwować termin / czas? \nOd ${start} do ${end}`
         // {slotId: ${slotId}, slotName: ${slotName}, start: ${start}, end: ${end}, type: ${type}, item: ${item}}
       )
     ) {
@@ -163,7 +164,9 @@ class Basic extends Component {
           phoneNumber: this.state.phoneNumber.value,
         })
         .then(() => {
-          window.location.reload();
+          // window.location.reload();
+          // return <Redirect to="/finishReservation" />;
+          window.location.replace("http://localhost:3000/finishReservation");
         });
       // insert stuff from booking
     }
