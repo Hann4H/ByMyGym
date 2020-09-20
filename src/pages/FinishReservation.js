@@ -1,26 +1,15 @@
-import React, { Component } from "react";
+import React from 'react';
+import Hero from '../components/Hero';
+import Banner from '../components/Banner';
+import { Link } from "react-router-dom";
 
-class FinishReservation extends Component {
-  render() {
-    return (
-      <>
-        <div style={{ backgroundColor: "white" }}>
-          <div id="idk3" />
-          <br />
-          <br />
-          <br />
-          <h1 style={{ textAlign: "center" }}>
-            Sala została zarezerwowana. Dostaniesz powiadomienie o potwierdzeniu
-            rezerwacji.
-          </h1>
-          <br />
-          <br />
-          <br />
-          <br />
-        </div>
-      </>
-    );
-  }
+export default function FinishReservation() {
+    return <><Hero>
+        <Banner title='Rezerwacja została zarejestrowana' subtitle="Dostaniesz powiadomienie o potwierdzeniu rezerwacji">
+            <Link to="/" className="btn-primary">
+                wróć
+            </Link>
+        </Banner>
+    </Hero>
+    <div id="pls"></div></>;
 }
-
-export default FinishReservation;
