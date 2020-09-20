@@ -25,6 +25,8 @@ import Basic from "../components/calendar/Basic";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { DndProvider } from "react-dnd";
 
+import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import GetBookingData from "../components/calendar/GetBookingData";
 
 Modal.setAppElement("#root");
@@ -55,7 +57,6 @@ const theme = createMuiTheme({
 });
 
 export function MaterialUIPickers(props) {
-
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
   function openModal() {
@@ -163,96 +164,107 @@ export function MaterialUIPickers(props) {
     return result;
   }
 
+  function RedirectToFinishReservation(e) {
+    // e.preventDefault();
+    if (true) {
+      return (
+        <Link
+          to={{
+            pathname: `/finishReservation`,
+          }}
+        ></Link>
+      );
+    }
+  }
+
   return (
     <div className="type-button">
       <div>
-          <div>
-            <MuiPickersUtilsProvider utils={DateFnsUtils}>
-              <div className="booking-container">
-                <Grid
-                  container
-                  direction="column"
-                  justify="center"
-                  alignItems="flex-start"
-                >
-                  <ThemeProvider theme={theme}>
-                    <form onSubmit={handleSubmit(onSubmit)} className="gymForm">
-                      <div className="booking-field">
-                        <TextField
-                          id="name"
-                          label="imię"
-                          type="text"
-                          name="name"
-                          InputLabelProps={{
-                            shrink: true,
-                          }}
-                          onChange={(e) => setName(e.currentTarget.value)}
-                          value={name}
-                          fullWidth
-                          required
-                        />
-                      </div>
+        <div>
+          <MuiPickersUtilsProvider utils={DateFnsUtils}>
+            <div className="booking-container">
+              <Grid
+                container
+                direction="column"
+                justify="center"
+                alignItems="flex-start"
+              >
+                <ThemeProvider theme={theme}>
+                  <form onSubmit={handleSubmit(onSubmit)} className="gymForm">
+                    <div className="booking-field">
+                      <TextField
+                        id="name"
+                        label="imię"
+                        type="text"
+                        name="name"
+                        InputLabelProps={{
+                          shrink: true,
+                        }}
+                        onChange={(e) => setName(e.currentTarget.value)}
+                        value={name}
+                        fullWidth
+                        required
+                      />
+                    </div>
 
-                      <div className="booking-field">
-                        <TextField
-                          id="surname"
-                          label="nazwisko"
-                          type="text"
-                          name="surname"
-                          InputLabelProps={{
-                            shrink: true,
-                          }}
-                          onChange={(e) => setSurname(e.currentTarget.value)}
-                          value={surname}
-                          fullWidth
-                          required
-                        />
-                      </div>
+                    <div className="booking-field">
+                      <TextField
+                        id="surname"
+                        label="nazwisko"
+                        type="text"
+                        name="surname"
+                        InputLabelProps={{
+                          shrink: true,
+                        }}
+                        onChange={(e) => setSurname(e.currentTarget.value)}
+                        value={surname}
+                        fullWidth
+                        required
+                      />
+                    </div>
 
-                      <div className="booking-field">
-                        <TextField
-                          id="email"
-                          label="e-mail"
-                          type="text"
-                          name="email"
-                          InputLabelProps={{
-                            shrink: true,
-                          }}
-                          onChange={(e) => setEmail(e.currentTarget.value)}
-                          value={email}
-                          color="primary"
-                          ref={register({
-                            required: "Required",
-                            pattern: {
-                              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                              message: "zły email",
-                            },
-                          })}
-                          fullWidth
-                          required
-                        />
-                      </div>
+                    <div className="booking-field">
+                      <TextField
+                        id="email"
+                        label="e-mail"
+                        type="text"
+                        name="email"
+                        InputLabelProps={{
+                          shrink: true,
+                        }}
+                        onChange={(e) => setEmail(e.currentTarget.value)}
+                        value={email}
+                        color="primary"
+                        ref={register({
+                          required: "Required",
+                          pattern: {
+                            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                            message: "zły email",
+                          },
+                        })}
+                        fullWidth
+                        required
+                      />
+                    </div>
 
-                      <div className="booking-field">
-                        <TextField
-                          id="phoneNumber"
-                          label="numer telefonu"
-                          type="text"
-                          name="phoneNumber"
-                          InputLabelProps={{
-                            shrink: true,
-                          }}
-                          pattern="(?<!\w)(\(?(\+|00)?48\)?)?[ -]?\d{3}[ -]?\d{3}[ -]?\d{3}(?!\w)"
-                          onChange={(e) =>
-                            setPhoneNumber(e.currentTarget.value)
-                          }
-                          value={phoneNumber}
-                          fullWidth
-                          required
-                        />
-                      </div>
+                    <div className="booking-field">
+                      <TextField
+                        id="phoneNumber"
+                        label="numer telefonu"
+                        type="text"
+                        name="phoneNumber"
+                        InputLabelProps={{
+                          shrink: true,
+                        }}
+                        pattern="(?<!\w)(\(?(\+|00)?48\)?)?[ -]?\d{3}[ -]?\d{3}[ -]?\d{3}(?!\w)"
+                        onChange={(e) => setPhoneNumber(e.currentTarget.value)}
+                        value={phoneNumber}
+                        fullWidth
+                        required
+                      />
+                    </div>
 
-                      {/* <div className="booking-field">
+                    {/* <div className="booking-field">
                         <KeyboardDatePicker
                           disableToolbar
                           variant="inline"
@@ -286,7 +298,7 @@ export function MaterialUIPickers(props) {
                         />
                       </div> */}
 
-                      {/* <div className="booking-field" id="booking-weekday">
+                    {/* <div className="booking-field" id="booking-weekday">
                         <p>Wybierz dzień tygodnia</p>
                         <Select
                           labelId="select-weekday"
@@ -306,7 +318,7 @@ export function MaterialUIPickers(props) {
                         </Select>
                       </div> */}
 
-                      {/* <div className="booking-field">
+                    {/* <div className="booking-field">
                         <Select
                           isMulti
                           theme={(theme) => ({
@@ -394,7 +406,7 @@ export function MaterialUIPickers(props) {
                         />
                       </div> */}
 
-                      {/* <div className="booking-field">
+                    {/* <div className="booking-field">
                         <TimePicker
                           clearable
                           helperText={''}
@@ -426,32 +438,42 @@ export function MaterialUIPickers(props) {
                         />
                       </div> */}
 
-                      <div className="calendar-position">
-                        <GetBookingData gym_id={props.gym_id} />
-                        <DndProvider backend={HTML5Backend}>
-                          <Basic gym_id={props.gym_id} name={name} surname={surname} phoneNumber={phoneNumber} email={email} />
-                        </DndProvider>
-                      </div>
+                    <div className="calendar-position">
+                      <GetBookingData gym_id={props.gym_id} />
+                      <DndProvider backend={HTML5Backend}>
+                        <Basic
+                          gym_id={props.gym_id}
+                          name={name}
+                          surname={surname}
+                          phoneNumber={phoneNumber}
+                          email={email}
+                        />
+                      </DndProvider>
+                    </div>
 
-                      <button className="booking-button" onClick={openModal}>
-                        ZAREZERWUJ
-                      </button>
-                      <Modal
-                        isOpen={modalIsOpen}
-                        onRequestClose={closeModal}
-                        style={customStyles}
-                        contentLabel="dasds"
-                      >
-                        Sala została zarezerwowana
-                        <button onClick={closeModal}>x</button>
-                      </Modal>
-                    </form>
-                  </ThemeProvider>
-                </Grid>
-              </div>
-            </MuiPickersUtilsProvider>
-          </div>
-      </div>                 
+                    {/* <button className="booking-button" onClick={openModal}> */}
+                    <button
+                      // className="booking-button"
+                      onClick={RedirectToFinishReservation}
+                    >
+                      ZAREZERWUJ
+                    </button>
+                    <Modal
+                      isOpen={modalIsOpen}
+                      onRequestClose={closeModal}
+                      style={customStyles}
+                      contentLabel="dasds"
+                    >
+                      Sala została zarezerwowana
+                      <button onClick={closeModal}>x</button>
+                    </Modal>
+                  </form>
+                </ThemeProvider>
+              </Grid>
+            </div>
+          </MuiPickersUtilsProvider>
+        </div>
+      </div>
     </div>
   );
 }
