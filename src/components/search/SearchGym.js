@@ -6,6 +6,7 @@ import PropTypes from "prop-types";
 import GymItem from "../GymItem";
 import Loading from "../Loading";
 import ReactPaginate from 'react-paginate';
+// import Pagination from '@material-ui/lab/Pagination';
 
 // search source page: https://react.semantic-ui.com/modules/search/
 

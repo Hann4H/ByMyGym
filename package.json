@@ -11,6 +11,7 @@
     "@glidejs/glide": "^3.4.1",
     "@google-cloud/storage": "^5.0.1",
     "@material-ui/core": "^4.10.2",
+    "@material-ui/lab": "^4.0.0-alpha.56",
     "@material-ui/pickers": "^3.2.10",
     "@mobiscroll/react": "https://npm.mobiscroll.com/@mobiscroll/react-trial/-/react-trial-4.10.3.tgz",
     "antd": "^4.6.1",
