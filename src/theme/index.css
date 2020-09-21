@@ -1490,3 +1490,7 @@ ul.unstyled {
   color: var(--mainOrange);
   cursor: pointer;
 }
+
+.MuiTextField-root input {
+  padding-top: 15px;
+}

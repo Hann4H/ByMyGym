@@ -396,8 +396,11 @@ class Basic extends Component {
                       name="name"
                       value={name.value}
                       InputLabelProps={{
-                        shrink: true,
+                        shrink: true,  
                       }}
+
+                      floatingLabelFixed={true}
+
                       className={classnames(
                         "form-control",
                         { "is-valid": name.error === false },
