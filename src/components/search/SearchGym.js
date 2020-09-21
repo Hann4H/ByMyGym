@@ -7,7 +7,9 @@ import GymItem from "../GymItem";
 import Loading from "../Loading";
 import ReactPaginate from 'react-paginate';
 // import Pagination from '@material-ui/lab/Pagination';
-
+import Slider from '@material-ui/core/Slider';
+import Typography from '@material-ui/core/Typography';
+import { withStyles, makeStyles } from '@material-ui/core/styles'
 // search source page: https://react.semantic-ui.com/modules/search/
 
 const db = firebase.firestore();
@@ -18,6 +20,39 @@ resultRenderer.propTypes = {
   gymName: PropTypes.string,
   gymDescription: PropTypes.string,
 };
+
+const PriceSlider = withStyles({
+  root: {
+    color: '#ffa841',
+    height: 8,
+    width: 300
+  },
+  thumb: {
+    height: 24,
+    width: 24,
+    backgroundColor: '#fff',
+    border: '2px solid currentColor',
+    marginTop: -8,
+    marginLeft: -12,
+    '&:focus, &:hover, &$active': {
+      boxShadow: 'inherit',
+    },
+  },
+  active: {},
+  valueLabel: {
+    left: 'calc(-50% + 4px)',
+  },
+  track: {
+    height: 8,
+    borderRadius: 4,
+  },
+  rail: {
+    height: 8,
+    borderRadius: 4,
+  },
+})(Slider);
+
+
 export default class SearchGym extends Component {
   constructor(props) {
     super(props);
@@ -30,11 +65,20 @@ export default class SearchGym extends Component {
       offset: 0,
       perPage: 5,
       currentPage: 1,
+      price: [0, 90],
     };
     this.handlePageClick = this
             .handlePageClick
             .bind(this);
   }
+
+
+
+  handlePriceChange = (event, newValue) => {
+    this.setState({price: newValue})
+    console.log(this.state.price[0])
+    // console.log(this.state.data)
+  };
 
   handleResultSelect = (e, { result }) =>
     this.setState({ value: result.gymName });
@@ -66,7 +110,7 @@ export default class SearchGym extends Component {
         });
         this.state.loading = true;
         this.setState({ data: links, results: links });
-        this.receivedData()
+        this.receivedData();
         this.gymData = links;
         
         console.log("links: " + links);
@@ -126,6 +170,22 @@ export default class SearchGym extends Component {
               resultRenderer={resultRenderer}
               {...this.props}
             />
+
+            <Typography id="range-slider" gutterBottom>
+              Cena
+            </Typography>
+            <PriceSlider
+              value={this.state.price}
+              onChange={this.handlePriceChange.bind(this)}
+              valueLabelDisplay="auto"
+              aria-labelledby="range-slider"
+              defaultValue={[0, 90]}
+              min={0}
+              step={1}
+              max={90}
+              // getAriaValueText={valuetext}
+            />
+
             <div className="gyms-load">
                 {this.state.loading ? null : <Loading />}
               </div>
