@@ -8,11 +8,10 @@ import FileUploader from "react-firebase-file-uploader";
 import DragAndDrop from "./DragAndDrop";
 import Modal from "react-modal";
 import InputMask from "react-input-mask";
-import validate from './FormValidationRules';
-import { IsEmpty, Map } from "react-lodash"
+import validate from "./FormValidationRules";
+import { IsEmpty, Map } from "react-lodash";
 import validated from "./Validated";
-import  { Redirect } from 'react-router-dom' 
-
+import { Redirect } from "react-router-dom";
 
 Modal.setAppElement("#root");
 const customStyles = {
@@ -31,7 +30,6 @@ const customStyles = {
 };
 
 export default function gymForm() {
-
   const [values, setValues] = useState({});
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -43,7 +41,7 @@ export default function gymForm() {
   //   if (validate()) {
   //     setIsOpen(true);
   //   }
-    
+
   // }
   // function closeModal() {
   //   setIsOpen(false);
@@ -51,14 +49,10 @@ export default function gymForm() {
 
   // const { register, handleSubmit, errors } = useForm();
 
-
-
   const [imageAsFile, setImageAsFile] = useState("");
   const [imageAsUrl, setImageAsUrl] = useState("");
 
   const [userUID, setUserUID] = useState("");
-
-
 
   console.log(imageAsFile);
   const handleImageAsFile = (e) => {
@@ -84,14 +78,14 @@ export default function gymForm() {
   const [navigate, setNavigate] = useState(false);
 
   if (navigate === true) {
-    return <Redirect to="/" />
+    return <Redirect to="/" />;
   }
 
   const redirect = () => {
     if (validated(values)) {
       setNavigate(true);
     }
-  }
+  };
 
   const handleSubmit = (event) => {
     setErrors({});
@@ -140,13 +134,14 @@ export default function gymForm() {
             });
         });
     }
-
-    
   };
 
   const handleChange = (event) => {
     event.persist();
-    setValues(values => ({ ...values, [event.target.name]: event.target.value }));
+    setValues((values) => ({
+      ...values,
+      [event.target.name]: event.target.value,
+    }));
   };
 
   // function onSubmit(e) {
@@ -187,176 +182,161 @@ export default function gymForm() {
   // }
 
   const [gymName, setGymName] = useState("");
-  const [gymStreet, setGymStreet] = useState("");
-  const [gymCity, setGymCity] = useState("");
-  const [gymZip, setGymZip] = useState("");
-  const [gymURL, setGymUrl] = useState("");
-  const [gymEmail, setGymEmail] = useState("");
-  const [gymPhone, setGymPhone] = useState("");
-  const [gymPhoto, setGymPhoto] = useState("");
-  const [gymDescription, setGymDescription] = useState("");
-  const [gymHeight, setGymHeight] = useState("");
-  const [gymWidth, setGymWidth] = useState("");
-  const [gymLength, setGymLength] = useState("");
-  const [gymPrice, setGymPrice] = useState("");
-  const [audience, setAudience] = useState("");
-  const [changingRooms, setChangingRooms] = useState("");
+  // const [gymStreet, setGymStreet] = useState("");
+  // const [gymCity, setGymCity] = useState("");
+  // const [gymZip, setGymZip] = useState("");
+  // const [gymURL, setGymUrl] = useState("");
+  // const [gymEmail, setGymEmail] = useState("");
+  // const [gymPhone, setGymPhone] = useState("");
+  // const [gymPhoto, setGymPhoto] = useState("");
+  // const [gymDescription, setGymDescription] = useState("");
+  // const [gymHeight, setGymHeight] = useState("");
+  // const [gymWidth, setGymWidth] = useState("");
+  // const [gymLength, setGymLength] = useState("");
+  // const [gymPrice, setGymPrice] = useState("");
+  // const [audience, setAudience] = useState("");
+  // const [changingRooms, setChangingRooms] = useState("");
 
   return (
     <form onSubmit={handleSubmit} className="gymForm" noValidate>
       <div className="form-n-gallery">
         <div className="form-only">
-
           <div className="container-2">
             <label>Nazwa budynku</label>
             <div className="input-n-error">
-              <input 
-                autoComplete="off" 
-                type="text" 
-                name="gymName" 
-                onChange={handleChange} 
-                value={values.gymName || ''} 
-                required />
-                  {errors.gymName && (
-                    <p className="help">{errors.gymName}</p>
-                  )}
+              <input
+                autoComplete="off"
+                type="text"
+                name="gymName"
+                onChange={handleChange}
+                value={values.gymName || ""}
+                required
+              />
+              {errors.gymName && <p className="help">{errors.gymName}</p>}
             </div>
           </div>
           <div className="container-2">
             <label>Ulica</label>
             <div className="input-n-error">
-              <input 
+              <input
                 autoComplete="off"
-                type="text" 
-                name="gymStreet" 
-                onChange={handleChange} 
-                value={values.gymStreet || ''} 
-                required />
-                  {errors.gymStreet && (
-                    <p className="help">{errors.gymStreet}</p>
-                  )}
+                type="text"
+                name="gymStreet"
+                onChange={handleChange}
+                value={values.gymStreet || ""}
+                required
+              />
+              {errors.gymStreet && <p className="help">{errors.gymStreet}</p>}
             </div>
           </div>
           <div className="container-2">
             <label>Miasto</label>
             <div className="input-n-error">
-            <InputMask
-              autoComplete="off"
-              type="text"
-              value={values.gymCity || ''}
-              name="gymCity"
-              onChange={handleChange}
-              required
-            />
-              {errors.gymCity && (
-                <p className="help">{errors.gymCity}</p>
-              )}
+              <InputMask
+                autoComplete="off"
+                type="text"
+                value={values.gymCity || ""}
+                name="gymCity"
+                onChange={handleChange}
+                required
+              />
+              {errors.gymCity && <p className="help">{errors.gymCity}</p>}
             </div>
           </div>
           <div className="container-2">
             <label>Kod pocztowy</label>
             <div className="input-n-error">
-            <InputMask
-              autoComplete="off"
-              type="text"
-              value={values.gymZip || ''}
-              name="gymZip"
-              pattern="^\d{2}-\d{3}$"
-              mask="99-999"
-              onChange={handleChange}
-              required
-            />
-              {errors.gymZip && (
-                <p className="help">{errors.gymZip}</p>
-              )}
+              <InputMask
+                autoComplete="off"
+                type="text"
+                value={values.gymZip || ""}
+                name="gymZip"
+                pattern="^\d{2}-\d{3}$"
+                mask="99-999"
+                onChange={handleChange}
+                required
+              />
+              {errors.gymZip && <p className="help">{errors.gymZip}</p>}
             </div>
           </div>
           <div className="container-2">
             <label>Wysokość</label>
             <div className="input-n-error">
-            <input
-              autoComplete="off" 
-              type="text"
-              value={values.gymHeight || ''}
-              name="gymHeight"
-              placeholder="w metrach"
-              pattern="[0-9]+([\.,][0-9]+)?"
-              min="1"
-              onChange={handleChange}
-              required
-            />
-              {errors.gymHeight && (
-                <p className="help">{errors.gymHeight}</p>
-              )}
+              <input
+                autoComplete="off"
+                type="text"
+                value={values.gymHeight || ""}
+                name="gymHeight"
+                placeholder="w metrach"
+                pattern="[0-9]+([\.,][0-9]+)?"
+                min="1"
+                onChange={handleChange}
+                required
+              />
+              {errors.gymHeight && <p className="help">{errors.gymHeight}</p>}
             </div>
           </div>
           <div className="container-2">
             <label>Szerokość</label>
             <div className="input-n-error">
-            <input
-              autoComplete="off"
-              type="text"
-              value={values.gymWidth || ''}
-              name="gymWidth"
-              placeholder="w metrach"
-              pattern="[0-9]+([\.,][0-9]+)?"
-              min="1"
-              onChange={handleChange}
-              required
-            />
-              {errors.gymWidth && (
-                <p className="help">{errors.gymWidth}</p>
-              )}
+              <input
+                autoComplete="off"
+                type="text"
+                value={values.gymWidth || ""}
+                name="gymWidth"
+                placeholder="w metrach"
+                pattern="[0-9]+([\.,][0-9]+)?"
+                min="1"
+                onChange={handleChange}
+                required
+              />
+              {errors.gymWidth && <p className="help">{errors.gymWidth}</p>}
             </div>
           </div>
           <div className="container-2">
             <label>Długość</label>
             <div className="input-n-error">
-            <input
-              autoComplete="off" 
-              type="text"
-              value={values.gymLength || ''}
-              name="gymLength"
-              placeholder="w metrach"
-              pattern="[0-9]+([\.,][0-9]+)?"
-              min="1"
-              onChange={handleChange}
-              required
-            />
-              {errors.gymLength && (
-                <p className="help">{errors.gymLength}</p>
-              )}
+              <input
+                autoComplete="off"
+                type="text"
+                value={values.gymLength || ""}
+                name="gymLength"
+                placeholder="w metrach"
+                pattern="[0-9]+([\.,][0-9]+)?"
+                min="1"
+                onChange={handleChange}
+                required
+              />
+              {errors.gymLength && <p className="help">{errors.gymLength}</p>}
             </div>
           </div>
-         <div className="container-2">
+          <div className="container-2">
             <label>Liczba miejsc na widowni</label>
             <div className="input-n-error">
-            <input
-              autoComplete="off"
-              type="number"
-              value={values.audience || ''}
-              name="audience"
-              min="1"
-              onChange={handleChange}
-              required
-            />
-              {errors.audience && (
-                <p className="help">{errors.audience}</p>
-              )}
+              <input
+                autoComplete="off"
+                type="number"
+                value={values.audience || ""}
+                name="audience"
+                min="1"
+                onChange={handleChange}
+                required
+              />
+              {errors.audience && <p className="help">{errors.audience}</p>}
             </div>
           </div>
-           <div className="container-2">
+          <div className="container-2">
             <label>Liczba szatń</label>
             <div className="input-n-error">
-            <input
-              autoComplete="off" 
-              type="number"
-              value={values.changingRooms || ''}
-              name="changingRooms"
-              min="0"
-              onChange={handleChange}
-              required
-            />
+              <input
+                autoComplete="off"
+                type="number"
+                value={values.changingRooms || ""}
+                name="changingRooms"
+                min="0"
+                onChange={handleChange}
+                required
+              />
               {errors.changingRooms && (
                 <p className="help">{errors.changingRooms}</p>
               )}
@@ -365,19 +345,17 @@ export default function gymForm() {
           <div className="container-2">
             <label>Cena</label>
             <div className="input-n-error">
-            <input
-              autoComplete="off"
-              type="text"
-              value={values.gymPrice || ''}
-              name="gymPrice"
-              pattern="[0-9]+([\.,][0-9]{0,2})?"
-              min="1"
-              onChange={handleChange}
-              required
-            />
-              {errors.gymPrice && (
-                <p className="help">{errors.gymPrice}</p>
-              )}
+              <input
+                autoComplete="off"
+                type="text"
+                value={values.gymPrice || ""}
+                name="gymPrice"
+                pattern="[0-9]+([\.,][0-9]{0,2})?"
+                min="1"
+                onChange={handleChange}
+                required
+              />
+              {errors.gymPrice && <p className="help">{errors.gymPrice}</p>}
             </div>
           </div>
           {/* <div className="container-2">
@@ -436,9 +414,7 @@ export default function gymForm() {
             id="img_url"
             onChange={handleImageAsFile}
           ></input>
-          {errors.gymPhoto && (
-                <p className="help">{errors.gymPhoto}</p>
-              )}
+          {errors.gymPhoto && <p className="help">{errors.gymPhoto}</p>}
         </div>
 
         {/*<div id="gallery">
@@ -601,10 +577,8 @@ export default function gymForm() {
 
       <div></div>
       <div></div>
-      
-      <button className="form_button"> 
-        DODAJ
-      </button>
+
+      <button className="form_button">DODAJ</button>
       {/* <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}

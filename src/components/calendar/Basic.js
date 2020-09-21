@@ -57,12 +57,9 @@ class Basic extends Component {
       submitCalled: false,
       allFieldsValidated: false,
     };
-
-    // this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  //********** */
+  //***********/
 
   prevClick = (schedulerData) => {
     schedulerData.prev();
@@ -119,56 +116,63 @@ class Basic extends Component {
   };
 
   newEvent = (schedulerData, slotId, slotName, start, end, type, item) => {
-    if (
-      window.confirm(
-        `Chcesz zarezerwować termin / czas? \nOd ${start} do ${end}`
-        // {slotId: ${slotId}, slotName: ${slotName}, start: ${start}, end: ${end}, type: ${type}, item: ${item}}
-      )
-    ) {
-      let newFreshId = 0;
-      schedulerData.events.forEach((item) => {
-        if (item.id >= newFreshId) newFreshId = item.id + 1;
-      });
+    let today = new Date();
+    let startDate = new Date(start);
 
-      let newEvent = {
-        id: newFreshId,
-        title: "Do akceptacji",
-        start: start,
-        end: end,
-        resourceId: slotId,
-        bgColor: "#FFD700",
-      };
-
-      schedulerData.addEvent(newEvent);
-      this.setState({
-        viewModel: schedulerData,
-      });
-
-      // setErrors({});
-      // setErrors(validate(values));
-      // setIsSubmitting(true);
-
-      db.collection("reservation")
-        .add({
-          id: newEvent.id,
-          title: "Do akceptacji",
-          start: newEvent.start,
-          end: newEvent.end,
-          resourceId: newEvent.resourceId,
-          bgColor: "#FFD700",
-          gym_id: this.props.gym_id,
-          reservation_date: new Date().toISOString(),
-          name: this.state.name.value,
-          surname: this.state.surname.value,
-          email: this.state.email.value,
-          phoneNumber: this.state.phoneNumber.value,
-        })
-        .then(() => {
-          // window.location.reload();
-          // return <Redirect to="/finishReservation" />;
-          window.location.replace("http://localhost:3000/finishReservation");
+    if (startDate < today) {
+      alert("Początkowa data nie może być dzisiej lub z przeszłości!");
+    } else {
+      if (
+        window.confirm(
+          `Chcesz zarezerwować termin / czas? \nOd ${start} do ${end}`
+          // {slotId: ${slotId}, slotName: ${slotName}, start: ${start}, end: ${end}, type: ${type}, item: ${item}}
+        )
+      ) {
+        let newFreshId = 0;
+        schedulerData.events.forEach((item) => {
+          if (item.id >= newFreshId) newFreshId = item.id + 1;
         });
-      // insert stuff from booking
+
+        let newEvent = {
+          id: newFreshId,
+          title: "Do akceptacji",
+          start: start,
+          end: end,
+          resourceId: slotId,
+          bgColor: "#FFD700",
+        };
+
+        schedulerData.addEvent(newEvent);
+        this.setState({
+          viewModel: schedulerData,
+        });
+
+        // setErrors({});
+        // setErrors(validate(values));
+        // setIsSubmitting(true);
+
+        db.collection("reservation")
+          .add({
+            id: newEvent.id,
+            title: "Do akceptacji",
+            start: newEvent.start,
+            end: newEvent.end,
+            resourceId: newEvent.resourceId,
+            bgColor: "#FFD700",
+            gym_id: this.props.gym_id,
+            reservation_date: new Date().toISOString(),
+            name: this.state.name.value,
+            surname: this.state.surname.value,
+            email: this.state.email.value,
+            phoneNumber: this.state.phoneNumber.value,
+          })
+          .then(() => {
+            window.location.reload();
+            // return <Redirect to="/finishReservation" />;
+            window.location.replace("http://localhost:3000/finishReservation");
+          });
+        // insert stuff from booking
+      }
     }
   };
 
@@ -388,6 +392,11 @@ class Basic extends Component {
                   onSubmit={(evt) => this.handleSubmit(evt)}
                   className="gymForm"
                 >
+                  <h3
+                    style={{ textAlign: "center", color: "var(--darkOrange)" }}
+                  >
+                    Rezerwacja
+                  </h3>
                   {/* Name field */}
                   <div className="form-group">
                     <TextField
@@ -396,14 +405,12 @@ class Basic extends Component {
                       name="name"
                       value={name.value}
                       InputLabelProps={{
-                        shrink: true,  
+                        shrink: true,
                       }}
                       inputProps={{
                         size: 30,
                       }}
-
                       floatingLabelFixed={true}
-
                       className={classnames(
                         "form-control",
                         { "is-valid": name.error === false },

@@ -9,8 +9,9 @@ class Localization extends Component {
   };
 
   render() {
-    // const position = [this.state.gymLat, this.state.gymLng];
     const position = this.props.position;
+    const gymName = this.props.gymName;
+
     return (
       <Map center={position} zoom={this.state.zoom}>
         <TileLayer
@@ -19,8 +20,7 @@ class Localization extends Component {
         />
         <Marker position={position}>
           <Popup>
-            Latitude and longitude: <br /> {this.state.gymLat},{" "}
-            {this.state.gymLng}
+            {gymName} <br /> ({this.state.gymLat}, {this.state.gymLng})
           </Popup>
         </Marker>
       </Map>

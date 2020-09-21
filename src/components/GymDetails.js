@@ -163,7 +163,7 @@ class GymDetails extends Component {
           </div>
 
           <div className="map">
-            <Localization position={position} />
+            <Localization position={position} gymName={gymName} />
           </div>
 
           {/*<button className="gym-button" onClick={() => this.setState({ showing: !showing })}>ZAREZERWUJ</button>

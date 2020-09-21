@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Slider from "../components/Slider";
 import GymDetails from "../components/GymDetails";
-import { MaterialUIPickers } from "../components/Booking";
+// import { MaterialUIPickers } from "../components/Booking";
 
 import Basic from "../components/calendar/Basic";
 import { HTML5Backend } from "react-dnd-html5-backend";
@@ -9,10 +9,6 @@ import { DndProvider } from "react-dnd";
 import GetBookingData from "../components/calendar/GetBookingData";
 
 class GymProfile extends Component {
-  onDayClick = (e, day) => {
-    alert(day);
-  };
-
   constructor(props) {
     super(props);
     this.state = { data: [] };
@@ -21,8 +17,8 @@ class GymProfile extends Component {
   }
 
   render() {
-    console.log("TU POWINNO BYC ID:");
-    console.log(this.props.match.params.id);
+    console.log("TU POWINNO BYC ID:" + this.props.match.params.id);
+    // window.location.reload();
 
     return (
       <>
