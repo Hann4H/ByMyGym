@@ -22,14 +22,27 @@ class Admin extends Component {
       <div>
         <div id="pls"></div>
         <div className="admin-page">
-          <button onClick={this._onButtonClick}>
-            Add halls from API to firebase
-          </button>
-          {this.state.showComponent ? <JsonData /> : null}
-          <br />
-          <Link to="/booking">
-            <button>Go to booking view</button>
-          </Link>
+          <div style={{ border: "2px solid var(--darkOrange)" }}>
+            <table style={{ width: "100%", margin: "10px" }}>
+              <tbody>
+                <tr>
+                  <td>Dodaj sale do firebase z API</td>
+                  <td>
+                    <button onClick={this._onButtonClick}>Dodaj</button>
+                    {this.state.showComponent ? <JsonData /> : null}
+                  </td>
+                </tr>
+                <tr>
+                  <td>Zarządzaj rezerwacją</td>
+                  <td>
+                    <Link to="/booking" style={{ color: "black" }}>
+                      <button>Przejdź</button>
+                    </Link>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     );
