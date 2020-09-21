@@ -3,6 +3,9 @@ import { PropTypes } from "prop-types";
 import validated from "../ValidatedReservation";
 import validate from "../ReservationValidationRules";
 
+import { validateFields } from "../../Validation";
+import classnames from "classnames";
+
 import Scheduler, {
   SchedulerData,
   ViewTypes,
@@ -13,22 +16,27 @@ import Scheduler, {
 import { ConfigProvider } from "antd";
 import plPL from "antd/es/locale/pl_PL";
 
-import firebase from "firebase";
+import TextField from "@material-ui/core/TextField";
+import Grid from "@material-ui/core/Grid";
+import { ThemeProvider } from "@material-ui/styles";
+import { createMuiTheme } from "@material-ui/core/styles";
+import DateFnsUtils from "@date-io/date-fns";
+import { MuiPickersUtilsProvider } from "@material-ui/pickers";
+import { Redirect } from "react-router-dom";
 
+import firebase from "firebase";
 const db = firebase.firestore();
 
-const validateForm = (errors) => {
-  let valid = true;
-  Object.values(errors).forEach((val) => val.length > 0 && (valid = false));
-  return valid;
-};
-
-const countErrors = (errors) => {
-  let count = 0;
-  Object.values(errors).forEach((val) => val.length > 0 && (count = count + 1));
-  return count;
-};
-
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      light: "#ffb967",
+      main: "#ffa841",
+      dark: "#ff8119",
+      contrastText: "#fff",
+    },
+  },
+});
 
 class Basic extends Component {
   constructor(props) {
@@ -42,7 +50,16 @@ class Basic extends Component {
       viewModel: schedulerData,
       values: {},
       errors: {},
+      name: { value: "", validateOnChange: false, error: "" },
+      surname: { value: "", validateOnChange: false, error: "" },
+      phoneNumber: { value: "", validateOnChange: false, error: "" },
+      email: { value: "", validateOnChange: false, error: "" },
+      submitCalled: false,
+      allFieldsValidated: false,
     };
+
+    // this.handleChange = this.handleChange.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   //********** */
@@ -104,7 +121,7 @@ class Basic extends Component {
   newEvent = (schedulerData, slotId, slotName, start, end, type, item) => {
     if (
       window.confirm(
-        `Chcesz wybrać datę / czas?`
+        `Chcesz zarezerwować termin / czas? \nOd ${start} do ${end}`
         // {slotId: ${slotId}, slotName: ${slotName}, start: ${start}, end: ${end}, type: ${type}, item: ${item}}
       )
     ) {
@@ -141,13 +158,15 @@ class Basic extends Component {
           bgColor: "#FFD700",
           gym_id: this.props.gym_id,
           reservation_date: new Date().toISOString(),
-          name: this.props.name,
-          surname: this.props.surname,
-          email: this.props.email,
-          phoneNumber: this.props.phoneNumber,
+          name: this.state.name.value,
+          surname: this.state.surname.value,
+          email: this.state.email.value,
+          phoneNumber: this.state.phoneNumber.value,
         })
         .then(() => {
-          window.location.reload();
+          // window.location.reload();
+          // return <Redirect to="/finishReservation" />;
+          window.location.replace("http://localhost:3000/finishReservation");
         });
       // insert stuff from booking
     }
@@ -231,43 +250,297 @@ class Basic extends Component {
     });
   };
 
+  // new changes 20.09
+
+  // handleChange(event) {
+  //   this.setState({ name: event.target.name });
+  // }
+
+  // handleSubmit(event) {
+  //   alert("Wysłano następujące wypracowanie: " + this.state.value);
+  //   event.preventDefault();
+  // }
+
+  /*
+   * validates the field onBlur if sumbit button is not clicked
+   * set the validateOnChange to true for that field
+   * check for error
+   */
+  handleBlur(validationFunc, evt) {
+    const field = evt.target.name;
+    // validate onBlur only when validateOnChange for that field is false
+    // because if validateOnChange is already true there is no need to validate onBlur
+    if (
+      this.state[field]["validateOnChange"] === false &&
+      this.state.submitCalled === false
+    ) {
+      this.setState((state) => ({
+        [field]: {
+          ...state[field],
+          validateOnChange: true,
+          error: validationFunc(state[field].value),
+        },
+      }));
+    }
+    return;
+  }
+
+  /*
+   * update the value in state for that field
+   * check for error if validateOnChange is true
+   */
+  handleChange(validationFunc, evt) {
+    const field = evt.target.name;
+    const fieldVal = evt.target.value;
+    this.setState((state) => ({
+      [field]: {
+        ...state[field],
+        value: fieldVal,
+        error: state[field]["validateOnChange"] ? validationFunc(fieldVal) : "",
+      },
+    }));
+  }
+
+  /*
+   * validate all fields
+   * check if all fields are valid if yes then submit the Form
+   * otherwise set errors for the feilds in the state
+   */
+  handleSubmit(evt) {
+    evt.preventDefault();
+    // validate all fields
+    const { email, name, surname, phoneNumber } = this.state;
+    const emailError = validateFields.validateEmail(email.value);
+    const nameError = validateFields.validateName(name.value);
+    const surnameError = validateFields.validateSurname(surname.value);
+    const phoneNumberError = validateFields.validatePhoneNumber(
+      phoneNumber.value
+    );
+
+    if (
+      [emailError, nameError, surnameError, phoneNumberError].every(
+        (e) => e === false
+      )
+    ) {
+      // no errors submit the form
+      console.log("success");
+
+      // clear state and show all fields are validated
+      this.setState({ allFieldsValidated: true });
+      // this.setState({ ...initialState, allFieldsValidated: true });
+      // this.showAllFieldsValidated();
+    } else {
+      // update the state with errors
+      this.setState((state) => ({
+        email: {
+          ...state.email,
+          validateOnChange: true,
+          error: emailError,
+        },
+        name: {
+          ...state.name,
+          validateOnChange: true,
+          error: nameError,
+        },
+        surname: {
+          ...state.surname,
+          validateOnChange: true,
+          error: surnameError,
+        },
+        phoneNumber: {
+          ...state.phoneNumber,
+          validateOnChange: true,
+          error: phoneNumberError,
+        },
+      }));
+    }
+  }
+
+  // showAllFieldsValidated() {
+  //   setTimeout(() => {
+  //     this.setState({ allFieldsValidated: false });
+  //   }, 1500);
+  // }
+
   render() {
     const { viewModel } = this.state;
+
+    const {
+      email,
+      name,
+      surname,
+      phoneNumber,
+      allFieldsValidated,
+    } = this.state;
+
     return (
       <div style={{ backgroundColor: "white" }}>
-        <div>
-          <br />
-          <ConfigProvider locale={plPL}>
-            <Scheduler
-              schedulerData={viewModel}
-              prevClick={this.prevClick}
-              nextClick={this.nextClick}
-              onSelectDate={this.onSelectDate}
-              onViewChange={this.onViewChange}
-              eventItemClick={this.eventClicked}
-              viewEventClick={this.ops1}
-              viewEventText="Ops 1"
-              viewEvent2Text="Ops 2"
-              viewEvent2Click={this.ops2}
-              updateEventStart={this.updateEventStart}
-              updateEventEnd={this.updateEventEnd}
-              moveEvent={this.moveEvent}
-              newEvent={this.newEvent}
-              onScrollLeft={this.onScrollLeft}
-              onScrollRight={this.onScrollRight}
-              onScrollTop={this.onScrollTop}
-              onScrollBottom={this.onScrollBottom}
-              toggleExpandFunc={this.toggleExpandFunc}
-            />
-          </ConfigProvider>
-        </div>
+        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+          <div className="booking-container">
+            <Grid
+              container
+              direction="column"
+              justify="center"
+              alignItems="flex-start"
+            >
+              <ThemeProvider theme={theme}>
+                <form
+                  onSubmit={(evt) => this.handleSubmit(evt)}
+                  className="gymForm"
+                >
+                  {/* Name field */}
+                  <div className="form-group">
+                    <TextField
+                      label="imię"
+                      type="text"
+                      name="name"
+                      value={name.value}
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
+                      className={classnames(
+                        "form-control",
+                        { "is-valid": name.error === false },
+                        { "is-invalid": name.error }
+                      )}
+                      onChange={(evt) =>
+                        this.handleChange(validateFields.validateName, evt)
+                      }
+                      onBlur={(evt) =>
+                        this.handleBlur(validateFields.validateName, evt)
+                      }
+                      fullWidth
+                      required
+                    />
+                    <div className="invalid-feedback">{name.error}</div>
+                  </div>
+
+                  {/* Surname field */}
+                  <div className="form-group">
+                    <TextField
+                      label="nazwisko"
+                      type="text"
+                      name="surname"
+                      value={surname.value}
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
+                      className={classnames(
+                        "form-control",
+                        { "is-valid": surname.error === false },
+                        { "is-invalid": surname.error }
+                      )}
+                      onChange={(evt) =>
+                        this.handleChange(validateFields.validateSurname, evt)
+                      }
+                      onBlur={(evt) =>
+                        this.handleBlur(validateFields.validateSurname, evt)
+                      }
+                      fullWidth
+                      required
+                    />
+                    <div className="invalid-feedback">{surname.error}</div>
+                  </div>
+
+                  {/* Email field */}
+                  <div className="form-group">
+                    <TextField
+                      label="Email"
+                      type="text"
+                      name="email"
+                      value={email.value}
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
+                      className={classnames(
+                        "form-control",
+                        { "is-valid": email.error === false },
+                        { "is-invalid": email.error }
+                      )}
+                      onChange={(evt) =>
+                        this.handleChange(validateFields.validateEmail, evt)
+                      }
+                      onBlur={(evt) =>
+                        this.handleBlur(validateFields.validateEmail, evt)
+                      }
+                      fullWidth
+                      required
+                    />
+                    <div className="invalid-feedback">{email.error}</div>
+                  </div>
+
+                  {/* phoneNumber field */}
+                  <div className="form-group">
+                    <TextField
+                      label="Telefon"
+                      type="text"
+                      name="phoneNumber"
+                      value={phoneNumber.value}
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
+                      className={classnames(
+                        "form-control",
+                        { "is-valid": phoneNumber.error === false },
+                        { "is-invalid": phoneNumber.error }
+                      )}
+                      onChange={(evt) =>
+                        this.handleChange(
+                          validateFields.validatePhoneNumber,
+                          evt
+                        )
+                      }
+                      onBlur={(evt) =>
+                        this.handleBlur(validateFields.validatePhoneNumber, evt)
+                      }
+                      fullWidth
+                      required
+                    />
+                    <div className="invalid-feedback">{phoneNumber.error}</div>
+                  </div>
+                  <br />
+                  <button
+                    type="submit"
+                    className="booking-button"
+                    onMouseDown={() => this.setState({ submitCalled: true })}
+                    value="Wybierz termin"
+                  >
+                    Wybierz przedział czasowy
+                  </button>
+                  <br />
+                  {allFieldsValidated && (
+                    <ConfigProvider locale={plPL}>
+                      <Scheduler
+                        schedulerData={viewModel}
+                        prevClick={this.prevClick}
+                        nextClick={this.nextClick}
+                        onSelectDate={this.onSelectDate}
+                        onViewChange={this.onViewChange}
+                        eventItemClick={this.eventClicked}
+                        viewEventClick={this.ops1}
+                        viewEventText="Ops 1"
+                        viewEvent2Text="Ops 2"
+                        viewEvent2Click={this.ops2}
+                        updateEventStart={this.updateEventStart}
+                        updateEventEnd={this.updateEventEnd}
+                        moveEvent={this.moveEvent}
+                        newEvent={this.newEvent}
+                        onScrollLeft={this.onScrollLeft}
+                        onScrollRight={this.onScrollRight}
+                        onScrollTop={this.onScrollTop}
+                        onScrollBottom={this.onScrollBottom}
+                        toggleExpandFunc={this.toggleExpandFunc}
+                      />
+                    </ConfigProvider>
+                  )}
+                </form>
+              </ThemeProvider>
+            </Grid>
+          </div>
+        </MuiPickersUtilsProvider>
       </div>
     );
   }
 }
-
-// export default withDragDropContext(Basic);
-// export default createDndContext(HTML5Backend)(Basic);
-// export default Basic;
 
 export default Basic;

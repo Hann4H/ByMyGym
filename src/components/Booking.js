@@ -438,15 +438,15 @@ export function MaterialUIPickers(props) {
                       </DndProvider>
                     </div>
 
-                    <Link
+                    {/* <Link
                       to={{
                         pathname: `/finishReservation`,
                       }}
-                    >
-                      <button className="booking-button" onClick={openModal}>
-                        ZAREZERWUJ
-                      </button>
-                    </Link>
+                    > */}
+                    <button className="booking-button" onClick={openModal}>
+                      ZAREZERWUJ
+                    </button>
+                    {/* </Link> */}
 
                     <Modal
                       isOpen={modalIsOpen}

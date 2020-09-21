@@ -32,7 +32,12 @@ function ListItems(props) {
     console.log("change status run");
     db.collection("reservation")
       .doc(docId)
-      .update({ title: "Zarezerwowane", bgColor: "#90EE90" })
+      .update({
+        title: "Zarezerwowane",
+        bgColor: "#90EE90",
+        movable: false,
+        resizable: false,
+      })
       .then(function () {
         console.log("Status successfully changed! Doc: " + docId);
       })
@@ -52,13 +57,35 @@ function ListItems(props) {
             </tr>
             <tr>
               <td>Status rezerwacji</td>
-              <td>{data.title}</td>
+              <td
+                style={
+                  data.title === "Zarezerwowane"
+                    ? { color: "#90EE90" }
+                    : { color: "#FFD700" }
+                }
+              >
+                <b>{data.title}</b>
+              </td>
             </tr>
             <tr>
               <td>Czas rezerwacji</td>
               <td>
                 {data.start} - {data.end}
               </td>
+            </tr>
+            <tr>
+              <td>Imię Nazwisko</td>
+              <td>
+                {data.name} {data.surname}
+              </td>
+            </tr>
+            <tr>
+              <td>E-mail</td>
+              <td>{data.email}</td>
+            </tr>
+            <tr>
+              <td>Telefon</td>
+              <td>{data.phoneNumber}</td>
             </tr>
             <tr>
               <td>Budynek ID</td>

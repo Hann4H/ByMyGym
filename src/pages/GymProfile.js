@@ -2,16 +2,11 @@ import React, { Component } from "react";
 import Slider from "../components/Slider";
 import GymDetails from "../components/GymDetails";
 import { MaterialUIPickers } from "../components/Booking";
-import firebase from "firebase";
-import $ from "jquery";
 
 import Basic from "../components/calendar/Basic";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { DndProvider } from "react-dnd";
-
 import GetBookingData from "../components/calendar/GetBookingData";
-
-const db = firebase.firestore();
 
 class GymProfile extends Component {
   onDayClick = (e, day) => {
@@ -42,15 +37,18 @@ class GymProfile extends Component {
               <GymDetails dataId={this.props.match.params.id} />
             </div>
           </div>
-          <MaterialUIPickers gym_id={this.props.match.params.id} />
-          
-          
+          {/* <MaterialUIPickers gym_id={this.props.match.params.id} /> */}
+
+          <div className="calendar-position">
+            <GetBookingData gym_id={this.props.match.params.id} />
+            <DndProvider backend={HTML5Backend}>
+              <Basic gym_id={this.props.match.params.id} />
+            </DndProvider>
+          </div>
         </div>
         <div className="container">
           <div id="target"></div>
         </div>
-
-        
 
         <div id="pls" />
       </>

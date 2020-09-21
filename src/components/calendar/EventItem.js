@@ -704,12 +704,11 @@ class EventItem extends Component {
 
     let a = (
       <a
-        href="/#"
         className="timeline-event"
         style={{ left: left, width: width, top: top }}
-        onClick={() => {
-          if (!!eventItemClick) eventItemClick(schedulerData, eventItem);
-        }}
+        // onClick={() => {
+        //   if (!!eventItemClick) eventItemClick(schedulerData, eventItem);
+        // }}
       >
         {eventItemTemplate}
         {startResizeDiv}

@@ -20,6 +20,8 @@
     "axios": "^0.20.0",
     "babel-preset-react-app": "^9.1.2",
     "body-parser": "^1.19.0",
+    "bootstrap": "^4.5.2",
+    "classnames": "^2.2.6",
     "cors": "^2.8.5",
     "cpy": "^8.1.0",
     "date-fns": "^2.0.0-beta.5",
@@ -80,7 +82,8 @@
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.88.2",
     "svelte": "^3.24.0",
-    "sveltefire": "^0.1.5"
+    "sveltefire": "^0.1.5",
+    "validator": "^13.1.17"
   },
   "scripts": {
     "start": "react-scripts start",
