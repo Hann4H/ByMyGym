@@ -8,6 +8,8 @@ import { HTML5Backend } from "react-dnd-html5-backend";
 import { DndProvider } from "react-dnd";
 import GetBookingData from "../components/calendar/GetBookingData";
 
+import ShowScheduler from "../components/calendar/ShowScheduler";
+
 class GymProfile extends Component {
   constructor(props) {
     super(props);
@@ -32,6 +34,13 @@ class GymProfile extends Component {
             <div id="constrain">
               <GymDetails dataId={this.props.match.params.id} />
             </div>
+          </div>
+
+          <div className="calendar-position">
+            <GetBookingData gym_id={this.props.match.params.id} />
+            <DndProvider backend={HTML5Backend}>
+              <ShowScheduler gym_id={this.props.match.params.id} />
+            </DndProvider>
           </div>
           {/* <MaterialUIPickers gym_id={this.props.match.params.id} /> */}
 
