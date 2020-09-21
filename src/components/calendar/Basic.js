@@ -398,6 +398,9 @@ class Basic extends Component {
                       InputLabelProps={{
                         shrink: true,  
                       }}
+                      inputProps={{
+                        size: 30,
+                      }}
 
                       floatingLabelFixed={true}
 
@@ -412,7 +415,6 @@ class Basic extends Component {
                       onBlur={(evt) =>
                         this.handleBlur(validateFields.validateName, evt)
                       }
-                      fullWidth
                       required
                     />
                     <div className="invalid-feedback">{name.error}</div>
@@ -428,6 +430,9 @@ class Basic extends Component {
                       InputLabelProps={{
                         shrink: true,
                       }}
+                      inputProps={{
+                        size: 30,
+                      }}
                       className={classnames(
                         "form-control",
                         { "is-valid": surname.error === false },
@@ -439,7 +444,6 @@ class Basic extends Component {
                       onBlur={(evt) =>
                         this.handleBlur(validateFields.validateSurname, evt)
                       }
-                      fullWidth
                       required
                     />
                     <div className="invalid-feedback">{surname.error}</div>
@@ -455,6 +459,9 @@ class Basic extends Component {
                       InputLabelProps={{
                         shrink: true,
                       }}
+                      inputProps={{
+                        size: 30,
+                      }}
                       className={classnames(
                         "form-control",
                         { "is-valid": email.error === false },
@@ -466,7 +473,6 @@ class Basic extends Component {
                       onBlur={(evt) =>
                         this.handleBlur(validateFields.validateEmail, evt)
                       }
-                      fullWidth
                       required
                     />
                     <div className="invalid-feedback">{email.error}</div>
@@ -482,6 +488,9 @@ class Basic extends Component {
                       InputLabelProps={{
                         shrink: true,
                       }}
+                      inputProps={{
+                        size: 30,
+                      }}
                       className={classnames(
                         "form-control",
                         { "is-valid": phoneNumber.error === false },
@@ -496,7 +505,6 @@ class Basic extends Component {
                       onBlur={(evt) =>
                         this.handleBlur(validateFields.validatePhoneNumber, evt)
                       }
-                      fullWidth
                       required
                     />
                     <div className="invalid-feedback">{phoneNumber.error}</div>
