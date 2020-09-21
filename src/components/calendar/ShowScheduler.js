@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import { ConfigProvider } from "antd";
-import Scheduler, { SchedulerData, ViewTypes, DemoData } from "./Scheduler";
+import Scheduler, { SchedulerData, ViewTypes } from "./Scheduler";
 import plPL from "antd/es/locale/pl_PL";
+
+import firebase from "firebase";
+const db = firebase.firestore();
 
 class ShowScheduler extends Component {
   constructor(props) {
@@ -9,16 +12,53 @@ class ShowScheduler extends Component {
 
     let schedulerData = new SchedulerData(new Date(), ViewTypes.Week);
     schedulerData.localeMoment.locale("pl");
-    schedulerData.setResources(DemoData.resources);
-    schedulerData.setEvents(DemoData.events);
     this.state = {
       viewModel: schedulerData,
+      DemoData: {
+        resources: [
+          {
+            id: "r0",
+            name: "",
+            groupOnly: true,
+          },
+          {
+            id: "r1",
+            name: "Rezerwacja",
+          },
+        ],
+        events: [],
+      },
     };
+    schedulerData.setResources(this.state.DemoData.resources);
+    schedulerData.setEvents(this.state.DemoData.events);
+  }
+
+  componentDidMount() {
+    db.collection("reservation")
+      .where("gym_id", "==", this.props.gym_id)
+      .get()
+      .then((items) => {
+        const events = items.docs.map((doc) => {
+          return { docId: doc.id, ...doc.data() };
+        });
+
+        const eventsData = JSON.stringify(events, null, 4);
+        this.setState((events) => ({
+          DemoData: {
+            events: JSON.parse(eventsData),
+          },
+        }));
+
+        console.log(
+          "Show booking items3!!!: " +
+            JSON.stringify(this.state.DemoData.events, null, 4)
+        );
+      });
   }
 
   prevClick = (schedulerData) => {
     schedulerData.prev();
-    schedulerData.setEvents(DemoData.events);
+    schedulerData.setEvents(this.state.DemoData.events);
     this.setState({
       viewModel: schedulerData,
     });
@@ -26,7 +66,7 @@ class ShowScheduler extends Component {
 
   nextClick = (schedulerData) => {
     schedulerData.next();
-    schedulerData.setEvents(DemoData.events);
+    schedulerData.setEvents(this.state.DemoData.events);
     this.setState({
       viewModel: schedulerData,
     });
@@ -38,7 +78,7 @@ class ShowScheduler extends Component {
       view.showAgenda,
       view.isEventPerspective
     );
-    schedulerData.setEvents(DemoData.events);
+    schedulerData.setEvents(this.state.DemoData.events);
     this.setState({
       viewModel: schedulerData,
     });
@@ -46,7 +86,7 @@ class ShowScheduler extends Component {
 
   onSelectDate = (schedulerData, date) => {
     schedulerData.setDate(date);
-    schedulerData.setEvents(DemoData.events);
+    schedulerData.setEvents(this.state.DemoData.events);
     this.setState({
       viewModel: schedulerData,
     });
@@ -55,7 +95,7 @@ class ShowScheduler extends Component {
   onScrollRight = (schedulerData, schedulerContent, maxScrollLeft) => {
     if (schedulerData.ViewTypes === ViewTypes.Day) {
       schedulerData.next();
-      schedulerData.setEvents(DemoData.events);
+      schedulerData.setEvents(this.state.DemoData.events);
       this.setState({
         viewModel: schedulerData,
       });
@@ -67,7 +107,7 @@ class ShowScheduler extends Component {
   onScrollLeft = (schedulerData, schedulerContent, maxScrollLeft) => {
     if (schedulerData.ViewTypes === ViewTypes.Day) {
       schedulerData.prev();
-      schedulerData.setEvents(DemoData.events);
+      schedulerData.setEvents(this.state.DemoData.events);
       this.setState({
         viewModel: schedulerData,
       });

@@ -20,7 +20,6 @@ class GymProfile extends Component {
 
   render() {
     console.log("TU POWINNO BYC ID:" + this.props.match.params.id);
-    // window.location.reload();
 
     return (
       <>
@@ -37,15 +36,11 @@ class GymProfile extends Component {
           </div>
 
           <div className="calendar-position">
-            <GetBookingData gym_id={this.props.match.params.id} />
             <DndProvider backend={HTML5Backend}>
               <ShowScheduler gym_id={this.props.match.params.id} />
             </DndProvider>
           </div>
-          {/* <MaterialUIPickers gym_id={this.props.match.params.id} /> */}
-
           <div className="calendar-position">
-            <GetBookingData gym_id={this.props.match.params.id} />
             <DndProvider backend={HTML5Backend}>
               <Basic gym_id={this.props.match.params.id} />
             </DndProvider>
@@ -54,7 +49,6 @@ class GymProfile extends Component {
         <div className="container">
           <div id="target"></div>
         </div>
-
         <div id="pls" />
       </>
     );

@@ -6,12 +6,8 @@ import validate from "../ReservationValidationRules";
 import { validateFields } from "../../Validation";
 import classnames from "classnames";
 
-import Scheduler, {
-  SchedulerData,
-  ViewTypes,
-  DATE_FORMAT,
-  DemoData,
-} from "./Scheduler";
+import Scheduler, { SchedulerData, ViewTypes, DATE_FORMAT } from "./Scheduler";
+// import DemoData from "./DemoData";
 
 import { ConfigProvider, DatePicker, Space } from "antd";
 
@@ -47,8 +43,6 @@ class Basic extends Component {
 
     let schedulerData = new SchedulerData(new Date(), ViewTypes.Week);
     schedulerData.localeMoment.locale("pl");
-    schedulerData.setResources(DemoData.resources);
-    schedulerData.setEvents(DemoData.events);
     this.state = {
       viewModel: schedulerData,
       dateRange: null,
@@ -60,14 +54,71 @@ class Basic extends Component {
       email: { value: "", validateOnChange: false, error: "" },
       submitCalled: false,
       allFieldsValidated: false,
+      DemoData: {
+        resources: [
+          {
+            id: "r0",
+            name: "",
+            groupOnly: true,
+          },
+          {
+            id: "r1",
+            name: "Rezerwacja",
+          },
+        ],
+        events: [],
+      },
     };
+    schedulerData.setResources(this.state.DemoData.resources);
+    schedulerData.setEvents(this.state.DemoData.events);
+  }
+
+  //   {
+  //     docId: null,
+  //     end: null,
+  //     bgColor: null,
+  //     reservation_date: null,
+  //     surname: null,
+  //     name: null,
+  //     resizable: false,
+  //     title: null,
+  //     email: null,
+  //     id: null,
+  //     movable: false,
+  //     gym_id: null,
+  //     phoneNumber: null,
+  //     start: null,
+  //     resourceId: null
+  // }
+
+  componentDidMount() {
+    db.collection("reservation")
+      .where("gym_id", "==", this.props.gym_id)
+      .get()
+      .then((items) => {
+        const events = items.docs.map((doc) => {
+          return { docId: doc.id, ...doc.data() };
+        });
+
+        const eventsData = JSON.stringify(events, null, 4);
+        this.setState((events) => ({
+          DemoData: {
+            events: JSON.parse(eventsData),
+          },
+        }));
+
+        console.log(
+          "Show booking items3!!!: " +
+            JSON.stringify(this.state.DemoData.events, null, 4)
+        );
+      });
   }
 
   //***********/
 
   prevClick = (schedulerData) => {
     schedulerData.prev();
-    schedulerData.setEvents(DemoData.events);
+    schedulerData.setEvents(this.state.DemoData.events);
     this.setState({
       viewModel: schedulerData,
     });
@@ -75,7 +126,7 @@ class Basic extends Component {
 
   nextClick = (schedulerData) => {
     schedulerData.next();
-    schedulerData.setEvents(DemoData.events);
+    schedulerData.setEvents(this.state.DemoData.events);
     this.setState({
       viewModel: schedulerData,
     });
@@ -87,7 +138,7 @@ class Basic extends Component {
       view.showAgenda,
       view.isEventPerspective
     );
-    schedulerData.setEvents(DemoData.events);
+    schedulerData.setEvents(this.state.DemoData.events);
     this.setState({
       viewModel: schedulerData,
     });
@@ -95,7 +146,7 @@ class Basic extends Component {
 
   onSelectDate = (schedulerData, date) => {
     schedulerData.setDate(date);
-    schedulerData.setEvents(DemoData.events);
+    schedulerData.setEvents(this.state.DemoData.events);
     this.setState({
       viewModel: schedulerData,
     });
@@ -224,7 +275,7 @@ class Basic extends Component {
   onScrollRight = (schedulerData, schedulerContent, maxScrollLeft) => {
     if (schedulerData.ViewTypes === ViewTypes.Day) {
       schedulerData.next();
-      schedulerData.setEvents(DemoData.events);
+      schedulerData.setEvents(this.state.DemoData.events);
       this.setState({
         viewModel: schedulerData,
       });
@@ -236,7 +287,7 @@ class Basic extends Component {
   onScrollLeft = (schedulerData, schedulerContent, maxScrollLeft) => {
     if (schedulerData.ViewTypes === ViewTypes.Day) {
       schedulerData.prev();
-      schedulerData.setEvents(DemoData.events);
+      schedulerData.setEvents(this.state.DemoData.events);
       this.setState({
         viewModel: schedulerData,
       });

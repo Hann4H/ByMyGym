@@ -26,7 +26,7 @@ import ViewTypes from "./ViewTypes";
 import CellUnits from "./CellUnits";
 import SummaryPos from "./SummaryPos";
 import SchedulerData from "./SchedulerData";
-import DemoData from "./DemoData";
+// import DemoData from "./DemoData";
 
 import moment from "moment";
 import "moment/locale/pl";
@@ -650,6 +650,6 @@ export {
   DnDSource,
   DnDContext,
   AddMorePopover,
-  DemoData,
+  // DemoData,
 };
 export default Scheduler;
