@@ -65,7 +65,7 @@ class GymItem extends Component {
                 onClick={DeleteItemFromFirebase}
                 className="delete-gym-button"
               >
-                USUŃ
+                Usuń
               </button>
               </div>
             </div>

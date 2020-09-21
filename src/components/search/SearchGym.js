@@ -28,7 +28,7 @@ export default class SearchGym extends Component {
       value: "",
       data: [],
       offset: 0,
-      perPage: 8,
+      perPage: 5,
       currentPage: 1,
     };
     this.handlePageClick = this
@@ -53,7 +53,6 @@ export default class SearchGym extends Component {
         isLoading: false,
         results: _.filter(this.state.data, isMatch),
       });
-      // this.receivedData()
     }, 300);
   };
 
@@ -71,8 +70,9 @@ export default class SearchGym extends Component {
         console.log("links: " + links);
         console.log("links data: " + this.gymData);
         this.state.loading = true;
-
+        this.receivedData()
       });
+    
   }
 
   receivedData() {
@@ -90,7 +90,6 @@ export default class SearchGym extends Component {
   }
 
 
-
   handlePageClick = (e) => {
     const selectedPage = e.selected;
     const offset = selectedPage * this.state.perPage;
@@ -106,6 +105,7 @@ export default class SearchGym extends Component {
 
   render() {
     const { isLoading, value, results } = this.state;
+
     return (
       <>
         <Grid>
@@ -128,21 +128,11 @@ export default class SearchGym extends Component {
                 {this.state.loading ? null : <Loading />}
               </div>
 
-
             {this.state.results.slice(this.state.offset, this.state.offset + this.state.perPage).map((gym, index) => (
-            
-              <GymItem key={gym.id} showCount={false} gym={gym} index={index} />
-            //   this.setState({
-            //     pageCount: Math.ceil(this.state.results.length / this.state.perPage),
-        
-            //     postData
-            // })
-              
-            ))}
+                <GymItem key={gym.id} showCount={false} gym={gym} index={index} />
+              ))
+            }
 
-            {/* <div>
-                {this.state.postData}
-              </div> */}
               <div className="pagination-out">
                 <ReactPaginate
                     previousLabel={"<"}
