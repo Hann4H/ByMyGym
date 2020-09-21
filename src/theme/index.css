@@ -1502,4 +1502,18 @@ ul.unstyled {
 
 .delete-gym-button {
   width: 10rem;
+  color: var(--mainWhite);
+  background-color: #e10000;
+}
+
+.delete-gym-button:hover {
+  background-color: #940000;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+    -webkit-transition-delay: 9999s;
 }
