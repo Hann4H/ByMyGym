@@ -53,6 +53,7 @@ class GymItem extends Component {
               </p>
               <p>Cena za godzinę: {this.props.gym.gymPrice}zł</p>
 
+              <div className="button-flex">
               <Link
                 to={{
                   pathname: `/gym_profile/${this.props.gym.docId}`,
@@ -63,9 +64,11 @@ class GymItem extends Component {
               <button
                 style={{ backgroundColor: "#e10000" }}
                 onClick={DeleteItemFromFirebase}
+                className="delete-gym-button"
               >
-                Usuń {this.props.gym.docId}
+                Usuń
               </button>
+              </div>
             </div>
           </div>
         </div>

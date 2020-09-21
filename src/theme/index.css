@@ -1494,3 +1494,12 @@ ul.unstyled {
 .MuiTextField-root input {
   padding-top: 15px;
 }
+
+.button-flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.delete-gym-button {
+  width: 10rem;
+}
