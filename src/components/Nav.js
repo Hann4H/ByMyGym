@@ -112,13 +112,13 @@ class Nav extends Component {
                   </button>
                 </Link>
               ) : (
-                <Link to="login">
+                <Link to="/login">
                   <button className="nav-button">ZALOGUJ</button>
                 </Link>
               )}
             </li>
             <li>
-              <Link to="admin">
+              <Link to="/admin">
                 <button className="nav-button">ADMIN</button>
                 {/* {
                   <svg
