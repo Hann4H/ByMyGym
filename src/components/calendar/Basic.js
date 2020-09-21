@@ -41,7 +41,9 @@ class Basic extends Component {
   constructor(props) {
     super(props);
 
-    let schedulerData = new SchedulerData(new Date(), ViewTypes.Week);
+    let schedulerData = new SchedulerData(new Date(), ViewTypes.Day);
+    // let schedulerData = new SchedulerData(new Date(), ViewTypes.Week);
+
     schedulerData.localeMoment.locale("pl");
     this.state = {
       viewModel: schedulerData,

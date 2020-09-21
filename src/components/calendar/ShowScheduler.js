@@ -10,7 +10,7 @@ class ShowScheduler extends Component {
   constructor(props) {
     super(props);
 
-    let schedulerData = new SchedulerData(new Date(), ViewTypes.Week);
+    let schedulerData = new SchedulerData(new Date(), ViewTypes.Day);
     schedulerData.localeMoment.locale("pl");
     this.state = {
       viewModel: schedulerData,
@@ -148,6 +148,7 @@ class ShowScheduler extends Component {
             onScrollTop={this.onScrollTop}
             onScrollBottom={this.onScrollBottom}
             toggleExpandFunc={this.toggleExpandFunc}
+            dane={this.state.DemoData.events}
           />
         </ConfigProvider>
       </div>

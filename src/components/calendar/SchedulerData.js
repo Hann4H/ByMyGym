@@ -13,6 +13,7 @@ export default class SchedulerData {
   constructor(
     date = moment().format(DATE_FORMAT),
     viewType = ViewTypes.Week,
+    // viewType = ViewTypes.Week,
     showAgenda = false,
     isEventPerspective = false,
     newConfig = undefined,
