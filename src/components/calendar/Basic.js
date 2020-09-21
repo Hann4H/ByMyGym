@@ -13,7 +13,8 @@ import Scheduler, {
   DemoData,
 } from "./Scheduler";
 
-import { ConfigProvider } from "antd";
+import { ConfigProvider, DatePicker, Space } from "antd";
+
 import plPL from "antd/es/locale/pl_PL";
 
 import TextField from "@material-ui/core/TextField";
@@ -38,6 +39,8 @@ const theme = createMuiTheme({
   },
 });
 
+const { RangePicker } = DatePicker;
+
 class Basic extends Component {
   constructor(props) {
     super(props);
@@ -48,6 +51,7 @@ class Basic extends Component {
     schedulerData.setEvents(DemoData.events);
     this.state = {
       viewModel: schedulerData,
+      dateRange: null,
       values: {},
       errors: {},
       name: { value: "", validateOnChange: false, error: "" },
@@ -255,6 +259,17 @@ class Basic extends Component {
       viewModel: schedulerData,
     });
   };
+
+  //***********************************************************************/
+
+  onChangeRangePicker = (value, dateString) => {
+    let date = this.state.dateRange;
+    date.push(value);
+    this.setState({ dateRange: date });
+    console.log("Selected Time: ", date);
+  };
+
+  //**********************************************************************/
 
   // new changes 20.09
 
@@ -553,6 +568,14 @@ class Basic extends Component {
                       />
                     </ConfigProvider>
                   )}
+
+                  <br />
+                  <ConfigProvider locale={plPL}>
+                    <RangePicker
+                      renderExtraFooter={() => "extra footer"}
+                      onChange={this.onChangeRangePicker}
+                    />
+                  </ConfigProvider>
                 </form>
               </ThemeProvider>
             </Grid>
