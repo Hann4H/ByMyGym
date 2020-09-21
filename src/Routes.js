@@ -21,6 +21,7 @@ const Routes = () => (
         <Route path="/contact" exact component={Contact} />
         <Route path="/add" exact component={AddGym} />
         <Route path="/login" exact component={Login} />
+        <Route path="/gym_profile/login" exact component={Login} />
         <Route path="/signup" exact component={SignUpComponent} />
         <Route path="/gym_profile/:id" component={GymProfile} />
         <Route path="/profile" exact component={Profile} />

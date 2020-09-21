@@ -49,6 +49,7 @@ class Nav extends Component {
   render() {
     if (window.location.pathname === "/signup") return null;
     if (window.location.pathname === "/login") return null;
+    if (window.location.pathname === "/gym_profile/login") return null;
 
     let name;
     var user = firebase.auth().currentUser;

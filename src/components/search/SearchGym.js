@@ -66,11 +66,13 @@ export default class SearchGym extends Component {
         });
         this.state.loading = true;
         this.setState({ data: links, results: links });
+        this.receivedData()
         this.gymData = links;
+        
         console.log("links: " + links);
         console.log("links data: " + this.gymData);
         this.state.loading = true;
-        this.receivedData()
+        
       });
     
   }
