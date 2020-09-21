@@ -159,6 +159,8 @@ class Basic extends Component {
             end: newEvent.end,
             resourceId: newEvent.resourceId,
             bgColor: "#FFD700",
+            movable: false,
+            resizable: false,
             gym_id: this.props.gym_id,
             reservation_date: new Date().toISOString(),
             name: this.state.name.value,
