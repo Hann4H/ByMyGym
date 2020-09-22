@@ -130,6 +130,7 @@ export default function gymForm() {
             })
             .then(() => {
               setGymName("");
+              alert("Sala została dodana"); 
               window.location.href = "/";
             });
         });
