@@ -407,7 +407,7 @@ export default function gymForm() {
             />
           </div> */}
         </div>
-        <div id="gallery">
+        <div id="gallery" style={{ marginLeft: "21.3%" }}>
           <input
             type="file"
             multiple="multiple"
