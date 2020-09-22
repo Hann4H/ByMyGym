@@ -623,12 +623,12 @@ class Basic extends Component {
                   )}
 
                   <br />
-                  <ConfigProvider locale={plPL}>
+                  {/* <ConfigProvider locale={plPL}>
                     <RangePicker
                       renderExtraFooter={() => "extra footer"}
                       onChange={this.onChangeRangePicker}
                     />
-                  </ConfigProvider>
+                  </ConfigProvider> */}
                 </form>
               </ThemeProvider>
             </Grid>
