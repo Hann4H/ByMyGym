@@ -177,7 +177,7 @@ class Basic extends Component {
     let startDate = new Date(start);
 
     if (startDate < today) {
-      alert("Początkowa data nie może być dzisiej lub z przeszłości!");
+      alert("Początkowa data nie może być dzisiaj lub z przeszłości!");
     } else {
       if (
         window.confirm(
