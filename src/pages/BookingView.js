@@ -19,6 +19,7 @@ function ListItems(props) {
       .delete()
       .then(function () {
         console.log("Document successfully deleted! Doc: " + docId);
+        window.location.reload(false);
       })
       .catch(function (error) {
         console.error("Error removing document: ", error);
@@ -40,6 +41,7 @@ function ListItems(props) {
       })
       .then(function () {
         console.log("Status successfully changed! Doc: " + docId);
+        window.location.reload(false);
       })
       .catch(function (error) {
         console.error("Error changing status: ", error);
