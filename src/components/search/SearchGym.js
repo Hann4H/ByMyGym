@@ -77,7 +77,7 @@ export default class SearchGym extends Component {
   handlePriceChange = (event, newValue) => {
     this.setState({price: newValue})
     console.log(this.state.price[0])
-    // console.log(this.state.data)
+    console.log(this.state.data)
   };
 
   handleResultSelect = (e, { result }) =>
@@ -145,6 +145,7 @@ export default class SearchGym extends Component {
         offset: offset
     }, () => {
         this.receivedData()
+        window.scrollTo(0, 0)
     });
 
 };
@@ -171,7 +172,7 @@ export default class SearchGym extends Component {
               {...this.props}
             />
 
-            <Typography id="range-slider" gutterBottom>
+            {/* <Typography id="range-slider" gutterBottom>
               Cena
             </Typography>
             <PriceSlider
@@ -183,8 +184,8 @@ export default class SearchGym extends Component {
               min={0}
               step={1}
               max={90}
-              // getAriaValueText={valuetext}
-            />
+              
+            /> */}
 
             <div className="gyms-load">
                 {this.state.loading ? null : <Loading />}
