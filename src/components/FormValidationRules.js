@@ -22,17 +22,17 @@ export default function validate(values) {
     }
     if (!values.gymHeight) {
       errors.gymHeight = 'Należy wprowadzić wysokość';
-    } else if (!/[0-9]+([\.,][0-9]+)?/.test(values.gymHeight)) {
+    } else if (!/[0-9]+([.,][0-9]+)?/.test(values.gymHeight)) {
       errors.gymHeight = 'Wysokość jest nieprawidłowa';
     }
     if (!values.gymWidth) {
       errors.gymWidth = 'Należy wprowadzić szerokość';
-    } else if (!/[0-9]+([\.,][0-9]+)?/.test(values.gymWidth)) {
+    } else if (!/[0-9]+([.,][0-9]+)?/.test(values.gymWidth)) {
       errors.gymWidth = 'Szerokość jest nieprawidłowa';
     }
     if (!values.gymLength) {
       errors.gymLength = 'Należy wprowadzić długość';
-    } else if (!/[0-9]+([\.,][0-9]+)?/.test(values.gymLength)) {
+    } else if (!/[0-9]+([.,][0-9]+)?/.test(values.gymLength)) {
       errors.gymLength = 'Długość jest nieprawidłowa';
     }
     if (!values.audience) {

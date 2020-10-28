@@ -35,8 +35,7 @@ export default class DnDSource {
           slotName = dropResult.slotName;
         let newStart = dropResult.start,
           newEnd = dropResult.end;
-        let initialStart = dropResult.initialStart,
-          initialEnd = dropResult.initialEnd;
+        let initialStart = dropResult.initialStart;
         let action = "New";
 
         let isEvent = type === DnDTypes.EVENT;

@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { Component } from "react";
 import firebase from "firebase";
 import "../theme/react-week-scheduler.css";
 import { Link } from "react-router-dom";
@@ -10,7 +10,7 @@ function ListItems(props) {
   const data = JSON.parse(props.value);
   const docId = data.docId;
 
-  const [idItem, setidItem] = useState([]);
+
 
   function DeleteItemFromFirebase(e) {
     e.preventDefault();
@@ -24,8 +24,6 @@ function ListItems(props) {
       .catch(function (error) {
         console.error("Error removing document: ", error);
       });
-
-    // window.location.reload(false);
   }
 
   function ChangeStatus(e) {
@@ -97,10 +95,6 @@ function ListItems(props) {
               <td>Rezerwacja ID</td>
               <td>{data.docId}</td>
             </tr>
-            {/* <tr>
-              <td>Dane</td>
-              <td>{props.value}</td>
-            </tr> */}
           </tbody>
         </table>
         <button style={{ margin: "10px" }} onClick={DeleteItemFromFirebase}>
@@ -140,9 +134,6 @@ class BookingView extends Component {
         });
         this.setState({ bookingItems: bookingItems });
         this.bookingItems = bookingItems;
-        // console.log(
-        //   "Show booking items: " + JSON.stringify(bookingItems, null, 4)
-        // );
       });
   }
 
@@ -150,7 +141,6 @@ class BookingView extends Component {
     return (
       <div>
         <div id="pls"></div>
-
         <div className="admin-page">
           <h1 style={{ textAlign: "center", color: "var(--darkOrange)" }}>
             Zarządzaj rezerwacją
@@ -158,7 +148,6 @@ class BookingView extends Component {
           {this.state.bookingItems.map((item, index) => (
             <ListItems
               key={index}
-              // key={this.state.bookingItems.docId}
               value={JSON.stringify(item, null, 4)}
             />
           ))}

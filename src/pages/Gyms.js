@@ -1,8 +1,5 @@
 import React, { Component } from "react";
-import Listing from "../components/Listing";
 import firebase from "firebase";
-import ReactPaginate from 'react-paginate';
-import Loading from "../components/Loading";
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import SearchGym from "../components/search/SearchGym";
@@ -24,8 +21,6 @@ class Gyms extends Component {
             .bind(this);
   }
 
-  
-
   componentDidMount() {
     firebase
       .firestore()
@@ -33,9 +28,7 @@ class Gyms extends Component {
       .get()
       .then((querySnapshot) => {
         const Gyms = [];
-
-        this.state.loading = true;
-
+        this.setState({loading: true});
         querySnapshot.forEach(function (doc) {
           Gyms.push({
             gymName: doc.data().gymName,
@@ -49,7 +42,6 @@ class Gyms extends Component {
             gymDescription: doc.data().gymDescription,
             gymLat: doc.data().gymLat,
             gymLng: doc.data().gymLng,
-
             gymHeight: doc.data().gymHeight,
             gymWidth: doc.data().gymWidth,
             gymLength: doc.data().gymLength,
@@ -59,9 +51,8 @@ class Gyms extends Component {
           });
         });
         this.setState({ Gyms });
-        // console.log(Gyms);
         this.receivedData()
-        this.state.loading = true;
+        this.setState({loading: true});
       })
       .catch(function (error) {
         console.log("Error getting documents: ", error);
@@ -70,12 +61,11 @@ class Gyms extends Component {
 
   receivedData() {
     const slice = this.state.Gyms.slice(this.state.offset, this.state.offset + this.state.perPage)
-    
     const postData = slice.map(pd => <React.Fragment>
       <div className="flex-row-item">
         <div className="pic-fa">
           {pd.gymPhoto ? (
-            <img className="small-pic-ac" src={pd.gymPhoto} />
+            <img className="small-pic-ac" src={pd.gymPhoto} alt="gym"/>
             ) : (
             <img
               className="small-pic"
@@ -83,7 +73,6 @@ class Gyms extends Component {
               alt="nothing"
             />
           )}
-          
           <Link
                 to={{
                   pathname: `/gym_profile/${pd.docId}`,
@@ -93,13 +82,11 @@ class Gyms extends Component {
           </Link>
         </div>
       <p className="gym-p">{pd.gymName}</p>
-      
       </div>
     </React.Fragment>)
 
     this.setState({
         pageCount: Math.ceil(this.state.Gyms.length / this.state.perPage),
-      
         postData
     })
   }
@@ -108,7 +95,6 @@ class Gyms extends Component {
   handlePageClick = (e) => {
     const selectedPage = e.selected;
     const offset = selectedPage * this.state.perPage;
-
     this.setState({
         currentPage: selectedPage,
         offset: offset
@@ -117,11 +103,7 @@ class Gyms extends Component {
     });
 
 };
-
   render() {
-
-
-
     return (
       <div>
         <div id="pls" />
@@ -129,36 +111,10 @@ class Gyms extends Component {
           <h1>wyszukaj salę</h1>
           <hr />
           <div id="search-bar-place"></div>
-          
           <SearchCSS>
             <SearchGym />
           </SearchCSS>
         </div>
-          {/* <div className="gyms-container">
-          <div className="gyms-load">
-                {this.state.loading ? null : <Loading />}
-              </div>
-            <div>
-              
-              <div className="flex-row-container">
-                {this.state.postData}
-              </div>
-              <div className="pagination-out">
-                <ReactPaginate
-                    previousLabel={"<"}
-                    nextLabel={">"}
-                    breakLabel={"..."}
-                    breakClassName={"break-me"}
-                    pageCount={this.state.pageCount}
-                    marginPagesDisplayed={1}
-                    pageRangeDisplayed={0}
-                    onPageChange={this.handlePageClick}
-                    containerClassName={"pagination"}
-                    subContainerClassName={"pages pagination"}
-                    activeClassName={"active"}/>
-              </div>
-            </div>
-          </div> */}
         <div id="pls" />
       </div>
     );

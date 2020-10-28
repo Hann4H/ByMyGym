@@ -18,15 +18,15 @@ export default function validate(values) {
         verdict = false;
     } else if (!values.gymHeight) {
         verdict = false;
-    } else if (!/[0-9]+([\.,][0-9]+)?/.test(values.gymHeight)) {
+    } else if (!/[0-9]+([.,][0-9]+)?/.test(values.gymHeight)) {
         verdict = false;
     } else if (!values.gymWidth) {
         verdict = false;
-    } else if (!/[0-9]+([\.,][0-9]+)?/.test(values.gymWidth)) {
+    } else if (!/[0-9]+([.,][0-9]+)?/.test(values.gymWidth)) {
         verdict = false;
     } else if (!values.gymLength) {
         verdict = false;
-    } else if (!/[0-9]+([\.,][0-9]+)?/.test(values.gymLength)) {
+    } else if (!/[0-9]+([.,][0-9]+)?/.test(values.gymLength)) {
         verdict = false;
     } else if (!values.audience) {
         verdict = false;

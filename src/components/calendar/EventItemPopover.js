@@ -5,9 +5,7 @@ import "antd/dist/antd.css";
 import { Row, Col } from "antd";
 
 class EventItemPopover extends Component {
-  constructor(props) {
-    super(props);
-  }
+
 
   static propTypes = {
     schedulerData: PropTypes.object.isRequired,

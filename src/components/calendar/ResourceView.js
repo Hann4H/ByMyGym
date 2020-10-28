@@ -4,9 +4,6 @@ import { PropTypes } from "prop-types";
 import { MinusSquareOutlined, PlusSquareOutlined } from "@ant-design/icons";
 
 class ResourceView extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   static propTypes = {
     schedulerData: PropTypes.object.isRequired,

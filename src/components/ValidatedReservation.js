@@ -14,7 +14,7 @@ export default function validate(values) {
         verdict = false;
     } else if (!values.phoneNumber) {
         verdict = false;
-    } else if (!/^(?:\(?\?)?(?:[-\.\(\)\s]*(\d)){9}\)?$/.test(values.phoneNumber)) {
+    } else if (!/^(?:\(?\?)?(?:[-.()\s]*(\d)){9}\)?$/.test(values.phoneNumber)) {
         verdict = false;
     } else {
         verdict = true;

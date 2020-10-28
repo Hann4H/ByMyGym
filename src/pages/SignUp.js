@@ -1,18 +1,13 @@
-import React, { Component, useContext } from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import firebase from "../firebase";
-import { makeStyles } from "@material-ui/core/styles";
 import TextField from "@material-ui/core/TextField";
-import { Redirect } from "react-router-dom";
-import { useHistory } from "react-router-dom";
-import { render } from "react-dom";
 
 const validEmailRegex = RegExp(
   /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i
 );
-// RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i);
 
-const validNumberRegex = RegExp(/^(?:\(?\?)?(?:[-\.\(\)\s]*(\d)){9}\)?$/);
+const validNumberRegex = RegExp(/^(?:\(?\?)?(?:[-.()\s]*(\d)){9}\)?$/);
 
 const validateForm = (errors) => {
   let valid = true;
@@ -70,8 +65,7 @@ class SignUp extends Component {
                 .confirm(code)
                 .then(function (result) {
                   // User signed in successfully.
-                  var user = result.user;
-                  this.state.phoneVer = true;
+                  this.setState({phoneVer: true});
                   console.log("poszuo" + this.state.phoneVer);
                   // ...
                 })
@@ -160,7 +154,7 @@ class SignUp extends Component {
   };
 
   render() {
-    const { errors, formValid } = this.state;
+    const { errors } = this.state;
 
     return (
       <div className="login-page">
@@ -168,7 +162,7 @@ class SignUp extends Component {
         {/*<img className="login-wave" src={require("../img/wave.png")}></img>*/}
         <div className="login-background">
           <Link to="/">
-            <img className="login-logo" src={require("../img/logo.png")} />
+            <img className="login-logo" src={require("../img/logo.png")} alt="logo"/>
           </Link>
           <form className="login-form" noValidate onSubmit={this.handleSubmit}>
             <div className="row">

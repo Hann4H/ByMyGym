@@ -1,26 +1,15 @@
 import React, { Component } from "react";
-import { PropTypes } from "prop-types";
-import validated from "../ValidatedReservation";
-import validate from "../ReservationValidationRules";
-
 import { validateFields } from "../../Validation";
 import classnames from "classnames";
-
-import Scheduler, { SchedulerData, ViewTypes, DATE_FORMAT } from "./Scheduler";
-// import DemoData from "./DemoData";
-
-import { ConfigProvider, DatePicker, Space } from "antd";
-
+import Scheduler, { SchedulerData, ViewTypes } from "./Scheduler";
+import { ConfigProvider, DatePicker } from "antd";
 import plPL from "antd/es/locale/pl_PL";
-
 import TextField from "@material-ui/core/TextField";
 import Grid from "@material-ui/core/Grid";
 import { ThemeProvider } from "@material-ui/styles";
 import { createMuiTheme } from "@material-ui/core/styles";
 import DateFnsUtils from "@date-io/date-fns";
 import { MuiPickersUtilsProvider } from "@material-ui/pickers";
-import { Redirect } from "react-router-dom";
-
 import firebase from "firebase";
 const db = firebase.firestore();
 
@@ -42,7 +31,6 @@ class Basic extends Component {
     super(props);
 
     let schedulerData = new SchedulerData(new Date(), ViewTypes.Day);
-    // let schedulerData = new SchedulerData(new Date(), ViewTypes.Week);
 
     schedulerData.localeMoment.locale("pl");
     this.state = {
@@ -74,24 +62,6 @@ class Basic extends Component {
     schedulerData.setResources(this.state.DemoData.resources);
     schedulerData.setEvents(this.state.DemoData.events);
   }
-
-  //   {
-  //     docId: null,
-  //     end: null,
-  //     bgColor: null,
-  //     reservation_date: null,
-  //     surname: null,
-  //     name: null,
-  //     resizable: false,
-  //     title: null,
-  //     email: null,
-  //     id: null,
-  //     movable: false,
-  //     gym_id: null,
-  //     phoneNumber: null,
-  //     start: null,
-  //     resourceId: null
-  // }
 
   componentDidMount() {
     db.collection("reservation")
@@ -182,7 +152,6 @@ class Basic extends Component {
       if (
         window.confirm(
           `Chcesz zarezerwować termin / czas? \nOd ${start} do ${end}`
-          // {slotId: ${slotId}, slotName: ${slotName}, start: ${start}, end: ${end}, type: ${type}, item: ${item}}
         )
       ) {
         let newFreshId = 0;
@@ -204,10 +173,6 @@ class Basic extends Component {
           viewModel: schedulerData,
         });
 
-        // setErrors({});
-        // setErrors(validate(values));
-        // setIsSubmitting(true);
-
         db.collection("reservation")
           .add({
             id: newEvent.id,
@@ -227,10 +192,8 @@ class Basic extends Component {
           })
           .then(() => {
             window.location.reload();
-            // return <Redirect to="/finishReservation" />;
             window.location.replace("http://localhost:3000/finishReservation");
           });
-        // insert stuff from booking
       }
     }
   };
@@ -313,8 +276,7 @@ class Basic extends Component {
     });
   };
 
-  //***********************************************************************/
-
+ 
   onChangeRangePicker = (value, dateString) => {
     let date = this.state.dateRange;
     date.push(value);
@@ -322,18 +284,7 @@ class Basic extends Component {
     console.log("Selected Time: ", date);
   };
 
-  //**********************************************************************/
-
-  // new changes 20.09
-
-  // handleChange(event) {
-  //   this.setState({ name: event.target.name });
-  // }
-
-  // handleSubmit(event) {
-  //   alert("Wysłano następujące wypracowanie: " + this.state.value);
-  //   event.preventDefault();
-  // }
+  
 
   /*
    * validates the field onBlur if sumbit button is not clicked
@@ -398,11 +349,7 @@ class Basic extends Component {
     ) {
       // no errors submit the form
       console.log("success");
-
-      // clear state and show all fields are validated
       this.setState({ allFieldsValidated: true });
-      // this.setState({ ...initialState, allFieldsValidated: true });
-      // this.showAllFieldsValidated();
     } else {
       // update the state with errors
       this.setState((state) => ({
@@ -430,15 +377,9 @@ class Basic extends Component {
     }
   }
 
-  // showAllFieldsValidated() {
-  //   setTimeout(() => {
-  //     this.setState({ allFieldsValidated: false });
-  //   }, 1500);
-  // }
 
   render() {
     const { viewModel } = this.state;
-
     const {
       email,
       name,
@@ -496,7 +437,6 @@ class Basic extends Component {
                     />
                     <div className="invalid-feedback">{name.error}</div>
                   </div>
-
                   {/* Surname field */}
                   <div className="form-group">
                     <TextField
@@ -525,7 +465,6 @@ class Basic extends Component {
                     />
                     <div className="invalid-feedback">{surname.error}</div>
                   </div>
-
                   {/* Email field */}
                   <div className="form-group">
                     <TextField
@@ -554,7 +493,6 @@ class Basic extends Component {
                     />
                     <div className="invalid-feedback">{email.error}</div>
                   </div>
-
                   {/* phoneNumber field */}
                   <div className="form-group">
                     <TextField
@@ -621,14 +559,14 @@ class Basic extends Component {
                       />
                     </ConfigProvider>
                   )}
-
                   <br />
-                  {/* <ConfigProvider locale={plPL}>
+                  {/* TODO jeszcze to będę robić */}
+                  <ConfigProvider locale={plPL}>
                     <RangePicker
                       renderExtraFooter={() => "extra footer"}
                       onChange={this.onChangeRangePicker}
                     />
-                  </ConfigProvider> */}
+                  </ConfigProvider>
                 </form>
               </ThemeProvider>
             </Grid>

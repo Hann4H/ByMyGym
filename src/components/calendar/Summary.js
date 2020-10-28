@@ -3,9 +3,7 @@ import { PropTypes } from "prop-types";
 import { SummaryPos } from "./Scheduler";
 
 class Summary extends Component {
-  constructor(props) {
-    super(props);
-  }
+
 
   static propTypes = {
     schedulerData: PropTypes.object.isRequired,

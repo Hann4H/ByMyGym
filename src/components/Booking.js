@@ -4,29 +4,18 @@ import Grid from "@material-ui/core/Grid";
 import DateFnsUtils from "@date-io/date-fns";
 import {
   MuiPickersUtilsProvider,
-  KeyboardTimePicker,
-  KeyboardDatePicker,
-  TimePicker,
 } from "@material-ui/pickers";
 import TextField from "@material-ui/core/TextField";
-// import Select from "@material-ui/core/Select";
-import MenuItem from "@material-ui/core/MenuItem";
 import firebase from "../firebase";
 import "firebase/storage";
 import { useForm } from "react-hook-form";
 import Modal from "react-modal";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
-import { Calendar } from "./Calendar";
-import { startTimeSelectOptions, endTimeSelectOptions } from "./BookingHelpers";
-import Select from "react-select";
 import "moment/locale/pl";
 import Basic from "../components/calendar/Basic";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { DndProvider } from "react-dnd";
-
-import { Link } from "react-router-dom";
-import { Redirect } from "react-router-dom";
 import GetBookingData from "../components/calendar/GetBookingData";
 
 Modal.setAppElement("#root");
@@ -67,75 +56,27 @@ export function MaterialUIPickers(props) {
     setIsOpen(false);
   }
 
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit} = useForm();
 
   const [selectedDate_start, setSelectedDate_start] = React.useState(
     new Date()
   );
   const [selectedDate_end, setSelectedDate_end] = React.useState(new Date());
-  const [selectedTime_start, setSelectedTime_start] = React.useState("08:00");
-  const [selectedTime_end, setSelectedTime_end] = React.useState("09:00");
   const [weekday, setWeekday] = React.useState("");
   const [name, setName] = React.useState("");
   const [surname, setSurname] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [phoneNumber, setPhoneNumber] = React.useState("");
-  const [showingShort, setShowingShort] = React.useState(false);
-  const [showingLong, setShowingLong] = React.useState(false);
-
-  const handleDateChange_start = (date) => {
-    setSelectedDate_start(date);
-  };
-
-  const handleDateChange_end = (date) => {
-    setSelectedDate_end(date);
-  };
-
-  const handleTimeChange_start = (date) => {
-    setSelectedTime_start(date);
-  };
-
-  const handleTimeChange_end = (date) => {
-    setSelectedTime_end(date);
-  };
-
-  const handleWeekday = (date) => {
-    setWeekday(date);
-  };
-
-  const handleChange = (event) => {
-    setWeekday(event.target.value);
-  };
-
-  const handleChangeStart = (event) => {
-    setSelectedTime_start(event.target.value);
-  };
-
-  const handleChangeEnd = (event) => {
-    setSelectedTime_end(event.target.value);
-  };
 
   var db = firebase.firestore();
-  const ref = db.collection("bookings").doc();
 
   function onSubmit(e) {
     db.collection("bookings").add({
-      // insert in basic.js
       gym_id: props.gym_id,
       name,
       surname,
       email,
       phoneNumber,
-      // weekday,
-      // selectedDate_start,
-      // selectedDate_end,
-      // selectedTime_start,
-      // selectedTime_end,
-      // dates: getDaysBetweenDates(
-      //   new Date(selectedDate_start),
-      //   new Date(selectedDate_end),
-      //   weekday
-      // ),
     });
     console.log(
       getDaysBetweenDates(
@@ -145,8 +86,6 @@ export function MaterialUIPickers(props) {
       )
     );
   }
-
-  function handleValidation() {}
 
   function getDaysBetweenDates(start, end, dayName) {
     var result = [];
@@ -193,7 +132,6 @@ export function MaterialUIPickers(props) {
                         required
                       />
                     </div>
-
                     <div className="booking-field">
                       <TextField
                         id="surname"
@@ -209,7 +147,6 @@ export function MaterialUIPickers(props) {
                         required
                       />
                     </div>
-
                     <div className="booking-field">
                       <TextField
                         id="email"
@@ -233,7 +170,6 @@ export function MaterialUIPickers(props) {
                         required
                       />
                     </div>
-
                     <div className="booking-field">
                       <TextField
                         id="phoneNumber"
@@ -250,181 +186,6 @@ export function MaterialUIPickers(props) {
                         required
                       />
                     </div>
-
-                    {/* <div className="booking-field">
-                        <KeyboardDatePicker
-                          disableToolbar
-                          variant="inline"
-                          format="dd/MM/yyyy"
-                          margin="normal"
-                          id="date_start"
-                          label="OD"
-                          value={selectedDate_start}
-                          onChange={setSelectedDate_start}
-                          KeyboardButtonProps={{
-                            "aria-label": "change date",
-                          }}
-                          fullWidth
-                        />
-                      </div>
-
-                      <div className="booking-field">
-                        <KeyboardDatePicker
-                          disableToolbar
-                          variant="inline"
-                          format="dd/MM/yyyy"
-                          margin="normal"
-                          id="date_end"
-                          label="DO"
-                          value={selectedDate_end}
-                          onChange={setSelectedDate_end}
-                          KeyboardButtonProps={{
-                            "aria-label": "change date",
-                          }}
-                          fullWidth
-                        />
-                      </div> */}
-
-                    {/* <div className="booking-field" id="booking-weekday">
-                        <p>Wybierz dzień tygodnia</p>
-                        <Select
-                          labelId="select-weekday"
-                          id="weekday"
-                          label="dzień tygodnia"
-                          placeholder="dzień tygodnia"
-                          value={weekday}
-                          onChange={handleChange}
-                        >
-                          <MenuItem value={"Monday"}>Poniedziałek</MenuItem>
-                          <MenuItem value={"Tuesday"}>Wtorek</MenuItem>
-                          <MenuItem value={"Wednesday"}>Środa</MenuItem>
-                          <MenuItem value={"Thursday"}>Czwartek</MenuItem>
-                          <MenuItem value={"Friday"}>Piątek</MenuItem>
-                          <MenuItem value={"Saturday"}>Sobota</MenuItem>
-                          <MenuItem value={"Sunday"}>Niedziela</MenuItem>
-                        </Select>
-                      </div> */}
-
-                    {/* <div className="booking-field">
-                        <Select
-                          isMulti
-                          theme={(theme) => ({
-                            ...theme,
-                            colors: {
-                              ...theme.colors,
-                              primary: "#ffa841",
-                              primary25: "#ffb967",
-                            },
-                          })}
-                          placeholder="Dzień tygodnia"
-                          value={weekday}
-                          onChange={handleWeekday}
-                          options={[
-                            { value: "monday", label: "Poniedziałek" },
-                            { value: "tuesday", label: "Wtorek" },
-                            { value: "wednesday", label: "Środa" },
-                            { value: "thursday", label: "Czwartek" },
-                            { value: "friday", label: "Piątek" },
-                            { value: "saturday", label: "Sobota" },
-                            { value: "sunday", label: "Niedziela" },
-                          ]}
-                        />
-                      </div>
-
-                      <div className="booking-field">
-                        <Select
-                          theme={(theme) => ({
-                            ...theme,
-                            colors: {
-                              ...theme.colors,
-                              primary: "#ffa841",
-                              primary25: "#ffb967",
-                            },
-                          })}
-                          placeholder="Od"
-                          value={selectedTime_start}
-                          onChange={setSelectedTime_start}
-                          options={[
-                            { value: "8:00", label: "8:00" },
-                            { value: "9:00", label: "9:00" },
-                            { value: "10:00", label: "10:00" },
-                            { value: "11:00", label: "11:00" },
-                            { value: "12:00", label: "12:00" },
-                            { value: "13:00", label: "13:00" },
-                            { value: "14:00", label: "14:00" },
-                            { value: "15:00", label: "15:00" },
-                            { value: "16:00", label: "16:00" },
-                            { value: "17:00", label: "17:00" },
-                            { value: "18:00", label: "18:00" },
-                            { value: "19:00", label: "19:00" },
-                            { value: "20:00", label: "20:00" },
-                          ]}
-                        />
-                      </div>
-
-                      <div className="booking-field">
-                        <Select
-                          theme={(theme) => ({
-                            ...theme,
-                            colors: {
-                              ...theme.colors,
-                              primary: "#ffa841",
-                              primary25: "#ffb967",
-                            },
-                          })}
-                          placeholder="Do"
-                          value={selectedTime_end}
-                          onChange={setSelectedTime_end}
-                          options={[
-                            { value: "9:00", label: "9:00" },
-                            { value: "10:00", label: "10:00" },
-                            { value: "11:00", label: "11:00" },
-                            { value: "12:00", label: "12:00" },
-                            { value: "13:00", label: "13:00" },
-                            { value: "14:00", label: "14:00" },
-                            { value: "15:00", label: "15:00" },
-                            { value: "16:00", label: "16:00" },
-                            { value: "17:00", label: "17:00" },
-                            { value: "18:00", label: "18:00" },
-                            { value: "19:00", label: "19:00" },
-                            { value: "20:00", label: "20:00" },
-                            { value: "21:00", label: "21:00" },
-                          ]}
-                        />
-                      </div> */}
-
-                    {/* <div className="booking-field">
-                        <TimePicker
-                          clearable
-                          helperText={''}
-                          id="time"
-                          label="Od"
-                          // type="time"
-                          ampm={false}
-                          value={selectedTime_start}
-                          onChange={setSelectedTime_start}
-                          InputLabelProps={{
-                            shrink: true,
-                          }}
-                        />
-                      </div>
-
-                      <div className="booking-field">
-                        <TimePicker
-                          clearable
-                          helperText={''}
-                          id="time"
-                          label="Do"
-                          // type="time"
-                          ampm={false}
-                          value={selectedTime_end}
-                          onChange={setSelectedTime_end}
-                          InputLabelProps={{
-                            shrink: true,
-                          }}
-                        />
-                      </div> */}
-
                     <div className="calendar-position">
                       <GetBookingData gym_id={props.gym_id} />
                       <DndProvider backend={HTML5Backend}>
@@ -437,17 +198,9 @@ export function MaterialUIPickers(props) {
                         />
                       </DndProvider>
                     </div>
-
-                    {/* <Link
-                      to={{
-                        pathname: `/finishReservation`,
-                      }}
-                    > */}
                     <button className="booking-button" onClick={openModal}>
                       ZAREZERWUJ
                     </button>
-                    {/* </Link> */}
-
                     <Modal
                       isOpen={modalIsOpen}
                       onRequestClose={closeModal}

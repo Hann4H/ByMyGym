@@ -778,7 +778,7 @@ export default class SchedulerData {
       count: 0,
       addMore: 0,
       addMoreIndex: 0,
-      events: [, , ,],
+      events: [],
     };
   }
 

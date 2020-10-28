@@ -3,9 +3,6 @@ import { PropTypes } from "prop-types";
 import AgendaResourceEvents from "./AgendaResourceEvents";
 
 class AgendaView extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   static propTypes = {
     schedulerData: PropTypes.object.isRequired,

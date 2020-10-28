@@ -7,9 +7,6 @@ import { Popover } from "antd";
 import EventItemPopover from "./EventItemPopover";
 
 class AgendaEventItem extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   static propTypes = {
     schedulerData: PropTypes.object.isRequired,

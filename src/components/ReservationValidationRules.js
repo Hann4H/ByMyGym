@@ -12,7 +12,7 @@ export default function validate(values) {
     }
     if (!values.phoneNumber) {
       errors.phoneNumber = 'Należy wprowadzić numer telefonu';
-    } else if (!/^(?:\(?\?)?(?:[-\.\(\)\s]*(\d)){9}\)?$/.test(values.phoneNumber)) {
+    } else if (!/^(?:\(?\?)?(?:[-.()\s]*(\d)){9}\)?$/.test(values.phoneNumber)) {
       errors.phoneNumber = 'Numer telefonu jest nieprawidłowy';
     }
     if (!values.email) {

@@ -4,10 +4,7 @@ import AgendaEventItem from "./AgendaEventItem";
 import { DATE_FORMAT } from "./Scheduler";
 
 class AgendaResourceEvents extends Component {
-  constructor(props) {
-    super(props);
-  }
-
+  
   static propTypes = {
     schedulerData: PropTypes.object.isRequired,
     resourceEvents: PropTypes.object.isRequired,

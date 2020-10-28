@@ -3,9 +3,7 @@ import { PropTypes } from "prop-types";
 import { CellUnits } from "./Scheduler";
 
 class HeaderView extends Component {
-  constructor(props) {
-    super(props);
-  }
+
 
   static propTypes = {
     schedulerData: PropTypes.object.isRequired,
@@ -25,7 +23,6 @@ class HeaderView extends Component {
       headers.forEach((item, index) => {
         if (index % minuteStepsInHour === 0) {
           let datetime = localeMoment(item.time);
-          const isCurrentTime = datetime.isSame(new Date(), "hour");
 
           style = !!item.nonWorkingTime
             ? {

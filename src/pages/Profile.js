@@ -1,8 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import firebase from "../firebase"
-import { FirebaseAuth } from "react-firebaseui";
-import { Redirect, Route } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 class Profile extends Component {
   state = {
@@ -22,7 +19,6 @@ class Profile extends Component {
 
   render() {
     let { user } = this.state;
-
     if (!user) {
       return (
         <Redirect to="/login" />
@@ -31,14 +27,9 @@ class Profile extends Component {
 
     return (
       <>
-
-
         <div className="login-page">
         <div className="login-wave"></div>
-
         <div className="profile-container">
-
-
             <div className="profile-div">
               <img
                 className="profile-picture"
@@ -61,12 +52,8 @@ class Profile extends Component {
                 </tbody>
               </table>
             </div>
-            {/* <button className="profile-gym-button">ZARZĄDZAJ SALAMI</button> */}
-
         </div>
         </div>
-
-
         <pre style={{ display: "none" }}>{JSON.stringify(user, null, 2)}</pre>
       </>
     );

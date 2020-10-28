@@ -2,9 +2,6 @@ import React, { Component } from "react";
 import { PropTypes } from "prop-types";
 
 class SelectedArea extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   static propTypes = {
     schedulerData: PropTypes.object.isRequired,

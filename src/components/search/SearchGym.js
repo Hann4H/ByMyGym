@@ -6,10 +6,6 @@ import PropTypes from "prop-types";
 import GymItem from "../GymItem";
 import Loading from "../Loading";
 import ReactPaginate from 'react-paginate';
-// import Pagination from '@material-ui/lab/Pagination';
-import Slider from '@material-ui/core/Slider';
-import Typography from '@material-ui/core/Typography';
-import { withStyles, makeStyles } from '@material-ui/core/styles'
 // search source page: https://react.semantic-ui.com/modules/search/
 
 const db = firebase.firestore();
@@ -21,36 +17,6 @@ resultRenderer.propTypes = {
   gymDescription: PropTypes.string,
 };
 
-const PriceSlider = withStyles({
-  root: {
-    color: '#ffa841',
-    height: 8,
-    width: 300
-  },
-  thumb: {
-    height: 24,
-    width: 24,
-    backgroundColor: '#fff',
-    border: '2px solid currentColor',
-    marginTop: -8,
-    marginLeft: -12,
-    '&:focus, &:hover, &$active': {
-      boxShadow: 'inherit',
-    },
-  },
-  active: {},
-  valueLabel: {
-    left: 'calc(-50% + 4px)',
-  },
-  track: {
-    height: 8,
-    borderRadius: 4,
-  },
-  rail: {
-    height: 8,
-    borderRadius: 4,
-  },
-})(Slider);
 
 
 export default class SearchGym extends Component {
@@ -108,29 +74,23 @@ export default class SearchGym extends Component {
         const links = snapshot.docs.map((doc) => {
           return { docId: doc.id, ...doc.data() };
         });
-        this.state.loading = true;
+        this.setState({loading: true});
         this.setState({ data: links, results: links });
         this.receivedData();
         this.gymData = links;
-        
         console.log("links: " + links);
         console.log("links data: " + this.gymData);
-        this.state.loading = true;
-        
       });
     
   }
 
   receivedData() {
     const slice = this.state.results.slice(this.state.offset, this.state.offset + this.state.perPage)
-
     const postData = slice.map((gym, index) => (
       <GymItem key={gym.id} showCount={false} gym={gym} index={index} />
     ))
-
     this.setState({
         pageCount: Math.ceil(this.state.results.length / this.state.perPage),
-
         postData
     })
   }
@@ -139,7 +99,6 @@ export default class SearchGym extends Component {
   handlePageClick = (e) => {
     const selectedPage = e.selected;
     const offset = selectedPage * this.state.perPage;
-
     this.setState({
         currentPage: selectedPage,
         offset: offset
@@ -152,7 +111,6 @@ export default class SearchGym extends Component {
 
   render() {
     const { isLoading, value, results } = this.state;
-
     return (
       <>
         <Grid>
@@ -171,31 +129,13 @@ export default class SearchGym extends Component {
               resultRenderer={resultRenderer}
               {...this.props}
             />
-
-            {/* <Typography id="range-slider" gutterBottom>
-              Cena
-            </Typography>
-            <PriceSlider
-              value={this.state.price}
-              onChange={this.handlePriceChange.bind(this)}
-              valueLabelDisplay="auto"
-              aria-labelledby="range-slider"
-              defaultValue={[0, 90]}
-              min={0}
-              step={1}
-              max={90}
-              
-            /> */}
-
             <div className="gyms-load">
                 {this.state.loading ? null : <Loading />}
               </div>
-
             {this.state.results.slice(this.state.offset, this.state.offset + this.state.perPage).map((gym, index) => (
                 <GymItem key={gym.id} showCount={false} gym={gym} index={index} />
               ))
             }
-
               <div className="pagination-out">
                 <ReactPaginate
                     previousLabel={"<"}
@@ -210,7 +150,6 @@ export default class SearchGym extends Component {
                     subContainerClassName={"pages pagination"}
                     activeClassName={"active"}/>
               </div>
-            
           </Grid.Column>
         </Grid>
       </>

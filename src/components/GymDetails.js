@@ -1,11 +1,6 @@
 import React, { Component } from "react";
 import Localization from "./Localization";
 import firebase from "../firebase";
-import Basic from "../components/calendar/Basic";
-import { HTML5Backend } from "react-dnd-html5-backend";
-import { DndProvider } from "react-dnd";
-
-import GetBookingData from "../components/calendar/GetBookingData";
 
 const nameStyle = {
   fontWeight: "bold",
@@ -53,15 +48,10 @@ class GymDetails extends Component {
     const gymStreet = this.state.data.gymStreet;
     const gymCity = this.state.data.gymCity;
     const gymEmail = this.state.data.gymEmail;
-    const gymPhoto = this.state.data.gymPhoto;
     const gymDescription = this.state.data.gymDescription;
-
     const gymHeight = this.state.data.gymHeight;
     const gymWidth = this.state.data.gymWidth;
     const gymLength = this.state.data.gymLength;
-    const gymPrice = this.state.data.gymPrice;
-
-    const { showing } = this.state;
 
     return (
       <>
@@ -69,7 +59,6 @@ class GymDetails extends Component {
           <h1 className="gym-name" style={{ color: "var(--darkOrange)" }}>
             {gymName}
           </h1>
-
           <div className="gym-details">
             <div className="gym-details-column1">
               <p style={nameStyle}>Adres</p>
@@ -111,7 +100,6 @@ class GymDetails extends Component {
                   )}
                 </div>
               </div>
-
               <br />
               <p style={nameStyle}>Cena</p>
               {this.state.data.gymPrice ? (
@@ -129,7 +117,6 @@ class GymDetails extends Component {
               ) : (
                 <p className="no-data-p">brak</p>
               )}
-
               <br />
             </div>
             <div className="gym-details-column2">
@@ -142,7 +129,6 @@ class GymDetails extends Component {
               ) : (
                 <p className="no-data-p">brak</p>
               )}
-
               <br />
               <p style={nameStyle}>E-mail</p>
               {this.state.data.gymEmail ? (
@@ -150,7 +136,6 @@ class GymDetails extends Component {
               ) : (
                 <p className="no-data-p">brak</p>
               )}
-
               <br />
               <p style={nameStyle}>Telefon</p>
               {this.state.data.gymPhone ? (
@@ -161,16 +146,9 @@ class GymDetails extends Component {
               <br />
             </div>
           </div>
-
           <div className="map">
             <Localization position={position} gymName={gymName} />
           </div>
-
-          {/*<button className="gym-button" onClick={() => this.setState({ showing: !showing })}>ZAREZERWUJ</button>
-                { showing 
-                    ? <div className="booking"><Booking /></div>
-                    : null
-                }*/}
         </div>
       </>
     );

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Hero from "../components/Hero";
 import Form from "../components/gymForm";
 import Banner from "../components/Banner";
-import { Redirect, Route } from 'react-router-dom'
+import { Redirect} from 'react-router-dom'
 
 class AddGym extends Component {
 
@@ -35,10 +35,8 @@ class AddGym extends Component {
           </Banner>
         </Hero>
         <div id="slash"></div>
-
         <div id="idk9">
           <div id="addGym_title">WYPEŁNIJ DANE</div>
-
           <div id="container-1">
             <Form></Form>
           </div>

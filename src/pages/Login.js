@@ -1,10 +1,8 @@
-import React , { Component, useState } from "react";
-import { Link, Redirect } from "react-router-dom";
+import React , { Component } from "react";
+import { Link } from "react-router-dom";
 import firebase from "../firebase";
 import TextField from '@material-ui/core/TextField';
 import FirebaseAuth from 'react-firebaseui/FirebaseAuth';
-import { useHistory } from "react-router-dom";
-
 
 const uiConfig = {
     signInFlow: "popup",
@@ -14,12 +12,8 @@ const uiConfig = {
     ],
     signInSuccessUrl: "/"
   }
-
-  
   
   class Login extends Component{
-
-
       constructor()
       {
           super();
@@ -49,15 +43,12 @@ const uiConfig = {
       }
       
   
-      render() {
-        
-
+      render() {      
           return(
               <div className="login-page">
                   <div className="login-wave"></div>
-  
                   <div className="login-background">
-                      <Link to="/"><img className="login-logo" src={require("../img/logo.png")}/></Link>
+                      <Link to="/"><img className="login-logo" src={require("../img/logo.png")} alt="logo"/></Link>
                       <form className="login-form" noValidate>
                           <TextField
                           type="email"
@@ -78,15 +69,11 @@ const uiConfig = {
                           color="secondary"
                           />
                           <button  className="button" onClick={this.login}>Zaloguj</button>
-                          
                           <p className="login-link-signup">Nie masz konta? <Link to="/signup"><span>Zarejestruj się!</span></Link></p>
-                          
                       </form>
                       <FirebaseAuth className="login-external" uiConfig={uiConfig} firebaseAuth={firebase.auth()}/>
                   </div>
-                  
               </div>
-              
           )
       }
   }

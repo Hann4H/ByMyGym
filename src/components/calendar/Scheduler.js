@@ -26,15 +26,10 @@ import ViewTypes from "./ViewTypes";
 import CellUnits from "./CellUnits";
 import SummaryPos from "./SummaryPos";
 import SchedulerData from "./SchedulerData";
-// import DemoData from "./DemoData";
 
 import moment from "moment";
 import "moment/locale/pl";
 moment.locale("pl_PL");
-
-// import { render } from "react-dom";
-// import { HashRouter as Router, Route } from "react-router-dom";
-// import Basic from "./Basic";
 
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
@@ -108,7 +103,6 @@ class Scheduler extends Component {
     eventItemTemplateResolver: PropTypes.func,
     dndSources: PropTypes.array,
     slotClickedFunc: PropTypes.func,
-    // toggleExpandFunc: PropTypes.func,
     slotItemTemplateResolver: PropTypes.func,
     nonAgendaCellHeaderTemplateResolver: PropTypes.func,
     onScrollLeft: PropTypes.func,
