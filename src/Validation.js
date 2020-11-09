@@ -59,6 +59,70 @@ class ValidateFields {
     }
     return false;
   }
+
+  // gym profile data
+  validateGymName(gymName){
+    if (validator.isEmpty(gymName)) {
+      return "Nazwa budynku jest wymagana";
+    } else if (!validator.isLength(gymName, { min: 2 })) {
+      return "Nazwa budynku powinna zawierać minimum 2 litery";
+    }
+    return false;
+  }
+
+  validateGymStreet(gymStreet){
+    if (validator.isEmpty(gymStreet)) {
+      return "Ulica jest wymagana";
+    } else if (!validator.isLength(gymStreet, { min: 2 })) {
+      return "Ulica powinna zawierać minimum 2 litery";
+    }
+    return false;
+  }
+
+  validateGymCity(gymCity){
+    if (validator.isEmpty(gymCity)) {
+      return "Miasto jest wymagane";
+    } else if (!validator.isLength(gymCity, { min: 2 })) {
+      return "Miasto powinno zawierać minimum 2 litery";
+    }
+    return false;
+  }
+
+  validateGymZip(gymZip){
+    if (validator.isEmpty(gymZip)) {
+      return "Kod pocztowy jest wymagany";
+    } else if (!validator.isPostalCode(gymZip, "PL")) {
+      return "Proszę wprowadzić kod pocztowy w poprawnym formacie: 11-111";
+    }
+    return false;
+  }
+
+  validateGymHeight(gymHeight){
+    if (validator.isEmpty(gymHeight)) {
+      return "Wysokość jest wymagana";
+    } else if (!validator.isNumeric(gymHeight, "pl-PL")) {
+      return "Proszę wprowadzić liczbę";
+    }
+    return false;
+  }
+
+  validateGymWidth(gymWidth){
+    if (validator.isEmpty(gymWidth)) {
+      return "Szerokość jest wymagana";
+    } else if (!validator.isNumeric(gymWidth, "pl-PL")) {
+      return "Proszę wprowadzić liczbę";
+    }
+    return false;
+  }
+
+  validateGymLength(gymLength){
+    if (validator.isEmpty(gymLength)) {
+      return "Długość jest wymagana";
+    } else if (!validator.isNumeric(gymLength, "pl-PL")) {
+      return "Proszę wprowadzić liczbę";
+    }
+    return false;
+  }
 }
 
 const validateFields = new ValidateFields();
