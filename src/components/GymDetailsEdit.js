@@ -21,6 +21,7 @@ const theme = createMuiTheme({
     },
   });
 
+
 class GymDetailsEdit extends Component {
 constructor(props){
     super(props)
@@ -50,6 +51,10 @@ constructor(props){
         allFieldsValidated: false,
         data: []
       };
+
+      this.handleBlur = this.handleBlur.bind(this);
+      this.handleChange = this.handleChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
 }
 
 
@@ -122,7 +127,6 @@ async componentDidMount(props) {
   handleSubmit(evt) {
     evt.preventDefault();
     // validate all fields
-
     const {gymName, gymStreet, gymCity, gymZip, gymHeight, gymWidth, gymLength} = this.state;
     const gymNameError = validateFields.validateGymName(gymName.value);
     const gymStreetError = validateFields.validateGymStreet(gymStreet.value);
@@ -138,8 +142,26 @@ async componentDidMount(props) {
       )
     ) {
       // no errors submit the form
-      console.log("success");
       this.setState({ allFieldsValidated: true });
+
+      db.collection("gyms")
+        .doc(this.props.dataId)
+        .update({
+          gymName: this.state.gymName.value,
+          gymStreet: this.state.gymStreet.value,
+          gymCity: this.state.gymCity.value,
+          gymZip: this.state.gymZip.value,
+          gymHeight: this.state.gymHeight.value,
+          gymWidth: this.state.gymWidth.value,
+          gymLength: this.state.gymLength.value,
+        })
+        .then(function () {
+          console.log("Changes saved!");
+        })
+        .catch(function (error) {
+          console.error("Error saving changes: ", error);
+        });
+      
     } else {
       // update the state with errors
       this.setState((state) => ({
@@ -185,21 +207,6 @@ async componentDidMount(props) {
 
 
     render() {
-
-        // const gymLat = this.state.data.gymLat ? this.state.data.gymLat : 52.409538;
-        // const gymLng = this.state.data.gymLng ? this.state.data.gymLng : 16.931992;
-        // const position = [gymLat, gymLng];
-        // const gymZip = this.state.data.gymZip;
-        // const gymName = this.state.data.gymName;
-        // const gymURL = this.state.data.gymURL;
-        // const gymPhone = this.state.data.gymPhone;
-        // const gymStreet = this.state.data.gymStreet;
-        // const gymCity = this.state.data.gymCity;
-        // const gymEmail = this.state.data.gymEmail;
-        // const gymDescription = this.state.data.gymDescription;
-        // const gymHeight = this.state.data.gymHeight;
-        // const gymWidth = this.state.data.gymWidth;
-        // const gymLength = this.state.data.gymLength;
 
         const {
             gymName, 
@@ -446,15 +453,10 @@ async componentDidMount(props) {
                         type="submit"
                         className="booking-button"
                         onMouseDown={() => this.setState({ submitCalled: true })}
-                        value="Zapisz"
-                      >
-                        Zapisz - jeszcze nie zapisuje
-                      </button>
-                      <br />
-                      {allFieldsValidated && (
-                        <p>all fields validated</p>
-                      )}
-                      <br />
+                        value="Zapisz">Zapisz</button>
+                      {/* <br />
+                      {allFieldsValidated && (<p>all fields validated</p>)}
+                      <br /> */}
                     </form>
                   </ThemeProvider>
                 </Grid>

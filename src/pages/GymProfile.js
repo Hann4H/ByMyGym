@@ -19,7 +19,6 @@ class GymProfile extends Component {
 
   setEditReadMode = () => {
     this.setState({editMode: !this.state.editMode})
-    console.log("edit mode?:", this.state.editMode)
   }
 
   render() {
