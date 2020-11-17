@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import firebase from "firebase";
 import "../theme/react-week-scheduler.css";
 import { Link } from "react-router-dom";
+import { Redirect } from 'react-router-dom'
 const db = firebase.firestore();
 
 // bookings
@@ -9,8 +10,6 @@ const db = firebase.firestore();
 function ListItems(props) {
   const data = JSON.parse(props.value);
   const docId = data.docId;
-
-
 
   function DeleteItemFromFirebase(e) {
     e.preventDefault();
@@ -138,6 +137,13 @@ class BookingView extends Component {
   }
 
   render() {
+
+    if (localStorage.getItem("user")!='ZlVPgW1qH0X65ASXIUZoFXab2SI3') {
+      return (
+        <Redirect to="/login" />
+      )
+    }
+
     return (
       <div>
         <div id="pls"></div>
