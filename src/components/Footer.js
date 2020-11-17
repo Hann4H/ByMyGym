@@ -13,15 +13,28 @@ class Footer extends Component {
     return (
       <>
         <div className="footer">
-          <div className="contact-link">
-            <Link to="/contact">
-              <img
-                className="msg-icon"
-                alt="envelope"
-                src={require("../img/msg-icon.png")}
-              />
-              <p>Skontaktuj się z nami!</p>
-            </Link>
+          <div className="footer-links">
+            <div className="padder" />
+            <div className="contact-link">
+              <Link to="/contact">
+                <img
+                  className="msg-icon"
+                  alt="envelope"
+                  src={require("../img/msg-icon.png")}
+                />
+                <p>Skontaktuj się z nami!</p>
+              </Link>
+            </div>
+            <div className="contact-link">
+              <Link to="/faq">
+                <img
+                  className="msg-icon"
+                  alt="envelope"
+                  src={require("../img/help.png")}
+                />
+                <p>FAQ</p>
+              </Link>
+            </div>
           </div>
         </div>
       </>

@@ -627,9 +627,18 @@
   background-color: var(--darkGrey);
 }
 
+.padder {
+  padding-left: 10rem;
+}
+
+.footer-links {
+   display: flex;
+
+}
+
 .contact-link {
   padding-top: 2.5rem;
-  padding-left: 15rem;
+  padding-left: 5rem;
 }
 
 .contact-link a {
