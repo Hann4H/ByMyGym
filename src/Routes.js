@@ -10,8 +10,10 @@ import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Admin from "./pages/Admin";
 import Contact from "./pages/Contact";
+import FAQ from "./pages/FAQ";
 import BookingView from "./pages/BookingView";
 import NoAccess from "./pages/NoAccess";
+
 import FinishReservation from "./pages/FinishReservation";
 
 const Routes = () => (
@@ -20,7 +22,7 @@ const Routes = () => (
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/contact" exact component={Contact} />
-        {/* <Route path="/faq" exact component={FAQ} /> */}
+        <Route path="/faq" exact component={FAQ} />
         <Route path="/add" exact component={AddGym} />
         <Route path="/login" exact component={Login} />
         <Route path="/gym_profile/login" exact component={Login} />
