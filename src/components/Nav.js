@@ -115,7 +115,9 @@ class Nav extends Component {
               )}
             </li>
             <li>
-            {this.state.user ? (
+            {/* will have to hide admins uid */}
+            {this.state.user && this.state.user.uid=='ZlVPgW1qH0X65ASXIUZoFXab2SI3' ? (
+
               <Link to="/admin">
                 <button className="nav-button">ADMIN</button>
                 {/* {

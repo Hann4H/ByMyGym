@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Hero from "../components/Hero";
 import Form from "../components/gymForm";
 import Banner from "../components/Banner";
-import { Redirect} from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 class AddGym extends Component {
 

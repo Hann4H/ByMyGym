@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import JsonData from "../components/adminTools/JsonData";
 import { Link } from "react-router-dom";
+import { Redirect } from 'react-router-dom'
 
 class Admin extends Component {
   constructor(props) {
@@ -18,6 +19,14 @@ class Admin extends Component {
   }
 
   render() {
+
+    if (localStorage.getItem("user")!='ZlVPgW1qH0X65ASXIUZoFXab2SI3') {
+      return (
+        
+        <Redirect to="/login" />
+      )
+    }
+
     return (
       <div>
         <div id="pls"></div>
