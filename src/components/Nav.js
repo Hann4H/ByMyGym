@@ -115,6 +115,7 @@ class Nav extends Component {
               )}
             </li>
             <li>
+            {this.state.user ? (
               <Link to="/admin">
                 <button className="nav-button">ADMIN</button>
                 {/* {
@@ -128,6 +129,9 @@ class Nav extends Component {
                   </svg>
                 } */}
               </Link>
+              ) : (
+                ""
+              )}
             </li>
           </ul>
         </div>
