@@ -22,7 +22,7 @@ class Admin extends Component {
 
     if (localStorage.getItem("user")!='ZlVPgW1qH0X65ASXIUZoFXab2SI3') {
       return (
-        <Redirect to="/login" />
+        <Redirect to="/noaccess" />
       )
     }
 
