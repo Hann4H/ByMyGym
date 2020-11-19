@@ -30,7 +30,13 @@ class GymProfile extends Component {
           <div id="sup">
             <Slider dataId={this.props.match.params.id} />
           </div>
-          <button onClick={this.setEditReadMode}>{this.state.editMode? "Podgląd" : "Edytuj"}</button>
+
+          {localStorage.getItem("user") ? (
+            <button onClick={this.setEditReadMode}>{this.state.editMode? "Podgląd" : "Edytuj"}</button>
+          ) : (
+            ""
+          )}
+
           {this.state.editMode?
               <div className="container-4">
               <div id="constrain">
