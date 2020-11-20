@@ -102,19 +102,6 @@ class Nav extends Component {
               )}
             </li>
             <li>
-              {this.state.user ? (
-                <Link to="/">
-                  <button className="nav-button" onClick={this.logout}>
-                    WYLOGUJ
-                  </button>
-                </Link>
-              ) : (
-                <Link to="/login">
-                  <button className="nav-button">ZALOGUJ</button>
-                </Link>
-              )}
-            </li>
-            <li>
             {/* will have to hide admins uid */}
             {this.state.user && this.state.user.uid=='ZlVPgW1qH0X65ASXIUZoFXab2SI3' ? (
 
@@ -133,6 +120,19 @@ class Nav extends Component {
               </Link>
               ) : (
                 ""
+              )}
+            </li>
+            <li>
+              {this.state.user ? (
+                <Link to="/">
+                  <button className="nav-button" onClick={this.logout}>
+                    WYLOGUJ
+                  </button>
+                </Link>
+              ) : (
+                <Link to="/login">
+                  <button className="nav-button">ZALOGUJ</button>
+                </Link>
               )}
             </li>
           </ul>
