@@ -61,12 +61,16 @@ class GymItem extends Component {
               >
                 <button className="gym-short-button">więcej informacji</button>
               </Link>
+              {localStorage.getItem("user")=='ZlVPgW1qH0X65ASXIUZoFXab2SI3' ? (
               <button
                 onClick={DeleteItemFromFirebase}
                 className="delete-gym-button"
               >
                 Usuń
               </button>
+              ) : (
+                ""
+              )}
               </div>
             </div>
           </div>
