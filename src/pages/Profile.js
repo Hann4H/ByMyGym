@@ -49,6 +49,27 @@ class Profile extends Component {
                     <td className="headline-info">Email</td>
                     <td>{localStorage.getItem("email")}</td>
                   </tr>
+                  <tr className="profile-info">
+                    <td className="headline-info">Rezerwacje</td>
+                    <td>
+                      <table>
+                        <tbody>
+                          <tr>
+                            <td>rezerwacja 1</td>
+                          </tr>
+                          <tr>
+                            <td>rezerwacja 2</td>
+                          </tr>
+                          <tr>
+                            <td>rezerwacja 3</td>
+                          </tr>
+                          <tr>
+                            <td>rezerwacja 4</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
                 </tbody>
               </table>
             </div>
