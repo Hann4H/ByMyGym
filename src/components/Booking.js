@@ -17,6 +17,7 @@ import Basic from "../components/calendar/Basic";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { DndProvider } from "react-dnd";
 import GetBookingData from "../components/calendar/GetBookingData";
+import { set } from "date-fns";
 
 Modal.setAppElement("#root");
 const customStyles = {
@@ -67,6 +68,8 @@ export function MaterialUIPickers(props) {
   const [surname, setSurname] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [phoneNumber, setPhoneNumber] = React.useState("");
+
+  const [user_id, setUser_id] = React.useState({});
 
   var db = firebase.firestore();
 

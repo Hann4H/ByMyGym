@@ -905,6 +905,15 @@ ul.unstyled {
   background-color: var(--mainWhite);
 }
 
+.profile-bookings {
+  font-size: 13px;
+}
+
+.profile-bookings td {
+  padding-top: 20px;
+  padding-left: 10px;
+}
+
 @media screen and (max-width: 700px) {
   .profile-gym-button {
     margin-left: 15%;

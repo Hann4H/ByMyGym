@@ -34,6 +34,7 @@ class Basic extends Component {
 
     schedulerData.localeMoment.locale("pl");
     this.state = {
+      user: [],
       viewModel: schedulerData,
       dateRange: null,
       values: {},
@@ -72,17 +73,22 @@ class Basic extends Component {
           return { docId: doc.id, ...doc.data() };
         });
 
+        const user = localStorage.getItem("user");
+        this.setState({ user });
+        console.log("PYK PYK " + user)
+
         const eventsData = JSON.stringify(events, null, 4);
         this.setState((events) => ({
           DemoData: {
             events: JSON.parse(eventsData),
           },
+          
         }));
 
-        console.log(
-          "Show booking items3!!!: " +
-            JSON.stringify(this.state.DemoData.events, null, 4)
-        );
+        // console.log(
+        //   "Show booking items3!!!: " +
+        //     JSON.stringify(this.state.DemoData.events, null, 4)
+        // );
       });
   }
 
@@ -189,6 +195,7 @@ class Basic extends Component {
             surname: this.state.surname.value,
             email: this.state.email.value,
             phoneNumber: this.state.phoneNumber.value,
+            user_id: this.state.user
           })
           .then(() => {
             window.location.reload();
