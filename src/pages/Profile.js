@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import { Redirect } from 'react-router-dom'
 import firebase from "../firebase";
+import Loading from "../components/Loading";
 
 class Profile extends Component {
   state = {
     user: [],
     error: "",
     Reservations: [],
-    Gyms: []
+    Gyms: [],
+    isLoading: false,
+    loading: false,
   };
 
   componentDidMount() {
@@ -18,6 +21,7 @@ class Profile extends Component {
     this.loadUserProfile();
 
     firebase.firestore().collection("gyms").get().then((querySnapshot) => {
+      this.setState({loading: true});
       querySnapshot.forEach(function (doc) {
         Gyms.push({
           docId: doc.id,
@@ -109,6 +113,9 @@ class Profile extends Component {
                     <td>
                       <table>
                         <tbody>
+                        <div className="gyms-load">
+                          {this.state.loading ? null : <Loading />}
+                        </div>
                         {this.state.Reservations.map((res, index) => (
                           this.state.Gyms.filter(gym => gym.docId == res.gym_id).map(filteredName => (
                             <tr>
