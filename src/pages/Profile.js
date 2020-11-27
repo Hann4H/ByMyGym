@@ -1,20 +1,51 @@
 import React, { Component } from "react";
 import { Redirect } from 'react-router-dom'
+import firebase from "../firebase";
 
 class Profile extends Component {
   state = {
     user: [],
     error: "",
+    Reservations: []
   };
 
   componentDidMount() {
+    const Reservations = [];
+
+
     this.loadUserProfile();
+
+    firebase.firestore().collection("reservation").where("user_id", "==", localStorage.getItem("user"))
+    .get()
+    .then((querySnapshot) => {  
+
+        querySnapshot.forEach(function (doc) {
+
+          // firebase.firestore().collection("gyms").doc(doc.data().gym_id).get()
+          // .then(snapshot => {
+            Reservations.push({
+              start: doc.data().start,
+              end: doc.data().end,
+              gym_id: doc.data().gym_id,
+            //   gym_name: snapshot.data().gymName,
+            // })
+          })  
+        })
+
+        this.setState({ Reservations });
+        console.log(this.state.Reservations)
+    })
+    .catch(function(error) {
+        console.log("Error getting documents: ", error);
+    });
+
   }
 
   loadUserProfile() {
     const user = localStorage.getItem("user");
     this.setState({ user });
   }
+
 
 
   render() {
@@ -54,18 +85,11 @@ class Profile extends Component {
                     <td>
                       <table>
                         <tbody>
+                        {this.state.Reservations.map((res, index) => (
                           <tr>
-                            <td>rezerwacja 1</td>
+                            <td>{res.start}</td>
                           </tr>
-                          <tr>
-                            <td>rezerwacja 2</td>
-                          </tr>
-                          <tr>
-                            <td>rezerwacja 3</td>
-                          </tr>
-                          <tr>
-                            <td>rezerwacja 4</td>
-                          </tr>
+                        ))}
                         </tbody>
                       </table>
                     </td>

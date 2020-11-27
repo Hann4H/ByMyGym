@@ -22,7 +22,7 @@ class GymProfile extends Component {
   }
 
   render() {
-    console.log("TU POWINNO BYC ID:" + this.props.match.params.id);
+    // console.log("TU POWINNO BYC ID:" + this.props.match.params.id);
     return (
       <>
         <div id="idk3"></div>
