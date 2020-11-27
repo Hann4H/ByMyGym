@@ -116,6 +116,7 @@ class Profile extends Component {
                         <div className="gyms-load">
                           {this.state.loading ? null : <Loading />}
                         </div>
+                        <div className="profile-bookings">
                         {this.state.Reservations.map((res, index) => (
                           this.state.Gyms.filter(gym => gym.docId == res.gym_id).map(filteredName => (
                             <tr>
@@ -125,6 +126,7 @@ class Profile extends Component {
                             </tr>
                           ))
                         ))}
+                        </div>
                         </tbody>
                       </table>
                     </td>
