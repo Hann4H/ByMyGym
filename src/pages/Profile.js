@@ -6,20 +6,38 @@ class Profile extends Component {
   state = {
     user: [],
     error: "",
-    Reservations: []
+    Reservations: [],
+    Gyms: []
   };
 
   componentDidMount() {
     const Reservations = [];
+    const Gyms = [];
 
 
     this.loadUserProfile();
+
+    firebase.firestore().collection("gyms").get().then((querySnapshot) => {
+      querySnapshot.forEach(function (doc) {
+        Gyms.push({
+          docId: doc.id,
+          gymName: doc.data().gymName,
+        });
+      });
+      this.setState({ Gyms });
+
+    })
+    .catch(function (error) {
+      console.log("Error getting documents: ", error);
+    });
 
     firebase.firestore().collection("reservation").where("user_id", "==", localStorage.getItem("user"))
     .get()
     .then((querySnapshot) => {  
 
         querySnapshot.forEach(function (doc) {
+
+          
 
           // firebase.firestore().collection("gyms").doc(doc.data().gym_id).get()
           // .then(snapshot => {
@@ -32,6 +50,8 @@ class Profile extends Component {
           })  
         })
 
+
+
         this.setState({ Reservations });
         console.log(this.state.Reservations)
     })
@@ -39,6 +59,10 @@ class Profile extends Component {
         console.log("Error getting documents: ", error);
     });
 
+  }
+
+  meh() {
+      
   }
 
   loadUserProfile() {
@@ -86,9 +110,13 @@ class Profile extends Component {
                       <table>
                         <tbody>
                         {this.state.Reservations.map((res, index) => (
-                          <tr>
+                          this.state.Gyms.filter(gym => gym.docId == res.gym_id).map(filteredName => (
+                            <tr>
+                            <td>{filteredName.gymName}</td>
                             <td>{res.start}</td>
-                          </tr>
+                            <td>{res.end}</td>
+                            </tr>
+                          ))
                         ))}
                         </tbody>
                       </table>
