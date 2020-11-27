@@ -75,14 +75,13 @@ class Basic extends Component {
 
         const user = localStorage.getItem("user");
         this.setState({ user });
-        console.log("PYK PYK " + user)
+        console.log("PYK PYK " + user);
 
         const eventsData = JSON.stringify(events, null, 4);
         this.setState((events) => ({
           DemoData: {
             events: JSON.parse(eventsData),
           },
-          
         }));
 
         // console.log(
@@ -195,7 +194,7 @@ class Basic extends Component {
             surname: this.state.surname.value,
             email: this.state.email.value,
             phoneNumber: this.state.phoneNumber.value,
-            user_id: this.state.user
+            user_id: this.state.user,
           })
           .then(() => {
             window.location.reload();
@@ -283,15 +282,12 @@ class Basic extends Component {
     });
   };
 
- 
   onChangeRangePicker = (value, dateString) => {
     let date = this.state.dateRange;
     date.push(value);
     this.setState({ dateRange: date });
     console.log("Selected Time: ", date);
   };
-
-  
 
   /*
    * validates the field onBlur if sumbit button is not clicked
@@ -383,7 +379,6 @@ class Basic extends Component {
       }));
     }
   }
-
 
   render() {
     const { viewModel } = this.state;
@@ -568,12 +563,12 @@ class Basic extends Component {
                   )}
                   <br />
                   {/* TODO jeszcze to będę robić */}
-                  <ConfigProvider locale={plPL}>
+                  {/* <ConfigProvider locale={plPL}>
                     <RangePicker
                       renderExtraFooter={() => "extra footer"}
                       onChange={this.onChangeRangePicker}
                     />
-                  </ConfigProvider>
+                  </ConfigProvider> */}
                 </form>
               </ThemeProvider>
             </Grid>
