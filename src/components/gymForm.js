@@ -1,4 +1,4 @@
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import firebase from "../firebase";
 import "firebase/storage";
 import DragAndDrop from "./DragAndDrop";
@@ -8,7 +8,6 @@ import validate from "./FormValidationRules";
 import validated from "./Validated";
 
 Modal.setAppElement("#root");
-
 
 export default function gymForm() {
   const [values, setValues] = useState({});
@@ -66,7 +65,7 @@ export default function gymForm() {
               owner: userUID,
             })
             .then(() => {
-              alert("Sala została dodana"); 
+              alert("Sala została dodana");
               window.location.href = "/";
             });
         });
@@ -253,10 +252,10 @@ export default function gymForm() {
           {errors.gymPhoto && <p className="help">{errors.gymPhoto}</p>}
         </div>
 
-{/* TODO jeszcze z tym powalczę - z DragAndDrop */}
-        <div id="gallery">
+        {/* TODO jeszcze z tym powalczę - z DragAndDrop */}
+        {/* <div id="gallery">
           <DragAndDrop id="img_url" onChange={handleImageAsFile} />
-        </div>
+        </div> */}
       </div>
       <button className="form_button">DODAJ</button>
     </form>

@@ -1,14 +1,18 @@
 import React, { Component } from "react";
 import SimpleImageSlider from "react-simple-image-slider";
-import firebase from "firebase"
+import firebase from "firebase";
 
 const db = firebase.firestore();
-
 
 class Slider extends Component {
   constructor(props) {
     super(props);
-    this.state = { width: 0, height: 0 };
+    this.state = {
+      width: 0,
+      height: 0,
+      data: [],
+      photoArray: [{ url: require("../img/logo2.png") }],
+    };
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
 
@@ -17,19 +21,47 @@ class Slider extends Component {
     window.addEventListener("resize", this.updateWindowDimensions);
 
     try {
-      const cityRef = db.collection("gyms").doc(this.props.dataId);
+      const cityRef = db.collection("testGyms").doc("U1Eu9qGeAunQctNO7NMZ");
       const doc = await cityRef.get();
       if (!doc.exists) {
         console.log("No such document!");
       } else {
-        console.log("Document data:", doc.data());
+        // console.log("Document data:", doc.data());
         this.setState({ data: doc.data() });
+
+        let myArray = doc.data().photo;
+        let photoArray = [{ url: require("../img/logo2.png") }];
+        myArray.forEach(function (entry) {
+          let myObject = {};
+          myObject.url = entry;
+          photoArray.push(myObject);
+        });
+        this.setState({ photoArray: photoArray });
       }
     } catch (error) {
       console.log("Wystapił błąd");
       console.log(error);
     }
   }
+
+  // async componentDidMount(props) {
+  //   this.updateWindowDimensions();
+  //   window.addEventListener("resize", this.updateWindowDimensions);
+
+  //   try {
+  //     const cityRef = db.collection("gyms").doc(this.props.dataId);
+  //     const doc = await cityRef.get();
+  //     if (!doc.exists) {
+  //       console.log("No such document!");
+  //     } else {
+  //       console.log("Document data:", doc.data());
+  //       this.setState({ data: doc.data() });
+  //     }
+  //   } catch (error) {
+  //     console.log("Wystapił błąd");
+  //     console.log(error);
+  //   }
+  // }
 
   componentWillUnmount() {
     window.removeEventListener("resize", this.updateWindowDimensions);
@@ -40,17 +72,17 @@ class Slider extends Component {
   }
 
   render() {
-    const images = [
-      { url: require("../img/gym_2.png") },
-      { url: require("../img/header_img.png") },
-    ];
+    // const images = [
+    //   { url: require("../img/gym_2.png") },
+    //   { url: require("../img/header_img.png") },
+    // ];
 
     return (
       <div>
         <SimpleImageSlider
           width={"70vw"}
           height={504}
-          images={images}
+          images={this.state.photoArray}
         />
       </div>
     );
