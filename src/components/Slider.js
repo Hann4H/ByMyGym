@@ -11,8 +11,7 @@ class Slider extends Component {
       width: 0,
       height: 0,
       data: [],
-      gymPhoto: [],
-      photoArray: [],
+      photoArray: [{ url: require("../img/logo2.png") }],
     };
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
@@ -27,20 +26,17 @@ class Slider extends Component {
       if (!doc.exists) {
         console.log("No such document!");
       } else {
-        console.log("Document data:", doc.data());
-        this.setState({ data: doc.data(), gymPhoto: doc.data().photo });
+        // console.log("Document data:", doc.data());
+        this.setState({ data: doc.data() });
 
         let myArray = doc.data().photo;
-        let photoArray = [];
+        let photoArray = [{ url: require("../img/logo2.png") }];
         myArray.forEach(function (entry) {
           let myObject = {};
           myObject.url = entry;
           photoArray.push(myObject);
-          console.log(entry);
         });
         this.setState({ photoArray: photoArray });
-
-        // console.log(photoArray);
       }
     } catch (error) {
       console.log("Wystapił błąd");
@@ -76,10 +72,10 @@ class Slider extends Component {
   }
 
   render() {
-    const images = [
-      { url: require("../img/gym_2.png") },
-      { url: require("../img/header_img.png") },
-    ];
+    // const images = [
+    //   { url: require("../img/gym_2.png") },
+    //   { url: require("../img/header_img.png") },
+    // ];
 
     return (
       <div>
