@@ -17,8 +17,19 @@ class GymProfile extends Component {
     this.state = { data: [], editMode: false };
     this.showing = false;
     this.selectedBooking = null;
+    this.gymOwnerID = ""
 
     this.setEditReadmode = this.setEditReadMode.bind(this);
+  }
+
+  componentDidMount() {
+    firebase.firestore().collection("gyms").doc(this.props.match.params.id).get().then(snapshot => {
+        this.setState({gymOwnerID: snapshot.gymOwnerID});
+        console.log("id: " + snapshot.gymOwnerID)
+    })
+    .catch(function (error) {
+      console.log("Error getting documents: ", error);
+    });
   }
 
   setEditReadMode = () => {
@@ -36,7 +47,7 @@ class GymProfile extends Component {
             <Slider dataId={this.props.match.params.id} />
           </div>
 
-          {localStorage.getItem("user") ? (
+          {localStorage.getItem("user")==this.state.gymOwnerID || localStorage.getItem("user")=='ZlVPgW1qH0X65ASXIUZoFXab2SI3' ? (
             <button onClick={this.setEditReadMode}>
               {this.state.editMode ? "Podgląd" : "Edytuj"}
             </button>

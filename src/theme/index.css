@@ -911,11 +911,13 @@ ul.unstyled {
 
 .profile-bookings td {
   padding-top: 20px;
-  padding-left: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .profile-bookings a {
   color: var(--darkOrange);
+  font-weight: bold;
 }
 
 .profile-bookings a:hover {

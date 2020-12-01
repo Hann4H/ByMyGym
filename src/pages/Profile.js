@@ -121,8 +121,8 @@ class Profile extends Component {
                           this.state.Gyms.filter(gym => gym.docId == res.gym_id).map(filteredName => (
                             <tr>
                             <Link to={`/gym_profile/${res.gym_id}`}><td>{filteredName.gymName}</td></Link>
-                            <td>{res.start}</td>
-                            <td>{res.end}</td>
+                            <td>Od: {res.start}</td>
+                            <td>Do: {res.end}</td>
                             <button>ZMIEŃ</button>
                             </tr>
                           ))
