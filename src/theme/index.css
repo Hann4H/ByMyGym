@@ -914,6 +914,42 @@ ul.unstyled {
   padding-left: 10px;
 }
 
+.profile-bookings a {
+  color: var(--darkOrange);
+}
+
+.profile-bookings a:hover {
+  color: var(--mainOrange);
+}
+
+.profile-bookings button{
+  margin-left: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: var(--mainWhite);
+  height: 30px;
+}
+
+/* button {
+  font-family: "Lato";
+  background-color: var(--mainOrange);
+  border: none;
+  color: var(--mainWhite);
+  text-align: center;
+  font-size: 20px;
+  height: 45px;
+  margin-left: 2rem;
+
+  letter-spacing: var(--mainSpacing);
+  margin-top: 10px !important;
+
+  cursor: pointer;
+  padding-left: 25px;
+  padding-right: 25px;
+  border-radius: 2px;
+  white-space: nowrap;
+} */
+
 @media screen and (max-width: 700px) {
   .profile-gym-button {
     margin-left: 15%;
