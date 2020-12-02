@@ -137,6 +137,7 @@ export default class SearchGym extends Component {
               ))
             }
               <div className="pagination-out">
+              {this.state.loading ? 
                 <ReactPaginate
                     previousLabel={"<"}
                     nextLabel={">"}
@@ -149,6 +150,7 @@ export default class SearchGym extends Component {
                     containerClassName={"pagination"}
                     subContainerClassName={"pages pagination"}
                     activeClassName={"active"}/>
+              : null}
               </div>
           </Grid.Column>
         </Grid>

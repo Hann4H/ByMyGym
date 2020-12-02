@@ -18,6 +18,7 @@ function JsonToFirebase(props) {
       gymLat: item.geometry.coordinates[1],
       gymLng: item.geometry.coordinates[0],
       id: item.id,
+      gymOwnerID: ""
     })
   );
 

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Redirect } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import firebase from "../firebase";
 import Loading from "../components/Loading";
 
@@ -120,9 +120,10 @@ class Profile extends Component {
                         {this.state.Reservations.map((res, index) => (
                           this.state.Gyms.filter(gym => gym.docId == res.gym_id).map(filteredName => (
                             <tr>
-                            <td>{filteredName.gymName}</td>
-                            <td>{res.start}</td>
-                            <td>{res.end}</td>
+                            <Link to={`/gym_profile/${res.gym_id}`}><td>{filteredName.gymName}</td></Link>
+                            <td>Od: {res.start}</td>
+                            <td>Do: {res.end}</td>
+                            <button>ZMIEŃ</button>
                             </tr>
                           ))
                         ))}

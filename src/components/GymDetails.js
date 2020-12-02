@@ -52,6 +52,7 @@ class GymDetails extends Component {
     const gymHeight = this.state.data.gymHeight;
     const gymWidth = this.state.data.gymWidth;
     const gymLength = this.state.data.gymLength;
+    const gymOwnerID = this.state.data.ownerID;
 
     return (
       <>
