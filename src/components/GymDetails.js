@@ -3,6 +3,8 @@ import Localization from "./Localization";
 import firebase from "../firebase";
 import Tooltip from "@material-ui/core/Tooltip"
 import { empty } from "svelte/internal";
+import StarRatings from "../components/StarRatings";
+
 
 const nameStyle = {
   fontWeight: "bold",
@@ -111,6 +113,7 @@ class GymDetails extends Component {
     return (
       <>
         <div className="idk5">
+        <StarRatings />
           <div className="gym-prof-header">
             <h1 className="gym-name" style={{ color: "var(--darkOrange)" }}>
               {gymName}
