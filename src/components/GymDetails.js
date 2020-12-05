@@ -18,13 +18,11 @@ const db = firebase.firestore();
 class GymDetails extends Component {
   constructor(props) {
     super(props);
-    this.state = { data: [], favourites: [], docInDB: null};
+    this.state = { data: [], favourites: [], faved: false };
     this.showing = false;
     this.selectedBooking = null;
     this.handleClickDelete = this.handleClickDelete.bind(this);
     this.handleClickAdd = this.handleClickAdd.bind(this);
-    this.faved = false;
-    this.userInDB = false;
   }
 
   async componentDidMount(props) {
@@ -36,6 +34,20 @@ class GymDetails extends Component {
       } else {
         console.log("Document data:", doc.data());
         this.setState({ data: doc.data() }); 
+
+        const usersRef = db.collection("favourites").doc(localStorage.getItem("user"))
+
+        usersRef.get()
+        .then((docSnapshot) => {
+          if (docSnapshot.exists) {
+            if (docSnapshot.data().favourites.includes(this.props.dataId)) {
+              this.faved = true;
+              console.log(this.faved)
+            } else {
+              this.faved = false;
+            }
+          }
+        })
              
       }
     } catch (error) {
@@ -46,7 +58,14 @@ class GymDetails extends Component {
   }
 
   handleClickDelete() {
-    console.log('Click happened');
+    const usersRef = db.collection("favourites").doc(localStorage.getItem("user"))
+
+    usersRef.get()
+    .then((docSnapshot) => {
+      this.setState({ faved: false }); 
+      usersRef.update({favourites: firebase.firestore.FieldValue.arrayRemove(this.props.dataId)});
+    })
+
   }
 
   handleClickAdd() {
@@ -57,15 +76,12 @@ class GymDetails extends Component {
     .then((docSnapshot) => {
       if (docSnapshot.exists) {
         if (!docSnapshot.data().favourites.includes(this.props.dataId)) {
-          const stuff = docSnapshot.data().favourites
-          faves.push(docSnapshot.data().favourites);
-          faves.push(this.props.dataId);
-          usersRef.update({"favourites": faves});
-          this.faved = true;
+          this.setState({ faved: true }); 
+          usersRef.update({favourites: firebase.firestore.FieldValue.arrayUnion(this.props.dataId)});      
         }
       } else {
+        this.setState({ faved: true }); 
         usersRef.set({favourites: this.props.dataId})
-        this.faved = true;
       }
     });
   }
@@ -99,7 +115,7 @@ class GymDetails extends Component {
             <h1 className="gym-name" style={{ color: "var(--darkOrange)" }}>
               {gymName}
             </h1>
-            {(this.faved == true) ? (
+            {(localStorage.getItem("user") && this.state.faved) ? (
               <Tooltip
               title="Usuń z ulubionych"
               placement="top"
