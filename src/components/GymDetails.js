@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Localization from "./Localization";
 import firebase from "../firebase";
+import Tooltip from "@material-ui/core/Tooltip"
 
 const nameStyle = {
   fontWeight: "bold",
@@ -61,7 +62,15 @@ class GymDetails extends Component {
             <h1 className="gym-name" style={{ color: "var(--darkOrange)" }}>
               {gymName}
             </h1>
-            <img src={require("../img/heart_empty.png")} className="heart"></img>
+            <Tooltip
+              title="Dodaj do ulubionych"
+              placement="top"
+            >
+            <img src={require("../img/heart_empty.png")} 
+            onMouseOver={e => (e.currentTarget.src = require('../img/heart_full.png'))}
+            onMouseOut={e => (e.currentTarget.src = require("../img/heart_empty.png"))}
+            className="heart"></img>
+            </Tooltip>
           </div>
           <div className="gym-details">
             <div className="gym-details-column1">
