@@ -57,9 +57,12 @@ class GymDetails extends Component {
     return (
       <>
         <div className="idk5">
-          <h1 className="gym-name" style={{ color: "var(--darkOrange)" }}>
-            {gymName}
-          </h1>
+          <div className="gym-prof-header">
+            <h1 className="gym-name" style={{ color: "var(--darkOrange)" }}>
+              {gymName}
+            </h1>
+            <img src={require("../img/heart_empty.png")} className="heart"></img>
+          </div>
           <div className="gym-details">
             <div className="gym-details-column1">
               <p style={nameStyle}>Adres</p>

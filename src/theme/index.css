@@ -158,6 +158,16 @@
   font-family: "Lato";
 }
 
+.gym-prof-header {
+  display: flex;
+}
+
+.heart {
+  height: 23px;
+  margin-top: 3.5rem;
+  margin-left: 2rem;
+}
+
 @media screen and (max-width: 768px) {
   .gym-name {
     font-size: 20px;
