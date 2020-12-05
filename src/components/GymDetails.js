@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Localization from "./Localization";
 import firebase from "../firebase";
 import Tooltip from "@material-ui/core/Tooltip"
+import { empty } from "svelte/internal";
 
 const nameStyle = {
   fontWeight: "bold",
@@ -17,26 +18,59 @@ const db = firebase.firestore();
 class GymDetails extends Component {
   constructor(props) {
     super(props);
-    this.state = { data: [] };
+    this.state = { data: [], favourites: [], docInDB: null};
     this.showing = false;
     this.selectedBooking = null;
+    this.handleClickDelete = this.handleClickDelete.bind(this);
+    this.handleClickAdd = this.handleClickAdd.bind(this);
+    this.faved = false;
+    this.userInDB = false;
   }
 
   async componentDidMount(props) {
     try {
       const cityRef = db.collection("gyms").doc(this.props.dataId);
-      const doc = await cityRef.get();
+      const doc = await cityRef.get();    
       if (!doc.exists) {
         console.log("No such document!");
       } else {
         console.log("Document data:", doc.data());
-        this.setState({ data: doc.data() });
+        this.setState({ data: doc.data() }); 
+             
       }
     } catch (error) {
       console.log("Wystapił błąd");
       console.log(error);
     }
+
   }
+
+  handleClickDelete() {
+    console.log('Click happened');
+  }
+
+  handleClickAdd() {
+    const faves = [];
+    const usersRef = db.collection("favourites").doc(localStorage.getItem("user"))
+
+    usersRef.get()
+    .then((docSnapshot) => {
+      if (docSnapshot.exists) {
+        if (!docSnapshot.data().favourites.includes(this.props.dataId)) {
+          const stuff = docSnapshot.data().favourites
+          faves.push(docSnapshot.data().favourites);
+          faves.push(this.props.dataId);
+          usersRef.update({"favourites": faves});
+          this.faved = true;
+        }
+      } else {
+        usersRef.set({favourites: this.props.dataId})
+        this.faved = true;
+      }
+    });
+  }
+
+
 
   render() {
     const gymLat = this.state.data.gymLat ? this.state.data.gymLat : 52.409538;
@@ -55,6 +89,9 @@ class GymDetails extends Component {
     const gymLength = this.state.data.gymLength;
     const gymOwnerID = this.state.data.ownerID;
 
+
+
+
     return (
       <>
         <div className="idk5">
@@ -62,15 +99,29 @@ class GymDetails extends Component {
             <h1 className="gym-name" style={{ color: "var(--darkOrange)" }}>
               {gymName}
             </h1>
-            <Tooltip
+            {(this.faved == true) ? (
+              <Tooltip
+              title="Usuń z ulubionych"
+              placement="top"
+            >
+              <img src={require("../img/heart_full.png")} 
+              onMouseOver={e => (e.currentTarget.src = require('../img/heart_empty.png'))}
+              onMouseOut={e => (e.currentTarget.src = require("../img/heart_full.png"))}
+              onClick={this.handleClickDelete}
+              className="heart" />
+            </Tooltip>
+            ) : (
+              <Tooltip
               title="Dodaj do ulubionych"
               placement="top"
             >
-            <img src={require("../img/heart_empty.png")} 
-            onMouseOver={e => (e.currentTarget.src = require('../img/heart_full.png'))}
-            onMouseOut={e => (e.currentTarget.src = require("../img/heart_empty.png"))}
-            className="heart"></img>
+              <img src={require("../img/heart_empty.png")} 
+              onMouseOver={e => (e.currentTarget.src = require('../img/heart_full.png'))}
+              onMouseOut={e => (e.currentTarget.src = require("../img/heart_empty.png"))}
+              onClick={this.handleClickAdd}
+              className="heart" />
             </Tooltip>
+            )}
           </div>
           <div className="gym-details">
             <div className="gym-details-column1">
