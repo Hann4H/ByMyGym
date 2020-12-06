@@ -1,14 +1,33 @@
 import React, {useState} from 'react';
 import { FaStar } from 'react-icons/fa';
+import firebase from "../firebase";
 
-const StarRatings = () => {
+const db = firebase.firestore();
+
+const StarRatings = (props) => {
     const [rating, setRating] = useState(null);
     const [hover, setHover] = useState(null);
 
-    return(
+    return (
         <div className="star-ratings">
             {[...Array(5)].map((star, i) => {
                 const ratingValue = i + 1;
+
+                const handleClick = () => {
+                    setRating(ratingValue);
+                    const scoreRef = db.collection("scores").doc(props.gymID);
+                    const userID = localStorage.getItem("user");
+                    
+                    scoreRef.get()
+                    .then((docSnapshot) => {
+                        if (docSnapshot.exists) {
+                            // scoreRef.update({[userID]: null});
+                            scoreRef.update({[userID]: ratingValue});
+                        } else { 
+                            scoreRef.set({[userID]: ratingValue})
+                        }
+                    });
+                }
 
                 return (
                     <label>
@@ -16,7 +35,7 @@ const StarRatings = () => {
                             type="radio" 
                             name="rating" 
                             value={ratingValue} 
-                            onClick={() => setRating(ratingValue)}
+                            onClick={() => { handleClick()}}
                         />
                         <FaStar 
                             className="star" 

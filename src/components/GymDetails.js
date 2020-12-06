@@ -113,7 +113,7 @@ class GymDetails extends Component {
     return (
       <>
         <div className="idk5">
-        <StarRatings />
+        <StarRatings gymID={this.props.dataId}/>
           <div className="gym-prof-header">
             <h1 className="gym-name" style={{ color: "var(--darkOrange)" }}>
               {gymName}
