@@ -158,6 +158,35 @@
   font-family: "Lato";
 }
 
+.gym-prof-header {
+  display: flex;
+}
+
+.heart {
+  height: 23px;
+  margin-top: 3.5rem;
+  margin-left: 2rem;
+  cursor: pointer;
+}
+
+.star-ratings {
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+  width: 5rem;
+  
+}
+
+.star-ratings input {
+  display: none;
+}
+
+.star {
+  cursor: pointer;
+  height: 25px;
+  transition: color 200ms;
+}
+
 @media screen and (max-width: 768px) {
   .gym-name {
     font-size: 20px;
