@@ -54,7 +54,7 @@ export default function gymForm() {
 							gymStreet: values.gymStreet,
 							gymCity: values.gymCity,
 							gymZip: values.gymZip,
-							gymPhoto,
+							gymPhoto: [gymPhoto],
 							gymHeight: values.gymHeight,
 							gymWidth: values.gymWidth,
 							gymLength: values.gymLength,
