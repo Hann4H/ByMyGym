@@ -4,6 +4,7 @@ import firebase from "../firebase";
 import Tooltip from "@material-ui/core/Tooltip";
 import { empty } from "svelte/internal";
 import StarRatings from "../components/StarRatings";
+import WeighedRating from "../components/WeighedRating";
 
 const nameStyle = {
 	fontWeight: "bold",
@@ -141,6 +142,7 @@ class GymDetails extends Component {
 						>
 							{gymName}
 						</h1>
+						<WeighedRating />
 						{localStorage.getItem("user") && this.state.faved ? (
 							<Tooltip title="Usuń z ulubionych" placement="top">
 								<img

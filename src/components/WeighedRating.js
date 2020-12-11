@@ -1,12 +1,25 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { FaStar } from 'react-icons/fa';
 import firebase from "../firebase";
 
 const db = firebase.firestore();
 
-const StarRatings = (props) => {
+const WeighedRating = (props) => {
     const [rating, setRating] = useState(null);
     const [hover, setHover] = useState(null);
+    const [stos, setStos] = useState([]);
+
+    useEffect(() => {
+        const scoreRef = db.collection("scores");
+
+        scoreRef.get()
+            .then((docSnapshot) => {
+                docSnapshot.forEach(doc => {
+                    console.log("=> ", doc.data());
+                })
+            });
+
+    }, [])
 
     return (
         <div className="star-ratings">
@@ -18,13 +31,12 @@ const StarRatings = (props) => {
                     const scoreRef = db.collection("scores").doc(props.gymID);
                     const userID = localStorage.getItem("user");
                     
-
                     scoreRef.get()
                     .then((docSnapshot) => {
                         if (docSnapshot.exists) {
+                            // scoreRef.update({[userID]: null});
                             scoreRef.update({[userID]: ratingValue});
                         } else { 
-                            scoreRef.update({all: firebase.firestore.FieldValue.arrayUnion(ratingValue)});
                             scoreRef.set({[userID]: ratingValue})
                         }
                     });
@@ -32,18 +44,15 @@ const StarRatings = (props) => {
 
                 return (
                     <label>
-                        <input 
+                        {/* <input 
                             type="radio" 
                             name="rating" 
                             value={ratingValue} 
-                            onClick={() => { handleClick()}}
-                        />
+                        /> */}
                         <FaStar 
-                            className="star" 
+                            className="weighed-star" 
                             size={20} 
                             color={ratingValue <= (hover || rating) ? "#ffa841" : "#ececec"}
-                            onMouseEnter={() => setHover(ratingValue)}
-                            onMouseLeave={() => setHover(null)}
                         />
                     </label>
                 )
@@ -53,4 +62,4 @@ const StarRatings = (props) => {
     )
 }
 
-export default StarRatings;
+export default WeighedRating;
