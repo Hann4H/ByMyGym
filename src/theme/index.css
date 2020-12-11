@@ -1454,7 +1454,7 @@ ul.unstyled {
 
 .faq-container {
   width: 60vw;
-  height: 75vh;
+  height: 70vh;
   display: flex;
   flex-direction: column;
 }
@@ -1463,8 +1463,13 @@ ul.unstyled {
   font-size: 2rem;
   color: var(--darkOrange);
   margin-left: 45%;
-  padding-top: 1.5rem;
+  padding-top: 2rem;
   letter-spacing: var(--mainSpacing);
+  margin-bottom: 3rem;
+}
+
+.faq-container p {
+  margin-bottom: 3rem;
 }
 
 .faq-container ol {
