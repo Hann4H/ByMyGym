@@ -7,56 +7,35 @@ const db = firebase.firestore();
 const WeighedRating = (props) => {
     const [rating, setRating] = useState(null);
     const [hover, setHover] = useState(null);
-    const [stos, setStos] = useState([]);
+    const [stos, setStos] = useState(0);
+    
 
     useEffect(() => {
-        const scoreRef = db.collection("scores");
+        const scoreRef = db.collection("scores").doc(props.gymID);
 
         scoreRef.get()
             .then((docSnapshot) => {
-                docSnapshot.forEach(doc => {
-                    console.log("=> ", doc.data());
-                })
+                var total = 0;
+                for(var i = 0; i < docSnapshot.data().all.length; i++) {
+                    total += docSnapshot.data().all[i];
+                }
+                const avg = total / docSnapshot.data().all.length;
+                
+                setStos(total / docSnapshot.data().all.length)
+                console.log(avg) 
             });
-
+            
     }, [])
 
     return (
         <div className="star-ratings">
-            {[...Array(5)].map((star, i) => {
-                const ratingValue = i + 1;
-
-                const handleClick = () => {
-                    setRating(ratingValue);
-                    const scoreRef = db.collection("scores").doc(props.gymID);
-                    const userID = localStorage.getItem("user");
-                    
-                    scoreRef.get()
-                    .then((docSnapshot) => {
-                        if (docSnapshot.exists) {
-                            // scoreRef.update({[userID]: null});
-                            scoreRef.update({[userID]: ratingValue});
-                        } else { 
-                            scoreRef.set({[userID]: ratingValue})
-                        }
-                    });
-                }
-
-                return (
                     <label>
-                        {/* <input 
-                            type="radio" 
-                            name="rating" 
-                            value={ratingValue} 
-                        /> */}
                         <FaStar 
                             className="weighed-star" 
                             size={20} 
-                            color={ratingValue <= (hover || rating) ? "#ffa841" : "#ececec"}
+                            color={3 ? "#ffa841" : "#ececec"}
                         />
-                    </label>
-                )
-            })}
+                    </label>        
         </div>
 
     )

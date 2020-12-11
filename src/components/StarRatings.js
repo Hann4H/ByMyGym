@@ -1,23 +1,33 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { FaStar } from 'react-icons/fa';
 import firebase from "../firebase";
 
 const db = firebase.firestore();
 
+
 const StarRatings = (props) => {
     const [rating, setRating] = useState(null);
     const [hover, setHover] = useState(null);
+
+    const scoreRef = db.collection("scores").doc(props.gymID);
+    const userID = localStorage.getItem("user");
 
     return (
         <div className="star-ratings">
             {[...Array(5)].map((star, i) => {
                 const ratingValue = i + 1;
 
+                useEffect(() => {
+                    scoreRef.get()
+                        .then((docSnapshot) => {
+                            if (docSnapshot.exists) {
+                               setRating(docSnapshot.data()[userID])
+                            }
+                        });
+                }, [])
+
                 const handleClick = () => {
                     setRating(ratingValue);
-                    const scoreRef = db.collection("scores").doc(props.gymID);
-                    const userID = localStorage.getItem("user");
-                    
 
                     scoreRef.get()
                     .then((docSnapshot) => {

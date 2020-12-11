@@ -142,7 +142,7 @@ class GymDetails extends Component {
 						>
 							{gymName}
 						</h1>
-						<WeighedRating />
+						<WeighedRating  gymID={this.props.dataId}/>
 						{localStorage.getItem("user") && this.state.faved ? (
 							<Tooltip title="Usuń z ulubionych" placement="top">
 								<img
