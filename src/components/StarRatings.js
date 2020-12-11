@@ -22,6 +22,9 @@ const StarRatings = (props) => {
                     scoreRef.get()
                     .then((docSnapshot) => {
                         if (docSnapshot.exists) {
+                            // console.log(docSnapshot.data()[userID])
+                            scoreRef.update({all: firebase.firestore.FieldValue.arrayRemove(docSnapshot.data()[userID])});
+                            scoreRef.update({all: firebase.firestore.FieldValue.arrayUnion(ratingValue)});
                             scoreRef.update({[userID]: ratingValue});
                         } else { 
                             scoreRef.update({all: firebase.firestore.FieldValue.arrayUnion(ratingValue)});
