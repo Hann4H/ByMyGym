@@ -129,7 +129,11 @@ class GymDetails extends Component {
 		return (
 			<>
 				<div className="idk5">
-					<StarRatings gymID={this.props.dataId} />
+					{localStorage.getItem("user") ? (
+						<StarRatings gymID={this.props.dataId} />
+					) : (
+						""
+					)}
 					<div className="gym-prof-header">
 						<h1
 							className="gym-name"
