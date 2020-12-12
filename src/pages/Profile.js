@@ -3,6 +3,8 @@ import { Link, Redirect } from 'react-router-dom'
 import firebase from "../firebase";
 import Loading from "../components/Loading";
 
+var now = new Date();
+
 class Profile extends Component {
   state = {
     user: [],
@@ -124,6 +126,7 @@ class Profile extends Component {
                             <td>Od: {res.start}</td>
                             <td>Do: {res.end}</td>
                             <button>ZMIEŃ</button>
+                            <button>OCEŃ</button>
                             </tr>
                           ))
                         ))}

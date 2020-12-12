@@ -37,7 +37,7 @@ const WeighedRating = (props) => {
 
 
                 return (
-                    <Tooltip title={stos} placement="top">
+                    <Tooltip title={"Ocena: " + stos} placement="top">
                     <label>
                         <FaStar 
                             className="weighed-star" 

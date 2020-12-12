@@ -898,10 +898,8 @@ button {
   font-size: 20px;
   height: 45px;
   margin-left: 2rem;
-  /* font-weight: bold; */
   letter-spacing: var(--mainSpacing);
   margin-top: 10px !important;
-
   cursor: pointer;
   padding-left: 25px;
   padding-right: 25px;
@@ -999,11 +997,6 @@ ul.unstyled {
   margin-left: 5rem;
 }
 
-.profile-gym-button {
-  margin-bottom: 2rem;
-  margin-left: 20%;
-}
-
 .profile-info {
   background-color: var(--mainWhite);
 }
@@ -1046,11 +1039,13 @@ ul.unstyled {
 }
 
 .profile-bookings button{
+  font-size: 13px;
   margin-left: 15px;
   padding-left: 20px;
   padding-right: 20px;
   color: var(--mainWhite);
-  height: 30px;
+  height: 20px;
+  max-width: 90px;
 }
 
 /* button {
