@@ -26,14 +26,6 @@ class Footer extends Component {
                     />
                   <p>Skontaktuj się z nami!</p>
                   </Link>
-                  {/* <Link to="/contact">
-                    <img
-                      className="msg-icon"
-                      alt="envelope"
-                      src={require("../img/msg-icon.png")}
-                    />
-                    <p>Skontaktuj się z nami!</p>
-                  </Link>  */}
                 </li>
                 <li>
                   <Link to="/faq">
@@ -44,14 +36,6 @@ class Footer extends Component {
                     />
                     <p>FAQ</p>
                   </Link>
-                  {/* <Link to="/faq">
-                    <img
-                      className="msg-icon"
-                      alt="envelope"
-                      src={require("../img/help.png")}
-                    />
-                    <p>FAQ</p>
-                  </Link> */}
                 </li>
               </ul>
           </div>

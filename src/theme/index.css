@@ -713,8 +713,7 @@
 
 .contact-link ul {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  margin-left: 15rem;
 }
 
 .contact-link a{
@@ -722,6 +721,21 @@
 }
 .contact-link li {
   list-style: none;
+  margin-right: 5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .contact-link ul {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    margin-left: 3em;
+  }
+  
+  .contact-link li {
+    list-style: none;
+  }
+
 }
 
 
