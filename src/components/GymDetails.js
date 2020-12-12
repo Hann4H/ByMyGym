@@ -4,6 +4,7 @@ import firebase from "../firebase";
 import Tooltip from "@material-ui/core/Tooltip";
 import { empty } from "svelte/internal";
 import StarRatings from "../components/StarRatings";
+import WeighedRating from "../components/WeighedRating";
 
 const nameStyle = {
 	fontWeight: "bold",
@@ -129,7 +130,11 @@ class GymDetails extends Component {
 		return (
 			<>
 				<div className="idk5">
-					<StarRatings gymID={this.props.dataId} />
+					{localStorage.getItem("user") ? (
+						<StarRatings gymID={this.props.dataId} />
+					) : (
+						""
+					)}
 					<div className="gym-prof-header">
 						<h1
 							className="gym-name"
@@ -172,6 +177,8 @@ class GymDetails extends Component {
 					</div>
 					<div className="gym-details">
 						<div className="gym-details-column1">
+						<WeighedRating  gymID={this.props.dataId}/>
+						<br />
 							<p style={nameStyle}>Adres</p>
 							{this.state.data.gymStreet &&
 							this.state.data.gymZip &&
@@ -226,13 +233,7 @@ class GymDetails extends Component {
 								<p className="no-data-p">brak</p>
 							)}
 							<br />
-							<p style={nameStyle}>Cena</p>
-							{this.state.data.gymPrice ? (
-								<p style={textStyle}>{gymPrice}</p>
-							) : (
-								<p className="no-data-p">brak</p>
-							)}
-							<br />
+							
 							<p style={nameStyle}>Opis</p>
 							{this.state.data.gymDescription ? (
 								<p
@@ -247,6 +248,15 @@ class GymDetails extends Component {
 							<br />
 						</div>
 						<div className="gym-details-column2">
+						<br /><br /><br />
+							<p style={nameStyle}>Cena</p>
+							{this.state.data.gymPrice ? (
+								<p style={textStyle}>{gymPrice}</p>
+							) : (
+								<p className="no-data-p">brak</p>
+							)}
+							<br />
+						
 							<p style={nameStyle}>Strona WWW</p>
 							{this.state.data.gymURL ? (
 								<a

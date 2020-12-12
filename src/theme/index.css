@@ -174,7 +174,11 @@
   /* justify-content: center; */
   /* align-items: center; */
   width: 5rem;
-  
+}
+
+.star-ratings-weighed {
+  display: flex;
+  width: 2rem;
 }
 
 .star-ratings input {
@@ -187,6 +191,10 @@
   transition: color 200ms;
 }
 
+.weighed-star {
+  height: 30px;
+  transition: color 200ms;
+}
 
 @media screen and (max-width: 768px) {
   .gym-name {
@@ -713,8 +721,7 @@
 
 .contact-link ul {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  margin-left: 15rem;
 }
 
 .contact-link a{
@@ -722,6 +729,21 @@
 }
 .contact-link li {
   list-style: none;
+  margin-right: 5rem;
+}
+
+@media screen and (max-width: 768px) {
+  .contact-link ul {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    margin-left: 3em;
+  }
+  
+  .contact-link li {
+    list-style: none;
+  }
+
 }
 
 
@@ -1656,16 +1678,23 @@ ul.unstyled {
 }
 
 .faq-container {
-  /* width: 60vw;
-  height: 75vh; */
+  width: 60vw;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .faq-h1 {
   font-size: 2rem;
   color: var(--darkOrange);
   margin-left: 45%;
-  padding-top: 1.5rem;
+  padding-top: 2rem;
   letter-spacing: var(--mainSpacing);
+  margin-bottom: 3rem;
+}
+
+.faq-container p {
+  margin-bottom: 3rem;
 }
 
 .faq-container ol {
