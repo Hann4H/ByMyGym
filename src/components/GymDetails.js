@@ -142,7 +142,6 @@ class GymDetails extends Component {
 						>
 							{gymName}
 						</h1>
-						<WeighedRating  gymID={this.props.dataId}/>
 						{localStorage.getItem("user") && this.state.faved ? (
 							<Tooltip title="Usuń z ulubionych" placement="top">
 								<img
@@ -178,6 +177,8 @@ class GymDetails extends Component {
 					</div>
 					<div className="gym-details">
 						<div className="gym-details-column1">
+						<WeighedRating  gymID={this.props.dataId}/>
+						<br />
 							<p style={nameStyle}>Adres</p>
 							{this.state.data.gymStreet &&
 							this.state.data.gymZip &&
@@ -232,13 +233,7 @@ class GymDetails extends Component {
 								<p className="no-data-p">brak</p>
 							)}
 							<br />
-							<p style={nameStyle}>Cena</p>
-							{this.state.data.gymPrice ? (
-								<p style={textStyle}>{gymPrice}</p>
-							) : (
-								<p className="no-data-p">brak</p>
-							)}
-							<br />
+							
 							<p style={nameStyle}>Opis</p>
 							{this.state.data.gymDescription ? (
 								<p
@@ -253,6 +248,15 @@ class GymDetails extends Component {
 							<br />
 						</div>
 						<div className="gym-details-column2">
+						<br /><br /><br />
+							<p style={nameStyle}>Cena</p>
+							{this.state.data.gymPrice ? (
+								<p style={textStyle}>{gymPrice}</p>
+							) : (
+								<p className="no-data-p">brak</p>
+							)}
+							<br />
+						
 							<p style={nameStyle}>Strona WWW</p>
 							{this.state.data.gymURL ? (
 								<a
