@@ -11,12 +11,12 @@ class FAQ extends Component {
             <div className="faq-container">
                 <h1 className="faq-h1">FAQ</h1>
                 <ol>
-                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                        <p>Fusce rhoncus volutpat ultrices. Etiam pharetra venenatis lectus, eget tempus dui accumsan non. Curabitur non vestibulum purus, a tincidunt ex. Maecenas ut facilisis dui. Donec in erat tincidunt lectus luctus mattis eget sit amet risus. Donec at vestibulum nunc, vel aliquet justo.</p>
-                    <li>Morbi magna lacus, tempus volutpat urna et, cursus rhoncus lorem.</li>
-                        <p>Aliquam nisi libero, congue vel pulvinar viverra, ultricies vel odio. </p>
-                    <li>Ut accumsan condimentum neque ac tempor.</li>
-                        <p>Mauris rhoncus ligula sem, vitae vulputate ipsum venenatis nec. Proin eget pharetra turpis. Nulla vestibulum vestibulum lacus, nec mollis tellus vulputate ut. Nunc faucibus dui nec risus fringilla ultrices. Etiam iaculis fringilla diam commodo pretium. Aenean augue leo, mattis dapibus justo id, cursus posuere nisi. Suspendisse potenti. In id commodo felis.</p>
+                    <li>Jak można zostać właścicielem sali, która isteniej już na stronie?</li>
+                        <p>Wystarczy, że napiszesz do nas poprzez formularz kontaktowey, do którego link znajduje się na dole strony. Możesz również kliknąć tutaj. Po weryfikacji dostaniesz uprawnienia właściciela - możliwość edycji danych sali oraz przyjmowania czy odrzucania rezerwacji.</p>
+                    <li>Czy aby zarezerwować salę należy mieć konto?</li>
+                        <p>Nie, można to zrobić bez konta. Wystarczy, że podasz wszystkie wymagane dane w formularzu, który znajduje się w profilu sali.</p>
+                    <li>Czy możliwa jest płatność na stronie?</li>
+                        <p>Nie, płatności dokonuje się poza stroną.</p>
                 </ol> 
             </div>
         </div>
