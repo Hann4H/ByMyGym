@@ -27,17 +27,28 @@ const StarRatings = (props) => {
                 }, [])
 
                 const handleClick = () => {
+
                     setRating(ratingValue);
 
                     scoreRef.get()
                     .then((docSnapshot) => {
                         if (docSnapshot.exists) {
-                            scoreRef.update({all: firebase.firestore.FieldValue.arrayRemove(docSnapshot.data()[userID])});
-                            scoreRef.update({all: firebase.firestore.FieldValue.arrayUnion(ratingValue)});
-                            scoreRef.update({[userID]: ratingValue});
+                            if (docSnapshot.data().scored.includes(userID)) {
+                                scoreRef.update({all: firebase.firestore.FieldValue.arrayRemove(docSnapshot.data()[userID])});
+                                scoreRef.update({all: firebase.firestore.FieldValue.arrayUnion(ratingValue)});
+                                scoreRef.update({[userID]: ratingValue});
+                            } else {
+                                scoreRef.update({
+                                    all: firebase.firestore.FieldValue.arrayUnion(ratingValue),
+                                    scored: firebase.firestore.FieldValue.arrayUnion(userID),
+                                    [userID]: ratingValue
+                                });
+
+                            }
                         } else { 
-                            scoreRef.set({[userID]: ratingValue, all: [ratingValue]});
+                            scoreRef.set({[userID]: ratingValue, all: [ratingValue], scored: userID});
                         }
+                        
                     });
                 }
 

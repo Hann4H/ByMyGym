@@ -15,7 +15,7 @@ export default class PopUp extends Component {
                 <div className="modal_content">
                     <span className="close" onClick={this.handleClick}>&times;    </span>
                     <p>Całokształt: </p>
-                    <StarRatings gymID={this.props.gymId} />
+                    <StarRatings gymID={this.props.gymId} bookingID={this.props.bookingID}/>
                 </div>
             </div>
         );

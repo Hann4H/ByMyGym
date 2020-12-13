@@ -195,7 +195,7 @@ class Basic extends Component {
             email: this.state.email.value,
             phoneNumber: this.state.phoneNumber.value,
             user_id: this.state.user,
-            score: null,
+            scored: null,
           })
           .then(() => {
             window.location.reload();
