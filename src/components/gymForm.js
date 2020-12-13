@@ -162,7 +162,7 @@ export default function gymForm() {
 						<div className="input-n-error">
 							<input
 								autoComplete="off"
-								type="text"
+								type="number"
 								value={values.gymLength || ""}
 								name="gymLength"
 								placeholder="w metrach"
@@ -181,7 +181,7 @@ export default function gymForm() {
 						<div className="input-n-error">
 							<input
 								autoComplete="off"
-								type="text"
+								type="number"
 								value={values.gymWidth || ""}
 								name="gymWidth"
 								placeholder="w metrach"
@@ -200,7 +200,7 @@ export default function gymForm() {
 						<div className="input-n-error">
 							<input
 								autoComplete="off"
-								type="text"
+								type="number"
 								value={values.gymHeight || ""}
 								name="gymHeight"
 								placeholder="w metrach"
@@ -253,7 +253,7 @@ export default function gymForm() {
 						<div className="input-n-error">
 							<input
 								autoComplete="off"
-								type="text"
+								type="number"
 								value={values.gymPrice || ""}
 								name="gymPrice"
 								pattern="[0-9]+([\.,][0-9]{0,2})?"
