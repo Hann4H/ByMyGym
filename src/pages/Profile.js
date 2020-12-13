@@ -9,6 +9,7 @@ class Profile extends Component {
   state = {
     user: [],
     error: "",
+    name: "",
     Reservations: [],
     Gyms: [],
     isLoading: false,
@@ -18,7 +19,6 @@ class Profile extends Component {
   componentDidMount() {
     const Reservations = [];
     const Gyms = [];
-
 
     this.loadUserProfile();
 
@@ -36,44 +36,40 @@ class Profile extends Component {
     .catch(function (error) {
       console.log("Error getting documents: ", error);
     });
+    
 
     firebase.firestore().collection("reservation").where("user_id", "==", localStorage.getItem("user"))
     .get()
     .then((querySnapshot) => {  
 
         querySnapshot.forEach(function (doc) {
-
-          
-
-          // firebase.firestore().collection("gyms").doc(doc.data().gym_id).get()
-          // .then(snapshot => {
             Reservations.push({
               start: doc.data().start,
               end: doc.data().end,
               gym_id: doc.data().gym_id,
-            //   gym_name: snapshot.data().gymName,
-            // })
           })  
         })
 
-
-
         this.setState({ Reservations });
-        console.log(this.state.Reservations)
     })
     .catch(function(error) {
         console.log("Error getting documents: ", error);
     });
 
-  }
 
-  meh() {
-      
+    firebase.firestore().collection("users").where("email", "==", localStorage.getItem("email"))
+    .get()
+    .then((snapshot) => {
+        snapshot.forEach(doc => {
+          this.setState({name: doc.data().firstName + " " + doc.data().surname})
+        })
+    })
   }
 
   loadUserProfile() {
     const user = localStorage.getItem("user");
     this.setState({ user });
+    this.setState({ name: localStorage.getItem("user_name")})
   }
 
 
@@ -95,16 +91,16 @@ class Profile extends Component {
               <img
                 className="profile-picture"
                 src={localStorage.getItem("photoURL")}
-                alt="profile pic"
+                alt="zdjęcie profilowe"
               />
-              <h1>{localStorage.getItem("user_name")}</h1>
+              <h1>{this.state.name}</h1>
             </div>
             <div className="profile-info-table">
               <table className="table table-borderless">
                 <tbody>
                   <tr className="profile-info">
                     <td className="headline-info">Imię</td>
-                    <td>{localStorage.getItem("user_name")}</td>
+                    <td>{this.state.name}</td>
                   </tr>
                   <tr className="profile-info">
                     <td className="headline-info">Email</td>
