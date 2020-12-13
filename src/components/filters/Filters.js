@@ -14,6 +14,11 @@ const textStyle = {
 	width: "auto",
 	display: "inline",
 	margin: "5px",
+	textTransform: "none",
+};
+
+const containerStyle = {
+	marginLeft: "10%",
 };
 
 class Filters extends Component {
@@ -174,13 +179,14 @@ class Filters extends Component {
 		console.log(this.state.data);
 		return (
 			<>
-				<div>
+				<div style={containerStyle}>
+					<br />
 					<form onSubmit={this.handleSubmit}>
 						<div style={{ display: "inline-block" }}>
 							<label style={nameStyle}>
 								Cena (zł):{" "}
 								<label style={textStyle}>
-									Od
+									od
 									<input
 										style={textStyle}
 										label="Od"
@@ -192,7 +198,7 @@ class Filters extends Component {
 									/>
 								</label>
 								<label style={textStyle}>
-									Do
+									do
 									<input
 										style={textStyle}
 										placeholder="do"
@@ -269,6 +275,7 @@ class Filters extends Component {
 								/>
 							</label>
 						</div>
+						<br />
 						<button type="submit">Zastosuj</button>
 					</form>
 				</div>
