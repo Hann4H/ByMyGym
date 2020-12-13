@@ -120,33 +120,30 @@ class Profile extends Component {
                   </tr>
                   <tr className="profile-info">
                     <td className="headline-info">Rezerwacje</td>
-                    <td>
-                      <table>
-                        <tbody>
-                        <div className="gyms-load">
-                          {this.state.loading ? null : <Loading />}
-                        </div>
-                        <div className="profile-bookings">
-                        {this.state.Reservations.map((res, index) => (
-                          this.state.Gyms.filter(gym => gym.docId == res.gym_id).map(filteredName => (
-                            <tr>
-                            <Link to={`/gym_profile/${res.gym_id}`}><td>{filteredName.gymName}</td></Link>
-                            <td>Od: {res.start}</td>
-                            <td>Do: {res.end}</td>
-                            <button>ZMIEŃ</button>
-                            {/* {this.state.scored ? "" : ( <button onClick={this.togglePop} >OCEŃ</button> )}                          
-                            {this.state.seen ? <PopUp toggle={this.togglePop} gymId={res.gym_id} bookingID={res.bookingID}/> : null} */}
-
-                            <StarRatings gymID={res.gym_id} bookingID={res.bookingID}/>
-                            </tr>
-                          ))
-                        ))}
-                        </div>
-                        </tbody>
-                      </table>
-                    </td>
                   </tr>
                 </tbody>
+              </table>
+              <table>
+              <tbody>
+                <div className="gyms-load">
+                  {this.state.loading ? null : <Loading />}
+                </div>
+                <div className="profile-bookings">
+                  {this.state.Reservations.map((res, index) => (
+                    this.state.Gyms.filter(gym => gym.docId == res.gym_id).map(filteredName => (
+                      <tr>
+                        <Link to={`/gym_profile/${res.gym_id}`}><td>{filteredName.gymName}</td></Link>
+                        <td>Od: {res.start}</td>
+                        <td>Do: {res.end}</td>
+                        <button>ZMIEŃ</button>
+                        {/* {this.state.scored ? "" : ( <button onClick={this.togglePop} >OCEŃ</button> )}                          
+                        {this.state.seen ? <PopUp toggle={this.togglePop} gymId={res.gym_id} bookingID={res.bookingID}/> : null} */}
+                        <StarRatings gymID={res.gym_id} bookingID={res.bookingID}/>
+                      </tr>
+                    ))
+                  ))}
+                </div>
+              </tbody>
               </table>
             </div>
         </div>
