@@ -177,8 +177,8 @@ class GymDetails extends Component {
 					</div>
 					<div className="gym-details">
 						<div className="gym-details-column1">
-						<WeighedRating  gymID={this.props.dataId}/>
-						<br />
+							<WeighedRating gymID={this.props.dataId} />
+							<br />
 							<p style={nameStyle}>Adres</p>
 							{this.state.data.gymStreet &&
 							this.state.data.gymZip &&
@@ -192,9 +192,9 @@ class GymDetails extends Component {
 							<br />
 							<div className="dimensions">
 								<div className="dimensions-p">
-									<p style={nameStyle}>Wysokość</p>
-									{this.state.data.gymHeight ? (
-										<p style={textStyle}>{gymHeight} m</p>
+									<p style={nameStyle}>Długość</p>
+									{this.state.data.gymLength ? (
+										<p style={textStyle}>{gymLength} m</p>
 									) : (
 										<p className="no-data-p">brak</p>
 									)}
@@ -210,9 +210,9 @@ class GymDetails extends Component {
 								</div>
 								<br />
 								<div className="dimensions-p">
-									<p style={nameStyle}>Długość</p>
-									{this.state.data.gymLength ? (
-										<p style={textStyle}>{gymLength} m</p>
+									<p style={nameStyle}>Wysokość</p>
+									{this.state.data.gymHeight ? (
+										<p style={textStyle}>{gymHeight} m</p>
 									) : (
 										<p className="no-data-p">brak</p>
 									)}
@@ -233,7 +233,7 @@ class GymDetails extends Component {
 								<p className="no-data-p">brak</p>
 							)}
 							<br />
-							
+
 							<p style={nameStyle}>Opis</p>
 							{this.state.data.gymDescription ? (
 								<p
@@ -248,7 +248,9 @@ class GymDetails extends Component {
 							<br />
 						</div>
 						<div className="gym-details-column2">
-						<br /><br /><br />
+							<br />
+							<br />
+							<br />
 							<p style={nameStyle}>Cena</p>
 							{this.state.data.gymPrice ? (
 								<p style={textStyle}>{gymPrice}</p>
@@ -256,7 +258,7 @@ class GymDetails extends Component {
 								<p className="no-data-p">brak</p>
 							)}
 							<br />
-						
+
 							<p style={nameStyle}>Strona WWW</p>
 							{this.state.data.gymURL ? (
 								<a
