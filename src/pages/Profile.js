@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link, Redirect } from 'react-router-dom'
 import firebase from "../firebase";
 import Loading from "../components/Loading";
+import PopUp from "../components/PopUp";
 
 var now = new Date();
 
@@ -12,7 +13,7 @@ class Profile extends Component {
     name: "",
     Reservations: [],
     Gyms: [],
-    isLoading: false,
+    seen: false,
     loading: false,
   };
 
@@ -47,6 +48,7 @@ class Profile extends Component {
               start: doc.data().start,
               end: doc.data().end,
               gym_id: doc.data().gym_id,
+              score: doc.data().score,
           })  
         })
 
@@ -64,6 +66,8 @@ class Profile extends Component {
           this.setState({name: doc.data().firstName + " " + doc.data().surname})
         })
     })
+
+
   }
 
   loadUserProfile() {
@@ -71,6 +75,12 @@ class Profile extends Component {
     this.setState({ user });
     this.setState({ name: localStorage.getItem("user_name")})
   }
+
+  togglePop = () => {
+    this.setState({
+     seen: !this.state.seen
+    });
+   };
 
 
 
@@ -122,7 +132,9 @@ class Profile extends Component {
                             <td>Od: {res.start}</td>
                             <td>Do: {res.end}</td>
                             <button>ZMIEŃ</button>
-                            <button>OCEŃ</button>
+                            
+                            <button onClick={this.togglePop} >OCEŃ</button>
+                            {this.state.seen ? <PopUp toggle={this.togglePop} /> : null}
                             </tr>
                           ))
                         ))}
