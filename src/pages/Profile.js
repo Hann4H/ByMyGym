@@ -134,7 +134,7 @@ class Profile extends Component {
                             <button>ZMIEŃ</button>
                             
                             <button onClick={this.togglePop} >OCEŃ</button>
-                            {this.state.seen ? <PopUp toggle={this.togglePop} /> : null}
+                            {this.state.seen ? <PopUp toggle={this.togglePop} gymId={res.gym_id}/> : null}
                             </tr>
                           ))
                         ))}

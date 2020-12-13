@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import StarRatings from "../components/StarRatings";
 
 
 export default class PopUp extends Component {
@@ -13,7 +14,8 @@ export default class PopUp extends Component {
             <div className="modal">
                 <div className="modal_content">
                     <span className="close" onClick={this.handleClick}>&times;    </span>
-                    <p>pop</p>
+                    <p>Całokształt: </p>
+                    <StarRatings gymID={this.props.gymId} />
                 </div>
             </div>
         );
