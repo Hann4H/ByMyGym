@@ -186,6 +186,13 @@ class ValidateFields {
 		}
 		return false;
 	}
+
+	validateGymOwner(gymOwner) {
+		if (!validator.isLength(gymOwner, { min: 20, max: 20 })) {
+			return "ID właściciela powinno mieć 20 znaków";
+		}
+		return false;
+	}
 }
 
 const validateFields = new ValidateFields();
