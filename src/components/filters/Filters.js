@@ -60,7 +60,8 @@ class Filters extends Component {
 
 	handleSubmit = (event) => {
 		event.preventDefault();
-
+		// ************************************ 1 przypadek
+		// wszystkie puste
 		if (
 			this.state.gymHeightM == "" &&
 			this.state.gymWidthM == "" &&
@@ -80,9 +81,12 @@ class Filters extends Component {
 					this.setState({ data: links });
 					this.gymData = links;
 				});
+			// ************************************ 5 przypadków
+			// dlugosc nie pusta
 		} else if (
+			this.state.gymLengthM != "" &&
 			this.state.gymWidthM == "" &&
-			this.state.gymLengthM == "" &&
+			this.state.gymHeightM == "" &&
 			this.state.audienceN == "" &&
 			this.state.changingRoomsN == ""
 		) {
@@ -90,44 +94,6 @@ class Filters extends Component {
 				.orderBy("gymPrice")
 				.where("gymPrice", ">=", this.state.gymPriceFrom)
 				.where("gymPrice", "<=", this.state.gymPriceTo)
-				.where("gymHeight", "==", this.state.gymHeightM)
-				.get()
-				.then((snapshot) => {
-					const links = snapshot.docs.map((doc) => {
-						return { docId: doc.id, ...doc.data() };
-					});
-					this.setState({ data: links });
-					this.gymData = links;
-				});
-		} else if (
-			this.state.gymLengthM == "" &&
-			this.state.audienceN == "" &&
-			this.state.changingRoomsN == ""
-		) {
-			db.collection("gyms")
-				.orderBy("gymPrice")
-				.where("gymPrice", ">=", this.state.gymPriceFrom)
-				.where("gymPrice", "<=", this.state.gymPriceTo)
-				.where("gymHeight", "==", this.state.gymHeightM)
-				.where("gymWidth", "==", this.state.gymWidthM)
-				.get()
-				.then((snapshot) => {
-					const links = snapshot.docs.map((doc) => {
-						return { docId: doc.id, ...doc.data() };
-					});
-					this.setState({ data: links });
-					this.gymData = links;
-				});
-		} else if (
-			this.state.audienceN == "" &&
-			this.state.changingRoomsN == ""
-		) {
-			db.collection("gyms")
-				.orderBy("gymPrice")
-				.where("gymPrice", ">=", this.state.gymPriceFrom)
-				.where("gymPrice", "<=", this.state.gymPriceTo)
-				.where("gymHeight", "==", this.state.gymHeightM)
-				.where("gymWidth", "==", this.state.gymWidthM)
 				.where("gymLength", "==", this.state.gymLengthM)
 				.get()
 				.then((snapshot) => {
@@ -137,13 +103,147 @@ class Filters extends Component {
 					this.setState({ data: links });
 					this.gymData = links;
 				});
-		} else if (this.state.changingRoomsN == "") {
+			// szeroksc nie pusta
+		} else if (
+			this.state.gymLengthM == "" &&
+			this.state.gymWidthM != "" &&
+			this.state.gymHeightM == "" &&
+			this.state.audienceN == "" &&
+			this.state.changingRoomsN == ""
+		) {
+			db.collection("gyms")
+				.orderBy("gymPrice")
+				.where("gymPrice", ">=", this.state.gymPriceFrom)
+				.where("gymPrice", "<=", this.state.gymPriceTo)
+				.where("gymWidth", "==", this.state.gymWidthM)
+				.get()
+				.then((snapshot) => {
+					const links = snapshot.docs.map((doc) => {
+						return { docId: doc.id, ...doc.data() };
+					});
+					this.setState({ data: links });
+					this.gymData = links;
+				});
+			// wysokosc nie pusta
+		} else if (
+			this.state.gymLengthM == "" &&
+			this.state.gymWidthM == "" &&
+			this.state.gymHeightM != "" &&
+			this.state.audienceN == "" &&
+			this.state.changingRoomsN == ""
+		) {
 			db.collection("gyms")
 				.orderBy("gymPrice")
 				.where("gymPrice", ">=", this.state.gymPriceFrom)
 				.where("gymPrice", "<=", this.state.gymPriceTo)
 				.where("gymHeight", "==", this.state.gymHeightM)
+				.get()
+				.then((snapshot) => {
+					const links = snapshot.docs.map((doc) => {
+						return { docId: doc.id, ...doc.data() };
+					});
+					this.setState({ data: links });
+					this.gymData = links;
+				});
+			// liczba miejsc nie puste
+		} else if (
+			this.state.gymLengthM == "" &&
+			this.state.gymWidthM == "" &&
+			this.state.gymHeightM == "" &&
+			this.state.audienceN != "" &&
+			this.state.changingRoomsN == ""
+		) {
+			db.collection("gyms")
+				.orderBy("gymPrice")
+				.where("gymPrice", ">=", this.state.gymPriceFrom)
+				.where("gymPrice", "<=", this.state.gymPriceTo)
+				.where("audience", "==", this.state.audienceN)
+				.get()
+				.then((snapshot) => {
+					const links = snapshot.docs.map((doc) => {
+						return { docId: doc.id, ...doc.data() };
+					});
+					this.setState({ data: links });
+					this.gymData = links;
+				});
+			// liczba szatn nie pusta
+		} else if (
+			this.state.gymLengthM == "" &&
+			this.state.gymWidthM == "" &&
+			this.state.gymHeightM == "" &&
+			this.state.audienceN == "" &&
+			this.state.changingRoomsN != ""
+		) {
+			db.collection("gyms")
+				.orderBy("gymPrice")
+				.where("gymPrice", ">=", this.state.gymPriceFrom)
+				.where("gymPrice", "<=", this.state.gymPriceTo)
+				.where("changingRooms", "==", this.state.changingRoomsN)
+				.get()
+				.then((snapshot) => {
+					const links = snapshot.docs.map((doc) => {
+						return { docId: doc.id, ...doc.data() };
+					});
+					this.setState({ data: links });
+					this.gymData = links;
+				});
+			// ************************************ 10 przypadków
+			// długość i szerokość
+		} else if (
+			this.state.gymLengthM != "" &&
+			this.state.gymWidthM != "" &&
+			this.state.gymHeightM == "" &&
+			this.state.audienceN == "" &&
+			this.state.changingRoomsN == ""
+		) {
+			db.collection("gyms")
+				.orderBy("gymPrice")
+				.where("gymPrice", ">=", this.state.gymPriceFrom)
+				.where("gymPrice", "<=", this.state.gymPriceTo)
+				.where("gymLength", "==", this.state.gymLengthM)
 				.where("gymWidth", "==", this.state.gymWidthM)
+				.get()
+				.then((snapshot) => {
+					const links = snapshot.docs.map((doc) => {
+						return { docId: doc.id, ...doc.data() };
+					});
+					this.setState({ data: links });
+					this.gymData = links;
+				});
+			// dlugosc i wysokosc
+		} else if (
+			this.state.gymLengthM != "" &&
+			this.state.gymWidthM == "" &&
+			this.state.gymHeightM != "" &&
+			this.state.audienceN == "" &&
+			this.state.changingRoomsN == ""
+		) {
+			db.collection("gyms")
+				.orderBy("gymPrice")
+				.where("gymPrice", ">=", this.state.gymPriceFrom)
+				.where("gymPrice", "<=", this.state.gymPriceTo)
+				.where("gymLength", "==", this.state.gymLengthM)
+				.where("gymHeight", "==", this.state.gymHeightM)
+				.get()
+				.then((snapshot) => {
+					const links = snapshot.docs.map((doc) => {
+						return { docId: doc.id, ...doc.data() };
+					});
+					this.setState({ data: links });
+					this.gymData = links;
+				});
+			// dlugosc i liczba miejsc
+		} else if (
+			this.state.gymLengthM != "" &&
+			this.state.gymWidthM == "" &&
+			this.state.gymHeightM == "" &&
+			this.state.audienceN != "" &&
+			this.state.changingRoomsN == ""
+		) {
+			db.collection("gyms")
+				.orderBy("gymPrice")
+				.where("gymPrice", ">=", this.state.gymPriceFrom)
+				.where("gymPrice", "<=", this.state.gymPriceTo)
 				.where("gymLength", "==", this.state.gymLengthM)
 				.where("audience", "==", this.state.audienceN)
 				.get()
@@ -154,6 +254,509 @@ class Filters extends Component {
 					this.setState({ data: links });
 					this.gymData = links;
 				});
+			// dlugosc i szatnie
+		} else if (
+			this.state.gymLengthM != "" &&
+			this.state.gymWidthM == "" &&
+			this.state.gymHeightM == "" &&
+			this.state.audienceN == "" &&
+			this.state.changingRoomsN != ""
+		) {
+			db.collection("gyms")
+				.orderBy("gymPrice")
+				.where("gymPrice", ">=", this.state.gymPriceFrom)
+				.where("gymPrice", "<=", this.state.gymPriceTo)
+				.where("gymLength", "==", this.state.gymLengthM)
+				.where("changingRooms", "==", this.state.changingRoomsN)
+				.get()
+				.then((snapshot) => {
+					const links = snapshot.docs.map((doc) => {
+						return { docId: doc.id, ...doc.data() };
+					});
+					this.setState({ data: links });
+					this.gymData = links;
+				});
+			// szerokosc i wysokosc
+		} else if (
+			this.state.gymLengthM == "" &&
+			this.state.gymWidthM != "" &&
+			this.state.gymHeightM != "" &&
+			this.state.audienceN == "" &&
+			this.state.changingRoomsN == ""
+		) {
+			db.collection("gyms")
+				.orderBy("gymPrice")
+				.where("gymPrice", ">=", this.state.gymPriceFrom)
+				.where("gymPrice", "<=", this.state.gymPriceTo)
+				.where("gymWidth", "==", this.state.gymWidthM)
+				.where("gymHeight", "==", this.state.gymHeightM)
+				.get()
+				.then((snapshot) => {
+					const links = snapshot.docs.map((doc) => {
+						return { docId: doc.id, ...doc.data() };
+					});
+					this.setState({ data: links });
+					this.gymData = links;
+				});
+			// szerokosc i liczba miejsc
+		} else if (
+			this.state.gymLengthM == "" &&
+			this.state.gymWidthM != "" &&
+			this.state.gymHeightM == "" &&
+			this.state.audienceN != "" &&
+			this.state.changingRoomsN == ""
+		) {
+			db.collection("gyms")
+				.orderBy("gymPrice")
+				.where("gymPrice", ">=", this.state.gymPriceFrom)
+				.where("gymPrice", "<=", this.state.gymPriceTo)
+				.where("gymWidth", "==", this.state.gymWidthM)
+				.where("audience", "==", this.state.audienceN)
+				.get()
+				.then((snapshot) => {
+					const links = snapshot.docs.map((doc) => {
+						return { docId: doc.id, ...doc.data() };
+					});
+					this.setState({ data: links });
+					this.gymData = links;
+				});
+			// szerokosc i szatnie
+		} else if (
+			this.state.gymLengthM == "" &&
+			this.state.gymWidthM != "" &&
+			this.state.gymHeightM == "" &&
+			this.state.audienceN == "" &&
+			this.state.changingRoomsN != ""
+		) {
+			db.collection("gyms")
+				.orderBy("gymPrice")
+				.where("gymPrice", ">=", this.state.gymPriceFrom)
+				.where("gymPrice", "<=", this.state.gymPriceTo)
+				.where("gymWidth", "==", this.state.gymWidthM)
+				.where("changingRooms", "==", this.state.changingRoomsN)
+				.get()
+				.then((snapshot) => {
+					const links = snapshot.docs.map((doc) => {
+						return { docId: doc.id, ...doc.data() };
+					});
+					this.setState({ data: links });
+					this.gymData = links;
+				});
+			// wysokosc i liczba miejsc
+		} else if (
+			this.state.gymLengthM == "" &&
+			this.state.gymWidthM == "" &&
+			this.state.gymHeightM != "" &&
+			this.state.audienceN != "" &&
+			this.state.changingRoomsN == ""
+		) {
+			db.collection("gyms")
+				.orderBy("gymPrice")
+				.where("gymPrice", ">=", this.state.gymPriceFrom)
+				.where("gymPrice", "<=", this.state.gymPriceTo)
+				.where("audience", "==", this.state.audienceN)
+				.where("gymHeight", "==", this.state.gymHeightM)
+				.get()
+				.then((snapshot) => {
+					const links = snapshot.docs.map((doc) => {
+						return { docId: doc.id, ...doc.data() };
+					});
+					this.setState({ data: links });
+					this.gymData = links;
+				});
+			// wysokosc i szatnie
+		} else if (
+			this.state.gymLengthM == "" &&
+			this.state.gymWidthM == "" &&
+			this.state.gymHeightM != "" &&
+			this.state.audienceN == "" &&
+			this.state.changingRoomsN != ""
+		) {
+			db.collection("gyms")
+				.orderBy("gymPrice")
+				.where("gymPrice", ">=", this.state.gymPriceFrom)
+				.where("gymPrice", "<=", this.state.gymPriceTo)
+				.where("changingRooms", "==", this.state.changingRoomsN)
+				.where("gymHeight", "==", this.state.gymHeightM)
+				.get()
+				.then((snapshot) => {
+					const links = snapshot.docs.map((doc) => {
+						return { docId: doc.id, ...doc.data() };
+					});
+					this.setState({ data: links });
+					this.gymData = links;
+				});
+			// liczba miejsc i szatnie
+		} else if (
+			this.state.gymLengthM == "" &&
+			this.state.gymWidthM == "" &&
+			this.state.gymHeightM == "" &&
+			this.state.audienceN != "" &&
+			this.state.changingRoomsN != ""
+		) {
+			db.collection("gyms")
+				.orderBy("gymPrice")
+				.where("gymPrice", ">=", this.state.gymPriceFrom)
+				.where("gymPrice", "<=", this.state.gymPriceTo)
+				.where("audience", "==", this.state.audienceN)
+				.where("changingRooms", "==", this.state.changingRoomsN)
+				.get()
+				.then((snapshot) => {
+					const links = snapshot.docs.map((doc) => {
+						return { docId: doc.id, ...doc.data() };
+					});
+					this.setState({ data: links });
+					this.gymData = links;
+				});
+			// ************************************ 10 przypadków
+			// dlugosc, szerokosc, wysokosc;
+		} else if (
+			this.state.gymLengthM != "" &&
+			this.state.gymWidthM != "" &&
+			this.state.gymHeightM != "" &&
+			this.state.audienceN == "" &&
+			this.state.changingRoomsN == ""
+		) {
+			db.collection("gyms")
+				.orderBy("gymPrice")
+				.where("gymPrice", ">=", this.state.gymPriceFrom)
+				.where("gymPrice", "<=", this.state.gymPriceTo)
+				.where("gymLength", "==", this.state.gymLengthM)
+				.where("gymWidth", "==", this.state.gymWidthM)
+				.where("gymHeight", "==", this.state.gymHeightM)
+				.get()
+				.then((snapshot) => {
+					const links = snapshot.docs.map((doc) => {
+						return { docId: doc.id, ...doc.data() };
+					});
+					this.setState({ data: links });
+					this.gymData = links;
+				});
+			// dlugosc, szerokosc, liczba miejsc
+		} else if (
+			this.state.gymLengthM != "" &&
+			this.state.gymWidthM != "" &&
+			this.state.gymHeightM == "" &&
+			this.state.audienceN != "" &&
+			this.state.changingRoomsN == ""
+		) {
+			db.collection("gyms")
+				.orderBy("gymPrice")
+				.where("gymPrice", ">=", this.state.gymPriceFrom)
+				.where("gymPrice", "<=", this.state.gymPriceTo)
+				.where("gymLength", "==", this.state.gymLengthM)
+				.where("gymWidth", "==", this.state.gymWidthM)
+				.where("audience", "==", this.state.audienceN)
+				.get()
+				.then((snapshot) => {
+					const links = snapshot.docs.map((doc) => {
+						return { docId: doc.id, ...doc.data() };
+					});
+					this.setState({ data: links });
+					this.gymData = links;
+				});
+			// dlugosc, szerokosc, szatnie
+		} else if (
+			this.state.gymLengthM != "" &&
+			this.state.gymWidthM != "" &&
+			this.state.gymHeightM == "" &&
+			this.state.audienceN == "" &&
+			this.state.changingRoomsN != ""
+		) {
+			db.collection("gyms")
+				.orderBy("gymPrice")
+				.where("gymPrice", ">=", this.state.gymPriceFrom)
+				.where("gymPrice", "<=", this.state.gymPriceTo)
+				.where("gymLength", "==", this.state.gymLengthM)
+				.where("gymWidth", "==", this.state.gymWidthM)
+				.where("changingRooms", "==", this.state.changingRoomsN)
+				.get()
+				.then((snapshot) => {
+					const links = snapshot.docs.map((doc) => {
+						return { docId: doc.id, ...doc.data() };
+					});
+					this.setState({ data: links });
+					this.gymData = links;
+				});
+			// dlugosc, wysokosc, liczba miejsc
+		} else if (
+			this.state.gymLengthM != "" &&
+			this.state.gymWidthM == "" &&
+			this.state.gymHeightM != "" &&
+			this.state.audienceN != "" &&
+			this.state.changingRoomsN == ""
+		) {
+			db.collection("gyms")
+				.orderBy("gymPrice")
+				.where("gymPrice", ">=", this.state.gymPriceFrom)
+				.where("gymPrice", "<=", this.state.gymPriceTo)
+				.where("gymLength", "==", this.state.gymLengthM)
+				.where("gymHeight", "==", this.state.gymHeightM)
+				.where("audience", "==", this.state.audienceN)
+				.get()
+				.then((snapshot) => {
+					const links = snapshot.docs.map((doc) => {
+						return { docId: doc.id, ...doc.data() };
+					});
+					this.setState({ data: links });
+					this.gymData = links;
+				});
+			// dlugosc, wysokosc, szatnie
+		} else if (
+			this.state.gymLengthM != "" &&
+			this.state.gymWidthM == "" &&
+			this.state.gymHeightM != "" &&
+			this.state.audienceN == "" &&
+			this.state.changingRoomsN != ""
+		) {
+			db.collection("gyms")
+				.orderBy("gymPrice")
+				.where("gymPrice", ">=", this.state.gymPriceFrom)
+				.where("gymPrice", "<=", this.state.gymPriceTo)
+				.where("gymLength", "==", this.state.gymLengthM)
+				.where("gymHeight", "==", this.state.gymHeightM)
+				.where("changingRooms", "==", this.state.changingRoomsN)
+				.get()
+				.then((snapshot) => {
+					const links = snapshot.docs.map((doc) => {
+						return { docId: doc.id, ...doc.data() };
+					});
+					this.setState({ data: links });
+					this.gymData = links;
+				});
+			// dlugosc, liczba miejs, szatnie
+		} else if (
+			this.state.gymLengthM != "" &&
+			this.state.gymWidthM == "" &&
+			this.state.gymHeightM == "" &&
+			this.state.audienceN != "" &&
+			this.state.changingRoomsN != ""
+		) {
+			db.collection("gyms")
+				.orderBy("gymPrice")
+				.where("gymPrice", ">=", this.state.gymPriceFrom)
+				.where("gymPrice", "<=", this.state.gymPriceTo)
+				.where("gymLength", "==", this.state.gymLengthM)
+				.where("audience", "==", this.state.audienceN)
+				.where("changingRooms", "==", this.state.changingRoomsN)
+				.get()
+				.then((snapshot) => {
+					const links = snapshot.docs.map((doc) => {
+						return { docId: doc.id, ...doc.data() };
+					});
+					this.setState({ data: links });
+					this.gymData = links;
+				});
+			// szerokosc, wysokosc, liczba miejsc
+		} else if (
+			this.state.gymLengthM == "" &&
+			this.state.gymWidthM != "" &&
+			this.state.gymHeightM != "" &&
+			this.state.audienceN != "" &&
+			this.state.changingRoomsN == ""
+		) {
+			db.collection("gyms")
+				.orderBy("gymPrice")
+				.where("gymPrice", ">=", this.state.gymPriceFrom)
+				.where("gymPrice", "<=", this.state.gymPriceTo)
+				.where("gymWidth", "==", this.state.gymWidthM)
+				.where("gymHeight", "==", this.state.gymHeightM)
+				.where("audience", "==", this.state.audienceN)
+				.get()
+				.then((snapshot) => {
+					const links = snapshot.docs.map((doc) => {
+						return { docId: doc.id, ...doc.data() };
+					});
+					this.setState({ data: links });
+					this.gymData = links;
+				});
+			// szerokosc, wysokosc, szatnie
+		} else if (
+			this.state.gymLengthM == "" &&
+			this.state.gymWidthM != "" &&
+			this.state.gymHeightM != "" &&
+			this.state.audienceN == "" &&
+			this.state.changingRoomsN != ""
+		) {
+			db.collection("gyms")
+				.orderBy("gymPrice")
+				.where("gymPrice", ">=", this.state.gymPriceFrom)
+				.where("gymPrice", "<=", this.state.gymPriceTo)
+				.where("gymWidth", "==", this.state.gymWidthM)
+				.where("gymHeight", "==", this.state.gymHeightM)
+				.where("changingRooms", "==", this.state.changingRoomsN)
+				.get()
+				.then((snapshot) => {
+					const links = snapshot.docs.map((doc) => {
+						return { docId: doc.id, ...doc.data() };
+					});
+					this.setState({ data: links });
+					this.gymData = links;
+				});
+			// szerokosc, liczba miejsc, szatnie
+		} else if (
+			this.state.gymLengthM == "" &&
+			this.state.gymWidthM != "" &&
+			this.state.gymHeightM == "" &&
+			this.state.audienceN != "" &&
+			this.state.changingRoomsN != ""
+		) {
+			db.collection("gyms")
+				.orderBy("gymPrice")
+				.where("gymPrice", ">=", this.state.gymPriceFrom)
+				.where("gymPrice", "<=", this.state.gymPriceTo)
+				.where("gymWidth", "==", this.state.gymWidthM)
+				.where("audience", "==", this.state.audienceN)
+				.where("changingRooms", "==", this.state.changingRoomsN)
+				.get()
+				.then((snapshot) => {
+					const links = snapshot.docs.map((doc) => {
+						return { docId: doc.id, ...doc.data() };
+					});
+					this.setState({ data: links });
+					this.gymData = links;
+				});
+			// wysokosc, liczba miejsc, szatnie
+		} else if (
+			this.state.gymLengthM == "" &&
+			this.state.gymWidthM == "" &&
+			this.state.gymHeightM != "" &&
+			this.state.audienceN != "" &&
+			this.state.changingRoomsN != ""
+		) {
+			db.collection("gyms")
+				.orderBy("gymPrice")
+				.where("gymPrice", ">=", this.state.gymPriceFrom)
+				.where("gymPrice", "<=", this.state.gymPriceTo)
+				.where("gymHeight", "==", this.state.gymHeightM)
+				.where("audience", "==", this.state.audienceN)
+				.where("changingRooms", "==", this.state.changingRoomsN)
+				.get()
+				.then((snapshot) => {
+					const links = snapshot.docs.map((doc) => {
+						return { docId: doc.id, ...doc.data() };
+					});
+					this.setState({ data: links });
+					this.gymData = links;
+				});
+
+			// ************************************ 5 przypadków
+		} else if (
+			this.state.gymLengthM != "" &&
+			this.state.gymWidthM != "" &&
+			this.state.gymHeightM != "" &&
+			this.state.audienceN != "" &&
+			this.state.changingRoomsN == ""
+		) {
+			db.collection("gyms")
+				.orderBy("gymPrice")
+				.where("gymPrice", ">=", this.state.gymPriceFrom)
+				.where("gymPrice", "<=", this.state.gymPriceTo)
+				.where("gymLength", "==", this.state.gymLengthM)
+				.where("gymWidth", "==", this.state.gymWidthM)
+				.where("gymHeight", "==", this.state.gymHeightM)
+				.where("audience", "==", this.state.audienceN)
+				.get()
+				.then((snapshot) => {
+					const links = snapshot.docs.map((doc) => {
+						return { docId: doc.id, ...doc.data() };
+					});
+					this.setState({ data: links });
+					this.gymData = links;
+				});
+		} else if (
+			this.state.gymLengthM != "" &&
+			this.state.gymWidthM != "" &&
+			this.state.gymHeightM != "" &&
+			this.state.audienceN == "" &&
+			this.state.changingRoomsN != ""
+		) {
+			db.collection("gyms")
+				.orderBy("gymPrice")
+				.where("gymPrice", ">=", this.state.gymPriceFrom)
+				.where("gymPrice", "<=", this.state.gymPriceTo)
+				.where("gymLength", "==", this.state.gymLengthM)
+				.where("gymWidth", "==", this.state.gymWidthM)
+				.where("gymHeight", "==", this.state.gymHeightM)
+				.where("changingRooms", "==", this.state.changingRoomsN)
+				.get()
+				.then((snapshot) => {
+					const links = snapshot.docs.map((doc) => {
+						return { docId: doc.id, ...doc.data() };
+					});
+					this.setState({ data: links });
+					this.gymData = links;
+				});
+		} else if (
+			this.state.gymLengthM != "" &&
+			this.state.gymWidthM != "" &&
+			this.state.gymHeightM == "" &&
+			this.state.audienceN != "" &&
+			this.state.changingRoomsN != ""
+		) {
+			db.collection("gyms")
+				.orderBy("gymPrice")
+				.where("gymPrice", ">=", this.state.gymPriceFrom)
+				.where("gymPrice", "<=", this.state.gymPriceTo)
+				.where("gymLength", "==", this.state.gymLengthM)
+				.where("gymWidth", "==", this.state.gymWidthM)
+				.where("audience", "==", this.state.audienceN)
+				.where("changingRooms", "==", this.state.changingRoomsN)
+				.get()
+				.then((snapshot) => {
+					const links = snapshot.docs.map((doc) => {
+						return { docId: doc.id, ...doc.data() };
+					});
+					this.setState({ data: links });
+					this.gymData = links;
+				});
+		} else if (
+			this.state.gymLengthM != "" &&
+			this.state.gymWidthM == "" &&
+			this.state.gymHeightM != "" &&
+			this.state.audienceN != "" &&
+			this.state.changingRoomsN != ""
+		) {
+			db.collection("gyms")
+				.orderBy("gymPrice")
+				.where("gymPrice", ">=", this.state.gymPriceFrom)
+				.where("gymPrice", "<=", this.state.gymPriceTo)
+				.where("gymLength", "==", this.state.gymLengthM)
+				.where("gymHeight", "==", this.state.gymHeightM)
+				.where("audience", "==", this.state.audienceN)
+				.where("changingRooms", "==", this.state.changingRoomsN)
+				.get()
+				.then((snapshot) => {
+					const links = snapshot.docs.map((doc) => {
+						return { docId: doc.id, ...doc.data() };
+					});
+					this.setState({ data: links });
+					this.gymData = links;
+				});
+		} else if (
+			this.state.gymLengthM == "" &&
+			this.state.gymWidthM != "" &&
+			this.state.gymHeightM != "" &&
+			this.state.audienceN != "" &&
+			this.state.changingRoomsN != ""
+		) {
+			db.collection("gyms")
+				.orderBy("gymPrice")
+				.where("gymPrice", ">=", this.state.gymPriceFrom)
+				.where("gymPrice", "<=", this.state.gymPriceTo)
+				.where("gymWidth", "==", this.state.gymWidthM)
+				.where("gymHeight", "==", this.state.gymHeightM)
+				.where("audience", "==", this.state.audienceN)
+				.where("changingRooms", "==", this.state.changingRoomsN)
+				.get()
+				.then((snapshot) => {
+					const links = snapshot.docs.map((doc) => {
+						return { docId: doc.id, ...doc.data() };
+					});
+					this.setState({ data: links });
+					this.gymData = links;
+				});
+			// ************************************ 1 przypadek
 		} else {
 			db.collection("gyms")
 				.orderBy("gymPrice")
