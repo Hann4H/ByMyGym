@@ -212,14 +212,14 @@ class Filters extends Component {
 						</div>
 						<div>
 							<label style={nameStyle}>
-								Wysokość (m):{" "}
+								Długość (m):{" "}
 								<input
 									style={textStyle}
 									placeholder="w metrach"
 									type="text"
-									name="gymHeightM"
+									name="gymLengthM"
 									onChange={this.handleChange}
-									value={this.state.gymHeightM}
+									value={this.state.gymLengthM}
 								/>
 							</label>
 						</div>
@@ -238,14 +238,14 @@ class Filters extends Component {
 						</div>
 						<div>
 							<label style={nameStyle}>
-								Długość (m):{" "}
+								Wysokość (m):{" "}
 								<input
 									style={textStyle}
 									placeholder="w metrach"
 									type="text"
-									name="gymLengthM"
+									name="gymHeightM"
 									onChange={this.handleChange}
-									value={this.state.gymLengthM}
+									value={this.state.gymHeightM}
 								/>
 							</label>
 						</div>
@@ -277,6 +277,7 @@ class Filters extends Component {
 						</div>
 						<br />
 						<button type="submit">Zastosuj</button>
+						<br />
 					</form>
 				</div>
 				<div>

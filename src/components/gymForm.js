@@ -158,21 +158,21 @@ export default function gymForm() {
 						</div>
 					</div>
 					<div className="container-2">
-						<label>Wysokość</label>
+						<label>Długość</label>
 						<div className="input-n-error">
 							<input
 								autoComplete="off"
 								type="text"
-								value={values.gymHeight || ""}
-								name="gymHeight"
+								value={values.gymLength || ""}
+								name="gymLength"
 								placeholder="w metrach"
 								pattern="[0-9]+([\.,][0-9]+)?"
 								min="1"
 								onChange={handleChange}
 								required
 							/>
-							{errors.gymHeight && (
-								<p className="help">{errors.gymHeight}</p>
+							{errors.gymLength && (
+								<p className="help">{errors.gymLength}</p>
 							)}
 						</div>
 					</div>
@@ -196,21 +196,21 @@ export default function gymForm() {
 						</div>
 					</div>
 					<div className="container-2">
-						<label>Długość</label>
+						<label>Wysokość</label>
 						<div className="input-n-error">
 							<input
 								autoComplete="off"
 								type="text"
-								value={values.gymLength || ""}
-								name="gymLength"
+								value={values.gymHeight || ""}
+								name="gymHeight"
 								placeholder="w metrach"
 								pattern="[0-9]+([\.,][0-9]+)?"
 								min="1"
 								onChange={handleChange}
 								required
 							/>
-							{errors.gymLength && (
-								<p className="help">{errors.gymLength}</p>
+							{errors.gymHeight && (
+								<p className="help">{errors.gymHeight}</p>
 							)}
 						</div>
 					</div>
