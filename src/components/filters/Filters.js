@@ -191,7 +191,7 @@ class Filters extends Component {
 										style={textStyle}
 										label="Od"
 										placeholder="od"
-										type="text"
+										type="number"
 										name="gymPriceFrom"
 										onChange={this.handleChange}
 										value={this.state.gymPriceFrom}
@@ -202,7 +202,7 @@ class Filters extends Component {
 									<input
 										style={textStyle}
 										placeholder="do"
-										type="text"
+										type="number"
 										name="gymPriceTo"
 										onChange={this.handleChange}
 										value={this.state.gymPriceTo}
@@ -216,7 +216,7 @@ class Filters extends Component {
 								<input
 									style={textStyle}
 									placeholder="w metrach"
-									type="text"
+									type="number"
 									name="gymLengthM"
 									onChange={this.handleChange}
 									value={this.state.gymLengthM}
@@ -229,7 +229,7 @@ class Filters extends Component {
 								<input
 									style={textStyle}
 									placeholder="w metrach"
-									type="text"
+									type="number"
 									name="gymWidthM"
 									onChange={this.handleChange}
 									value={this.state.gymWidthM}
@@ -242,7 +242,7 @@ class Filters extends Component {
 								<input
 									style={textStyle}
 									placeholder="w metrach"
-									type="text"
+									type="number"
 									name="gymHeightM"
 									onChange={this.handleChange}
 									value={this.state.gymHeightM}
@@ -255,7 +255,7 @@ class Filters extends Component {
 								<input
 									style={textStyle}
 									placeholder=""
-									type="text"
+									type="number"
 									name="audienceN"
 									onChange={this.handleChange}
 									value={this.state.audienceN}
@@ -268,7 +268,7 @@ class Filters extends Component {
 								<input
 									style={textStyle}
 									placeholder=""
-									type="text"
+									type="number"
 									name="changingRoomsN"
 									onChange={this.handleChange}
 									value={this.state.changingRoomsN}
@@ -277,6 +277,7 @@ class Filters extends Component {
 						</div>
 						<br />
 						<button type="submit">Zastosuj</button>
+						<p></p>
 						<br />
 					</form>
 				</div>
