@@ -15,6 +15,18 @@ li {
   box-shadow: 0 5px 10px 3px var(--lowOpBlack);
 }
 
+@media screen and (min-width: 768px) {
+  .logo {
+    display: none;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .logo1 {
+    display: none;
+  }
+}
 .navBar li {
   vertical-align: middle;
 }
@@ -29,7 +41,7 @@ li {
 
 .hamburger-button {
   font-size: 30px;
-  margin-right: 10px;
+  margin-right: -1rem;
   color: var(--mainOrange);
   background: transparent;
   border: none;
@@ -75,9 +87,17 @@ li {
   display: block;
 }
 
+.logo1 {
+  height: 60px;
+  padding-top: 5px;
+  width: auto;
+  margin-left: 1rem;
+}
+
 .logo {
   height: 60px;
   padding-top: 5px;
+  padding-bottom: 5px;
   width: auto;
   margin-left: 1rem;
 }

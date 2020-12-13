@@ -66,6 +66,13 @@ class Nav extends Component {
     return (
       <>
         <div className="navBar">
+          <Link to="/">
+                <img
+                  src={require("../img/logo.png")}
+                  alt="logo"
+                  className="logo"
+                />
+          </Link>
           <button className="hamburger-button" onClick={this.Toggle}>
             <FaAlignRight />
           </button>
@@ -77,7 +84,7 @@ class Nav extends Component {
                 <img
                   src={require("../img/logo.png")}
                   alt="logo"
-                  className="logo"
+                  className="logo1"
                 />
               </Link>
             </li>
