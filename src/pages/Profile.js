@@ -14,6 +14,7 @@ class Profile extends Component {
     name: "",
     Reservations: [],
     Gyms: [],
+    Favourites: [],
     seen: false,
     loading: false,
   };
@@ -21,6 +22,7 @@ class Profile extends Component {
   componentDidMount() {
     const Reservations = [];
     const Gyms = [];
+    const Favourites = [];
 
     this.loadUserProfile();
 
@@ -55,6 +57,17 @@ class Profile extends Component {
         })
 
         this.setState({ Reservations });
+    })
+    .catch(function(error) {
+        console.log("Error getting documents: ", error);
+    });
+
+
+    firebase.firestore().collection("favourites").doc(localStorage.getItem("user"))
+    .get()
+    .then((querySnapshot) => {  
+        this.setState({ Favourites : this.state.Favourites.concat(querySnapshot.data().favourites)});
+        console.log(this.state.Favourites)
     })
     .catch(function(error) {
         console.log("Error getting documents: ", error);
@@ -139,6 +152,29 @@ class Profile extends Component {
                         {/* {this.state.scored ? "" : ( <button onClick={this.togglePop} >OCEŃ</button> )}                          
                         {this.state.seen ? <PopUp toggle={this.togglePop} gymId={res.gym_id} bookingID={res.bookingID}/> : null} */}
                         <StarRatings gymID={res.gym_id} bookingID={res.bookingID}/>
+                      </tr>
+                    ))
+                  ))}
+                </div>
+              </tbody>
+              </table>
+              <table className="table table-borderless">
+                <tbody>
+                  <tr className="profile-info">
+                    <td className="headline-info">Ulubione</td>
+                  </tr>
+                  </tbody>
+              </table>
+              <table>
+              <tbody>
+                <div className="gyms-load">
+                  {this.state.loading ? null : <Loading />}
+                </div>
+                <div className="profile-bookings">
+                  {this.state.Favourites.map((fav, index) => (
+                    this.state.Gyms.filter(gym => gym.docId == fav).map(filteredName => (
+                      <tr>
+                        <Link to={`/gym_profile/${fav}`}><td>{filteredName.gymName}</td></Link>
                       </tr>
                     ))
                   ))}
