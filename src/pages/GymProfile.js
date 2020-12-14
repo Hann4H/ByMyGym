@@ -57,7 +57,7 @@ class GymProfile extends Component {
 						"ZlVPgW1qH0X65ASXIUZoFXab2SI3" ? (
 						<button
 							onClick={this.setEditReadMode}
-							style={{ margin: "5%", float: "right" }}
+							style={{ margin: "5%", float: "left" }}
 						>
 							{this.state.editMode ? "Podgląd" : "Edytuj"}
 						</button>
