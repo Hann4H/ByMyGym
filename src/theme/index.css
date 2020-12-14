@@ -943,6 +943,8 @@ ul.unstyled {
   left: 50%;
   top: 50%;
   margin-right: -50%;
+  height: 70vh;
+  overflow-y: scroll;
   transform: translate(-50%, -50%);
   position: absolute;
   background-color: var(--mainWhite);
