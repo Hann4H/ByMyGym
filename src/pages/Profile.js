@@ -41,26 +41,47 @@ class Profile extends Component {
       console.log("Error getting documents: ", error);
     });
     
+    if(localStorage.getItem("user") == 'ZlVPgW1qH0X65ASXIUZoFXab2SI3') {
+      firebase.firestore().collection("reservation")
+      .get()
+      .then((querySnapshot) => {  
+          querySnapshot.forEach(function (doc) {
+              Reservations.push({
+                start: doc.data().start,
+                end: doc.data().end,
+                gym_id: doc.data().gym_id,
+                scored: doc.data().scored,
+                bookingID: doc.id
+            })  
+          })
+          this.setState({ Reservations });
+      })
+      .catch(function(error) {
+          console.log("Error getting documents: ", error);
+      });
 
-    firebase.firestore().collection("reservation").where("user_id", "==", localStorage.getItem("user"))
-    .get()
-    .then((querySnapshot) => {  
+    } else {
+      firebase.firestore().collection("reservation").where("user_id", "==", localStorage.getItem("user"))
+      .get()
+      .then((querySnapshot) => {  
+          querySnapshot.forEach(function (doc) {
+              Reservations.push({
+                start: doc.data().start,
+                end: doc.data().end,
+                gym_id: doc.data().gym_id,
+                scored: doc.data().scored,
+                bookingID: doc.id
+            })  
+          })
 
-        querySnapshot.forEach(function (doc) {
-            Reservations.push({
-              start: doc.data().start,
-              end: doc.data().end,
-              gym_id: doc.data().gym_id,
-              scored: doc.data().scored,
-              bookingID: doc.id
-          })  
-        })
+          this.setState({ Reservations });
+      })
+      .catch(function(error) {
+          console.log("Error getting documents: ", error);
+      });
+    }
 
-        this.setState({ Reservations });
-    })
-    .catch(function(error) {
-        console.log("Error getting documents: ", error);
-    });
+    
 
 
     firebase.firestore().collection("favourites").doc(localStorage.getItem("user"))
@@ -151,36 +172,42 @@ class Profile extends Component {
                         <button>ZMIEŃ</button>
                         {/* {this.state.scored ? "" : ( <button onClick={this.togglePop} >OCEŃ</button> )}                          
                         {this.state.seen ? <PopUp toggle={this.togglePop} gymId={res.gym_id} bookingID={res.bookingID}/> : null} */}
-                        <StarRatings gymID={res.gym_id} bookingID={res.bookingID}/>
+                        {!(localStorage.getItem("user") == 'ZlVPgW1qH0X65ASXIUZoFXab2SI3') ? (
+                          <StarRatings gymID={res.gym_id} bookingID={res.bookingID}/>
+                        ) : "" }
                       </tr>
                     ))
                   ))}
                 </div>
               </tbody>
               </table>
-              <table className="table table-borderless">
+              {!(localStorage.getItem("user") == 'ZlVPgW1qH0X65ASXIUZoFXab2SI3') ? 
+              <div>
+                <table className="table table-borderless">
+                  <tbody>
+                    <tr className="profile-info">
+                      <td className="headline-info">Ulubione</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table>
                 <tbody>
-                  <tr className="profile-info">
-                    <td className="headline-info">Ulubione</td>
-                  </tr>
-                  </tbody>
-              </table>
-              <table>
-              <tbody>
-                <div className="gyms-load">
-                  {this.state.loading ? null : <Loading />}
+                  <div className="gyms-load">
+                    {this.state.loading ? null : <Loading />}
+                  </div>
+                  <div className="profile-bookings">
+                    {this.state.Favourites.map((fav, index) => (
+                      this.state.Gyms.filter(gym => gym.docId == fav).map(filteredName => (
+                        <tr>
+                          <Link to={`/gym_profile/${fav}`}><td>{filteredName.gymName}</td></Link>
+                        </tr>
+                      ))
+                    ))}
+                  </div>
+                </tbody>
+                </table>
                 </div>
-                <div className="profile-bookings">
-                  {this.state.Favourites.map((fav, index) => (
-                    this.state.Gyms.filter(gym => gym.docId == fav).map(filteredName => (
-                      <tr>
-                        <Link to={`/gym_profile/${fav}`}><td>{filteredName.gymName}</td></Link>
-                      </tr>
-                    ))
-                  ))}
-                </div>
-              </tbody>
-              </table>
+               : "" }
             </div>
         </div>
         </div>
