@@ -48,10 +48,10 @@ class GymDetails extends Component {
 								.data()
 								.favourites.includes(this.props.dataId)
 						) {
-							this.faved = true;
+							this.setState({ faved: true });
 							console.log(this.faved);
 						} else {
-							this.faved = false;
+							this.setState({ faved: false });
 						}
 					}
 				});
