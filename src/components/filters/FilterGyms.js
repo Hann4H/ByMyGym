@@ -15,7 +15,7 @@ class FilterGyms extends Component {
 	render() {
 		return (
 			<>
-				<button type="button" onClick={this.handleClickFilterButton}>
+				<button type="button" className="filter-button" onClick={this.handleClickFilterButton}>
 					Filtry
 				</button>
 				{this.state.openFilter ? <Filters /> : <p />}

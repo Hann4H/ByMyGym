@@ -879,7 +879,7 @@ class Filters extends Component {
 							</label>
 						</div>
 						<br />
-						<button type="submit">Zastosuj</button>
+						<button type="submit" className="filter-button">Zastosuj</button>
 						<p></p>
 						<br />
 					</form>

@@ -126,13 +126,14 @@ class Gyms extends Component {
 				<div className="listing-container">
 					<h1>wyszukaj salę</h1>
 					<hr />
-					<div id="search-bar-place"></div>
+					<div id="search-bar-filters">
 					<button
+						className="filter-button"
 						style={{ marginLeft: "10%" }}
 						type="button"
 						onClick={this.handleClickFilterButton}
 					>
-						Filtry
+						FILTRY
 					</button>
 					{this.state.openFilter ? (
 						<Filters />
@@ -141,6 +142,7 @@ class Gyms extends Component {
 							<SearchGym />
 						</SearchCSS>
 					)}
+					</div>
 				</div>
 				<div id="pls" />
 			</div>

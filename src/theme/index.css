@@ -1944,3 +1944,15 @@ input:-webkit-autofill:active {
   color: red;
   cursor: pointer;
 }
+
+.filter-button {
+  color: var(--highOpWhite);
+  height: 25px;
+  margin-left: 1rem;
+}
+
+.search-bar-filters {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
