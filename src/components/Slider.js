@@ -11,7 +11,8 @@ class Slider extends Component {
 			width: 0,
 			height: 0,
 			data: [],
-			photoArray: [{ url: require("../img/logo2.png") }],
+			// photoArray: [{ url: require("../img/logo2.png") }],
+			photoArray: [],
 		};
 		this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
 	}
@@ -30,7 +31,8 @@ class Slider extends Component {
 				this.setState({ data: doc.data() });
 
 				let myArray = doc.data().gymPhoto;
-				let photoArray = [{ url: require("../img/logo2.png") }];
+				// let photoArray = [{ url: require("../img/logo2.png") }];
+				let photoArray = [];
 				myArray.forEach(function (entry) {
 					let myObject = {};
 					myObject.url = entry;
@@ -77,13 +79,18 @@ class Slider extends Component {
 		//   { url: require("../img/header_img.png") },
 		// ];
 
+		console.log("photoArray: ", this.state.photoArray);
 		return (
 			<div>
-				<SimpleImageSlider
-					width={"70vw"}
-					height={504}
-					images={this.state.photoArray}
-				/>
+				{this.state.photoArray.length ? (
+					<SimpleImageSlider
+						width={"70vw"}
+						height={504}
+						images={this.state.photoArray}
+					/>
+				) : (
+					""
+				)}
 			</div>
 		);
 	}

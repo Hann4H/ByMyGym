@@ -41,6 +41,8 @@ class GymDetailsEdit extends Component {
 			gymEmail: { value: "", validateOnChange: false, error: "" },
 			gymDescription: { value: "", validateOnChange: false, error: "" },
 
+			gymOwner: { value: "", validateOnChange: false, error: "" },
+
 			// gymPrice
 			// audience
 			// changingRooms
@@ -96,6 +98,8 @@ class GymDetailsEdit extends Component {
 					gymPhone: { value: doc.data().gymPhone },
 					gymEmail: { value: doc.data().gymEmail },
 					gymDescription: { value: doc.data().gymDescription },
+
+					gymOwner: { value: doc.data().gymOwner },
 				});
 			}
 		} catch (error) {
@@ -164,6 +168,7 @@ class GymDetailsEdit extends Component {
 			gymPhone,
 			gymEmail,
 			gymDescription,
+			gymOwner,
 		} = this.state;
 		const gymNameError = validateFields.validateGymName(gymName.value);
 		const gymStreetError = validateFields.validateGymStreet(
@@ -191,6 +196,8 @@ class GymDetailsEdit extends Component {
 			gymDescription.value
 		);
 
+		const gymOwnerError = validateFields.validateGymOwner(gymOwner.value);
+
 		if (
 			[
 				gymNameError,
@@ -207,6 +214,7 @@ class GymDetailsEdit extends Component {
 				gymPhoneError,
 				gymEmailError,
 				gymDescriptionError,
+				gymOwnerError,
 			].every((e) => e === false)
 		) {
 			// no errors submit the form
@@ -230,6 +238,8 @@ class GymDetailsEdit extends Component {
 					gymPhone: this.state.gymPhone.value,
 					gymEmail: this.state.gymEmail.value,
 					gymDescription: this.state.gymDescription.value,
+
+					gymOwner: this.state.gymOwner.value,
 				})
 				.then(function () {
 					console.log("Changes saved!");
@@ -311,6 +321,11 @@ class GymDetailsEdit extends Component {
 					validateOnChange: true,
 					error: gymDescriptionError,
 				},
+				gymOwner: {
+					...state.gymOwner,
+					validateOnChange: true,
+					error: gymOwnerError,
+				},
 			}));
 		}
 	}
@@ -332,6 +347,8 @@ class GymDetailsEdit extends Component {
 			gymPhone,
 			gymEmail,
 			gymDescription,
+
+			gymOwner,
 
 			// email,
 			// name,
@@ -950,7 +967,52 @@ class GymDetailsEdit extends Component {
 											{gymDescription.error}
 										</div>
 									</div>
-
+									{/* gymOwner field */}
+									{localStorage.getItem("user") == "ZlVPgW1qH0X65ASXIUZoFXab2SI3" ? (
+										<div className="form-group">
+											<TextField
+												label="Właściciel"
+												type="text"
+												name="gymOwner"
+												value={gymOwner.value}
+												InputLabelProps={{
+													shrink: true,
+												}}
+												inputProps={{
+													size: 30,
+												}}
+												floatingLabelFixed={true}
+												className={classnames(
+													"form-control",
+													{
+														"is-valid":
+															gymOwner.error ===
+															false,
+													},
+													{
+														"is-invalid":
+															gymOwner.error,
+													}
+												)}
+												onChange={(evt) =>
+													this.handleChange(
+														validateFields.validateGymOwner,
+														evt
+													)
+												}
+												onBlur={(evt) =>
+													this.handleBlur(
+														validateFields.validateGymOwner,
+														evt
+													)
+												}
+											/>
+											<div className="invalid-feedback">
+												{gymDescription.error}
+											</div>
+										</div>
+									) : "" }
+									
 									<br />
 									<button
 										type="submit"
