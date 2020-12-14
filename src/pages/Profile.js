@@ -17,6 +17,7 @@ class Profile extends Component {
     Favourites: [],
     seen: false,
     loading: false,
+    Owned: [],
   };
 
   componentDidMount() {
@@ -32,7 +33,9 @@ class Profile extends Component {
         Gyms.push({
           docId: doc.id,
           gymName: doc.data().gymName,
+          gymOwner: doc.data().gymOwner
         });
+        
       });
       this.setState({ Gyms });
 
@@ -175,6 +178,9 @@ class Profile extends Component {
                         {!(localStorage.getItem("user") == 'ZlVPgW1qH0X65ASXIUZoFXab2SI3') ? (
                           <StarRatings gymID={res.gym_id} bookingID={res.bookingID}/>
                         ) : "" }
+
+                        {/* <button>USUŃ</button> */}
+
                       </tr>
                     ))
                   ))}
@@ -207,6 +213,30 @@ class Profile extends Component {
                 </tbody>
                 </table>
                 </div>
+               : "" }
+               {this.state.Gyms.filter(gym => gym.gymOwner == localStorage.getItem("user")) ? 
+                <div>
+                  <table className="table table-borderless">
+                    <tbody>
+                      <tr className="profile-info">
+                        <td className="headline-info">Moje sale</td>
+                      </tr>
+                      </tbody>
+                  </table>
+                  <table>
+                  <tbody>
+                    <div className="gyms-load">
+                      {this.state.loading ? null : <Loading />}
+                    </div>
+                    <div className="profile-bookings">
+                    {this.state.Gyms.filter(gym => gym.gymOwner == localStorage.getItem("user")).map(myGyms => (
+                        <tr><Link to={`/gym_profile/${myGyms.docId}`}><td>{myGyms.gymName}</td></Link></tr>
+                      ))
+                    }
+                    </div>
+                  </tbody>
+                  </table>
+                  </div>
                : "" }
             </div>
         </div>
