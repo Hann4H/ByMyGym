@@ -359,19 +359,20 @@ class GymDetailsEdit extends Component {
 
 		return (
 			<div>
-				<MuiPickersUtilsProvider utils={DateFnsUtils}>
+				{/* <MuiPickersUtilsProvider utils={DateFnsUtils}> */}
 					<div className="booking-container">
-						<Grid
+						{/* <Grid
 							container
 							direction="column"
 							justify="center"
 							alignItems="flex-start"
-						>
-							<ThemeProvider theme={theme}>
-								<form
+						> */}
+							{/* <ThemeProvider theme={theme}> */}
+							<form onSubmit={(evt) => this.handleSubmit(evt)} className="gymForm">
+								{/* <form
 									onSubmit={(evt) => this.handleSubmit(evt)}
 									className="gymForm"
-								>
+								> */}
 									<h3
 										style={{
 											textAlign: "center",
@@ -383,7 +384,8 @@ class GymDetailsEdit extends Component {
 
 									{/* gymName field */}
 									<div className="form-group">
-										<TextField
+										<label className="form-group-label">Nazwa budynku</label>
+										<input
 											label="Nazwa budynku"
 											type="text"
 											name="gymName"
@@ -423,7 +425,8 @@ class GymDetailsEdit extends Component {
 									</div>
 									{/* gymStreet field */}
 									<div className="form-group">
-										<TextField
+										<label className="form-group-label">Ulica</label>
+										<input
 											label="Ulica"
 											type="text"
 											name="gymStreet"
@@ -467,7 +470,8 @@ class GymDetailsEdit extends Component {
 									</div>
 									{/* gymCity field */}
 									<div className="form-group">
-										<TextField
+										<label className="form-group-label">Miasto</label>
+										<input
 											label="Miasto"
 											type="text"
 											name="gymCity"
@@ -507,7 +511,8 @@ class GymDetailsEdit extends Component {
 									</div>
 									{/* gymZip field */}
 									<div className="form-group">
-										<TextField
+										<label className="form-group-label">Kod pocztowy</label>
+										<input
 											label="Kod pocztowy"
 											type="text"
 											name="gymZip"
@@ -547,7 +552,8 @@ class GymDetailsEdit extends Component {
 									</div>
 									{/* gymHeight field */}
 									<div className="form-group">
-										<TextField
+										<label className="form-group-label">Wysokość</label>
+										<input
 											label="Wysokość"
 											type="text"
 											name="gymHeight"
@@ -591,7 +597,8 @@ class GymDetailsEdit extends Component {
 									</div>
 									{/* gymWidth field */}
 									<div className="form-group">
-										<TextField
+										<label className="form-group-label">Szerokość</label>
+										<input
 											label="Szerokość"
 											type="text"
 											name="gymWidth"
@@ -632,7 +639,8 @@ class GymDetailsEdit extends Component {
 									</div>
 									{/* gymLength field */}
 									<div className="form-group">
-										<TextField
+										<label className="form-group-label">Długość</label>
+										<input
 											label="Długość"
 											type="text"
 											name="gymLength"
@@ -677,7 +685,8 @@ class GymDetailsEdit extends Component {
 
 									{/* gymPrice field */}
 									<div className="form-group">
-										<TextField
+										<label className="form-group-label">Cena</label>
+										<input
 											label="Cena"
 											type="text"
 											name="gymPrice"
@@ -718,7 +727,8 @@ class GymDetailsEdit extends Component {
 									</div>
 									{/* audience field */}
 									<div className="form-group">
-										<TextField
+										<label className="form-group-label">Liczba miejsc na widowni</label>
+										<input
 											label="Liczba miejsc na widowni"
 											type="text"
 											name="audience"
@@ -759,7 +769,8 @@ class GymDetailsEdit extends Component {
 									</div>
 									{/* changingRooms field */}
 									<div className="form-group">
-										<TextField
+										<label className="form-group-label">Liczna szatń</label>
+										<input
 											label="Liczna szatń"
 											type="text"
 											name="changingRooms"
@@ -803,7 +814,8 @@ class GymDetailsEdit extends Component {
 									</div>
 									{/* gymURL field */}
 									<div className="form-group">
-										<TextField
+										<label className="form-group-label">URL</label>
+										<input
 											label="URL"
 											type="text"
 											name="gymURL"
@@ -843,7 +855,8 @@ class GymDetailsEdit extends Component {
 									</div>
 									{/* gymPhone field */}
 									<div className="form-group">
-										<TextField
+										<label className="form-group-label">Telefon</label>
+										<input
 											label="Telefon"
 											type="text"
 											name="gymPhone"
@@ -884,7 +897,8 @@ class GymDetailsEdit extends Component {
 									</div>
 									{/* gymEmail field */}
 									<div className="form-group">
-										<TextField
+										<label className="form-group-label">Email</label>
+										<input
 											label="Email"
 											type="text"
 											name="gymEmail"
@@ -925,7 +939,8 @@ class GymDetailsEdit extends Component {
 									</div>
 									{/* gymDescription field */}
 									<div className="form-group">
-										<TextField
+										<label className="form-group-label">Opis</label>
+										<input
 											label="Opis"
 											type="text"
 											name="gymDescription"
@@ -970,7 +985,8 @@ class GymDetailsEdit extends Component {
 									{/* gymOwner field */}
 									{localStorage.getItem("user") == "ZlVPgW1qH0X65ASXIUZoFXab2SI3" ? (
 										<div className="form-group">
-											<TextField
+												<label className="form-group-label">Właściciel</label>
+												<input
 												label="Właściciel"
 												type="text"
 												name="gymOwner"
@@ -1030,10 +1046,10 @@ class GymDetailsEdit extends Component {
                       {allFieldsValidated && (<p>all fields validated</p>)}
                       <br /> */}
 								</form>
-							</ThemeProvider>
-						</Grid>
+							{/* </ThemeProvider> */}
+						{/* </Grid> */}
 					</div>
-				</MuiPickersUtilsProvider>
+				{/* </MuiPickersUtilsProvider> */}
 			</div>
 		);
 	}
