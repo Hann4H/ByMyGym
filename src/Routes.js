@@ -16,9 +16,15 @@ import NoAccess from "./pages/NoAccess";
 
 import FinishReservation from "./pages/FinishReservation";
 
+const ScrollToTop = () => {
+  window.scrollTo(0, 0);
+  return null;
+};
+
 const Routes = () => (
     <React.Fragment>
       <div className="RouterBody">
+      <Route component={ScrollToTop} />
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/contact" exact component={Contact} />
