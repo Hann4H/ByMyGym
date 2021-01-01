@@ -57,10 +57,10 @@ class Admin extends Component {
 						</table>
 					</div>
 					{/* TODO delete it */}
-					{/* <div style={{ background: "#e6e6e6" }}>
+					<div style={{ background: "#e6e6e6" }}>
 						<br />
 						<FilterGyms />
-					</div> */}
+					</div>
 				</div>
 			</div>
 		);

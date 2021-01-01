@@ -40,28 +40,7 @@ class GymDetailsEdit extends Component {
 			gymPhone: { value: "", validateOnChange: false, error: "" },
 			gymEmail: { value: "", validateOnChange: false, error: "" },
 			gymDescription: { value: "", validateOnChange: false, error: "" },
-
 			gymOwner: { value: "", validateOnChange: false, error: "" },
-
-			// gymPrice
-			// audience
-			// changingRooms
-			// gymURL
-			// gymPhone
-			// gymEmail
-			// gymDescription
-
-			// gymLat
-			// gymLng
-			// gymURL
-			// gymPhone
-			// gymEmail
-			// gymDescription
-			//nr mieszkania?
-			//liczba miejsc na widowni ?
-			// liczba szatn ?
-			//cena ?
-			// zdjecia ?
 
 			submitCalled: false,
 			allFieldsValidated: false,
@@ -243,6 +222,7 @@ class GymDetailsEdit extends Component {
 				})
 				.then(function () {
 					console.log("Changes saved!");
+					alert("Zmiany zostały zapisane.");
 				})
 				.catch(function (error) {
 					console.error("Error saving changes: ", error);
@@ -360,695 +340,688 @@ class GymDetailsEdit extends Component {
 		return (
 			<div>
 				{/* <MuiPickersUtilsProvider utils={DateFnsUtils}> */}
-					<div className="booking-container">
-						{/* <Grid
+				<div className="booking-container">
+					{/* <Grid
 							container
 							direction="column"
 							justify="center"
 							alignItems="flex-start"
 						> */}
-							{/* <ThemeProvider theme={theme}> */}
-							<form onSubmit={(evt) => this.handleSubmit(evt)} className="gymForm">
-								{/* <form
+					{/* <ThemeProvider theme={theme}> */}
+					<form
+						onSubmit={(evt) => this.handleSubmit(evt)}
+						className="gymForm"
+					>
+						{/* <form
 									onSubmit={(evt) => this.handleSubmit(evt)}
 									className="gymForm"
 								> */}
-									<h3
-										style={{
-											textAlign: "center",
-											color: "var(--darkOrange)",
-										}}
-									>
-										Wprowadź poniżej zmiany
-									</h3>
+						<h3
+							style={{
+								textAlign: "center",
+								color: "var(--darkOrange)",
+							}}
+						>
+							Wprowadź poniżej zmiany
+						</h3>
 
-									{/* gymName field */}
-									<div className="form-group">
-										<label className="form-group-label">Nazwa budynku</label>
-										<input
-											label="Nazwa budynku"
-											type="text"
-											name="gymName"
-											value={gymName.value}
-											InputLabelProps={{
-												shrink: true,
-											}}
-											inputProps={{
-												size: 30,
-											}}
-											floatingLabelFixed={true}
-											className={classnames(
-												"form-control",
-												{
-													"is-valid":
-														gymName.error === false,
-												},
-												{ "is-invalid": gymName.error }
-											)}
-											onChange={(evt) =>
-												this.handleChange(
-													validateFields.validateGymName,
-													evt
-												)
-											}
-											onBlur={(evt) =>
-												this.handleBlur(
-													validateFields.validateGymName,
-													evt
-												)
-											}
-											required
-										/>
-										<div className="invalid-feedback">
-											{gymName.error}
-										</div>
-									</div>
-									{/* gymStreet field */}
-									<div className="form-group">
-										<label className="form-group-label">Ulica</label>
-										<input
-											label="Ulica"
-											type="text"
-											name="gymStreet"
-											value={gymStreet.value}
-											InputLabelProps={{
-												shrink: true,
-											}}
-											inputProps={{
-												size: 30,
-											}}
-											floatingLabelFixed={true}
-											className={classnames(
-												"form-control",
-												{
-													"is-valid":
-														gymStreet.error ===
-														false,
-												},
-												{
-													"is-invalid":
-														gymStreet.error,
-												}
-											)}
-											onChange={(evt) =>
-												this.handleChange(
-													validateFields.validateGymStreet,
-													evt
-												)
-											}
-											onBlur={(evt) =>
-												this.handleBlur(
-													validateFields.validateGymStreet,
-													evt
-												)
-											}
-											required
-										/>
-										<div className="invalid-feedback">
-											{gymStreet.error}
-										</div>
-									</div>
-									{/* gymCity field */}
-									<div className="form-group">
-										<label className="form-group-label">Miasto</label>
-										<input
-											label="Miasto"
-											type="text"
-											name="gymCity"
-											value={gymCity.value}
-											InputLabelProps={{
-												shrink: true,
-											}}
-											inputProps={{
-												size: 30,
-											}}
-											floatingLabelFixed={true}
-											className={classnames(
-												"form-control",
-												{
-													"is-valid":
-														gymCity.error === false,
-												},
-												{ "is-invalid": gymCity.error }
-											)}
-											onChange={(evt) =>
-												this.handleChange(
-													validateFields.validateGymCity,
-													evt
-												)
-											}
-											onBlur={(evt) =>
-												this.handleBlur(
-													validateFields.validateGymCity,
-													evt
-												)
-											}
-											required
-										/>
-										<div className="invalid-feedback">
-											{gymCity.error}
-										</div>
-									</div>
-									{/* gymZip field */}
-									<div className="form-group">
-										<label className="form-group-label">Kod pocztowy</label>
-										<input
-											label="Kod pocztowy"
-											type="text"
-											name="gymZip"
-											value={gymZip.value}
-											InputLabelProps={{
-												shrink: true,
-											}}
-											inputProps={{
-												size: 30,
-											}}
-											floatingLabelFixed={true}
-											className={classnames(
-												"form-control",
-												{
-													"is-valid":
-														gymZip.error === false,
-												},
-												{ "is-invalid": gymZip.error }
-											)}
-											onChange={(evt) =>
-												this.handleChange(
-													validateFields.validateGymZip,
-													evt
-												)
-											}
-											onBlur={(evt) =>
-												this.handleBlur(
-													validateFields.validateGymZip,
-													evt
-												)
-											}
-											required
-										/>
-										<div className="invalid-feedback">
-											{gymZip.error}
-										</div>
-									</div>
-									{/* gymHeight field */}
-									<div className="form-group">
-										<label className="form-group-label">Wysokość</label>
-										<input
-											label="Wysokość"
-											type="text"
-											name="gymHeight"
-											value={gymHeight.value}
-											InputLabelProps={{
-												shrink: true,
-											}}
-											inputProps={{
-												size: 30,
-											}}
-											floatingLabelFixed={true}
-											className={classnames(
-												"form-control",
-												{
-													"is-valid":
-														gymHeight.error ===
-														false,
-												},
-												{
-													"is-invalid":
-														gymHeight.error,
-												}
-											)}
-											onChange={(evt) =>
-												this.handleChange(
-													validateFields.validateGymHeight,
-													evt
-												)
-											}
-											onBlur={(evt) =>
-												this.handleBlur(
-													validateFields.validateGymHeight,
-													evt
-												)
-											}
-											required
-										/>
-										<div className="invalid-feedback">
-											{gymHeight.error}
-										</div>
-									</div>
-									{/* gymWidth field */}
-									<div className="form-group">
-										<label className="form-group-label">Szerokość</label>
-										<input
-											label="Szerokość"
-											type="text"
-											name="gymWidth"
-											value={gymWidth.value}
-											InputLabelProps={{
-												shrink: true,
-											}}
-											inputProps={{
-												size: 30,
-											}}
-											floatingLabelFixed={true}
-											className={classnames(
-												"form-control",
-												{
-													"is-valid":
-														gymWidth.error ===
-														false,
-												},
-												{ "is-invalid": gymWidth.error }
-											)}
-											onChange={(evt) =>
-												this.handleChange(
-													validateFields.validateGymWidth,
-													evt
-												)
-											}
-											onBlur={(evt) =>
-												this.handleBlur(
-													validateFields.validateGymWidth,
-													evt
-												)
-											}
-											required
-										/>
-										<div className="invalid-feedback">
-											{gymWidth.error}
-										</div>
-									</div>
-									{/* gymLength field */}
-									<div className="form-group">
-										<label className="form-group-label">Długość</label>
-										<input
-											label="Długość"
-											type="text"
-											name="gymLength"
-											value={gymLength.value}
-											InputLabelProps={{
-												shrink: true,
-											}}
-											inputProps={{
-												size: 30,
-											}}
-											floatingLabelFixed={true}
-											className={classnames(
-												"form-control",
-												{
-													"is-valid":
-														gymLength.error ===
-														false,
-												},
-												{
-													"is-invalid":
-														gymLength.error,
-												}
-											)}
-											onChange={(evt) =>
-												this.handleChange(
-													validateFields.validateGymLength,
-													evt
-												)
-											}
-											onBlur={(evt) =>
-												this.handleBlur(
-													validateFields.validateGymLength,
-													evt
-												)
-											}
-											required
-										/>
-										<div className="invalid-feedback">
-											{gymLength.error}
-										</div>
-									</div>
+						{/* gymName field */}
+						<div className="form-group">
+							<label className="form-group-label">
+								Nazwa budynku
+							</label>
+							<input
+								label="Nazwa budynku"
+								type="text"
+								name="gymName"
+								value={gymName.value}
+								InputLabelProps={{
+									shrink: true,
+								}}
+								inputProps={{
+									size: 30,
+								}}
+								floatingLabelFixed={true}
+								className={classnames(
+									"form-control",
+									{
+										"is-valid": gymName.error === false,
+									},
+									{ "is-invalid": gymName.error }
+								)}
+								onChange={(evt) =>
+									this.handleChange(
+										validateFields.validateGymName,
+										evt
+									)
+								}
+								onBlur={(evt) =>
+									this.handleBlur(
+										validateFields.validateGymName,
+										evt
+									)
+								}
+								required
+							/>
+							<div className="invalid-feedback">
+								{gymName.error}
+							</div>
+						</div>
+						{/* gymStreet field */}
+						<div className="form-group">
+							<label className="form-group-label">Ulica</label>
+							<input
+								label="Ulica"
+								type="text"
+								name="gymStreet"
+								value={gymStreet.value}
+								InputLabelProps={{
+									shrink: true,
+								}}
+								inputProps={{
+									size: 30,
+								}}
+								floatingLabelFixed={true}
+								className={classnames(
+									"form-control",
+									{
+										"is-valid": gymStreet.error === false,
+									},
+									{
+										"is-invalid": gymStreet.error,
+									}
+								)}
+								onChange={(evt) =>
+									this.handleChange(
+										validateFields.validateGymStreet,
+										evt
+									)
+								}
+								onBlur={(evt) =>
+									this.handleBlur(
+										validateFields.validateGymStreet,
+										evt
+									)
+								}
+								required
+							/>
+							<div className="invalid-feedback">
+								{gymStreet.error}
+							</div>
+						</div>
+						{/* gymCity field */}
+						<div className="form-group">
+							<label className="form-group-label">Miasto</label>
+							<input
+								label="Miasto"
+								type="text"
+								name="gymCity"
+								value={gymCity.value}
+								InputLabelProps={{
+									shrink: true,
+								}}
+								inputProps={{
+									size: 30,
+								}}
+								floatingLabelFixed={true}
+								className={classnames(
+									"form-control",
+									{
+										"is-valid": gymCity.error === false,
+									},
+									{ "is-invalid": gymCity.error }
+								)}
+								onChange={(evt) =>
+									this.handleChange(
+										validateFields.validateGymCity,
+										evt
+									)
+								}
+								onBlur={(evt) =>
+									this.handleBlur(
+										validateFields.validateGymCity,
+										evt
+									)
+								}
+								required
+							/>
+							<div className="invalid-feedback">
+								{gymCity.error}
+							</div>
+						</div>
+						{/* gymZip field */}
+						<div className="form-group">
+							<label className="form-group-label">
+								Kod pocztowy
+							</label>
+							<input
+								label="Kod pocztowy"
+								type="text"
+								name="gymZip"
+								value={gymZip.value}
+								InputLabelProps={{
+									shrink: true,
+								}}
+								inputProps={{
+									size: 30,
+								}}
+								floatingLabelFixed={true}
+								className={classnames(
+									"form-control",
+									{
+										"is-valid": gymZip.error === false,
+									},
+									{ "is-invalid": gymZip.error }
+								)}
+								onChange={(evt) =>
+									this.handleChange(
+										validateFields.validateGymZip,
+										evt
+									)
+								}
+								onBlur={(evt) =>
+									this.handleBlur(
+										validateFields.validateGymZip,
+										evt
+									)
+								}
+								required
+							/>
+							<div className="invalid-feedback">
+								{gymZip.error}
+							</div>
+						</div>
+						{/* gymHeight field */}
+						<div className="form-group">
+							<label className="form-group-label">Wysokość</label>
+							<input
+								label="Wysokość"
+								type="number"
+								name="gymHeight"
+								value={gymHeight.value}
+								InputLabelProps={{
+									shrink: true,
+								}}
+								inputProps={{
+									size: 30,
+								}}
+								floatingLabelFixed={true}
+								className={classnames(
+									"form-control",
+									{
+										"is-valid": gymHeight.error === false,
+									},
+									{
+										"is-invalid": gymHeight.error,
+									}
+								)}
+								onChange={(evt) =>
+									this.handleChange(
+										validateFields.validateGymHeight,
+										evt
+									)
+								}
+								onBlur={(evt) =>
+									this.handleBlur(
+										validateFields.validateGymHeight,
+										evt
+									)
+								}
+								required
+							/>
+							<div className="invalid-feedback">
+								{gymHeight.error}
+							</div>
+						</div>
+						{/* gymWidth field */}
+						<div className="form-group">
+							<label className="form-group-label">
+								Szerokość
+							</label>
+							<input
+								label="Szerokość"
+								type="number"
+								name="gymWidth"
+								value={gymWidth.value}
+								InputLabelProps={{
+									shrink: true,
+								}}
+								inputProps={{
+									size: 30,
+								}}
+								floatingLabelFixed={true}
+								className={classnames(
+									"form-control",
+									{
+										"is-valid": gymWidth.error === false,
+									},
+									{ "is-invalid": gymWidth.error }
+								)}
+								onChange={(evt) =>
+									this.handleChange(
+										validateFields.validateGymWidth,
+										evt
+									)
+								}
+								onBlur={(evt) =>
+									this.handleBlur(
+										validateFields.validateGymWidth,
+										evt
+									)
+								}
+								required
+							/>
+							<div className="invalid-feedback">
+								{gymWidth.error}
+							</div>
+						</div>
+						{/* gymLength field */}
+						<div className="form-group">
+							<label className="form-group-label">Długość</label>
+							<input
+								label="Długość"
+								type="number"
+								name="gymLength"
+								value={gymLength.value}
+								InputLabelProps={{
+									shrink: true,
+								}}
+								inputProps={{
+									size: 30,
+								}}
+								floatingLabelFixed={true}
+								className={classnames(
+									"form-control",
+									{
+										"is-valid": gymLength.error === false,
+									},
+									{
+										"is-invalid": gymLength.error,
+									}
+								)}
+								onChange={(evt) =>
+									this.handleChange(
+										validateFields.validateGymLength,
+										evt
+									)
+								}
+								onBlur={(evt) =>
+									this.handleBlur(
+										validateFields.validateGymLength,
+										evt
+									)
+								}
+								required
+							/>
+							<div className="invalid-feedback">
+								{gymLength.error}
+							</div>
+						</div>
 
-									{/* gymPrice field */}
-									<div className="form-group">
-										<label className="form-group-label">Cena</label>
-										<input
-											label="Cena"
-											type="text"
-											name="gymPrice"
-											value={gymPrice.value}
-											InputLabelProps={{
-												shrink: true,
-											}}
-											inputProps={{
-												size: 30,
-											}}
-											floatingLabelFixed={true}
-											className={classnames(
-												"form-control",
-												{
-													"is-valid":
-														gymPrice.error ===
-														false,
-												},
-												{ "is-invalid": gymPrice.error }
-											)}
-											onChange={(evt) =>
-												this.handleChange(
-													validateFields.validateGymPrice,
-													evt
-												)
-											}
-											onBlur={(evt) =>
-												this.handleBlur(
-													validateFields.validateGymPrice,
-													evt
-												)
-											}
-											required
-										/>
-										<div className="invalid-feedback">
-											{gymPrice.error}
-										</div>
-									</div>
-									{/* audience field */}
-									<div className="form-group">
-										<label className="form-group-label">Liczba miejsc na widowni</label>
-										<input
-											label="Liczba miejsc na widowni"
-											type="text"
-											name="audience"
-											value={audience.value}
-											InputLabelProps={{
-												shrink: true,
-											}}
-											inputProps={{
-												size: 30,
-											}}
-											floatingLabelFixed={true}
-											className={classnames(
-												"form-control",
-												{
-													"is-valid":
-														audience.error ===
-														false,
-												},
-												{ "is-invalid": audience.error }
-											)}
-											onChange={(evt) =>
-												this.handleChange(
-													validateFields.validateAudience,
-													evt
-												)
-											}
-											onBlur={(evt) =>
-												this.handleBlur(
-													validateFields.validateAudience,
-													evt
-												)
-											}
-											required
-										/>
-										<div className="invalid-feedback">
-											{audience.error}
-										</div>
-									</div>
-									{/* changingRooms field */}
-									<div className="form-group">
-										<label className="form-group-label">Liczna szatń</label>
-										<input
-											label="Liczna szatń"
-											type="text"
-											name="changingRooms"
-											value={changingRooms.value}
-											InputLabelProps={{
-												shrink: true,
-											}}
-											inputProps={{
-												size: 30,
-											}}
-											floatingLabelFixed={true}
-											className={classnames(
-												"form-control",
-												{
-													"is-valid":
-														changingRooms.error ===
-														false,
-												},
-												{
-													"is-invalid":
-														changingRooms.error,
-												}
-											)}
-											onChange={(evt) =>
-												this.handleChange(
-													validateFields.validateChangingRooms,
-													evt
-												)
-											}
-											onBlur={(evt) =>
-												this.handleBlur(
-													validateFields.validateChangingRooms,
-													evt
-												)
-											}
-											required
-										/>
-										<div className="invalid-feedback">
-											{changingRooms.error}
-										</div>
-									</div>
-									{/* gymURL field */}
-									<div className="form-group">
-										<label className="form-group-label">URL</label>
-										<input
-											label="URL"
-											type="text"
-											name="gymURL"
-											value={gymURL.value}
-											InputLabelProps={{
-												shrink: true,
-											}}
-											inputProps={{
-												size: 30,
-											}}
-											floatingLabelFixed={true}
-											className={classnames(
-												"form-control",
-												{
-													"is-valid":
-														gymURL.error === false,
-												},
-												{ "is-invalid": gymURL.error }
-											)}
-											onChange={(evt) =>
-												this.handleChange(
-													validateFields.validateGymURL,
-													evt
-												)
-											}
-											onBlur={(evt) =>
-												this.handleBlur(
-													validateFields.validateGymURL,
-													evt
-												)
-											}
-											required
-										/>
-										<div className="invalid-feedback">
-											{gymURL.error}
-										</div>
-									</div>
-									{/* gymPhone field */}
-									<div className="form-group">
-										<label className="form-group-label">Telefon</label>
-										<input
-											label="Telefon"
-											type="text"
-											name="gymPhone"
-											value={gymPhone.value}
-											InputLabelProps={{
-												shrink: true,
-											}}
-											inputProps={{
-												size: 30,
-											}}
-											floatingLabelFixed={true}
-											className={classnames(
-												"form-control",
-												{
-													"is-valid":
-														gymPhone.error ===
-														false,
-												},
-												{ "is-invalid": gymPhone.error }
-											)}
-											onChange={(evt) =>
-												this.handleChange(
-													validateFields.validateGymPhone,
-													evt
-												)
-											}
-											onBlur={(evt) =>
-												this.handleBlur(
-													validateFields.validateGymPhone,
-													evt
-												)
-											}
-											required
-										/>
-										<div className="invalid-feedback">
-											{gymPhone.error}
-										</div>
-									</div>
-									{/* gymEmail field */}
-									<div className="form-group">
-										<label className="form-group-label">Email</label>
-										<input
-											label="Email"
-											type="text"
-											name="gymEmail"
-											value={gymEmail.value}
-											InputLabelProps={{
-												shrink: true,
-											}}
-											inputProps={{
-												size: 30,
-											}}
-											floatingLabelFixed={true}
-											className={classnames(
-												"form-control",
-												{
-													"is-valid":
-														gymEmail.error ===
-														false,
-												},
-												{ "is-invalid": gymEmail.error }
-											)}
-											onChange={(evt) =>
-												this.handleChange(
-													validateFields.validateGymEmail,
-													evt
-												)
-											}
-											onBlur={(evt) =>
-												this.handleBlur(
-													validateFields.validateGymEmail,
-													evt
-												)
-											}
-											required
-										/>
-										<div className="invalid-feedback">
-											{gymEmail.error}
-										</div>
-									</div>
-									{/* gymDescription field */}
-									<div className="form-group">
-										<label className="form-group-label">Opis</label>
-										<input
-											label="Opis"
-											type="text"
-											name="gymDescription"
-											value={gymDescription.value}
-											InputLabelProps={{
-												shrink: true,
-											}}
-											inputProps={{
-												size: 30,
-											}}
-											floatingLabelFixed={true}
-											className={classnames(
-												"form-control",
-												{
-													"is-valid":
-														gymDescription.error ===
-														false,
-												},
-												{
-													"is-invalid":
-														gymDescription.error,
-												}
-											)}
-											onChange={(evt) =>
-												this.handleChange(
-													validateFields.validateGymDescription,
-													evt
-												)
-											}
-											onBlur={(evt) =>
-												this.handleBlur(
-													validateFields.validateGymDescription,
-													evt
-												)
-											}
-											required
-										/>
-										<div className="invalid-feedback">
-											{gymDescription.error}
-										</div>
-									</div>
-									{/* gymOwner field */}
-									{localStorage.getItem("user") == "ZlVPgW1qH0X65ASXIUZoFXab2SI3" ? (
-										<div className="form-group">
-												<label className="form-group-label">Właściciel</label>
-												<input
-												label="Właściciel"
-												type="text"
-												name="gymOwner"
-												value={gymOwner.value}
-												InputLabelProps={{
-													shrink: true,
-												}}
-												inputProps={{
-													size: 30,
-												}}
-												floatingLabelFixed={true}
-												className={classnames(
-													"form-control",
-													{
-														"is-valid":
-															gymOwner.error ===
-															false,
-													},
-													{
-														"is-invalid":
-															gymOwner.error,
-													}
-												)}
-												onChange={(evt) =>
-													this.handleChange(
-														validateFields.validateGymOwner,
-														evt
-													)
-												}
-												onBlur={(evt) =>
-													this.handleBlur(
-														validateFields.validateGymOwner,
-														evt
-													)
-												}
-											/>
-											<div className="invalid-feedback">
-												{gymDescription.error}
-											</div>
-										</div>
-									) : "" }
-									
-									<br />
-									<button
-										type="submit"
-										className="booking-button"
-										onMouseDown={() =>
-											this.setState({
-												submitCalled: true,
-											})
-										}
-										value="Zapisz"
-									>
-										Zapisz
-									</button>
-									{/* <br />
+						{/* gymPrice field */}
+						<div className="form-group">
+							<label className="form-group-label">Cena</label>
+							<input
+								label="Cena"
+								type="number"
+								name="gymPrice"
+								value={gymPrice.value}
+								InputLabelProps={{
+									shrink: true,
+								}}
+								inputProps={{
+									size: 30,
+								}}
+								floatingLabelFixed={true}
+								className={classnames(
+									"form-control",
+									{
+										"is-valid": gymPrice.error === false,
+									},
+									{ "is-invalid": gymPrice.error }
+								)}
+								onChange={(evt) =>
+									this.handleChange(
+										validateFields.validateGymPrice,
+										evt
+									)
+								}
+								onBlur={(evt) =>
+									this.handleBlur(
+										validateFields.validateGymPrice,
+										evt
+									)
+								}
+								required
+							/>
+							<div className="invalid-feedback">
+								{gymPrice.error}
+							</div>
+						</div>
+						{/* audience field */}
+						<div className="form-group">
+							<label className="form-group-label">
+								Liczba miejsc na widowni
+							</label>
+							<input
+								label="Liczba miejsc na widowni"
+								type="number"
+								name="audience"
+								value={audience.value}
+								InputLabelProps={{
+									shrink: true,
+								}}
+								inputProps={{
+									size: 30,
+								}}
+								floatingLabelFixed={true}
+								className={classnames(
+									"form-control",
+									{
+										"is-valid": audience.error === false,
+									},
+									{ "is-invalid": audience.error }
+								)}
+								onChange={(evt) =>
+									this.handleChange(
+										validateFields.validateAudience,
+										evt
+									)
+								}
+								onBlur={(evt) =>
+									this.handleBlur(
+										validateFields.validateAudience,
+										evt
+									)
+								}
+								required
+							/>
+							<div className="invalid-feedback">
+								{audience.error}
+							</div>
+						</div>
+						{/* changingRooms field */}
+						<div className="form-group">
+							<label className="form-group-label">
+								Liczna szatń
+							</label>
+							<input
+								label="Liczna szatń"
+								type="number"
+								name="changingRooms"
+								value={changingRooms.value}
+								InputLabelProps={{
+									shrink: true,
+								}}
+								inputProps={{
+									size: 30,
+								}}
+								floatingLabelFixed={true}
+								className={classnames(
+									"form-control",
+									{
+										"is-valid":
+											changingRooms.error === false,
+									},
+									{
+										"is-invalid": changingRooms.error,
+									}
+								)}
+								onChange={(evt) =>
+									this.handleChange(
+										validateFields.validateChangingRooms,
+										evt
+									)
+								}
+								onBlur={(evt) =>
+									this.handleBlur(
+										validateFields.validateChangingRooms,
+										evt
+									)
+								}
+								required
+							/>
+							<div className="invalid-feedback">
+								{changingRooms.error}
+							</div>
+						</div>
+						{/* gymURL field */}
+						<div className="form-group">
+							<label className="form-group-label">URL</label>
+							<input
+								label="URL"
+								type="text"
+								name="gymURL"
+								value={gymURL.value}
+								InputLabelProps={{
+									shrink: true,
+								}}
+								inputProps={{
+									size: 30,
+								}}
+								floatingLabelFixed={true}
+								className={classnames(
+									"form-control",
+									{
+										"is-valid": gymURL.error === false,
+									},
+									{ "is-invalid": gymURL.error }
+								)}
+								onChange={(evt) =>
+									this.handleChange(
+										validateFields.validateGymURL,
+										evt
+									)
+								}
+								onBlur={(evt) =>
+									this.handleBlur(
+										validateFields.validateGymURL,
+										evt
+									)
+								}
+								required
+							/>
+							<div className="invalid-feedback">
+								{gymURL.error}
+							</div>
+						</div>
+						{/* gymPhone field */}
+						<div className="form-group">
+							<label className="form-group-label">Telefon</label>
+							<input
+								label="Telefon"
+								type="text"
+								name="gymPhone"
+								value={gymPhone.value}
+								InputLabelProps={{
+									shrink: true,
+								}}
+								inputProps={{
+									size: 30,
+								}}
+								floatingLabelFixed={true}
+								className={classnames(
+									"form-control",
+									{
+										"is-valid": gymPhone.error === false,
+									},
+									{ "is-invalid": gymPhone.error }
+								)}
+								onChange={(evt) =>
+									this.handleChange(
+										validateFields.validateGymPhone,
+										evt
+									)
+								}
+								onBlur={(evt) =>
+									this.handleBlur(
+										validateFields.validateGymPhone,
+										evt
+									)
+								}
+								required
+							/>
+							<div className="invalid-feedback">
+								{gymPhone.error}
+							</div>
+						</div>
+						{/* gymEmail field */}
+						<div className="form-group">
+							<label className="form-group-label">Email</label>
+							<input
+								label="Email"
+								type="text"
+								name="gymEmail"
+								value={gymEmail.value}
+								InputLabelProps={{
+									shrink: true,
+								}}
+								inputProps={{
+									size: 30,
+								}}
+								floatingLabelFixed={true}
+								className={classnames(
+									"form-control",
+									{
+										"is-valid": gymEmail.error === false,
+									},
+									{ "is-invalid": gymEmail.error }
+								)}
+								onChange={(evt) =>
+									this.handleChange(
+										validateFields.validateGymEmail,
+										evt
+									)
+								}
+								onBlur={(evt) =>
+									this.handleBlur(
+										validateFields.validateGymEmail,
+										evt
+									)
+								}
+								required
+							/>
+							<div className="invalid-feedback">
+								{gymEmail.error}
+							</div>
+						</div>
+						{/* gymDescription field */}
+						<div className="form-group">
+							<label className="form-group-label">Opis</label>
+							<input
+								label="Opis"
+								type="text"
+								name="gymDescription"
+								value={gymDescription.value}
+								InputLabelProps={{
+									shrink: true,
+								}}
+								inputProps={{
+									size: 30,
+								}}
+								floatingLabelFixed={true}
+								className={classnames(
+									"form-control",
+									{
+										"is-valid":
+											gymDescription.error === false,
+									},
+									{
+										"is-invalid": gymDescription.error,
+									}
+								)}
+								onChange={(evt) =>
+									this.handleChange(
+										validateFields.validateGymDescription,
+										evt
+									)
+								}
+								onBlur={(evt) =>
+									this.handleBlur(
+										validateFields.validateGymDescription,
+										evt
+									)
+								}
+								required
+							/>
+							<div className="invalid-feedback">
+								{gymDescription.error}
+							</div>
+						</div>
+						{/* gymOwner field */}
+
+						{/* {localStorage.getItem("user") ==
+						"ZlVPgW1qH0X65ASXIUZoFXab2SI3" ? ( */}
+						<div className="form-group">
+							<label className="form-group-label">
+								Właściciel
+							</label>
+							<input
+								label="Właściciel"
+								type="text"
+								name="gymOwner"
+								value={
+									gymOwner.value
+										? gymOwner.value
+										: (gymOwner.value = "")
+								}
+								InputLabelProps={{
+									shrink: true,
+								}}
+								inputProps={{
+									size: 30,
+								}}
+								floatingLabelFixed={true}
+								className={classnames(
+									"form-control",
+									{
+										"is-valid": gymOwner.error === false,
+									},
+									{
+										"is-invalid": gymOwner.error,
+									}
+								)}
+								onChange={(evt) =>
+									this.handleChange(
+										validateFields.validateGymOwner,
+										evt
+									)
+								}
+								onBlur={(evt) =>
+									this.handleBlur(
+										validateFields.validateGymOwner,
+										evt
+									)
+								}
+							/>
+							<div className="invalid-feedback">
+								{gymOwner.error}
+							</div>
+						</div>
+						{/* ) : (
+							""
+						)} */}
+
+						<br />
+						<button
+							type="submit"
+							className="booking-button"
+							onMouseDown={() =>
+								this.setState({
+									submitCalled: true,
+								})
+							}
+							value="Zapisz"
+						>
+							Zapisz
+						</button>
+						{/* <br />
                       {allFieldsValidated && (<p>all fields validated</p>)}
                       <br /> */}
-								</form>
-							{/* </ThemeProvider> */}
-						{/* </Grid> */}
-					</div>
+					</form>
+					{/* </ThemeProvider> */}
+					{/* </Grid> */}
+				</div>
 				{/* </MuiPickersUtilsProvider> */}
 			</div>
 		);
