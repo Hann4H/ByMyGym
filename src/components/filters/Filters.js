@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import GymItem from "../GymItem";
 import firebase from "../../firebase";
+import FilteredItems from "./FilteredItems";
+import Loading from "../Loading";
 const db = firebase.firestore();
 
 const nameStyle = {
@@ -33,6 +35,8 @@ class Filters extends Component {
 			gymLengthM: "",
 			audienceN: "",
 			changingRoomsN: "",
+
+			loading: false,
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -41,6 +45,7 @@ class Filters extends Component {
 	componentDidMount() {
 		db.collection("gyms")
 			// .orderBy("gymPrice")
+			.orderBy("gymName")
 			// .where("gymPrice", ">=", this.state.gymPriceFrom)
 			// .where("gymPrice", "<=", this.state.gymPriceTo)
 			.get()
@@ -50,6 +55,7 @@ class Filters extends Component {
 				});
 				this.setState({ data: links });
 				this.gymData = links;
+				this.setState({ loading: true });
 			});
 	}
 
@@ -211,14 +217,18 @@ class Filters extends Component {
 					</form>
 				</div>
 				<div>
-					{this.state.data.map((gym, index) => (
+					<div className="gyms-load">
+						{this.state.loading ? null : <Loading />}
+					</div>
+					<FilteredItems data={this.state.data} />
+					{/* {this.state.data.map((gym, index) => (
 						<GymItem
 							key={gym.id}
 							showCount={false}
 							gym={gym}
 							index={index}
 						/>
-					))}
+					))} */}
 				</div>
 			</>
 		);
