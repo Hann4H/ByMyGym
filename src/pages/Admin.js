@@ -53,6 +53,17 @@ class Admin extends Component {
 										</Link>
 									</td>
 								</tr>
+								<tr>
+									<td>Akceptuj nowe sale</td>
+									<td>
+										<Link
+											to="/newgyms"
+											style={{ color: "black" }}
+										>
+											<button>Przejdź</button>
+										</Link>
+									</td>
+								</tr>
 							</tbody>
 						</table>
 					</div>

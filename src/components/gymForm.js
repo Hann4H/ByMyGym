@@ -63,6 +63,7 @@ export default function gymForm() {
 							changingRooms: values.changingRooms,
 							id: ref.id,
 							gymOwner: userUID,
+							accepted: false,
 
 							// gymURL: values.gymURL,
 							gymPhone: values.gymPhone,
