@@ -63,6 +63,7 @@ export default class SearchGym extends Component {
 	componentDidMount() {
 		db.collection("gyms")
 			.orderBy("gymName")
+			// .where("accepted", "==", false )
 			.get()
 			.then((snapshot) => {
 				const links = snapshot.docs.map((doc) => {
