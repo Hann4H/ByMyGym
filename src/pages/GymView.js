@@ -27,6 +27,20 @@ function ListItems(props) {
       });
   }
 
+  function DeleteItemFromFirebase(e) {
+    e.preventDefault();
+    db.collection("gyms")
+      .doc(docId)
+      .delete()
+      .then(function () {
+        console.log("Document successfully deleted! Doc: " + docId);
+        window.location.reload(false);
+      })
+      .catch(function (error) {
+        console.error("Error removing document: ", error);
+      });
+  }
+
 
   return (
     <>
@@ -95,7 +109,10 @@ function ListItems(props) {
             </tr>
           </tbody>
         </table>
-        <button style={{ margin: "10px" }} onClick={ChangeStatus}>
+        <button style={{ margin: "10px", color: "white" }} onClick={DeleteItemFromFirebase}>
+          Usuń
+        </button>
+        <button style={{ margin: "10px", color: "white" }} onClick={ChangeStatus}>
           Zaakceptuj
         </button>
       </div>

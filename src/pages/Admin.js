@@ -34,7 +34,7 @@ class Admin extends Component {
 								<tr>
 									<td>Dodaj sale do firebase z API</td>
 									<td>
-										<button onClick={this._onButtonClick}>
+										<button onClick={this._onButtonClick} style={{ color: "white" }}>
 											Dodaj
 										</button>
 										{this.state.showComponent ? (
@@ -47,7 +47,7 @@ class Admin extends Component {
 									<td>
 										<Link
 											to="/booking"
-											style={{ color: "black" }}
+											style={{ color: "white" }}
 										>
 											<button>Przejdź</button>
 										</Link>
@@ -58,7 +58,7 @@ class Admin extends Component {
 									<td>
 										<Link
 											to="/newgyms"
-											style={{ color: "black" }}
+											style={{ color: "white" }}
 										>
 											<button>Przejdź</button>
 										</Link>
