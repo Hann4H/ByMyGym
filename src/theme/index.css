@@ -1040,7 +1040,7 @@ ul.unstyled {
   color: var(--mainOrange);
 }
 
-.profile-bookings button{
+.profile-bookings-change-button {
   font-size: 13px;
   margin-left: 15px;
   padding-left: 20px;
@@ -1050,25 +1050,15 @@ ul.unstyled {
   max-width: 90px;
 }
 
-/* button {
-  font-family: "Lato";
-  background-color: var(--mainOrange);
-  border: none;
+.profile-gyms-accept-button {
+  font-size: 13px;
+  margin-left: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
   color: var(--mainWhite);
-  text-align: center;
-  font-size: 20px;
-  height: 45px;
-  margin-left: 2rem;
+  height: 20px;
+}
 
-  letter-spacing: var(--mainSpacing);
-  margin-top: 10px !important;
-
-  cursor: pointer;
-  padding-left: 25px;
-  padding-right: 25px;
-  border-radius: 2px;
-  white-space: nowrap;
-} */
 
 @media screen and (max-width: 700px) {
   .profile-gym-button {

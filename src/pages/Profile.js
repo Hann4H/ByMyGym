@@ -172,7 +172,7 @@ class Profile extends Component {
                         <Link to={`/gym_profile/${res.gym_id}`}><td>{filteredName.gymName}</td></Link>
                         <td>Od: {res.start}</td>
                         <td>Do: {res.end}</td>
-                        <button>ZMIEŃ</button>
+                        <button className="profile-bookings-change-button">ZMIEŃ</button>
                         {/* {this.state.scored ? "" : ( <button onClick={this.togglePop} >OCEŃ</button> )}                          
                         {this.state.seen ? <PopUp toggle={this.togglePop} gymId={res.gym_id} bookingID={res.bookingID}/> : null} */}
                         {!(localStorage.getItem("user") == 'ZlVPgW1qH0X65ASXIUZoFXab2SI3') ? (
@@ -230,7 +230,8 @@ class Profile extends Component {
                     </div>
                     <div className="profile-bookings">
                     {this.state.Gyms.filter(gym => gym.gymOwner == localStorage.getItem("user")).map(myGyms => (
-                        <tr><Link to={`/gym_profile/${myGyms.docId}`}><td>{myGyms.gymName}</td></Link></tr>
+                        <tr><Link to={`/gym_profile/${myGyms.docId}`}><td>{myGyms.gymName}</td></Link>
+                        <Link to='/reservations'><button className="profile-gyms-accept-button">Rezerwacje</button></Link></tr>
                       ))
                     }
                     </div>

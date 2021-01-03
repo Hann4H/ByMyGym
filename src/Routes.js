@@ -14,6 +14,7 @@ import FAQ from "./pages/FAQ";
 import BookingView from "./pages/BookingView";
 import GymView from "./pages/GymView";
 import NoAccess from "./pages/NoAccess";
+import ReservationsView from "./pages/ReservationsView";
 
 import FinishReservation from "./pages/FinishReservation";
 
@@ -40,6 +41,7 @@ const Routes = () => (
         <Route path="/admin" exact component={Admin} />
         <Route path="/booking" exact component={BookingView} />
         <Route path="/newgyms" exact component={GymView} />
+        <Route path="/reservations" exact component={ReservationsView} />
         <Route path="/finishReservation" exact component={FinishReservation} />
         <Route path="/noaccess" exact component={NoAccess} />
         <Route path="*" component={Error} status={404}/>
