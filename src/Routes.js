@@ -16,6 +16,7 @@ import GymView from "./pages/GymView";
 import NoAccess from "./pages/NoAccess";
 
 import FinishReservation from "./pages/FinishReservation";
+import MapSearch from "./pages/MapSearch";
 
 const ScrollToTop = () => {
   window.scrollTo(0, 0);
@@ -40,9 +41,12 @@ const Routes = () => (
         <Route path="/admin" exact component={Admin} />
         <Route path="/booking" exact component={BookingView} />
         <Route path="/newgyms" exact component={GymView} />
+        
+        <Route path="/map" exact component={MapSearch}/>
         <Route path="/finishReservation" exact component={FinishReservation} />
         <Route path="/noaccess" exact component={NoAccess} />
         <Route path="*" component={Error} status={404}/>
+        
         </Switch>
       </div>
     </React.Fragment>
