@@ -62,12 +62,13 @@ export default class SearchGym extends Component {
 
 	componentDidMount() {
 		db.collection("gyms")
-			.orderBy("gymName")
-			// .where("accepted", "==", false )
+			.where("accepted", "==", true )
 			.get()
 			.then((snapshot) => {
 				const links = snapshot.docs.map((doc) => {
-					return { docId: doc.id, ...doc.data() };
+					// if(doc.data().accepted == true) {
+						return { docId: doc.id, ...doc.data() };
+					// }
 				});
 				this.setState({ loading: true });
 				this.setState({ data: links, results: links });
