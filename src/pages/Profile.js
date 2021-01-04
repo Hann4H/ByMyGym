@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link, Redirect } from 'react-router-dom'
 import firebase from "../firebase";
 import Loading from "../components/Loading";
-import PopUp from "../components/PopUp";
 import StarRatings from "../components/StarRatings";
 
 var now = new Date();
@@ -173,14 +172,9 @@ class Profile extends Component {
                         <td>Od: {res.start}</td>
                         <td>Do: {res.end}</td>
                         <button className="profile-bookings-change-button">ZMIEŃ</button>
-                        {/* {this.state.scored ? "" : ( <button onClick={this.togglePop} >OCEŃ</button> )}                          
-                        {this.state.seen ? <PopUp toggle={this.togglePop} gymId={res.gym_id} bookingID={res.bookingID}/> : null} */}
                         {!(localStorage.getItem("user") == 'ZlVPgW1qH0X65ASXIUZoFXab2SI3') ? (
                           <StarRatings gymID={res.gym_id} bookingID={res.bookingID}/>
                         ) : "" }
-
-                        {/* <button>USUŃ</button> */}
-
                       </tr>
                     ))
                   ))}

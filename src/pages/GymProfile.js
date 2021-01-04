@@ -18,7 +18,6 @@ class GymProfile extends Component {
 		this.showing = false;
 		this.selectedBooking = null;
 		this.gymOwner = "";
-
 		this.setEditReadmode = this.setEditReadMode.bind(this);
 	}
 
@@ -42,7 +41,6 @@ class GymProfile extends Component {
 	};
 
 	render() {
-		// console.log("TU POWINNO BYC ID:" + this.props.match.params.id);
 
 		return (
 			<>

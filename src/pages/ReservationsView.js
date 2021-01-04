@@ -148,25 +148,10 @@ class ReservationsView extends Component {
 
         this.setState( ownedGyms );
       });
-
-    //   console.log(ownedGyms)
-
-        // db.collection("reservation")
-        // // .where("gym_id", "in", ownedGyms)
-        // .get()
-        // .then((items) => {
-        //     const bookingItems = items.docs.map((doc) => {
-        //         return { docId: doc.id, ...doc.data() };
-        //     });
-        //     this.setState({ bookingItems: bookingItems });
-        //     this.bookingItems = bookingItems;
-        //     });
-
     
   }
 
   render() {
-
 
     return (
       <div>

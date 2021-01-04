@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import firebase from "firebase";
 import "firebase/firestore";
 import "firebase/storage";
-import ListingImg from "./ListingImg";
-import { Link, withRouter } from "react-router-dom";
 import GymItem from "../components/GymItem";
 
 const db = firebase.firestore();

@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import StarRatings from "../components/StarRatings";
 
-
 export default class PopUp extends Component {
 
-    
     handleClick = () => {
         this.props.toggle();
     };

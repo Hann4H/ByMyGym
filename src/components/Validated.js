@@ -43,6 +43,5 @@ export default function validate(values) {
     } else {
         verdict = true;
     }
-    // console.log(verdict);
     return verdict;
   };

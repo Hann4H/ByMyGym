@@ -87,15 +87,8 @@ class GymDetailsEdit extends Component {
 		}
 	}
 
-	/*
-	 * validates the field onBlur if sumbit button is not clicked
-	 * set the validateOnChange to true for that field
-	 * check for error
-	 */
 	handleBlur(validationFunc, evt) {
 		const field = evt.target.name;
-		// validate onBlur only when validateOnChange for that field is false
-		// because if validateOnChange is already true there is no need to validate onBlur
 		if (
 			this.state[field]["validateOnChange"] === false &&
 			this.state.submitCalled === false
@@ -111,10 +104,6 @@ class GymDetailsEdit extends Component {
 		return;
 	}
 
-	/*
-	 * update the value in state for that field
-	 * check for error if validateOnChange is true
-	 */
 	handleChange(validationFunc, evt) {
 		const field = evt.target.name;
 		const fieldVal = evt.target.value;
@@ -339,23 +328,11 @@ class GymDetailsEdit extends Component {
 
 		return (
 			<div>
-				{/* <MuiPickersUtilsProvider utils={DateFnsUtils}> */}
 				<div className="booking-container">
-					{/* <Grid
-							container
-							direction="column"
-							justify="center"
-							alignItems="flex-start"
-						> */}
-					{/* <ThemeProvider theme={theme}> */}
 					<form
 						onSubmit={(evt) => this.handleSubmit(evt)}
 						className="gymForm"
 					>
-						{/* <form
-									onSubmit={(evt) => this.handleSubmit(evt)}
-									className="gymForm"
-								> */}
 						<h3
 							style={{
 								textAlign: "center",
@@ -1019,10 +996,7 @@ class GymDetailsEdit extends Component {
                       {allFieldsValidated && (<p>all fields validated</p>)}
                       <br /> */}
 					</form>
-					{/* </ThemeProvider> */}
-					{/* </Grid> */}
 				</div>
-				{/* </MuiPickersUtilsProvider> */}
 			</div>
 		);
 	}
