@@ -2,11 +2,11 @@ export default function validate(values) {
     let verdict = false;
     if (!values.name) {
       verdict = false;
-    } else if (!/(.*[a-z]){3}/.test(values.name)) {
+    } else if (!/(.*[a-z]){2}/.test(values.name)) {
         verdict = false;
     } else if (!values.surname) {
         verdict = false;
-    } else if (!/(.*[a-z]){3}/.test(values.surname)) {
+    } else if (!/(.*[a-z]){2}/.test(values.surname)) {
         verdict = false;
     } else if (!values.email) {
         verdict = false;

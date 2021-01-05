@@ -2,12 +2,12 @@ export default function validate(values) {
     let errors = {};
     if (!values.name) {
       errors.name = 'Należy wprowadzić imię';
-    } else if (!/(.*[A-Za-z]){3}/.test(values.name)) {
+    } else if (!/(.*[A-Za-z]){2}/.test(values.name)) {
       errors.name = 'Imię jest nieprawidłowe';
     }
     if (!values.surname) {
       errors.surname = 'Należy wprowadzić nazwisko';
-    } else if (!/(.*[A-Za-z]){3}/.test(values.surname)) {
+    } else if (!/(.*[A-Za-z]){2}/.test(values.surname)) {
       errors.surname = 'Nazwisko jest nieprawidłowe';
     }
     if (!values.phoneNumber) {
