@@ -43,7 +43,7 @@ class Admin extends Component {
 									</td>
 								</tr>
 								<tr>
-									<td>Zarządzaj rezerwacją</td>
+									<td>Zarządzaj rezerwacjami</td>
 									<td>
 										<Link
 											to="/booking"

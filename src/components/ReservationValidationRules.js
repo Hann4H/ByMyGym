@@ -20,8 +20,5 @@ export default function validate(values) {
     } else if (!/^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/.test(values.email)) {
       errors.email = 'E-mail jest nieprawidłowy';
     }
- 
-
-    // console.log(errors);
     return errors;
   };

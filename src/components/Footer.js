@@ -10,6 +10,7 @@ class Footer extends Component {
     if (window.location.pathname === "/admin") return null;
     if (window.location.pathname === "/booking") return null;
     if (window.location.pathname === "/newgyms") return null;
+    if (window.location.pathname === "/reservations") return null;
     
     return (
       <>
