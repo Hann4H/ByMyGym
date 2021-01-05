@@ -928,7 +928,7 @@ class GymDetailsEdit extends Component {
 						{/* gymOwner field */}
 
 						{/* {localStorage.getItem("user") ==
-						"ZlVPgW1qH0X65ASXIUZoFXab2SI3" ? ( */}
+						process.env.REACT_APP_ADMIN_ID ? ( */}
 						<div className="form-group">
 							<label className="form-group-label">
 								Właściciel
