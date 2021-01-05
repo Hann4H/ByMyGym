@@ -52,7 +52,7 @@ class GymProfile extends Component {
 
 					{localStorage.getItem("user") == this.state.gymOwner ||
 					localStorage.getItem("user") ==
-						"ZlVPgW1qH0X65ASXIUZoFXab2SI3" ? (
+						process.env.REACT_APP_ADMIN_ID ? (
 						<button
 							onClick={this.setEditReadMode}
 							style={{ margin: "5%", float: "left", color: "white" }}

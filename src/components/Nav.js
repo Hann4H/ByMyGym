@@ -109,7 +109,7 @@ class Nav extends Component {
               )}
             </li>
             <li>
-            {this.state.user && this.state.user.uid=='ZlVPgW1qH0X65ASXIUZoFXab2SI3' ? (
+            {this.state.user && this.state.user.uid==process.env.REACT_APP_ADMIN_ID ? (
               <Link to="/admin">
                 <button className="nav-button">ADMIN</button>
               </Link>

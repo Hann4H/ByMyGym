@@ -20,7 +20,7 @@ class Admin extends Component {
 	}
 
 	render() {
-		if (localStorage.getItem("user") != "ZlVPgW1qH0X65ASXIUZoFXab2SI3") {
+		if (localStorage.getItem("user") != process.env.REACT_APP_ADMIN_ID) {
 			return <Redirect to="/noaccess" />;
 		}
 

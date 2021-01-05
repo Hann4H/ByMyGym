@@ -43,7 +43,7 @@ class Profile extends Component {
       console.log("Error getting documents: ", error);
     });
     
-    if(localStorage.getItem("user") == 'ZlVPgW1qH0X65ASXIUZoFXab2SI3') {
+    if(localStorage.getItem("user") == process.env.REACT_APP_ADMIN_ID) {
       firebase.firestore().collection("reservation")
       .get()
       .then((querySnapshot) => {  
@@ -172,7 +172,7 @@ class Profile extends Component {
                         <td>Od: {res.start}</td>
                         <td>Do: {res.end}</td>
                         <button className="profile-bookings-change-button">ZMIEŃ</button>
-                        {!(localStorage.getItem("user") == 'ZlVPgW1qH0X65ASXIUZoFXab2SI3') ? (
+                        {!(localStorage.getItem("user") == process.env.REACT_APP_ADMIN_ID) ? (
                           <StarRatings gymID={res.gym_id} bookingID={res.bookingID}/>
                         ) : "" }
                       </tr>
@@ -181,7 +181,7 @@ class Profile extends Component {
                 </div>
               </tbody>
               </table>
-              {!(localStorage.getItem("user") == 'ZlVPgW1qH0X65ASXIUZoFXab2SI3') ? 
+              {!(localStorage.getItem("user") == process.env.REACT_APP_ADMIN_ID) ? 
               <div>
                 <table className="table table-borderless">
                   <tbody>

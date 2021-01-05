@@ -71,7 +71,7 @@ class GymItem extends Component {
 									</button>
 								</Link>
 								{localStorage.getItem("user") ==
-								"ZlVPgW1qH0X65ASXIUZoFXab2SI3" ? (
+								process.env.REACT_APP_ADMIN_ID ? (
 									<button
 										onClick={DeleteItemFromFirebase}
 										className="delete-gym-button"
