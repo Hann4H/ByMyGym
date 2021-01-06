@@ -19,7 +19,7 @@ class ValidateFields {
 		if (validator.isEmpty(email)) {
 			return "Email jest wymagany";
 		} else if (!validator.isEmail(email)) {
-			return "Niepoprawny Email";
+			return "Niepoprawny e-mail";
 		}
 		return false;
 	}
@@ -175,7 +175,7 @@ class ValidateFields {
 		if (validator.isEmpty(gymEmail)) {
 			return "Email jest wymagany";
 		} else if (!validator.isEmail(gymEmail)) {
-			return "Niepoprawny Email";
+			return "Niepoprawny e-mail";
 		}
 		return false;
 	}
@@ -188,7 +188,9 @@ class ValidateFields {
 	}
 
 	validateGymOwner(gymOwner) {
-		if (!validator.isLength(gymOwner, { min: 20, max: 20 })) {
+		if (validator.isEmpty(gymOwner)) {
+			return false;
+		} else if (!validator.isLength(gymOwner, { min: 20 })) {
 			return "ID właściciela powinno mieć 20 znaków";
 		}
 		return false;

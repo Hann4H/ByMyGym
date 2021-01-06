@@ -11,5 +11,6 @@ export default function NoAccess() {
             </Link>
         </Banner>
     </Hero>
-    <div id="pls"></div></>;
+    <div id="pls"></div><br />
+    </>;
 }

@@ -48,10 +48,10 @@ class GymDetails extends Component {
 								.data()
 								.favourites.includes(this.props.dataId)
 						) {
-							this.faved = true;
+							this.setState({ faved: true });
 							console.log(this.faved);
 						} else {
-							this.faved = false;
+							this.setState({ faved: false });
 						}
 					}
 				});
@@ -130,11 +130,6 @@ class GymDetails extends Component {
 		return (
 			<>
 				<div className="idk5">
-					{/* {localStorage.getItem("user") ? (
-						<StarRatings gymID={this.props.dataId} />
-					) : (
-						""
-					)} */}
 					<div className="gym-prof-header">
 						<h1
 							className="gym-name"

@@ -72,22 +72,14 @@ class Basic extends Component {
         const events = items.docs.map((doc) => {
           return { docId: doc.id, ...doc.data() };
         });
-
         const user = localStorage.getItem("user");
         this.setState({ user });
-        console.log("PYK PYK " + user);
-
         const eventsData = JSON.stringify(events, null, 4);
         this.setState((events) => ({
           DemoData: {
             events: JSON.parse(eventsData),
           },
         }));
-
-        // console.log(
-        //   "Show booking items3!!!: " +
-        //     JSON.stringify(this.state.DemoData.events, null, 4)
-        // );
       });
   }
 
@@ -152,7 +144,7 @@ class Basic extends Component {
     let startDate = new Date(start);
 
     if (startDate < today) {
-      alert("Początkowa data nie może być dzisiaj lub z przeszłości!");
+      alert("Początkowa data nie może być z przeszłości!");
     } else {
       if (
         window.confirm(
@@ -393,15 +385,15 @@ class Basic extends Component {
 
     return (
       <div style={{ backgroundColor: "white" }}>
-        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+        {/* <MuiPickersUtilsProvider utils={DateFnsUtils}> */}
           <div className="booking-container">
-            <Grid
+            {/* <Grid
               container
               direction="column"
               justify="center"
               alignItems="flex-start"
-            >
-              <ThemeProvider theme={theme}>
+            > */}
+              {/* <ThemeProvider theme={theme}> */}
                 <form
                   onSubmit={(evt) => this.handleSubmit(evt)}
                   className="gymForm"
@@ -413,7 +405,8 @@ class Basic extends Component {
                   </h3>
                   {/* Name field */}
                   <div className="form-group">
-                    <TextField
+                      <label className="form-group-label">imię</label>
+											<input
                       label="imię"
                       type="text"
                       name="name"
@@ -442,7 +435,8 @@ class Basic extends Component {
                   </div>
                   {/* Surname field */}
                   <div className="form-group">
-                    <TextField
+                      <label className="form-group-label">nazwisko</label>
+											<input
                       label="nazwisko"
                       type="text"
                       name="surname"
@@ -470,7 +464,8 @@ class Basic extends Component {
                   </div>
                   {/* Email field */}
                   <div className="form-group">
-                    <TextField
+                    <label className="form-group-label">Email</label>
+											<input
                       label="Email"
                       type="text"
                       name="email"
@@ -498,7 +493,8 @@ class Basic extends Component {
                   </div>
                   {/* phoneNumber field */}
                   <div className="form-group">
-                    <TextField
+                      <label className="form-group-label">Telefon</label>
+											<input
                       label="Telefon"
                       type="text"
                       name="phoneNumber"
@@ -571,10 +567,10 @@ class Basic extends Component {
                     />
                   </ConfigProvider> */}
                 </form>
-              </ThemeProvider>
-            </Grid>
+              {/* </ThemeProvider> */}
+            {/* </Grid> */}
           </div>
-        </MuiPickersUtilsProvider>
+        {/* </MuiPickersUtilsProvider> */}
       </div>
     );
   }

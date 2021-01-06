@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link, Redirect } from 'react-router-dom'
 import firebase from "../firebase";
 import Loading from "../components/Loading";
-import PopUp from "../components/PopUp";
 import StarRatings from "../components/StarRatings";
 
 var now = new Date();
@@ -14,13 +13,16 @@ class Profile extends Component {
     name: "",
     Reservations: [],
     Gyms: [],
+    Favourites: [],
     seen: false,
     loading: false,
+    Owned: [],
   };
 
   componentDidMount() {
     const Reservations = [];
     const Gyms = [];
+    const Favourites = [];
 
     this.loadUserProfile();
 
@@ -30,7 +32,9 @@ class Profile extends Component {
         Gyms.push({
           docId: doc.id,
           gymName: doc.data().gymName,
+          gymOwner: doc.data().gymOwner
         });
+        
       });
       this.setState({ Gyms });
 
@@ -39,22 +43,54 @@ class Profile extends Component {
       console.log("Error getting documents: ", error);
     });
     
+    if(localStorage.getItem("user") == process.env.REACT_APP_ADMIN_ID) {
+      firebase.firestore().collection("reservation")
+      .get()
+      .then((querySnapshot) => {  
+          querySnapshot.forEach(function (doc) {
+              Reservations.push({
+                start: doc.data().start,
+                end: doc.data().end,
+                gym_id: doc.data().gym_id,
+                scored: doc.data().scored,
+                bookingID: doc.id
+            })  
+          })
+          this.setState({ Reservations });
+      })
+      .catch(function(error) {
+          console.log("Error getting documents: ", error);
+      });
 
-    firebase.firestore().collection("reservation").where("user_id", "==", localStorage.getItem("user"))
+    } else {
+      firebase.firestore().collection("reservation").where("user_id", "==", localStorage.getItem("user"))
+      .get()
+      .then((querySnapshot) => {  
+          querySnapshot.forEach(function (doc) {
+              Reservations.push({
+                start: doc.data().start,
+                end: doc.data().end,
+                gym_id: doc.data().gym_id,
+                scored: doc.data().scored,
+                bookingID: doc.id
+            })  
+          })
+
+          this.setState({ Reservations });
+      })
+      .catch(function(error) {
+          console.log("Error getting documents: ", error);
+      });
+    }
+
+    
+
+
+    firebase.firestore().collection("favourites").doc(localStorage.getItem("user"))
     .get()
     .then((querySnapshot) => {  
-
-        querySnapshot.forEach(function (doc) {
-            Reservations.push({
-              start: doc.data().start,
-              end: doc.data().end,
-              gym_id: doc.data().gym_id,
-              scored: doc.data().scored,
-              bookingID: doc.id
-          })  
-        })
-
-        this.setState({ Reservations });
+        this.setState({ Favourites : this.state.Favourites.concat(querySnapshot.data().favourites)});
+        console.log(this.state.Favourites)
     })
     .catch(function(error) {
         console.log("Error getting documents: ", error);
@@ -135,16 +171,68 @@ class Profile extends Component {
                         <Link to={`/gym_profile/${res.gym_id}`}><td>{filteredName.gymName}</td></Link>
                         <td>Od: {res.start}</td>
                         <td>Do: {res.end}</td>
-                        <button>ZMIEŃ</button>
-                        {/* {this.state.scored ? "" : ( <button onClick={this.togglePop} >OCEŃ</button> )}                          
-                        {this.state.seen ? <PopUp toggle={this.togglePop} gymId={res.gym_id} bookingID={res.bookingID}/> : null} */}
-                        <StarRatings gymID={res.gym_id} bookingID={res.bookingID}/>
+                        <button className="profile-bookings-change-button">ZMIEŃ</button>
+                        {!(localStorage.getItem("user") == process.env.REACT_APP_ADMIN_ID) ? (
+                          <StarRatings gymID={res.gym_id} bookingID={res.bookingID}/>
+                        ) : "" }
                       </tr>
                     ))
                   ))}
                 </div>
               </tbody>
               </table>
+              {!(localStorage.getItem("user") == process.env.REACT_APP_ADMIN_ID) ? 
+              <div>
+                <table className="table table-borderless">
+                  <tbody>
+                    <tr className="profile-info">
+                      <td className="headline-info">Ulubione</td>
+                    </tr>
+                    </tbody>
+                </table>
+                <table>
+                <tbody>
+                  <div className="gyms-load">
+                    {this.state.loading ? null : <Loading />}
+                  </div>
+                  <div className="profile-bookings">
+                    {this.state.Favourites.map((fav, index) => (
+                      this.state.Gyms.filter(gym => gym.docId == fav).map(filteredName => (
+                        <tr>
+                          <Link to={`/gym_profile/${fav}`}><td>{filteredName.gymName}</td></Link>
+                        </tr>
+                      ))
+                    ))}
+                  </div>
+                </tbody>
+                </table>
+                </div>
+               : "" }
+               {this.state.Gyms.filter(gym => gym.gymOwner == localStorage.getItem("user")) ? 
+                <div>
+                  <table className="table table-borderless">
+                    <tbody>
+                      <tr className="profile-info">
+                        <td className="headline-info">Moje sale</td>
+                      </tr>
+                      </tbody>
+                  </table>
+                  <table>
+                  <tbody>
+                    <div className="gyms-load">
+                      {this.state.loading ? null : <Loading />}
+                    </div>
+                    <div className="profile-bookings">
+                    {this.state.Gyms.filter(gym => gym.gymOwner == localStorage.getItem("user")).map(myGyms => (
+                        <tr><Link to={`/gym_profile/${myGyms.docId}`}><td>{myGyms.gymName}</td></Link>
+                        <Link to='/reservations'><button className="profile-gyms-accept-button">Rezerwacje</button></Link></tr>
+                      ))
+                    }
+                    </div>
+                  </tbody>
+                  </table>
+                  </div>
+               : "" }
             </div>
         </div>
         </div>

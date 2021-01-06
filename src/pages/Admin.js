@@ -20,7 +20,7 @@ class Admin extends Component {
 	}
 
 	render() {
-		if (localStorage.getItem("user") != "ZlVPgW1qH0X65ASXIUZoFXab2SI3") {
+		if (localStorage.getItem("user") != process.env.REACT_APP_ADMIN_ID) {
 			return <Redirect to="/noaccess" />;
 		}
 
@@ -34,7 +34,7 @@ class Admin extends Component {
 								<tr>
 									<td>Dodaj sale do firebase z API</td>
 									<td>
-										<button onClick={this._onButtonClick}>
+										<button onClick={this._onButtonClick} style={{ color: "white" }}>
 											Dodaj
 										</button>
 										{this.state.showComponent ? (
@@ -43,11 +43,22 @@ class Admin extends Component {
 									</td>
 								</tr>
 								<tr>
-									<td>Zarządzaj rezerwacją</td>
+									<td>Zarządzaj rezerwacjami</td>
 									<td>
 										<Link
 											to="/booking"
-											style={{ color: "black" }}
+											style={{ color: "white" }}
+										>
+											<button>Przejdź</button>
+										</Link>
+									</td>
+								</tr>
+								<tr>
+									<td>Akceptuj nowe sale</td>
+									<td>
+										<Link
+											to="/newgyms"
+											style={{ color: "white" }}
 										>
 											<button>Przejdź</button>
 										</Link>
@@ -57,10 +68,10 @@ class Admin extends Component {
 						</table>
 					</div>
 					{/* TODO delete it */}
-					<div style={{ background: "#e6e6e6" }}>
+					{/* <div style={{ background: "#e6e6e6" }}>
 						<br />
 						<FilterGyms />
-					</div>
+					</div> */}
 				</div>
 			</div>
 		);

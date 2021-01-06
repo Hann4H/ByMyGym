@@ -56,24 +56,28 @@ export default class SearchGym extends Component {
 			this.setState({
 				isLoading: false,
 				results: _.filter(this.state.data, isMatch),
+				pageCount: Math.ceil(
+					this.state.results.length / this.state.perPage
+				),
+				
 			});
+			
 		}, 300);
 	};
 
 	componentDidMount() {
 		db.collection("gyms")
-			.orderBy("gymName")
+			.where("accepted", "==", true )
 			.get()
 			.then((snapshot) => {
 				const links = snapshot.docs.map((doc) => {
 					return { docId: doc.id, ...doc.data() };
+
 				});
 				this.setState({ loading: true });
 				this.setState({ data: links, results: links });
 				this.receivedData();
 				this.gymData = links;
-				// console.log("links: " + links);
-				// console.log("links data: " + this.gymData);
 			});
 	}
 
@@ -156,7 +160,7 @@ export default class SearchGym extends Component {
 									breakLabel={"..."}
 									breakClassName={"break-me"}
 									pageCount={this.state.pageCount}
-									marginPagesDisplayed={1}
+									marginPagesDisplayed={2}
 									pageRangeDisplayed={0}
 									onPageChange={this.handlePageClick}
 									containerClassName={"pagination"}

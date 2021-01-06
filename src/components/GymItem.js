@@ -47,7 +47,10 @@ class GymItem extends Component {
 						</div>
 						<div className="gym-short-info">
 							<h3 className="listing-header">
-								{this.props.gym.gymName}
+								<Link
+									to={{pathname: `/gym_profile/${this.props.gym.docId}`,}}>
+										{this.props.gym.gymName}
+								</Link>
 							</h3>
 							<p>
 								Adres: {this.props.gym.gymStreet},{" "}
@@ -71,7 +74,7 @@ class GymItem extends Component {
 									</button>
 								</Link>
 								{localStorage.getItem("user") ==
-								"ZlVPgW1qH0X65ASXIUZoFXab2SI3" ? (
+								process.env.REACT_APP_ADMIN_ID ? (
 									<button
 										onClick={DeleteItemFromFirebase}
 										className="delete-gym-button"

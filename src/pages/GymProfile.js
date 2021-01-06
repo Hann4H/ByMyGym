@@ -17,8 +17,7 @@ class GymProfile extends Component {
 		this.state = { data: [], editMode: false };
 		this.showing = false;
 		this.selectedBooking = null;
-		this.gymOwnerID = "";
-
+		this.gymOwner = "";
 		this.setEditReadmode = this.setEditReadMode.bind(this);
 	}
 
@@ -29,8 +28,8 @@ class GymProfile extends Component {
 			.doc(this.props.match.params.id)
 			.get()
 			.then((snapshot) => {
-				this.setState({ gymOwnerID: snapshot.gymOwnerID });
-				console.log("id: " + snapshot.gymOwnerID);
+				this.setState({ gymOwner: snapshot.data().gymOwner });
+				console.log("id: " + snapshot.data().gymOwner);
 			})
 			.catch(function (error) {
 				console.log("Error getting documents: ", error);
@@ -42,7 +41,6 @@ class GymProfile extends Component {
 	};
 
 	render() {
-		// console.log("TU POWINNO BYC ID:" + this.props.match.params.id);
 
 		return (
 			<>
@@ -52,9 +50,9 @@ class GymProfile extends Component {
 						<Slider dataId={this.props.match.params.id} />
 					</div>
 
-					{localStorage.getItem("user") == this.state.gymOwnerID ||
+					{localStorage.getItem("user") == this.state.gymOwner ||
 					localStorage.getItem("user") ==
-						"ZlVPgW1qH0X65ASXIUZoFXab2SI3" ? (
+						process.env.REACT_APP_ADMIN_ID ? (
 						<button
 							onClick={this.setEditReadMode}
 							style={{ margin: "5%", float: "left", color: "white" }}

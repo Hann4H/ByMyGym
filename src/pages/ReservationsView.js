@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { Redirect } from 'react-router-dom'
 const db = firebase.firestore();
 
-// bookings
 
 function ListItems(props) {
   const data = JSON.parse(props.value);
@@ -117,32 +116,42 @@ function ListItems(props) {
   );
 }
 
-class BookingView extends Component {
+class ReservationsView extends Component {
   constructor(props) {
     super(props);
-    this.state = { bookingItems: [] };
+    this.state = { bookingItems: [], ownedGyms: [] };
   }
 
   componentDidMount() {
-    db.collection("reservation")
-      .orderBy("title")
+
+    const ownedGyms = [];
+    const bookingItems = [];
+
+    db.collection("gyms")
+      .where("gymOwner", "==", localStorage.getItem("user"))
       .get()
       .then((items) => {
-        const bookingItems = items.docs.map((doc) => {
-          return { docId: doc.id, ...doc.data() };
-        });
-        this.setState({ bookingItems: bookingItems });
-        this.bookingItems = bookingItems;
+        items.forEach(function (doc) {
+            ownedGyms.push(doc.id); 
+          });
+
+          db.collection("reservation")
+            .where("gym_id", "in", ownedGyms)
+            .get()
+            .then((items) => {
+                const bookingItems = items.docs.map((doc) => {
+                    return { docId: doc.id, ...doc.data() };
+                });
+                    this.setState({ bookingItems: bookingItems });
+                    this.bookingItems = bookingItems;
+                });
+
+        this.setState( ownedGyms );
       });
+    
   }
 
   render() {
-
-    if (localStorage.getItem("user")!=process.env.REACT_APP_ADMIN_ID) {
-      return (
-        <Redirect to="/login" />
-      )
-    }
 
     return (
       <div>
@@ -163,4 +172,4 @@ class BookingView extends Component {
   }
 }
 
-export default BookingView;
+export default ReservationsView;

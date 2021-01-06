@@ -475,6 +475,14 @@
   margin-left: 2rem;
 }
 
+.gym-short-info a {
+  color: var(--mainBlack);
+}
+
+.gym-short-info a:hover {
+  color: var(--darkOrange);
+}
+
 @media screen and (max-width: 567px) {
   .gym-short-info {
     margin-top: 1rem;
@@ -943,6 +951,8 @@ ul.unstyled {
   left: 50%;
   top: 50%;
   margin-right: -50%;
+  height: 70vh;
+  overflow-y: scroll;
   transform: translate(-50%, -50%);
   position: absolute;
   background-color: var(--mainWhite);
@@ -1024,7 +1034,7 @@ ul.unstyled {
 }
 
 .profile-bookings td {
-  padding-top: 20px;
+  padding-bottom: 25px;
   padding-left: 15px;
   padding-right: 15px;
 }
@@ -1038,7 +1048,7 @@ ul.unstyled {
   color: var(--mainOrange);
 }
 
-.profile-bookings button{
+.profile-bookings-change-button {
   font-size: 13px;
   margin-left: 15px;
   padding-left: 20px;
@@ -1048,25 +1058,15 @@ ul.unstyled {
   max-width: 90px;
 }
 
-/* button {
-  font-family: "Lato";
-  background-color: var(--mainOrange);
-  border: none;
+.profile-gyms-accept-button {
+  font-size: 13px;
+  margin-left: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
   color: var(--mainWhite);
-  text-align: center;
-  font-size: 20px;
-  height: 45px;
-  margin-left: 2rem;
+  height: 20px;
+}
 
-  letter-spacing: var(--mainSpacing);
-  margin-top: 10px !important;
-
-  cursor: pointer;
-  padding-left: 25px;
-  padding-right: 25px;
-  border-radius: 2px;
-  white-space: nowrap;
-} */
 
 @media screen and (max-width: 700px) {
   .profile-gym-button {
@@ -1298,15 +1298,9 @@ ul.unstyled {
 
 .booking-button {
   font-size: 15px;
-  font-weight: bold;
   height: 3rem;
   align-items: center;
-  /* max-width: 5rem;
-  padding-right: 47%;
-  padding-left: 6%;
-  margin-left: 130%; */
   margin: auto;
-  margin-left: 2rem;
   color: var(--mainWhite);
 }
 
@@ -1329,23 +1323,27 @@ ul.unstyled {
   .booking-field {
     margin-bottom: 1.5rem;
     translate: (40%, 10%) !important;
-    width: 25vw;
+    width: 80vw;
   }
   
   .booking-button {
     font-size: 15px;
     font-weight: normal;
     height: 3rem;
-    width: 90%;
-    /* max-width: 5rem;
-    padding-right: 47%;
-    padding-left: 6%;
-    margin-left: 130%; */
-    margin-left: 0rem;
+    width: 100%;
     color: var(--mainWhite);
   }
 }
 
+.form-group-label {
+  color: var(--darkGrey);
+  font-size: 10px;
+  margin-top: 15px;
+}
+
+.form-group input {
+  width: 20vw;
+}
 
 .calendar-style {
   margin-right: 20%;
@@ -1955,4 +1953,36 @@ input:-webkit-autofill:active {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.SearchMapBox {
+  position: relative;
+  top: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 400px;
+  z-index: 10;
+}
+
+.SearchMapBox input {
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  width: 100%;
+}
+
+
+.locate {
+  position: relative;
+  top: 7.5rem;
+  left: 90%;
+  transform: translateX(-50%);
+  width: 10%;
+  max-width: 400px;
+  z-index: 10;
+  color: var(--mainWhite);
+}
+
+.btn-goTo a {
+  color: var(--mainWhite);
 }

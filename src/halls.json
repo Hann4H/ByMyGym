@@ -1,0 +1,3655 @@
+{
+  "features": [
+    {
+      "geometry": {
+        "coordinates": [
+          16.954550227488575,
+          52.39064136781814
+        ],
+        "type": "Point"
+      },
+      "id": 17214,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-223",
+        "nazwa": "Szkoła Podstawowa nr 2",
+        "url": "www.sp2poznan.pl",
+        "url2":"0DZfBv4tggTgoxnyDJ21" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 879 14 41, 509 101 358",
+        "adres": "os. Jagiellońskie 128",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sekretariat@sp2poznan.pl",
+        "kolejnosc": "5",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 23,62x11,76x6,5 m (oświetlenie rtęciowe)<br />- sala korekcyjna 8,85x5,7 m<\/p><p>- boisko wielofunkcyjne do piłki ręcznej i koszykówki 40x20 m<\/p><p>- boisko do siatkówki i tenisa 28x15 m<\/p><p>-..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.943486580721906,
+          52.39358086206065
+        ],
+        "type": "Point"
+      },
+      "id": 17215,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-149",
+        "nazwa": "Szkoła Podstawowa nr 3",
+        "url": "sp3krzywousty@gmail.com",
+        "url2":"1ZMDKJH3ykCSrLA1FPnq" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 877 09 37",
+        "adres": "os. Piastowskie 27",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sp3@icpnet.pl",
+        "kolejnosc": "6",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala sportowa 18,3x10 m (oświetlenie halogenowe, brak widowni)<br />- sala korekcyjna 11x6 m<br />- zewnętrzne boisko wielofunkcyjne do koszykówki i piłki ręcznej 40x20 m<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.5602138938863,
+          51.42653981259728
+        ],
+        "type": "Point"
+      },
+      "id": 17216,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-113",
+        "nazwa": "Szkoła Podstawowa nr 4",
+        "url": "www.sp4.poznan.pl",
+        "url2":"1k8YdNkNyyssTFwroyFS" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "618 308 620",
+        "adres": "ul. Rawicka 12/14",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sp4@poznan.interklasa.pl",
+        "kolejnosc": "7",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 8x16 m z łącznikiem<br />- sala sportowa 18x9 m, 6,5x5,5 m<br />- boisko 15x30 m<br />- zewnętrzne boisko wielofunkcyjne do piłki ręcznej i do koszykówki 46x26 m<br />- zewnętrzne boisko do siatk..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.91895982814976,
+          52.38508467242548
+        ],
+        "type": "Point"
+      },
+      "id": 17217,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-514",
+        "nazwa": "Szkoła Podstawowa nr 5",
+        "url": "sp5.cal.pl",
+        "url2":"2EUDPFpGwyjtoyTejtFA" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 833 35 48",
+        "adres": "ul. Traugutta 42",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sp5@po.home.pl",
+        "kolejnosc": "8",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 18x9 m (bez widowni)<br />- boisko utwardzone 43x35 m (brak oświetlenia, ogrodzenia i widowni)<br />- boisko ze sztuczną trawą 26x16 m<br />- zewnętrzne boisko wielofunkcyjne do piłki ręcznej i&#..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.986748191569824,
+          52.38877010783705
+        ],
+        "type": "Point"
+      },
+      "id": 17218,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-245",
+        "nazwa": "Szkoła Podstawowa nr 6",
+        "url": "www.sp6.poznan.pl",
+        "url2":"2NE1uwjByCPugEiZJl4U" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 877 94 51, 61 877 96 12, 660 446 054",
+        "adres": "os. Rusa 56",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "szkola@sp6.poznan.pl",
+        "kolejnosc": "9",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 30x21,3 m<br />- sala gimnastyczna 12x21,3 m<br />- 2 sale korekcyjne 5x10 m<\/p><p>- zespół boisk ORLIK Open (trawa syntetyczna, poliuretan)<br />- boisko 20x40 m<br />- 2 boiska 28x15 m<br />- 2..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.86313816337825,
+          52.38921744722681
+        ],
+        "type": "Point"
+      },
+      "id": 17242,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-158",
+        "nazwa": "Szkoła Podstawowa nr 7",
+        "url": "www.sp7poz.pl",
+        "url2":"2m5xYgZ4gDaJjIir75VS" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 862 49 31",
+        "adres": "ul. Galileusza 14",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sek@sp7poz.pl",
+        "kolejnosc": "10",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- 2 sale gimnastyczne 26,5x14,8 m (oświetlona)<br />- sala sportowa 12x6 m<br />- sala sportowa 6x3 m<br />- boisko twarde 26x14 m<br />- boisko ze sztuczną trawą 20x40 m, 18x9 m<br />- zewnętrzne boisko do piłki rę..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.5602138938863,
+          51.42653981259728
+        ],
+        "type": "Point"
+      },
+      "id": 17243,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-726",
+        "nazwa": "Szkoła Podstawowa nr 9",
+        "url": "www.sp9.eu",
+        "url2":"3mNdFvLZV3pzcAI3vaQM" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 866 33 65",
+        "adres": "ul. Łukaszewicza 9/13",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sekretariat@sp9.eu",
+        "kolejnosc": "11",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 22x11,5 m<br />- boisko 65x35 m<br />- zewnętrzne boisko do piłki ręcznej 32x16 m<br />- zewnętrzne boisko do koszykówki 27x15 m<br />- zewnętrzne boisko do siatkówki 20x10 m<br />- bieżnia 2 tor..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.88861979709848,
+          52.38373793021997
+        ],
+        "type": "Point"
+      },
+      "id": 17244,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-125",
+        "nazwa": "Szkoła Podstawowa nr 10",
+        "url": "www.sp10.poznan.pl",
+        "url2":"4F2Ce6Plfn18UWyMzD9Y" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 866 61 20",
+        "adres": "ul. Bosa 9",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sekretariat.sp10@wp.pl",
+        "kolejnosc": "12",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 6x11 m<\/p><p>- boisko do koszykówki 31x16 m<\/p><p>- boisko do siatkówki 22x11 m<\/p><p>- boisko do piłki ręcznej 40x20 m<\/p><p>- boisko do piłki ręcznej 41x21 m (poliuretan)<\/p><p>- skocznia w dal..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.93366582498526,
+          52.43781393235888
+        ],
+        "type": "Point"
+      },
+      "id": 17246,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-699",
+        "nazwa": "Szkoła Podstawowa nr 11",
+        "url": "www.sp11poznan.pl",
+        "url2":"4eLGnglqHBn3E42BdmxQ" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 823 04 31",
+        "adres": "os. Wichrowe Wzgórze 119",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "szk11sekretariat@poczta.onet.pl",
+        "kolejnosc": "13",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- 2 sale gimnastyczne 26,4x15 m<br />- boisko ze sztuczną trawą 19x9 m<br />- boisko utwardzone 100x40 m<br />- zewnętrzne boisko do piłki ręcznej<\/p><p>- 4 torowa bieżnia dookólna ze skocznią lekkoatletyczną<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.92529982789321,
+          52.44155341905958
+        ],
+        "type": "Point"
+      },
+      "id": 17247,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-643",
+        "nazwa": "Zespół Szkół Nr 7",
+        "url": "www.zs7.pl",
+        "url2":"4tXAmciEgLeJZ3V5Ea6S" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 823 17 91",
+        "adres": "os. Zwycięstwa 101",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "zs7sekretariat@wp.pl",
+        "kolejnosc": "83",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa Winogradzkiego Parku Sportu i Rekreacji:<\/strong><\/p><p>- 2 sale gimnastyczne 26,5x15 m<br />- sala sportowa 40x18 m, 16x40 m<br />- boisko do siatkówki i tenisa<\/p><p>- boisko do piłki nożnej<\/p><p>- boisko do piłki nożnej i koszy..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.9227252522158,
+          52.414035113855974
+        ],
+        "type": "Point"
+      },
+      "id": 17248,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-714",
+        "nazwa": "Zespół Szkół Mistrzostwa Sportowego Nr 2",
+        "url": "www.sportowa13.pl",       
+        "url2":"50py3jyeS5W4IJ6GPOK8" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 852 60 01",
+        "adres": "al. Niepodległości 32",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "gm3@poznan.interklasa.pl",
+        "kolejnosc": "93",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 16x9m<\/p><p>- lekka hala sportowa 41x19 m<br />- 3 sale korekcyjne 10x3m<br />- boisko 80x40m<br />- boisko 40x20m<br />- boisko 30x18m<br />- boisko 24x14m<br />- boisko 18x9m<br />- 2 bieżnie 8..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.944568380330285,
+          52.391059351733475
+        ],
+        "type": "Point"
+      },
+      "id": 17249,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-156",
+        "nazwa": "Zespół Szkół z Oddziałami Sportowymi Nr 3",
+        "url": "www.sp14poznan.pl",
+        "url2":"54oHAgWv3Lr9vqBkHjw4" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 877 13 00",
+        "adres": "os. Piastowskie 65",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "gm31@poznan.interklasa.pl",
+        "kolejnosc": "95",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 20x12 m (oświetlenie halogenowe, bez widowni)<br />- sala sportowa o pow. 53,99 m<sup>2<\/sup><br />- boisko 24x14 m<br />- boisko 18x9 m<br />- bieżnia 60 m<br />- skocznia w dal<br />- zewnętrzn..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.907994269691237,
+          52.465186489107055
+        ],
+        "type": "Point"
+      },
+      "id": 17250,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-688",
+        "nazwa": "Szkoła Podstawowa nr 15 (Zespół Szkolno-Przedszkolny Nr 6)",
+        "url": "www.zsp6poznan.pl",
+        "url2":"590lvaEDoEflefLLxBIM" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 823 44 61, 61 823 47 21",
+        "adres": "os. Jana III Sobieskiego 105",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sp15@poznan.interklasa.pl",
+        "kolejnosc": "14",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- 2 sale gimnastyczne 26,7x14,6 m<\/p><p>- boisko wielofunkcyjne do piłki ręcznej i koszykówki 27x15 m<\/p><p>- boisko do piłki plażowej 16x8 m<\/p><p>- boisko do tenisa, koszykówki i siatkówki 27x15 m<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.977543755680426,
+          52.39302314942623
+        ],
+        "type": "Point"
+      },
+      "id": 17252,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-255",
+        "nazwa": "Zespół Szkół Mistrzostwa Sportowego",
+        "url": "www.zsms.poznan.pl",
+        "url2":"5Om8q2lLzMJnJsM7S9Eq" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 66 39 800, 61 66 39 806, 61 66 39 812",
+        "adres": "os. Tysiąclecia 43",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "zsms@zsms.poznan.pl",
+        "kolejnosc": "92",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 27x16 m<br />- sala gimnastyczna 16x10,8 m<br />- boisko 40x20 m<br />- boisko rekreacyjne 38,7x25 m<br />- bieżnia 100x3,7 m<br />- zewnętrzne boisko do siatkówki i tenisa 52,5x14 m<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.5602138938863,
+          51.42653981259728
+        ],
+        "type": "Point"
+      },
+      "id": 17253,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-681",
+        "nazwa": "Szkoła Podstawowa nr 17",
+        "url": "sp17poznan.pl",
+        "url2":"5eSDBqTTDJMlj5IVHRni" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 822 52 11",
+        "adres": "os. Bolesława Chrobrego 105",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sekretariat@sp17poznan.pl",
+        "kolejnosc": "15",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 29,7x17,6 m, 17,7x5,6 m<br />- sala korekcyjna 11,6x5,2 m<br />- boisko ze sztuczną trawą 42,5x22,9 m<br />- boisko 27x19,5 m, 18,9x34,6 m<br />- 1 zewnętrzne boisko wielofunkcyjne do piłki ręczn..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.95251344989886,
+          52.3793688628302
+        ],
+        "type": "Point"
+      },
+      "id": 17254,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-381",
+        "nazwa": "Szkoła Podstawowa nr 18",
+        "url": "www.sp18.poznan.pl",
+        "url2":"6EDNoGCTuk3bgCj6Abht" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 875 10 22",
+        "adres": "os. Armii Krajowej 100",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sekretariat@sp18.poznan.pl",
+        "kolejnosc": "16",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 24x12x7,8 m (budynek wolnostojący, brak widowni)<br />- sala sportowa 18x9x6,5 m<br />- boisko 40x20 m, 24x14 m, 18x9 m, 13,4x6,1 m<br />- zewnętrzne boisko wielofunkcyjne do piłki ręcznej ,siatk..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.955149989408383,
+          52.391786754951575
+        ],
+        "type": "Point"
+      },
+      "id": 17255,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-205",
+        "nazwa": "Szkoła Podstawowa nr 19",
+        "url": "sp19poznan.szkolna.net",
+        "url2":"7KLdhhM9EpPLsCDdGgK1" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 875 86 75, 61 875 07 22",
+        "adres": "os. Oświecenia 1",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "poczta@sp19poznan.pl",
+        "kolejnosc": "17",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 26,7x14,8 m (15 lamp halogenowych)<br />- sala sportowa o pow. 50,5 m<sup>2<\/sup> oraz 45 m<sup>2<\/sup><br />- boisko ze sztuczną trawą 40x20 m<\/p><p>- boisko do koszykówki i siatkówki<br />- 4 t..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.951071971818692,
+          52.38790866685029
+        ],
+        "type": "Point"
+      },
+      "id": 17256,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-395",
+        "nazwa": "Szkoła Podstawowa nr 20",
+        "url": "www.sp20.pl",
+        "url2":"7RuFp3IODeF7TdxXdYC8" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 877 56 31",
+        "adres": "os. Rzeczypospolitej 44",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sekretariat@sp20.pl",
+        "kolejnosc": "18",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 18x9 m, 8x5,75 m<br />- boisko ze sztuczną trawą 40x20 m,<br />- boisko 32x15 m, 28x14 m<br />- zewnętrzne boisko wielofunkcyjne do piłki ręcznej i do koszykówki 40x20 (poliuretan)<br />- bieżnia..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.908469515832493,
+          52.366587654969535
+        ],
+        "type": "Point"
+      },
+      "id": 17257,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-448",
+        "nazwa": "Szkoła Podstawowa nr 21 (Zespół Szkolno-Przedszkolny nr 2)",
+        "url": "zsp2poznan.pl",
+        "url2":"8OUzH2WBaVuPY0Zdu0PW" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 832 08 22",
+        "adres": "ul. Łozowa 77",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sekretariat@zsp2poznan.pl",
+        "kolejnosc": "19",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 18x9 m<br />- 2 boiska 36x18 m<br />- boisko 24x12 m<br />- boisko 17,5x8,5 m<br />- boisko 25x13 m<br />- zewnętrzne boisko do piłki ręcznej 40x20 m<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.84999282161264,
+          52.42486847158475
+        ],
+        "type": "Point"
+      },
+      "id": 17259,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-409",
+        "nazwa": "Zespół Szkół Nr 2",
+        "url": "www.szkolatytusa.pl",
+        "url2":"8SApXK42AnS2hY7IpXVW" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 841 74 10",
+        "adres": "ul. Hangarowa 14",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sekretariat@szkolatytusa.pl",
+        "kolejnosc": "80",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 18x10 m<br />- boisko 44x12 m<br />- boisko 24x12 m<br />- boisko wielofunkcyjne do piłki ręcznej i&#160; koszykówki 40x20 m<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.910480598224368,
+          52.4160989247943
+        ],
+        "type": "Point"
+      },
+      "id": 17260,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-867",
+        "nazwa": "Szkoła Podstawowa nr 23",
+        "url": "www.sp23.com.pl",
+        "url2":"8bpJo19Jhon0se0oSTNr" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 847 45 93",
+        "adres": "ul. Norwida 21",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sekretariat@sp23.com.pl",
+        "kolejnosc": "20",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 22x12,5 m<br />- boisko ze sztuczną trawą 40x20 m<br />- boisko utwardzone o pow. 1700 m<sup>2<\/sup><br />- bieżnia 100 m<br />- skocznia w dal<br />- zewnętrzne boisko do piłki ręcznej 42x27 m (..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.91653414021123,
+          52.39060807579307
+        ],
+        "type": "Point"
+      },
+      "id": 17263,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-527",
+        "nazwa": "Szkoła Podstawowa nr 25 z Oddziałami Integracyjnymi i Specjalnymi",
+        "url": "www.zs2poznan.com",
+        "url2":"9G6naGKsGmJKqb3JYYI3" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 833 10 10",
+        "adres": "ul. Prądzyńskiego 53",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "poczta@zs2poznan.pl",
+        "kolejnosc": "21",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 22x10,5 m<br />- sala sportowa o pow. 70 m<sup>2<\/sup><br />- 2 sale sportowe o pow.64 m<sup>2<\/sup><br />- boisko ze sztuczną trawą 21x41 m<br />- boisko utwardzone 19x10 m<br />- bieżnia 120 m<..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.5602138938863,
+          51.42653981259728
+        ],
+        "type": "Point"
+      },
+      "id": 17264,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-765",
+        "nazwa": "Szkoła Podstawowa nr 26 (Zespół Szkół i Placówek Oświatowych)",
+        "url": "www.zsipo.poznan.pl",
+        "url2":"9RQG0bHkLNgveZzHnUas" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 866 35 79",
+        "adres": "ul. Berwińskiego 2/4",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "zsipo.sekretariat@interia.pl",
+        "kolejnosc": "22",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 17,5x12 m<br />- boisko do koszykówki 16x17 m<\/p><p>- boisko wielofunkcyjne 30x21 m<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.90768076127427,
+          52.433265578594714
+        ],
+        "type": "Point"
+      },
+      "id": 17265,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-665",
+        "nazwa": "Zespół Szkół z Oddziałami Sportowymi Nr 4",
+        "url": "www.sp27poznan.pl/",
+        "url2":"AUe0PT5JQ0SC5ymi7Vix" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 823 33 89",
+        "adres": "os. Winiary 2",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sekretariat@sp27poznan.pl",
+        "kolejnosc": "96",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 29,7x17,8 m<br />- sala sportowa 11,7x9 m<br />- sala gimnastyczna 15x10 m<br />- boisko ze sztuczną trawą 41x22 m, 42x26 m<br />- zewnętrzne boisko wielofunkcyjne do piłki ręcznej, koszykówki, s..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.94107673354251,
+          52.43150727815913
+        ],
+        "type": "Point"
+      },
+      "id": 17267,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-638",
+        "nazwa": "Zespół Szkół z Oddziałami Sportowymi Nr 1",
+        "url": "ssp29gim5.poznan.pl",
+        "url2":"AZUHgPqeTkI7A4FjjzKX" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 820 05 91",
+        "adres": "os. Pod Lipami 106",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sekretariat@ssp29gim5.poznan.pl",
+        "kolejnosc": "94",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><br />- boisko wielofunkcyjne&#160; 40x20 m<br />- bieżnia 3-torowa<br />- lekka hala sportowa 36x19 m<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.894694714823014,
+          52.39896990119793
+        ],
+        "type": "Point"
+      },
+      "id": 17269,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-751",
+        "nazwa": "Szkoła Podstawowa nr 33 i XXXIII Liceum Ogólnokształcące",
+        "url": "www.33.poznan.pl",
+        "url2":"Ai9DHSKQezlxvCFYRuYa" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 866 47 34, 61 866 42 26",
+        "adres": "ul. Wyspiańskiego 27",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "zsgl@33.poznan.pl",
+        "kolejnosc": "26",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- 2 sale gimnastyczne 18x10 m (oświetlenie sztuczne, bez widowni)<br />- boisko utwardzone 15x10 m, 20x15 m (sztuczna trawa, ogrodzenie)<br />- zespół boisk ORLIK<br />- zewnętrzne boisko do piłki ręcznej 40x20 m<br..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.92449280177949,
+          52.45451874324374
+        ],
+        "type": "Point"
+      },
+      "id": 17271,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-682",
+        "nazwa": "Szkoła Podstawowa nr 34 (Zespół Szkolno-Przedszkolny nr 8 )",
+        "url": "www.sp34poznan.pl",
+        "url2":"BbflZAkqU80iKdMfjYTW" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 823 60 91",
+        "adres": "os. Bolesława Śmiałego 107",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "zsp-8@wp.pl",
+        "kolejnosc": "27",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 29,7x17,5 m, 17,5x11,6 m<br />- boisko 60x30 m, 25x14 m, 18x9 m, 30x15 m<br />- boisko la 480 m<sup>2<\/sup><br />- sala korekcyjna 11,9x5,8 m + sala mała 9,8x6,5 m<br />- zespół boisk ORLIK<\/p><p..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.940021562178558,
+          52.450577193927536
+        ],
+        "type": "Point"
+      },
+      "id": 17272,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-616",
+        "nazwa": "Zespół Szkolno - Przedszkolny Nr 1",
+        "url": "www.zs-p1.pl",
+        "url2":"BnyHc3Q4TRuMGRs4e8ov" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 822 74 31",
+        "adres": "os. Władysława Łokietka 104",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "info@zs-p1.pl",
+        "kolejnosc": "99",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 30x18 m<br />- sala sportowa 11,5x7,1 m<\/p><p>- boisko do piłki ręcznej<\/p><p>- boisko do koszykówki ulicznej 10x15 m (poliuretan)<\/p><p>- boisko do koszykówki 30x15 m (poliuretan)<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.90780916978913,
+          52.41059649457801
+        ],
+        "type": "Point"
+      },
+      "id": 17273,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-521",
+        "nazwa": "Szkoła Podstawowa nr 36",
+        "url": "www.sp36.edu.pl",
+        "url2":"CCV0cvnOf9CIXiaQJtQX" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 847 58 20",
+        "adres": "ul. Słowackiego 54/60",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sp36poznan@wp.pl",
+        "kolejnosc": "28",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 22x10 m (oświetlenie, balkon)<br />- sala sportowa o pow. 56 m<sup>2<\/sup><br />- zewnętrzne boisko wielofunkcyjne do piłki ręcznej i&#160; koszykówki 40x20 m<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.934212420746608,
+          52.42567262723915
+        ],
+        "type": "Point"
+      },
+      "id": 17277,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-659",
+        "nazwa": "Szkoła Podstawowa nr 38",
+        "url": "www.sp38.edu.pl",
+        "url2":"CFP098HUJ5KPrc5OFbJS" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 820 36 91",
+        "adres": "ul. Brandstaettera 6",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sp38@poznan.interklasa.pl",
+        "kolejnosc": "29",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- hala namiotowa 19,3x40,76 m (oświetlenie, ogrzewanie, zaplecze socjalne)<br />- sala gimnastyczna 17,5x9 m<br />- boisko 54,5x26,5 m (kostka brukowa, ogrodzenie)<br />- boisko ze sztuczną trawą 22x44 m<br />- bois..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.938582363048656,
+          52.410218763351445
+        ],
+        "type": "Point"
+      },
+      "id": 17280,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-758",
+        "nazwa": "Szkoła Podstawowa nr 40 (Zespół Szkolno-Przedszkolny nr 4)",
+        "url": "www.sp40.zsp4.pl",
+        "url2":"CotZvlkUkSP18BrvSIRc" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 852 28 00",
+        "adres": "ul. Garbary 82",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sp40mieszko@go2.pl",
+        "kolejnosc": "30",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 22,5x11,48 m (świetlówki, balkon)<br />- sala gimnastyczna 17x14,5 m<br />- boisko wielofunkcyjne 42x26 m<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.91416738586743,
+          52.45383548731648
+        ],
+        "type": "Point"
+      },
+      "id": 17281,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-681",
+        "nazwa": "Zespół Szkół Ogólnokształcących Nr 15",
+        "url": "www.xvlo.poznan.pl",
+        "url2":"EGC2eATsj2Vn4snmT0XC" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 822 39 71",
+        "adres": "os. Bolesława Chrobrego 107",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sekretariat@zso15poznan.pl",
+        "kolejnosc": "120",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- 2 sale gimnastyczne 26,79x14,7 m<\/p><p>- wielofunkcyjne boisko do piłki ręcznej 40x20 m (poliuretan)<br />- boisko ze sztuczną trawą 40x20 m (ogrodzenie)<br />- boisko 35x25 m<br />- boisko 25x20 m<br />- boisko 5..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.92462936336297,
+          52.398952725702514
+        ],
+        "type": "Point"
+      },
+      "id": 17282,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-577",
+        "nazwa": "Zespół Szkół Nr 5",
+        "url": "www.zs5.poznan.pl",
+        "url2":"FkRwMof3Czuy3OAXIBlE" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 833 03 20, 61 835 14 17",
+        "adres": "ul. Różana 1/3",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "zs5poznan@o2.pl",
+        "kolejnosc": "82",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 20x10 m<br />- boisko 80x35 m<br />- boisko 40x20 m<br />- boisko 25x15 m<br />- boisko 18x9 m<br />- boisko wielofunkcyjne do piłki ręcznej i&#160; koszykówki 14x23 m<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.971443377146027,
+          52.4205832478864
+        ],
+        "type": "Point"
+      },
+      "id": 17287,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-011",
+        "nazwa": "Szkoła Podstawowa nr 45",
+        "url": "www.szp45.pl",
+        "url2":"GikRvw4QAu35kVFLBazb" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 878 06 41",
+        "adres": "ul. Harcerska 3",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "szp45@poczta.onet.pl",
+        "kolejnosc": "33",
+        "grafika": "1170921119051sp45zd.jpg",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 18x10,5 m (bez widowni)<br />- boisko ze sztuczną trawą 26x47 m (boisko ogrodzone z trybuną dla widowni, oświetlenie punktowe)<br />- boisko utwardzone 35x35 m (oświetlenie, ogrodzenie, wyłożenie..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.987006183279295,
+          52.41270942581483
+        ],
+        "type": "Point"
+      },
+      "id": 17288,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-044",
+        "nazwa": "Szkoła Podstawowa nr 46",
+        "url": "www.sp46.pl",
+        "url2":"GmLzXRUOZKwuTq3iqH0G" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 870 93 50",
+        "adres": "ul. Inowrocławska 19",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "",
+        "kolejnosc": "34",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa<\/strong><\/p><p>- sala gimnastyczna 27x15 m<br />- sala sportowa 6x4 m<br />- boisko ze sztuczną trawą 36x18 m (kostka brukowa)<br />- boisko utwardzone 26x28 m<br />- zewnętrzne boisko do&#160; piłki ręcznej i siatkówki 38x19 m<br ..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.97757969261665,
+          52.384356605453846
+        ],
+        "type": "Point"
+      },
+      "id": 17289,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-288",
+        "nazwa": "Zespół Szkół Ogólnokształcących Nr 4",
+        "url": "www.zso4.poznan.pl",
+        "url2":"GmROgjAvwyHFvKUXtBWZ" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 877 60 58",
+        "adres": "os. Czecha 59",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sekretariat@zso4.icpnet.pl",
+        "kolejnosc": "119",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- hala sportowa 29,9x17,7 m (brak widowni)<br />- sala gimnastyczna 17,7x12,8 m<br />- sala do gimnastyki 9,4x9 m<br />- boisko wielofunkcyjne 45x25 m<\/p><p>- kort do tenisa 28x15 m<\/p><p>- 2 boiska do piłki plażowe..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.930119969164917,
+          52.44626740741443
+        ],
+        "type": "Point"
+      },
+      "id": 17290,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-616",
+        "nazwa": "Szkoła Podstawowa nr 48",
+        "url": "www.sp48.poznan.pl",
+        "url2":"HgNRrbcm5IcYxhY0F9Ca" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 820 60 71, 61 824 40 40",
+        "adres": "ul. Sarmacka 105",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sp48poz@wp.pl",
+        "kolejnosc": "35",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 10x8,3 m<br />- boisko utwardzone 21x15,5 m<br />- boisko ze sztuczną trawą 22,5x10,5 m, 33,5x15 m<\/p><p>- boisko do piłki nożnej 41x20 m<br />- zewnętrzne boisko wielofunkcyjne do piłki ręcznej ..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.90848699682657,
+          52.36833454394004
+        ],
+        "type": "Point"
+      },
+      "id": 17291,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-448",
+        "nazwa": "Gimnazjum Nr 43",
+        "url": "www.gimnazjum43.poznan.pl",
+        "url2":"HmgAcK2bQjsK5DC4GEBk" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 832 20 21",
+        "adres": "ul. Łozowa 53",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "gimnazjum43.poznan@gmail.com",
+        "kolejnosc": "77",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 21x11 m<\/p><p>- boisko wielofunkcyjne 40x20 m<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.958223042601404,
+          52.37932837727392
+        ],
+        "type": "Point"
+      },
+      "id": 17292,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-249",
+        "nazwa": "Zespół Szkół z Oddziałami Integracyjnymi Nr 1",
+        "url": "www.sp50-poznan.pl",
+        "url2":"HnFG5zFW8vbfLhbBDZOF" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 878 96 90, 61 8 79 77 91",
+        "adres": "os. Stare Żegrze 1",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sp50@poznan.interklasa.pl",
+        "kolejnosc": "98",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 30x18 m<br />- sala gimnastyczna 18x12 m<br />- 2 sale korekcyjne 12x7,2 m<br />- boisko 60x35 m<br />- boisko 40x20 m<br />- boisko do piłki ręcznej i siatkówki 40x20 m<br />- boisko do piłki no..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.97151509512219,
+          52.390361542294976
+        ],
+        "type": "Point"
+      },
+      "id": 17293,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-294",
+        "nazwa": "Szkoła Podstawowa nr 51",
+        "url": "www.spnr51.poznan.pl",
+        "url2":"I4IUCrIZnm31I7tjsVit" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 877 77 91, 61 877-76-81",
+        "adres": "os. Lecha 37",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "szkola@spnr51.poznan.pl",
+        "kolejnosc": "36",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- 2 sale gimnastyczne 27x15 m<br />- sala sportowa 18x10 m (szkolna siłownia), 6x6 m<br />- boisko ze sztuczną trawą 40x20 m<br />- 5 torowa bieżnia ze skocznią w dal (poliuretan)<br />- zewnętrzne boisko wielofunkc..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.962499396378398,
+          52.31519094827168
+        ],
+        "type": "Point"
+      },
+      "id": 17296,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-329",
+        "nazwa": "Zespół Szkół z Oddziałami Sportowymi Nr 5",
+        "url": "www.sp53.poznan.pl",
+        "url2":"I9JhIVkt39FWEKLWtBuP" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 878 80 06, 61 878 81 19",
+        "adres": "ul. Głuszyna 187",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sekretariat@sp53.poznan.pl",
+        "kolejnosc": "97",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala sportowa 17,8x10,5 m, 7,2x5,75 m (oświetlenie, widownia)<br />- boisko utwardzone 28,2x16 m<br />- boisko ze sztuczną trawą 20x40 m<br />- bieżnia<br />- skocznia w dal<br />- boisko&#160; do piłki ręcznej 30..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.83918658265267,
+          52.38920358777222
+        ],
+        "type": "Point"
+      },
+      "id": 17297,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-176",
+        "nazwa": "Szkoła Podstawowa nr 54",
+        "url": "www.sp54.poznan.pl",
+        "url2":"IfN7taOF9idJImzhVB1n" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 868 96 92",
+        "adres": "ul. Małoszyńska 38",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sekretariat@sp54.poznan.pl",
+        "kolejnosc": "38",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- hala sportowa 46,22x19,67x9 m<br />- sala gimnastyczna 18x9 m<br />- boisko 60x30 m<br />- boisko ze sztuczną trawą 37,3x20 m<br />- zewnętrzne boisko do piłki ręcznej 40x20 m<br />- zewnętrzne boisko do koszykówk..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          17.01134473268861,
+          52.39027783431465
+        ],
+        "type": "Point"
+      },
+      "id": 17298,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-065",
+        "nazwa": "Szkoła Podstawowa nr 55",
+        "url": "www.sp55.pl",
+        "url2":"KK6VBif1NxwQ23OW9BZu" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 877 02 63",
+        "adres": "ul. Szpaków 1",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sekretariat@sp55.pl",
+        "kolejnosc": "39",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala sportowa 18x9 m, 5x8 m<\/p><p>- boisko do piłki ręcznej i koszykówki 36x17 m<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.992265837558275,
+          52.340936393423355
+        ],
+        "type": "Point"
+      },
+      "id": 17299,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-323",
+        "nazwa": "Zespół Szkół Ogólnokształcących Nr 2",
+        "url": "www.zso2.pl",
+        "url2":"KWk0llt3xhuNnlRBJ36l" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 879 80 90",
+        "adres": "ul. Tarnowska 27",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "zso2@zso2.pl",
+        "kolejnosc": "118",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- hala widowiskowo -sportowa 44x28 m (widownia na 250 miejsc)<br />- sala gimnastyczna 20x9 m<br />- sala sportowa 12x8 m<br />- boisko do koszykówki 30x20 m<\/p><p>- boisko wielofunkcyjne do piłki ręcznej, nożnej, m..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.82224391547034,
+          52.43648540973079
+        ],
+        "type": "Point"
+      },
+      "id": 17300,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-452",
+        "nazwa": "Szkoła Podstawowa nr 57",
+        "url": "www.zs1poz.pl",
+        "url2":"LCfUZTCKDZYKth0hH2oQ" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 847 59 43",
+        "adres": "ul. Leśnowolska 35",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sp57@poznan.interklasa.pl",
+        "kolejnosc": "40",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- lekka hala sportowa<\/p><p>- hala namiotowa 34x18 m<br />- wielofunkcyjna sala gimnastyczna 17x6 m z łącznikiem, zapleczem sanitarnym i szatnią oraz dodatkowa powierzchnią dydaktyczną i administracyjną<br />- boisk..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.822701601786502,
+          52.40992399873047
+        ],
+        "type": "Point"
+      },
+      "id": 17301,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-186",
+        "nazwa": "Szkoła Podstawowa nr 58",
+        "url": "www.sp58poznan.edupage.org",
+        "url2":"LPSJUUmBALAxo4anncCM" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 868 18 61",
+        "adres": "ul. Ławica 3",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sp58@wp.pl",
+        "kolejnosc": "41",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 40x20 m<\/p><p>- boisko do piłki ręcznej i koszykówki 37x19 m<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.94332510930247,
+          52.355902120781884
+        ],
+        "type": "Point"
+      },
+      "id": 17302,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-353",
+        "nazwa": "Szkoła Podstawowa nr 59",
+        "url": "www.sp59poznan.pl",
+        "url2":"LbW2hxGhQm96DBuPhIT5" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 879 31 96",
+        "adres": "ul. Baranowska 1",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "szk59@wp.pl",
+        "kolejnosc": "42",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala&#160;gimnastyczna 16x8 m<\/p><p>- boisko do siatkówki i tenisa 30x13 m<\/p><p>- boisko do koszykówki 30x13 m<\/p><p>- boisko do piłki nożnej 44x22 m<\/p><p>- bieżnia dookólna 4-torowa, skocznia w dal 200 m (poliu..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.94833983023293,
+          52.45633643649004
+        ],
+        "type": "Point"
+      },
+      "id": 17303,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-608",
+        "nazwa": "Szkoła Podstawowa nr 60",
+        "url": "www.sp60.szkola.pl",
+        "url2":"M9m7roMZ3zYuZi0foYpq" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 820 21 72",
+        "adres": "ul. Boranta 2",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sp60@poznan.interklasa.pl",
+        "kolejnosc": "43",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 17,8x10,6 m<br />- boisko 28x16 m<br />- boisko 47x21 m<br />- boisko 22x10 m<br />- boisko 26,6x60 m<br />- boisko 19,2x32,7 m<br />- boisko 18,5x8 m<br />- zewnętrzne boisko wielofunkcyjne do p..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          17.010553735414955,
+          52.36363104828438
+        ],
+        "type": "Point"
+      },
+      "id": 17304,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-306",
+        "nazwa": "Szkoła Podstawowa nr 61",
+        "url": "www.zs6.edu.pl",
+        "url2":"N7bZFuAB9b6YmWQh1kS4" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 872 61 35",
+        "adres": "ul. Szczepankowo 72a",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sp61poznan@wp.pl",
+        "kolejnosc": "44",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 18x9 m<br />- sala sportowa 9,5x6,5 m<br />- boisko ze sztuczną trawą 40x20 m, 18x9 m<br />- zewnętrzne boisko wielofunkcyjne do koszykówki, piłki nożnej, siatkówki 40x20 m<br />- skocznia w dal<..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.889586463795546,
+          52.45062811882278
+        ],
+        "type": "Point"
+      },
+      "id": 17305,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-476",
+        "nazwa": "Szkoła Podstawowa nr 62",
+        "url": "www.szkolapodstawowa62.pl",
+        "url2":"NFGPddOJcZAsfFst8dKZ" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 822 14 11, 61 822 11 81",
+        "adres": "ul. Druskiennicka 32",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sp_62@wp.pl",
+        "kolejnosc": "45",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 18x30 m (oświetlenie jarzeniowe, widownia na piętrze)<br />- sala sportowa 10x6 m<br />- boisko do piłki nożnej ze sztuczną trawą 60x27 m<br />- zewnętrzne boisko wielofunkcyjne do piłki ręcznej ..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.921913873638566,
+          52.35316809489095
+        ],
+        "type": "Point"
+      },
+      "id": 17306,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-341",
+        "nazwa": "Szkoła Podstawowa nr 63",
+        "url": "sp63poznan.edupage.org",
+        "url2":"NPhVN6MVjuFyoUCQLuiB" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 879 30 46, 512 034 712",
+        "adres": "ul. Starołęcka 142",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sp63@poznan.interklasa.pl",
+        "kolejnosc": "46",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 24x12 m<\/p><p>- boisko do koszykówki 36x13 m<\/p><p>- boisko do siatkówki plażowej 16x8 m<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.967206996592743,
+          52.38007042057387
+        ],
+        "type": "Point"
+      },
+      "id": 17307,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-251",
+        "nazwa": "Szkoła Podstawowa nr 64",
+        "url": "www.sp64poznan.pl",
+        "url2":"NWmXTImdmF0STjLs6ntn" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 877 05 62",
+        "adres": "os. Orła Białego 120",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sp64@poczta.onet.pl",
+        "kolejnosc": "47",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa<\/strong><\/p><p>- sala gimnastyczna 21,9x11,5 m<br />- sala sportowa o pow. 48,74 m<sup>2<\/sup> (sala do WF bez widowni)<br />- boisko ze sztuczną trawą o pow. 974 m<sup>2<\/sup><br />- zewnętrzne boisko wielofunkcyjne do piłki ręczn..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.943316435336097,
+          52.439164268985074
+        ],
+        "type": "Point"
+      },
+      "id": 17308,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-642",
+        "nazwa": "Szkoła Podstawowa nr 65 (Zespół Szkolno-Przedszkolny nr 5)",
+        "url": "www.zsp5.poznan.pl/",
+        "url2":"PQA48Cm1XDOaJdUc31fx" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 820 10 63",
+        "adres": "os. Kosmonautów 111",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sp65@post.pl",
+        "kolejnosc": "48",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 27x15x7,5 m<br />- sala gimnastyczna 18,5x9 m<br />- sala sportowa 6x6x3,2x36 m (salka korekcyjna)<br />- boisko ze sztuczną trawą 40x20 m<br />- boisko 24x14 m<br />- boisko 18x9 m<\/p><p>- boisk..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.92584317496003,
+          52.432257031166216
+        ],
+        "type": "Point"
+      },
+      "id": 17309,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-684",
+        "nazwa": "Szkoła Podstawowa nr 66 budynek A",
+        "url": "sp66.poznan.pl",
+        "url2":"QCg1NxCWukgmmh81dfN8" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 820 09 41",
+        "adres": "os. Przyjaźni 127",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sp66@poznan.pl",
+        "kolejnosc": "49",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala sportowa 18x10 m (bez widowni)<br />- sala gimnastyczna 9x6 m<br />- boisko do koszykówki 24,9x44,2 m<\/p><p>- boisko do piłki nożnej 40x20 m<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.92321141554511,
+          52.456268453140645
+        ],
+        "type": "Point"
+      },
+      "id": 17310,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-687",
+        "nazwa": "Szkoła Podstawowa nr 67",
+        "url": "www.sp67poznan.pl",
+        "url2":"Qm9wHngcCdeiH1UDneXJ" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 821 71 31",
+        "adres": "os. Stefana Batorego 101",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sekretariat@sp67poznan.pl",
+        "kolejnosc": "51",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 27x15 m, 10x9 m<\/p><p>- boisko wielofunkcyjne<\/p><p>- boisko do piłki nożnej<\/p><p>- boisko do piłki plażowej<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.907695020258362,
+          52.462865960530245
+        ],
+        "type": "Point"
+      },
+      "id": 17311,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-688",
+        "nazwa": "Zespół Szkół z Klasami Integracyjnymi i Specjalnymi Nr 1",
+        "url": "www.sp68.pl/",
+        "url2":"Rjq46QiDjWJT40b7qiyi" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 823 43 71",
+        "adres": "os. Jana III Sobieskiego 102",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "<p>- sala gimnastyczna 6,5x9 m<\/p>",
+        "email": "sekretariat@sp68.pl",
+        "kolejnosc": "91",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.888522612224953,
+          52.389076495912114
+        ],
+        "type": "Point"
+      },
+      "id": 17313,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-249",
+        "nazwa": "Zespół Szkół nr 8",
+        "url": "www.sp69sms.pl",
+        "url2":"RlhZveUTfTthsvah3Vhw" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 866 36 21",
+        "adres": "ul. Jarochowskiego 62",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sp69sms@wp.pl",
+        "kolejnosc": "84",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- hala namiotowa 49x19 m (sztuczne oświetlenie)<br />- sala gimnastyczna 25x12 m, 15x11,4 m (sztuczne oświetlenie), 8,5x5,5 m<br />- siłownia 8,5x5,5 m<br />- boisko 24x14 m, 18x9 m<br />- boisko ze sztuczną trawą 4..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.875563118019908,
+          52.41568557001644
+        ],
+        "type": "Point"
+      },
+      "id": 17314,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-591",
+        "nazwa": "Szkoła Podstawowa nr 70",
+        "url": "www.sp70-poznan.pl",
+        "url2":"RocVoFcjSSjsEa91hulB" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 841 19 14",
+        "adres": "ul. Piękna 37",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sp70@poznan.interklasa.pl",
+        "kolejnosc": "52",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 18x9 m<br />- sala sportowa o pow. 156 m<sup>2<\/sup><br />- boisko utwardzone 40x20 m, 25x18 m<br />- zewnętrzne boisko wielofunkcyjne do piłki ręcznej i&#160; koszykówki 41x21 m<br />- bieżnia 2..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.5602138938863,
+          51.42653981259728
+        ],
+        "type": "Point"
+      },
+      "id": 17315,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-356",
+        "nazwa": "Szkoła Podstawowa nr 71",
+        "url": "www.sp71.poznan.pl",
+        "url2":"SDbsHYpZVEGaxwj0W8y0" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 841 71 16, 61 841 71 40",
+        "adres": "ul. Przybyszewskiego 37",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sp-71@wp.pl",
+        "kolejnosc": "53",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 22x11 m, 19x18 m, 9x6 m<br />- boisko ziemne 50x25 m, 50x20 m<br />- boisko 40x20 m, 18x9 m<br />- bieżnia 60 m<br />- skocznia w dal<br />- kort do tenisa i kometki<\/p><p>- boisko do piłki ręczn..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.910715789393514,
+          52.42237027742199
+        ],
+        "type": "Point"
+      },
+      "id": 17316,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-613",
+        "nazwa": "Szkoła Podstawowa nr 73",
+        "url": "www.francuski-sp.pl",
+        "url2":"SnginSjz8gQNMYMDg8ad" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 848 51 41",
+        "adres": "ul. Drzymały 4/6",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "francuski-sp@wp.pl",
+        "kolejnosc": "55",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p>Baza sportowa:<\/p><p>- sala sportowa 18x9 m<br />- sala gimnastyczna 8x6,25 m<br />- boisko utwardzone 40x20 m<br />- boisko utwardzone 15x30 m<br />- boisko 18x9 m<br />- zewnętrzne boisko wielofunkcyjne do piłki ręcznej i&#160; koszykówki 40x20 m (pol..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.864136373550263,
+          52.39841180225288
+        ],
+        "type": "Point"
+      },
+      "id": 17317,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-325",
+        "nazwa": "Szkoła Podstawowa nr 74",
+        "url": "www.sp74.eu",
+        "url2":"SufVrQfZritrOLueJ3PJ" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 662 18 37",
+        "adres": "ul. Trybunalska 17/25",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "www@sp74.eu",
+        "kolejnosc": "56",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 18x9 m<br />- boisko ze sztuczną trawą 40x20 m, 34x20 m, 20x15 m<br />- zewnętrzne boisko do piłki ręcznej 40x20 m<br />- zewnętrzne boisko do koszykówki 14x23,7 m<br />- zewnętrzne boisko do sia..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.923661524448253,
+          52.40421095435297
+        ],
+        "type": "Point"
+      },
+      "id": 17318,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-895",
+        "nazwa": "Szkoła Podstawowa Nr 75",
+        "url": "www.gimn2sp75.pl",
+        "url2":"TIJGHOvzVATX8m3deKAS" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 852 86 12",
+        "adres": "ul. Powstańców Wielkopolskich 3",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sp75@poznan.interklasa.pl",
+        "kolejnosc": "57",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala sportowa 22,38x11 m<\/p><p>- boisko wielofunkcyjne do piłki ręcznej i koszykówki 40x38 m<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.88009234655114,
+          52.406564038765694
+        ],
+        "type": "Point"
+      },
+      "id": 17320,
+      "type": "Feature",
+      "properties": {
+        "kod": "",
+        "nazwa": "Szkoła Podstawowa nr 76",
+        "url": "",
+        "url2":"U50YBGwpgGkYWNj1Ywbd" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "tel. 867-99-44",
+        "adres": "ul. Sierakowska 23",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "<p>sala gimnastyczna 18x9 m, sala gimnastyczna 8x5 m, boisko 47x23 m, boisko 25x15,3 m, bieżnia 80 m, skocznia uniwersalna, działa Szkolne Centrum Rekreacji<\/p>",
+        "email": "",
+        "kolejnosc": "58",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.8984115160128,
+          52.38943133848335
+        ],
+        "type": "Point"
+      },
+      "id": 17321,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-204",
+        "nazwa": "Szkoła Podstawowa nr 77",
+        "url": "www.sp77poznan.pl",
+        "url2":"Uf0zT5A9Ec8XW0Yp9fzR" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 866 59 61",
+        "adres": "ul. Dmowskiego 50",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sekretariat@sp77poznan.pl",
+        "kolejnosc": "59",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala sportowa o pow. 144 m<sup>2<\/sup>, 61,60 m<sup>2<\/sup>, 50 m<sup>2<\/sup><br />- boisko ze sztuczną trawą o pow. 860 m<sup>2<\/sup><br />- boisko utwardzone o pow. 512 m<sup>2<\/sup><br />- zewnętrzne boisko do ..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.895386596839398,
+          52.36740122798961
+        ],
+        "type": "Point"
+      },
+      "id": 17322,
+      "type": "Feature",
+      "properties": {
+        "kod": "62-432",
+        "nazwa": "Szkoła Podstawowa nr 79 (Zespół Szkolno-Przedszkolny nr 3)",
+        "url": "www.sp79.edu.pl",
+        "url2":"Uvrxnqx3EU9rFiqZoIjU" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 832 14 12",
+        "adres": "ul. Jesionowa 14",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "szkola79@poczta.onet.pl",
+        "kolejnosc": "61",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala sportowa o pow. 22 m<sup>2<\/sup>, 49,3 m<sup>2<\/sup>, 159,3 m<sup>2<\/sup><br />- boisko ze sztuczną trawą o pow. 800 m<sup>2<\/sup> (ogrodzenie częściowe)<br />- boisko utwardzone o pow. 2000 m<sup>2<\/sup><br ..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.874562575287072,
+          52.38702767212792
+        ],
+        "type": "Point"
+      },
+      "id": 17323,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-137",
+        "nazwa": "Szkoła Podstawowa nr 80",
+        "url": "www.sp80.poznan.pl",
+        "url2":"V24hTTma8qZZ80nnQbWQ" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 861 05 24",
+        "adres": "ul. Pogodna 84",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sp80poznan@gmail.com",
+        "kolejnosc": "62",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala sportowa 5x10 m, 18x9 m<br />- sala gimnastyczna 12x9 m<br />- boisko rekreacyjne 56x42 m<br />- bieżnia<br />- zewnętrzne boisko do piłki ręcznej 40x20 m<br />- zewnętrzne boisko do koszykówki 28x15 m<br />-..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.89458069614872,
+          52.416967620346824
+        ],
+        "type": "Point"
+      },
+      "id": 17324,
+      "type": "Feature",
+      "properties": {
+        "kod": "",
+        "nazwa": "Szkoła Podstawowa nr 81",
+        "url": "",
+        "url2":"VAlHpZBXo5WT9kyOxtig" ,
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "tel. 61 847-37-33",
+        "adres": "ul. Janickiego 22",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "<p>sala gimnastyczna 20x10 m, boisko 44x25 m, bieżnia 60x4 m, bieżnia 60x2 m, skocznia w dal<\/p>",
+        "email": "",
+        "kolejnosc": "64",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.933879243920888,
+          52.40088364808262
+        ],
+        "type": "Point"
+      },
+      "id": 17325,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-889",
+        "nazwa": "Szkoła Podstawowa nr 82",
+        "url": "www.sp82.pl",
+        "url2":"VtOWWtPy6SA4MT4Ev4iF",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 852 44 75",
+        "adres": "ul. Krakowska 10",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sp82@poznan.interklasa.pl",
+        "kolejnosc": "65",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala sportowa 18x10 m<br />- sala gimnastyczna 8x5,5 m<br />- boisko 28x19 m<br />- boisko 40x20 m<br />- bieżnia<br />- skocznia w dal<br />- zewnętrzne boisko do koszykówki<\/p><p>- boisko wielofunkcyjne do piłki..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.5602138938863,
+          51.42653981259728
+        ],
+        "type": "Point"
+      },
+      "id": 17326,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-465",
+        "nazwa": "Szkoła Podstawowa nr 84",
+        "url": "www.sp84.poznan.pl",
+        "url2":"WVZXme2xopFujit5JrNv",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 832 14 24",
+        "adres": "ul. Św. Szczepana 3",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "",
+        "kolejnosc": "66",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 18x9 m (oświetlenie halogenowe, brak widowni)<br />- 2 sale sportowe 5,5x8,5 m<br />- boisko ze sztuczną trawą 50x25 m (brak oświetlenia, ogrodzenie częściowe, brak widowni)<br />- boisko twarde ..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.96150332759167,
+          52.41056847151589
+        ],
+        "type": "Point"
+      },
+      "id": 17327,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-116",
+        "nazwa": "Szkoła Podstawowa nr 85",
+        "url": "www.sp85poznan.pl",
+        "url2":"WXo4fLHVXmfQATEfsUqe",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 877 06 52",
+        "adres": "ul. Tomickiego 16",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sekretariat@sp85poznan.pl",
+        "kolejnosc": "68",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 18x10 m<br />- boisko 60x50 m<br />- boisko rekreacyjne 40x20 m<br />- zewnętrzne boisko do koszykówki i siatkówki 40x20 m<br />- zewnętrzne boisko do piłki ręcznej i&#160; hokeja na trawie 40x20..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.988558888901217,
+          52.40613946016225
+        ],
+        "type": "Point"
+      },
+      "id": 17328,
+      "type": "Feature",
+      "properties": {
+        "kod": "",
+        "nazwa": "Szkoła Podstawowa nr 86",
+        "url": "",
+        "url2":"WkJ7P8AO2JxMBDjo1M2G",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "tel. 61 879-49-41",
+        "adres": "ul. Mińska 32",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "<p>sala gimnastyczna 16,5x8 m, boisko 40x20 m, boisko 24x14 m, działa Szkolne Centrum Rekreacji<\/p>",
+        "email": "",
+        "kolejnosc": "69",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          17.019771187748187,
+          52.40705007425803
+        ],
+        "type": "Point"
+      },
+      "id": 17329,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-062",
+        "nazwa": "Szkoła Podstawowa nr 87 (Zespół Szkolno-Przedszkolny nr 7)",
+        "url": "www.sp87.poznan.pl/",
+        "url2":"X0yf7a3yR2poizoSkjQM",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 876 80 79",
+        "adres": "ul. Leszka 42",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "zsp7poznan@wp.pl",
+        "kolejnosc": "70",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 18,5x9,5 m<br />- sala gimnastyczna 12,8x9,5 m<br />- boisko ze sztuczną trawą 15x30 m<br />- boisko rekreacyjne 85x45 m<br />- boisko do koszykówki<br />- boisko do piłki nożnej i piłki ręcznej ..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.8719119951015,
+          52.40602208461552
+        ],
+        "type": "Point"
+      },
+      "id": 17330,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-389",
+        "nazwa": "Szkoła Podstawowa nr 88",
+        "url": "www.sp88.pl",
+        "url2":"XO3nxBHHZDsg5wXA9gEV",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 867 42 21",
+        "adres": "ul. Swoboda 53",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sekretariatsp88@poczta.onet.pl",
+        "kolejnosc": "71",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala sportowa 18x9 m, 14x7 m<br />- boisko ze sztuczną trawą 40x20 m<br />- zewnętrzne boisko do piłki ręcznej 38x18 m<br />- zewnętrzne boisko do koszykówki 30x18 m<br />- zewnętrzne boisko do siatkówki 23x13 m<\/..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.913632728318177,
+          52.42545101272239
+        ],
+        "type": "Point"
+      },
+      "id": 17331,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-645",
+        "nazwa": "Szkoła Podstawowa nr 89",
+        "url": "www.sp89poznan.edu.pl",
+        "url2":"Y4cx2sJITspZ76JryzR3",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 848 53 61",
+        "adres": "ul. Sochaczewska 3",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sp89@sp89poznan.edu.pl",
+        "kolejnosc": "72",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 20x10 m<br />- sala sportowa 6x9 m<br />- boisko ze sztuczną trawą 20x40 m, 18x36 m<br />- boisko 76x68 m<br />- boisko rekreacyjne 60x30 m<br />- zewnętrzne boisko do piłki nożnej<br />- zewnętr..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.88420619123757,
+          52.39484928503287
+        ],
+        "type": "Point"
+      },
+      "id": 17332,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-261",
+        "nazwa": "Szkoła Podstawowa nr 90",
+        "url": "www.sp90.idsl.pl",
+        "url2":"YC67DDDgp7kw28f5TBoB",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 867 20 67",
+        "adres": "ul. Chociszewskiego 56",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "spnr90@wp.pl",
+        "kolejnosc": "73",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala sportowa 18x9 m<br />- sala korekcyjna 8x4 m<br />- boisko utwardzone 50x26 m<br />- boisko ze sztuczną trawą 42x21 m<br />- zewnętrzne boisko do piłki ręcznej 40x20 m<br />- zewnętrzne boisko do koszykówki<\/..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.898516958834193,
+          52.39044101703276
+        ],
+        "type": "Point"
+      },
+      "id": 17334,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-211",
+        "nazwa": "XXXVII Liceum Ogólnokształcące",
+        "url": "www.37lo.poznan.pl",
+        "url2":"YezH3EXwyUn2MWNF3lcW",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 866 59 37, 882 465 596",
+        "adres": "ul. Klaudyny Potockiej 38",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sekretariat@37lo.poznan.pl",
+        "kolejnosc": "114",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 18x10 m<br />- sala korekcyjna 9x6 m<br />- boisko do piłki ręcznej 31x17,6 m<br />- boisko 20x10 m<br />- boisko rekreacyjne 50x40 m<br />- bieżnia 3 torowa (poliuretan)<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.8734342471176,
+          52.4076011941857
+        ],
+        "type": "Point"
+      },
+      "id": 17335,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-389",
+        "nazwa": "Zespół Szkół Specjalnych nr 101",
+        "url": "www.zss101.poznan.pl",
+        "url2":"aOdUmej0GnN89KL8RBGo",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 861 68 52",
+        "adres": "ul. Swoboda 41",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sekretariat@zss101.poznan.pl",
+        "kolejnosc": "86",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala sportowa 18x9 m, 10x4 m<br />- boisko ze sztuczną trawą 41x20 m<br />- boisko 18x9 m<br />- boisko rekreacyjne 55x45 m<\/p><p>- wielofunkcyjne boisko do piłki ręcznej i koszykówki 40x20 m<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.955446736350712,
+          52.41166292835523
+        ],
+        "type": "Point"
+      },
+      "id": 17338,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-127",
+        "nazwa": "Zespół Szkół Specjalnych nr 105",
+        "url": "www.105.edu.pl/",
+        "url2":"Uvrxnqx3EU9rFiqZoIjU",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 877 22 94",
+        "adres": "ul. Bydgoska 4",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "<p>- sala gimnastyczna 19,6x10 m (oświetlenie)<br />- sala sportowa o pow. 15,74 m<sup>2<\/sup><br />- boisko utwardzone o pow. 1352 m<sup>2<\/sup><br />- działa Szkolne Centrum Rekreacji<\/p>",
+        "email": "sekretariat@105.edu.pl",
+        "kolejnosc": "88",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.901594069482222,
+          52.413420607412434
+        ],
+        "type": "Point"
+      },
+      "id": 17339,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-523",
+        "nazwa": "Zespół Szkół Specjalnych nr 107",
+        "url": "www.szkola107-poznan.pl",
+        "url2":"V24hTTma8qZZ80nnQbWQ",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 847 31 56",
+        "adres": "ul. Dąbrowskiego 73",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "<p>- sala sportowa 9x5,46 m<br />- boisko ze sztuczną trawą 29x20 m (wspólne z ZSZ nr 2)<br />- boisko utwadzone 27x27 m<\/p>",
+        "email": "zs107@poczta.onet.pl",
+        "kolejnosc": "89",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.783813895227468,
+          52.47780752547882
+        ],
+        "type": "Point"
+      },
+      "id": 17340,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-480",
+        "nazwa": "Zespół Szkół Specjalnych nr 109",
+        "url": "www.zss109.home.pl",
+        "url2":"VAlHpZBXo5WT9kyOxtig",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 896 02 56",
+        "adres": "ul. Sanatoryjna 2",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "<p>- sala rehabilitacyjna 2x 8x6 m<br />- boisko 15x7 m<\/p>",
+        "email": "szkola@zss109.pl",
+        "kolejnosc": "90",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.900680391871084,
+          52.37265981143559
+        ],
+        "type": "Point"
+      },
+      "id": 17341,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-473",
+        "nazwa": "Społeczna Szkoła Podstawowa nr 3",
+        "url": "www.debinka.pl/",
+        "url2":"VtOWWtPy6SA4MT4Ev4iF",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 832 94 20, 61 832 15 21",
+        "adres": "ul. Grabowa 33",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "<p>- sala gimnastyczna 18x9 m<br />- boisko 50x20 m<br />- boisko 24x14 m<\/p>",
+        "email": "ssp3@debinka.pl",
+        "kolejnosc": "2",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.860259006616296,
+          52.392922422356
+        ],
+        "type": "Point"
+      },
+      "id": 17342,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-309",
+        "nazwa": "Społeczna Szkoła Podstawowa nr 1",
+        "url": "www.spolecznajedynka.pl/",
+        "url2":"WVZXme2xopFujit5JrNv",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 867 68 12",
+        "adres": "ul. Grunwaldzka 154",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "<p>- sala gimnastyczna 11x5 m<\/p>",
+        "email": "sekretariat@spolecznajedynka.pl",
+        "kolejnosc": "1",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.923228230899745,
+          52.430396934082026
+        ],
+        "type": "Point"
+      },
+      "id": 17343,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-685",
+        "nazwa": "Szkoła Podstawowa nr 66 budynek B",
+        "url": "www.gim6.poznan.pl",
+        "url2":"WXo4fLHVXmfQATEfsUqe",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 820 06 62",
+        "adres": "os. Przyjaźni 136",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "gm6@poznan.interklasa.pl",
+        "kolejnosc": "50",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 19x10 m<br />- zewnętrzne boisko koszykówki 15x30 m (poliuretan)<br />- zewnętrzne boisko do piłki ręcznej 24x46 m (poliuretan)<\/p><p>- zewnętrzne boisko do siatkówki 9x18 m<br />- skocznia w dal..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.934585860420714,
+          52.42490994249454
+        ],
+        "type": "Point"
+      },
+      "id": 55948,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-659",
+        "nazwa": "Zespół Szkół nr 4",
+        "url": "szkola.lejery.pl/",
+        "url2":"WkJ7P8AO2JxMBDjo1M2G",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 820 47 12",
+        "adres": "ul. Brandstaettera 1",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "<p>- 1 sala o pow. 150 m2<\/p>",
+        "email": "szkola@lejery.pl",
+        "kolejnosc": "81",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.939709312686045,
+          52.40132463061032
+        ],
+        "type": "Point"
+      },
+      "id": 55949,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-863",
+        "nazwa": "Zespół Szkół Odzieżowych",
+        "url": "www.e-zsopoznan.pl",
+        "url2":"X0yf7a3yR2poizoSkjQM",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 852 96 92",
+        "adres": "ul. Kazimierza Wielkiego 17",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "zso@poznan.interklasa.pl",
+        "kolejnosc": "121",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 24x12 m<br />- boisko wielofunkcyjne 41x21 m<br />- skocznia do skoku w dal<\/p><p>- boisko do badmintona (kometki) 30x16 m<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.94597662914994,
+          52.425412239772214
+        ],
+        "type": "Point"
+      },
+      "id": 55950,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-622",
+        "nazwa": "Zespół Szkół Łączności",
+        "url": "www.zsl.poznan.pl",
+        "url2":"XO3nxBHHZDsg5wXA9gEV",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 825 00 11",
+        "adres": "ul. Przełajowa 4",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "office@zsl.poznan.pl",
+        "kolejnosc": "122",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna o pow. 288 m<sup>2<\/sup> (oświetlenie górne, bez widowni)<br />- sala sportowa o pow. 62 m2 (siłownia)<br />- 4 boiska ze sztuczną trawą o pow. 2251 m<sup>2<\/sup> (ogrodzenie)<br />- boisko wielo..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.93275160164038,
+          52.40446896194038
+        ],
+        "type": "Point"
+      },
+      "id": 55951,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-845",
+        "nazwa": "III Liceum Ogólnokształcące",
+        "url": "www.lo3.edu.pl",
+        "url2":"Y4cx2sJITspZ76JryzR3",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "(61) 852 46 50",
+        "adres": "ul. Strzelecka 10",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sekretariat@lo3.edu.pl",
+        "kolejnosc": "101",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 22,08x11,62 m (oświetlenie halogenowe, brak ogrodzenia i widowni)<br />- sala sportowa o pow. 803 m2<\/p><p>- 1 zewnętrzne boisko do piłki ręcznej 40x20 m<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.93242692747179,
+          52.40023577007735
+        ],
+        "type": "Point"
+      },
+      "id": 55952,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-889",
+        "nazwa": "VI Liceum Ogólnokształcące",
+        "url": "www.paderek.poznan.pl/",
+        "url2":"YC67DDDgp7kw28f5TBoB",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 852 46 22",
+        "adres": "ul. Krakowska 17a",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "<p>- 1 sala o pow. 266 m2<\/p>",
+        "email": "sekretariat@paderek.poznan.pl",
+        "kolejnosc": "104",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.939193953501064,
+          52.40180103317924
+        ],
+        "type": "Point"
+      },
+      "id": 55953,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-862",
+        "nazwa": "VIII Liceum Ogólnokształcące",
+        "url": "www.lo8.poznan.pl",
+        "url2":"YezH3EXwyUn2MWNF3lcW",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 866 10 37",
+        "adres": "ul. Cegielskiego 1",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sekretariat@lo8.poznan.pl",
+        "kolejnosc": "106",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 20x10 m (oświetlenie światłem dziennym i elektrycznym, brak widowni)<br />- sala sportowa 11x8 m<br />- zewnętrzne boisko do piłki ręcznej<br />- zewnętrzne boisko do koszykówki<br />- skocznia d..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.92905523398061,
+          52.42870474146699
+        ],
+        "type": "Point"
+      },
+      "id": 55954,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-658",
+        "nazwa": "IX Liceum Ogólnokształcące",
+        "url": "9lopoznan.pl",
+        "url2":"aOdUmej0GnN89KL8RBGo",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 820 36 32",
+        "adres": "ul. Warzywna 24",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "9lopoznan@9lopoznan.pl",
+        "kolejnosc": "107",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportwa:<\/strong><\/p><p>- sala gimnastyczna 22x11 m<br />- sala sportowa 8x7 m<br />- 3 boiska ze sztuczną trawą 20x38 m, 10x20 m, 10x20 m<br />- boisko ziemne 15x30 m<br />- zewnętrzne boisko do piłki ręcznej<br />- zewnętrzne boisko do ko..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.93124865330488,
+          52.41534708196812
+        ],
+        "type": "Point"
+      },
+      "id": 55955,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-719",
+        "nazwa": "XII Liceum Ogólnokształcące",
+        "url": "www.lo12.edu.pl",
+        "url2":"b83RHKqTggMIYMmsT1RO",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 852 55 58",
+        "adres": "ul. Generała Kutrzeby 8",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "liceum@lo12.edu.pl",
+        "kolejnosc": "110",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza spotowa:<\/strong><\/p><p>- lekka hala sportowa 36x19 m (poliuretan)<br />- salka sportowa 9x18 m<\/p><p>- boisko do koszykówki 18x31 m (poliuretan)<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.93691176483915,
+          52.44078868644353
+        ],
+        "type": "Point"
+      },
+      "id": 55956,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-674",
+        "nazwa": "XX Liceum Ogólnokształcące",
+        "url": "www.xxlopoznan.edu.pl",
+        "url2":"bZcv7nyDVqXK7MIn5ZJS",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 820 82 03",
+        "adres": "os. Wichrowe Wzgórze 111",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "lo20_poznan@wp.pl",
+        "kolejnosc": "112",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala o pow. 450 m<sup>2<\/sup><br />- sala o pow. 185 m<sup>2<\/sup><br />- zewnętrzne boisko do piłki nożnej<br />- zespół boisk ORLIK<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.938364826145456,
+          52.40402371068632
+        ],
+        "type": "Point"
+      },
+      "id": 55957,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-867",
+        "nazwa": "Liceum Ogólnokształcące św. Marii Magdaleny",
+        "url": "www.marynka.edu.pl/",
+        "url2":"bZgT7imejtL3qjUguqdM",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 852 77 05",
+        "adres": "ul. Garbary 24",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "liceum@marynka.edu.pl",
+        "kolejnosc": "116",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- hala widowiskowo - sportowa 44x22 m (składane trybuny na ok. 150 miejsc)<br />- sala gimnastyczna 24x12 m<br />- zewnętrzne boisko do koszykówki 27x15 m<\/p><p>- bieżnia z nawierzchnią ziemną 60x2,5 m<\/p><p>- skocz..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.93019614903723,
+          52.40083939605291
+        ],
+        "type": "Point"
+      },
+      "id": 55958,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-883",
+        "nazwa": "Zespół Szkół Budownictwa Nr 1",
+        "url": "zsb1.poznan.pl/",
+        "url2":"beLZufCRaOHbENxL4kKp",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 854 27 53",
+        "adres": "ul. Rybaki 17",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "<p>- sala sportowa 8,2x19 m<br />- boisko utwardzone 21,5x39,5 m (asfalt, brak oświetlenia, wysoki parkan)<\/p><p>- siłownia 7,5x8 m<\/p>",
+        "email": "sekretariat@zsb1.poznan.pl",
+        "kolejnosc": "123",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.924360070644717,
+          52.411567225486266
+        ],
+        "type": "Point"
+      },
+      "id": 55959,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-727",
+        "nazwa": "Zespół Szkół Zawodowych Nr 6",
+        "url": "www.lewel.poznan.pl",
+        "url2":"cMbnJcVDMtn1nxrULjYM",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 852 24 64, 61 852 36 55",
+        "adres": "ul. Działyńskich 4/5",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sekretariat@lelewel.poznan.pl",
+        "kolejnosc": "132",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala sportowa o pow. 156 m<sup>2<\/sup>, 198 m<sup>2<\/sup> (sale do WF bez widowni)<br />- boisko ze sztuczną trawą o pow. 400 m<sup>2<\/sup><br />- boisko wielofunkcyjne 15x24 m<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.92152945702894,
+          52.4086508223503
+        ],
+        "type": "Point"
+      },
+      "id": 55960,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-701",
+        "nazwa": "Zespół Szkół Komunikacji",
+        "url": "www.zsk.poznan.pl/",
+        "url2":"cg5LUghu3Dq6WKlNtqC3",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 852 06 42",
+        "adres": "ul. Fredry 13",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "<p>- sala gimnastyczna 24x12 m (oświetlenie jarzeniowe, brak widowni i ogrodzenia; ul. Czajcza 14)<br />- sala sportowa 8x7 m (brak widowni i ogrodzenia)<\/p>",
+        "email": "biuro@zsk.poznan.pl",
+        "kolejnosc": "124",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.92840666008975,
+          52.4287802482838
+        ],
+        "type": "Point"
+      },
+      "id": 55961,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-658",
+        "nazwa": "Zespół Szkół Przemysłu Spożywczego",
+        "url": "www.zsps.poznan.pl",
+        "url2":"clicUX0bq6qTTYaYThkb",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 820 00 91",
+        "adres": "ul. Warzywna 19",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "office@zsps.poznan.pl",
+        "kolejnosc": "125",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><br />- boisko do piłki ręcznej 30x16 m, 20x38 m<br />- boisko do siatkówki 9x18 m<\/p><p>- skocznia w dal (poliuretan)<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.92287936271366,
+          52.39167157074604
+        ],
+        "type": "Point"
+      },
+      "id": 55962,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-546",
+        "nazwa": "Branżowa Szkoła I stopnia nr 42",
+        "url": "bs42poznan.pl/",
+        "url2":"ctBJR8xuTOdukofBG4bp",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 833 38 35",
+        "adres": "ul. Św. Jerzego 6/10",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "<p>- sala sportowa 18x9 m (lampy sufitowe)<br />- boisko utwardzone 17,5x9 m, 20x14,5 m (do siatkówki, koszykówki)<br />- boisko ze sztuczną trawą 39x19 m<br />- zewnętrzne boisko do piłki ręcznej 40x20 (poliuretan)<\/p>",
+        "email": "bs42@interia.pl",
+        "kolejnosc": "76",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.920731767541515,
+          52.385625921491744
+        ],
+        "type": "Point"
+      },
+      "id": 55963,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-501",
+        "nazwa": "V Liceum Ogólnokształcące",
+        "url": "www.vlo.poznan.pl/",
+        "url2":"drPTem1byp24K4dxLfM0",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 833 38 31",
+        "adres": "ul. Zmartwychwstańców 10",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "vlo@vlo.poznan.pl",
+        "kolejnosc": "103",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 21,8x11,3x6 m (oświetlenie)<br />- sala sportowa 10,4x5,8x2,6 m<br />- boisko ze sztuczną trawą 30x18 m, 30x42 m<br />- zespół boisk ORLIK: do siatkówki - 26x56 m (poliuretan), do piłki nożnej - ..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.903244725445596,
+          52.366216912862456
+        ],
+        "type": "Point"
+      },
+      "id": 55964,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-441",
+        "nazwa": "Technikum nr 19",
+        "url": "www.technikum19.edu.pl",
+        "url2":"eCwVT5E5pJIqGq944ubF",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 832 00 33",
+        "adres": "ul. 28 czerwca 1956 r. 352/360",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sekretariat@technikum19.edu.pl",
+        "kolejnosc": "126",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 27x15 m (oświetlenie, widownia, szatnie, ścianka wspinaczkowa)<br />- sala sportowa 11x5 m (sala do aerobiku)<br />- boisko wielofunkcyjne do piłki ręcznej, siatkówki i tenisa 40x20 m (poliuretan..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.89708549680828,
+          52.371983754623265
+        ],
+        "type": "Point"
+      },
+      "id": 55966,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-472",
+        "nazwa": "Zespół Szkół Mechanicznych",
+        "url": "www.zsken.pl",
+        "url2":"eFE89Sx4hFUEvUZp82sG",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 832 19 49",
+        "adres": "ul. Świerkowa 8",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "zsm@poznan.interklasa.pl",
+        "kolejnosc": "128",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 17,72x10,20 m<br />- boisko ze sztuczną trawą 9x18 m<br />- zewnętrzne boisko wielofunkcyjne do piłki ręcznej, siatkówki i koszykówki 40x20 m<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.951680944523055,
+          52.38630310272864
+        ],
+        "type": "Point"
+      },
+      "id": 55968,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-389",
+        "nazwa": "X Liceum Ogólnokształcące",
+        "url": "www.xlo.poznan.pl",
+        "url2":"erMNHENiPXqJnwvd6f50",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 877 19 59",
+        "adres": "os. Rzeczypospolitej 111",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "lo10@poznan.interklasa.pl",
+        "kolejnosc": "108",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- hala sportowa 30x26 m (widownia o&#160; wym. 5,8x30 m)<br />- boisko wielofunkcyjne do piłki ręcznej i koszykówki 40x20 m<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.941238197440523,
+          52.38635799125502
+        ],
+        "type": "Point"
+      },
+      "id": 55969,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-164",
+        "nazwa": "XIV Liceum Ogólnokształcące",
+        "url": "www.czternastelo.pl",
+        "url2":"eve69o9jTnmCgggPu6Vn",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 877 36 32",
+        "adres": "os. Piastowskie 106",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "lo14@vp.pl",
+        "kolejnosc": "111",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala sportowa 18x10 m<br />- boisko ze sztuczną trawą 42x22 m<br />- zewnętrzne boisko wielofunkcyjne do piłki ręcznej i koszykówki 40x20 m<\/p><p>- boisko do piłki plażowej 16x8 m<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.940939434682864,
+          52.381960015088616
+        ],
+        "type": "Point"
+      },
+      "id": 55970,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-139",
+        "nazwa": "Zespół Szkół Samochodowych",
+        "url": "www.samochodowka.edu.pl",
+        "url2":"fjSjheIntfVG9b7JsjMx",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 879 12 41",
+        "adres": "ul. Zamenhofa 142",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "zss@samochodowka.edu.pl",
+        "kolejnosc": "129",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 23x11 m (oświetlenie)<br />- boisko do piłki plażowej 16x8 m<br />- boisko ze sztuczną trawą 30x18 m<br />- boisko do piłki nożnej 38x25 m (poliuretan)<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.87325735260449,
+          52.41563036373936
+        ],
+        "type": "Point"
+      },
+      "id": 55972,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-592",
+        "nazwa": "IV Liceum Ogólnokształcące",
+        "url": "www.lo4.poznan.pl",
+        "url2":"hVqWxPmEbEnqTaLwSYuw",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 841 77 71, 61 841 18 14, 601 780 720",
+        "adres": "ul. Swojska 6",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sekretariat@lo4.poznan.pl",
+        "kolejnosc": "102",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- zewnętrzne boisko wielofunkcyjne do piłki ręcznej i tenisa 25x45 m<\/p><p>- lekka hala sportowa 36x19 (poliuretan)<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.89408707307115,
+          52.42008152240614
+        ],
+        "type": "Point"
+      },
+      "id": 55973,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-544",
+        "nazwa": "VII Liceum Ogólnokształcące",
+        "url": "www.dabrowka.poznan.pl",
+        "url2":"hatIYY6e8C1QzuEqzmm9",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 847 25 02",
+        "adres": "ul. Żeromskiego 8/12",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sekretariat@dabrowka.poznan.pl",
+        "kolejnosc": "105",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala sportowa 18x9 m<\/p><p>- zewnętrzne boisko do piłki ręcznej 21x42 m<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.907846800445608,
+          52.429682077675224
+        ],
+        "type": "Point"
+      },
+      "id": 55974,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-655",
+        "nazwa": "XXV Liceum Ogólnokształcące",
+        "url": "www.lo25.pl",
+        "url2":"hjiw7aLuHYPpTDUWgoVx",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 822 49 41",
+        "adres": "ul. Widna 1",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "lo25@lo25.pl",
+        "kolejnosc": "113",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 20x12,3 m (oświetlenie sufitowe)<br />- 2 sale sportowe 6x6 m, 13,4x5,8 m<br />- boisko twarde 15x24 m<br />- boisko ze sztuczną trawą 24x42,5 m (brak oświetlenia, ogrodzenie i widownia do odtwor..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.854771172727798,
+          52.4276940168517
+        ],
+        "type": "Point"
+      },
+      "id": 55975,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-594",
+        "nazwa": "Technikum Energetyczne",
+        "url": "www.energetyk.edu.pl",
+        "url2":"ioLbgFkaN2l6sw2SxGd6",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 841 71 14",
+        "adres": "ul. Dąbrowskiego 163",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sekretariat@zse-1.edu.pl",
+        "kolejnosc": "127",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala sportowa o pow. 162 m<sup>2<\/sup>, 50 m<sup>2<\/sup>, 60 m<sup>2<\/sup> (salka gimnastyczna, siłownia, sala do judo)<br />- boisko utwardzone 14x28 m<br />- boisko wielofunkcyjne do piłki ręcznej, nożnej, koszy..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.904385008475554,
+          52.41378252820151
+        ],
+        "type": "Point"
+      },
+      "id": 55976,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-536",
+        "nazwa": "Zespół Szkół Zawodowych Nr 1",
+        "url": "www.zsz1.poznan.pl",
+        "url2":"k0Fi7awxqhuJXQZ6yEn0",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 841 11 28",
+        "adres": "ul. Św. Floriana 3",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sekretariat@zsz1.poznan.pl",
+        "kolejnosc": "130",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala sportowa 18x9 m (bez widowni)<\/p><p>- boisko wielofunkcyjne do piłki ręcznej i koszykówki 20x30 m<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.814971079431746,
+          52.384336483487886
+        ],
+        "type": "Point"
+      },
+      "id": 55977,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-175",
+        "nazwa": "Szkoła Podstawowa nr 78",
+        "url": "www.sp78poznan.pl",
+        "url2":"kFsRW3YpI7PfWnnwZJsJ",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 867 79 16",
+        "adres": "ul. Żonkilowa 34",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sp78@spig2.poznan.pl",
+        "kolejnosc": "60",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- hala sportowa 36x24 m (widownia z trybunami)<br />- sala do aerobiku o pow. 69 m<sup>2<\/sup><br />- boisko ze sztuczną trawą o pow. 41x21 m (oświetlenie częściowe)<br />- boisko do piłki ręcznej 40x20 m<br />- boi..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.86737315006051,
+          52.383660644304875
+        ],
+        "type": "Point"
+      },
+      "id": 55978,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-161",
+        "nazwa": "Szkoła Podstawowa nr 72",
+        "url": "www.sp72.pl",
+        "url2":"kb1p3Lk8B4ok4ro4bJ9D",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 867 09 29",
+        "adres": "ul. Newtona 2",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sekretariat@sp72.pl",
+        "kolejnosc": "54",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala sportowa o pow. 1164 m2 (z trybunami)<br />- zewnętrzne boisko do piłki ręcznej 40x20 m<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.8699183458202,
+          52.40947407299959
+        ],
+        "type": "Point"
+      },
+      "id": 55979,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-393",
+        "nazwa": "Szkoła Podstawowa nr 91",
+        "url": "www.sp91.pl",
+        "url2":"lCDWR0u4IdQG6zoPPrZz",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 861 81 76",
+        "adres": "ul. Promyk 4",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sekretariat@sp91.pl",
+        "kolejnosc": "74",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala sportowa 18x9 m, 11,60x7 m<br />- boisko do koszykówki ze sztuczną trawą 28x17 m (ogrodzenie)<br />- zewnętrzne boisko do piłki ręcznej 40x20 m<\/p><p>- kort do tenisa<\/p><p>- 3 torowa bieżnia<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.903784921157133,
+          52.407237132117515
+        ],
+        "type": "Point"
+      },
+      "id": 55980,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-809",
+        "nazwa": "Zespół Szkół Ogólnokształcących Nr 1",
+        "url": "www.marcinek.poznan.pl",
+        "url2":"lnJjVCoEq0WuAdzaeESL",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 848 06 71, 61 846 49 20",
+        "adres": "ul. Bukowska 16",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "marcinek@marcinek.poznan.pl",
+        "kolejnosc": "117",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 22x11 m<br />- boisko utwardzone 26,8x13,6 m, 17,9x8,9 m<br />- boisko do piłki ręcznej 38x22 m<\/p><p>- bieżnia 60m<sup>2<\/sup><\/p><p>- skocznia z rozbiegiem 29x3,5 m<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.899715415454224,
+          52.40205949818925
+        ],
+        "type": "Point"
+      },
+      "id": 55981,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-995",
+        "nazwa": "II Liceum Ogólnokształcące",
+        "url": "www.2lo.poznan.pl/",
+        "url2":"miYRTUGaot6AML2McKNa",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 866 28 92",
+        "adres": "ul. Matejki 8/10",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "<p>- 1 sala o pow. 264 m2<\/p>",
+        "email": "sekretariat@2lo.poznan.pl",
+        "kolejnosc": "100",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.87352695520378,
+          52.390886819736686
+        ],
+        "type": "Point"
+      },
+      "id": 55982,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-304",
+        "nazwa": "XI Liceum Ogólnokształcące",
+        "url": "www.lo11.pl",
+        "url2":"mwPsyRMxg5YDm0rGFMYZ",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 867 34 16",
+        "adres": "ul. Ściegiennego 134",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "info@lo11.pl",
+        "kolejnosc": "109",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 22x12 m (oprawy jarzeniowe)<br />- boisko utwardzone 26x21 m<br />- boisko ze sztuczną trawą 46x23 m, 36x22 m<br />- zewnętrzne boisko do piłki ręcznej 40x20 m<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.881977782030887,
+          52.40775893542767
+        ],
+        "type": "Point"
+      },
+      "id": 55983,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-365",
+        "nazwa": "Zespół Szkół Geodezyjno-Drogowych",
+        "url": "www.zsgd.poznan.pl",
+        "url2":"nF1PgEijLj2xSCjEGAP5",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 867 32 03, 61 867 26 80",
+        "adres": "ul. Szamotulska 33",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "zsgd@zsgd.poznan.pl",
+        "kolejnosc": "133",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala o pow. 450 m2<br />- boisko wielofunkcyjne do piłki ręcznej 40x20 m<\/p><p>- boisko do koszykówki 30x17 m<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.866371971946485,
+          52.400877812800665
+        ],
+        "type": "Point"
+      },
+      "id": 55984,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-327",
+        "nazwa": "Zespół Szkół Ekonomicznych",
+        "url": "www.zsepoznan.pl",
+        "url2":"nN36UE9I5Jr0OZQ6YcYp",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 867 22 22",
+        "adres": "ul. Marszałkowska 40",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "zse@zsepoznan.pl",
+        "kolejnosc": "134",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 24x12 m<br />- sala sportowa 5x7 m, 11x9 m (stół do ping ponga, siłownia, aerobik)<br />- zewnętrzne boisko wielofunkcyjne do piłki ręcznej i do koszykówki 40x20 m<br />- zewnętrzne boisko do sia..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.8779825662848,
+          52.40863092222492
+        ],
+        "type": "Point"
+      },
+      "id": 55985,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-375",
+        "nazwa": "Zespół Szkół Elektrycznych Nr 2",
+        "url": "www.zse2.pl",
+        "url2":"nNF8aBB2uYngyXt67Xdd",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 861 67 00",
+        "adres": "ul. Świt 25",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "zse2@interia.pl",
+        "kolejnosc": "135",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- lekka hala sportowa 41x19 m<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.87047834769942,
+          52.38676408785073
+        ],
+        "type": "Point"
+      },
+      "id": 55986,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-135",
+        "nazwa": "Zespół Szkół Budowlano - Drzewnych",
+        "url": "www.zsbd.pl",
+        "url2":"nUKKUsWb5JuDEuVTLwX5",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 861 00 27",
+        "adres": "ul. Raszyńska 48",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "poczta@zsbd.pl",
+        "kolejnosc": "136",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 22x11,5 m (lampy kwarcowe)<br />- boisko ze sztuczną trawą 33,5x43,5 m<br />- boisko utwardzone 33x21,5 m, 30x18 m (brak oświetlenia i widowni)<br />- wielofunkcyjne boisko do piłki ręcznej 33x22..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.90316799221401,
+          52.40415415447638
+        ],
+        "type": "Point"
+      },
+      "id": 55987,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-774",
+        "nazwa": "Zespół Szkół Handlowych",
+        "url": "www.zsh.edu.pl",
+        "url2":"ni1kB5bXQUk69cIj2W71",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 865 86 83",
+        "adres": "ul. Śniadeckich 54/58",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "szkola@zsh.edu.pl",
+        "kolejnosc": "137",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna 19x13 m<br />- 2 sale gimnastyczne 9x7 m (z oświetleniem)<br />- boisko utwardzone 25x15 m, 17x60 m<br />- zewnętrzne boisko do piłki ręcznej 36x15 m<\/p><p>- skocznia w dal<\/p><p>- rzutnia do pch..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.868345116260876,
+          52.401952894591936
+        ],
+        "type": "Point"
+      },
+      "id": 55988,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-326",
+        "nazwa": "Zespół Szkół Gastronomicznych",
+        "url": "www.gastronomikpoznan.pl",
+        "url2":"o3oPHdQysh2aPSGOqvV6",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 867 40 41",
+        "adres": "ul. Podkomorska 49",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "zsgpoznan@wp.pl",
+        "kolejnosc": "139",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- sala gimnastyczna o pow. 276 m2<br />- boisko ze sztuczną trawą o pow. 1450 m<sup>2<\/sup><br />- boisko wielofunkcyjne do piłki ręcznej i do koszykówki 40x20 m (poliuretan)<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.855682155657064,
+          52.38908476789953
+        ],
+        "type": "Point"
+      },
+      "id": 55989,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-161",
+        "nazwa": "Centrum Kształcenia Zawodowego i Ustawicznego",
+        "url": "ckziupoznan.pl/",
+        "url2":"o7NN1lQ680S1B0v2sZ59",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "(61) 66 06 600",
+        "adres": "ul. Jawornicka 1",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "email": "sekretariat@ckziupoznan.pl",
+        "kolejnosc": "140",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- boisko wielofunkcyjne 40x20 m<\/p><p>- zespół boisk ORLIK (poliuretan)<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.933899141671304,
+          52.39490834179152
+        ],
+        "type": "Point"
+      },
+      "id": 57656,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-555",
+        "nazwa": "Młodzieżowy Dom Kultury nr 1",
+        "url": "www.mdk1.pl",
+        "url2":"ow2tB7RrPSSdQcLk9wsC",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 833 79 10",
+        "adres": "ul. Droga Dębińska 21",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "sekretariat_mdk1@o2.pl",
+        "kolejnosc": "142",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- siłownia wewnętrzna 8,35x7,9 m<\/p><p>- boisko do piłki nożnej 26x56 m<\/p><p>- boisko do koszykówki i siatkówki 15,1x28,2 m (poliuretan)<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.927239283847516,
+          52.412761177615224
+        ],
+        "type": "Point"
+      },
+      "id": 57657,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-736",
+        "nazwa": "Poznańska Ogólnokształcąca Szkoła Muzyczna I stopnia nr 1",
+        "url": "www.posm1.edu.pl/",
+        "url2":"oxugsgI5f7ebvlAsMcnQ",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 852 28 55, 61 852 04 01",
+        "adres": "ul. Solna 12",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "y_460_baza_sportowa": "",
+        "email": "posm@op.pl",
+        "kolejnosc": "143",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- skocznia w dal<\/p><p>- boisko wielofunkcyjne 20x35 m<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.9076912375207,
+          52.43327224186925
+        ],
+        "type": "Point"
+      },
+      "id": 65965,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-665",
+        "nazwa": "Szkoła Podstawowa nr 27",
+        "url": "www.sp27poznan.pl",
+        "url2":"pHLh6yjxH2164XIn4uWT",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 823 33 89",
+        "adres": "os. Winiary 2",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "email": "sekretariat@sp27poznan.pl",
+        "kolejnosc": "23",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- boisko do piłki nożnej 41x22 m<\/p><p>- boisko wielofunkcyjne do piłki ręcznej, koszykówki i siatkówki 42x26 m<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.930506708665263,
+          52.41217232899771
+        ],
+        "type": "Point"
+      },
+      "id": 65982,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-736",
+        "nazwa": "Ogród Jordanowski nr 1",
+        "url": "",
+        "url2":"pObJOjm87JywHskm7MT3",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "(61) 852 48 28",
+        "adres": "ul. Solna 2",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "email": "",
+        "kolejnosc": "144",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- boisko do piłki nożnej 40x20 m<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.88137372144561,
+          52.44328644265479
+        ],
+        "type": "Point"
+      },
+      "id": 66142,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-461",
+        "nazwa": "Szkoła Podstawowa nr 1",
+        "url": "www.sp1.poznan.pl",
+        "url2":"q8mYtWg9ifGaFxQCbOG8",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 222 37 29",
+        "adres": "ul. Hezjoda 15",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "email": "sekretariat@sp1.poznan.pl",
+        "kolejnosc": "4",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- boisko do piłki nożnej 38x60 m<\/p><p>- boisko wielofunkcyjne do piłki ręcznej, koszykówki i siatkówki 26x14 m (poliuretan)<\/p><p>- 4 torowa bieżnia ze skocznią w dal (poliuretan)<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.839193475161295,
+          52.3892080901788
+        ],
+        "type": "Point"
+      },
+      "id": 66202,
+      "type": "Feature",
+      "properties": {
+        "kod": "60-176",
+        "nazwa": "XXXVIII Dwujęzyczne Liceum Ogólnokształcące",
+        "url": "www.liceum38.poznan.pl",
+        "url2":"qjIVDD7mx1T7NgKe3QaN",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 868 04 32",
+        "adres": "ul. Małoszyńska 38",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "email": "sekretariat@liceum38.poznan.pl",
+        "kolejnosc": "115",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- boisko do koszykówki 28x15 m (poliuretan)<\/p><p>- boisko wielofunkcyjne do piłki ręcznej, siatkówki i tenisa 36x19 m (poliuretan)<\/p><p>- bieżnia 4 torowa (poliuretan)<\/p><p>- skocznia w dal (poliuretan)<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.927334525038404,
+          52.42377795509331
+        ],
+        "type": "Point"
+      },
+      "id": 66222,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-663",
+        "nazwa": "Zespół Szkół Zawodowych nr 2",
+        "url": "www.zsz2.poznan.pl",
+        "url2":"qqvjgejcjGL4YIWty9bJ",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 820 09 92",
+        "adres": "ul. Żniwna 1",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "email": "sekretariat@zsz2.poznan.pl",
+        "kolejnosc": "131",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p><strong>Baza sportowa:<\/strong><\/p><p>- boisko do piłki ręcznej i tenisa 40x20 m<\/p><p>- boisko do koszykówki 15x29 m<\/p><p>- boisko do siatkówki 12x23 m<\/p>..."
+      }
+    },
+    {
+      "geometry": {
+        "coordinates": [
+          16.929499757975247,
+          52.46150686792682
+        ],
+        "type": "Point"
+      },
+      "id": 69087,
+      "type": "Feature",
+      "properties": {
+        "kod": "61-614",
+        "nazwa": "Szkoła Podstawowa nr 93 (Zespół Szkolno-Przedszkolny nr 9)",
+        "url": "www.zsp9-poznan.pl",
+        "url2":"rOUzwf1Wh9ULUcvCXOFb",
+        "opis_klasy": "Szkolne obiekty sportowe",
+        "telefon": "61 102 13 74",
+        "adres": "ul. Umultowska 114",
+        "miasto": "Poznań",
+        "lang": "pl",
+        "email": "sekretariat@zsp9-poznan.pl",
+        "kolejnosc": "75",
+        "grafika": "",
+        "id_klasy": "331",
+        "opis": "<p>- sala gimnastyczna<\/p><p>- dwa boiska sportowe<\/p><p>- bieżnia ze skocznią w dal<\/p>..."
+      }
+    }
+  ],
+  "crs": {
+    "type": "EPSG",
+    "properties": {
+      "code": "4326"
+    }
+  },
+  "klasa": {
+    "opis_klasy": "Szkolne obiekty sportowe",
+    "atrybuty_klasy": [
+      {
+        "typ": "varchar2(250)",
+        "nazwa": "y_460_baza_sportowa",
+        "opis": "Baza sportowa"
+      }
+    ],
+    "id_klasy": "331"
+  },
+  "type": "FeatureCollection"
+}

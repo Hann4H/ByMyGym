@@ -63,8 +63,9 @@ export default function gymForm() {
 							changingRooms: values.changingRooms,
 							id: ref.id,
 							gymOwner: userUID,
+							accepted: false,
 
-							gymURL: values.gymURL,
+							// gymURL: values.gymURL,
 							gymPhone: values.gymPhone,
 							gymEmail: values.gymEmail,
 							gymDescription: values.gymDescription,
@@ -73,7 +74,7 @@ export default function gymForm() {
 						})
 						.then(() => {
 							alert("Sala została dodana");
-							window.location.href = "/";
+							window.location.href = "/profile";
 						});
 				});
 		}
@@ -267,7 +268,7 @@ export default function gymForm() {
 						</div>
 					</div>
 					{/* ************************************************************************* */}
-					<div className="container-2">
+					{/* <div className="container-2">
 						<label>URL</label>
 						<div className="input-n-error">
 							<input
@@ -283,7 +284,7 @@ export default function gymForm() {
 								<p className="help">{errors.gymURL}</p>
 							)}
 						</div>
-					</div>
+					</div> */}
 
 					<div className="container-2">
 						<label>Telefon</label>
