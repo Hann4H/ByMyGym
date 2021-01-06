@@ -1980,8 +1980,9 @@ input:-webkit-autofill:active {
   width: 10%;
   max-width: 400px;
   z-index: 10;
+  color: var(--mainWhite);
 }
 
 .btn-goTo a {
-  color: #222222;
+  color: var(--mainWhite);
 }

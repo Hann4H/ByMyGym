@@ -54,7 +54,7 @@ export default function Maps() {
   }, []);
 
   if (loadError) return "Error";
-  if (!isLoaded) return "Loading...";
+  if (!isLoaded) return "Ładowanie...";
 
   
 
@@ -126,7 +126,7 @@ function Locate({ panTo }) {
           () => null
         );
       }}
-    >Locate me
+    >Znajdź
     </button>
   );
 }
@@ -169,7 +169,7 @@ function Search({ panTo }) {
           value={value}
           onChange={handleInput}
           disabled={!ready}
-          placeholder="Search your location"
+          placeholder="Wpisz swoją lokalizację"
         />
         <ComboboxPopover>
           <ComboboxList>
