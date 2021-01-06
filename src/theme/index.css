@@ -1961,7 +1961,7 @@ input:-webkit-autofill:active {
 
 .SearchMapBox {
   position: relative;
-  top: -45rem;
+  top: 4rem;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
@@ -1973,4 +1973,19 @@ input:-webkit-autofill:active {
   padding: 0.5rem;
   font-size: 1.5rem;
   width: 100%;
+}
+
+
+.locate {
+  position: relative;
+  top: 7.5rem;
+  left: 90%;
+  transform: translateX(-50%);
+  width: 10%;
+  max-width: 400px;
+  z-index: 10;
+}
+
+.btn-goTo a {
+  color: #222222;
 }
