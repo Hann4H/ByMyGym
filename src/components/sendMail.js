@@ -7,8 +7,8 @@ nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 587,
     auth: {
-      user: process.env.REACT_APP_ADMIN_EMAIL,
-      pass: process.env.REACT_APP_ADMIN_PASS
+      user: "bemygym@gmail.com",
+      pass: "BeMyGym123!"
     }
   });
 
