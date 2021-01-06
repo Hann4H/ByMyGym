@@ -72,22 +72,14 @@ class Basic extends Component {
         const events = items.docs.map((doc) => {
           return { docId: doc.id, ...doc.data() };
         });
-
         const user = localStorage.getItem("user");
         this.setState({ user });
-        console.log("PYK PYK " + user);
-
         const eventsData = JSON.stringify(events, null, 4);
         this.setState((events) => ({
           DemoData: {
             events: JSON.parse(eventsData),
           },
         }));
-
-        // console.log(
-        //   "Show booking items3!!!: " +
-        //     JSON.stringify(this.state.DemoData.events, null, 4)
-        // );
       });
   }
 
@@ -152,7 +144,7 @@ class Basic extends Component {
     let startDate = new Date(start);
 
     if (startDate < today) {
-      alert("Początkowa data nie może być dzisiaj lub z przeszłości!");
+      alert("Początkowa data nie może być z przeszłości!");
     } else {
       if (
         window.confirm(

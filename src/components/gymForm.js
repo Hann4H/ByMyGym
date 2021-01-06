@@ -74,7 +74,7 @@ export default function gymForm() {
 						})
 						.then(() => {
 							alert("Sala została dodana");
-							window.location.href = "/";
+							window.location.href = "/profile";
 						});
 				});
 		}

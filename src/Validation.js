@@ -19,7 +19,7 @@ class ValidateFields {
 		if (validator.isEmpty(email)) {
 			return "Email jest wymagany";
 		} else if (!validator.isEmail(email)) {
-			return "Niepoprawny Email";
+			return "Niepoprawny e-mail";
 		}
 		return false;
 	}
@@ -175,7 +175,7 @@ class ValidateFields {
 		if (validator.isEmpty(gymEmail)) {
 			return "Email jest wymagany";
 		} else if (!validator.isEmail(gymEmail)) {
-			return "Niepoprawny Email";
+			return "Niepoprawny e-mail";
 		}
 		return false;
 	}
