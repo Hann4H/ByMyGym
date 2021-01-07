@@ -65,6 +65,8 @@ class Basic extends Component {
   }
 
   componentDidMount() {
+    let today = new Date()
+    
     db.collection("reservation")
       .where("gym_id", "==", this.props.gym_id)
       .get()
@@ -142,58 +144,119 @@ class Basic extends Component {
   newEvent = (schedulerData, slotId, slotName, start, end, type, item) => {
     let today = new Date();
     let startDate = new Date(start);
+    let endDate = new Date(end);
 
     if (startDate < today) {
       alert("Początkowa data nie może być z przeszłości!");
     } else {
-      if (
-        window.confirm(
-          `Chcesz zarezerwować termin / czas? \nOd ${start} do ${end}`
-        )
-      ) {
-        let newFreshId = 0;
-        schedulerData.events.forEach((item) => {
-          if (item.id >= newFreshId) newFreshId = item.id + 1;
-        });
-
-        let newEvent = {
-          id: newFreshId,
-          title: "Do akceptacji",
-          start: start,
-          end: end,
-          resourceId: slotId,
-          bgColor: "#FFD700",
-        };
-
-        schedulerData.addEvent(newEvent);
-        this.setState({
-          viewModel: schedulerData,
-        });
-
-        db.collection("reservation")
-          .add({
-            id: newEvent.id,
-            title: "Do akceptacji",
-            start: newEvent.start,
-            end: newEvent.end,
-            resourceId: newEvent.resourceId,
-            bgColor: "#FFD700",
-            movable: false,
-            resizable: false,
-            gym_id: this.props.gym_id,
-            reservation_date: new Date().toISOString(),
-            name: this.state.name.value,
-            surname: this.state.surname.value,
-            email: this.state.email.value,
-            phoneNumber: this.state.phoneNumber.value,
-            user_id: this.state.user,
-            scored: null,
-          })
-          .then(() => {
-            window.location.reload();
-            window.location.replace("http://localhost:3000/finishReservation");
+      if(startDate.getDate() + "." + startDate.getMonth()+1 + "." + startDate.getFullYear() == endDate.getDate() + "." + endDate.getMonth()+1 + "." + endDate.getFullYear()) {
+        console.log("ten sam dzień")
+        if (
+          window.confirm(
+            `Chcesz zarezerwować termin / czas? \nOd ${start} do ${end}`
+          )
+        ) {
+          let newFreshId = 0;
+          schedulerData.events.forEach((item) => {
+            if (item.id >= newFreshId) newFreshId = item.id + 1;
           });
+  
+          let newEvent = {
+            id: newFreshId,
+            title: "Do akceptacji",
+            start: start,
+            end: end,
+            resourceId: slotId,
+            bgColor: "#FFD700",
+          };
+  
+          schedulerData.addEvent(newEvent);
+          this.setState({
+            viewModel: schedulerData,
+          });
+  
+          db.collection("reservation")
+            .add({
+              id: newEvent.id,
+              title: "Do akceptacji",
+              start: newEvent.start,
+              end: newEvent.end,
+              resourceId: newEvent.resourceId,
+              bgColor: "#FFD700",
+              movable: false,
+              resizable: false,
+              gym_id: this.props.gym_id,
+              reservation_date: new Date().toISOString(),
+              name: this.state.name.value,
+              surname: this.state.surname.value,
+              email: this.state.email.value,
+              phoneNumber: this.state.phoneNumber.value,
+              user_id: this.state.user,
+              scored: null,
+            })
+            .then(() => {
+              window.location.reload();
+              window.location.replace("http://localhost:3000/finishReservation");
+            });
+        }
+      } else {
+        console.log("nie ten sam dzień")
+        if (
+          window.confirm(
+            `Chcesz zarezerwować termin / czas? \nOd ${start} do ${end}`
+          )
+        ) {
+          let newFreshId = 0;
+          schedulerData.events.forEach((item) => {
+            if (item.id >= newFreshId) newFreshId = item.id + 1;
+          });
+  
+          let newEvent = {
+            id: newFreshId,
+            title: "Do akceptacji",
+            start: start,
+            end: end,
+            resourceId: slotId,
+            bgColor: "#FFD700",
+          };
+  
+          schedulerData.addEvent(newEvent);
+          this.setState({
+            viewModel: schedulerData,
+          });
+  
+          db.collection("reservation")
+            .add({
+              id: newEvent.id,
+              title: "Do akceptacji",
+              start: newEvent.start,
+              end: newEvent.end,
+              resourceId: newEvent.resourceId,
+              bgColor: "#FFD700",
+              movable: false,
+              resizable: false,
+              gym_id: this.props.gym_id,
+              reservation_date: new Date().toISOString(),
+              name: this.state.name.value,
+              surname: this.state.surname.value,
+              email: this.state.email.value,
+              phoneNumber: this.state.phoneNumber.value,
+              user_id: this.state.user,
+              scored: null,
+            })
+            .then(() => {
+              window.location.reload();
+              window.location.replace("http://localhost:3000/finishReservation");
+            });
+        }
       }
+
+      
+
+
+
+
+
     }
   };
 

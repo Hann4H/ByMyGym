@@ -26,85 +26,87 @@ class Profile extends Component {
 
     this.loadUserProfile();
 
-    firebase.firestore().collection("gyms").get().then((querySnapshot) => {
-      this.setState({loading: true});
-      querySnapshot.forEach(function (doc) {
-        Gyms.push({
-          docId: doc.id,
-          gymName: doc.data().gymName,
-          gymOwner: doc.data().gymOwner
+    if(localStorage.getItem("user")) {
+      firebase.firestore().collection("gyms").get().then((querySnapshot) => {
+        this.setState({loading: true});
+        querySnapshot.forEach(function (doc) {
+          Gyms.push({
+            docId: doc.id,
+            gymName: doc.data().gymName,
+            gymOwner: doc.data().gymOwner
+          });
+          
         });
-        
-      });
-      this.setState({ Gyms });
-
-    })
-    .catch(function (error) {
-      console.log("Error getting documents: ", error);
-    });
-    
-    if(localStorage.getItem("user") == process.env.REACT_APP_ADMIN_ID) {
-      firebase.firestore().collection("reservation")
-      .get()
-      .then((querySnapshot) => {  
-          querySnapshot.forEach(function (doc) {
-              Reservations.push({
-                start: doc.data().start,
-                end: doc.data().end,
-                gym_id: doc.data().gym_id,
-                scored: doc.data().scored,
-                bookingID: doc.id
-            })  
-          })
-          this.setState({ Reservations });
+        this.setState({ Gyms });
+  
       })
-      .catch(function(error) {
-          console.log("Error getting documents: ", error);
-      });
-
-    } else {
-      firebase.firestore().collection("reservation").where("user_id", "==", localStorage.getItem("user"))
-      .get()
-      .then((querySnapshot) => {  
-          querySnapshot.forEach(function (doc) {
-              Reservations.push({
-                start: doc.data().start,
-                end: doc.data().end,
-                gym_id: doc.data().gym_id,
-                scored: doc.data().scored,
-                bookingID: doc.id
-            })  
-          })
-
-          this.setState({ Reservations });
-      })
-      .catch(function(error) {
-          console.log("Error getting documents: ", error);
-      });
-    }
-
-    
-
-
-    firebase.firestore().collection("favourites").doc(localStorage.getItem("user"))
-    .get()
-    .then((querySnapshot) => {  
-        this.setState({ Favourites : this.state.Favourites.concat(querySnapshot.data().favourites)});
-        console.log(this.state.Favourites)
-    })
-    .catch(function(error) {
+      .catch(function (error) {
         console.log("Error getting documents: ", error);
-    });
-
-
-    firebase.firestore().collection("users").where("email", "==", localStorage.getItem("email"))
-    .get()
-    .then((snapshot) => {
-        snapshot.forEach(doc => {
-          this.setState({name: doc.data().firstName + " " + doc.data().surname})
+      });
+      
+      if(localStorage.getItem("user") == process.env.REACT_APP_ADMIN_ID) {
+        firebase.firestore().collection("reservation")
+        .get()
+        .then((querySnapshot) => {  
+            querySnapshot.forEach(function (doc) {
+                Reservations.push({
+                  start: doc.data().start,
+                  end: doc.data().end,
+                  gym_id: doc.data().gym_id,
+                  scored: doc.data().scored,
+                  bookingID: doc.id
+              })  
+            })
+            this.setState({ Reservations });
         })
-    })
-
+        .catch(function(error) {
+            console.log("Error getting documents: ", error);
+        });
+  
+      } else {
+        firebase.firestore().collection("reservation").where("user_id", "==", localStorage.getItem("user"))
+        .get()
+        .then((querySnapshot) => {  
+            querySnapshot.forEach(function (doc) {
+                Reservations.push({
+                  start: doc.data().start,
+                  end: doc.data().end,
+                  gym_id: doc.data().gym_id,
+                  scored: doc.data().scored,
+                  bookingID: doc.id
+              })  
+            })
+  
+            this.setState({ Reservations });
+        })
+        .catch(function(error) {
+            console.log("Error getting documents: ", error);
+        });
+      }
+  
+      
+  
+  
+      firebase.firestore().collection("favourites").doc(localStorage.getItem("user"))
+      .get()
+      .then((querySnapshot) => {  
+          this.setState({ Favourites : this.state.Favourites.concat(querySnapshot.data().favourites)});
+          console.log(this.state.Favourites)
+      })
+      .catch(function(error) {
+          console.log("Error getting documents: ", error);
+      });
+  
+  
+      firebase.firestore().collection("users").where("email", "==", localStorage.getItem("email"))
+      .get()
+      .then((snapshot) => {
+          snapshot.forEach(doc => {
+            this.setState({name: doc.data().firstName + " " + doc.data().surname})
+          })
+      })
+  
+    }
 
   }
 
@@ -124,7 +126,7 @@ class Profile extends Component {
 
   render() {
     let { user } = this.state;
-    if (!user) {
+    if (!localStorage.getItem("user")) {
       return (
         <Redirect to="/login" />
       )
@@ -171,7 +173,7 @@ class Profile extends Component {
                         <Link to={`/gym_profile/${res.gym_id}`}><td>{filteredName.gymName}</td></Link>
                         <td>Od: {res.start}</td>
                         <td>Do: {res.end}</td>
-                        <button className="profile-bookings-change-button">ZMIEŃ</button>
+                        {/* <button className="profile-bookings-change-button">ZMIEŃ</button> */}
                         {!(localStorage.getItem("user") == process.env.REACT_APP_ADMIN_ID) ? (
                           <StarRatings gymID={res.gym_id} bookingID={res.bookingID}/>
                         ) : "" }
