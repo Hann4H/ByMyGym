@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { validateFields } from "../../Validation";
 import classnames from "classnames";
+import PopUp from "../PopUp";
 import Scheduler, { SchedulerData, ViewTypes } from "./Scheduler";
 import { ConfigProvider, DatePicker } from "antd";
 import plPL from "antd/es/locale/pl_PL";
@@ -84,6 +85,20 @@ class Basic extends Component {
         }));
       });
   }
+
+  //***********/
+
+  // openPopUp = () => {
+  //   return (
+  //   <div className="modal">
+  //               <div className="modal_content">
+  //                   <span className="close">&times;    </span>
+  //                   <p>Całokształt: </p>
+  //                   {/* <StarRatings gymID={this.props.gymId} bookingID={this.props.bookingID}/> */}
+  //               </div>
+  //           </div>
+  //   )
+  // }
 
   //***********/
 
@@ -200,55 +215,50 @@ class Basic extends Component {
             });
         }
       } else {
-        console.log("nie ten sam dzień")
-        if (
-          window.confirm(
-            `Chcesz zarezerwować termin / czas? \nOd ${start} do ${end}`
-          )
-        ) {
-          let newFreshId = 0;
-          schedulerData.events.forEach((item) => {
-            if (item.id >= newFreshId) newFreshId = item.id + 1;
-          });
+
+          // let newFreshId = 0;
+          // schedulerData.events.forEach((item) => {
+          //   if (item.id >= newFreshId) newFreshId = item.id + 1;
+          // });
   
-          let newEvent = {
-            id: newFreshId,
-            title: "Do akceptacji",
-            start: start,
-            end: end,
-            resourceId: slotId,
-            bgColor: "#FFD700",
-          };
+          // let newEvent = {
+          //   id: newFreshId,
+          //   title: "Do akceptacji",
+          //   start: start,
+          //   end: end,
+          //   resourceId: slotId,
+          //   bgColor: "#FFD700",
+          // };
   
-          schedulerData.addEvent(newEvent);
-          this.setState({
-            viewModel: schedulerData,
-          });
+          // schedulerData.addEvent(newEvent);
+          // this.setState({
+          //   viewModel: schedulerData,
+          // });
   
-          db.collection("reservation")
-            .add({
-              id: newEvent.id,
-              title: "Do akceptacji",
-              start: newEvent.start,
-              end: newEvent.end,
-              resourceId: newEvent.resourceId,
-              bgColor: "#FFD700",
-              movable: false,
-              resizable: false,
-              gym_id: this.props.gym_id,
-              reservation_date: new Date().toISOString(),
-              name: this.state.name.value,
-              surname: this.state.surname.value,
-              email: this.state.email.value,
-              phoneNumber: this.state.phoneNumber.value,
-              user_id: this.state.user,
-              scored: null,
-            })
-            .then(() => {
-              window.location.reload();
-              window.location.replace("http://localhost:3000/finishReservation");
-            });
-        }
+          // db.collection("reservation")
+          //   .add({
+          //     id: newEvent.id,
+          //     title: "Do akceptacji",
+          //     start: newEvent.start,
+          //     end: newEvent.end,
+          //     resourceId: newEvent.resourceId,
+          //     bgColor: "#FFD700",
+          //     movable: false,
+          //     resizable: false,
+          //     gym_id: this.props.gym_id,
+          //     reservation_date: new Date().toISOString(),
+          //     name: this.state.name.value,
+          //     surname: this.state.surname.value,
+          //     email: this.state.email.value,
+          //     phoneNumber: this.state.phoneNumber.value,
+          //     user_id: this.state.user,
+          //     scored: null,
+          //   })
+          //   .then(() => {
+          //     window.location.reload();
+          //     window.location.replace("http://localhost:3000/finishReservation");
+          //   });
+        
       }
 
       
@@ -597,6 +607,7 @@ class Basic extends Component {
                   </button>
                   <br />
                   {allFieldsValidated && (
+                    <div>
                     <ConfigProvider locale={plPL}>
                       <Scheduler
                         schedulerData={viewModel}
@@ -620,6 +631,7 @@ class Basic extends Component {
                         toggleExpandFunc={this.toggleExpandFunc}
                       />
                     </ConfigProvider>
+                    </div>
                   )}
                   <br />
                   {/* TODO jeszcze to będę robić */}
@@ -629,6 +641,7 @@ class Basic extends Component {
                       onChange={this.onChangeRangePicker}
                     />
                   </ConfigProvider> */}
+                  
                 </form>
               {/* </ThemeProvider> */}
             {/* </Grid> */}
