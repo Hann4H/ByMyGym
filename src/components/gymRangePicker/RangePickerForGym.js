@@ -83,7 +83,10 @@ class RangePickerForGym extends Component {
 									],
 								}}
 								showTime
-								format="YYYY/MM/DD HH:mm:ss"
+								format="YYYY-MM-DD HH:mm"
+								minuteStep={30}
+								disabledHours={() => [0, 1, 2, 3, 4, 5, 23]}
+								hideDisabledOptions="true"
 								onChange={this.onChangeRangePicker}
 							/>
 						</Space>
