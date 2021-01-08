@@ -32,7 +32,8 @@ class Profile extends Component {
         Gyms.push({
           docId: doc.id,
           gymName: doc.data().gymName,
-          gymOwner: doc.data().gymOwner
+          gymOwner: doc.data().gymOwner,
+          gymStreet: doc.data().gymStreet
         });
         
       });
@@ -214,6 +215,7 @@ class Profile extends Component {
                     <tbody>
                       <tr className="profile-info">
                         <td className="headline-info">Moje sale</td>
+                        <Link to='/ownerManager'><button className="profile-gyms-accept-button">Pokaż listę</button></Link>
                       </tr>
                       </tbody>
                   </table>
@@ -225,6 +227,7 @@ class Profile extends Component {
                     <div className="profile-bookings">
                     {this.state.Gyms.filter(gym => gym.gymOwner == localStorage.getItem("user")).map(myGyms => (
                         <tr><Link to={`/gym_profile/${myGyms.docId}`}><td>{myGyms.gymName}</td></Link>
+                        <td>{myGyms.gymStreet}</td>
                         <Link to='/reservations'><button className="profile-gyms-accept-button">Rezerwacje</button></Link></tr>
                       ))
                     }
