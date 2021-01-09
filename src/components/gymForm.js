@@ -18,12 +18,8 @@ export default function gymForm() {
 	console.log(imageAsFile);
 
 	const handleImageAsFile = (e) => {
-		// const image = e.target.files[0];
-		// setImageAsFile((imageFile) => image);
 		for (let i = 0; i < e.target.files.length; i++) {
 			const image = e.target.files[i];
-			// newFile["id"] = Math.random();
-		 // add an "id" property to each File object
 			setImageAsFile(prevState => [...prevState, image]);
 		}
 	};
@@ -78,11 +74,11 @@ export default function gymForm() {
 						.then(() => {
 							imageAsFile.forEach(img => {
 								const uploadTask = 
-								 storage.ref().child(`/photos/${ref.id}/${img.name}`).put(img);
-								   promises.push(uploadTask);
-								   uploadTask.then((uploadTaskSnapshot) => {
-									   return uploadTaskSnapshot.ref.getDownloadURL();
-								   }).then((pic) => {
+								storage.ref().child(`/photos/${doc.id}/${img.name}`).put(img);
+									promises.push(uploadTask);
+									uploadTask.then((uploadTaskSnapshot) => {
+										return uploadTaskSnapshot.ref.getDownloadURL();
+									}).then((pic) => {
 										const addPics = db.collection("gyms").doc(doc.id)
 										promises.push(addPics);
 										addPics.update({gymPhoto: firebase.firestore.FieldValue.arrayUnion(pic)});
