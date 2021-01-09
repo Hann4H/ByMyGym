@@ -43,8 +43,6 @@ export default function gymForm() {
 		console.log(validated(values));
 
 		if (validated(values)) {
-			const promises = [];
-			const downloadURLs = [];
 			var doc = db.collection("gyms").doc();
 			doc.set({
 			// db.collection("gyms")
@@ -72,22 +70,29 @@ export default function gymForm() {
 							// gymLng: values.gymLng
 						})
 						.then(() => {
+							const promises = [];
+
 							imageAsFile.forEach(img => {
-								const uploadTask = 
-								storage.ref().child(`/photos/${doc.id}/${img.name}`).put(img);
-									promises.push(uploadTask);
-									uploadTask.then((uploadTaskSnapshot) => {
-										return uploadTaskSnapshot.ref.getDownloadURL();
-									}).then((pic) => {
-										const addPics = db.collection("gyms").doc(doc.id)
-										promises.push(addPics);
-										addPics.update({gymPhoto: firebase.firestore.FieldValue.arrayUnion(pic)});
-									})
+								const uploadTask = storage.ref().child(`/photos/${doc.id}/${img.name}`).put(img);
+								promises.push(uploadTask);
 							});
-							Promise.all(promises).then(() => {
-								alert("Sala została dodana");
-								window.location.href = "/profile";
-							})
+							
+							Promise.all(promises)
+								.then(uploadTaskSnapshotsArray => {
+									const promises = [];
+									uploadTaskSnapshotsArray.forEach(uploadTaskSnapshot => {
+										promises.push(uploadTaskSnapshot.ref.getDownloadURL());
+									});
+							
+									return Promise.all(promises);
+								})
+								.then(urlsArray => {
+									const docRef = db.collection("gyms").doc(doc.id);
+									return docRef.update({ gymPhoto: firebase.firestore.FieldValue.arrayUnion(...urlsArray) });
+								}).then(() => {
+									alert("Sala została dodana");
+									window.location.href = "/profile";
+								})
 						});
 		}
 	};
