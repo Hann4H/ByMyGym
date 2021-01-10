@@ -15,12 +15,12 @@ export default function gymForm() {
 	const [errors, setErrors] = useState({});
 	const [imageAsFile, setImageAsFile] = useState([]);
 	const [userUID, setUserUID] = useState("");
-	console.log(imageAsFile);
+	console.log("imageAsFile: ", imageAsFile);
 
 	const handleImageAsFile = (e) => {
 		for (let i = 0; i < e.target.files.length; i++) {
 			const image = e.target.files[i];
-			setImageAsFile(prevState => [...prevState, image]);
+			setImageAsFile((prevState) => [...prevState, image]);
 		}
 	};
 
@@ -42,58 +42,69 @@ export default function gymForm() {
 		setErrors(validate(values));
 		console.log(validated(values));
 
-		if (validated(values)) {
+		if (validated(values) && imageAsFile.length) {
 			var doc = db.collection("gyms").doc();
 			doc.set({
-			// db.collection("gyms")
-						// .add({
-							gymName: values.gymName,
-							gymStreet: values.gymStreet,
-							gymCity: values.gymCity,
-							gymZip: values.gymZip,
-							gymPhoto: [],
-							gymHeight: values.gymHeight,
-							gymWidth: values.gymWidth,
-							gymLength: values.gymLength,
-							gymPrice: values.gymPrice,
-							audience: values.audience,
-							changingRooms: values.changingRooms,
-							id: ref.id,
-							gymOwner: userUID,
-							accepted: false,
+				// db.collection("gyms")
+				// .add({
+				gymName: values.gymName,
+				gymStreet: values.gymStreet,
+				gymCity: values.gymCity,
+				gymZip: values.gymZip,
+				gymPhoto: [],
+				gymHeight: Number(values.gymHeight),
+				gymWidth: Number(values.gymWidth),
+				gymLength: Number(values.gymLength),
+				gymPrice: Number(values.gymPrice),
+				audience: Number(values.audience),
+				changingRooms: Number(values.changingRooms),
+				id: ref.id,
+				gymOwner: userUID,
+				accepted: false,
 
-							// gymURL: values.gymURL,
-							gymPhone: values.gymPhone,
-							gymEmail: values.gymEmail,
-							gymDescription: values.gymDescription,
-							// gymLat: values.gymLat,
-							// gymLng: values.gymLng
-						})
-						.then(() => {
-							const promises = [];
+				// gymURL: values.gymURL,
+				gymPhone: values.gymPhone,
+				gymEmail: values.gymEmail,
+				gymDescription: values.gymDescription,
+				// gymLat: values.gymLat,
+				// gymLng: values.gymLng
+			}).then(() => {
+				const promises = [];
 
-							imageAsFile.forEach(img => {
-								const uploadTask = storage.ref().child(`/photos/${doc.id}/${img.name}`).put(img);
-								promises.push(uploadTask);
-							});
-							
-							Promise.all(promises)
-								.then(uploadTaskSnapshotsArray => {
-									const promises = [];
-									uploadTaskSnapshotsArray.forEach(uploadTaskSnapshot => {
-										promises.push(uploadTaskSnapshot.ref.getDownloadURL());
-									});
-							
-									return Promise.all(promises);
-								})
-								.then(urlsArray => {
-									const docRef = db.collection("gyms").doc(doc.id);
-									return docRef.update({ gymPhoto: firebase.firestore.FieldValue.arrayUnion(...urlsArray) });
-								}).then(() => {
-									alert("Sala została dodana");
-									window.location.href = "/profile";
-								})
+				imageAsFile.forEach((img) => {
+					const uploadTask = storage
+						.ref()
+						.child(`/photos/${doc.id}/${img.name}`)
+						.put(img);
+					promises.push(uploadTask);
+				});
+
+				Promise.all(promises)
+					.then((uploadTaskSnapshotsArray) => {
+						const promises = [];
+						uploadTaskSnapshotsArray.forEach(
+							(uploadTaskSnapshot) => {
+								promises.push(
+									uploadTaskSnapshot.ref.getDownloadURL()
+								);
+							}
+						);
+
+						return Promise.all(promises);
+					})
+					.then((urlsArray) => {
+						const docRef = db.collection("gyms").doc(doc.id);
+						return docRef.update({
+							gymPhoto: firebase.firestore.FieldValue.arrayUnion(
+								...urlsArray
+							),
 						});
+					})
+					.then(() => {
+						alert("Sala została dodana");
+						window.location.href = "/profile";
+					});
+			});
 		}
 	};
 
@@ -365,6 +376,13 @@ export default function gymForm() {
 					></input>
 					{errors.gymPhoto && (
 						<p className="help">{errors.gymPhoto}</p>
+					)}
+					{imageAsFile.length ? (
+						""
+					) : (
+						<p style={{ color: "#D83B0B", font: "10px Lato" }}>
+							Zdjęcie jest wymagane
+						</p>
 					)}
 				</div>
 

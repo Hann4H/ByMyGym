@@ -72,31 +72,43 @@ class Filters extends Component {
 		if (this.state.gymPriceFrom != "" || this.state.gymPriceTo != "") {
 			flt = flt.orderBy("gymPrice");
 			if (this.state.gymPriceFrom != "") {
-				flt = flt.where("gymPrice", ">=", this.state.gymPriceFrom);
+				flt = flt.where(
+					"gymPrice",
+					">=",
+					Number(this.state.gymPriceFrom)
+				);
 			}
 			if (this.state.gymPriceTo != "") {
-				flt = flt.where("gymPrice", "<=", this.state.gymPriceTo);
+				flt = flt.where(
+					"gymPrice",
+					"<=",
+					Number(this.state.gymPriceTo)
+				);
 			}
 		}
 
 		if (this.state.gymHeightM != "") {
-			flt = flt.where("gymHeight", "==", this.state.gymHeightM);
+			flt = flt.where("gymHeight", "==", Number(this.state.gymHeightM));
 		}
 
 		if (this.state.gymWidthM != "") {
-			flt = flt.where("gymWidth", "==", this.state.gymWidthM);
+			flt = flt.where("gymWidth", "==", Number(this.state.gymWidthM));
 		}
 
 		if (this.state.gymLengthM != "") {
-			flt = flt.where("gymLength", "==", this.state.gymLengthM);
+			flt = flt.where("gymLength", "==", Number(this.state.gymLengthM));
 		}
 
 		if (this.state.audienceN != "") {
-			flt = flt.where("audience", "==", this.state.audienceN);
+			flt = flt.where("audience", "==", Number(this.state.audienceN));
 		}
 
 		if (this.state.changingRoomsN != "") {
-			flt = flt.where("changingRooms", "==", this.state.changingRoomsN);
+			flt = flt.where(
+				"changingRooms",
+				"==",
+				Number(this.state.changingRoomsN)
+			);
 		}
 
 		flt.get().then((snapshot) => {
