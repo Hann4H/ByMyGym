@@ -1067,6 +1067,12 @@ ul.unstyled {
   height: 20px;
 }
 
+.profile-bookings-p {
+  font-weight: bold;
+  font-size: 10px;
+  top: 20px;
+}
+
 
 @media screen and (max-width: 700px) {
   .profile-gym-button {

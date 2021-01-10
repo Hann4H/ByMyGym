@@ -176,8 +176,10 @@ class Profile extends Component {
                         <td>Od: {res.start}</td>
                         <td>Do: {res.end}</td>
                         {/* <button className="profile-bookings-change-button">ZMIEŃ</button> */}
-                        <p style={res.status === "Zarezerwowane" ? { color: "#90EE90" } : { color: "#FFD700" }}>{res.status}</p>
-                        {!(localStorage.getItem("user") == process.env.REACT_APP_ADMIN_ID) ? (
+                        <p className="profile-bookings-p" style={res.status === "Zarezerwowane" ? { color: "#90EE90" } : { color: "#FFD700" }}>{res.status}</p>
+                        {!(localStorage.getItem("user") == process.env.REACT_APP_ADMIN_ID)
+                          // && (res.start < timeNow) && (res.status === "Zarezerwowane") 
+                          ? (
                           <StarRatings gymID={res.gym_id} bookingID={res.bookingID}/>
                         ) : "" }
                       </tr>
@@ -230,7 +232,8 @@ class Profile extends Component {
                     <div className="profile-bookings">
                     {this.state.Gyms.filter(gym => gym.gymOwner == localStorage.getItem("user")).map(myGyms => (
                         <tr><Link to={`/gym_profile/${myGyms.docId}`}><td>{myGyms.gymName}</td></Link>
-                        <Link to='/reservations'><button className="profile-gyms-accept-button">Rezerwacje</button></Link></tr>
+                        {/* <Link to='/reservations'><button className="profile-gyms-accept-button">Rezerwacje</button></Link> */}
+                        </tr>
                       ))
                     }
                     </div>
