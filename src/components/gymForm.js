@@ -6,19 +6,22 @@ import Modal from "react-modal";
 import InputMask from "react-input-mask";
 import validate from "./FormValidationRules";
 import validated from "./Validated";
+import { add } from "date-fns";
 
 Modal.setAppElement("#root");
 
 export default function gymForm() {
 	const [values, setValues] = useState({});
 	const [errors, setErrors] = useState({});
-	const [imageAsFile, setImageAsFile] = useState("");
+	const [imageAsFile, setImageAsFile] = useState([]);
 	const [userUID, setUserUID] = useState("");
 	console.log(imageAsFile);
 
 	const handleImageAsFile = (e) => {
-		const image = e.target.files[0];
-		setImageAsFile((imageFile) => image);
+		for (let i = 0; i < e.target.files.length; i++) {
+			const image = e.target.files[i];
+			setImageAsFile(prevState => [...prevState, image]);
+		}
 	};
 
 	firebase.auth().onAuthStateChanged(function (user) {
@@ -40,21 +43,15 @@ export default function gymForm() {
 		console.log(validated(values));
 
 		if (validated(values)) {
-			const uploadTask = storage
-				.ref(`/photos/${imageAsFile.name}`)
-				.put(imageAsFile);
-			uploadTask
-				.then((uploadTaskSnapshot) => {
-					return uploadTaskSnapshot.ref.getDownloadURL();
-				})
-				.then((gymPhoto) => {
-					db.collection("gyms")
-						.add({
+			var doc = db.collection("gyms").doc();
+			doc.set({
+			// db.collection("gyms")
+						// .add({
 							gymName: values.gymName,
 							gymStreet: values.gymStreet,
 							gymCity: values.gymCity,
 							gymZip: values.gymZip,
-							gymPhoto: [gymPhoto],
+							gymPhoto: [],
 							gymHeight: values.gymHeight,
 							gymWidth: values.gymWidth,
 							gymLength: values.gymLength,
@@ -73,10 +70,30 @@ export default function gymForm() {
 							// gymLng: values.gymLng
 						})
 						.then(() => {
-							alert("Sala została dodana");
-							window.location.href = "/profile";
+							const promises = [];
+
+							imageAsFile.forEach(img => {
+								const uploadTask = storage.ref().child(`/photos/${doc.id}/${img.name}`).put(img);
+								promises.push(uploadTask);
+							});
+							
+							Promise.all(promises)
+								.then(uploadTaskSnapshotsArray => {
+									const promises = [];
+									uploadTaskSnapshotsArray.forEach(uploadTaskSnapshot => {
+										promises.push(uploadTaskSnapshot.ref.getDownloadURL());
+									});
+							
+									return Promise.all(promises);
+								})
+								.then(urlsArray => {
+									const docRef = db.collection("gyms").doc(doc.id);
+									return docRef.update({ gymPhoto: firebase.firestore.FieldValue.arrayUnion(...urlsArray) });
+								}).then(() => {
+									alert("Sala została dodana");
+									window.location.href = "/profile";
+								})
 						});
-				});
 		}
 	};
 

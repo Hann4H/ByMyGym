@@ -32,7 +32,7 @@ class GymItem extends Component {
 							{this.props.gym.gymPhoto ? (
 								<img
 									id="myimg"
-									src={this.props.gym.gymPhoto}
+									src={this.props.gym.gymPhoto[0]}
 									alt="gym"
 								/>
 							) : (

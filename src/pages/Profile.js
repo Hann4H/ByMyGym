@@ -5,6 +5,7 @@ import Loading from "../components/Loading";
 import StarRatings from "../components/StarRatings";
 
 var now = new Date();
+var timeNow = now.getFullYear()+"-"+now.getMonth()+1+"-"+now.getDate()+" "+now.getHours()+":"+now.getMinutes();
 
 class Profile extends Component {
   state = {
@@ -57,6 +58,7 @@ class Profile extends Component {
             })  
           })
           this.setState({ Reservations });
+          
       })
       .catch(function(error) {
           console.log("Error getting documents: ", error);
@@ -165,7 +167,7 @@ class Profile extends Component {
                   {this.state.loading ? null : <Loading />}
                 </div>
                 <div className="profile-bookings">
-                  {this.state.Reservations.map((res, index) => (
+                  {this.state.Reservations.filter(reserv => timeNow < reserv.end).map((res, index) => (
                     this.state.Gyms.filter(gym => gym.docId == res.gym_id).map(filteredName => (
                       <tr>
                         <Link to={`/gym_profile/${res.gym_id}`}><td>{filteredName.gymName}</td></Link>
