@@ -83,6 +83,7 @@
     "react-search": "^2.1.1",
     "react-select": "^3.1.0",
     "react-simple-image-slider": "^1.0.3",
+    "react-tabs": "^3.1.2",
     "react-timeslot-calendar": "^0.2.0",
     "reactjs-popup": "^1.5.0",
     "redux": "^4.0.5",
