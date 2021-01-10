@@ -806,6 +806,7 @@
   margin-left: 1%;
 }
 
+
 label {
   line-height: 1;
   margin-right: 10px;
@@ -916,8 +917,7 @@ button {
 }
 
 .form_button {
-  margin-left: 20rem;
-  transform: translate(20%, -190%);
+  transform: translate(160%, -200%);
   color: var(--mainWhite);
 }
 

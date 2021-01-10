@@ -8,6 +8,7 @@ import validate from "./FormValidationRules";
 import validated from "./Validated";
 import { add } from "date-fns";
 import { validateFields } from "../Validation";
+import Loading from "./Loading";
 
 Modal.setAppElement("#root");
 
@@ -16,7 +17,7 @@ export default function gymForm() {
 	const [errors, setErrors] = useState({});
 	const [imageAsFile, setImageAsFile] = useState([]);
 	const [userUID, setUserUID] = useState("");
-	console.log("imageAsFile: ", imageAsFile);
+	const [text, setText] = useState("DODAJ");
 
 	const handleImageAsFile = (e) => {
 		for (let i = 0; i < e.target.files.length; i++) {
@@ -44,6 +45,7 @@ export default function gymForm() {
 		console.log(validated(values));
 
 		if (validated(values) && imageAsFile.length) {
+			setText("DODAWANIE...");
 			var doc = db.collection("gyms").doc();
 			doc.set({
 				// db.collection("gyms")
@@ -305,7 +307,6 @@ export default function gymForm() {
 								type="text"
 								value={values.gymURL || ""}
 								name="gymURL"
-								pattern="(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})"
 								min="1"
 								onChange={handleChange}
 							/>
@@ -368,7 +369,7 @@ export default function gymForm() {
 						</div>
 					</div>
 				</div>
-				<div id="gallery" style={{ marginLeft: "21.3%" }}>
+				<div id="gallery" style={{ marginLeft: "20.5%" }}>
 					<input
 						type="file"
 						multiple="multiple"
@@ -392,7 +393,11 @@ export default function gymForm() {
           <DragAndDrop id="img_url" onChange={handleImageAsFile} />
         </div> */}
 			</div>
-			<button className="form_button">DODAJ</button>
+			{/* <div className="gym-add-load">
+				{loading ? null : <Loading />}
+			</div> */}
+			<button  style={text === "DODAJ" ? { transform: "translate(280%, -200%)" } : { transform: "translate(160%, -200%)" }} className="form_button">{text}</button>       
 		</form>
+		
 	);
 }

@@ -62,7 +62,9 @@ export default function validate(values) {
     } else if (!validator.isMobilePhone(values.gymPhone, "pl-PL")) {
       errors.gymPhone = 'Numer jest nieprawidłowy';
     }
-    if (!/^$|^(https?:\/\/(?:www\.|(?!www)))?[a-zA-Z0-9][a-zA-Z0-9-]+\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,}$/.test(values.gymURL)) {
+    if (!values.gymURL) {
+      errors.gymURL = '';
+    } else if (!/^$|^(https?:\/\/(?:www\.|(?!www)))?[a-zA-Z0-9][a-zA-Z0-9-]+\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,}$/.test(values.gymURL)) {
       errors.gymURL = 'URL jest nieprawidłowy';
     }
     return errors;
