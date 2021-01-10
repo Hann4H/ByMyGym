@@ -102,7 +102,10 @@ class ValidateFields {
 	validateGymHeight(gymHeight) {
 		if (!gymHeight) {
 			return "Wysokość jest wymagana";
-		} else if (!/^(?=.*[1-9])[1-9]{1,3}(?:\.\d\d?)?$/.test(gymHeight) || gymHeight <= 0) {
+		} else if (
+			!/^(?=.*[1-9])[1-9]{1,3}(?:\.\d\d?)?$/.test(gymHeight) ||
+			gymHeight <= 0
+		) {
 			return "Liczba jest nieprawidłowa";
 		}
 		return false;
@@ -111,7 +114,10 @@ class ValidateFields {
 	validateGymWidth(gymWidth) {
 		if (!gymWidth) {
 			return "Szerokość jest wymagana";
-		} else if (!/^(?=.*[1-9])[1-9]{1,3}(?:\.\d\d?)?$/.test(gymWidth) || gymWidth <= 0) {
+		} else if (
+			!/^(?=.*[1-9])[1-9]{1,3}(?:\.\d\d?)?$/.test(gymWidth) ||
+			gymWidth <= 0
+		) {
 			return "Liczba jest nieprawidłowa";
 		}
 		return false;
@@ -120,7 +126,10 @@ class ValidateFields {
 	validateGymLength(gymLength) {
 		if (!gymLength) {
 			return "Długość jest wymagana";
-		} else if (!/^(?=.*[1-9])[1-9]{1,3}(?:\.\d\d?)?$/.test(gymLength) || gymLength <= 0) {
+		} else if (
+			!/^(?=.*[1-9])[1-9]{1,3}(?:\.\d\d?)?$/.test(gymLength) ||
+			gymLength <= 0
+		) {
 			return "Liczba jest nieprawidłowa";
 		}
 		return false;
@@ -129,7 +138,11 @@ class ValidateFields {
 	validateGymPrice(gymPrice) {
 		if (!gymPrice) {
 			return "Cena jest wymagana";
-		} else if (!/^(?=.*[1-9])[0-9]{1,}$/.test(gymPrice) || gymPrice <= 0) {
+			// } else if (!/^(?=.*[1-9])[0-9]{1,}$/.test(gymPrice) || gymPrice <= 0) {
+		} else if (
+			!validator.isCurrency(gymPrice.toString()) ||
+			gymPrice <= 0
+		) {
 			return "Cena wpisana w niepoprawnej postaci";
 		}
 		return false;
@@ -147,7 +160,10 @@ class ValidateFields {
 	validateChangingRooms(changingRooms) {
 		if (!changingRooms) {
 			return "Proszę wprowadzić ilość szatń";
-		} else if (!/^(?=.*[0-9])[0-9]{1,3}$/.test(changingRooms) || changingRooms < 0) {
+		} else if (
+			!/^(?=.*[0-9])[0-9]{1,3}$/.test(changingRooms) ||
+			changingRooms < 0
+		) {
 			return "Liczba jest nieprawidłowa";
 		}
 		return false;
