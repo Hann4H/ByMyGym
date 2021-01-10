@@ -138,7 +138,7 @@ class ValidateFields {
 	validateGymPrice(gymPrice) {
 		if (!gymPrice) {
 			return "Cena jest wymagana";
-		} else if (!/^\d{1,3}(?:[.,]\d{3})*(?:[.,]\d{2})?$/.test(values.gymPrice) || gymPrice <= 0) {
+		} else if (!/^\d{1,3}(?:[.,]\d{3})*(?:[.,]\d{2})?$/.test(gymPrice) || gymPrice <= 0) {
 			return "Cena wpisana w niepoprawnej postaci";
 		}
 		return false;
@@ -168,7 +168,7 @@ class ValidateFields {
 	validateGymURL(gymURL) {
 		if (!gymURL) {
 			return false;
-		} else if (!/^$|^(https?:\/\/(?:www\.|(?!www)))?[a-zA-Z0-9][a-zA-Z0-9-]+\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,}$/.test(values.gymURL)) {
+		} else if (!/^$|^(https?:\/\/(?:www\.|(?!www)))?[a-zA-Z0-9][a-zA-Z0-9-]+\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,}$/.test(gymURL)) {
 			return "URL jest wprowadzony w nieprawidłowym formacie";
 		}
 		return false;

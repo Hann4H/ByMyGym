@@ -44,27 +44,28 @@ class Profile extends Component {
       console.log("Error getting documents: ", error);
     });
     
-    if(localStorage.getItem("user") == process.env.REACT_APP_ADMIN_ID) {
-      firebase.firestore().collection("reservation")
-      .get()
-      .then((querySnapshot) => {  
-          querySnapshot.forEach(function (doc) {
-              Reservations.push({
-                start: doc.data().start,
-                end: doc.data().end,
-                gym_id: doc.data().gym_id,
-                scored: doc.data().scored,
-                bookingID: doc.id
-            })  
-          })
-          this.setState({ Reservations });
+    // if(localStorage.getItem("user") == process.env.REACT_APP_ADMIN_ID) {
+    //   firebase.firestore().collection("reservation")
+    //   .get()
+    //   .then((querySnapshot) => {  
+    //       querySnapshot.forEach(function (doc) {
+    //           Reservations.push({
+    //             start: doc.data().start,
+    //             end: doc.data().end,
+    //             gym_id: doc.data().gym_id,
+    //             scored: doc.data().scored,
+    //             status: doc.data().title,
+    //             bookingID: doc.id
+    //         })  
+    //       })
+    //       this.setState({ Reservations });
           
-      })
-      .catch(function(error) {
-          console.log("Error getting documents: ", error);
-      });
+    //   })
+    //   .catch(function(error) {
+    //       console.log("Error getting documents: ", error);
+    //   });
 
-    } else {
+    // } else {
       firebase.firestore().collection("reservation").where("user_id", "==", localStorage.getItem("user"))
       .get()
       .then((querySnapshot) => {  
@@ -74,6 +75,7 @@ class Profile extends Component {
                 end: doc.data().end,
                 gym_id: doc.data().gym_id,
                 scored: doc.data().scored,
+                status: doc.data().title,
                 bookingID: doc.id
             })  
           })
@@ -83,7 +85,7 @@ class Profile extends Component {
       .catch(function(error) {
           console.log("Error getting documents: ", error);
       });
-    }
+    // }
 
     
 
@@ -173,7 +175,8 @@ class Profile extends Component {
                         <Link to={`/gym_profile/${res.gym_id}`}><td>{filteredName.gymName}</td></Link>
                         <td>Od: {res.start}</td>
                         <td>Do: {res.end}</td>
-                        <button className="profile-bookings-change-button">ZMIEŃ</button>
+                        {/* <button className="profile-bookings-change-button">ZMIEŃ</button> */}
+                        <p style={res.status === "Zarezerwowane" ? { color: "#90EE90" } : { color: "#FFD700" }}>{res.status}</p>
                         {!(localStorage.getItem("user") == process.env.REACT_APP_ADMIN_ID) ? (
                           <StarRatings gymID={res.gym_id} bookingID={res.bookingID}/>
                         ) : "" }
