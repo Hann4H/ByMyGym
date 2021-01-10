@@ -14,6 +14,12 @@ const db = firebase.firestore();
 
 const { RangePicker } = DatePicker;
 
+const nameStyle = {
+	fontWeight: "bold",
+	color: "var(--darkOrange)",
+	textTransform: "none",
+};
+
 class RangePickerForGym extends Component {
 	constructor(props) {
 		super(props);
@@ -21,6 +27,7 @@ class RangePickerForGym extends Component {
 		this.onChangeRangePicker = this.onChangeRangePicker.bind(this);
 		this.handleWeekday = this.handleWeekday.bind(this);
 		this.newEvent = this.newEvent.bind(this);
+		this.disabledDate = this.disabledDate.bind(this);
 	}
 
 	onChangeRangePicker(dates, dateStrings) {
@@ -34,6 +41,11 @@ class RangePickerForGym extends Component {
 		console.log(weekday);
 		this.setState({ weekday });
 	};
+
+	disabledDate(current) {
+		// Can not select days before today and today
+		return current && current < moment().endOf("day");
+	}
 
 	newEvent = () => {
 		const { dates, dateStrings, weekday } = this.state;
@@ -137,6 +149,7 @@ class RangePickerForGym extends Component {
 		return (
 			<>
 				<div className="booking-field">
+					<label style={nameStyle}>Wybierz daty i czas:</label>
 					<ConfigProvider locale={plPL}>
 						<Space direction="vertical" size={12}>
 							{/* <RangePicker
@@ -160,13 +173,15 @@ class RangePickerForGym extends Component {
 								showTime
 								format="YYYY-MM-DD HH:mm"
 								minuteStep={30}
+								disabledDate={this.disabledDate}
 								disabledHours={() => [0, 1, 2, 3, 4, 5, 23]}
 								hideDisabledOptions="true"
 								onChange={this.onChangeRangePicker}
 							/>
 						</Space>
 					</ConfigProvider>
-					<br />
+					<p />
+					<label style={nameStyle}>Wybierz dzień/dni tygodnia:</label>
 					<Select
 						isMulti
 						theme={(theme) => ({
@@ -189,7 +204,10 @@ class RangePickerForGym extends Component {
 							{ value: "SU", label: "Niedziela" },
 						]}
 					/>
-					<button onClick={this.newEvent}>Zatwierdź</button>
+					<p style={{ height: 10 }} />
+					<button onClick={this.newEvent} style={{ color: "white" }}>
+						Zatwierdź
+					</button>
 				</div>
 			</>
 		);
