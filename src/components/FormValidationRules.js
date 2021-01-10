@@ -49,7 +49,7 @@ export default function validate(values) {
     }
     if (!values.gymPrice) {
       errors.gymPrice = 'Należy wprowadzić cenę';
-    } else if (!/^(?=.*[1-9])[0-9]{1,}$/.test(values.gymPrice) || values.gymPrice <= 0) {
+    } else if (!validator.isCurrency(gymPrice.toString())|| values.gymPrice <= 0) {
       errors.gymPrice = 'Cena jest nieprawidłowa';
     }
     if (!values.gymEmail) {
@@ -62,7 +62,7 @@ export default function validate(values) {
     } else if (!validator.isMobilePhone(values.gymPhone, "pl-PL")) {
       errors.gymPhone = 'Numer jest nieprawidłowy';
     }
-    if (!/^$|^https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,}$/.test(values.gymURL)) {
+    if (!/^$|^(https?:\/\/(?:www\.|(?!www)))?[a-zA-Z0-9][a-zA-Z0-9-]+\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,}$/.test(values.gymURL)) {
       errors.gymURL = 'URL jest nieprawidłowy';
     }
     return errors;

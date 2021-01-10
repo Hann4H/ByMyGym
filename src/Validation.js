@@ -129,7 +129,7 @@ class ValidateFields {
 	validateGymPrice(gymPrice) {
 		if (!gymPrice) {
 			return "Cena jest wymagana";
-		} else if (!/^(?=.*[1-9])[0-9]{1,}$/.test(gymPrice) || gymPrice <= 0) {
+		} else if (!validator.isCurrency(gymPrice.toString()) || gymPrice <= 0) {
 			return "Cena wpisana w niepoprawnej postaci";
 		}
 		return false;

@@ -40,7 +40,7 @@ export default function validate(values) {
         verdict = false;
     } else if (!values.gymPrice || values.gymPrice <= 0) {
         verdict = false;
-    } else if (!/^(?=.*[1-9])[0-9]{1,}$/.test(values.gymPrice)) {
+    } else if (!validator.isCurrency(gymPrice.toString())) {
         verdict = false;
     } else if (!values.gymPhone) {
         verdict = false;
@@ -54,7 +54,7 @@ export default function validate(values) {
         verdict = false;
     } else if (!values.gymURL) {
         verdict = true;
-    } else if (!/^$|^https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,}$/.test(values.gymURL)) {
+    } else if (!/^$|^(https?:\/\/(?:www\.|(?!www)))?[a-zA-Z0-9][a-zA-Z0-9-]+\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,}$/.test(values.gymURL)) {
         verdict = false;
     } else if (!values.gymDescription) {
         verdict = true;
