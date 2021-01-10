@@ -7,6 +7,7 @@ import InputMask from "react-input-mask";
 import validate from "./FormValidationRules";
 import validated from "./Validated";
 import { add } from "date-fns";
+import { validateFields } from "../Validation";
 
 Modal.setAppElement("#root");
 
@@ -41,6 +42,40 @@ export default function gymForm() {
 		event.preventDefault();
 		setErrors(validate(values));
 		console.log(validated(values));
+
+		// setErrors({
+		// 	gymName: validateFields.validateGymName(values.gymName),
+		// 	gymStreet: validateFields.validateGymStreet(values.gymStreet),
+		// 	gymCity: validateFields.validateGymCity(values.gymCity),
+		// 	gymZip: validateFields.validateGymZip(values.gymZip),
+		// 	gymHeight: validateFields.validateGymHeight(values.gymHeight),
+		// 	gymWidth: validateFields.validateGymWidth(values.gymWidth),
+		// 	gymLength: validateFields.validateGymLength(values.gymLength),
+		// 	gymPrice: validateFields.validateGymPrice(values.gymPrice),
+		// 	audience: validateFields.validateAudience(values.audience),
+		// 	changingRooms: validateFields.validateChangingRooms(values.changingRooms),
+		// 	gymPhone: validateFields.validateGymPhone(values.gymPhone),
+		// 	gymEmail: validateFields.validateGymEmail(values.gymEmail),
+		// 	gymDescription: validateFields.validateGymDescription(values.gymDescription),
+		// })
+
+		// if (
+		// 	[
+		// 		errors.gymName,
+		// 		errors.gymStreet,
+		// 		errors.gymCity,
+		// 		errors.gymZip,
+		// 		errors.gymHeight,
+		// 		errors.gymWidth,
+		// 		errors.gymLength,
+		// 		errors.gymPrice,
+		// 		errors.audience,
+		// 		errors.changingRooms,
+		// 		errors.gymPhone,
+		// 		errors.gymEmail,
+		// 		errors.gymDescription,
+		// 	].every((e) => e == false) && imageAsFile.length
+		// ) {
 
 		if (validated(values) && imageAsFile.length) {
 			var doc = db.collection("gyms").doc();
@@ -105,6 +140,22 @@ export default function gymForm() {
 						window.location.href = "/profile";
 					});
 			});
+		// } else {
+		// 	setErrors({
+		// 		gymName: gymNameError,
+		// 		gymStreet: gymStreetError,
+		// 		gymCity: gymCityError,
+		// 		gymZip: gymZipError,
+		// 		gymHeight: gymHeightError,
+		// 		gymWidth: gymWidthError,
+		// 		gymLength: gymLengthError,
+		// 		gymPrice: gymPriceError,
+		// 		audience: audienceError,
+		// 		changingRooms: changingRoomsError,
+		// 		gymPhone: gymPhoneError,
+		// 		gymEmail: gymEmailError,
+		// 		gymDescription: gymDescriptionError,
+		// 	});
 		}
 	};
 
