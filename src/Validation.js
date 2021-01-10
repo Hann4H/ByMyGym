@@ -182,7 +182,7 @@ class ValidateFields {
 
 	validateGymDescription(gymDescription) {
 		if (validator.isEmpty(gymDescription)) {
-			return "Opis jest wymagany";
+			return false;
 		}
 		return false;
 	}

@@ -36,7 +36,7 @@ class GymDetailsEdit extends Component {
 			gymPrice: { value: "", validateOnChange: false, error: "" },
 			audience: { value: "", validateOnChange: false, error: "" },
 			changingRooms: { value: "", validateOnChange: false, error: "" },
-			// gymURL: { value: "", validateOnChange: false, error: "" },
+			 gymURL: { value: "", validateOnChange: false, error: "" },
 			gymPhone: { value: "", validateOnChange: false, error: "" },
 			gymEmail: { value: "", validateOnChange: false, error: "" },
 			gymDescription: { value: "", validateOnChange: false, error: "" },
@@ -73,10 +73,10 @@ class GymDetailsEdit extends Component {
 					gymPrice: { value: doc.data().gymPrice },
 					audience: { value: doc.data().audience },
 					changingRooms: { value: doc.data().changingRooms },
-					// gymURL: { value: doc.data().gymURL },
+					gymURL: { value: doc.data().gymURL } || { value: '' },
 					gymPhone: { value: doc.data().gymPhone },
 					gymEmail: { value: doc.data().gymEmail },
-					gymDescription: { value: doc.data().gymDescription },
+					gymDescription: { value: doc.data().gymDescription }  || { value: '' },
 
 					gymOwner: { value: doc.data().gymOwner },
 				});
@@ -132,7 +132,7 @@ class GymDetailsEdit extends Component {
 			gymPrice,
 			audience,
 			changingRooms,
-			// gymURL,
+			gymURL,
 			gymPhone,
 			gymEmail,
 			gymDescription,
@@ -157,7 +157,7 @@ class GymDetailsEdit extends Component {
 		const changingRoomsError = validateFields.validateChangingRooms(
 			changingRooms.value
 		);
-		// const gymURLError = validateFields.validateGymURL(gymURL.value);
+		const gymURLError = validateFields.validateGymURL(gymURL.value);
 		const gymPhoneError = validateFields.validateGymPhone(gymPhone.value);
 		const gymEmailError = validateFields.validateGymEmail(gymEmail.value);
 		const gymDescriptionError = validateFields.validateGymDescription(
@@ -178,7 +178,7 @@ class GymDetailsEdit extends Component {
 				gymPriceError,
 				audienceError,
 				changingRoomsError,
-				// gymURLError,
+				gymURLError,
 				gymPhoneError,
 				gymEmailError,
 				gymDescriptionError,
@@ -202,10 +202,10 @@ class GymDetailsEdit extends Component {
 					gymPrice: Number(this.state.gymPrice.value),
 					audience: Number(this.state.audience.value),
 					changingRooms: Number(this.state.changingRooms.value),
-					// gymURL: this.state.gymURL.value,
+					gymURL: this.state.gymURL.value || '',
 					gymPhone: this.state.gymPhone.value,
 					gymEmail: this.state.gymEmail.value,
-					gymDescription: this.state.gymDescription.value,
+					gymDescription: this.state.gymDescription.value || '',
 
 					gymOwner: this.state.gymOwner.value,
 				})
@@ -270,11 +270,11 @@ class GymDetailsEdit extends Component {
 					validateOnChange: true,
 					error: changingRoomsError,
 				},
-				// gymURL: {
-				// 	...state.gymURL,
-				// 	validateOnChange: true,
-				// 	error: gymURLError,
-				// },
+				gymURL: {
+					...state.gymURL,
+					validateOnChange: true,
+					error: gymURLError,
+				},
 				gymPhone: {
 					...state.gymPhone,
 					validateOnChange: true,
@@ -312,7 +312,7 @@ class GymDetailsEdit extends Component {
 			gymPrice,
 			audience,
 			changingRooms,
-			// gymURL,
+			gymURL,
 			gymPhone,
 			gymEmail,
 			gymDescription,
@@ -763,7 +763,7 @@ class GymDetailsEdit extends Component {
 							</div>
 						</div>
 						{/* gymURL field */}
-						{/* <div className="form-group">
+						<div className="form-group">
 							<label className="form-group-label">URL</label>
 							<input
 								label="URL"
@@ -800,7 +800,7 @@ class GymDetailsEdit extends Component {
 							<div className="invalid-feedback">
 								{gymURL.error}
 							</div>
-						</div> */}
+						</div>
 						{/* gymPhone field */}
 						<div className="form-group">
 							<label className="form-group-label">Telefon</label>
@@ -888,7 +888,7 @@ class GymDetailsEdit extends Component {
 								label="Opis"
 								type="text"
 								name="gymDescription"
-								value={gymDescription.value}
+								value={gymDescription.value || ''}
 								InputLabelProps={{
 									shrink: true,
 								}}

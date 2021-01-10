@@ -61,6 +61,9 @@ export default function validate(values) {
       errors.gymPhone = 'Należy wprowadzić numer kontaktowy';
     } else if (!validator.isMobilePhone(values.gymPhone, "pl-PL")) {
       errors.gymPhone = 'Numer jest nieprawidłowy';
-    }  
+    }
+    if (!/^$|^https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,}$/.test(values.gymURL)) {
+      errors.gymURL = 'URL jest nieprawidłowy';
+    }
     return errors;
   };

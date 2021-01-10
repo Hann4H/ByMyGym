@@ -43,40 +43,6 @@ export default function gymForm() {
 		setErrors(validate(values));
 		console.log(validated(values));
 
-		// setErrors({
-		// 	gymName: validateFields.validateGymName(values.gymName),
-		// 	gymStreet: validateFields.validateGymStreet(values.gymStreet),
-		// 	gymCity: validateFields.validateGymCity(values.gymCity),
-		// 	gymZip: validateFields.validateGymZip(values.gymZip),
-		// 	gymHeight: validateFields.validateGymHeight(values.gymHeight),
-		// 	gymWidth: validateFields.validateGymWidth(values.gymWidth),
-		// 	gymLength: validateFields.validateGymLength(values.gymLength),
-		// 	gymPrice: validateFields.validateGymPrice(values.gymPrice),
-		// 	audience: validateFields.validateAudience(values.audience),
-		// 	changingRooms: validateFields.validateChangingRooms(values.changingRooms),
-		// 	gymPhone: validateFields.validateGymPhone(values.gymPhone),
-		// 	gymEmail: validateFields.validateGymEmail(values.gymEmail),
-		// 	gymDescription: validateFields.validateGymDescription(values.gymDescription),
-		// })
-
-		// if (
-		// 	[
-		// 		errors.gymName,
-		// 		errors.gymStreet,
-		// 		errors.gymCity,
-		// 		errors.gymZip,
-		// 		errors.gymHeight,
-		// 		errors.gymWidth,
-		// 		errors.gymLength,
-		// 		errors.gymPrice,
-		// 		errors.audience,
-		// 		errors.changingRooms,
-		// 		errors.gymPhone,
-		// 		errors.gymEmail,
-		// 		errors.gymDescription,
-		// 	].every((e) => e == false) && imageAsFile.length
-		// ) {
-
 		if (validated(values) && imageAsFile.length) {
 			var doc = db.collection("gyms").doc();
 			doc.set({
@@ -97,10 +63,10 @@ export default function gymForm() {
 				gymOwner: userUID,
 				accepted: false,
 
-				// gymURL: values.gymURL,
+				gymURL: values.gymURL || '',
 				gymPhone: values.gymPhone,
 				gymEmail: values.gymEmail,
-				gymDescription: values.gymDescription,
+				gymDescription: values.gymDescription || '',
 				// gymLat: values.gymLat,
 				// gymLng: values.gymLng
 			}).then(() => {
@@ -140,22 +106,6 @@ export default function gymForm() {
 						window.location.href = "/profile";
 					});
 			});
-		// } else {
-		// 	setErrors({
-		// 		gymName: gymNameError,
-		// 		gymStreet: gymStreetError,
-		// 		gymCity: gymCityError,
-		// 		gymZip: gymZipError,
-		// 		gymHeight: gymHeightError,
-		// 		gymWidth: gymWidthError,
-		// 		gymLength: gymLengthError,
-		// 		gymPrice: gymPriceError,
-		// 		audience: audienceError,
-		// 		changingRooms: changingRoomsError,
-		// 		gymPhone: gymPhoneError,
-		// 		gymEmail: gymEmailError,
-		// 		gymDescription: gymDescriptionError,
-		// 	});
 		}
 	};
 
@@ -172,7 +122,7 @@ export default function gymForm() {
 			<div className="form-n-gallery">
 				<div className="form-only">
 					<div className="container-2">
-						<label>Nazwa budynku</label>
+						<label>Nazwa budynku *</label>
 						<div className="input-n-error">
 							<input
 								autoComplete="off"
@@ -188,7 +138,7 @@ export default function gymForm() {
 						</div>
 					</div>
 					<div className="container-2">
-						<label>Ulica</label>
+						<label>Ulica *</label>
 						<div className="input-n-error">
 							<input
 								autoComplete="off"
@@ -204,9 +154,9 @@ export default function gymForm() {
 						</div>
 					</div>
 					<div className="container-2">
-						<label>Miasto</label>
+						<label>Miasto *</label>
 						<div className="input-n-error">
-							<InputMask
+							<input
 								autoComplete="off"
 								type="text"
 								value={values.gymCity || ""}
@@ -220,7 +170,7 @@ export default function gymForm() {
 						</div>
 					</div>
 					<div className="container-2">
-						<label>Kod pocztowy</label>
+						<label>Kod pocztowy *</label>
 						<div className="input-n-error">
 							<InputMask
 								autoComplete="off"
@@ -238,7 +188,7 @@ export default function gymForm() {
 						</div>
 					</div>
 					<div className="container-2">
-						<label>Długość</label>
+						<label>Długość *</label>
 						<div className="input-n-error">
 							<input
 								autoComplete="off"
@@ -257,7 +207,7 @@ export default function gymForm() {
 						</div>
 					</div>
 					<div className="container-2">
-						<label>Szerokość</label>
+						<label>Szerokość *</label>
 						<div className="input-n-error">
 							<input
 								autoComplete="off"
@@ -276,7 +226,7 @@ export default function gymForm() {
 						</div>
 					</div>
 					<div className="container-2">
-						<label>Wysokość</label>
+						<label>Wysokość *</label>
 						<div className="input-n-error">
 							<input
 								autoComplete="off"
@@ -295,7 +245,7 @@ export default function gymForm() {
 						</div>
 					</div>
 					<div className="container-2">
-						<label>Liczba miejsc na widowni</label>
+						<label>Liczba miejsc na widowni *</label>
 						<div className="input-n-error">
 							<input
 								autoComplete="off"
@@ -312,7 +262,7 @@ export default function gymForm() {
 						</div>
 					</div>
 					<div className="container-2">
-						<label>Liczba szatń</label>
+						<label>Liczba szatń *</label>
 						<div className="input-n-error">
 							<input
 								autoComplete="off"
@@ -329,7 +279,7 @@ export default function gymForm() {
 						</div>
 					</div>
 					<div className="container-2">
-						<label>Cena</label>
+						<label>Cena *</label>
 						<div className="input-n-error">
 							<input
 								autoComplete="off"
@@ -347,7 +297,7 @@ export default function gymForm() {
 						</div>
 					</div>
 					{/* ************************************************************************* */}
-					{/* <div className="container-2">
+					<div className="container-2">
 						<label>URL</label>
 						<div className="input-n-error">
 							<input
@@ -363,10 +313,10 @@ export default function gymForm() {
 								<p className="help">{errors.gymURL}</p>
 							)}
 						</div>
-					</div> */}
+					</div>
 
 					<div className="container-2">
-						<label>Telefon</label>
+						<label>Telefon *</label>
 						<div className="input-n-error">
 							<input
 								autoComplete="off"
@@ -384,7 +334,7 @@ export default function gymForm() {
 					</div>
 
 					<div className="container-2">
-						<label>Email</label>
+						<label>Email *</label>
 						<div className="input-n-error">
 							<input
 								autoComplete="off"

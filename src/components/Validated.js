@@ -50,6 +50,14 @@ export default function validate(values) {
         verdict = false;
     } else if (!validator.isEmail(values.gymEmail)) {
         verdict = false;
+    } else if (!validator.isEmail(values.gymEmail)) {
+        verdict = false;
+    } else if (!values.gymURL) {
+        verdict = true;
+    } else if (!/^$|^https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,}$/.test(values.gymURL)) {
+        verdict = false;
+    } else if (!values.gymDescription) {
+        verdict = true;
     } else {
         verdict = true;
     }
