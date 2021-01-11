@@ -187,7 +187,7 @@
 
 .star {
   cursor: pointer;
-  height: 25px;
+  /* height: 25px; */
   transition: color 200ms;
 }
 
@@ -1037,6 +1037,7 @@ ul.unstyled {
   padding-bottom: 25px;
   padding-left: 15px;
   padding-right: 15px;
+
 }
 
 .profile-bookings a {
@@ -1071,6 +1072,16 @@ ul.unstyled {
   font-weight: bold;
   font-size: 10px;
   top: 20px;
+}
+
+.profile-bookings-delete {
+  font-size: 8px;
+  color: red;
+}
+
+.profile-gyms-status {
+  color: var(--darkGrey);
+  font-size: 10px;
 }
 
 
