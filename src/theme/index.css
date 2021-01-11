@@ -187,7 +187,7 @@
 
 .star {
   cursor: pointer;
-  height: 25px;
+  /* height: 25px; */
   transition: color 200ms;
 }
 
@@ -806,6 +806,7 @@
   margin-left: 1%;
 }
 
+
 label {
   line-height: 1;
   margin-right: 10px;
@@ -916,8 +917,7 @@ button {
 }
 
 .form_button {
-  margin-left: 20rem;
-  transform: translate(20%, -190%);
+  transform: translate(160%, -200%);
   color: var(--mainWhite);
 }
 
@@ -1037,6 +1037,7 @@ ul.unstyled {
   padding-bottom: 25px;
   padding-left: 15px;
   padding-right: 15px;
+
 }
 
 .profile-bookings a {
@@ -1065,6 +1066,22 @@ ul.unstyled {
   padding-right: 20px;
   color: var(--mainWhite);
   height: 20px;
+}
+
+.profile-bookings-p {
+  font-weight: bold;
+  font-size: 10px;
+  top: 20px;
+}
+
+.profile-bookings-delete {
+  font-size: 8px;
+  color: red;
+}
+
+.profile-gyms-status {
+  color: var(--darkGrey);
+  font-size: 10px;
 }
 
 

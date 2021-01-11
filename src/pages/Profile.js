@@ -5,20 +5,21 @@ import Loading from "../components/Loading";
 import StarRatings from "../components/StarRatings";
 
 var now = new Date();
+var timeNow = now.getFullYear()+"-"+now.getMonth()+1+"-"+now.getDate()+" "+now.getHours()+":"+now.getMinutes();
 
 class Profile extends Component {
   state = {
-    user: [],
-    error: "",
-    name: "",
-    Reservations: [],
-    Gyms: [],
-    Favourites: [],
-    seen: false,
-    loading: false,
-    Owned: [],
-  };
-
+      user: [],
+      error: "",
+      name: "",
+      Reservations: [],
+      Gyms: [],
+      Favourites: [],
+      seen: false,
+      loading: false,
+      Owned: [],
+    };
+  
   componentDidMount() {
     const Reservations = [];
     const Gyms = [];
@@ -34,6 +35,7 @@ class Profile extends Component {
           gymName: doc.data().gymName,
           gymOwner: doc.data().gymOwner,
           gymStreet: doc.data().gymStreet
+          accepted:doc.data().accepted,
         });
         
       });
@@ -44,26 +46,28 @@ class Profile extends Component {
       console.log("Error getting documents: ", error);
     });
     
-    if(localStorage.getItem("user") == process.env.REACT_APP_ADMIN_ID) {
-      firebase.firestore().collection("reservation")
-      .get()
-      .then((querySnapshot) => {  
-          querySnapshot.forEach(function (doc) {
-              Reservations.push({
-                start: doc.data().start,
-                end: doc.data().end,
-                gym_id: doc.data().gym_id,
-                scored: doc.data().scored,
-                bookingID: doc.id
-            })  
-          })
-          this.setState({ Reservations });
-      })
-      .catch(function(error) {
-          console.log("Error getting documents: ", error);
-      });
+    // if(localStorage.getItem("user") == process.env.REACT_APP_ADMIN_ID) {
+    //   firebase.firestore().collection("reservation")
+    //   .get()
+    //   .then((querySnapshot) => {  
+    //       querySnapshot.forEach(function (doc) {
+    //           Reservations.push({
+    //             start: doc.data().start,
+    //             end: doc.data().end,
+    //             gym_id: doc.data().gym_id,
+    //             scored: doc.data().scored,
+    //             status: doc.data().title,
+    //             bookingID: doc.id
+    //         })  
+    //       })
+    //       this.setState({ Reservations });
+          
+    //   })
+    //   .catch(function(error) {
+    //       console.log("Error getting documents: ", error);
+    //   });
 
-    } else {
+    // } else {
       firebase.firestore().collection("reservation").where("user_id", "==", localStorage.getItem("user"))
       .get()
       .then((querySnapshot) => {  
@@ -73,6 +77,7 @@ class Profile extends Component {
                 end: doc.data().end,
                 gym_id: doc.data().gym_id,
                 scored: doc.data().scored,
+                status: doc.data().title,
                 bookingID: doc.id
             })  
           })
@@ -82,9 +87,7 @@ class Profile extends Component {
       .catch(function(error) {
           console.log("Error getting documents: ", error);
       });
-    }
-
-    
+    // }
 
 
     firebase.firestore().collection("favourites").doc(localStorage.getItem("user"))
@@ -120,7 +123,6 @@ class Profile extends Component {
      seen: !this.state.seen
     });
    };
-
 
 
   render() {
@@ -166,16 +168,24 @@ class Profile extends Component {
                   {this.state.loading ? null : <Loading />}
                 </div>
                 <div className="profile-bookings">
-                  {this.state.Reservations.map((res, index) => (
+                  {this.state.Reservations.filter(reserv => timeNow < reserv.end).map((res, index) => (
                     this.state.Gyms.filter(gym => gym.docId == res.gym_id).map(filteredName => (
                       <tr>
                         <Link to={`/gym_profile/${res.gym_id}`}><td>{filteredName.gymName}</td></Link>
                         <td>Od: {res.start}</td>
                         <td>Do: {res.end}</td>
-                        <button className="profile-bookings-change-button">ZMIEŃ</button>
-                        {!(localStorage.getItem("user") == process.env.REACT_APP_ADMIN_ID) ? (
+                        {/* <button className="profile-bookings-change-button">ZMIEŃ</button> */}
+                        <td>
+                        <p className="profile-bookings-p" style={res.status === "Zarezerwowane" ? { color: "#90EE90" } : { color: "#FFD700" }}>{res.status}</p>
+                        
+                        {!(localStorage.getItem("user") == process.env.REACT_APP_ADMIN_ID)
+                          && (res.start < timeNow) && (res.status === "Zarezerwowane") 
+                          ? (
                           <StarRatings gymID={res.gym_id} bookingID={res.bookingID}/>
                         ) : "" }
+                        </td>
+                        <td><p className="profile-bookings-delete">USUŃ</p></td>
+                        
                       </tr>
                     ))
                   ))}
@@ -227,8 +237,14 @@ class Profile extends Component {
                     <div className="profile-bookings">
                     {this.state.Gyms.filter(gym => gym.gymOwner == localStorage.getItem("user")).map(myGyms => (
                         <tr><Link to={`/gym_profile/${myGyms.docId}`}><td>{myGyms.gymName}</td></Link>
+<<<<<<< HEAD
                         <td>{myGyms.gymStreet}</td>
                         <Link to='/reservations'><button className="profile-gyms-accept-button">Rezerwacje</button></Link></tr>
+=======
+                        {/* <Link to='/reservations'><button className="profile-gyms-accept-button">Rezerwacje</button></Link> */}
+                        {!myGyms.accepted ? <td><p className="profile-gyms-status">W trakcie akceptacji</p></td> : ""}
+                        </tr>
+>>>>>>> 576815929b4f5d3467e55170612aa9013d9b0d12
                       ))
                     }
                     </div>

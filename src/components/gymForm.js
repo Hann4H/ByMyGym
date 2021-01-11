@@ -6,19 +6,24 @@ import Modal from "react-modal";
 import InputMask from "react-input-mask";
 import validate from "./FormValidationRules";
 import validated from "./Validated";
+import { add } from "date-fns";
+import { validateFields } from "../Validation";
+import Loading from "./Loading";
 
 Modal.setAppElement("#root");
 
 export default function gymForm() {
 	const [values, setValues] = useState({});
 	const [errors, setErrors] = useState({});
-	const [imageAsFile, setImageAsFile] = useState("");
+	const [imageAsFile, setImageAsFile] = useState([]);
 	const [userUID, setUserUID] = useState("");
-	console.log(imageAsFile);
+	const [text, setText] = useState("DODAJ");
 
 	const handleImageAsFile = (e) => {
-		const image = e.target.files[0];
-		setImageAsFile((imageFile) => image);
+		for (let i = 0; i < e.target.files.length; i++) {
+			const image = e.target.files[i];
+			setImageAsFile((prevState) => [...prevState, image]);
+		}
 	};
 
 	firebase.auth().onAuthStateChanged(function (user) {
@@ -39,44 +44,70 @@ export default function gymForm() {
 		setErrors(validate(values));
 		console.log(validated(values));
 
-		if (validated(values)) {
-			const uploadTask = storage
-				.ref(`/photos/${imageAsFile.name}`)
-				.put(imageAsFile);
-			uploadTask
-				.then((uploadTaskSnapshot) => {
-					return uploadTaskSnapshot.ref.getDownloadURL();
-				})
-				.then((gymPhoto) => {
-					db.collection("gyms")
-						.add({
-							gymName: values.gymName,
-							gymStreet: values.gymStreet,
-							gymCity: values.gymCity,
-							gymZip: values.gymZip,
-							gymPhoto: [gymPhoto],
-							gymHeight: values.gymHeight,
-							gymWidth: values.gymWidth,
-							gymLength: values.gymLength,
-							gymPrice: values.gymPrice,
-							audience: values.audience,
-							changingRooms: values.changingRooms,
-							id: ref.id,
-							gymOwner: userUID,
-							accepted: false,
+		if (validated(values) && imageAsFile.length) {
+			setText("DODAWANIE...");
+			var doc = db.collection("gyms").doc();
+			doc.set({
+				// db.collection("gyms")
+				// .add({
+				gymName: values.gymName,
+				gymStreet: values.gymStreet,
+				gymCity: values.gymCity,
+				gymZip: values.gymZip,
+				gymPhoto: [],
+				gymHeight: Number(values.gymHeight),
+				gymWidth: Number(values.gymWidth),
+				gymLength: Number(values.gymLength),
+				gymPrice: Number(values.gymPrice),
+				audience: Number(values.audience),
+				changingRooms: Number(values.changingRooms),
+				id: ref.id,
+				gymOwner: userUID,
+				accepted: false,
 
-							// gymURL: values.gymURL,
-							gymPhone: values.gymPhone,
-							gymEmail: values.gymEmail,
-							gymDescription: values.gymDescription,
-							// gymLat: values.gymLat,
-							// gymLng: values.gymLng
-						})
-						.then(() => {
-							alert("Sala została dodana");
-							window.location.href = "/profile";
-						});
+				gymURL: values.gymURL || '',
+				gymPhone: values.gymPhone,
+				gymEmail: values.gymEmail,
+				gymDescription: values.gymDescription || '',
+				// gymLat: values.gymLat,
+				// gymLng: values.gymLng
+			}).then(() => {
+				const promises = [];
+
+				imageAsFile.forEach((img) => {
+					const uploadTask = storage
+						.ref()
+						.child(`/photos/${doc.id}/${img.name}`)
+						.put(img);
+					promises.push(uploadTask);
 				});
+
+				Promise.all(promises)
+					.then((uploadTaskSnapshotsArray) => {
+						const promises = [];
+						uploadTaskSnapshotsArray.forEach(
+							(uploadTaskSnapshot) => {
+								promises.push(
+									uploadTaskSnapshot.ref.getDownloadURL()
+								);
+							}
+						);
+
+						return Promise.all(promises);
+					})
+					.then((urlsArray) => {
+						const docRef = db.collection("gyms").doc(doc.id);
+						return docRef.update({
+							gymPhoto: firebase.firestore.FieldValue.arrayUnion(
+								...urlsArray
+							),
+						});
+					})
+					.then(() => {
+						alert("Sala została dodana");
+						window.location.href = "/profile";
+					});
+			});
 		}
 	};
 
@@ -93,7 +124,7 @@ export default function gymForm() {
 			<div className="form-n-gallery">
 				<div className="form-only">
 					<div className="container-2">
-						<label>Nazwa budynku</label>
+						<label>Nazwa budynku *</label>
 						<div className="input-n-error">
 							<input
 								autoComplete="off"
@@ -109,7 +140,7 @@ export default function gymForm() {
 						</div>
 					</div>
 					<div className="container-2">
-						<label>Ulica</label>
+						<label>Ulica *</label>
 						<div className="input-n-error">
 							<input
 								autoComplete="off"
@@ -125,9 +156,9 @@ export default function gymForm() {
 						</div>
 					</div>
 					<div className="container-2">
-						<label>Miasto</label>
+						<label>Miasto *</label>
 						<div className="input-n-error">
-							<InputMask
+							<input
 								autoComplete="off"
 								type="text"
 								value={values.gymCity || ""}
@@ -141,7 +172,7 @@ export default function gymForm() {
 						</div>
 					</div>
 					<div className="container-2">
-						<label>Kod pocztowy</label>
+						<label>Kod pocztowy *</label>
 						<div className="input-n-error">
 							<InputMask
 								autoComplete="off"
@@ -159,7 +190,7 @@ export default function gymForm() {
 						</div>
 					</div>
 					<div className="container-2">
-						<label>Długość</label>
+						<label>Długość *</label>
 						<div className="input-n-error">
 							<input
 								autoComplete="off"
@@ -178,7 +209,7 @@ export default function gymForm() {
 						</div>
 					</div>
 					<div className="container-2">
-						<label>Szerokość</label>
+						<label>Szerokość *</label>
 						<div className="input-n-error">
 							<input
 								autoComplete="off"
@@ -197,7 +228,7 @@ export default function gymForm() {
 						</div>
 					</div>
 					<div className="container-2">
-						<label>Wysokość</label>
+						<label>Wysokość *</label>
 						<div className="input-n-error">
 							<input
 								autoComplete="off"
@@ -216,7 +247,7 @@ export default function gymForm() {
 						</div>
 					</div>
 					<div className="container-2">
-						<label>Liczba miejsc na widowni</label>
+						<label>Liczba miejsc na widowni *</label>
 						<div className="input-n-error">
 							<input
 								autoComplete="off"
@@ -233,7 +264,7 @@ export default function gymForm() {
 						</div>
 					</div>
 					<div className="container-2">
-						<label>Liczba szatń</label>
+						<label>Liczba szatń *</label>
 						<div className="input-n-error">
 							<input
 								autoComplete="off"
@@ -250,7 +281,7 @@ export default function gymForm() {
 						</div>
 					</div>
 					<div className="container-2">
-						<label>Cena</label>
+						<label>Cena *</label>
 						<div className="input-n-error">
 							<input
 								autoComplete="off"
@@ -268,7 +299,7 @@ export default function gymForm() {
 						</div>
 					</div>
 					{/* ************************************************************************* */}
-					{/* <div className="container-2">
+					<div className="container-2">
 						<label>URL</label>
 						<div className="input-n-error">
 							<input
@@ -276,7 +307,6 @@ export default function gymForm() {
 								type="text"
 								value={values.gymURL || ""}
 								name="gymURL"
-								pattern="(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})"
 								min="1"
 								onChange={handleChange}
 							/>
@@ -284,10 +314,10 @@ export default function gymForm() {
 								<p className="help">{errors.gymURL}</p>
 							)}
 						</div>
-					</div> */}
+					</div>
 
 					<div className="container-2">
-						<label>Telefon</label>
+						<label>Telefon *</label>
 						<div className="input-n-error">
 							<input
 								autoComplete="off"
@@ -305,7 +335,7 @@ export default function gymForm() {
 					</div>
 
 					<div className="container-2">
-						<label>Email</label>
+						<label>Email *</label>
 						<div className="input-n-error">
 							<input
 								autoComplete="off"
@@ -339,7 +369,7 @@ export default function gymForm() {
 						</div>
 					</div>
 				</div>
-				<div id="gallery" style={{ marginLeft: "21.3%" }}>
+				<div id="gallery" style={{ marginLeft: "20.5%" }}>
 					<input
 						type="file"
 						multiple="multiple"
@@ -349,6 +379,13 @@ export default function gymForm() {
 					{errors.gymPhoto && (
 						<p className="help">{errors.gymPhoto}</p>
 					)}
+					{imageAsFile.length ? (
+						""
+					) : (
+						<p style={{ color: "#D83B0B", font: "10px Lato" }}>
+							Zdjęcie jest wymagane
+						</p>
+					)}
 				</div>
 
 				{/* TODO jeszcze z tym powalczę - z DragAndDrop */}
@@ -356,7 +393,11 @@ export default function gymForm() {
           <DragAndDrop id="img_url" onChange={handleImageAsFile} />
         </div> */}
 			</div>
-			<button className="form_button">DODAJ</button>
+			{/* <div className="gym-add-load">
+				{loading ? null : <Loading />}
+			</div> */}
+			<button  style={text === "DODAJ" ? { transform: "translate(280%, -200%)" } : { transform: "translate(160%, -200%)" }} className="form_button">{text}</button>       
 		</form>
+		
 	);
 }

@@ -11,5 +11,6 @@ export default function FinishReservation() {
             </Link>
         </Banner>
     </Hero>
+    <br />
     <div id="pls"></div></>;
 }

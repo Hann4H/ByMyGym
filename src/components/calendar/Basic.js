@@ -13,6 +13,8 @@ import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 import firebase from "firebase";
 
 import RangePickerForGym from "../gymRangePicker/RangePickerForGym";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
 
 const db = firebase.firestore();
 
@@ -82,6 +84,22 @@ class Basic extends Component {
 					},
 				}));
 			});
+	}
+
+	getDaysBetweenDates(start, end, dayName) {
+		var result = [];
+		var days = { sun: 0, mon: 1, tue: 2, wed: 3, thu: 4, fri: 5, sat: 6 };
+		var day = days[dayName.toLowerCase().substr(0, 3)];
+		// Copy start date
+		var current = new Date(start);
+		// Shift to next of required days
+		current.setDate(current.getDate() + ((day - current.getDay() + 7) % 7));
+		// While less than end date, add dates to result array
+		while (current < end) {
+			result.push(new Date(+current));
+			current.setDate(current.getDate() + 7);
+		}
+		return result;
 	}
 
 	//***********/
@@ -562,35 +580,60 @@ class Basic extends Component {
 						>
 							Wybierz przedział czasowy
 						</button>
-						<br />
+						<p style={{ height: 10 }} />
 						{allFieldsValidated && (
-							<ConfigProvider locale={plPL}>
-								<Scheduler
-									schedulerData={viewModel}
-									prevClick={this.prevClick}
-									nextClick={this.nextClick}
-									onSelectDate={this.onSelectDate}
-									onViewChange={this.onViewChange}
-									eventItemClick={this.eventClicked}
-									viewEventClick={this.ops1}
-									viewEventText="Ops 1"
-									viewEvent2Text="Ops 2"
-									viewEvent2Click={this.ops2}
-									updateEventStart={this.updateEventStart}
-									updateEventEnd={this.updateEventEnd}
-									moveEvent={this.moveEvent}
-									newEvent={this.newEvent}
-									onScrollLeft={this.onScrollLeft}
-									onScrollRight={this.onScrollRight}
-									onScrollTop={this.onScrollTop}
-									onScrollBottom={this.onScrollBottom}
-									toggleExpandFunc={this.toggleExpandFunc}
-								/>
-							</ConfigProvider>
+							<Tabs>
+								<TabList>
+									<Tab>Rezerwacja krótkoterminowa</Tab>
+									<Tab>Rezerwacja długoterminowa</Tab>
+								</TabList>
+
+								<TabPanel>
+									<ConfigProvider locale={plPL}>
+										<Scheduler
+											schedulerData={viewModel}
+											prevClick={this.prevClick}
+											nextClick={this.nextClick}
+											onSelectDate={this.onSelectDate}
+											onViewChange={this.onViewChange}
+											eventItemClick={this.eventClicked}
+											viewEventClick={this.ops1}
+											viewEventText="Ops 1"
+											viewEvent2Text="Ops 2"
+											viewEvent2Click={this.ops2}
+											updateEventStart={
+												this.updateEventStart
+											}
+											updateEventEnd={this.updateEventEnd}
+											moveEvent={this.moveEvent}
+											newEvent={this.newEvent}
+											onScrollLeft={this.onScrollLeft}
+											onScrollRight={this.onScrollRight}
+											onScrollTop={this.onScrollTop}
+											onScrollBottom={this.onScrollBottom}
+											toggleExpandFunc={
+												this.toggleExpandFunc
+											}
+											recurringEventsEnabled
+										/>
+									</ConfigProvider>
+								</TabPanel>
+								<TabPanel>
+									<RangePickerForGym
+										name={this.state.name.value}
+										surname={this.state.surname.value}
+										email={this.state.email.value}
+										phoneNumber={
+											this.state.phoneNumber.value
+										}
+										user={this.state.user}
+										gym_id={this.props.gym_id}
+									/>
+								</TabPanel>
+							</Tabs>
 						)}
-						<br />
-						<RangePickerForGym />
 					</form>
+
 					{/* </ThemeProvider> */}
 					{/* </Grid> */}
 				</div>

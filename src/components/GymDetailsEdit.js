@@ -73,10 +73,12 @@ class GymDetailsEdit extends Component {
 					gymPrice: { value: doc.data().gymPrice },
 					audience: { value: doc.data().audience },
 					changingRooms: { value: doc.data().changingRooms },
-					gymURL: { value: doc.data().gymURL },
+					gymURL: { value: doc.data().gymURL } || { value: "" },
 					gymPhone: { value: doc.data().gymPhone },
 					gymEmail: { value: doc.data().gymEmail },
-					gymDescription: { value: doc.data().gymDescription },
+					gymDescription: { value: doc.data().gymDescription } || {
+						value: "",
+					},
 
 					gymOwner: { value: doc.data().gymOwner },
 				});
@@ -195,17 +197,17 @@ class GymDetailsEdit extends Component {
 					gymStreet: this.state.gymStreet.value,
 					gymCity: this.state.gymCity.value,
 					gymZip: this.state.gymZip.value,
-					gymHeight: this.state.gymHeight.value,
-					gymWidth: this.state.gymWidth.value,
-					gymLength: this.state.gymLength.value,
+					gymHeight: Number(this.state.gymHeight.value),
+					gymWidth: Number(this.state.gymWidth.value),
+					gymLength: Number(this.state.gymLength.value),
 
-					gymPrice: this.state.gymPrice.value,
-					audience: this.state.audience.value,
-					changingRooms: this.state.changingRooms.value,
-					gymURL: this.state.gymURL.value,
+					gymPrice: Number(this.state.gymPrice.value),
+					audience: Number(this.state.audience.value),
+					changingRooms: Number(this.state.changingRooms.value),
+					gymURL: this.state.gymURL.value || "",
 					gymPhone: this.state.gymPhone.value,
 					gymEmail: this.state.gymEmail.value,
-					gymDescription: this.state.gymDescription.value,
+					gymDescription: this.state.gymDescription.value || "",
 
 					gymOwner: this.state.gymOwner.value,
 				})
@@ -796,7 +798,6 @@ class GymDetailsEdit extends Component {
 										evt
 									)
 								}
-								required
 							/>
 							<div className="invalid-feedback">
 								{gymURL.error}
@@ -889,7 +890,7 @@ class GymDetailsEdit extends Component {
 								label="Opis"
 								type="text"
 								name="gymDescription"
-								value={gymDescription.value}
+								value={gymDescription.value || ""}
 								InputLabelProps={{
 									shrink: true,
 								}}
@@ -919,7 +920,7 @@ class GymDetailsEdit extends Component {
 										evt
 									)
 								}
-								required
+								// required
 							/>
 							<div className="invalid-feedback">
 								{gymDescription.error}
@@ -927,57 +928,58 @@ class GymDetailsEdit extends Component {
 						</div>
 						{/* gymOwner field */}
 
-						{/* {localStorage.getItem("user") ==
-						process.env.REACT_APP_ADMIN_ID ? ( */}
-						<div className="form-group">
-							<label className="form-group-label">
-								Właściciel
-							</label>
-							<input
-								label="Właściciel"
-								type="text"
-								name="gymOwner"
-								value={
-									gymOwner.value
-										? gymOwner.value
-										: (gymOwner.value = "")
-								}
-								InputLabelProps={{
-									shrink: true,
-								}}
-								inputProps={{
-									size: 30,
-								}}
-								floatingLabelFixed={true}
-								className={classnames(
-									"form-control",
-									{
-										"is-valid": gymOwner.error === false,
-									},
-									{
-										"is-invalid": gymOwner.error,
+						{localStorage.getItem("user") ==
+						process.env.REACT_APP_ADMIN_ID ? (
+							<div className="form-group">
+								<label className="form-group-label">
+									Właściciel
+								</label>
+								<input
+									label="Właściciel"
+									type="text"
+									name="gymOwner"
+									value={
+										gymOwner.value
+											? gymOwner.value
+											: (gymOwner.value = "")
 									}
-								)}
-								onChange={(evt) =>
-									this.handleChange(
-										validateFields.validateGymOwner,
-										evt
-									)
-								}
-								onBlur={(evt) =>
-									this.handleBlur(
-										validateFields.validateGymOwner,
-										evt
-									)
-								}
-							/>
-							<div className="invalid-feedback">
-								{gymOwner.error}
+									InputLabelProps={{
+										shrink: true,
+									}}
+									inputProps={{
+										size: 30,
+									}}
+									floatingLabelFixed={true}
+									className={classnames(
+										"form-control",
+										{
+											"is-valid":
+												gymOwner.error === false,
+										},
+										{
+											"is-invalid": gymOwner.error,
+										}
+									)}
+									onChange={(evt) =>
+										this.handleChange(
+											validateFields.validateGymOwner,
+											evt
+										)
+									}
+									onBlur={(evt) =>
+										this.handleBlur(
+											validateFields.validateGymOwner,
+											evt
+										)
+									}
+								/>
+								<div className="invalid-feedback">
+									{gymOwner.error}
+								</div>
 							</div>
-						</div>
-						{/* ) : (
+						) : (
 							""
-						)} */}
+						)}
 
 						<br />
 						<button

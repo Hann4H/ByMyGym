@@ -100,70 +100,82 @@ class ValidateFields {
 	}
 
 	validateGymHeight(gymHeight) {
-		if (validator.isEmpty(gymHeight)) {
+		if (!gymHeight) {
 			return "Wysokość jest wymagana";
-		} else if (!validator.isNumeric(gymHeight, "pl-PL")) {
-			return "Proszę wprowadzić liczbę";
+		} else if (
+			!/^(?=.*[1-9])[1-9]{1,3}(?:\.\d\d?)?$/.test(gymHeight) ||
+			gymHeight <= 0
+		) {
+			return "Liczba jest nieprawidłowa";
 		}
 		return false;
 	}
 
 	validateGymWidth(gymWidth) {
-		if (validator.isEmpty(gymWidth)) {
+		if (!gymWidth) {
 			return "Szerokość jest wymagana";
-		} else if (!validator.isNumeric(gymWidth, "pl-PL")) {
-			return "Proszę wprowadzić liczbę";
+		} else if (
+			!/^(?=.*[1-9])[1-9]{1,3}(?:\.\d\d?)?$/.test(gymWidth) ||
+			gymWidth <= 0
+		) {
+			return "Liczba jest nieprawidłowa";
 		}
 		return false;
 	}
 
 	validateGymLength(gymLength) {
-		if (validator.isEmpty(gymLength)) {
+		if (!gymLength) {
 			return "Długość jest wymagana";
-		} else if (!validator.isNumeric(gymLength, "pl-PL")) {
-			return "Proszę wprowadzić liczbę";
+		} else if (
+			!/^(?=.*[1-9])[1-9]{1,3}(?:\.\d\d?)?$/.test(gymLength) ||
+			gymLength <= 0
+		) {
+			return "Liczba jest nieprawidłowa";
 		}
 		return false;
 	}
 
 	validateGymPrice(gymPrice) {
-		if (validator.isEmpty(gymPrice)) {
+		if (!gymPrice) {
 			return "Cena jest wymagana";
-		} else if (!validator.isCurrency(gymPrice)) {
+		} else if (!/^\d{1,3}(?:[.,]\d{3})*(?:[.,]\d{2})?$/.test(gymPrice) || gymPrice <= 0) {
 			return "Cena wpisana w niepoprawnej postaci";
 		}
 		return false;
 	}
 
 	validateAudience(audience) {
-		if (validator.isEmpty(audience)) {
+		if (!audience) {
 			return "Liczba miejsc na widowni jest wymagana";
-		} else if (!validator.isNumeric(audience, "pl-PL")) {
-			return "Proszę wprowadzić liczbę";
+		} else if (!/^(?=.*[0-9])[0-9]{1,3}$/.test(audience) || audience < 0) {
+			return "Liczba jest nieprawidłowa";
 		}
 		return false;
 	}
 
 	validateChangingRooms(changingRooms) {
-		if (validator.isEmpty(changingRooms)) {
+		if (!changingRooms) {
 			return "Proszę wprowadzić ilość szatń";
-		} else if (!validator.isNumeric(changingRooms, "pl-PL")) {
-			return "Proszę wprowadzić liczbę";
+		} else if (
+			!/^(?=.*[0-9])[0-9]{1,3}$/.test(changingRooms) ||
+			changingRooms < 0
+		) {
+			return "Liczba jest nieprawidłowa";
 		}
 		return false;
 	}
 
 	validateGymURL(gymURL) {
-		if (validator.isEmpty(gymURL)) {
-			return "Adres strony internetowej jest wymagany";
-		} else if (!validator.isURL(gymURL)) {
+		if (!gymURL) {
+			return false;
+		} else if (!/^$|^(https?:\/\/(?:www\.|(?!www)))?[a-zA-Z0-9][a-zA-Z0-9-]+\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,}$/.test(gymURL)) {
 			return "URL jest wprowadzony w nieprawidłowym formacie";
 		}
 		return false;
 	}
 
 	validateGymPhone(gymPhone) {
-		if (validator.isEmpty(gymPhone)) {
+		if (!gymPhone) {
 			return "Telefon jest wymagany";
 		} else if (!validator.isMobilePhone(gymPhone, "pl-PL")) {
 			return "Telefon jest wprowadzony w nieprawidłowym formacie";
@@ -182,13 +194,13 @@ class ValidateFields {
 
 	validateGymDescription(gymDescription) {
 		if (validator.isEmpty(gymDescription)) {
-			return "Opis jest wymagany";
+			return false;
 		}
 		return false;
 	}
 
 	validateGymOwner(gymOwner) {
-		if (validator.isEmpty(gymOwner)) {
+		if (!gymOwner) {
 			return false;
 		} else if (!validator.isLength(gymOwner, { min: 20 })) {
 			return "ID właściciela powinno mieć 20 znaków";
