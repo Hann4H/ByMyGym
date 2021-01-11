@@ -49,7 +49,7 @@ export default function validate(values) {
     }
     if (!values.gymPrice) {
       errors.gymPrice = 'Należy wprowadzić cenę';
-    } else if (!/^\d{1,3}(?:[.,]\d{3})*(?:[.,]\d{2})?$/.test(values.gymPrice) || values.gymPrice <= 0) {
+    } else if (!/^\d{1,3}(?:[.,]\d{2})?$/.test(values.gymPrice) || values.gymPrice <= 0) {
       errors.gymPrice = 'Cena jest nieprawidłowa';
     }
     if (!values.gymEmail) {

@@ -40,7 +40,7 @@ export default function validate(values) {
 		verdict = false;
 	} else if (!values.gymPrice || values.gymPrice <= 0) {
 		verdict = false;
-	} else if (!/^\d{1,3}(?:[.,]\d{3})*(?:[.,]\d{2})?$/.test(values.gymPrice)) {
+	} else if (!/^\d{1,3}(?:[.,]\d{2})?$/.test(values.gymPrice)) {
 		verdict = false;
 	} else if (!values.gymPhone) {
 		verdict = false;

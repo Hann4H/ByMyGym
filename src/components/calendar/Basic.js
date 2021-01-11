@@ -15,6 +15,9 @@ import firebase from "firebase";
 import RangePickerForGym from "../gymRangePicker/RangePickerForGym";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
+import { TimePicker } from 'antd';
+
+const { RangePicker } = TimePicker;
 
 const db = firebase.firestore();
 
@@ -39,9 +42,11 @@ class Basic extends Component {
 		this.state = {
 			user: [],
 			viewModel: schedulerData,
-			dateRange: null,
+			dateRange: 0,
 			values: {},
 			errors: {},
+			view: 0,
+			times: [],
 			name: { value: "", validateOnChange: false, error: "" },
 			surname: { value: "", validateOnChange: false, error: "" },
 			phoneNumber: { value: "", validateOnChange: false, error: "" },
@@ -104,6 +109,12 @@ class Basic extends Component {
 
 	//***********/
 
+	onChangeTime = (time, times) => {
+		console.log(times[0]);
+		this.setState({ times: times });
+		// this.setState({ dateStrings });
+	}
+
 	prevClick = (schedulerData) => {
 		schedulerData.prev();
 		schedulerData.setEvents(this.state.DemoData.events);
@@ -126,10 +137,14 @@ class Basic extends Component {
 			view.showAgenda,
 			view.isEventPerspective
 		);
+		this.setState({view: view.viewType});
+		console.log(this.state.view)
 		schedulerData.setEvents(this.state.DemoData.events);
 		this.setState({
-			viewModel: schedulerData,
+			viewModel: schedulerData
 		});
+
+		
 	};
 
 	onSelectDate = (schedulerData, date) => {
@@ -165,55 +180,121 @@ class Basic extends Component {
 		if (startDate < today) {
 			alert("Początkowa data nie może być z przeszłości!");
 		} else {
-			if (
-				window.confirm(
-					`Chcesz zarezerwować termin / czas? \nOd ${start} do ${end}`
-				)
-			) {
-				let newFreshId = 0;
-				schedulerData.events.forEach((item) => {
-					if (item.id >= newFreshId) newFreshId = item.id + 1;
-				});
+			if (this.state.view != 0){ //jeśli kalendarz jest ustawiony na coś co nie jest dniem
+				if (!Array.isArray(this.state.times) || !this.state.times.length) {
+					// jeśli array times nie jest pusty (użytkownik wybrał godzinę pod kalendarzem) to wyświetl alert i kontynuuj
+					if (
+						window.confirm(
+							`Chcesz zarezerwować termin / czas? \nOd ${start.substring(0, 10) + " " + this.state.times[0]} do ${end.substring(0, 10) + " " + this.state.times[1]}`
+						)
+					) {
+						let newFreshId = 0;
+						schedulerData.events.forEach((item) => {
+							if (item.id >= newFreshId) newFreshId = item.id + 1;
+						});
 
-				let newEvent = {
-					id: newFreshId,
-					title: "Do akceptacji",
-					start: start,
-					end: end,
-					resourceId: slotId,
-					bgColor: "#FFD700",
-				};
+						let startTime = this.state.times[0]; // picker zwraca godzinę startową i godzinę końcową jako array stąd 
+						let endTime = this.state.times[1]; // rozróżnienie na [0] i [1]
 
-				schedulerData.addEvent(newEvent);
-				this.setState({
-					viewModel: schedulerData,
-				});
+						let newEvent = {
+							id: newFreshId,
+							title: "Do akceptacji",
+							start: start.substring(0, 10) + " " + startTime, //zmienione dodawanie start i end do firebase
+							end: end.substring(0, 10) + " " + endTime, //data z kalendarza, godzina z pickera pod kalendarzem
+							resourceId: slotId,
+							bgColor: "#FFD700",
+						};
 
-				db.collection("reservation")
-					.add({
-						id: newEvent.id,
-						title: "Do akceptacji",
-						start: newEvent.start,
-						end: newEvent.end,
-						resourceId: newEvent.resourceId,
-						bgColor: "#FFD700",
-						movable: false,
-						resizable: false,
-						gym_id: this.props.gym_id,
-						reservation_date: new Date().toISOString(),
-						name: this.state.name.value,
-						surname: this.state.surname.value,
-						email: this.state.email.value,
-						phoneNumber: this.state.phoneNumber.value,
-						user_id: this.state.user,
-						scored: null,
-					})
-					.then(() => {
-						window.location.reload();
-						window.location.replace(
-							"http://localhost:3000/finishReservation"
-						);
+						console.log("start: " + newEvent.start)
+
+						schedulerData.addEvent(newEvent);
+						this.setState({
+							viewModel: schedulerData,
+						});
+
+						db.collection("reservation")
+							.add({
+								id: newEvent.id,
+								title: "Do akceptacji",
+								start: newEvent.start,
+								end: newEvent.end,
+								resourceId: newEvent.resourceId,
+								bgColor: "#FFD700",
+								movable: false,
+								resizable: false,
+								gym_id: this.props.gym_id,
+								reservation_date: new Date().toISOString(),
+								name: this.state.name.value,
+								surname: this.state.surname.value,
+								email: this.state.email.value,
+								phoneNumber: this.state.phoneNumber.value,
+								user_id: this.state.user,
+								scored: null,
+							})
+							.then(() => {
+								window.location.reload();
+								window.location.replace(
+									"http://localhost:3000/finishReservation"
+								);
+							});
+					}
+				}
+			} else { //jeśli kalendarz jest ustawiony na dzień / użytkownik wybrał rezerwacje długoterminową
+				if (
+					window.confirm(
+						`Chcesz zarezerwować termin / czas? \nOd ${start} do ${end}`
+					)
+				) { //stary kod, nic nie zmienione
+					let newFreshId = 0;
+					schedulerData.events.forEach((item) => {
+						if (item.id >= newFreshId) newFreshId = item.id + 1;
 					});
+
+					let newEvent = {
+						id: newFreshId,
+						title: "Do akceptacji",
+						start: start,
+						end: end,
+						resourceId: slotId,
+						bgColor: "#FFD700",
+					};
+
+					console.log("start: " + newEvent.start)
+
+					schedulerData.addEvent(newEvent);
+					this.setState({
+						viewModel: schedulerData,
+					});
+
+					db.collection("reservation")
+						.add({
+							id: newEvent.id,
+							title: "Do akceptacji",
+							start: newEvent.start,
+							end: newEvent.end,
+							resourceId: newEvent.resourceId,
+							bgColor: "#FFD700",
+							movable: false,
+							resizable: false,
+							gym_id: this.props.gym_id,
+							reservation_date: new Date().toISOString(),
+							name: this.state.name.value,
+							surname: this.state.surname.value,
+							email: this.state.email.value,
+							phoneNumber: this.state.phoneNumber.value,
+							user_id: this.state.user,
+							scored: null,
+						})
+						.then(() => {
+							window.location.reload();
+							window.location.replace(
+								"http://localhost:3000/finishReservation"
+							);
+						});
+				}
+
+
+
 			}
 		}
 	};
@@ -389,6 +470,8 @@ class Basic extends Component {
 		}
 	}
 
+	
+
 	render() {
 		const { viewModel } = this.state;
 		const {
@@ -413,6 +496,7 @@ class Basic extends Component {
 					<form
 						onSubmit={(evt) => this.handleSubmit(evt)}
 						className="gymForm"
+						autocomplete="on"
 					>
 						<h3
 							style={{
@@ -617,6 +701,21 @@ class Basic extends Component {
 											recurringEventsEnabled
 										/>
 									</ConfigProvider>
+									{!(this.state.view == 0) ? 
+									<div>
+										<p>
+											Najpierw wybierz czas: 
+										</p>
+										<RangePicker 
+										format="HH:mm"
+										minuteStep={30}
+										disabledHours={() => [0, 1, 2, 3, 4, 5, 23]}
+										hideDisabledOptions="true"
+										onChange={this.onChangeTime}
+										/>
+									</div>
+									: ""}
+									
 								</TabPanel>
 								<TabPanel>
 									<RangePickerForGym
