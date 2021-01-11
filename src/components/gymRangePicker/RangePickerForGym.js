@@ -50,99 +50,100 @@ class RangePickerForGym extends Component {
 
 	newEvent = () => {
 		const { dates, dateStrings, weekday } = this.state;
-		const today = new Date();
-		let startDate = new Date(dateStrings[0]);
-		let start = dateStrings[0];
-		let end = dateStrings[1];
 
-		// get weekday
-		let byweekdayValue = [];
-		let lenWeekday = weekday.length;
-		while (lenWeekday) {
-			lenWeekday--;
-			let a = weekday[lenWeekday];
-			switch (a.value) {
-				case "MO":
-					byweekdayValue.push(RRule.MO);
-					break;
-				case "TU":
-					byweekdayValue.push(RRule.TU);
-					break;
-				case "WE":
-					byweekdayValue.push(RRule.WE);
-					break;
-				case "TH":
-					byweekdayValue.push(RRule.TH);
-					break;
-				case "FR":
-					byweekdayValue.push(RRule.FR);
-					break;
-				case "SA":
-					byweekdayValue.push(RRule.SA);
-					break;
-				case "SU":
-					byweekdayValue.push(RRule.SU);
-					break;
-				default:
-					break;
+		if (dates && weekday) {
+			const today = new Date();
+			let startDate = new Date(dateStrings[0]);
+			let start = dateStrings[0];
+			let end = dateStrings[1];
+
+			// get weekday
+			let byweekdayValue = [];
+			let lenWeekday = weekday.length;
+			while (lenWeekday) {
+				lenWeekday--;
+				let a = weekday[lenWeekday];
+				switch (a.value) {
+					case "MO":
+						byweekdayValue.push(RRule.MO);
+						break;
+					case "TU":
+						byweekdayValue.push(RRule.TU);
+						break;
+					case "WE":
+						byweekdayValue.push(RRule.WE);
+						break;
+					case "TH":
+						byweekdayValue.push(RRule.TH);
+						break;
+					case "FR":
+						byweekdayValue.push(RRule.FR);
+						break;
+					case "SA":
+						byweekdayValue.push(RRule.SA);
+						break;
+					case "SU":
+						byweekdayValue.push(RRule.SU);
+						break;
+					default:
+						break;
+				}
 			}
-		}
-		console.log("byweekday: ", byweekdayValue);
+			console.log("byweekday: ", byweekdayValue);
 
-		//  create rule
-		let hoursTo = new Date(dates[1]).getHours();
-		let minutesTo = new Date(dates[1]).getMinutes();
-		let dateTo = new Date(dates[0]).setHours(hoursTo);
-		dateTo = new Date(dateTo).setMinutes(minutesTo);
-		dateTo = moment(new Date(dateTo)).format("YYYY-MM-DD HH:mm");
+			//  create rule
+			let hoursTo = new Date(dates[1]).getHours();
+			let minutesTo = new Date(dates[1]).getMinutes();
+			let dateTo = new Date(dates[0]).setHours(hoursTo);
+			dateTo = new Date(dateTo).setMinutes(minutesTo);
+			dateTo = moment(new Date(dateTo)).format("YYYY-MM-DD HH:mm");
 
-		const rule = new RRule({
-			freq: RRule.WEEKLY,
-			// byweekday: [RRule.TU, RRule.SA],
-			byweekday: byweekdayValue,
-			dtstart: new Date(dates[0].toISOString()),
-			until: new Date(dates[1].toISOString()),
-		});
-		console.log(rule.toString());
-		console.log("From: ", dateStrings[0]);
-		console.log("To: ", dateTo);
+			const rule = new RRule({
+				freq: RRule.WEEKLY,
+				// byweekday: [RRule.TU, RRule.SA],
+				byweekday: byweekdayValue,
+				dtstart: new Date(dates[0].toISOString()),
+				until: new Date(dates[1].toISOString()),
+			});
+			console.log(rule.toString());
+			console.log("From: ", dateStrings[0]);
+			console.log("To: ", dateTo);
 
-		if (startDate < today) {
-			alert("Początkowa data nie może być z przeszłości!");
+			if (startDate < today) {
+				alert("Początkowa data nie może być z przeszłości!");
+			} else {
+				if (window.confirm(`Chcesz zarezerwować termin?`)) {
+					db.collection("reservation")
+						.add({
+							id: 0,
+							title: "Do akceptacji",
+							start: dateStrings[0],
+							end: dateTo,
+							resourceId: "r1",
+							bgColor: "#FFD700",
+							movable: false,
+							resizable: false,
+							gym_id: this.props.gym_id,
+							reservation_date: new Date().toISOString(),
+							name: this.props.name,
+							surname: this.props.surname,
+							email: this.props.email,
+							phoneNumber: this.props.phoneNumber,
+							user_id: this.props.user,
+							scored: null,
+							// rrule: "FREQ=WEEKLY;DTSTART=20210110T013000Z;UNTIL=20210130T023000Z;BYDAY=TU,FR",
+							rrule: rule.toString(),
+						})
+						.then(() => {
+							window.location.reload();
+							window.location.replace(
+								"http://localhost:3000/finishReservation"
+							);
+						});
+				}
+			}
 		} else {
-			if (
-				window.confirm(
-					`Chcesz zarezerwować termin / czas? \nOd ${start} do ${end}`
-				)
-			) {
-				db.collection("reservation")
-					.add({
-						id: 0,
-						title: "Do akceptacji",
-						start: dateStrings[0],
-						end: dateTo,
-						resourceId: "r1",
-						bgColor: "#FFD700",
-						movable: false,
-						resizable: false,
-						gym_id: this.props.gym_id,
-						reservation_date: new Date().toISOString(),
-						name: this.props.name,
-						surname: this.props.surname,
-						email: this.props.email,
-						phoneNumber: this.props.phoneNumber,
-						user_id: this.props.user,
-						scored: null,
-						// rrule: "FREQ=WEEKLY;DTSTART=20210110T013000Z;UNTIL=20210130T023000Z;BYDAY=TU,FR",
-						rrule: rule.toString(),
-					})
-					.then(() => {
-						window.location.reload();
-						window.location.replace(
-							"http://localhost:3000/finishReservation"
-						);
-					});
-			}
+			window.alert("Proszę uzupełnić obowiązkowe pola!");
 		}
 	};
 
@@ -150,7 +151,7 @@ class RangePickerForGym extends Component {
 		return (
 			<>
 				<div className="booking-field">
-					<label style={nameStyle}>Wybierz daty i czas:</label>
+					<label style={nameStyle}>Wybierz daty i czas *:</label>
 					<ConfigProvider locale={plPL}>
 						<Space direction="vertical" size={12}>
 							{/* <RangePicker
@@ -182,7 +183,9 @@ class RangePickerForGym extends Component {
 						</Space>
 					</ConfigProvider>
 					<p />
-					<label style={nameStyle}>Wybierz dzień/dni tygodnia:</label>
+					<label style={nameStyle}>
+						Wybierz dzień/dni tygodnia *:
+					</label>
 					<Select
 						isMulti
 						theme={(theme) => ({
