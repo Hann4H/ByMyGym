@@ -18,6 +18,7 @@ const nameStyle = {
 	fontWeight: "bold",
 	color: "var(--darkOrange)",
 	textTransform: "none",
+	fontWeight: "normal",
 };
 
 class RangePickerForGym extends Component {

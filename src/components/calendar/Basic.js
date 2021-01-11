@@ -15,7 +15,7 @@ import firebase from "firebase";
 import RangePickerForGym from "../gymRangePicker/RangePickerForGym";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import { TimePicker } from 'antd';
+import { TimePicker } from "antd";
 
 const { RangePicker } = TimePicker;
 
@@ -113,7 +113,7 @@ class Basic extends Component {
 		console.log(times[0]);
 		this.setState({ times: times });
 		// this.setState({ dateStrings });
-	}
+	};
 
 	prevClick = (schedulerData) => {
 		schedulerData.prev();
@@ -137,14 +137,12 @@ class Basic extends Component {
 			view.showAgenda,
 			view.isEventPerspective
 		);
-		this.setState({view: view.viewType});
-		console.log(this.state.view)
+		this.setState({ view: view.viewType });
+		console.log(this.state.view);
 		schedulerData.setEvents(this.state.DemoData.events);
 		this.setState({
-			viewModel: schedulerData
+			viewModel: schedulerData,
 		});
-
-		
 	};
 
 	onSelectDate = (schedulerData, date) => {
@@ -180,12 +178,21 @@ class Basic extends Component {
 		if (startDate < today) {
 			alert("Początkowa data nie może być z przeszłości!");
 		} else {
-			if (this.state.view != 0){ //jeśli kalendarz jest ustawiony na coś co nie jest dniem
-				if (!Array.isArray(this.state.times) || !this.state.times.length) {
+			if (this.state.view != 0) {
+				//jeśli kalendarz jest ustawiony na coś co nie jest dniem
+				// !Array.isArray(this.state.times) ||	!this.state.times.length
+				console.log("this.state.times.length", this.state.times.length);
+				if (this.state.times.length == 2) {
 					// jeśli array times nie jest pusty (użytkownik wybrał godzinę pod kalendarzem) to wyświetl alert i kontynuuj
 					if (
 						window.confirm(
-							`Chcesz zarezerwować termin / czas? \nOd ${start.substring(0, 10) + " " + this.state.times[0]} do ${end.substring(0, 10) + " " + this.state.times[1]}`
+							`Chcesz zarezerwować termin / czas? \nOd ${
+								start.substring(0, 10) +
+								" " +
+								this.state.times[0]
+							} do ${
+								end.substring(0, 10) + " " + this.state.times[1]
+							}`
 						)
 					) {
 						let newFreshId = 0;
@@ -193,7 +200,7 @@ class Basic extends Component {
 							if (item.id >= newFreshId) newFreshId = item.id + 1;
 						});
 
-						let startTime = this.state.times[0]; // picker zwraca godzinę startową i godzinę końcową jako array stąd 
+						let startTime = this.state.times[0]; // picker zwraca godzinę startową i godzinę końcową jako array stąd
 						let endTime = this.state.times[1]; // rozróżnienie na [0] i [1]
 
 						let newEvent = {
@@ -205,7 +212,7 @@ class Basic extends Component {
 							bgColor: "#FFD700",
 						};
 
-						console.log("start: " + newEvent.start)
+						console.log("start: " + newEvent.start);
 
 						schedulerData.addEvent(newEvent);
 						this.setState({
@@ -238,13 +245,17 @@ class Basic extends Component {
 								);
 							});
 					}
+				} else {
+					window.alert("Trzeba wybrać czas!");
 				}
-			} else { //jeśli kalendarz jest ustawiony na dzień / użytkownik wybrał rezerwacje długoterminową
+			} else {
+				//jeśli kalendarz jest ustawiony na dzień / użytkownik wybrał rezerwacje długoterminową
 				if (
 					window.confirm(
 						`Chcesz zarezerwować termin / czas? \nOd ${start} do ${end}`
 					)
-				) { //stary kod, nic nie zmienione
+				) {
+					//stary kod, nic nie zmienione
 					let newFreshId = 0;
 					schedulerData.events.forEach((item) => {
 						if (item.id >= newFreshId) newFreshId = item.id + 1;
@@ -259,7 +270,7 @@ class Basic extends Component {
 						bgColor: "#FFD700",
 					};
 
-					console.log("start: " + newEvent.start)
+					console.log("start: " + newEvent.start);
 
 					schedulerData.addEvent(newEvent);
 					this.setState({
@@ -292,9 +303,6 @@ class Basic extends Component {
 							);
 						});
 				}
-
-
-
 			}
 		}
 	};
@@ -469,8 +477,6 @@ class Basic extends Component {
 			}));
 		}
 	}
-
-	
 
 	render() {
 		const { viewModel } = this.state;
@@ -673,6 +679,35 @@ class Basic extends Component {
 								</TabList>
 
 								<TabPanel>
+									{!(this.state.view == 0) ? (
+										<div>
+											<p
+												style={{
+													color: "var(--darkOrange)",
+												}}
+											>
+												Najpierw wybierz czas *:
+											</p>
+											<RangePicker
+												format="HH:mm"
+												minuteStep={30}
+												disabledHours={() => [
+													0,
+													1,
+													2,
+													3,
+													4,
+													5,
+													23,
+												]}
+												hideDisabledOptions="true"
+												onChange={this.onChangeTime}
+											/>
+										</div>
+									) : (
+										""
+									)}
+
 									<ConfigProvider locale={plPL}>
 										<Scheduler
 											schedulerData={viewModel}
@@ -701,21 +736,6 @@ class Basic extends Component {
 											recurringEventsEnabled
 										/>
 									</ConfigProvider>
-									{!(this.state.view == 0) ? 
-									<div>
-										<p>
-											Najpierw wybierz czas: 
-										</p>
-										<RangePicker 
-										format="HH:mm"
-										minuteStep={30}
-										disabledHours={() => [0, 1, 2, 3, 4, 5, 23]}
-										hideDisabledOptions="true"
-										onChange={this.onChangeTime}
-										/>
-									</div>
-									: ""}
-									
 								</TabPanel>
 								<TabPanel>
 									<RangePickerForGym
