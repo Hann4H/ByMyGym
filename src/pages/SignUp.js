@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import firebase from "../firebase";
 import TextField from "@material-ui/core/TextField";
 
+
+
 const validEmailRegex = RegExp(
   /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i
 );
@@ -236,8 +238,10 @@ class SignUp extends Component {
                 <span className="error">{errors.password}</span>
               )}
             </div>
+
             <div id="recaptcha-container"></div>
             <button className="button">Zarejestruj</button>
+
           </form>
         </div>
       </div>

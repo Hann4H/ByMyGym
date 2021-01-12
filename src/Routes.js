@@ -15,7 +15,6 @@ import BookingView from "./pages/BookingView";
 import GymView from "./pages/GymView";
 import NoAccess from "./pages/NoAccess";
 import ReservationsView from "./pages/ReservationsView";
-
 import FinishReservation from "./pages/FinishReservation";
 import Maps from "./pages/Maps";
 

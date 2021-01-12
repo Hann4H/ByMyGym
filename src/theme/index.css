@@ -591,23 +591,6 @@
 	.container-2 label {
 		text-align: center;
 	}
-	.container-2 input {
-	}
-	#gallery {
-		/* font-size: 30px;
-    text-align: center;
-    width: 100%;
-    margin-bottom: 10%;
-    margin-left: 20.5%;
-    margin-top: 0.5rem; */
-		/* width: 70%; */
-		/* margin-left: 0.7em; */
-	}
-	.form_button {
-		/* margin-left: 17% !important; */
-		/* transform: translate(10%, 200%); */
-		/* margin-top: 25% !important; */
-	}
 }
 
 .container-4 {
@@ -716,9 +699,6 @@
 .footer {
 	height: 7rem;
 	background-color: var(--darkGrey);
-}
-
-.padder {
 }
 
 .contact-link {
@@ -1260,10 +1240,12 @@ ul.unstyled {
 }
 
 .drag-drop-button {
-	font-size: 15px;
+	font-size: 10px;
 	padding: 0px;
-	height: 2rem;
-	max-width: 5rem;
+  height: 2rem;
+  margin-left: 20px;
+  max-width: 4rem;
+  color: var(--mainWhite);
 }
 
 /* loading */
@@ -1901,7 +1883,9 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
+	transition: "color 9999s ease-out, background-color 9999s ease-out";
 	-webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+	transition-delay: 9999s;
 	-webkit-transition-delay: 9999s;
 }
 

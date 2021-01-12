@@ -12,7 +12,7 @@ import Loading from "./Loading";
 
 import { useDropzone } from "react-dropzone";
 
-Modal.setAppElement("#root");
+if (process.env.NODE_ENV !== 'test') Modal.setAppElement('#root');
 
 // Drag and drop style
 const thumbsContainer = {
