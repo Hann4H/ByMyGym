@@ -223,7 +223,7 @@ class GymDetails extends Component {
 							<br />
 							<p style={nameStyle}>Liczna szatń</p>
 							{this.state.data.changingRooms ? (
-								<p style={textStyle}>{changingRooms} m</p>
+								<p style={textStyle}>{changingRooms}</p>
 							) : (
 								<p className="no-data-p">brak</p>
 							)}
@@ -248,7 +248,7 @@ class GymDetails extends Component {
 							<br />
 							<p style={nameStyle}>Cena</p>
 							{this.state.data.gymPrice ? (
-								<p style={textStyle}>{gymPrice}</p>
+								<p style={textStyle}>{gymPrice} zł</p>
 							) : (
 								<p className="no-data-p">brak</p>
 							)}

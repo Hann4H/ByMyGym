@@ -22,7 +22,6 @@ function JsonToFirebase(props) {
 	// })
 
 	props.json.map((item) =>{
-		if(!Gyms.gymName.includes(item.properties.nazwa)) {
 			db.collection("gyms").add({
 				gymName: item.properties.nazwa,
 				gymStreet: item.properties.adres,
@@ -46,7 +45,6 @@ function JsonToFirebase(props) {
 				gymHeight: null,
 	
 			})
-		}
 	});
 
 	return null;

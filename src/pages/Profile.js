@@ -9,16 +9,16 @@ var timeNow = now.getFullYear()+"-"+now.getMonth()+1+"-"+now.getDate()+" "+now.g
 
 class Profile extends Component {
   state = {
-    user: [],
-    error: "",
-    name: "",
-    Reservations: [],
-    Gyms: [],
-    Favourites: [],
-    seen: false,
-    loading: false,
-    Owned: [],
-  };
+      user: [],
+      error: "",
+      name: "",
+      Reservations: [],
+      Gyms: [],
+      Favourites: [],
+      seen: false,
+      loading: false,
+      Owned: [],
+    };
 
   componentDidMount() {
     const Reservations = [];
@@ -33,7 +33,8 @@ class Profile extends Component {
         Gyms.push({
           docId: doc.id,
           gymName: doc.data().gymName,
-          gymOwner: doc.data().gymOwner
+          gymOwner: doc.data().gymOwner,
+          accepted:doc.data().accepted,
         });
         
       });
@@ -44,27 +45,28 @@ class Profile extends Component {
       console.log("Error getting documents: ", error);
     });
     
-    if(localStorage.getItem("user") == process.env.REACT_APP_ADMIN_ID) {
-      firebase.firestore().collection("reservation")
-      .get()
-      .then((querySnapshot) => {  
-          querySnapshot.forEach(function (doc) {
-              Reservations.push({
-                start: doc.data().start,
-                end: doc.data().end,
-                gym_id: doc.data().gym_id,
-                scored: doc.data().scored,
-                bookingID: doc.id
-            })  
-          })
-          this.setState({ Reservations });
+    // if(localStorage.getItem("user") == process.env.REACT_APP_ADMIN_ID) {
+    //   firebase.firestore().collection("reservation")
+    //   .get()
+    //   .then((querySnapshot) => {  
+    //       querySnapshot.forEach(function (doc) {
+    //           Reservations.push({
+    //             start: doc.data().start,
+    //             end: doc.data().end,
+    //             gym_id: doc.data().gym_id,
+    //             scored: doc.data().scored,
+    //             status: doc.data().title,
+    //             bookingID: doc.id
+    //         })  
+    //       })
+    //       this.setState({ Reservations });
           
-      })
-      .catch(function(error) {
-          console.log("Error getting documents: ", error);
-      });
+    //   })
+    //   .catch(function(error) {
+    //       console.log("Error getting documents: ", error);
+    //   });
 
-    } else {
+    // } else {
       firebase.firestore().collection("reservation").where("user_id", "==", localStorage.getItem("user"))
       .get()
       .then((querySnapshot) => {  
@@ -74,6 +76,7 @@ class Profile extends Component {
                 end: doc.data().end,
                 gym_id: doc.data().gym_id,
                 scored: doc.data().scored,
+                status: doc.data().title,
                 bookingID: doc.id
             })  
           })
@@ -83,9 +86,7 @@ class Profile extends Component {
       .catch(function(error) {
           console.log("Error getting documents: ", error);
       });
-    }
-
-    
+    // }
 
 
     firebase.firestore().collection("favourites").doc(localStorage.getItem("user"))
@@ -121,7 +122,6 @@ class Profile extends Component {
      seen: !this.state.seen
     });
    };
-
 
 
   render() {
@@ -173,10 +173,18 @@ class Profile extends Component {
                         <Link to={`/gym_profile/${res.gym_id}`}><td>{filteredName.gymName}</td></Link>
                         <td>Od: {res.start}</td>
                         <td>Do: {res.end}</td>
-                        <button className="profile-bookings-change-button">ZMIEŃ</button>
-                        {!(localStorage.getItem("user") == process.env.REACT_APP_ADMIN_ID) ? (
+                        {/* <button className="profile-bookings-change-button">ZMIEŃ</button> */}
+                        <td>
+                        <p className="profile-bookings-p" style={res.status === "Zarezerwowane" ? { color: "#90EE90" } : { color: "#FFD700" }}>{res.status}</p>
+                        
+                        {!(localStorage.getItem("user") == process.env.REACT_APP_ADMIN_ID)
+                          && (res.start < timeNow) && (res.status === "Zarezerwowane") 
+                          ? (
                           <StarRatings gymID={res.gym_id} bookingID={res.bookingID}/>
                         ) : "" }
+                        </td>
+                        <td><p className="profile-bookings-delete">USUŃ</p></td>
+                        
                       </tr>
                     ))
                   ))}
@@ -227,7 +235,9 @@ class Profile extends Component {
                     <div className="profile-bookings">
                     {this.state.Gyms.filter(gym => gym.gymOwner == localStorage.getItem("user")).map(myGyms => (
                         <tr><Link to={`/gym_profile/${myGyms.docId}`}><td>{myGyms.gymName}</td></Link>
-                        <Link to='/reservations'><button className="profile-gyms-accept-button">Rezerwacje</button></Link></tr>
+                        {/* <Link to='/reservations'><button className="profile-gyms-accept-button">Rezerwacje</button></Link> */}
+                        {!myGyms.accepted ? <td><p className="profile-gyms-status">W trakcie akceptacji</p></td> : ""}
+                        </tr>
                       ))
                     }
                     </div>
