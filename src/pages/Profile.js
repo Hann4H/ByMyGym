@@ -19,7 +19,7 @@ class Profile extends Component {
       loading: false,
       Owned: [],
     };
-  
+
   componentDidMount() {
     const Reservations = [];
     const Gyms = [];
