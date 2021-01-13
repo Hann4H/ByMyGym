@@ -34,7 +34,7 @@ class Profile extends Component {
           docId: doc.id,
           gymName: doc.data().gymName,
           gymOwner: doc.data().gymOwner,
-          gymStreet: doc.data().gymStreet
+          gymStreet: doc.data().gymStreet,
           accepted:doc.data().accepted,
         });
         
@@ -237,14 +237,9 @@ class Profile extends Component {
                     <div className="profile-bookings">
                     {this.state.Gyms.filter(gym => gym.gymOwner == localStorage.getItem("user")).map(myGyms => (
                         <tr><Link to={`/gym_profile/${myGyms.docId}`}><td>{myGyms.gymName}</td></Link>
-<<<<<<< HEAD
-                        <td>{myGyms.gymStreet}</td>
-                        <Link to='/reservations'><button className="profile-gyms-accept-button">Rezerwacje</button></Link></tr>
-=======
                         {/* <Link to='/reservations'><button className="profile-gyms-accept-button">Rezerwacje</button></Link> */}
                         {!myGyms.accepted ? <td><p className="profile-gyms-status">W trakcie akceptacji</p></td> : ""}
                         </tr>
->>>>>>> 576815929b4f5d3467e55170612aa9013d9b0d12
                       ))
                     }
                     </div>
