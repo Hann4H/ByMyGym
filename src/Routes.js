@@ -18,6 +18,7 @@ import ReservationsView from "./pages/ReservationsView";
 
 import FinishReservation from "./pages/FinishReservation";
 import Maps from "./pages/Maps";
+import OwnerManager from "./pages/OwnerManager";
 
 const ScrollToTop = () => {
   window.scrollTo(0, 0);
@@ -44,6 +45,8 @@ const Routes = () => (
         <Route path="/newgyms" exact component={GymView} />
         <Route path="/map" exact component={Maps}/>
         <Route path="/reservations" exact component={ReservationsView} />
+        
+        <Route path="/ownerManager" exact component={OwnerManager} />
         <Route path="/finishReservation" exact component={FinishReservation} />
         <Route path="/noaccess" exact component={NoAccess} />
         <Route path="*" component={Error} status={404}/>

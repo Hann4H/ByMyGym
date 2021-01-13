@@ -34,6 +34,7 @@ class Profile extends Component {
           docId: doc.id,
           gymName: doc.data().gymName,
           gymOwner: doc.data().gymOwner,
+          gymStreet: doc.data().gymStreet,
           accepted:doc.data().accepted,
         });
         
@@ -224,6 +225,7 @@ class Profile extends Component {
                     <tbody>
                       <tr className="profile-info">
                         <td className="headline-info">Moje sale</td>
+                        <Link to='/ownerManager'><button className="profile-gyms-accept-button">Pokaż listę</button></Link>
                       </tr>
                       </tbody>
                   </table>
