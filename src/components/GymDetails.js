@@ -221,7 +221,7 @@ class GymDetails extends Component {
 								<p className="no-data-p">brak</p>
 							)}
 							<br />
-							<p style={nameStyle}>Liczna szatń</p>
+							<p style={nameStyle}>Liczba szatń</p>
 							{this.state.data.changingRooms ? (
 								<p style={textStyle}>{changingRooms}</p>
 							) : (
