@@ -11,12 +11,14 @@ class FAQ extends Component {
             <div className="faq-container">
                 <h1 className="faq-h1">FAQ</h1>
                 <ol>
-                    <li>Jak można zostać właścicielem sali, która isteniej już na stronie?</li>
-                        <p>Wystarczy, że napiszesz do nas poprzez formularz kontaktowey, do którego link znajduje się na dole strony. Możesz również kliknąć tutaj. Po weryfikacji dostaniesz uprawnienia właściciela - możliwość edycji danych sali oraz przyjmowania czy odrzucania rezerwacji.</p>
+                    <li>Jak można zostać właścicielem sali, która istnieje już na stronie?</li>
+                        <p>Wystarczy, że napiszesz do nas poprzez formularz kontaktowy, do którego link znajduje się na dole strony. Możesz również kliknąć tutaj. Po weryfikacji dostaniesz uprawnienia właściciela - możliwość edycji danych sali oraz przyjmowania czy odrzucania rezerwacji.</p>
                     <li>Czy aby zarezerwować salę należy mieć konto?</li>
                         <p>Nie, można to zrobić bez konta. Wystarczy, że podasz wszystkie wymagane dane w formularzu, który znajduje się w profilu sali.</p>
                     <li>Czy możliwa jest płatność na stronie?</li>
                         <p>Nie, płatności dokonuje się poza stroną.</p>
+                    <li>Czemu po dodaniu sali nie pojawia się ona od raz w wyszukiwaniu?</li>
+                        <p>Aby sala pojawiała się w wyszukiwaniu musi najpierw zostać zatwierdzona przez admina.</p>
                 </ol> 
             </div>
         </div>

@@ -179,12 +179,13 @@ class Profile extends Component {
                         <p className="profile-bookings-p" style={res.status === "Zarezerwowane" ? { color: "#90EE90" } : { color: "#FFD700" }}>{res.status}</p>
                         
                         {!(localStorage.getItem("user") == process.env.REACT_APP_ADMIN_ID)
-                          && (res.start < timeNow) && (res.status === "Zarezerwowane") 
+                          // && (res.start < timeNow) && (res.status === "Zarezerwowane") 
+                          && (res.start < timeNow)
                           ? (
                           <StarRatings gymID={res.gym_id} bookingID={res.bookingID}/>
                         ) : "" }
                         </td>
-                        <td><p className="profile-bookings-delete">USUŃ</p></td>
+                        {/* <td><p className="profile-bookings-delete">USUŃ</p></td> */}
                         
                       </tr>
                     ))

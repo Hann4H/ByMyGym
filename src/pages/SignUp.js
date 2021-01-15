@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import firebase from "../firebase";
 import TextField from "@material-ui/core/TextField";
 
+var request = require('request');
+
 const validEmailRegex = RegExp(
   /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i
 );
@@ -44,47 +46,7 @@ class SignUp extends Component {
   }
 
   setUpRecaptcha = () => {
-    window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier(
-      "recaptcha-container",
-      {
-        size: "invisible",
-        callback: function (response) {
-          // reCAPTCHA solved, allow signInWithPhoneNumber.
-          var phoneNumber = this.state.number;
-          var appVerifier = window.recaptchaVerifier;
-          firebase
-            .auth()
-            .signInWithPhoneNumber(phoneNumber, appVerifier)
-            .then(function (confirmationResult) {
-              // SMS sent. Prompt user to type the code from the message, then sign the
-              // user in with confirmationResult.confirm(code).
-              window.confirmationResult = confirmationResult;
-
-              var code = window.prompt("Wpisz numer weryfikacyjny");
-              confirmationResult
-                .confirm(code)
-                .then(function (result) {
-                  // User signed in successfully.
-                  this.setState({phoneVer: true});
-                  console.log("poszuo" + this.state.phoneVer);
-                  // ...
-                })
-                .catch(function (error) {
-                  // User couldn't sign in (bad verification code?)
-                  // ...
-                });
-            })
-            .catch(function (error) {
-              // Error; SMS not sent
-              // ...
-            });
-        },
-        "expired-callback": function () {
-          // Response expired. Ask user to solve reCAPTCHA again.
-          // ...
-        },
-      }
-    );
+    
   };
 
   handleChange = (event) => {

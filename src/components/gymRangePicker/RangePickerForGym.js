@@ -137,7 +137,7 @@ class RangePickerForGym extends Component {
 						.then(() => {
 							window.location.reload();
 							window.location.replace(
-								"http://localhost:3000/finishReservation"
+								"/finishReservation"
 							);
 						});
 				}
