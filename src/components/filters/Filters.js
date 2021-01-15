@@ -29,6 +29,9 @@ class Filters extends Component {
 		this.state = {
 			data: [],
 			gymPriceFrom: "",
+			gymDate: "",
+			gymTimeFrom: "",
+			gymTimeTo: "",
 			gymPriceTo: "",
 			gymHeightM: "",
 			gymWidthM: "",
@@ -68,6 +71,37 @@ class Filters extends Component {
 		event.preventDefault();
 
 		let flt = db.collection("gyms");
+		let reservations = db.collection("reservation");
+
+		let reservedGymsId = [];
+
+		if (this.state.gymDate !== "" && 
+		this.state.gymTimeFrom !== "" &&
+		this.state.gymTimeTo !== "") {
+			const timeFrom = Date.parse(this.state.gymDate + " " + this.state.gymTimeFrom);
+			const timeTo = Date.parse(this.state.gymDate + " " + this.state.gymTimeTo);
+			console.log(timeFrom, timeTo);
+
+			reservations.get().then((snapshot) => {
+				snapshot.docs.map((doc) => {
+					const sTime = Date.parse(doc.data().start);
+					const eTime = Date.parse(doc.data().end);
+
+					if ((sTime >= timeFrom && sTime <= timeTo) || 
+						(eTime >= timeFrom && eTime <= timeTo)) {
+							console.log(doc.data())
+							reservedGymsId.push(doc.data().gym_id);
+						}
+
+				});
+			});
+
+		}
+
+		console.log(reservedGymsId);
+
+
+		console.log(this.state);
 
 		if (this.state.gymPriceFrom != "" || this.state.gymPriceTo != "") {
 			flt = flt.orderBy("gymPrice");
@@ -113,7 +147,9 @@ class Filters extends Component {
 
 		flt.get().then((snapshot) => {
 			const links = snapshot.docs.map((doc) => {
-				return { docId: doc.id, ...doc.data() };
+				if (!reservedGymsId.includes(doc.id)) {
+					return { docId: doc.id, ...doc.data() };
+				} else return null;
 			});
 			this.setState({ data: links });
 			this.gymData = links;
@@ -121,7 +157,7 @@ class Filters extends Component {
 	};
 
 	render() {
-		console.log(this.state.data);
+		// console.log(this.state.data);
 		return (
 			<>
 				<div style={containerStyle}>
@@ -155,6 +191,50 @@ class Filters extends Component {
 								</label>
 							</label>
 						</div>
+
+						<div>
+							<label style={nameStyle}>
+								Data:{" "}
+								<label style={textStyle}>
+									<input
+										style={textStyle}
+										type="date"
+										name="gymDate"
+										onChange={this.handleChange}
+										value={this.state.gymDate}
+									/>
+								</label>	
+							</label>
+						</div>	
+
+						<div>
+							<label style={nameStyle}>
+								Czas:{" "}
+								<label style={textStyle}>
+									od
+									<input
+										style={textStyle}
+										label="Od"
+										type="time"
+										name="gymTimeFrom"
+										onChange={this.handleChange}
+										value={this.state.gymTimeFrom}
+									/>
+								</label>
+								<label style={textStyle}>
+									do
+									<input
+										style={textStyle}
+										label="Do"
+										type="time"
+										name="gymTimeTo"
+										onChange={this.handleChange}
+										value={this.state.gymTimeTo}
+									/>
+								</label>
+							</label>
+						</div>
+
 						<div>
 							<label style={nameStyle}>
 								Długość (m):{" "}

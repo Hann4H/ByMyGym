@@ -3,6 +3,9 @@ var router = express.Router();
 var nodemailer = require('nodemailer');
 var cors = require('cors');
 
+
+
+
 nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 587,
@@ -11,6 +14,7 @@ nodemailer.createTransport({
       pass: "BeMyGym123!"
     }
   });
+
 
   transporter.verify(function(error, success) {
     if (error) {

@@ -52,14 +52,15 @@ class FilteredItems extends Component {
 						this.state.offset,
 						this.state.offset + this.state.perPage
 					)
-					.map((gym, index) => (
+					.map((gym, index) => {
+						if (gym !== null) { return (
 						<GymItem
 							key={gym.id}
 							showCount={false}
 							gym={gym}
 							index={index}
 						/>
-					))}
+					) } else return (null) })}
 				<div className="pagination-out">
 					<ReactPaginate
 						previousLabel={"<"}
