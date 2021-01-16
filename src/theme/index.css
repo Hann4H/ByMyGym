@@ -332,7 +332,7 @@
 	text-decoration: none;
 	letter-spacing: var(--mainSpacing);
 	background: rgba(255, 255, 255, 0.3);
-	border: 3px solid var(--highOpWhite);
+	border: 2px solid var(--highOpWhite);
 	transition: var(--mainTransition);
 	text-transform: uppercase;
 	cursor: pointer;
