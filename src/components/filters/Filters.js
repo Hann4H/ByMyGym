@@ -14,7 +14,6 @@ const nameStyle = {
 const textStyle = {
 	color: "#808080",
 	width: "auto",
-	display: "inline",
 	margin: "5px",
 	textTransform: "none",
 };
@@ -160,15 +159,16 @@ class Filters extends Component {
 		// console.log(this.state.data);
 		return (
 			<>
-				<div style={containerStyle}>
+				<div style={containerStyle} className="filters">
 					<br />
 					<form onSubmit={this.handleSubmit}>
 						<div style={{ display: "inline-block" }}>
 							<label style={nameStyle}>
 								Cena (zł):{" "}
-								<label style={textStyle}>
+								<label style={textStyle} className="text-style-mob">
 									od
 									<input
+										className="text-style-mob"
 										style={textStyle}
 										label="Od"
 										placeholder="od"
@@ -178,9 +178,10 @@ class Filters extends Component {
 										value={this.state.gymPriceFrom}
 									/>
 								</label>
-								<label style={textStyle}>
+								<label style={textStyle} className="text-style-mob">
 									do
 									<input
+										className="text-style-mob"
 										style={textStyle}
 										placeholder="do"
 										type="number"
@@ -195,8 +196,9 @@ class Filters extends Component {
 						<div>
 							<label style={nameStyle}>
 								Data:{" "}
-								<label style={textStyle}>
+								<label style={textStyle} className="text-style-mob">
 									<input
+										className="text-style-mob"
 										style={textStyle}
 										type="date"
 										name="gymDate"
@@ -210,9 +212,10 @@ class Filters extends Component {
 						<div>
 							<label style={nameStyle}>
 								Czas:{" "}
-								<label style={textStyle}>
+								<label style={textStyle} className="text-style-mob">
 									od
 									<input
+										className="text-style-mob"
 										style={textStyle}
 										label="Od"
 										type="time"
@@ -221,9 +224,10 @@ class Filters extends Component {
 										value={this.state.gymTimeFrom}
 									/>
 								</label>
-								<label style={textStyle}>
+								<label style={textStyle} className="text-style-mob">
 									do
 									<input
+										className="text-style-mob"
 										style={textStyle}
 										label="Do"
 										type="time"
@@ -239,6 +243,7 @@ class Filters extends Component {
 							<label style={nameStyle}>
 								Długość (m):{" "}
 								<input
+									className="text-style-mob"
 									style={textStyle}
 									placeholder="w metrach"
 									type="number"
@@ -252,6 +257,7 @@ class Filters extends Component {
 							<label style={nameStyle}>
 								Szerokość (m):{" "}
 								<input
+									className="text-style-mob"
 									style={textStyle}
 									placeholder="w metrach"
 									type="number"
@@ -265,6 +271,7 @@ class Filters extends Component {
 							<label style={nameStyle}>
 								Wysokość (m):{" "}
 								<input
+									className="text-style-mob"
 									style={textStyle}
 									placeholder="w metrach"
 									type="number"
@@ -278,6 +285,7 @@ class Filters extends Component {
 							<label style={nameStyle}>
 								Liczba miejsc na widowni:{" "}
 								<input
+									className="text-style-mob"
 									style={textStyle}
 									placeholder=""
 									type="number"
@@ -291,6 +299,7 @@ class Filters extends Component {
 							<label style={nameStyle}>
 								Liczba szatń:{" "}
 								<input
+									className="text-style-mob"
 									style={textStyle}
 									placeholder=""
 									type="number"
