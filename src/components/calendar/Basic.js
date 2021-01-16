@@ -17,6 +17,11 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { TimePicker } from "antd";
 
+import createBrowserHistory from 'history/createBrowserHistory';
+
+
+const history = createBrowserHistory();
+
 const { RangePicker } = TimePicker;
 
 const db = firebase.firestore();
@@ -297,6 +302,7 @@ class Basic extends Component {
 							scored: null,
 						})
 						.then(() => {
+							history.push(`/gym_profile/${this.props.gym_id}`)
 							window.location.reload();
 							window.location.replace(
 								"/finishReservation"

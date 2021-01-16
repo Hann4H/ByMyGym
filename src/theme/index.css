@@ -327,6 +327,24 @@
 	}
 }
 
+.go-back-btn {
+	display: inline-block;
+	text-decoration: none;
+	letter-spacing: var(--mainSpacing);
+	background: rgba(255, 255, 255, 0.3);
+	border: 3px solid var(--highOpWhite);
+	transition: var(--mainTransition);
+	text-transform: uppercase;
+	cursor: pointer;
+	font-size: 27px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.go-back-btn:hover {
+	background: var(--lowOpWhite);
+	color: var(--mainWhite);
+}
+
 .dropDown {
 	color: var(--mainOrange);
 	background-color: transparent;
