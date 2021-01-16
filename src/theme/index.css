@@ -1359,6 +1359,15 @@ ul.unstyled {
 	}
 }
 
+.range-picker-left {
+	margin-left: 27%;
+	margin-top: 15px;
+}
+
+.form-group-left {
+	margin-left: 30%;
+}
+
 .form-group-label {
 	color: var(--darkGrey);
 	font-size: 10px;
