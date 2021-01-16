@@ -17,6 +17,11 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { TimePicker } from "antd";
 
+import createBrowserHistory from 'history/createBrowserHistory';
+
+
+const history = createBrowserHistory();
+
 const { RangePicker } = TimePicker;
 
 const db = firebase.firestore();
@@ -297,6 +302,7 @@ class Basic extends Component {
 							scored: null,
 						})
 						.then(() => {
+							history.push(`/gym_profile/${this.props.gym_id}`)
 							window.location.reload();
 							window.location.replace(
 								"/finishReservation"
@@ -508,11 +514,13 @@ class Basic extends Component {
 							style={{
 								textAlign: "center",
 								color: "var(--darkOrange)",
+								marginLeft: "-6%",
 							}}
 						>
 							Rezerwacja
 						</h3>
 						{/* Name field */}
+						<div className="form-group-left">
 						<div className="form-group">
 							<label className="form-group-label">imię</label>
 							<input
@@ -670,6 +678,7 @@ class Basic extends Component {
 						>
 							Wybierz przedział czasowy
 						</button>
+						</div>
 						<p style={{ height: 10 }} />
 						{allFieldsValidated && (
 							<Tabs>
@@ -738,6 +747,7 @@ class Basic extends Component {
 									</ConfigProvider>
 								</TabPanel>
 								<TabPanel>
+									<div className="range-picker-left">
 									<RangePickerForGym
 										name={this.state.name.value}
 										surname={this.state.surname.value}
@@ -748,6 +758,7 @@ class Basic extends Component {
 										user={this.state.user}
 										gym_id={this.props.gym_id}
 									/>
+									</div>
 								</TabPanel>
 							</Tabs>
 						)}

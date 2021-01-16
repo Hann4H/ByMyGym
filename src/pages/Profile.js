@@ -183,7 +183,9 @@ class Profile extends Component {
                           && (res.start < timeNow)
                           ? (
                           <StarRatings gymID={res.gym_id} bookingID={res.bookingID}/>
-                        ) : "" }
+                        ) : 
+                          <StarRatings gymID={res.gym_id} bookingID={res.bookingID} disabled={true}/> 
+                        }
                         </td>
                         {/* <td><p className="profile-bookings-delete">USUŃ</p></td> */}
                         

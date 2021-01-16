@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { FaStar } from 'react-icons/fa';
 import firebase from "../firebase";
+import Tooltip from "@material-ui/core/Tooltip";
 
 const db = firebase.firestore();
 
@@ -53,6 +54,22 @@ const StarRatings = (props) => {
                 }
 
                 return (
+                    <div style={props.disabled ? {opacity: "0.9"} : {}}>
+                    {props.disabled ?
+                    <Tooltip title="Ocenianie będzie dostępne po pierwszej dacie rezerwacji" placement="top">
+                    <label>
+                        <input 
+                            type="radio" 
+                            name="rating" 
+                        />
+                        <FaStar 
+                            className="star" 
+                            size={15} 
+                            color={"#ececec"}
+                        />
+                    </label>
+                    </Tooltip>
+                    :
                     <label>
                         <input 
                             type="radio" 
@@ -68,6 +85,8 @@ const StarRatings = (props) => {
                             onMouseLeave={() => setHover(null)}
                         />
                     </label>
+                    }
+                    </div>
                 )
             })}
         </div>

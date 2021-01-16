@@ -327,6 +327,24 @@
 	}
 }
 
+.go-back-btn {
+	display: inline-block;
+	text-decoration: none;
+	letter-spacing: var(--mainSpacing);
+	background: rgba(255, 255, 255, 0.3);
+	border: 2px solid var(--highOpWhite);
+	transition: var(--mainTransition);
+	text-transform: uppercase;
+	cursor: pointer;
+	font-size: 27px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.go-back-btn:hover {
+	background: var(--lowOpWhite);
+	color: var(--mainWhite);
+}
+
 .dropDown {
 	color: var(--mainOrange);
 	background-color: transparent;
@@ -1469,6 +1487,15 @@ ul.unstyled {
 	}
 }
 
+.range-picker-left {
+	margin-left: 27%;
+	margin-top: 15px;
+}
+
+.form-group-left {
+	margin-left: 30%;
+}
+
 .form-group-label {
 	color: var(--darkGrey);
 	font-size: 10px;
@@ -1778,6 +1805,12 @@ ul.unstyled {
 .error {
 	color: #db2269;
 	font-size: 0.625em;
+	display: relative;
+}
+
+.error-big {
+	color: #db2269;
+	font-size: 0.8em;
 	display: relative;
 }
 

@@ -32,7 +32,7 @@ export default function validate(values) {
 		verdict = false;
 	} else if (!values.audience || values.audience < 0) {
 		verdict = false;
-	} else if (!/^(?=.*[0-9])[0-9]{1,3}$/.test(values.audience)) {
+	} else if (!/^(?=.*[0-9])[0-9]{1,4}$/.test(values.audience)) {
 		verdict = false;
 	} else if (!values.changingRooms || values.changingRooms < 0) {
 		verdict = false;
