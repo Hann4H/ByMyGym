@@ -35,12 +35,14 @@ class SignUp extends Component {
       email: null,
       number: null,
       password: null,
+      errorMessage: '',
       errors: {
         firstName: "",
         surname: "",
         email: "",
         number: "",
         password: "",
+        message: "",
       },
     };
   }
@@ -80,7 +82,7 @@ class SignUp extends Component {
     }
 
     this.setState({ errors, [name]: value }, () => {
-      console.log(errors);
+      // console.log(errors);
     });
   };
 
@@ -96,7 +98,7 @@ class SignUp extends Component {
       firebase
         .auth()
         .createUserWithEmailAndPassword(this.state.email, this.state.password)
-        .then((u) => {
+        .then(() => {
           firebase
             .firestore()
             .collection("users")
@@ -109,7 +111,13 @@ class SignUp extends Component {
             .then(() => {
               window.location.href = "/";
             });
-        });
+        })
+        .catch(error => {
+          if('The email address is already in use by another account.' === error.message) {
+            this.setState({ errorMessage: "Ten email jest już używany przez innego użytkownika!" });
+          }
+          
+        })
 
       // return <Redirect to="/login" />;
     }
@@ -117,6 +125,7 @@ class SignUp extends Component {
 
   render() {
     const { errors } = this.state;
+    const err = this.state.errorMessage;
 
     return (
       <div className="login-page">
@@ -168,7 +177,7 @@ class SignUp extends Component {
                 <span className="error">{errors.email}</span>
               )}
             </div>
-
+            <span className="error-big">{err}</span>
             <div className="row">
               <TextField
                 type="string"
