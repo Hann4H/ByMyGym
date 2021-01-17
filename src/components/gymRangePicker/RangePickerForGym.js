@@ -9,10 +9,13 @@ import moment from "moment";
 import Select from "react-select";
 import { RRule, RRuleSet, rrulestr } from "rrule";
 import firebase from "firebase";
+import { TimePicker } from "antd";
 
 const db = firebase.firestore();
 
 const { RangePicker } = DatePicker;
+
+// const { RangePicker } = TimePicker;
 
 const nameStyle = {
 	fontWeight: "bold",
@@ -24,7 +27,7 @@ const nameStyle = {
 class RangePickerForGym extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { weekday: "", dates: [], dateStrings: [] };
+		this.state = { weekday: "", dates: [], dateStrings: [], times: [] };
 		this.onChangeRangePicker = this.onChangeRangePicker.bind(this);
 		this.handleWeekday = this.handleWeekday.bind(this);
 		this.newEvent = this.newEvent.bind(this);
@@ -32,11 +35,16 @@ class RangePickerForGym extends Component {
 	}
 
 	onChangeRangePicker(dates, dateStrings) {
-		console.log("From: ", dates[0], ", to: ", dates[1]);
+		console.log("Moments From: ", dates[0], ", to: ", dates[1]);
 		console.log("From: ", dateStrings[0], ", to: ", dateStrings[1]);
 		this.setState({ dates });
 		this.setState({ dateStrings });
 	}
+
+	onChangeTime = (times) => {
+		console.log(times);
+		this.setState({ times: times });
+	};
 
 	handleWeekday = (weekday) => {
 		console.log(weekday);
@@ -49,13 +57,24 @@ class RangePickerForGym extends Component {
 	}
 
 	newEvent = () => {
-		const { dates, dateStrings, weekday } = this.state;
+		const { dates, dateStrings, weekday, times } = this.state;
 
-		if (dates && weekday) {
+		if (dates && weekday && times) {
 			const today = new Date();
 			let startDate = new Date(dateStrings[0]);
 			let start = dateStrings[0];
 			let end = dateStrings[1];
+			let startTime = moment(times[0]).format("HH:mm"); // picker zwraca godzinę startową i godzinę końcową jako array stąd
+			let endTime = moment(times[1]).format("HH:mm"); // rozróżnienie na [0] i [1]
+
+			let datesFrom = moment(
+				moment(dates[0]).format("YYYY-MM-DD") + " " + startTime
+			);
+			let datesTo = moment(
+				moment(dates[1]).format("YYYY-MM-DD") + " " + endTime
+			);
+			console.log("From rule: ", datesFrom);
+			console.log("To rule: ", datesTo);
 
 			// get weekday
 			let byweekdayValue = [];
@@ -92,33 +111,37 @@ class RangePickerForGym extends Component {
 			console.log("byweekday: ", byweekdayValue);
 
 			//  create rule
-			let hoursTo = new Date(dates[1]).getHours();
-			let minutesTo = new Date(dates[1]).getMinutes();
-			let dateTo = new Date(dates[0]).setHours(hoursTo);
-			dateTo = new Date(dateTo).setMinutes(minutesTo);
-			dateTo = moment(new Date(dateTo)).format("YYYY-MM-DD HH:mm");
+			// let hoursTo = new Date(dates[1]).getHours();
+			// let minutesTo = new Date(dates[1]).getMinutes();
+			// let dateTo = new Date(dates[0]).setHours(hoursTo);
+			// dateTo = new Date(dateTo).setMinutes(minutesTo);
+			// dateTo = moment(new Date(dateTo)).format("YYYY-MM-DD HH:mm");
 
 			const rule = new RRule({
 				freq: RRule.WEEKLY,
 				// byweekday: [RRule.TU, RRule.SA],
 				byweekday: byweekdayValue,
-				dtstart: new Date(dates[0].toISOString()),
-				until: new Date(dates[1].toISOString()),
+				dtstart: new Date(datesFrom.toISOString()),
+				until: new Date(datesTo.toISOString()),
 			});
 			console.log(rule.toString());
-			console.log("From: ", dateStrings[0]);
-			console.log("To: ", dateTo);
+			console.log("From: ", dateStrings[0] + " " + startTime);
+			console.log("To: ", dateStrings[0] + " " + endTime);
 
 			if (startDate < today) {
 				alert("Początkowa data nie może być z przeszłości!");
 			} else {
-				if (window.confirm(`Chcesz zarezerwować termin?`)) {
+				if (
+					window.confirm(
+						`Chcesz zarezerwować termin? Od ${start} do ${end} (${startTime}-${endTime})`
+					)
+				) {
 					db.collection("reservation")
 						.add({
 							id: 0,
 							title: "Do akceptacji",
-							start: dateStrings[0],
-							end: dateTo,
+							start: dateStrings[0] + " " + startTime,
+							end: dateStrings[0] + " " + endTime,
 							resourceId: "r1",
 							bgColor: "#FFD700",
 							movable: false,
@@ -136,9 +159,7 @@ class RangePickerForGym extends Component {
 						})
 						.then(() => {
 							window.location.reload();
-							window.location.replace(
-								"/finishReservation"
-							);
+							window.location.replace("/finishReservation");
 						});
 				}
 			}
@@ -151,10 +172,10 @@ class RangePickerForGym extends Component {
 		return (
 			<>
 				<div className="booking-field">
-					<label style={nameStyle}>Wybierz daty i czas *:</label>
 					<ConfigProvider locale={plPL}>
-						<Space direction="vertical" size={12}>
-							{/* <RangePicker
+						<Space direction="vertical" size="2">
+							<label style={nameStyle}>Wybierz daty *:</label>
+							<RangePicker
 								ranges={{
 									Today: [moment(), moment()],
 									"This Month": [
@@ -162,9 +183,12 @@ class RangePickerForGym extends Component {
 										moment().endOf("month"),
 									],
 								}}
+								disabledDate={this.disabledDate}
+								hideDisabledOptions="true"
 								onChange={this.onChangeRangePicker}
-							/> */}
-							<RangePicker
+							/>
+
+							{/* <RangePicker
 								ranges={{
 									Today: [moment(), moment()],
 									"This Month": [
@@ -179,35 +203,45 @@ class RangePickerForGym extends Component {
 								disabledHours={() => [0, 1, 2, 3, 4, 5, 23]}
 								hideDisabledOptions="true"
 								onChange={this.onChangeRangePicker}
+							/> */}
+							<p style={{ height: 10 }} />
+							<label style={nameStyle}>Wybierz czas *:</label>
+							<TimePicker.RangePicker
+								format="HH:mm"
+								minuteStep={30}
+								disabledHours={() => [0, 1, 2, 3, 4, 5, 23]}
+								hideDisabledOptions="true"
+								onChange={this.onChangeTime}
+							/>
+
+							<p style={{ height: 10 }} />
+							<label style={nameStyle}>
+								Wybierz dzień/dni tygodnia *:
+							</label>
+							<Select
+								isMulti
+								theme={(theme) => ({
+									...theme,
+									colors: {
+										...theme.colors,
+										primary: "#ffa841",
+										primary25: "#ffb967",
+									},
+								})}
+								placeholder="Dzień tygodnia"
+								onChange={this.handleWeekday}
+								options={[
+									{ value: "MO", label: "Poniedziałek" },
+									{ value: "TU", label: "Wtorek" },
+									{ value: "WE", label: "Środa" },
+									{ value: "TH", label: "Czwartek" },
+									{ value: "FR", label: "Piątek" },
+									{ value: "SA", label: "Sobota" },
+									{ value: "SU", label: "Niedziela" },
+								]}
 							/>
 						</Space>
 					</ConfigProvider>
-					<p />
-					<label style={nameStyle}>
-						Wybierz dzień/dni tygodnia *:
-					</label>
-					<Select
-						isMulti
-						theme={(theme) => ({
-							...theme,
-							colors: {
-								...theme.colors,
-								primary: "#ffa841",
-								primary25: "#ffb967",
-							},
-						})}
-						placeholder="Dzień tygodnia"
-						onChange={this.handleWeekday}
-						options={[
-							{ value: "MO", label: "Poniedziałek" },
-							{ value: "TU", label: "Wtorek" },
-							{ value: "WE", label: "Środa" },
-							{ value: "TH", label: "Czwartek" },
-							{ value: "FR", label: "Piątek" },
-							{ value: "SA", label: "Sobota" },
-							{ value: "SU", label: "Niedziela" },
-						]}
-					/>
 					<p style={{ height: 10 }} />
 					<button onClick={this.newEvent} style={{ color: "white" }}>
 						Zatwierdź
