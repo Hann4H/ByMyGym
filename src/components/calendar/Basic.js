@@ -687,7 +687,7 @@ class Basic extends Component {
 						</div>
 						<p style={{ height: 10 }} />
 						{allFieldsValidated && (
-							<Tabs>
+							<Tabs style={{ width: "60vw" }}>
 								<TabList>
 									<Tab>Rezerwacja krótkoterminowa</Tab>
 									<Tab>Rezerwacja długoterminowa</Tab>
