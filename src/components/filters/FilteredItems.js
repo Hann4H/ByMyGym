@@ -8,6 +8,7 @@ class FilteredItems extends Component {
 		this.state = {
 			results: this.props.data,
 			offset: 0,
+			data: [],
 			perPage: 5,
 			currentPage: 1,
 		};
@@ -68,7 +69,7 @@ class FilteredItems extends Component {
 						breakLabel={"..."}
 						breakClassName={"break-me"}
 						pageCount={this.state.pageCount}
-						marginPagesDisplayed={1}
+						marginPagesDisplayed={2}
 						pageRangeDisplayed={0}
 						onPageChange={this.handlePageClick}
 						containerClassName={"pagination"}

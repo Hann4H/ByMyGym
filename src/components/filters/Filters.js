@@ -3,6 +3,7 @@ import GymItem from "../GymItem";
 import firebase from "../../firebase";
 import FilteredItems from "./FilteredItems";
 import Loading from "../Loading";
+import ReactPaginate from "react-paginate";
 const db = firebase.firestore();
 
 const nameStyle = {
@@ -39,15 +40,26 @@ class Filters extends Component {
 			changingRoomsN: "",
 
 			loading: false,
+
+
+
+			offset: 0,
+			perPage: 5,
+			currentPage: 1,
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
+
+
+		this.handlePageClick = this.handlePageClick.bind(this);
+		this.receivedData = this.receivedData.bind(this);
 	}
 
 	componentDidMount() {
 		db.collection("gyms")
 			// .orderBy("gymPrice")
 			.orderBy("gymName")
+			.where("accepted", "==", true)
 			// .where("gymPrice", ">=", this.state.gymPriceFrom)
 			// .where("gymPrice", "<=", this.state.gymPriceTo)
 			.get()
@@ -56,6 +68,7 @@ class Filters extends Component {
 					return { docId: doc.id, ...doc.data() };
 				});
 				this.setState({ data: links });
+				this.receivedData();
 				this.gymData = links;
 				this.setState({ loading: true });
 			});
@@ -151,9 +164,78 @@ class Filters extends Component {
 				} else return null;
 			});
 			this.setState({ data: links });
+			this.receivedData();
 			this.gymData = links;
 		});
 	};
+
+
+	////////////////
+
+	handlePageClick = (e) => {
+		const selectedPage = e.selected;
+		const offset = selectedPage * this.state.perPage;
+		this.setState(
+			{
+				currentPage: selectedPage,
+				offset: offset,
+			},
+			() => {
+				this.receivedData();
+				window.scrollTo(0, 0);
+			}
+		);
+	};
+
+	receivedData() {
+		const slice = this.state.data.slice(
+			this.state.offset,
+			this.state.offset + this.state.perPage
+		);
+		const postData = slice.map((gym, index) => (
+			<GymItem key={gym.id} showCount={false} gym={gym} index={index} />
+		));
+		this.setState({
+			pageCount: Math.ceil(this.state.data.length / this.state.perPage),
+			postData,
+		});
+	}
+
+	part() {
+		return (
+			<>
+				{this.state.data
+					.slice(
+						this.state.offset,
+						this.state.offset + this.state.perPage
+					)
+					.map((gym, index) => {
+						if (gym !== null) { return (
+						<GymItem
+							key={gym.id}
+							showCount={false}
+							gym={gym}
+							index={index}
+						/>
+					) } else return (null) })}
+				<div className="pagination-out">
+					<ReactPaginate
+						previousLabel={"<"}
+						nextLabel={">"}
+						breakLabel={"..."}
+						breakClassName={"break-me"}
+						pageCount={this.state.pageCount}
+						marginPagesDisplayed={2}
+						pageRangeDisplayed={0}
+						onPageChange={this.handlePageClick}
+						containerClassName={"pagination"}
+						subContainerClassName={"pages pagination"}
+						activeClassName={"active"}
+					/>
+				</div>
+			</>
+		);
+	}
 
 	render() {
 		// console.log(this.state.data);
@@ -321,7 +403,8 @@ class Filters extends Component {
 					<div className="gyms-load">
 						{this.state.loading ? null : <Loading />}
 					</div>
-					<FilteredItems data={this.state.data} />
+					{this.part()}
+					{/* <FilteredItems data={this.state.data} /> */}
 					{/* {this.state.data.map((gym, index) => (
 						<GymItem
 							key={gym.id}
