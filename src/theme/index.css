@@ -1452,6 +1452,13 @@ ul.unstyled {
 	color: var(--mainWhite);
 }
 
+.header2-text-label {
+	border: 1px solid var(--darkOrange);
+	border-radius: 2px;
+	/* color: var(--mainOrange); */
+	padding: 3px;
+}
+
 @media screen and (max-width: 768px) {
 	.booking {
 		margin-bottom: 2rem;
@@ -1527,7 +1534,7 @@ ul.unstyled {
 }
 
 /* calendar */
- 
+
 .calendar-position {
 	/* margin-left: 2rem; */
 }
