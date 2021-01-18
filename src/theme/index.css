@@ -1430,7 +1430,8 @@ ul.unstyled {
 }
 
 .booking-container {
-	display: flex;
+	/* display: flex; */
+	display: grid;
 	flex-direction: column;
 	justify-content: space-around;
 	margin-left: 0%;
@@ -1438,8 +1439,8 @@ ul.unstyled {
 
 .booking-field {
 	margin-bottom: 1.5rem;
-	translate: (40%, 10%) !important;
-	margin-left: 2rem;
+	/* translate: (40%, 10%) !important; */
+	/* margin-left: 2rem; */
 	width: 25vw;
 }
 
@@ -1489,7 +1490,7 @@ ul.unstyled {
 
 .form-group-left {
 	/* margin-left: 30%; */
-	text-align: center;
+	/* text-align: center; */
 }
 
 .form-group-label {
@@ -1500,8 +1501,8 @@ ul.unstyled {
 
 .form-group input {
 	width: 300px;
-	text-align: center;
-	margin: 0 auto;
+	/* text-align: center; */
+	/* margin: 0 auto; */
 }
 
 .calendar-style {
