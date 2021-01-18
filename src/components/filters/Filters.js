@@ -219,6 +219,7 @@ class Filters extends Component {
 						/>
 					) } else return (null) })}
 				<div className="pagination-out">
+				{this.state.loading ? (
 					<ReactPaginate
 						previousLabel={"<"}
 						nextLabel={">"}
@@ -232,6 +233,7 @@ class Filters extends Component {
 						subContainerClassName={"pages pagination"}
 						activeClassName={"active"}
 					/>
+				) : "" };
 				</div>
 			</>
 		);
