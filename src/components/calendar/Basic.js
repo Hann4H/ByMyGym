@@ -92,6 +92,7 @@ class Basic extends Component {
 						events: JSON.parse(eventsData),
 					},
 				}));
+				history.push(`/gym_profile/${this.props.gym_id}`);
 			});
 	}
 
@@ -299,7 +300,6 @@ class Basic extends Component {
 							scored: null,
 						})
 						.then(() => {
-							history.push(`/gym_profile/${this.props.gym_id}`);
 							window.location.reload();
 							window.location.replace("/finishReservation");
 						});
