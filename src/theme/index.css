@@ -661,7 +661,7 @@
 
 .container-4 {
 	display: flex;
-	width: 95%;
+	width: 100%;
 	justify-content: space-between;
 }
 
@@ -1528,10 +1528,10 @@ ul.unstyled {
 }
 
 /* calendar */
-
+/* 
 .calendar-position {
 	margin-left: 2rem;
-}
+} */
 
 .calendar {
 	/* width: 270%; */

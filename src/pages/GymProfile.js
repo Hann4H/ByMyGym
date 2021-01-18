@@ -80,6 +80,15 @@ class GymProfile extends Component {
 									/>
 								</div>
 							</div>
+							<h3
+							style={{
+								textAlign: "center",
+								color: "var(--darkOrange)",
+								marginLeft: "-8%",
+								}}
+							>
+								Kalendarz rezerwacji
+							</h3>
 							<div className="calendar-position">
 								<DndProvider backend={HTML5Backend}>
 									<ShowScheduler

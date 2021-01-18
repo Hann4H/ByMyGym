@@ -140,7 +140,7 @@ class ShowScheduler extends Component {
             schedulerData={viewModel}
             prevClick={this.prevClick}
             nextClick={this.nextClick}
-            onSelectDate={this.onSelectDate}
+            // onSelectDate={this.onSelectDate}
             onViewChange={this.onViewChange}
             newEvent={this.newEvent}
             onScrollLeft={this.onScrollLeft}

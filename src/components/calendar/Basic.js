@@ -499,11 +499,11 @@ class Basic extends Component {
 				{/* <MuiPickersUtilsProvider utils={DateFnsUtils}> */}
 				<div className="booking-container">
 					{/* <Grid
-              container
-              direction="column"
-              justify="center"
-              alignItems="flex-start"
-            > */}
+						container
+						direction="column"
+						justify="center"
+						alignItems="flex-start"
+						> */}
 					{/* <ThemeProvider theme={theme}> */}
 					<form
 						onSubmit={(evt) => this.handleSubmit(evt)}
@@ -514,7 +514,7 @@ class Basic extends Component {
 							style={{
 								textAlign: "center",
 								color: "var(--darkOrange)",
-								marginLeft: "-6%",
+								marginLeft: "-8%",
 							}}
 						>
 							Rezerwacja
