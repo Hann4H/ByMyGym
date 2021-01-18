@@ -24,22 +24,22 @@ export default function validate(values) {
     }
     if (!values.gymHeight) {
       errors.gymHeight = 'Należy wprowadzić wysokość';
-    } else if (!/^(?=.*[1-9])[1-9]{1,3}(?:\.\d\d?)?$/.test(values.gymHeight) || values.gymHeight <= 0) {
+    } else if (!/^(?=.*[1-9])[1-9]{1,5}(?:\.\d\d?)?$/.test(values.gymHeight) || values.gymHeight <= 0) {
       errors.gymHeight = 'Wysokość jest nieprawidłowa';
     }
     if (!values.gymWidth) {
       errors.gymWidth = 'Należy wprowadzić szerokość';
-    } else if (!/^(?=.*[1-9])[1-9]{1,3}(?:\.\d\d?)?$/.test(values.gymWidth) || values.gymWidth <= 0) {
+    } else if (!/^(?=.*[1-9])[1-9]{1,5}(?:\.\d\d?)?$/.test(values.gymWidth) || values.gymWidth <= 0) {
       errors.gymWidth = 'Szerokość jest nieprawidłowa';
     }
     if (!values.gymLength) {
       errors.gymLength = 'Należy wprowadzić długość';
-    } else if (!/^(?=.*[1-9])[1-9]{1,3}(?:\.\d\d?)?$/.test(values.gymLength) || values.gymLength <= 0) {
+    } else if (!/^(?=.*[1-9])[1-9]{1,5}(?:\.\d\d?)?$/.test(values.gymLength) || values.gymLength <= 0) {
       errors.gymLength = 'Długość jest nieprawidłowa';
     }
     if (!values.audience) {
       errors.audience = 'Należy wprowadzić ilość miejsc na widowni';
-    } else if (!/^(?=.*[0-9])[0-9]{1,4}$/.test(values.audience) || values.audience < 0) {
+    } else if (!/^(?=.*[0-9])[0-9]{1,6}$/.test(values.audience) || values.audience < 0) {
       errors.audience = 'Liczba jest nieprawidłowa';
     }
     if (!values.changingRooms) {

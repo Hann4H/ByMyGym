@@ -103,7 +103,7 @@ class ValidateFields {
 		if (!gymHeight) {
 			return "Wysokość jest wymagana";
 		} else if (
-			!/^(?=.*[1-9])[1-9]{1,3}(?:\.\d\d?)?$/.test(gymHeight) ||
+			!/^(?=.*[1-9])[1-9]{1,5}(?:\.\d\d?)?$/.test(gymHeight) ||
 			gymHeight <= 0
 		) {
 			return "Liczba jest nieprawidłowa";
@@ -115,7 +115,7 @@ class ValidateFields {
 		if (!gymWidth) {
 			return "Szerokość jest wymagana";
 		} else if (
-			!/^(?=.*[1-9])[1-9]{1,3}(?:\.\d\d?)?$/.test(gymWidth) ||
+			!/^(?=.*[1-9])[1-9]{1,5}(?:\.\d\d?)?$/.test(gymWidth) ||
 			gymWidth <= 0
 		) {
 			return "Liczba jest nieprawidłowa";
@@ -127,7 +127,7 @@ class ValidateFields {
 		if (!gymLength) {
 			return "Długość jest wymagana";
 		} else if (
-			!/^(?=.*[1-9])[1-9]{1,3}(?:\.\d\d?)?$/.test(gymLength) ||
+			!/^(?=.*[1-9])[1-9]{1,5}(?:\.\d\d?)?$/.test(gymLength) ||
 			gymLength <= 0
 		) {
 			return "Liczba jest nieprawidłowa";
@@ -147,7 +147,7 @@ class ValidateFields {
 	validateAudience(audience) {
 		if (!audience) {
 			return "Liczba miejsc na widowni jest wymagana";
-		} else if (!/^(?=.*[0-9])[0-9]{1,3}$/.test(audience) || audience < 0) {
+		} else if (!/^(?=.*[0-9])[0-9]{1,6}$/.test(audience) || audience < 0) {
 			return "Liczba jest nieprawidłowa";
 		}
 		return false;
