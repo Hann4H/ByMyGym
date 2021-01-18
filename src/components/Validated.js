@@ -20,19 +20,19 @@ export default function validate(values) {
 		verdict = false;
 	} else if (!values.gymHeight || values.gymHeight <= 0) {
 		verdict = false;
-	} else if (!/^(?=.*[1-9])[1-9]{1,3}(?:\.\d\d?)?$/.test(values.gymHeight)) {
+	} else if (!/^(?=.*[1-9])[1-9]{1,5}(?:\.\d\d?)?$/.test(values.gymHeight)) {
 		verdict = false;
 	} else if (!values.gymWidth || values.gymWidth <= 0) {
 		verdict = false;
-	} else if (!/^(?=.*[1-9])[1-9]{1,3}(?:\.\d\d?)?$/.test(values.gymWidth)) {
+	} else if (!/^(?=.*[1-9])[1-9]{1,5}(?:\.\d\d?)?$/.test(values.gymWidth)) {
 		verdict = false;
 	} else if (!values.gymLength || values.gymLength <= 0) {
 		verdict = false;
-	} else if (!/^(?=.*[1-9])[1-9]{1,3}(?:\.\d\d?)?$/.test(values.gymLength)) {
+	} else if (!/^(?=.*[1-9])[1-9]{1,5}(?:\.\d\d?)?$/.test(values.gymLength)) {
 		verdict = false;
 	} else if (!values.audience || values.audience < 0) {
 		verdict = false;
-	} else if (!/^(?=.*[0-9])[0-9]{1,4}$/.test(values.audience)) {
+	} else if (!/^(?=.*[0-9])[0-9]{1,6}$/.test(values.audience)) {
 		verdict = false;
 	} else if (!values.changingRooms || values.changingRooms < 0) {
 		verdict = false;
