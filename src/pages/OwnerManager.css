@@ -1,3 +1,4 @@
+
 .gyms_container {
     height: 100vh;
 }
@@ -45,4 +46,14 @@
     border-radius: 5px;
     display: flex;
     flex-direction: column;
+}
+
+
+@media screen and (max-width: 768px) {
+    .reservations {
+        display: block;
+        justify-content:flex-start;
+        align-items: center;
+        width: 100%;
+    }
 }

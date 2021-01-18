@@ -39,7 +39,7 @@ export default function validate(values) {
     }
     if (!values.audience) {
       errors.audience = 'Należy wprowadzić ilość miejsc na widowni';
-    } else if (!/^(?=.*[0-9])[0-9]{1,3}$/.test(values.audience) || values.audience < 0) {
+    } else if (!/^(?=.*[0-9])[0-9]{1,4}$/.test(values.audience) || values.audience < 0) {
       errors.audience = 'Liczba jest nieprawidłowa';
     }
     if (!values.changingRooms) {

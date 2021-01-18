@@ -101,7 +101,7 @@ class OwnerManager extends Component {
                 <a href={"mailto:"+ r.data().email}>Napisz maila</a>
                 <span>{r.data().phoneNumber}</span>
                 <a href={"tel:" + r.data().phoneNumber}>Zadzwoń</a>
-                <button className="delete_btn" onClick={ function(e) { DeleteReservation(r.id) } }> Usuń rezerwacje </button>
+                <button className="delete_btn" onClick={ function(e) { DeleteReservation(r.id) } }> Usuń </button>
                 <button className="change_status" onClick={ function(e) { ChangeStatus(r.id) } }> Zaakceptuj </button>
               </div>
             )
