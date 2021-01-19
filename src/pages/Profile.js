@@ -84,7 +84,8 @@ class Profile extends Component {
                 gym_id: doc.data().gym_id,
                 scored: doc.data().scored,
                 status: doc.data().title,
-                bookingID: doc.id
+                bookingID: doc.id,
+                user_id: doc.data().user_id
             })  
           })
 
@@ -176,28 +177,28 @@ class Profile extends Component {
                 </div>
                 <div className="profile-bookings">
                   {this.state.Reservations.filter(reserv => timeNow < reserv.end).map((res, index) => (
-                    this.state.Gyms.filter(gym => gym.docId == res.gym_id).map(filteredName => (
-                      <tr>
-                        <Link to={`/gym_profile/${res.gym_id}`}><td>{filteredName.gymName}</td></Link>
-                        <td>Od: {res.start}</td>
-                        <td>Do: {res.end}</td>
-                        {/* <button className="profile-bookings-change-button">ZMIEŃ</button> */}
-                        <td>
-                        <p className="profile-bookings-p" style={res.status === "Zarezerwowane" ? { color: "#90EE90" } : { color: "#FFD700" }}>{res.status}</p>
-                        
-                        {!(localStorage.getItem("user") == process.env.REACT_APP_ADMIN_ID)
-                          // && (res.start < timeNow) && (res.status === "Zarezerwowane") 
-                          && (res.start < timeNow)
-                          ? (
-                          <StarRatings gymID={res.gym_id} bookingID={res.bookingID}/>
-                        ) : 
-                          <StarRatings gymID={res.gym_id} bookingID={res.bookingID} disabled={true}/> 
-                        }
-                        </td>
-                        {/* <td><p className="profile-bookings-delete">USUŃ</p></td> */}
-                        
-                      </tr>
-                    ))
+                      this.state.Gyms.filter(gym => gym.docId == res.gym_id && gym.gymOwner != res.user_id).map(filteredName => (
+                        <tr>
+                          <Link to={`/gym_profile/${res.gym_id}`}><td>{filteredName.gymName}</td></Link>
+                          <td>Od: {res.start}</td>
+                          <td>Do: {res.end}</td>
+                          {/* <button className="profile-bookings-change-button">ZMIEŃ</button> */}
+                          <td>
+                          <p className="profile-bookings-p" style={res.status === "Zarezerwowane" ? { color: "#90EE90" } : { color: "#FFD700" }}>{res.status}</p>
+                          
+                          {!(localStorage.getItem("user") == process.env.REACT_APP_ADMIN_ID)
+                            // && (res.start < timeNow) && (res.status === "Zarezerwowane") 
+                            && (res.start < timeNow)
+                            ? (
+                            <StarRatings gymID={res.gym_id} bookingID={res.bookingID}/>
+                          ) : 
+                            <StarRatings gymID={res.gym_id} bookingID={res.bookingID} disabled={true}/> 
+                          }
+                          </td>
+                          {/* <td><p className="profile-bookings-delete">USUŃ</p></td> */}
+                          
+                        </tr>
+                      ))
                   ))}
                 </div>
               </tbody>
