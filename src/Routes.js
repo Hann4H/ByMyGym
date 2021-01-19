@@ -45,7 +45,6 @@ const Routes = () => (
         <Route path="/newgyms" exact component={GymView} />
         <Route path="/map" exact component={Maps}/>
         <Route path="/reservations" exact component={ReservationsView} />
-        
         <Route path="/ownerManager" exact component={OwnerManager} />
         <Route path="/finishReservation" exact component={FinishReservation} />
         <Route path="/noaccess" exact component={NoAccess} />
