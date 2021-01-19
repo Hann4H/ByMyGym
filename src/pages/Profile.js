@@ -18,6 +18,7 @@ class Profile extends Component {
       seen: false,
       loading: false,
       Owned: [],
+      owner: false,
     };
 
   componentDidMount() {
@@ -37,10 +38,15 @@ class Profile extends Component {
           gymStreet: doc.data().gymStreet,
           accepted:doc.data().accepted,
         });
-        
       });
       this.setState({ Gyms });
-
+    })
+    .then(() => {
+      Gyms.map(gym => {
+        if (gym.gymOwner == (localStorage.getItem("user"))) {
+          this.setState({ owner: true })
+        }
+      })    
     })
     .catch(function (error) {
       console.log("Error getting documents: ", error);
@@ -94,7 +100,6 @@ class Profile extends Component {
     .get()
     .then((querySnapshot) => {  
         this.setState({ Favourites : this.state.Favourites.concat(querySnapshot.data().favourites)});
-        console.log(this.state.Favourites)
     })
     .catch(function(error) {
         console.log("Error getting documents: ", error);
@@ -132,6 +137,8 @@ class Profile extends Component {
         <Redirect to="/login" />
       )
     }
+
+    const owner = this.state.owner;
 
     return (
       <>
@@ -222,13 +229,13 @@ class Profile extends Component {
                 </table>
                 </div>
                : "" }
-               {this.state.Gyms.filter(gym => gym.gymOwner == localStorage.getItem("user")) ? 
+               {owner ? 
                 <div>
                   <table className="table table-borderless">
                     <tbody>
                       <tr className="profile-info">
                         <td className="headline-info">Moje sale</td>
-                        <Link to='/ownerManager'><button className="profile-gyms-accept-button">Pokaż listę</button></Link>
+                        <Link to='/ownerManager'><button className="profile-gyms-accept-button">Pokaż rezerwacje</button></Link>
                       </tr>
                       </tbody>
                   </table>
@@ -240,6 +247,7 @@ class Profile extends Component {
                     <div className="profile-bookings">
                     {this.state.Gyms.filter(gym => gym.gymOwner == localStorage.getItem("user")).map(myGyms => (
                         <tr><Link to={`/gym_profile/${myGyms.docId}`}><td>{myGyms.gymName}</td></Link>
+                        <Link to={`/gym_profile/${myGyms.docId}`}><button className="profile-gyms-accept-button">Przejdź</button></Link>
                         {/* <Link to='/reservations'><button className="profile-gyms-accept-button">Rezerwacje</button></Link> */}
                         {!myGyms.accepted ? <td><p className="profile-gyms-status">W trakcie akceptacji</p></td> : ""}
                         </tr>
