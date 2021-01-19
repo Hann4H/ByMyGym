@@ -21,7 +21,8 @@ const uiConfig = {
           this.handleChange = this.handleChange.bind(this);
           this.state={
               email : "",
-              password : ""
+              password : "",
+              errorMessage: "",
           };
       }
   
@@ -31,7 +32,11 @@ const uiConfig = {
               console.log(u);
               window.location.href = "/";
           }).catch((err)=>{
-              console.log(err);
+              if("The password is invalid or the user does not have a password." == err.message) {
+                this.setState({ errorMessage: "Nieprawidłowe hasło" });
+              } else if ("Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later." == err.message) {
+                this.setState({ errorMessage: "Zbyt wiele nieudanych prób. Zmień hasło lub spróbuj później." });
+              }
           })
       }
   
@@ -43,13 +48,17 @@ const uiConfig = {
       }
       
   
-      render() {      
+      render() {   
+          
+        const err = this.state.errorMessage;
+
           return(
               <div className="login-page">
                   <div className="login-wave"></div>
                   <div className="login-background">
                       <Link to="/"><img className="login-logo" src={require("../img/logo.png")} alt="logo"/></Link>
                       <form className="login-form" noValidate>
+                      <span className="error-big">{err}</span>
                           <TextField
                           type="email"
                           id="email"
@@ -67,7 +76,7 @@ const uiConfig = {
                           placeholder="hasło"
                           value={this.state.password}
                           color="secondary"
-                          />
+                          />                
                           <button  className="button" onClick={this.login}>Zaloguj</button>
                           <p className="login-link-signup">Nie masz konta? <Link to="/signup"><span>Zarejestruj się!</span></Link></p>
                       </form>
