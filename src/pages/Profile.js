@@ -194,9 +194,11 @@ class Profile extends Component {
                             <td>Do: {res.end}</td>
                             </>
                           )}
-                          {res.weekdays.map(w => (
-                            <tr>{w}</tr>
-                          ))}
+                          {res.weekdays != null ? (
+                            res.weekdays.map(w => (
+                              <tr>{w}</tr>
+                            ))
+                          ) : '' }
                           
                           {/* <button className="profile-bookings-change-button">ZMIEŃ</button> */}
                           <td>
