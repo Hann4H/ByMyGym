@@ -17,7 +17,8 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { TimePicker } from "antd";
 
-import createBrowserHistory from "history/createBrowserHistory";
+import createBrowserHistory from 'history/createBrowserHistory';
+
 
 const history = createBrowserHistory();
 
@@ -57,6 +58,7 @@ class Basic extends Component {
 			email: { value: "", validateOnChange: false, error: "" },
 			submitCalled: false,
 			allFieldsValidated: false,
+			youAdmin: false,
 			DemoData: {
 				resources: [
 					{
@@ -92,8 +94,20 @@ class Basic extends Component {
 						events: JSON.parse(eventsData),
 					},
 				}));
-				history.push(`/gym_profile/${this.props.gym_id}`);
 			});
+
+		db.collection("gyms")
+		.doc(this.props.gym_id)
+		.get()
+		.then((item) => {
+			if (item.data().gymOwner === localStorage.getItem("user")) {
+				this.setState({allFieldsValidated: true, youAdmin: true, name: {value: "you"} })
+			}
+		}
+		)
+		.catch(function (error) {
+			console.error("Error ", error);
+		});
 	}
 
 	getDaysBetweenDates(start, end, dayName) {
@@ -245,7 +259,9 @@ class Basic extends Component {
 							})
 							.then(() => {
 								window.location.reload();
-								window.location.replace("/finishReservation");
+								window.location.replace(
+									"/finishReservation"
+								);
 							});
 					}
 				} else {
@@ -300,8 +316,11 @@ class Basic extends Component {
 							scored: null,
 						})
 						.then(() => {
+							history.push(`/gym_profile/${this.props.gym_id}`)
 							window.location.reload();
-							window.location.replace("/finishReservation");
+							window.location.replace(
+								"/finishReservation"
+							);
 						});
 				}
 			}
@@ -494,11 +513,11 @@ class Basic extends Component {
 				{/* <MuiPickersUtilsProvider utils={DateFnsUtils}> */}
 				<div className="booking-container">
 					{/* <Grid
-						container
-						direction="column"
-						justify="center"
-						alignItems="flex-start"
-						> */}
+              container
+              direction="column"
+              justify="center"
+              alignItems="flex-start"
+            > */}
 					{/* <ThemeProvider theme={theme}> */}
 					<form
 						onSubmit={(evt) => this.handleSubmit(evt)}
@@ -509,185 +528,174 @@ class Basic extends Component {
 							style={{
 								textAlign: "center",
 								color: "var(--darkOrange)",
-								// marginLeft: "-6%",
+								marginLeft: "-6%",
 							}}
 						>
-							Rezerwacja
+							{this.state.youAdmin ? "Zarezerwuj niedostępny czas dla swojej sali" : "Rezerwacja"} 
 						</h3>
 						{/* Name field */}
-						<div className="form-group-left">
-							<div className="form-group">
-								<label className="form-group-label">imię</label>
-								<input
-									label="imię"
-									type="text"
-									name="name"
-									value={name.value}
-									InputLabelProps={{
-										shrink: true,
-									}}
-									inputProps={{
-										size: 30,
-									}}
-									floatingLabelFixed={true}
-									className={classnames(
-										"form-control",
-										{ "is-valid": name.error === false },
-										{ "is-invalid": name.error }
-									)}
-									onChange={(evt) =>
-										this.handleChange(
-											validateFields.validateName,
-											evt
-										)
-									}
-									onBlur={(evt) =>
-										this.handleBlur(
-											validateFields.validateName,
-											evt
-										)
-									}
-									required
-								/>
-								<div className="invalid-feedback">
-									{name.error}
-								</div>
-							</div>
-							{/* Surname field */}
-							<div className="form-group">
-								<label className="form-group-label">
-									nazwisko
-								</label>
-								<input
-									label="nazwisko"
-									type="text"
-									name="surname"
-									value={surname.value}
-									InputLabelProps={{
-										shrink: true,
-									}}
-									inputProps={{
-										size: 30,
-									}}
-									className={classnames(
-										"form-control",
-										{ "is-valid": surname.error === false },
-										{ "is-invalid": surname.error }
-									)}
-									onChange={(evt) =>
-										this.handleChange(
-											validateFields.validateSurname,
-											evt
-										)
-									}
-									onBlur={(evt) =>
-										this.handleBlur(
-											validateFields.validateSurname,
-											evt
-										)
-									}
-									required
-								/>
-								<div className="invalid-feedback">
-									{surname.error}
-								</div>
-							</div>
-							{/* Email field */}
-							<div className="form-group">
-								<label className="form-group-label">
-									Email
-								</label>
-								<input
-									label="Email"
-									type="text"
-									name="email"
-									value={email.value}
-									InputLabelProps={{
-										shrink: true,
-									}}
-									inputProps={{
-										size: 30,
-									}}
-									className={classnames(
-										"form-control",
-										{ "is-valid": email.error === false },
-										{ "is-invalid": email.error }
-									)}
-									onChange={(evt) =>
-										this.handleChange(
-											validateFields.validateEmail,
-											evt
-										)
-									}
-									onBlur={(evt) =>
-										this.handleBlur(
-											validateFields.validateEmail,
-											evt
-										)
-									}
-									required
-								/>
-								<div className="invalid-feedback">
-									{email.error}
-								</div>
-							</div>
-							{/* phoneNumber field */}
-							<div className="form-group">
-								<label className="form-group-label">
-									Telefon
-								</label>
-								<input
-									label="Telefon"
-									type="text"
-									name="phoneNumber"
-									value={phoneNumber.value}
-									InputLabelProps={{
-										shrink: true,
-									}}
-									inputProps={{
-										size: 30,
-									}}
-									className={classnames(
-										"form-control",
-										{
-											"is-valid":
-												phoneNumber.error === false,
-										},
-										{ "is-invalid": phoneNumber.error }
-									)}
-									onChange={(evt) =>
-										this.handleChange(
-											validateFields.validatePhoneNumber,
-											evt
-										)
-									}
-									onBlur={(evt) =>
-										this.handleBlur(
-											validateFields.validatePhoneNumber,
-											evt
-										)
-									}
-									required
-								/>
-								<div className="invalid-feedback">
-									{phoneNumber.error}
-								</div>
-							</div>
-							<br />
-							<button
-								type="submit"
-								className="booking-button"
-								onMouseDown={() =>
-									this.setState({ submitCalled: true })
+						<div style={this.state.youAdmin?{display:"none"}:null} className="form-group-left">
+						<div  className="form-group">
+							<label className="form-group-label">imię</label>
+							<input
+								label="imię"
+								type="text"
+								name="name"
+								value={name.value}
+								InputLabelProps={{
+									shrink: true,
+								}}
+								inputProps={{
+									size: 30,
+								}}
+								floatingLabelFixed={true}
+								className={classnames(
+									"form-control",
+									{ "is-valid": name.error === false },
+									{ "is-invalid": name.error }
+								)}
+								onChange={(evt) =>
+									this.handleChange(
+										validateFields.validateName,
+										evt
+									)
 								}
-								value="Wybierz termin"
-							>
-								Wybierz przedział czasowy
-							</button>
+								onBlur={(evt) =>
+									this.handleBlur(
+										validateFields.validateName,
+										evt
+									)
+								}
+								required
+							/>
+							<div className="invalid-feedback">{name.error}</div>
+						</div>
+						{/* Surname field */}
+						<div className="form-group">
+							<label className="form-group-label">nazwisko</label>
+							<input
+								label="nazwisko"
+								type="text"
+								name="surname"
+								value={surname.value}
+								InputLabelProps={{
+									shrink: true,
+								}}
+								inputProps={{
+									size: 30,
+								}}
+								className={classnames(
+									"form-control",
+									{ "is-valid": surname.error === false },
+									{ "is-invalid": surname.error }
+								)}
+								onChange={(evt) =>
+									this.handleChange(
+										validateFields.validateSurname,
+										evt
+									)
+								}
+								onBlur={(evt) =>
+									this.handleBlur(
+										validateFields.validateSurname,
+										evt
+									)
+								}
+								required
+							/>
+							<div className="invalid-feedback">
+								{surname.error}
+							</div>
+						</div>
+						{/* Email field */}
+						<div className="form-group">
+							<label className="form-group-label">Email</label>
+							<input
+								label="Email"
+								type="text"
+								name="email"
+								value={email.value}
+								InputLabelProps={{
+									shrink: true,
+								}}
+								inputProps={{
+									size: 30,
+								}}
+								className={classnames(
+									"form-control",
+									{ "is-valid": email.error === false },
+									{ "is-invalid": email.error }
+								)}
+								onChange={(evt) =>
+									this.handleChange(
+										validateFields.validateEmail,
+										evt
+									)
+								}
+								onBlur={(evt) =>
+									this.handleBlur(
+										validateFields.validateEmail,
+										evt
+									)
+								}
+								required
+							/>
+							<div className="invalid-feedback">
+								{email.error}
+							</div>
+						</div>
+						{/* phoneNumber field */}
+						<div className="form-group">
+							<label className="form-group-label">Telefon</label>
+							<input
+								label="Telefon"
+								type="text"
+								name="phoneNumber"
+								value={phoneNumber.value}
+								InputLabelProps={{
+									shrink: true,
+								}}
+								inputProps={{
+									size: 30,
+								}}
+								className={classnames(
+									"form-control",
+									{ "is-valid": phoneNumber.error === false },
+									{ "is-invalid": phoneNumber.error }
+								)}
+								onChange={(evt) =>
+									this.handleChange(
+										validateFields.validatePhoneNumber,
+										evt
+									)
+								}
+								onBlur={(evt) =>
+									this.handleBlur(
+										validateFields.validatePhoneNumber,
+										evt
+									)
+								}
+								required
+							/>
+							<div className="invalid-feedback">
+								{phoneNumber.error}
+							</div>
+						</div>
+						<br />
+						<button
+							type="submit"
+							className="booking-button"
+							onMouseDown={() =>
+								this.setState({ submitCalled: true })
+							}
+							value="Wybierz termin"
+						>
+							Wybierz przedział czasowy
+						</button>
 						</div>
 						<p style={{ height: 10 }} />
 						{allFieldsValidated && (
-							<Tabs style={{ width: "60vw" }}>
+							<Tabs>
 								<TabList>
 									<Tab>Rezerwacja krótkoterminowa</Tab>
 									<Tab>Rezerwacja długoterminowa</Tab>
@@ -754,16 +762,16 @@ class Basic extends Component {
 								</TabPanel>
 								<TabPanel>
 									<div className="range-picker-left">
-										<RangePickerForGym
-											name={this.state.name.value}
-											surname={this.state.surname.value}
-											email={this.state.email.value}
-											phoneNumber={
-												this.state.phoneNumber.value
-											}
-											user={this.state.user}
-											gym_id={this.props.gym_id}
-										/>
+									<RangePickerForGym
+										name={this.state.name.value}
+										surname={this.state.surname.value}
+										email={this.state.email.value}
+										phoneNumber={
+											this.state.phoneNumber.value
+										}
+										user={this.state.user}
+										gym_id={this.props.gym_id}
+									/>
 									</div>
 								</TabPanel>
 							</Tabs>
