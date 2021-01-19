@@ -85,7 +85,10 @@ class Profile extends Component {
                 scored: doc.data().scored,
                 status: doc.data().title,
                 bookingID: doc.id,
-                user_id: doc.data().user_id
+                user_id: doc.data().user_id,
+                weekdays: doc.data().weekdays || null,
+                longStart: doc.data().longStart || null,
+                longEnd: doc.data().longEnd || null,
             })  
           })
 
@@ -180,8 +183,21 @@ class Profile extends Component {
                       this.state.Gyms.filter(gym => gym.docId == res.gym_id && gym.gymOwner != res.user_id).map(filteredName => (
                         <tr>
                           <Link to={`/gym_profile/${res.gym_id}`}><td>{filteredName.gymName}</td></Link>
-                          <td>Od: {res.start}</td>
-                          <td>Do: {res.end}</td>
+                          {res.longStart != null ? (
+                            <>
+                            <td>Od: {res.longStart}</td>
+                            <td>Do: {res.longEnd}</td>
+                            </>
+                          ) : (
+                            <>
+                            <td>Od: {res.start}</td>
+                            <td>Do: {res.end}</td>
+                            </>
+                          )}
+                          {res.weekdays.map(w => (
+                            <tr>{w}</tr>
+                          ))}
+                          
                           {/* <button className="profile-bookings-change-button">ZMIEŃ</button> */}
                           <td>
                           <p className="profile-bookings-p" style={res.status === "Zarezerwowane" ? { color: "#90EE90" } : { color: "#FFD700" }}>{res.status}</p>
