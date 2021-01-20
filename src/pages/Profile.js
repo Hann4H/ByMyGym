@@ -18,6 +18,7 @@ class Profile extends Component {
       seen: false,
       loading: false,
       Owned: [],
+      owner: false,
     };
 
   componentDidMount() {
@@ -37,10 +38,15 @@ class Profile extends Component {
           gymStreet: doc.data().gymStreet,
           accepted:doc.data().accepted,
         });
-        
       });
       this.setState({ Gyms });
-
+    })
+    .then(() => {
+      Gyms.map(gym => {
+        if (gym.gymOwner == (localStorage.getItem("user"))) {
+          this.setState({ owner: true })
+        }
+      })    
     })
     .catch(function (error) {
       console.log("Error getting documents: ", error);
@@ -78,7 +84,11 @@ class Profile extends Component {
                 gym_id: doc.data().gym_id,
                 scored: doc.data().scored,
                 status: doc.data().title,
-                bookingID: doc.id
+                bookingID: doc.id,
+                user_id: doc.data().user_id,
+                weekdays: doc.data().weekdays || null,
+                longStart: doc.data().longStart || null,
+                longEnd: doc.data().longEnd || null,
             })  
           })
 
@@ -94,7 +104,6 @@ class Profile extends Component {
     .get()
     .then((querySnapshot) => {  
         this.setState({ Favourites : this.state.Favourites.concat(querySnapshot.data().favourites)});
-        console.log(this.state.Favourites)
     })
     .catch(function(error) {
         console.log("Error getting documents: ", error);
@@ -133,6 +142,8 @@ class Profile extends Component {
       )
     }
 
+    const owner = this.state.owner;
+
     return (
       <>
         <div className="login-page">
@@ -169,28 +180,43 @@ class Profile extends Component {
                 </div>
                 <div className="profile-bookings">
                   {this.state.Reservations.filter(reserv => timeNow < reserv.end).map((res, index) => (
-                    this.state.Gyms.filter(gym => gym.docId == res.gym_id).map(filteredName => (
-                      <tr>
-                        <Link to={`/gym_profile/${res.gym_id}`}><td>{filteredName.gymName}</td></Link>
-                        <td>Od: {res.start}</td>
-                        <td>Do: {res.end}</td>
-                        {/* <button className="profile-bookings-change-button">ZMIEŃ</button> */}
-                        <td>
-                        <p className="profile-bookings-p" style={res.status === "Zarezerwowane" ? { color: "#90EE90" } : { color: "#FFD700" }}>{res.status}</p>
-                        
-                        {!(localStorage.getItem("user") == process.env.REACT_APP_ADMIN_ID)
-                          // && (res.start < timeNow) && (res.status === "Zarezerwowane") 
-                          && (res.start < timeNow)
-                          ? (
-                          <StarRatings gymID={res.gym_id} bookingID={res.bookingID}/>
-                        ) : 
-                          <StarRatings gymID={res.gym_id} bookingID={res.bookingID} disabled={true}/> 
-                        }
-                        </td>
-                        {/* <td><p className="profile-bookings-delete">USUŃ</p></td> */}
-                        
-                      </tr>
-                    ))
+                      this.state.Gyms.filter(gym => gym.docId == res.gym_id && gym.gymOwner != res.user_id).map(filteredName => (
+                        <tr>
+                          <Link to={`/gym_profile/${res.gym_id}`}><td>{filteredName.gymName}</td></Link>
+                          {res.longStart != null ? (
+                            <>
+                            <td>Od: {res.longStart}</td>
+                            <td>Do: {res.longEnd}</td>
+                            </>
+                          ) : (
+                            <>
+                            <td>Od: {res.start}</td>
+                            <td>Do: {res.end}</td>
+                            </>
+                          )}
+                          {res.weekdays != null ? (
+                            res.weekdays.map(w => (
+                              <tr>{w}</tr>
+                            ))
+                          ) : '' }
+                          
+                          {/* <button className="profile-bookings-change-button">ZMIEŃ</button> */}
+                          <td>
+                          <p className="profile-bookings-p" style={res.status === "Zarezerwowane" ? { color: "#90EE90" } : { color: "#FFD700" }}>{res.status}</p>
+                          
+                          {!(localStorage.getItem("user") == process.env.REACT_APP_ADMIN_ID)
+                            // && (res.start < timeNow) && (res.status === "Zarezerwowane") 
+                            && (res.start < timeNow)
+                            ? (
+                            <StarRatings gymID={res.gym_id} bookingID={res.bookingID}/>
+                          ) : 
+                            <StarRatings gymID={res.gym_id} bookingID={res.bookingID} disabled={true}/> 
+                          }
+                          </td>
+                          {/* <td><p className="profile-bookings-delete">USUŃ</p></td> */}
+                          
+                        </tr>
+                      ))
                   ))}
                 </div>
               </tbody>
@@ -222,13 +248,13 @@ class Profile extends Component {
                 </table>
                 </div>
                : "" }
-               {this.state.Gyms.filter(gym => gym.gymOwner == localStorage.getItem("user")) ? 
+               {owner ? 
                 <div>
                   <table className="table table-borderless">
                     <tbody>
                       <tr className="profile-info">
                         <td className="headline-info">Moje sale</td>
-                        <Link to='/ownerManager'><button className="profile-gyms-accept-button">Pokaż listę</button></Link>
+                        <Link to='/ownerManager'><button className="profile-gyms-accept-button">Pokaż rezerwacje</button></Link>
                       </tr>
                       </tbody>
                   </table>
@@ -240,6 +266,7 @@ class Profile extends Component {
                     <div className="profile-bookings">
                     {this.state.Gyms.filter(gym => gym.gymOwner == localStorage.getItem("user")).map(myGyms => (
                         <tr><Link to={`/gym_profile/${myGyms.docId}`}><td>{myGyms.gymName}</td></Link>
+                        <Link to={`/gym_profile/${myGyms.docId}`}><button className="profile-gyms-accept-button">Przejdź</button></Link>
                         {/* <Link to='/reservations'><button className="profile-gyms-accept-button">Rezerwacje</button></Link> */}
                         {!myGyms.accepted ? <td><p className="profile-gyms-status">W trakcie akceptacji</p></td> : ""}
                         </tr>

@@ -11,7 +11,11 @@ import { RRule, RRuleSet, rrulestr } from "rrule";
 import firebase from "firebase";
 import { TimePicker } from "antd";
 
+
+
 const db = firebase.firestore();
+
+
 
 const { RangePicker } = DatePicker;
 
@@ -27,7 +31,7 @@ const nameStyle = {
 class RangePickerForGym extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { weekday: "", dates: [], dateStrings: [], times: [] };
+		this.state = { weekday: "", dates: [], dateStrings: [], times: [], weekdays: [], start: '', end: '' };
 		this.onChangeRangePicker = this.onChangeRangePicker.bind(this);
 		this.handleWeekday = this.handleWeekday.bind(this);
 		this.newEvent = this.newEvent.bind(this);
@@ -35,19 +39,23 @@ class RangePickerForGym extends Component {
 	}
 
 	onChangeRangePicker(dates, dateStrings) {
-		console.log("Moments From: ", dates[0], ", to: ", dates[1]);
-		console.log("From: ", dateStrings[0], ", to: ", dateStrings[1]);
+		this.setState({ start: dateStrings[0], end: dateStrings[1]})
 		this.setState({ dates });
 		this.setState({ dateStrings });
 	}
 
 	onChangeTime = (times) => {
-		console.log(times);
 		this.setState({ times: times });
 	};
 
 	handleWeekday = (weekday) => {
-		console.log(weekday);
+		const weekdays = [];
+		
+		Object.keys(weekday).map((item, i) => (
+			weekdays.push(weekday[item].label)
+		));
+		this.setState({ weekdays: weekdays })
+
 		this.setState({ weekday });
 	};
 
@@ -73,8 +81,6 @@ class RangePickerForGym extends Component {
 			let datesTo = moment(
 				moment(dates[1]).format("YYYY-MM-DD") + " " + endTime
 			);
-			console.log("From rule: ", datesFrom);
-			console.log("To rule: ", datesTo);
 
 			// get weekday
 			let byweekdayValue = [];
@@ -108,7 +114,6 @@ class RangePickerForGym extends Component {
 						break;
 				}
 			}
-			console.log("byweekday: ", byweekdayValue);
 
 			//  create rule
 			// let hoursTo = new Date(dates[1]).getHours();
@@ -124,9 +129,9 @@ class RangePickerForGym extends Component {
 				dtstart: new Date(datesFrom.toISOString()),
 				until: new Date(datesTo.toISOString()),
 			});
-			console.log(rule.toString());
-			console.log("From: ", dateStrings[0] + " " + startTime);
-			console.log("To: ", dateStrings[0] + " " + endTime);
+			// console.log(rule.toString());
+			// console.log("From: ", dateStrings[0] + " " + startTime);
+			// console.log("To: ", dateStrings[0] + " " + endTime);
 
 			if (startDate < today) {
 				alert("Początkowa data nie może być z przeszłości!");
@@ -156,6 +161,9 @@ class RangePickerForGym extends Component {
 							scored: null,
 							// rrule: "FREQ=WEEKLY;DTSTART=20210110T013000Z;UNTIL=20210130T023000Z;BYDAY=TU,FR",
 							rrule: rule.toString(),
+							weekdays: this.state.weekdays,
+							longStart: this.state.start,
+							longEnd: this.state.end,
 						})
 						.then(() => {
 							window.location.reload();

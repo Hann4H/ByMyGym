@@ -15,6 +15,7 @@ import BookingView from "./pages/BookingView";
 import GymView from "./pages/GymView";
 import NoAccess from "./pages/NoAccess";
 import ReservationsView from "./pages/ReservationsView";
+import Reset from "./pages/Reset";
 
 import FinishReservation from "./pages/FinishReservation";
 import Maps from "./pages/Maps";
@@ -37,6 +38,7 @@ const Routes = () => (
         <Route path="/login" exact component={Login} />
         <Route path="/gym_profile/login" exact component={Login} />
         <Route path="/signup" exact component={SignUpComponent} />
+        <Route path="/reset" exact component={Reset} />
         <Route path="/gym_profile/:id" component={GymProfile} />
         <Route path="/profile" exact component={Profile} />
         <Route path="/gyms" exact component={Gyms} />
@@ -45,7 +47,6 @@ const Routes = () => (
         <Route path="/newgyms" exact component={GymView} />
         <Route path="/map" exact component={Maps}/>
         <Route path="/reservations" exact component={ReservationsView} />
-        
         <Route path="/ownerManager" exact component={OwnerManager} />
         <Route path="/finishReservation" exact component={FinishReservation} />
         <Route path="/noaccess" exact component={NoAccess} />

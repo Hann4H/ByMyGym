@@ -17,11 +17,6 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { TimePicker } from "antd";
 
-import createBrowserHistory from 'history/createBrowserHistory';
-
-
-const history = createBrowserHistory();
-
 const { RangePicker } = TimePicker;
 
 const db = firebase.firestore();
@@ -58,6 +53,7 @@ class Basic extends Component {
 			email: { value: "", validateOnChange: false, error: "" },
 			submitCalled: false,
 			allFieldsValidated: false,
+			youAdmin: false,
 			DemoData: {
 				resources: [
 					{
@@ -94,6 +90,19 @@ class Basic extends Component {
 					},
 				}));
 			});
+
+		db.collection("gyms")
+		.doc(this.props.gym_id)
+		.get()
+		.then((item) => {
+			if (item.data().gymOwner === localStorage.getItem("user")) {
+				this.setState({allFieldsValidated: true, youAdmin: true, name: {value: "you"} })
+			}
+		}
+		)
+		.catch(function (error) {
+			console.error("Error ", error);
+		});
 	}
 
 	getDaysBetweenDates(start, end, dayName) {
@@ -302,7 +311,6 @@ class Basic extends Component {
 							scored: null,
 						})
 						.then(() => {
-							history.push(`/gym_profile/${this.props.gym_id}`)
 							window.location.reload();
 							window.location.replace(
 								"/finishReservation"
@@ -517,11 +525,11 @@ class Basic extends Component {
 								marginLeft: "-6%",
 							}}
 						>
-							Rezerwacja
+							{this.state.youAdmin ? "Zarezerwuj niedostępny czas dla swojej sali" : "Rezerwacja"} 
 						</h3>
 						{/* Name field */}
-						<div className="form-group-left">
-						<div className="form-group">
+						<div style={this.state.youAdmin?{display:"none"}:null} className="form-group-left">
+						<div  className="form-group">
 							<label className="form-group-label">imię</label>
 							<input
 								label="imię"
