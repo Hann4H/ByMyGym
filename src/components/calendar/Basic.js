@@ -17,6 +17,9 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { TimePicker } from "antd";
 
+import createBrowserHistory from 'history/createBrowserHistory';
+
+const history = createBrowserHistory();
 const { RangePicker } = TimePicker;
 
 const db = firebase.firestore();
@@ -89,6 +92,7 @@ class Basic extends Component {
 						events: JSON.parse(eventsData),
 					},
 				}));
+				history.push(`/gym_profile/${this.props.gym_id}`);
 			});
 
 		db.collection("gyms")
@@ -188,6 +192,7 @@ class Basic extends Component {
 	newEvent = (schedulerData, slotId, slotName, start, end, type, item) => {
 		let today = new Date();
 		let startDate = new Date(start);
+		
 
 		if (startDate < today) {
 			alert("Początkowa data nie może być z przeszłości!");

@@ -258,7 +258,7 @@ class GymDetails extends Component {
 							{this.state.data.gymURL ? (
 								<a
 									href={`http://${gymURL}`}
-									className="external-url"
+									className="gym-profile-mail"
 								>
 									{gymURL}
 									<hr />
@@ -269,7 +269,7 @@ class GymDetails extends Component {
 							<br />
 							<p style={nameStyle}>E-mail</p>
 							{this.state.data.gymEmail ? (
-								<p style={textStyle}>{gymEmail}</p>
+								<p style={textStyle}><a className="gym-profile-mail" href={"mailto:" + gymEmail}>{gymEmail}</a></p>
 							) : (
 								<p className="no-data-p">brak</p>
 							)}
