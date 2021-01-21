@@ -79,7 +79,7 @@ class Slider extends Component {
 		//   { url: require("../img/header_img.png") },
 		// ];
 
-		console.log("photoArray: ", this.state.photoArray);
+		// console.log("photoArray: ", this.state.photoArray);
 		return (
 			<div>
 				{this.state.photoArray.length ? (
