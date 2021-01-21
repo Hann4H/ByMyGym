@@ -6,24 +6,10 @@ import { Map, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import * as ELG from "esri-leaflet-geocoder";
 
-// import marker icons
-// delete L.Icon.Default.prototype._getIconUrl;
-
-// L.Icon.Default.mergeOptions({
-// 	iconRetinaUrl:
-// 		"https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon-2x.png",
-// 	iconUrl: "https://unpkg.com/leaflet@1.4.0/dist/images/marker-icon.png",
-// 	shadowUrl: "https://unpkg.com/leaflet@1.4.0/dist/images/marker-shadow.png",
-// });
-
 class Localization extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			// gymLat: 52.406376,
-			// gymLng: 16.925167,
-			// zoom: 15,
-		};
+		this.state = {};
 	}
 
 	componentDidMount() {
@@ -32,8 +18,7 @@ class Localization extends Component {
 		const results = new L.LayerGroup().addTo(map);
 
 		// searchControl.on("results", function (data) {
-		// 	console.log("geodata: ", data);
-		// 	results.clearLayers();
+		// results.clearLayers();
 		// 	for (let i = data.results.length - 1; i >= 0; i--) {
 		// 		results.addLayer(L.marker(data.results[i].latlng));
 		// 	}
@@ -51,10 +36,14 @@ class Localization extends Component {
 					return;
 				}
 				if (resultsData.results[0]) {
-					// console.log("results:", resultsData);
-					// console.log("results:", resultsData.results[0].latlng);
-					results.addLayer(L.marker(resultsData.results[0].latlng));
-					// map.setZoom(15);
+					results
+						.addLayer(L.marker(resultsData.results[0].latlng))
+						.addTo(map)
+						.bindPopup("Marker 1")
+						.on(
+							"click",
+							map.setView(resultsData.results[0].latlng, 15)
+						);
 				}
 			});
 	}
@@ -62,7 +51,6 @@ class Localization extends Component {
 	render() {
 		const position = this.props.position;
 		// const gymName = this.props.gymName;
-		// const center = [37.7833, -122.4167];
 		return (
 			<Map
 				style={{ height: "100vh" }}
@@ -85,32 +73,6 @@ class Localization extends Component {
 			</Map>
 		);
 	}
-
-	// state = {
-	// 	gymLat: 52.406376,
-	// 	gymLng: 16.925167,
-	// 	zoom: 15,
-	// };
-
-	// render() {
-	// 	const position = this.props.position;
-	// 	const gymName = this.props.gymName;
-
-	// 	return (
-	// 		<Map center={position} zoom={this.state.zoom}>
-	// 			<TileLayer
-	// 				attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-	// 				url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-	// 			/>
-	// 			<Marker position={position}>
-	// 				<Popup>
-	// 					{gymName} <br /> ({this.state.gymLat},{" "}
-	// 					{this.state.gymLng})
-	// 				</Popup>
-	// 			</Marker>
-	// 		</Map>
-	// 	);
-	// }
 }
 
 export default Localization;
