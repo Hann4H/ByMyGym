@@ -11,7 +11,7 @@ import { createMuiTheme } from "@material-ui/core/styles";
 import DateFnsUtils from "@date-io/date-fns";
 import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 import firebase from "firebase";
-
+import axios from "axios";
 import RangePickerForGym from "../gymRangePicker/RangePickerForGym";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
@@ -43,6 +43,8 @@ class Basic extends Component {
 
 		schedulerData.localeMoment.locale("pl");
 		this.state = {
+			ownerMail: '',
+			gymName: '',
 			user: [],
 			viewModel: schedulerData,
 			dateRange: 0,
@@ -100,7 +102,7 @@ class Basic extends Component {
 		.get()
 		.then((item) => {
 			if (item.data().gymOwner === localStorage.getItem("user")) {
-				this.setState({allFieldsValidated: true, youAdmin: true, name: {value: "you"} })
+				this.setState({allFieldsValidated: true, youAdmin: true, name: {value: "you"}, ownerMail: item.data().gymOwnerEmail || '', gymName: item.data().gymName })
 			}
 		}
 		)
@@ -238,6 +240,8 @@ class Basic extends Component {
 							viewModel: schedulerData,
 						});
 
+						
+
 						db.collection("reservation")
 							.add({
 								id: newEvent.id,
@@ -257,6 +261,20 @@ class Basic extends Component {
 								user_id: this.state.user,
 								scored: null,
 							})
+							// .then(() => {
+								
+							// 	axios({
+							// 		method: "POST",
+							// 		url: "/sendNotifs",
+							// 		data: {
+							// 			name: 'test',
+							// 			surname: 'test',
+							// 			gymName: 'test',
+							// 			email: 'bemygym@gmail.com',
+							// 		},
+							// 	})
+
+							// })
 							.then(() => {
 								window.location.reload();
 								window.location.replace(
@@ -321,6 +339,7 @@ class Basic extends Component {
 								"/finishReservation"
 							);
 						});
+
 				}
 			}
 		}
@@ -495,6 +514,30 @@ class Basic extends Component {
 				},
 			}));
 		}
+	}
+
+	handleNotif() {
+
+		return new Promise(() => {
+			axios({
+				method: "POST",
+				url: "/send",
+				data: {
+					name: 'test',
+					surname: 'test',
+					gymName: 'test',
+					email: 'bemygym@gmail.com',
+				},
+			})
+			.then((response) => {
+				if (response.data.status === "success") {
+					alert("Wiadomość została wysłana");
+				} else if (response.data.status === "fail") {
+					alert("Błąd");
+				}
+			});
+		})
+		
 	}
 
 	render() {

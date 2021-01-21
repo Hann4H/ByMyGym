@@ -81,6 +81,7 @@ export default function gymForm() {
 	firebase.auth().onAuthStateChanged(function (user) {
 		if (user) {
 			setUserUID(user.uid);
+			console.log(user)
 		} else {
 			console.log("nie pykło");
 		}
@@ -115,6 +116,7 @@ export default function gymForm() {
 				changingRooms: Number(values.changingRooms),
 				id: ref.id,
 				gymOwner: userUID,
+				gymOwnerEmail: firebase.auth().currentUser.email,
 				accepted: false,
 
 				gymURL: values.gymURL || "",
