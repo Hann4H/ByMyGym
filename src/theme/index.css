@@ -1533,6 +1533,14 @@ ul.unstyled {
 	/* margin-left: 32rem; */
 }
 
+.gym-profile-mail {
+	color: var(--mainOrange);
+}
+
+.gym-profile-mail:hover {
+	color: var(--darkOrange);
+}
+
 /* calendar */
 
 .calendar-position {

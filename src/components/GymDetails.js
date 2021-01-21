@@ -102,6 +102,8 @@ class GymDetails extends Component {
 		});
 	}
 
+	// 51.9194° N, 19.1451°     52.409538 16.931992
+
 	render() {
 		const gymLat = this.state.data.gymLat
 			? this.state.data.gymLat
@@ -258,7 +260,7 @@ class GymDetails extends Component {
 							{this.state.data.gymURL ? (
 								<a
 									href={`http://${gymURL}`}
-									className="external-url"
+									className="gym-profile-mail"
 								>
 									{gymURL}
 									<hr />
@@ -269,7 +271,14 @@ class GymDetails extends Component {
 							<br />
 							<p style={nameStyle}>E-mail</p>
 							{this.state.data.gymEmail ? (
-								<p style={textStyle}>{gymEmail}</p>
+								<p style={textStyle}>
+									<a
+										className="gym-profile-mail"
+										href={"mailto:" + gymEmail}
+									>
+										{gymEmail}
+									</a>
+								</p>
 							) : (
 								<p className="no-data-p">brak</p>
 							)}
@@ -284,7 +293,17 @@ class GymDetails extends Component {
 						</div>
 					</div>
 					<div className="map">
-						<Localization position={position} gymName={gymName} />
+						{gymStreet ? (
+							<Localization
+								position={position}
+								gymName={gymName}
+								gymStreet={gymStreet}
+								gymCity={gymCity}
+								gymZip={gymZip}
+							/>
+						) : (
+							""
+						)}
 					</div>
 				</div>
 			</>

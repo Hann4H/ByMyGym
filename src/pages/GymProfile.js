@@ -9,9 +9,6 @@ import ShowScheduler from "../components/calendar/ShowScheduler";
 
 import firebase from "../firebase";
 
-import createBrowserHistory from 'history/createBrowserHistory';
-
-const history = createBrowserHistory();
 
 const db = firebase.firestore();
 
@@ -34,7 +31,6 @@ class GymProfile extends Component {
 			.then((snapshot) => {
 				this.setState({ gymOwner: snapshot.data().gymOwner });
 				console.log("id: " + snapshot.data().gymOwner);
-				history.push(`/gym_profile/${this.props.gym_id}`);
 			})
 			.catch(function (error) {
 				console.log("Error getting documents: ", error);

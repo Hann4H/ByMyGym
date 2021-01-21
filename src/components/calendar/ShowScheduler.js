@@ -49,10 +49,10 @@ class ShowScheduler extends Component {
 					},
 				}));
 
-				console.log(
-					"Show booking items3!!!: " +
-						JSON.stringify(this.state.DemoData.events, null, 4)
-				);
+				// console.log(
+				// 	"Show booking items3!!!: " +
+				// 		JSON.stringify(this.state.DemoData.events, null, 4)
+				// );
 			});
 	}
 
