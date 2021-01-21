@@ -1153,9 +1153,9 @@ ul.unstyled {
 	}
 	.profile-container {
 		height: 150vw;
-		width: 120%;
-		left: 42%;
-		top: 50%;
+		width: 100%;
+		left: 50%;
+		top: 60%;
 		position: absolute;
 		background-color: var(--mainWhite);
 		padding: 1rem;
