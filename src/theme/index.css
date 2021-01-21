@@ -2185,3 +2185,13 @@ input:-webkit-autofill:active {
 .btn-goTo a {
 	color: var(--mainWhite);
 }
+
+.react-confirm-alert-button-group > button{
+	font-family: "Lato";
+	background: var(--mainOrange) !important;
+	color: var(--mainWhite) !important;
+	text-align: center;
+	letter-spacing: var(--mainSpacing);
+	margin-top: 10px !important;
+	border-radius: 2px !important;
+}
