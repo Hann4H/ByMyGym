@@ -183,24 +183,6 @@ class Profile extends Component {
                       this.state.Gyms.filter(gym => gym.docId == res.gym_id && gym.gymOwner != res.user_id).map(filteredName => (
                         <tr>
                           <Link to={`/gym_profile/${res.gym_id}`}><td>{filteredName.gymName}</td></Link>
-                          {res.longStart != null ? (
-                            <>
-                            <td>Od: {res.longStart}</td>
-                            <td>Do: {res.longEnd}</td>
-                            </>
-                          ) : (
-                            <>
-                            <td>Od: {res.start}</td>
-                            <td>Do: {res.end}</td>
-                            </>
-                          )}
-                          {res.weekdays != null ? (
-                            res.weekdays.map(w => (
-                              <tr>{w}</tr>
-                            ))
-                          ) : '' }
-                          
-                          {/* <button className="profile-bookings-change-button">ZMIEŃ</button> */}
                           <td>
                           <p className="profile-bookings-p" style={res.status === "Zarezerwowane" ? { color: "#90EE90" } : { color: "#FFD700" }}>{res.status}</p>
                           
@@ -213,6 +195,26 @@ class Profile extends Component {
                             <StarRatings gymID={res.gym_id} bookingID={res.bookingID} disabled={true}/> 
                           }
                           </td>
+                          {res.longStart != null ? (
+                            <>
+                            <td>Od: {res.longStart}</td>
+                            <td>Do: {res.longEnd}</td>
+                            </>
+                          ) : (
+                            <>
+                            <td>Od: {res.start}</td>
+                            <td>Do: {res.end}</td>
+                            </>
+                          )}
+                          {res.weekdays != null ? (
+                            // res.weekdays.map(w => (
+                            //   <tr>{w}</tr>
+                            // ))
+                            <tr>{res.weekdays.join(", ")}</tr>
+                          ) : '' }
+                          
+                          {/* <button className="profile-bookings-change-button">ZMIEŃ</button> */}
+                          
                           {/* <td><p className="profile-bookings-delete">USUŃ</p></td> */}
                           
                         </tr>

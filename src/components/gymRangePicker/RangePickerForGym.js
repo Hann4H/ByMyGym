@@ -51,9 +51,33 @@ class RangePickerForGym extends Component {
 	handleWeekday = (weekday) => {
 		const weekdays = [];
 		
-		Object.keys(weekday).map((item, i) => (
-			weekdays.push(weekday[item].label)
-		));
+		Object.keys(weekday).map((item, i) => {
+			switch (weekday[item].value) {
+				case "MO":
+					weekdays.push('Pon');
+					break;
+				case "TU":
+					weekdays.push('Wt');
+					break;
+				case "WE":
+					weekdays.push('Śr');
+					break;
+				case "TH":
+					weekdays.push('Czw');
+					break;
+				case "FR":
+					weekdays.push('Pt');
+					break;
+				case "SA":
+					weekdays.push('Sob');
+					break;
+				case "SU":
+					weekdays.push('Niedz');
+					break;
+				default:
+					break;
+			}
+		});
 		this.setState({ weekdays: weekdays })
 
 		this.setState({ weekday });
@@ -162,8 +186,8 @@ class RangePickerForGym extends Component {
 							// rrule: "FREQ=WEEKLY;DTSTART=20210110T013000Z;UNTIL=20210130T023000Z;BYDAY=TU,FR",
 							rrule: rule.toString(),
 							weekdays: this.state.weekdays,
-							longStart: this.state.start,
-							longEnd: this.state.end,
+							longStart: this.state.start + " " + startTime,
+							longEnd: this.state.end + " " + endTime,
 						})
 						.then(() => {
 							window.location.reload();
