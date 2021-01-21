@@ -50,10 +50,12 @@ class Localization extends Component {
 					console.log(err);
 					return;
 				}
-				// console.log("results:", resultsData);
-				// console.log("results:", resultsData.results[0].latlng);
-				results.addLayer(L.marker(resultsData.results[0].latlng));
-				// map.setZoom(15);
+				if (resultsData.results[0]) {
+					// console.log("results:", resultsData);
+					// console.log("results:", resultsData.results[0].latlng);
+					results.addLayer(L.marker(resultsData.results[0].latlng));
+					// map.setZoom(15);
+				}
 			});
 	}
 
