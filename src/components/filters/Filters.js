@@ -110,11 +110,6 @@ class Filters extends Component {
 
 		}
 
-		console.log(reservedGymsId);
-
-
-		console.log(this.state);
-
 		if (this.state.gymPriceFrom != "" || this.state.gymPriceTo != "") {
 			flt = flt.orderBy("gymPrice");
 			if (this.state.gymPriceFrom != "") {
@@ -233,7 +228,7 @@ class Filters extends Component {
 						subContainerClassName={"pages pagination"}
 						activeClassName={"active"}
 					/>
-				) : "" };
+				) : null }
 				</div>
 			</>
 		);
@@ -417,7 +412,7 @@ class Filters extends Component {
 					))} */}
 				</div>
 			</>
-		);
+		)
 	}
 }
 

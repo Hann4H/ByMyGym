@@ -156,7 +156,7 @@ class Gyms extends Component {
 				</div>
 				<div id="pls" />
 			</div>
-		);
+		)
 	}
 }
 export default Gyms;

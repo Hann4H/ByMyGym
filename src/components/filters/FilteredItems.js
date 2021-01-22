@@ -78,7 +78,7 @@ class FilteredItems extends Component {
 					/>
 				</div>
 			</>
-		);
+		)
 	}
 }
 

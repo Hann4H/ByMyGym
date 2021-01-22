@@ -1105,6 +1105,7 @@ ul.unstyled {
 }
 
 .profile-bookings-button {
+	color: var(--mainBlack);
 	background-color: var(--mainWhite);
 	width: 1rem;
 	height: auto;
@@ -1992,6 +1993,7 @@ ul.unstyled {
 	display: flex;
 	list-style: none;
 	outline: none;
+
 }
 .pagination > .active > a {
 	background-color: var(--mainOrange);
