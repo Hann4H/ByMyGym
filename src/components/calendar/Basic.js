@@ -279,8 +279,8 @@ class Basic extends Component {
 			.add({
 				id: newEvent.id,
 				title: "Do akceptacji",
-				start: newEvent.start,
-				end: newEvent.end,
+				start: newEvent.start.substring(0, 16),
+				end: newEvent.end.substring(0, 16),
 				resourceId: newEvent.resourceId,
 				bgColor: "#FFD700",
 				movable: false,

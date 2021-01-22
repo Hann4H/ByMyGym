@@ -1405,6 +1405,8 @@ ul.unstyled {
 	padding: 0px;
 	height: 2rem;
 	max-width: 5rem;
+	color: var(--mainWhite);
+	margin-left: 1rem;
 }
 
 /* loading */

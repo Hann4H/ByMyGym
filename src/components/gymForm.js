@@ -9,6 +9,8 @@ import validated from "./Validated";
 import { add } from "date-fns";
 import { validateFields } from "../Validation";
 import Loading from "./Loading";
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 import { useDropzone } from "react-dropzone";
 
@@ -158,7 +160,6 @@ export default function gymForm() {
 						});
 					})
 					.then(() => {
-						alert("Sala została dodana");
 						window.location.href = "/profile";
 					});
 			});

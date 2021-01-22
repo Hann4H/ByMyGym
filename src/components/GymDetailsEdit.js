@@ -8,6 +8,9 @@ import TextField from "@material-ui/core/TextField";
 import { validateFields } from "../Validation";
 import classnames from "classnames";
 import firebase from "../firebase";
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
+
 const db = firebase.firestore();
 
 const theme = createMuiTheme({
@@ -212,8 +215,14 @@ class GymDetailsEdit extends Component {
 					gymOwner: this.state.gymOwner.value,
 				})
 				.then(function () {
-					console.log("Changes saved!");
-					alert("Zmiany zostały zapisane.");
+					confirmAlert({
+						title: 'Zmiany zostały zapisane.',
+						buttons: [
+						  {
+							label: 'OK'
+						  }
+						]
+					  })
 				})
 				.catch(function (error) {
 					console.error("Error saving changes: ", error);
