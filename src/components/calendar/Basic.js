@@ -325,11 +325,11 @@ class Basic extends Component {
 										do ${end.substring(0, 10) + " " + this.state.times[1].substring(0, 5)}`,
 							buttons: [
 							  {
-								label: 'Zarezerwuj',
+								label: 'ZAREZERWUJ',
 								onClick: () => this.reserveNonZero(schedulerData, slotId, slotName, start, end, type, item)
 							  },
 							  {
-								  label: 'Nie'
+								  label: 'WRÓĆ'
 							  }
 							]
 						  })
@@ -350,11 +350,11 @@ class Basic extends Component {
 					message: `Od ${start} do ${end}`,
 					buttons: [
 					  {
-						label: 'Zarezerwuj',
+						label: 'ZAREZERWUJ',
 						onClick: () => this.reserveZero(schedulerData, slotId, slotName, start, end, type, item)
 					  },
 					  {
-						label: 'Nie'
+						label: 'WRÓĆ'
 					  }
 					]
 				})

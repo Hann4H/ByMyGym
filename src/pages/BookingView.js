@@ -109,12 +109,12 @@ function ListItems(props) {
 					</tbody>
 				</table>
 				<button
-					style={{ margin: "10px" }}
+					style={{ margin: "10px", color: "white" }}
 					onClick={DeleteItemFromFirebase}
 				>
 					Usuń
 				</button>
-				<button style={{ margin: "10px" }} onClick={ChangeStatus}>
+				<button style={{ margin: "10px", color: "white" }} onClick={ChangeStatus}>
 					Zmień status
 				</button>
 				<Link

@@ -1100,6 +1100,24 @@ ul.unstyled {
 	top: 20px;
 }
 
+.profile-bookings-text {
+	display: flex;
+}
+
+.profile-bookings-button {
+	background-color: var(--mainWhite);
+	width: 1rem;
+	height: auto;
+	font-size: 8px;
+	margin-bottom: 4px;
+} 
+
+.profile-bookings-button:hover {
+	background-color: var(--mainWhite);
+	width: 1rem;
+	height: auto;
+} 
+
 .profile-bookings-delete {
 	font-size: 8px;
 	color: red;

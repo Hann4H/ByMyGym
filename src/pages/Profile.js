@@ -3,6 +3,8 @@ import { Link, Redirect } from "react-router-dom";
 import firebase from "../firebase";
 import Loading from "../components/Loading";
 import StarRatings from "../components/StarRatings";
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 var now = new Date();
 var timeNow =
@@ -158,6 +160,38 @@ class Profile extends Component {
 		});
 	};
 
+	deleteRes(bookingID) {
+		firebase.firestore()
+		.collection("reservation")
+			.doc(bookingID)
+			.delete()
+			.then(function () {
+				console.log("Document successfully deleted! Doc: " + bookingID);
+				window.location.reload(false);
+			})
+			.catch(function (error) {
+				console.error("Error removing document: ", error);
+			});
+
+
+	}
+
+
+	popAlert(bookingID) {
+		confirmAlert({
+			title: 'Czy na pewno chcesz usunąć tę rezerwację?',
+			buttons: [
+			  {
+				label: 'TAK',
+				onClick: () => this.deleteRes(bookingID)
+			  },
+			  {
+				  label: 'NIE'
+			  }
+			]
+		  })
+	}
+
 	render() {
 		let { user } = this.state;
 		if (!user) {
@@ -242,7 +276,6 @@ class Profile extends Component {
 														>
 															{res.status}
 														</p>
-
 														{!(
 															localStorage.getItem(
 																"user"
@@ -273,6 +306,7 @@ class Profile extends Component {
 																disabled={true}
 															/>
 														)}
+													<td><button className="profile-bookings-button" onClick={() => this.popAlert(res.bookingID)}>USUŃ</button></td>
 													</td>
 													{res.longStart != null ? (
 														<>

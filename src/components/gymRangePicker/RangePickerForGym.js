@@ -203,11 +203,11 @@ class RangePickerForGym extends Component {
 					message: `Od ${start} do ${end} (${startTime}-${endTime})`,
 					buttons: [
 					  {
-						label: 'Zarezerwuj',
+						label: 'ZAREZERWUJ',
 						onClick: () => this.reserve()
 					  },
 					  {
-						label: 'Nie',
+						label: 'WRÓĆ',
 					  }
 					]
 				})
