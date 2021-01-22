@@ -246,22 +246,16 @@ class Basic extends Component {
 				user_id: this.state.user,
 				scored: null,
 			})
-			.then(() => {
-				axios({
-					method: "POST",
-					url: "/sendNotifs",
-					data: {
-						name: this.state.name.value,
-						surname: this.state.surname.value,
-						gymName: this.state.gymName,
-						email: this.state.ownerMail,
-					},
-				});
-			})
 			// .then(() => {
-			// 	window.location.reload();
-			// 	window.location.replace("/finishReservation");
-			// });
+			// 	axios({
+			// 		method: "POST",
+			// 		url: "/sendNotifs",
+			// 	});
+			// })
+			.then(() => {
+				window.location.reload();
+				window.location.replace("/finishReservation");
+			});
 	};
 
 	reserveZero = (schedulerData, slotId, slotName, start, end, type, item) => {
@@ -302,21 +296,21 @@ class Basic extends Component {
 				scored: null,
 			})
 			.then(() => {
-				axios({
-					method: "POST",
-					url: "/sendNotifs",
-					data: {
-						name: this.state.name.value,
-						surname: this.state.surname.value,
-						gymName: this.state.gymName,
-						email: this.state.ownerMail,
-					},
-				});
+				// axios({
+				// 	method: "POST",
+				// 	url: "/sendNotifs",
+				// 	data: {
+				// 		name: this.state.name.value,
+				// 		surname: this.state.surname.value,
+				// 		gymName: this.state.gymName,
+				// 		email: this.state.ownerMail,
+				// 	},
+				// });
 			})
-			// .then(() => {
-			// 	window.location.reload();
-			// 	window.location.replace("/finishReservation");
-			// });
+			.then(() => {
+				window.location.reload();
+				window.location.replace("/finishReservation");
+			});
 	};
 
 	newEvent = (schedulerData, slotId, slotName, start, end, type, item) => {

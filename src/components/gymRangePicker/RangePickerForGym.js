@@ -171,22 +171,22 @@ class RangePickerForGym extends Component {
 				longStart: this.state.start + " " + startTime,
 				longEnd: this.state.end + " " + endTime,
 			})
-			.then(() => {
-				axios({
-					method: "POST",
-					url: "/sendNotifs",
-					data: {
-						name: this.props.name,
-						surname: this.props.surname,
-						gymName: this.props.gymName,
-						email: this.props.ownerMail,
-					},
-				});
-			})
 			// .then(() => {
-			// 	window.location.reload();
-			// 	window.location.replace("/finishReservation");
-			// });
+			// 	axios({
+			// 		method: "POST",
+			// 		url: "/sendNotifs",
+			// 		data: {
+			// 			name: this.props.name,
+			// 			surname: this.props.surname,
+			// 			gymName: this.props.gymName,
+			// 			email: this.props.ownerMail,
+			// 		},
+			// 	});
+			// })
+			.then(() => {
+				window.location.reload();
+				window.location.replace("/finishReservation");
+			});
 	}
 
 	newEvent = () => {
