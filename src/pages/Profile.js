@@ -40,7 +40,8 @@ class Profile extends Component {
 
 		this.loadUserProfile();
 
-		firebase
+		if (localStorage.getItem("user")) {
+			firebase
 			.firestore()
 			.collection("gyms")
 			.get()
@@ -68,28 +69,6 @@ class Profile extends Component {
 				console.log("Error getting documents: ", error);
 			});
 
-		// if(localStorage.getItem("user") == process.env.REACT_APP_ADMIN_ID) {
-		//   firebase.firestore().collection("reservation")
-		//   .get()
-		//   .then((querySnapshot) => {
-		//       querySnapshot.forEach(function (doc) {
-		//           Reservations.push({
-		//             start: doc.data().start,
-		//             end: doc.data().end,
-		//             gym_id: doc.data().gym_id,
-		//             scored: doc.data().scored,
-		//             status: doc.data().title,
-		//             bookingID: doc.id
-		//         })
-		//       })
-		//       this.setState({ Reservations });
-
-		//   })
-		//   .catch(function(error) {
-		//       console.log("Error getting documents: ", error);
-		//   });
-
-		// } else {
 		firebase
 			.firestore()
 			.collection("reservation")
@@ -146,6 +125,9 @@ class Profile extends Component {
 					});
 				});
 			});
+		}
+
+		
 	}
 
 	loadUserProfile() {
@@ -194,7 +176,7 @@ class Profile extends Component {
 
 	render() {
 		let { user } = this.state;
-		if (!user) {
+		if (!localStorage.getItem("user")) {
 			return <Redirect to="/login" />;
 		}
 
