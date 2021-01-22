@@ -2195,7 +2195,6 @@ input:-webkit-autofill:active {
 	margin-top: 10px !important;
 	border-radius: 2px !important;
 }
-<<<<<<< HEAD
 
 /* .ant-picker-focused {
 	border-color: var(--mainOrange) !important;
@@ -2253,15 +2252,15 @@ input:-webkit-autofill:active {
 }
 
 .ant-picker-cell-in-range::before {
-	background:#fff6e6 !important;
+	background: #fff6e6 !important;
 }
 
 .ant-picker-cell-range-start::before {
-	background:#fff6e6 !important;
+	background: #fff6e6 !important;
 }
 
 .ant-picker-cell-range-end::before {
-	background:#fff6e6 !important;
+	background: #fff6e6 !important;
 }
 
 .ant-picker-cell-range-hover-start::before {
@@ -2283,5 +2282,3 @@ input:-webkit-autofill:active {
 .ant-picker-header-view button:hover {
     color: var(--darkOrange) !important;
 }
-=======
->>>>>>> fabad82d98b30ebd5d31045cd966c8a04d08a54a
