@@ -16,8 +16,8 @@ import RangePickerForGym from "../gymRangePicker/RangePickerForGym";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { TimePicker } from "antd";
-import { confirmAlert } from 'react-confirm-alert';
-import 'react-confirm-alert/src/react-confirm-alert.css';
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 
 import createBrowserHistory from "history/createBrowserHistory";
 
@@ -198,8 +198,15 @@ class Basic extends Component {
 		);
 	};
 
-	reserveNonZero = (schedulerData, slotId, slotName, start, end, type, item) =>  {
-
+	reserveNonZero = (
+		schedulerData,
+		slotId,
+		slotName,
+		start,
+		end,
+		type,
+		item
+	) => {
 		let newFreshId = 0;
 		schedulerData.events.forEach((item) => {
 			if (item.id >= newFreshId) newFreshId = item.id + 1;
@@ -239,23 +246,23 @@ class Basic extends Component {
 				user_id: this.state.user,
 				scored: null,
 			})
-			// .then(() => {
-			// 	axios({
-			// 		method: "POST",
-			// 		url: "/sendNotifs",
-			// 		data: {
-			// 			name: 'test',
-			// 			surname: 'test',
-			// 			gymName: 'test',
-			// 			email: 'bemygym@gmail.com',
-			// 		},
-			// 	})
-			// })
+			.then(() => {
+				axios({
+					method: "POST",
+					url: "/sendNotifs",
+					data: {
+						name: "test",
+						surname: "test",
+						gymName: "test",
+						email: "bemygym@gmail.com",
+					},
+				});
+			})
 			.then(() => {
 				window.location.reload();
 				window.location.replace("/finishReservation");
 			});
-	}
+	};
 
 	reserveZero = (schedulerData, slotId, slotName, start, end, type, item) => {
 		let newFreshId = 0;
@@ -298,7 +305,7 @@ class Basic extends Component {
 				window.location.reload();
 				window.location.replace("/finishReservation");
 			});
-	}
+	};
 
 	newEvent = (schedulerData, slotId, slotName, start, end, type, item) => {
 		let today = new Date();
@@ -306,58 +313,80 @@ class Basic extends Component {
 
 		if (startDate < today) {
 			confirmAlert({
-				title: 'Początkowa data nie może być z przeszłości!',
+				title: "Początkowa data nie może być z przeszłości!",
 				buttons: [
-				  {
-					label: 'OK'
-				  }
-				]
-			  })
+					{
+						label: "OK",
+					},
+				],
+			});
 		} else {
 			if (this.state.view != 0) {
 				//jeśli kalendarz jest ustawiony na coś co nie jest dniem
 				console.log("this.state.times.length", this.state.times.length);
 				if (this.state.times.length == 2) {
 					// jeśli array times nie jest pusty (użytkownik wybrał godzinę pod kalendarzem) to wyświetl alert i kontynuuj
-						confirmAlert({
-							title: 'Chcesz zarezerwować termin?',
-							message: `Od ${start.substring(0, 10) + " " + this.state.times[0].substring(0, 5)} 
+					confirmAlert({
+						title: "Chcesz zarezerwować termin?",
+						message: `Od ${
+							start.substring(0, 10) +
+							" " +
+							this.state.times[0].substring(0, 5)
+						} 
 										do ${end.substring(0, 10) + " " + this.state.times[1].substring(0, 5)}`,
-							buttons: [
-							  {
-								label: 'ZAREZERWUJ',
-								onClick: () => this.reserveNonZero(schedulerData, slotId, slotName, start, end, type, item)
-							  },
-							  {
-								  label: 'WRÓĆ'
-							  }
-							]
-						  })
+						buttons: [
+							{
+								label: "ZAREZERWUJ",
+								onClick: () =>
+									this.reserveNonZero(
+										schedulerData,
+										slotId,
+										slotName,
+										start,
+										end,
+										type,
+										item
+									),
+							},
+							{
+								label: "WRÓĆ",
+							},
+						],
+					});
 				} else {
 					confirmAlert({
-						title: 'Trzeba wybrać czas!',
+						title: "Trzeba wybrać czas!",
 						buttons: [
-						  {
-							label: 'OK'
-						  }
-						]
-					  })
+							{
+								label: "OK",
+							},
+						],
+					});
 				}
 			} else {
 				//jeśli kalendarz jest ustawiony na dzień / użytkownik wybrał rezerwacje długoterminową
 				confirmAlert({
-					title: 'Chcesz zarezerwować termin?',
+					title: "Chcesz zarezerwować termin?",
 					message: `Od ${start} do ${end}`,
 					buttons: [
-					  {
-						label: 'ZAREZERWUJ',
-						onClick: () => this.reserveZero(schedulerData, slotId, slotName, start, end, type, item)
-					  },
-					  {
-						label: 'WRÓĆ'
-					  }
-					]
-				})
+						{
+							label: "ZAREZERWUJ",
+							onClick: () =>
+								this.reserveZero(
+									schedulerData,
+									slotId,
+									slotName,
+									start,
+									end,
+									type,
+									item
+								),
+						},
+						{
+							label: "WRÓĆ",
+						},
+					],
+				});
 			}
 		}
 	};
