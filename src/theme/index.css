@@ -1114,6 +1114,7 @@ ul.unstyled {
 } 
 
 .profile-bookings-button:hover {
+	color: var(--mainBlack);
 	background-color: var(--mainWhite);
 	width: 1rem;
 	height: auto;

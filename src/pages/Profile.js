@@ -306,7 +306,7 @@ class Profile extends Component {
 																disabled={true}
 															/>
 														)}
-													<td><button className="profile-bookings-button" onClick={() => this.popAlert(res.bookingID)}>USUŃ</button></td>
+													<td><button className="profile-bookings-button" onClick={() => this.popAlert(res.bookingID)} style={{ color: 'black' }}>USUŃ</button></td>
 													</td>
 													{res.longStart != null ? (
 														<>
