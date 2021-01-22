@@ -95,7 +95,6 @@ class Profile extends Component {
 			.catch(function (error) {
 				console.log("Error getting documents: ", error);
 			});
-		// }
 
 		firebase
 			.firestore()

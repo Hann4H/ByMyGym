@@ -154,7 +154,8 @@ class GymDetails extends Component {
 									className="heart"
 								/>
 							</Tooltip>
-						) : (
+						) : ( [localStorage.getItem("user") ? 
+							<>
 							<Tooltip
 								title="Dodaj do ulubionych"
 								placement="top"
@@ -171,6 +172,8 @@ class GymDetails extends Component {
 									className="heart"
 								/>
 							</Tooltip>
+							</>
+						: '']
 						)}
 					</div>
 					<div className="gym-details">
