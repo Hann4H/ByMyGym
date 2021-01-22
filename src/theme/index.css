@@ -173,7 +173,7 @@
 	display: flex;
 	/* justify-content: center; */
 	/* align-items: center; */
-	width: 5rem;
+	/* width: 5rem; */
 }
 
 .star-ratings-weighed {
@@ -992,11 +992,11 @@ ul.unstyled {
 
 /* user profile */
 .profile-container {
-	width: 60%;
+	width: 80%;
 	left: 50%;
 	top: 50%;
 	margin-right: -50%;
-	height: 70vh;
+	height: 80vh;
 	overflow-y: scroll;
 	transform: translate(-50%, -50%);
 	position: absolute;
@@ -1016,7 +1016,7 @@ ul.unstyled {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	width: 50%;
+	width: 90%;
 	padding-bottom: 50px;
 }
 
@@ -2186,7 +2186,7 @@ input:-webkit-autofill:active {
 	color: var(--mainWhite);
 }
 
-.react-confirm-alert-button-group > button{
+.react-confirm-alert-button-group > button {
 	font-family: "Lato";
 	background: var(--mainOrange) !important;
 	color: var(--mainWhite) !important;
@@ -2195,6 +2195,7 @@ input:-webkit-autofill:active {
 	margin-top: 10px !important;
 	border-radius: 2px !important;
 }
+<<<<<<< HEAD
 
 /* .ant-picker-focused {
 	border-color: var(--mainOrange) !important;
@@ -2282,3 +2283,5 @@ input:-webkit-autofill:active {
 .ant-picker-header-view button:hover {
     color: var(--darkOrange) !important;
 }
+=======
+>>>>>>> fabad82d98b30ebd5d31045cd966c8a04d08a54a

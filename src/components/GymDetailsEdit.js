@@ -299,6 +299,7 @@ class GymDetailsEdit extends Component {
 				},
 			}));
 		}
+		window.scrollTo(0, 500);
 	}
 
 	render() {

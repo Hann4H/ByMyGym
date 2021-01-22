@@ -122,7 +122,7 @@ function ListItems(props) {
 						pathname: `/gym_profile/${data.gym_id}`,
 					}}
 				>
-					<button style={{ margin: "10px", color: "black" }}>
+					<button style={{ margin: "10px", color: "white" }}>
 						Więcej informacji
 					</button>
 				</Link>
