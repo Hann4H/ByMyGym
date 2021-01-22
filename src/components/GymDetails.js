@@ -33,6 +33,7 @@ class GymDetails extends Component {
 			const doc = await cityRef.get();
 			if (!doc.exists) {
 				console.log("No such document!");
+				window.location.replace("/error");
 			} else {
 				console.log("Document data:", doc.data());
 				this.setState({ data: doc.data() });
