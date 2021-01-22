@@ -205,8 +205,8 @@ class Basic extends Component {
 			if (item.id >= newFreshId) newFreshId = item.id + 1;
 		});
 
-		let startTime = this.state.times[0]; // picker zwraca godzinę startową i godzinę końcową jako array stąd
-		let endTime = this.state.times[1]; // rozróżnienie na [0] i [1]
+		let startTime = this.state.times[0].substring(0, 5); // picker zwraca godzinę startową i godzinę końcową jako array stąd
+		let endTime = this.state.times[1].substring(0, 5); // rozróżnienie na [0] i [1]
 
 		let newEvent = {
 			id: newFreshId,
@@ -321,8 +321,8 @@ class Basic extends Component {
 					// jeśli array times nie jest pusty (użytkownik wybrał godzinę pod kalendarzem) to wyświetl alert i kontynuuj
 						confirmAlert({
 							title: 'Chcesz zarezerwować termin?',
-							message: `Od ${start.substring(0, 10) + " " + this.state.times[0]} 
-										do ${end.substring(0, 10) + " " + this.state.times[1]}`,
+							message: `Od ${start.substring(0, 10) + " " + this.state.times[0].substring(0, 5)} 
+										do ${end.substring(0, 10) + " " + this.state.times[1].substring(0, 5)}`,
 							buttons: [
 							  {
 								label: 'Zarezerwuj',
