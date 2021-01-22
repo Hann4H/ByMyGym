@@ -12,6 +12,7 @@ import firebase from "firebase";
 import { TimePicker } from "antd";
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
+import axios from "axios";
 
 const db = firebase.firestore();
 
@@ -171,9 +172,21 @@ class RangePickerForGym extends Component {
 				longEnd: this.state.end + " " + endTime,
 			})
 			.then(() => {
-				window.location.reload();
-				window.location.replace("/finishReservation");
-			});
+				axios({
+					method: "POST",
+					url: "/sendNotifs",
+					data: {
+						name: this.props.name,
+						surname: this.props.surname,
+						gymName: this.props.gymName,
+						email: this.props.ownerMail,
+					},
+				});
+			})
+			// .then(() => {
+			// 	window.location.reload();
+			// 	window.location.replace("/finishReservation");
+			// });
 	}
 
 	newEvent = () => {

@@ -251,17 +251,17 @@ class Basic extends Component {
 					method: "POST",
 					url: "/sendNotifs",
 					data: {
-						name: "test",
-						surname: "test",
-						gymName: "test",
-						email: "bemygym@gmail.com",
+						name: this.state.name.value,
+						surname: this.state.surname.value,
+						gymName: this.state.gymName,
+						email: this.state.ownerMail,
 					},
 				});
 			})
-			.then(() => {
-				window.location.reload();
-				window.location.replace("/finishReservation");
-			});
+			// .then(() => {
+			// 	window.location.reload();
+			// 	window.location.replace("/finishReservation");
+			// });
 	};
 
 	reserveZero = (schedulerData, slotId, slotName, start, end, type, item) => {
@@ -302,9 +302,21 @@ class Basic extends Component {
 				scored: null,
 			})
 			.then(() => {
-				window.location.reload();
-				window.location.replace("/finishReservation");
-			});
+				axios({
+					method: "POST",
+					url: "/sendNotifs",
+					data: {
+						name: this.state.name.value,
+						surname: this.state.surname.value,
+						gymName: this.state.gymName,
+						email: this.state.ownerMail,
+					},
+				});
+			})
+			// .then(() => {
+			// 	window.location.reload();
+			// 	window.location.replace("/finishReservation");
+			// });
 	};
 
 	newEvent = (schedulerData, slotId, slotName, start, end, type, item) => {
@@ -859,6 +871,8 @@ class Basic extends Component {
 											}
 											user={this.state.user}
 											gym_id={this.props.gym_id}
+											ownerMail={this.state.ownerMail}
+											gymName={this.state.gymName}
 										/>
 									</div>
 								</TabPanel>
