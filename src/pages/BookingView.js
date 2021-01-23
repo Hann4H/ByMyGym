@@ -114,8 +114,11 @@ function ListItems(props) {
 				>
 					Usuń
 				</button>
-				<button style={{ margin: "10px", color: "white" }} onClick={ChangeStatus}>
-					Zmień status
+				<button
+					style={{ margin: "10px", color: "white" }}
+					onClick={ChangeStatus}
+				>
+					Zaakceptuj
 				</button>
 				<Link
 					to={{
