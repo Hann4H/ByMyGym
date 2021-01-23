@@ -8,8 +8,8 @@ import TextField from "@material-ui/core/TextField";
 import { validateFields } from "../Validation";
 import classnames from "classnames";
 import firebase from "../firebase";
-import { confirmAlert } from 'react-confirm-alert';
-import 'react-confirm-alert/src/react-confirm-alert.css';
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 
 const db = firebase.firestore();
 
@@ -216,13 +216,13 @@ class GymDetailsEdit extends Component {
 				})
 				.then(function () {
 					confirmAlert({
-						title: 'Zmiany zostały zapisane.',
+						title: "Zmiany zostały zapisane.",
 						buttons: [
-						  {
-							label: 'OK'
-						  }
-						]
-					  })
+							{
+								label: "OK",
+							},
+						],
+					});
 				})
 				.catch(function (error) {
 					console.error("Error saving changes: ", error);
@@ -896,7 +896,7 @@ class GymDetailsEdit extends Component {
 						{/* gymDescription field */}
 						<div className="form-group">
 							<label className="form-group-label">Opis</label>
-							<input
+							<textarea
 								label="Opis"
 								type="text"
 								name="gymDescription"
@@ -992,18 +992,20 @@ class GymDetailsEdit extends Component {
 						)}
 
 						<br />
-						<button
-							type="submit"
-							className="booking-button"
-							onMouseDown={() =>
-								this.setState({
-									submitCalled: true,
-								})
-							}
-							value="Zapisz"
-						>
-							Zapisz
-						</button>
+						<div style={{ textAlign: "center" }}>
+							<button
+								type="submit"
+								className="booking-button"
+								onMouseDown={() =>
+									this.setState({
+										submitCalled: true,
+									})
+								}
+								value="Zapisz"
+							>
+								Zapisz
+							</button>
+						</div>
 						{/* <br />
                       {allFieldsValidated && (<p>all fields validated</p>)}
                       <br /> */}

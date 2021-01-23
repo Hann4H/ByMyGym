@@ -874,6 +874,32 @@ input {
 	font-size: 14px;
 }
 
+.input-n-error textarea {
+	display: block;
+	box-sizing: border-box;
+	/* width: 120%; */
+	border-radius: 3px;
+	border: 1px solid var(--darkOrange);
+	padding: 2px 10px;
+	margin-bottom: 10px;
+	font-size: 14px;
+	width: 18rem;
+	margin-top: 0.5rem;
+}
+
+.form-group textarea {
+	display: block;
+	box-sizing: border-box;
+	width: 100%;
+	border-radius: 3px;
+	border: 1px solid var(--darkOrange);
+	padding: 2px 10px;
+	margin-bottom: 10px;
+	font-size: 14px;
+	/* width: 18rem;
+	margin-top: 0.5rem; */
+}
+
 .container-3 input {
 	display: inline-flex;
 	width: 20px;
@@ -1111,14 +1137,14 @@ ul.unstyled {
 	height: auto;
 	font-size: 8px;
 	margin-bottom: 4px;
-} 
+}
 
 .profile-bookings-button:hover {
 	color: var(--mainBlack);
 	background-color: var(--mainWhite);
 	width: 1rem;
 	height: auto;
-} 
+}
 
 .profile-bookings-delete {
 	font-size: 8px;
@@ -1994,7 +2020,6 @@ ul.unstyled {
 	display: flex;
 	list-style: none;
 	outline: none;
-
 }
 .pagination > .active > a {
 	background-color: var(--mainOrange);
@@ -2225,53 +2250,59 @@ input:-webkit-autofill:active {
 	box-shadow: 0 0 0 2px rgba(255, 163, 24, 0.2) !important;
 } */
 
-.ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-cell-inner, .ant-picker-cell-in-view.ant-picker-cell-range-start .ant-picker-cell-inner, .ant-picker-cell-in-view.ant-picker-cell-range-end .ant-picker-cell-inner {
-    background: var(--mainOrange) !important;
+.ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-cell-inner,
+.ant-picker-cell-in-view.ant-picker-cell-range-start .ant-picker-cell-inner,
+.ant-picker-cell-in-view.ant-picker-cell-range-end .ant-picker-cell-inner {
+	background: var(--mainOrange) !important;
 }
 
-.ant-picker:hover, .ant-picker-focused {
+.ant-picker:hover,
+.ant-picker-focused {
 	border-color: var(--mainOrange) !important;
 	box-shadow: 0 0 0 2px rgba(255, 163, 24, 0.2) !important;
 }
 
 .ant-picker-ranges .ant-picker-preset > .ant-tag-blue {
-    color: var(--darkOrange) !important;
-    background: #ffece6 !important;
-    border-color: #ffcf91 !important;
+	color: var(--darkOrange) !important;
+	background: #ffece6 !important;
+	border-color: #ffcf91 !important;
 }
 
 .ant-picker-cell-in-view.ant-picker-cell-today .ant-picker-cell-inner::before {
-    border: 1px solid var(--darkOrange) !important;
-        border-top-color: var(--darkOrange) !important;
-        border-right-color: var(--darkOrange) !important;
-        border-bottom-color: var(--darkOrange) !important;
-        border-left-color: var(--darkOrange) !important;
+	border: 1px solid var(--darkOrange) !important;
+	border-top-color: var(--darkOrange) !important;
+	border-right-color: var(--darkOrange) !important;
+	border-bottom-color: var(--darkOrange) !important;
+	border-left-color: var(--darkOrange) !important;
 }
 
 .ant-picker-range .ant-picker-active-bar {
-    background: var(--darkOrange) !important;
+	background: var(--darkOrange) !important;
 }
 
 .ant-btn-primary {
-    background: var(--mainOrange) !important;
-    border-color: var(--darkOrange) !important;
+	background: var(--mainOrange) !important;
+	border-color: var(--darkOrange) !important;
 }
 
-.ant-btn-primary[disabled], .ant-btn-primary[disabled]:hover, .ant-btn-primary[disabled]:focus, .ant-btn-primary[disabled]:active {
-    color: rgba(0, 0, 0, 0.25) !important;
-    background: #f5f5f5 !important;
-    border-color: #d9d9d9 !important;
-    text-shadow: none;
-    -webkit-box-shadow: none;
-    box-shadow: none;
+.ant-btn-primary[disabled],
+.ant-btn-primary[disabled]:hover,
+.ant-btn-primary[disabled]:focus,
+.ant-btn-primary[disabled]:active {
+	color: rgba(0, 0, 0, 0.25) !important;
+	background: #f5f5f5 !important;
+	border-color: #d9d9d9 !important;
+	text-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
 }
 
 .ant-picker-cell-in-view.ant-picker-cell-in-range-hover {
-    background: var(--mainOrange) !important
+	background: var(--mainOrange) !important;
 }
 
 .ant-picker-cell-inner::after {
-    background: #ffe9c3 !important
+	background: #ffe9c3 !important;
 }
 
 .ant-picker-cell-in-range::before {
@@ -2298,10 +2329,12 @@ input:-webkit-autofill:active {
 	background: #ffe9c3 !important;
 }
 
-.ant-picker-time-panel-column > li.ant-picker-time-panel-cell-selected .ant-picker-time-panel-cell-inner {
-    background: #fff6e6 !important;
+.ant-picker-time-panel-column
+	> li.ant-picker-time-panel-cell-selected
+	.ant-picker-time-panel-cell-inner {
+	background: #fff6e6 !important;
 }
 
 .ant-picker-header-view button:hover {
-    color: var(--darkOrange) !important;
+	color: var(--darkOrange) !important;
 }

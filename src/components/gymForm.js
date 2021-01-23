@@ -9,8 +9,8 @@ import validated from "./Validated";
 import { add } from "date-fns";
 import { validateFields } from "../Validation";
 import Loading from "./Loading";
-import { confirmAlert } from 'react-confirm-alert';
-import 'react-confirm-alert/src/react-confirm-alert.css';
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 
 import { useDropzone } from "react-dropzone";
 
@@ -83,7 +83,7 @@ export default function gymForm() {
 	firebase.auth().onAuthStateChanged(function (user) {
 		if (user) {
 			setUserUID(user.uid);
-			console.log(user)
+			console.log(user);
 		} else {
 			console.log("nie pykło");
 		}
@@ -459,7 +459,7 @@ export default function gymForm() {
 					<div className="container-2">
 						<label>Opis</label>
 						<div className="input-n-error">
-							<input
+							<textarea
 								autoComplete="off"
 								type="text"
 								value={values.gymDescription || ""}
