@@ -107,7 +107,7 @@ class Basic extends Component {
 					this.setState({
 						allFieldsValidated: true,
 						youAdmin: true,
-						name: { value: "you" },
+						name: { value: "Ty" },
 						ownerMail: item.data().gymOwnerEmail || "",
 						gymName: item.data().gymName,
 					});

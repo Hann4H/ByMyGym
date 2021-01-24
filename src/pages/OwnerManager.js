@@ -4,7 +4,7 @@ import "../theme/react-week-scheduler.css";
 import { Link } from "react-router-dom";
 // import { Redirect } from 'react-router-dom'
 
-import "./OwnerManager.css";
+import "../theme/OwnerManager.css";
 
 const db = firebase.firestore();
 
@@ -87,9 +87,6 @@ class OwnerManager extends Component {
 							gym.reservations.map((r) => {
 								return (
 									<div
-										style={{
-											backgroundColor: r.data().bgColor,
-										}}
 										className="reservation"
 									>
 										<span>
@@ -116,22 +113,13 @@ class OwnerManager extends Component {
 											<br />
 										)}
 										<span>{r.data().email}</span>
-										<a href={"mailto:" + r.data().email}>
+										<a href={"mailto:" + r.data().email} className="link">
 											Napisz maila
 										</a>
 										<span>{r.data().phoneNumber}</span>
-										<a href={"tel:" + r.data().phoneNumber}>
+										<a href={"tel:" + r.data().phoneNumber} className="link">
 											Zadzwoń
 										</a>
-										<button
-											className="delete_btn"
-											onClick={function (e) {
-												DeleteReservation(r.id);
-											}}
-										>
-											{" "}
-											Usuń{" "}
-										</button>
 										<button
 											className="change_status"
 											onClick={function (e) {
@@ -140,6 +128,15 @@ class OwnerManager extends Component {
 										>
 											{" "}
 											Zaakceptuj{" "}
+										</button>
+										<button
+											className="delete_btn"
+											onClick={function (e) {
+												DeleteReservation(r.id);
+											}}
+										>
+											{" "}
+											Usuń{" "}
 										</button>
 									</div>
 								);
