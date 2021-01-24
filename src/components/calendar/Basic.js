@@ -111,6 +111,11 @@ class Basic extends Component {
 						ownerMail: item.data().gymOwnerEmail || "",
 						gymName: item.data().gymName,
 					});
+				} else {
+					this.setState({
+						ownerMail: item.data().gymOwnerEmail || "",
+						gymName: item.data().gymName,
+					});
 				}
 			})
 			.catch(function (error) {
@@ -227,7 +232,32 @@ class Basic extends Component {
 		schedulerData.addEvent(newEvent);
 		this.setState({ viewModel: schedulerData });
 
-		db.collection("reservation")
+		if (this.state.youAdmin) {
+			db.collection("reservation")
+			.add({
+				id: newEvent.id,
+				title: "Zarezerwowane",
+				start: newEvent.start,
+				end: newEvent.end,
+				resourceId: newEvent.resourceId,
+				bgColor: "#FFD700",
+				movable: false,
+				resizable: false,
+				gym_id: this.props.gym_id,
+				reservation_date: new Date().toISOString(),
+				name: this.state.name.value,
+				surname: this.state.surname.value,
+				email: this.state.email.value,
+				phoneNumber: this.state.phoneNumber.value,
+				user_id: this.state.user,
+				scored: null,
+			})
+			.then(() => {
+				window.location.reload();
+				window.location.replace("/finishReservation");
+			});
+		} else {
+			db.collection("reservation")
 			.add({
 				id: newEvent.id,
 				title: "Do akceptacji",
@@ -256,6 +286,7 @@ class Basic extends Component {
 				window.location.reload();
 				window.location.replace("/finishReservation");
 			});
+		}
 	};
 
 	reserveZero = (schedulerData, slotId, slotName, start, end, type, item) => {
@@ -276,7 +307,33 @@ class Basic extends Component {
 		schedulerData.addEvent(newEvent);
 		this.setState({ viewModel: schedulerData });
 
-		db.collection("reservation")
+
+		if (this.state.youAdmin) {
+			db.collection("reservation")
+			.add({
+				id: newEvent.id,
+				title: "Zarezerwowane",
+				start: newEvent.start.substring(0, 16),
+				end: newEvent.end.substring(0, 16),
+				resourceId: newEvent.resourceId,
+				bgColor: "#FFD700",
+				movable: false,
+				resizable: false,
+				gym_id: this.props.gym_id,
+				reservation_date: new Date().toISOString(),
+				name: this.state.name.value,
+				surname: this.state.surname.value,
+				email: this.state.email.value,
+				phoneNumber: this.state.phoneNumber.value,
+				user_id: this.state.user,
+				scored: null,
+			})
+			.then(() => {
+				window.location.reload();
+				window.location.replace("/finishReservation");
+			});
+		} else {
+			db.collection("reservation")
 			.add({
 				id: newEvent.id,
 				title: "Do akceptacji",
@@ -311,6 +368,8 @@ class Basic extends Component {
 				window.location.reload();
 				window.location.replace("/finishReservation");
 			});
+		}
+		
 	};
 
 	newEvent = (schedulerData, slotId, slotName, start, end, type, item) => {
@@ -867,6 +926,7 @@ class Basic extends Component {
 											gym_id={this.props.gym_id}
 											ownerMail={this.state.ownerMail}
 											gymName={this.state.gymName}
+											owner={this.state.youAdmin}
 										/>
 									</div>
 								</TabPanel>

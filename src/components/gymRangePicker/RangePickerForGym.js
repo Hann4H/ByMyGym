@@ -147,7 +147,37 @@ class RangePickerForGym extends Component {
 			until: new Date(datesTo.toISOString()),
 		});
 
-		db.collection("reservation")
+		if (this.props.owner) {
+			db.collection("reservation")
+			.add({
+				id: 0,
+				title: "Zarezerwowane",
+				start: dateStrings[0] + " " + startTime,
+				end: dateStrings[0] + " " + endTime,
+				resourceId: "r1",
+				bgColor: "#FFD700",
+				movable: false,
+				resizable: false,
+				gym_id: this.props.gym_id,
+				reservation_date: new Date().toISOString(),
+				name: this.props.name,
+				surname: this.props.surname,
+				email: this.props.email,
+				phoneNumber: this.props.phoneNumber,
+				user_id: this.props.user,
+				scored: null,
+				// rrule: "FREQ=WEEKLY;DTSTART=20210110T013000Z;UNTIL=20210130T023000Z;BYDAY=TU,FR",
+				rrule: rule.toString(),
+				weekdays: this.state.weekdays,
+				longStart: this.state.start + " " + startTime,
+				longEnd: this.state.end + " " + endTime,
+			})
+			.then(() => {
+				window.location.reload();
+				window.location.replace("/finishReservation");
+			});
+		} else {
+			db.collection("reservation")
 			.add({
 				id: 0,
 				title: "Do akceptacji",
@@ -187,6 +217,7 @@ class RangePickerForGym extends Component {
 				window.location.reload();
 				window.location.replace("/finishReservation");
 			});
+		}
 	}
 
 	newEvent = () => {
