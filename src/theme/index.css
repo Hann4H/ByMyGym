@@ -475,7 +475,7 @@
 	#myimg {
 		width: 20rem;
 
-		margin-left: auto !important;
+		margin-left: -0.5em !important;
 		margin-right: auto !important;
 	}
 }
@@ -1205,7 +1205,7 @@ ul.unstyled {
 	.profile-div h1 {
 		min-height: 1rem;
 		font-size: 2rem;
-		margin-left: -2em;
+		margin-left: -1.6em;
 	}
 	.profile-picture {
 		min-width: 100px;
@@ -1303,14 +1303,15 @@ ul.unstyled {
 	}
 
 	.profile-bookings td {
-		padding-bottom: 25px;
-		padding-left: 15px;
-		padding-right: 15px;
-		padding-top: 10px;
+		padding-bottom: 9px;
+   		padding-left: 9px;
+    	padding-right: 4px;
+    	padding-top: 3px;
 	}
 	.profile-bookings a {
 		color: var(--darkOrange);
 		font-weight: bold;
+		margin-left: -3em;
 	}
 
 	.profile-bookings a:hover {
@@ -1345,6 +1346,9 @@ ul.unstyled {
 	.profile-gyms-show {
 		margin-left: -3em;
 		margin-top: -2em;
+	}
+	.adminBut {
+		width: 86%;
 	}
 }
 .błagam {
@@ -1866,6 +1870,11 @@ ul.unstyled {
 		margin-right: auto;
 		width: 20%;
 	}
+
+	.ui.icon.input {
+		width: 70% !important;
+		margin-left: 3.8em;
+	}
 }
 
 /* 
@@ -2219,7 +2228,12 @@ input:-webkit-autofill:active {
 .filter-button {
 	color: var(--highOpWhite);
 	height: 25px;
-	margin-left: 1rem;
+	margin-left: 1em;
+}
+.filter-button1 {
+	color: var(--highOpWhite);
+	height: 25px;
+	margin-left: 20%;
 }
 
 .search-bar-filters {
@@ -2280,6 +2294,22 @@ input:-webkit-autofill:active {
 	}
 	.pagination-out {
 		margin-left: 14vw;
+	}
+
+	.filter-button {
+		color: var(--highOpWhite);
+		height: 25px;
+		margin-left: 3.3em;
+	}
+	.filter-button1 {
+		color: var(--highOpWhite);
+		height: 25px;
+		margin-left: 3.3em;
+	}
+	.search-bar-filters {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
 	}
 }
 

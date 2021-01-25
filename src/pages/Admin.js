@@ -51,7 +51,7 @@ class Admin extends Component {
 											to="/booking"
 											style={{ color: "white" }}
 										>
-											<button>Przejdź</button>
+											<button className="adminBut">Przejdź</button>
 										</Link>
 									</td>
 								</tr>
@@ -62,7 +62,7 @@ class Admin extends Component {
 											to="/newgyms"
 											style={{ color: "white" }}
 										>
-											<button>Przejdź</button>
+											<button className="adminBut">Przejdź</button>
 										</Link>
 									</td>
 								</tr>

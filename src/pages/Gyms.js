@@ -128,8 +128,7 @@ class Gyms extends Component {
 					<hr />
 					<div id="search-bar-filters">
 						<button
-							className="filter-button"
-							style={{ marginLeft: "10%" }}
+							className="filter-button1"
 							type="button"
 							onClick={this.handleClickFilterButton}
 						>
