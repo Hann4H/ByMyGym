@@ -864,6 +864,7 @@ class Basic extends Component {
 						</div>
 						<p style={{ height: 10 }} />
 						{allFieldsValidated && (
+							<div>
 							<Tabs style={{ width: "60vw" }}>
 								<TabList>
 									<Tab>Rezerwacja krótkoterminowa</Tab>
@@ -949,6 +950,23 @@ class Basic extends Component {
 									</div>
 								</TabPanel>
 							</Tabs>
+							<p style={{ height: 10 }} />
+								<div className="range-picker-left mobile_pick">
+									<RangePickerForGym
+										name={this.state.name.value}
+										surname={this.state.surname.value}
+										email={this.state.email.value}
+										phoneNumber={
+											this.state.phoneNumber.value
+										}
+										user={this.state.user}
+										gym_id={this.props.gym_id}
+										ownerMail={this.state.ownerMail}
+										gymName={this.state.gymName}
+									/>
+								</div>
+								</div>
+							
 						)}
 					</form>
 
