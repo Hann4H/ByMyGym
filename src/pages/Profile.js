@@ -254,7 +254,7 @@ class Profile extends Component {
                     <tbody>
                       <tr className="profile-info">
                         <td className="headline-info">Moje sale</td>
-                        <Link to='/ownerManager'><button className="profile-gyms-accept-button">Pokaż rezerwacje</button></Link>
+                        <Link to='/ownerManager'><button className="profile-gyms-show">Pokaż rezerwacje</button></Link>
                       </tr>
                       </tbody>
                   </table>
