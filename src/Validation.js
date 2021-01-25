@@ -36,7 +36,7 @@ class ValidateFields {
 	// ******************************
 
 	validateName(name) {
-		if (validator.isEmpty(name)) {
+		if (!name) {
 			return "Imię jest wymagane";
 		} else if (!validator.isLength(name, { min: 2 })) {
 			return "Imię powinno zawierać minimum 2 litery";
@@ -45,7 +45,7 @@ class ValidateFields {
 	}
 
 	validateSurname(surname) {
-		if (validator.isEmpty(surname)) {
+		if (!surname) {
 			return "Nazwisko jest wymagane";
 		} else if (!validator.isLength(surname, { min: 2 })) {
 			return "Nazwisko powinno zawierać minimum 2 litery";
@@ -64,7 +64,7 @@ class ValidateFields {
 
 	// gym profile data
 	validateGymName(gymName) {
-		if (validator.isEmpty(gymName)) {
+		if (!gymName) {
 			return "Nazwa budynku jest wymagana";
 		} else if (!validator.isLength(gymName, { min: 2 })) {
 			return "Nazwa budynku powinna zawierać minimum 2 litery";
@@ -73,7 +73,7 @@ class ValidateFields {
 	}
 
 	validateGymStreet(gymStreet) {
-		if (validator.isEmpty(gymStreet)) {
+		if (!gymStreet) {
 			return "Ulica jest wymagana";
 		} else if (!validator.isLength(gymStreet, { min: 2 })) {
 			return "Ulica powinna zawierać minimum 2 litery";
@@ -82,7 +82,7 @@ class ValidateFields {
 	}
 
 	validateGymCity(gymCity) {
-		if (validator.isEmpty(gymCity)) {
+		if (!gymCity) {
 			return "Miasto jest wymagane";
 		} else if (!validator.isLength(gymCity, { min: 2 })) {
 			return "Miasto powinno zawierać minimum 2 litery";

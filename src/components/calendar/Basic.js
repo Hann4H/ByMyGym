@@ -375,7 +375,15 @@ class Basic extends Component {
 	newEvent = (schedulerData, slotId, slotName, start, end, type, item) => {
 		let today = new Date();
 		let startDate = new Date(start);
-		console.log(this.state.name)
+		const { email, name, surname, phoneNumber } = this.state;
+		const emailError = validateFields.validateEmail(email.value);
+		const nameError = validateFields.validateName(name.value);
+		const surnameError = validateFields.validateSurname(surname.value);
+		const phoneNumberError = validateFields.validatePhoneNumber(
+			phoneNumber.value
+		);
+
+		console.log(emailError)
 
 		if (startDate < today) {
 			confirmAlert({
@@ -386,10 +394,7 @@ class Basic extends Component {
 					},
 				],
 			});
-		} else if (!validateFields.validateEmail(this.state.email.value) && 
-		!validateFields.validateName(this.state.name.value) && 
-		!validateFields.validateSurname(this.state.surname.value) &&
-		!validateFields.validatePhoneNumber(this.state.phoneNumber.value)) {
+		} else if (emailError == false && nameError == false && surnameError == false && phoneNumberError == false) {
 			if (this.state.view != 0) {
 				//jeśli kalendarz jest ustawiony na coś co nie jest dniem
 				console.log("this.state.times.length", this.state.times.length);
