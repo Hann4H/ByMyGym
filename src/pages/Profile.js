@@ -390,7 +390,7 @@ class Profile extends Component {
 													Moje sale
 												</td>
 												<Link to="/ownerManager">
-													<button className="profile-gyms-accept-button">
+													<button className="profile-gyms-show">
 														Pokaż rezerwacje
 													</button>
 												</Link>

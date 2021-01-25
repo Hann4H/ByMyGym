@@ -82,6 +82,7 @@
     "react-moment": "^0.9.7",
     "react-paginate": "^6.3.2",
     "react-places-autocomplete": "^7.3.0",
+    "react-popupbox": "^2.0.8",
     "react-redux": "^7.2.1",
     "react-responsive-combo-box": "^1.2.4",
     "react-router": "^5.2.0",

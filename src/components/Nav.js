@@ -103,7 +103,7 @@ class Nav extends Component {
             <li>
               {this.state.user ? (
                 <Link to="/add">
-                  <button className="nav-button">DODAJ SALĘ</button>
+                  <button className="nav-button" onClick={this.Toggle}>DODAJ SALĘ</button>
                 </Link>
               ) : (
                 ""
@@ -112,7 +112,7 @@ class Nav extends Component {
             <li>
               {this.state.user ? (
                 <Link to="/profile">
-                  <button className="nav-button">PROFIL</button>
+                  <button className="nav-button" onClick={this.Toggle}>PROFIL</button>
                 </Link>
               ) : (
                 ""
@@ -121,7 +121,7 @@ class Nav extends Component {
             <li>
             {this.state.user && this.state.user.uid==process.env.REACT_APP_ADMIN_ID ? (
               <Link to="/admin">
-                <button className="nav-button">ADMIN</button>
+                <button className="nav-button" onClick={this.Toggle}>ADMIN</button>
               </Link>
               ) : (
                 ""

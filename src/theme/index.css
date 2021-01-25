@@ -120,6 +120,7 @@
 @media screen and (max-width: 576px) {
 	.banner {
 		padding: 2rem 3rem;
+		width: 95%;
 	}
 	.banner h1 {
 		font-size: 3rem;
@@ -196,9 +197,28 @@
 	transition: color 200ms;
 }
 
+
+.slider-mob{
+	display: none;
+}
 @media screen and (max-width: 768px) {
+	.slider-mob{
+		display: inline;
+		margin-top: 1em;
+	}
+	.slider-comp {
+		display: none;
+	}
 	.gym-name {
 		font-size: 20px;
+		margin-left: 27px;
+	}
+	.heart {
+		height: 23px;
+		margin-top: 3.2rem;
+		margin-left: auto;
+		margin-right: 20px;
+		cursor: pointer;
 	}
 }
 
@@ -450,13 +470,13 @@
 @media screen and (max-width: 567px) {
 	#myimg_none {
 		width: 10rem;
-		margin-left: 5rem;
+		margin-left: 0rem;
 		margin-top: 3rem;
 	}
 	#myimg {
 		width: 20rem;
 
-		margin-left: auto !important;
+		margin-left: -0.5em !important;
 		margin-right: auto !important;
 	}
 }
@@ -468,7 +488,7 @@
 		margin-right: auto !important;
 	}
 	#myimg_none {
-		margin-left: 5rem;
+		margin-left: 0rem;
 		margin-top: 3rem;
 	}
 }
@@ -1120,6 +1140,14 @@ ul.unstyled {
 	height: 20px;
 }
 
+.profile-gyms-show{
+	font-size: 13px;
+	margin-left: 15px;
+	padding-left: 20px;
+	padding-right: 20px;
+	color: var(--mainWhite);
+	height: 20px;
+}
 .profile-bookings-p {
 	font-weight: bold;
 	font-size: 10px;
@@ -1160,7 +1188,26 @@ ul.unstyled {
 	display: inline;
 }
 
+.headline-info {
+	color: rgb(117, 117, 117);
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	padding: 10px;
+}
+
+.user-profile-link {
+	color: var(--darkOrange);
+	text-decoration: underline;
+	padding-top: 40px;
+}
+
+
 @media screen and (max-width: 700px) {
+	.profile-div h1 {
+		min-height: 1rem;
+		font-size: 2rem;
+		margin-left: -1.6em;
+	}
 	.profile-picture {
 		min-width: 100px;
 		width: 100px;
@@ -1179,7 +1226,7 @@ ul.unstyled {
 		border-radius: 50%;
 		overflow: hidden;
 		margin: 25px;
-		margin-left: 8em;
+		margin-left: -2em;
 	}
 
 	.profile-gym-button {
@@ -1199,9 +1246,9 @@ ul.unstyled {
 	}
 	.profile-container {
 		height: 150vw;
-		width: 120%;
-		left: 42%;
-		top: 50%;
+		width: 100%;
+		left: 50%;
+		top: 60%;
 		position: absolute;
 		background-color: var(--mainWhite);
 		padding: 1rem;
@@ -1257,13 +1304,15 @@ ul.unstyled {
 	}
 
 	.profile-bookings td {
-		padding-bottom: 25px;
-		padding-left: 15px;
-		padding-right: 15px;
+		padding-bottom: 9px;
+   		padding-left: 9px;
+    	padding-right: 4px;
+    	padding-top: 3px;
 	}
 	.profile-bookings a {
 		color: var(--darkOrange);
 		font-weight: bold;
+		margin-left: -3em;
 	}
 
 	.profile-bookings a:hover {
@@ -1283,20 +1332,26 @@ ul.unstyled {
 	.text-style-mob {
 		display: block;
 	}
-}
-.headline-info {
-	color: rgb(117, 117, 117);
-	letter-spacing: 1px;
-	text-transform: uppercase;
-	padding: 10px;
-}
 
-.user-profile-link {
-	color: var(--darkOrange);
-	text-decoration: underline;
-	padding-top: 40px;
-}
+	.headline-info {
+		color: rgb(117, 117, 117);
+		letter-spacing: 1px;
+		text-transform: uppercase;
+		padding: 10px;
+		margin-left: -3em;
+	}
+	.profile-gyms-accept-button {
+		display: none;
+	}
 
+	.profile-gyms-show {
+		margin-left: -3em;
+		margin-top: -2em;
+	}
+	.adminBut {
+		width: 86%;
+	}
+}
 .błagam {
 	height: 100px;
 	width: 100px;
@@ -1431,8 +1486,8 @@ ul.unstyled {
 
 @media screen and (max-width: 768px) {
 	.leaflet-container {
-		height: 400px;
-		width: 100%;
+		height: 50vh;
+		width: 95%;
 		margin-left: 0.7em;
 	}
 	.map {
@@ -1665,7 +1720,7 @@ ul.unstyled {
 	.calendar-position {
 		margin-left: 0em;
 	}
-
+	
 	.calendar {
 		width: 100%;
 		margin-right: 0rem;
@@ -1816,6 +1871,11 @@ ul.unstyled {
 		margin-right: auto;
 		width: 20%;
 	}
+
+	.ui.icon.input {
+		width: 70% !important;
+		margin-left: 3.8em;
+	}
 }
 
 /* 
@@ -1833,7 +1893,7 @@ ul.unstyled {
 
 @media screen and (max-width: 620px) {
 	.contact-p {
-		width: 40%;
+		width: 100%;
 		margin-left: auto;
 	}
 	.name-input {
@@ -2169,7 +2229,12 @@ input:-webkit-autofill:active {
 .filter-button {
 	color: var(--highOpWhite);
 	height: 25px;
-	margin-left: 1rem;
+	margin-left: 1em;
+}
+.filter-button1 {
+	color: var(--highOpWhite);
+	height: 25px;
+	margin-left: 20%;
 }
 
 .search-bar-filters {
@@ -2227,6 +2292,25 @@ input:-webkit-autofill:active {
 		max-width: 400px;
 		z-index: 10; */
 		color: var(--mainWhite);
+	}
+	.pagination-out {
+		margin-left: 14vw;
+	}
+
+	.filter-button {
+		color: var(--highOpWhite);
+		height: 25px;
+		margin-left: 3.3em;
+	}
+	.filter-button1 {
+		color: var(--highOpWhite);
+		height: 25px;
+		margin-left: 3.3em;
+	}
+	.search-bar-filters {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
 	}
 }
 
@@ -2337,4 +2421,35 @@ input:-webkit-autofill:active {
 
 .ant-picker-header-view button:hover {
 	color: var(--darkOrange) !important;
+}
+
+
+.mobile_pick {
+	display: none;
+}
+
+.calendar-napis {
+	text-align: center;
+	color: var(--darkOrange)
+}
+@media screen and (max-width: 768px) {
+	.react-tabs {
+		display: none;
+	}
+
+	.mobile_pick {
+		display: inline;
+	}
+
+	.mobile-calen {
+		display: none;
+	}
+	.calendar-napis {
+		display: none;
+	}
+
+}
+
+.lol111 {
+	font-size: 10em;
 }
