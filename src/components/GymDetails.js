@@ -33,6 +33,7 @@ class GymDetails extends Component {
 			const doc = await cityRef.get();
 			if (!doc.exists) {
 				console.log("No such document!");
+				window.location.replace("/error");
 			} else {
 				console.log("Document data:", doc.data());
 				this.setState({ data: doc.data() });
@@ -153,7 +154,8 @@ class GymDetails extends Component {
 									className="heart"
 								/>
 							</Tooltip>
-						) : (
+						) : ( [localStorage.getItem("user") ? 
+							<>
 							<Tooltip
 								title="Dodaj do ulubionych"
 								placement="top"
@@ -170,6 +172,8 @@ class GymDetails extends Component {
 									className="heart"
 								/>
 							</Tooltip>
+							</>
+						: '']
 						)}
 					</div>
 					<div className="gym-details">

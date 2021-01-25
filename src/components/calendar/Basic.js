@@ -16,8 +16,10 @@ import RangePickerForGym from "../gymRangePicker/RangePickerForGym";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { TimePicker } from "antd";
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 
-import createBrowserHistory from 'history/createBrowserHistory';
+import createBrowserHistory from "history/createBrowserHistory";
 
 const history = createBrowserHistory();
 const { RangePicker } = TimePicker;
@@ -43,8 +45,8 @@ class Basic extends Component {
 
 		schedulerData.localeMoment.locale("pl");
 		this.state = {
-			ownerMail: '',
-			gymName: '',
+			ownerMail: "",
+			gymName: "",
 			user: [],
 			viewModel: schedulerData,
 			dateRange: 0,
@@ -98,17 +100,27 @@ class Basic extends Component {
 			});
 
 		db.collection("gyms")
-		.doc(this.props.gym_id)
-		.get()
-		.then((item) => {
-			if (item.data().gymOwner === localStorage.getItem("user")) {
-				this.setState({allFieldsValidated: true, youAdmin: true, name: {value: "you"}, ownerMail: item.data().gymOwnerEmail || '', gymName: item.data().gymName })
-			}
-		}
-		)
-		.catch(function (error) {
-			console.error("Error ", error);
-		});
+			.doc(this.props.gym_id)
+			.get()
+			.then((item) => {
+				if (item.data().gymOwner === localStorage.getItem("user")) {
+					this.setState({
+						allFieldsValidated: true,
+						youAdmin: true,
+						name: { value: "Ty" },
+						ownerMail: item.data().gymOwnerEmail || "",
+						gymName: item.data().gymName,
+					});
+				} else {
+					this.setState({
+						ownerMail: item.data().gymOwnerEmail || "",
+						gymName: item.data().gymName,
+					});
+				}
+			})
+			.catch(function (error) {
+				console.error("Error ", error);
+			});
 	}
 
 	getDaysBetweenDates(start, end, dayName) {
@@ -191,156 +203,255 @@ class Basic extends Component {
 		);
 	};
 
+	reserveNonZero = (
+		schedulerData,
+		slotId,
+		slotName,
+		start,
+		end,
+		type,
+		item
+	) => {
+		let newFreshId = 0;
+		schedulerData.events.forEach((item) => {
+			if (item.id >= newFreshId) newFreshId = item.id + 1;
+		});
+
+		let startTime = this.state.times[0].substring(0, 5); // picker zwraca godzinę startową i godzinę końcową jako array stąd
+		let endTime = this.state.times[1].substring(0, 5); // rozróżnienie na [0] i [1]
+
+		let newEvent = {
+			id: newFreshId,
+			title: "Do akceptacji",
+			start: start.substring(0, 10) + " " + startTime, //zmienione dodawanie start i end do firebase
+			end: end.substring(0, 10) + " " + endTime, //data z kalendarza, godzina z pickera pod kalendarzem
+			resourceId: slotId,
+			bgColor: "#FFD700",
+		};
+
+		schedulerData.addEvent(newEvent);
+		this.setState({ viewModel: schedulerData });
+
+		if (this.state.youAdmin) {
+			db.collection("reservation")
+			.add({
+				id: newEvent.id,
+				title: "Zarezerwowane",
+				start: newEvent.start,
+				end: newEvent.end,
+				resourceId: newEvent.resourceId,
+				bgColor: "#FFD700",
+				movable: false,
+				resizable: false,
+				gym_id: this.props.gym_id,
+				reservation_date: new Date().toISOString(),
+				name: this.state.name.value,
+				surname: this.state.surname.value,
+				email: this.state.email.value,
+				phoneNumber: this.state.phoneNumber.value,
+				user_id: this.state.user,
+				scored: null,
+			})
+			.then(() => {
+				window.location.reload();
+				window.location.replace("/finishReservation");
+			});
+		} else {
+			db.collection("reservation")
+			.add({
+				id: newEvent.id,
+				title: "Do akceptacji",
+				start: newEvent.start,
+				end: newEvent.end,
+				resourceId: newEvent.resourceId,
+				bgColor: "#FFD700",
+				movable: false,
+				resizable: false,
+				gym_id: this.props.gym_id,
+				reservation_date: new Date().toISOString(),
+				name: this.state.name.value,
+				surname: this.state.surname.value,
+				email: this.state.email.value,
+				phoneNumber: this.state.phoneNumber.value,
+				user_id: this.state.user,
+				scored: null,
+			})
+			// .then(() => {
+			// 	axios({
+			// 		method: "POST",
+			// 		url: "/sendNotifs",
+			// 	});
+			// })
+			.then(() => {
+				window.location.reload();
+				window.location.replace("/finishReservation");
+			});
+		}
+	};
+
+	reserveZero = (schedulerData, slotId, slotName, start, end, type, item) => {
+		let newFreshId = 0;
+		schedulerData.events.forEach((item) => {
+			if (item.id >= newFreshId) newFreshId = item.id + 1;
+		});
+
+		let newEvent = {
+			id: newFreshId,
+			title: "Do akceptacji",
+			start: start,
+			end: end,
+			resourceId: slotId,
+			bgColor: "#FFD700",
+		};
+
+		schedulerData.addEvent(newEvent);
+		this.setState({ viewModel: schedulerData });
+
+
+		if (this.state.youAdmin) {
+			db.collection("reservation")
+			.add({
+				id: newEvent.id,
+				title: "Zarezerwowane",
+				start: newEvent.start.substring(0, 16),
+				end: newEvent.end.substring(0, 16),
+				resourceId: newEvent.resourceId,
+				bgColor: "#FFD700",
+				movable: false,
+				resizable: false,
+				gym_id: this.props.gym_id,
+				reservation_date: new Date().toISOString(),
+				name: this.state.name.value,
+				surname: this.state.surname.value,
+				email: this.state.email.value,
+				phoneNumber: this.state.phoneNumber.value,
+				user_id: this.state.user,
+				scored: null,
+			})
+			.then(() => {
+				window.location.reload();
+				window.location.replace("/finishReservation");
+			});
+		} else {
+			db.collection("reservation")
+			.add({
+				id: newEvent.id,
+				title: "Do akceptacji",
+				start: newEvent.start.substring(0, 16),
+				end: newEvent.end.substring(0, 16),
+				resourceId: newEvent.resourceId,
+				bgColor: "#FFD700",
+				movable: false,
+				resizable: false,
+				gym_id: this.props.gym_id,
+				reservation_date: new Date().toISOString(),
+				name: this.state.name.value,
+				surname: this.state.surname.value,
+				email: this.state.email.value,
+				phoneNumber: this.state.phoneNumber.value,
+				user_id: this.state.user,
+				scored: null,
+			})
+			.then(() => {
+				// axios({
+				// 	method: "POST",
+				// 	url: "/sendNotifs",
+				// 	data: {
+				// 		name: this.state.name.value,
+				// 		surname: this.state.surname.value,
+				// 		gymName: this.state.gymName,
+				// 		email: this.state.ownerMail,
+				// 	},
+				// });
+			})
+			.then(() => {
+				window.location.reload();
+				window.location.replace("/finishReservation");
+			});
+		}
+		
+	};
+
 	newEvent = (schedulerData, slotId, slotName, start, end, type, item) => {
 		let today = new Date();
 		let startDate = new Date(start);
-		
 
 		if (startDate < today) {
-			alert("Początkowa data nie może być z przeszłości!");
+			confirmAlert({
+				title: "Początkowa data nie może być z przeszłości!",
+				buttons: [
+					{
+						label: "OK",
+					},
+				],
+			});
 		} else {
 			if (this.state.view != 0) {
 				//jeśli kalendarz jest ustawiony na coś co nie jest dniem
-				// !Array.isArray(this.state.times) ||	!this.state.times.length
 				console.log("this.state.times.length", this.state.times.length);
 				if (this.state.times.length == 2) {
 					// jeśli array times nie jest pusty (użytkownik wybrał godzinę pod kalendarzem) to wyświetl alert i kontynuuj
-					if (
-						window.confirm(
-							`Chcesz zarezerwować termin / czas? \nOd ${
-								start.substring(0, 10) +
-								" " +
-								this.state.times[0]
-							} do ${
-								end.substring(0, 10) + " " + this.state.times[1]
-							}`
-						)
-					) {
-						let newFreshId = 0;
-						schedulerData.events.forEach((item) => {
-							if (item.id >= newFreshId) newFreshId = item.id + 1;
-						});
-
-						let startTime = this.state.times[0]; // picker zwraca godzinę startową i godzinę końcową jako array stąd
-						let endTime = this.state.times[1]; // rozróżnienie na [0] i [1]
-
-						let newEvent = {
-							id: newFreshId,
-							title: "Do akceptacji",
-							start: start.substring(0, 10) + " " + startTime, //zmienione dodawanie start i end do firebase
-							end: end.substring(0, 10) + " " + endTime, //data z kalendarza, godzina z pickera pod kalendarzem
-							resourceId: slotId,
-							bgColor: "#FFD700",
-						};
-
-						console.log("start: " + newEvent.start);
-
-						schedulerData.addEvent(newEvent);
-						this.setState({
-							viewModel: schedulerData,
-						});
-
-						
-
-						db.collection("reservation")
-							.add({
-								id: newEvent.id,
-								title: "Do akceptacji",
-								start: newEvent.start,
-								end: newEvent.end,
-								resourceId: newEvent.resourceId,
-								bgColor: "#FFD700",
-								movable: false,
-								resizable: false,
-								gym_id: this.props.gym_id,
-								reservation_date: new Date().toISOString(),
-								name: this.state.name.value,
-								surname: this.state.surname.value,
-								email: this.state.email.value,
-								phoneNumber: this.state.phoneNumber.value,
-								user_id: this.state.user,
-								scored: null,
-							})
-							// .then(() => {
-								
-							// 	axios({
-							// 		method: "POST",
-							// 		url: "/sendNotifs",
-							// 		data: {
-							// 			name: 'test',
-							// 			surname: 'test',
-							// 			gymName: 'test',
-							// 			email: 'bemygym@gmail.com',
-							// 		},
-							// 	})
-
-							// })
-							.then(() => {
-								window.location.reload();
-								window.location.replace(
-									"/finishReservation"
-								);
-							});
-					}
+					confirmAlert({
+						title: "Chcesz zarezerwować termin?",
+						message: `Od ${
+							start.substring(0, 10) +
+							" " +
+							this.state.times[0].substring(0, 5)
+						} 
+										do ${end.substring(0, 10) + " " + this.state.times[1].substring(0, 5)}`,
+						buttons: [
+							{
+								label: "ZAREZERWUJ",
+								onClick: () =>
+									this.reserveNonZero(
+										schedulerData,
+										slotId,
+										slotName,
+										start,
+										end,
+										type,
+										item
+									),
+							},
+							{
+								label: "WRÓĆ",
+							},
+						],
+					});
 				} else {
-					window.alert("Trzeba wybrać czas!");
+					confirmAlert({
+						title: "Trzeba wybrać czas!",
+						buttons: [
+							{
+								label: "OK",
+							},
+						],
+					});
 				}
 			} else {
 				//jeśli kalendarz jest ustawiony na dzień / użytkownik wybrał rezerwacje długoterminową
-				if (
-					window.confirm(
-						`Chcesz zarezerwować termin / czas? \nOd ${start} do ${end}`
-					)
-				) {
-					//stary kod, nic nie zmienione
-					let newFreshId = 0;
-					schedulerData.events.forEach((item) => {
-						if (item.id >= newFreshId) newFreshId = item.id + 1;
-					});
-
-					let newEvent = {
-						id: newFreshId,
-						title: "Do akceptacji",
-						start: start,
-						end: end,
-						resourceId: slotId,
-						bgColor: "#FFD700",
-					};
-
-					console.log("start: " + newEvent.start);
-
-					schedulerData.addEvent(newEvent);
-					this.setState({
-						viewModel: schedulerData,
-					});
-
-					db.collection("reservation")
-						.add({
-							id: newEvent.id,
-							title: "Do akceptacji",
-							start: newEvent.start,
-							end: newEvent.end,
-							resourceId: newEvent.resourceId,
-							bgColor: "#FFD700",
-							movable: false,
-							resizable: false,
-							gym_id: this.props.gym_id,
-							reservation_date: new Date().toISOString(),
-							name: this.state.name.value,
-							surname: this.state.surname.value,
-							email: this.state.email.value,
-							phoneNumber: this.state.phoneNumber.value,
-							user_id: this.state.user,
-							scored: null,
-						})
-						.then(() => {
-							window.location.reload();
-							window.location.replace(
-								"/finishReservation"
-							);
-						});
-
-				}
+				confirmAlert({
+					title: "Chcesz zarezerwować termin?",
+					message: `Od ${start} do ${end}`,
+					buttons: [
+						{
+							label: "ZAREZERWUJ",
+							onClick: () =>
+								this.reserveZero(
+									schedulerData,
+									slotId,
+									slotName,
+									start,
+									end,
+									type,
+									item
+								),
+						},
+						{
+							label: "WRÓĆ",
+						},
+					],
+				});
 			}
 		}
 	};
@@ -423,15 +534,8 @@ class Basic extends Component {
 		});
 	};
 
-	/*
-	 * validates the field onBlur if sumbit button is not clicked
-	 * set the validateOnChange to true for that field
-	 * check for error
-	 */
 	handleBlur(validationFunc, evt) {
 		const field = evt.target.name;
-		// validate onBlur only when validateOnChange for that field is false
-		// because if validateOnChange is already true there is no need to validate onBlur
 		if (
 			this.state[field]["validateOnChange"] === false &&
 			this.state.submitCalled === false
@@ -447,10 +551,6 @@ class Basic extends Component {
 		return;
 	}
 
-	/*
-	 * update the value in state for that field
-	 * check for error if validateOnChange is true
-	 */
 	handleChange(validationFunc, evt) {
 		const field = evt.target.name;
 		const fieldVal = evt.target.value;
@@ -465,14 +565,8 @@ class Basic extends Component {
 		}));
 	}
 
-	/*
-	 * validate all fields
-	 * check if all fields are valid if yes then submit the Form
-	 * otherwise set errors for the feilds in the state
-	 */
 	handleSubmit(evt) {
 		evt.preventDefault();
-		// validate all fields
 		const { email, name, surname, phoneNumber } = this.state;
 		const emailError = validateFields.validateEmail(email.value);
 		const nameError = validateFields.validateName(name.value);
@@ -517,27 +611,24 @@ class Basic extends Component {
 	}
 
 	handleNotif() {
-
 		return new Promise(() => {
 			axios({
 				method: "POST",
 				url: "/send",
 				data: {
-					name: 'test',
-					surname: 'test',
-					gymName: 'test',
-					email: 'bemygym@gmail.com',
+					name: "test",
+					surname: "test",
+					gymName: "test",
+					email: "bemygym@gmail.com",
 				},
-			})
-			.then((response) => {
+			}).then((response) => {
 				if (response.data.status === "success") {
 					alert("Wiadomość została wysłana");
 				} else if (response.data.status === "fail") {
 					alert("Błąd");
 				}
 			});
-		})
-		
+		});
 	}
 
 	render() {
@@ -573,177 +664,196 @@ class Basic extends Component {
 								marginLeft: "-6%",
 							}}
 						>
-							{this.state.youAdmin ? "Zarezerwuj niedostępny czas dla swojej sali" : "Rezerwacja"} 
+							{this.state.youAdmin
+								? "Zarezerwuj niedostępny czas dla swojej sali"
+								: "Rezerwacja"}
 						</h3>
 						{/* Name field */}
-						<div style={this.state.youAdmin?{display:"none"}:null} className="form-group-left">
-						<div  className="form-group">
-							<label className="form-group-label">imię</label>
-							<input
-								label="imię"
-								type="text"
-								name="name"
-								value={name.value}
-								InputLabelProps={{
-									shrink: true,
-								}}
-								inputProps={{
-									size: 30,
-								}}
-								floatingLabelFixed={true}
-								className={classnames(
-									"form-control",
-									{ "is-valid": name.error === false },
-									{ "is-invalid": name.error }
-								)}
-								onChange={(evt) =>
-									this.handleChange(
-										validateFields.validateName,
-										evt
-									)
-								}
-								onBlur={(evt) =>
-									this.handleBlur(
-										validateFields.validateName,
-										evt
-									)
-								}
-								required
-							/>
-							<div className="invalid-feedback">{name.error}</div>
-						</div>
-						{/* Surname field */}
-						<div className="form-group">
-							<label className="form-group-label">nazwisko</label>
-							<input
-								label="nazwisko"
-								type="text"
-								name="surname"
-								value={surname.value}
-								InputLabelProps={{
-									shrink: true,
-								}}
-								inputProps={{
-									size: 30,
-								}}
-								className={classnames(
-									"form-control",
-									{ "is-valid": surname.error === false },
-									{ "is-invalid": surname.error }
-								)}
-								onChange={(evt) =>
-									this.handleChange(
-										validateFields.validateSurname,
-										evt
-									)
-								}
-								onBlur={(evt) =>
-									this.handleBlur(
-										validateFields.validateSurname,
-										evt
-									)
-								}
-								required
-							/>
-							<div className="invalid-feedback">
-								{surname.error}
-							</div>
-						</div>
-						{/* Email field */}
-						<div className="form-group">
-							<label className="form-group-label">Email</label>
-							<input
-								label="Email"
-								type="text"
-								name="email"
-								value={email.value}
-								InputLabelProps={{
-									shrink: true,
-								}}
-								inputProps={{
-									size: 30,
-								}}
-								className={classnames(
-									"form-control",
-									{ "is-valid": email.error === false },
-									{ "is-invalid": email.error }
-								)}
-								onChange={(evt) =>
-									this.handleChange(
-										validateFields.validateEmail,
-										evt
-									)
-								}
-								onBlur={(evt) =>
-									this.handleBlur(
-										validateFields.validateEmail,
-										evt
-									)
-								}
-								required
-							/>
-							<div className="invalid-feedback">
-								{email.error}
-							</div>
-						</div>
-						{/* phoneNumber field */}
-						<div className="form-group">
-							<label className="form-group-label">Telefon</label>
-							<input
-								label="Telefon"
-								type="text"
-								name="phoneNumber"
-								value={phoneNumber.value}
-								InputLabelProps={{
-									shrink: true,
-								}}
-								inputProps={{
-									size: 30,
-								}}
-								className={classnames(
-									"form-control",
-									{ "is-valid": phoneNumber.error === false },
-									{ "is-invalid": phoneNumber.error }
-								)}
-								onChange={(evt) =>
-									this.handleChange(
-										validateFields.validatePhoneNumber,
-										evt
-									)
-								}
-								onBlur={(evt) =>
-									this.handleBlur(
-										validateFields.validatePhoneNumber,
-										evt
-									)
-								}
-								required
-							/>
-							<div className="invalid-feedback">
-								{phoneNumber.error}
-							</div>
-						</div>
-						<br />
-						<button
-							type="submit"
-							className="booking-button"
-							onMouseDown={() =>
-								this.setState({ submitCalled: true })
+						<div
+							style={
+								this.state.youAdmin ? { display: "none" } : null
 							}
-							value="Wybierz termin"
+							className="form-group-left"
 						>
-							Wybierz przedział czasowy
-						</button>
+							<div className="form-group">
+								<label className="form-group-label">imię</label>
+								<input
+									label="imię"
+									type="text"
+									name="name"
+									value={name.value}
+									InputLabelProps={{
+										shrink: true,
+									}}
+									inputProps={{
+										size: 30,
+									}}
+									floatingLabelFixed={true}
+									className={classnames(
+										"form-control",
+										{ "is-valid": name.error === false },
+										{ "is-invalid": name.error }
+									)}
+									onChange={(evt) =>
+										this.handleChange(
+											validateFields.validateName,
+											evt
+										)
+									}
+									onBlur={(evt) =>
+										this.handleBlur(
+											validateFields.validateName,
+											evt
+										)
+									}
+									required
+								/>
+								<div className="invalid-feedback">
+									{name.error}
+								</div>
+							</div>
+							{/* Surname field */}
+							<div className="form-group">
+								<label className="form-group-label">
+									nazwisko
+								</label>
+								<input
+									label="nazwisko"
+									type="text"
+									name="surname"
+									value={surname.value}
+									InputLabelProps={{
+										shrink: true,
+									}}
+									inputProps={{
+										size: 30,
+									}}
+									className={classnames(
+										"form-control",
+										{ "is-valid": surname.error === false },
+										{ "is-invalid": surname.error }
+									)}
+									onChange={(evt) =>
+										this.handleChange(
+											validateFields.validateSurname,
+											evt
+										)
+									}
+									onBlur={(evt) =>
+										this.handleBlur(
+											validateFields.validateSurname,
+											evt
+										)
+									}
+									required
+								/>
+								<div className="invalid-feedback">
+									{surname.error}
+								</div>
+							</div>
+							{/* Email field */}
+							<div className="form-group">
+								<label className="form-group-label">
+									Email
+								</label>
+								<input
+									label="Email"
+									type="text"
+									name="email"
+									value={email.value}
+									InputLabelProps={{
+										shrink: true,
+									}}
+									inputProps={{
+										size: 30,
+									}}
+									className={classnames(
+										"form-control",
+										{ "is-valid": email.error === false },
+										{ "is-invalid": email.error }
+									)}
+									onChange={(evt) =>
+										this.handleChange(
+											validateFields.validateEmail,
+											evt
+										)
+									}
+									onBlur={(evt) =>
+										this.handleBlur(
+											validateFields.validateEmail,
+											evt
+										)
+									}
+									required
+								/>
+								<div className="invalid-feedback">
+									{email.error}
+								</div>
+							</div>
+							{/* phoneNumber field */}
+							<div className="form-group">
+								<label className="form-group-label">
+									Telefon
+								</label>
+								<input
+									label="Telefon"
+									type="text"
+									name="phoneNumber"
+									value={phoneNumber.value}
+									InputLabelProps={{
+										shrink: true,
+									}}
+									inputProps={{
+										size: 30,
+									}}
+									className={classnames(
+										"form-control",
+										{
+											"is-valid":
+												phoneNumber.error === false,
+										},
+										{ "is-invalid": phoneNumber.error }
+									)}
+									onChange={(evt) =>
+										this.handleChange(
+											validateFields.validatePhoneNumber,
+											evt
+										)
+									}
+									onBlur={(evt) =>
+										this.handleBlur(
+											validateFields.validatePhoneNumber,
+											evt
+										)
+									}
+									required
+								/>
+								<div className="invalid-feedback">
+									{phoneNumber.error}
+								</div>
+							</div>
+							<br />
+							<button
+								type="submit"
+								className="booking-button"
+								onMouseDown={() =>
+									this.setState({ submitCalled: true })
+								}
+								value="Wybierz termin"
+							>
+								Wybierz przedział czasowy
+							</button>
 						</div>
 						<p style={{ height: 10 }} />
 						{allFieldsValidated && (
-							<Tabs>
+							<Tabs style={{ width: "60vw" }}>
 								<TabList>
 									<Tab>Rezerwacja krótkoterminowa</Tab>
 									<Tab>Rezerwacja długoterminowa</Tab>
 								</TabList>
 
 								<TabPanel>
+									<p style={{ height: 10 }} />
 									{!(this.state.view == 0) ? (
 										<div>
 											<p
@@ -803,17 +913,21 @@ class Basic extends Component {
 									</ConfigProvider>
 								</TabPanel>
 								<TabPanel>
+									<p style={{ height: 10 }} />
 									<div className="range-picker-left">
-									<RangePickerForGym
-										name={this.state.name.value}
-										surname={this.state.surname.value}
-										email={this.state.email.value}
-										phoneNumber={
-											this.state.phoneNumber.value
-										}
-										user={this.state.user}
-										gym_id={this.props.gym_id}
-									/>
+										<RangePickerForGym
+											name={this.state.name.value}
+											surname={this.state.surname.value}
+											email={this.state.email.value}
+											phoneNumber={
+												this.state.phoneNumber.value
+											}
+											user={this.state.user}
+											gym_id={this.props.gym_id}
+											ownerMail={this.state.ownerMail}
+											gymName={this.state.gymName}
+											owner={this.state.youAdmin}
+										/>
 									</div>
 								</TabPanel>
 							</Tabs>

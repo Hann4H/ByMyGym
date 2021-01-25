@@ -46,6 +46,7 @@
     border-radius: 5px;
     display: flex;
     flex-direction: column;
+    border: 2px solid #ffa841;
 }
 
 
@@ -56,4 +57,20 @@
         align-items: center;
         width: 100%;
     }
+}
+
+.delete_btn {
+    color: white;
+}
+
+.change_status {
+    color: white;
+}
+
+.link {
+    color: #ffa841;
+}
+
+.link:hover {
+    color: #ff8119;
 }

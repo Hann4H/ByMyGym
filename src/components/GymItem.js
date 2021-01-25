@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "firebase/firestore";
 import "firebase/storage";
 import firebase from "../firebase";
+import { confirmAlert } from 'react-confirm-alert';
 
 const db = firebase.firestore();
 
@@ -13,15 +14,30 @@ class GymItem extends Component {
 		function DeleteItemFromFirebase(e) {
 			e.preventDefault();
 			console.log("delete function run");
-			db.collection("gyms")
-				.doc(docId)
-				.delete()
-				.then(function () {
-					console.log("Document successfully deleted! Doc: " + docId);
-				})
-				.catch(function (error) {
-					console.error("Error removing document: ", error);
-				});
+			confirmAlert({
+				title: "Czy na pewno chcesz usunąć salę?",
+				buttons: [
+					{
+						label: "USUŃ",
+						onClick: () => {
+							db.collection("gyms")
+								.doc(docId)
+								.delete()
+								.then(function () {
+									console.log("Document successfully deleted! Doc: " + docId);
+									window.location.reload();
+								})
+								.catch(function (error) {
+									console.error("Error removing document: ", error);
+								});
+						},
+					},
+					{
+						label: "WRÓĆ",
+					},
+				],
+			});
+			
 		}
 
 		return (

@@ -32,27 +32,46 @@ export default class SearchGym extends Component {
 			price: [0, 90],
 		};
 		this.handlePageClick = this.handlePageClick.bind(this);
+		this.handleSearchChange = this.handleSearchChange.bind(this);
+		this.handleResultSelect = this.handleResultSelect.bind(this);
 	}
 
 	handlePriceChange = (event, newValue) => {
-		this.setState({ price: newValue });
+		this.setState({ price: newValue,  });
 		console.log(this.state.price[0]);
 		console.log(this.state.data);
 	};
 
-	handleResultSelect = (e, { result }) =>
+	handleResultSelect = (e, { result }) => {
 		this.setState({ value: result.gymName });
+	}
+	
 	handleSearchChange = (e, { value }) => {
 		this.setState({ isLoading: true, value });
 		setTimeout(() => {
-			if (this.state.value.length < 1)
-				return this.setState({
+			if (this.state.value.length == 0) {
+				db.collection("gyms")
+					.orderBy("gymName")
+					.where("accepted", "==", true)
+					.get()
+					.then((snapshot) => {
+						const links = snapshot.docs.map((doc) => {
+							return { docId: doc.id, ...doc.data() };
+						});
+						this.setState({ loading: true });
+						this.setState({ data: links, results: links });
+						this.receivedData();
+						this.gymData = links;
+					});
+			} else if (this.state.value.length < 1) 
+				this.setState({
 					isLoading: false,
 					results: this.state.data,
 					value: "",
 				});
+
 			const re = new RegExp(_.escapeRegExp(this.state.value), "i");
-			const isMatch = (result) => re.test(result.gymName);
+			const isMatch = (value) => re.test(value.gymName);
 			this.setState({
 				isLoading: false,
 				results: _.filter(this.state.data, isMatch),
@@ -60,6 +79,7 @@ export default class SearchGym extends Component {
 					this.state.results.length / this.state.perPage
 				),
 			});
+			this.receivedData()	
 		}, 300);
 	};
 
@@ -170,6 +190,6 @@ export default class SearchGym extends Component {
 					</Grid.Column>
 				</Grid>
 			</>
-		);
+		)
 	}
 }

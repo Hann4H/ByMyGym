@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 
 class Contact extends Component {
 	constructor(props) {
@@ -36,10 +38,24 @@ class Contact extends Component {
 			},
 		}).then((response) => {
 			if (response.data.status === "success") {
-				alert("Wiadomość została wysłana");
+				confirmAlert({
+					title: 'Wiadomość została wysłana',
+					buttons: [
+					  {
+						label: 'OK'
+					  }
+					]
+				  })
 				this.resetForm();
 			} else if (response.data.status === "fail") {
-				alert("Błąd");
+				confirmAlert({
+					title: 'Błąd',
+					buttons: [
+					  {
+						label: 'OK'
+					  }
+					]
+				  })
 			}
 		});
 	}

@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import JsonData from "../components/adminTools/JsonData";
 import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
-import FilterGyms from "../components/filters/FilterGyms";
 
 class Admin extends Component {
 	constructor(props) {
@@ -34,7 +33,10 @@ class Admin extends Component {
 								<tr>
 									<td>Dodaj sale do firebase z API</td>
 									<td>
-										<button onClick={this._onButtonClick} style={{ color: "white" }}>
+										<button
+											onClick={this._onButtonClick}
+											style={{ color: "white" }}
+										>
 											Dodaj
 										</button>
 										{this.state.showComponent ? (
@@ -67,11 +69,6 @@ class Admin extends Component {
 							</tbody>
 						</table>
 					</div>
-					{/* TODO delete it */}
-					{/* <div style={{ background: "#e6e6e6" }}>
-						<br />
-						<FilterGyms />
-					</div> */}
 				</div>
 			</div>
 		);
