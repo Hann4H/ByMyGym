@@ -41,7 +41,7 @@ li {
 
 .hamburger-button {
   font-size: 30px;
-  margin-right: -1rem;
+  margin-right: 0rem;
   color: var(--mainOrange);
   background: transparent;
   border: none;

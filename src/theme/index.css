@@ -120,6 +120,7 @@
 @media screen and (max-width: 576px) {
 	.banner {
 		padding: 2rem 3rem;
+		width:90%
 	}
 	.banner h1 {
 		font-size: 3rem;
