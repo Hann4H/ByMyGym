@@ -48,7 +48,7 @@ function ListItems(props) {
 	return (
 		<>
 			<div style={{ border: "2px solid var(--darkOrange)" }}>
-				<table style={{ width: "100%", margin: "10px" }}>
+				<table style={{ width: "100%", margin: "10px", wordBreak:"break-word" }}>
 					<tbody>
 						<tr>
 							<td>Data dodania</td>
