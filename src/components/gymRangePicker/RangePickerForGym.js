@@ -223,12 +223,16 @@ class RangePickerForGym extends Component {
 
 	newEvent = () => {
 		const { dates, dateStrings, weekday, times } = this.state;
+		const { email, name, surname, phoneNumber } = this.props;
+		const emailError = validateFields.validateEmail(email.value);
+		const nameError = validateFields.validateName(name.value);
+		const surnameError = validateFields.validateSurname(surname.value);
+		const phoneNumberError = validateFields.validatePhoneNumber(
+			phoneNumber.value
+		);
 
 		if (dates && weekday && times && 
-			!validateFields.validateEmail(this.props.email.value) && 
-			!validateFields.validateName(this.props.name.value) && 
-			!validateFields.validateSurname(this.props.surname.value) &&
-			!validateFields.validatePhoneNumber(this.props.phoneNumber.value)) {
+			emailError == false && nameError == false && surnameError == false && phoneNumberError == false) {
 			let startDate = new Date(dateStrings[0]);
 			const today = new Date();
 			let start = dateStrings[0];
