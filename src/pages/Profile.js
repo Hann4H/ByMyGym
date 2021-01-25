@@ -200,7 +200,7 @@ class Profile extends Component {
 								<tbody>
 									<tr className="profile-info">
 										<td className="headline-info">Imię</td>
-										<td>{this.state.name}</td>
+										<td>{Cookies.get('user_name')}</td>
 									</tr>
 									<tr className="profile-info">
 										<td className="headline-info">Email</td>

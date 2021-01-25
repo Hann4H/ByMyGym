@@ -151,7 +151,7 @@
 .gym-name {
 	padding-top: 3rem;
 	padding-bottom: 1rem;
-	margin-left: 5rem;
+	margin-left: 4.5rem;
 	font-size: 30px;
 	letter-spacing: var(--mainSpacing);
 	font-weight: 100;
@@ -166,7 +166,7 @@
 .heart {
 	height: 23px;
 	margin-top: 3.5rem;
-	margin-left: 2rem;
+	margin-left: 1rem;
 	cursor: pointer;
 }
 
@@ -686,7 +686,7 @@
 }
 
 .gym-name {
-	text-transform: uppercase;
+	/* text-transform: uppercase; */
 }
 
 .gym-info #container-6 {
