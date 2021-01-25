@@ -135,17 +135,12 @@ class ShowScheduler extends Component {
 		const { viewModel } = this.state;
 		return (
 			<div>
-				<h3
-					style={{
-						textAlign: "center",
-						color: "var(--darkOrange)",
-						// marginLeft: "-6%",
-					}}
-				>
+				<h3 className="calendar-napis">
 					Kalendarz rezerwacji
 				</h3>
+				<div className="mobile-calen">
 				<ConfigProvider locale={plPL}>
-					<Scheduler
+					<Scheduler 
 						schedulerData={viewModel}
 						prevClick={this.prevClick}
 						nextClick={this.nextClick}
@@ -160,6 +155,7 @@ class ShowScheduler extends Component {
 						dane={this.state.DemoData.events}
 					/>
 				</ConfigProvider>
+				</div>
 			</div>
 		);
 	}

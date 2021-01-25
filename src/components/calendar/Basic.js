@@ -59,7 +59,7 @@ class Basic extends Component {
 			phoneNumber: { value: "", validateOnChange: false, error: "" },
 			email: { value: "", validateOnChange: false, error: "" },
 			submitCalled: false,
-			allFieldsValidated: false,
+			allFieldsValidated: true,
 			youAdmin: false,
 			DemoData: {
 				resources: [
@@ -107,12 +107,7 @@ class Basic extends Component {
 					this.setState({
 						allFieldsValidated: true,
 						youAdmin: true,
-						name: { value: "Ty" },
-						ownerMail: item.data().gymOwnerEmail || "",
-						gymName: item.data().gymName,
-					});
-				} else {
-					this.setState({
+						name: { value: "you" },
 						ownerMail: item.data().gymOwnerEmail || "",
 						gymName: item.data().gymName,
 					});
@@ -232,32 +227,7 @@ class Basic extends Component {
 		schedulerData.addEvent(newEvent);
 		this.setState({ viewModel: schedulerData });
 
-		if (this.state.youAdmin) {
-			db.collection("reservation")
-			.add({
-				id: newEvent.id,
-				title: "Zarezerwowane",
-				start: newEvent.start,
-				end: newEvent.end,
-				resourceId: newEvent.resourceId,
-				bgColor: "#FFD700",
-				movable: false,
-				resizable: false,
-				gym_id: this.props.gym_id,
-				reservation_date: new Date().toISOString(),
-				name: this.state.name.value,
-				surname: this.state.surname.value,
-				email: this.state.email.value,
-				phoneNumber: this.state.phoneNumber.value,
-				user_id: this.state.user,
-				scored: null,
-			})
-			.then(() => {
-				window.location.reload();
-				window.location.replace("/finishReservation");
-			});
-		} else {
-			db.collection("reservation")
+		db.collection("reservation")
 			.add({
 				id: newEvent.id,
 				title: "Do akceptacji",
@@ -286,7 +256,6 @@ class Basic extends Component {
 				window.location.reload();
 				window.location.replace("/finishReservation");
 			});
-		}
 	};
 
 	reserveZero = (schedulerData, slotId, slotName, start, end, type, item) => {
@@ -307,33 +276,7 @@ class Basic extends Component {
 		schedulerData.addEvent(newEvent);
 		this.setState({ viewModel: schedulerData });
 
-
-		if (this.state.youAdmin) {
-			db.collection("reservation")
-			.add({
-				id: newEvent.id,
-				title: "Zarezerwowane",
-				start: newEvent.start.substring(0, 16),
-				end: newEvent.end.substring(0, 16),
-				resourceId: newEvent.resourceId,
-				bgColor: "#FFD700",
-				movable: false,
-				resizable: false,
-				gym_id: this.props.gym_id,
-				reservation_date: new Date().toISOString(),
-				name: this.state.name.value,
-				surname: this.state.surname.value,
-				email: this.state.email.value,
-				phoneNumber: this.state.phoneNumber.value,
-				user_id: this.state.user,
-				scored: null,
-			})
-			.then(() => {
-				window.location.reload();
-				window.location.replace("/finishReservation");
-			});
-		} else {
-			db.collection("reservation")
+		db.collection("reservation")
 			.add({
 				id: newEvent.id,
 				title: "Do akceptacji",
@@ -368,8 +311,6 @@ class Basic extends Component {
 				window.location.reload();
 				window.location.replace("/finishReservation");
 			});
-		}
-		
 	};
 
 	newEvent = (schedulerData, slotId, slotName, start, end, type, item) => {
@@ -846,6 +787,7 @@ class Basic extends Component {
 						</div>
 						<p style={{ height: 10 }} />
 						{allFieldsValidated && (
+							<div>
 							<Tabs style={{ width: "60vw" }}>
 								<TabList>
 									<Tab>Rezerwacja krótkoterminowa</Tab>
@@ -926,11 +868,26 @@ class Basic extends Component {
 											gym_id={this.props.gym_id}
 											ownerMail={this.state.ownerMail}
 											gymName={this.state.gymName}
-											owner={this.state.youAdmin}
 										/>
 									</div>
 								</TabPanel>
 							</Tabs>
+								<p style={{ height: 10 }} />
+								<div className="range-picker-left mobile_pick">
+									<RangePickerForGym
+										name={this.state.name.value}
+										surname={this.state.surname.value}
+										email={this.state.email.value}
+										phoneNumber={
+											this.state.phoneNumber.value
+										}
+										user={this.state.user}
+										gym_id={this.props.gym_id}
+										ownerMail={this.state.ownerMail}
+										gymName={this.state.gymName}
+									/>
+								</div>
+								</div>
 						)}
 					</form>
 
