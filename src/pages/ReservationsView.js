@@ -3,6 +3,7 @@ import firebase from "firebase";
 import "../theme/react-week-scheduler.css";
 import { Link } from "react-router-dom";
 import { Redirect } from 'react-router-dom'
+import Cookies from "js-cookie"
 const db = firebase.firestore();
 
 
@@ -128,7 +129,7 @@ class ReservationsView extends Component {
     const bookingItems = [];
 
     db.collection("gyms")
-      .where("gymOwner", "==", localStorage.getItem("user"))
+      .where("gymOwner", "==", Cookies.get('user'))
       .get()
       .then((items) => {
         items.forEach(function (doc) {

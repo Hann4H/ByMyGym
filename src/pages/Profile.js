@@ -5,6 +5,7 @@ import Loading from "../components/Loading";
 import StarRatings from "../components/StarRatings";
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
+import Cookies from "js-cookie"
 
 var now = new Date();
 var timeNow =
@@ -40,7 +41,7 @@ class Profile extends Component {
 
 		this.loadUserProfile();
 
-		if (localStorage.getItem("user")) {
+		if (Cookies.get('user')) {
 			firebase
 			.firestore()
 			.collection("gyms")
@@ -60,7 +61,7 @@ class Profile extends Component {
 			})
 			.then(() => {
 				Gyms.map((gym) => {
-					if (gym.gymOwner == localStorage.getItem("user")) {
+					if (gym.gymOwner == Cookies.get('user')) {
 						this.setState({ owner: true });
 					}
 				});
@@ -72,7 +73,7 @@ class Profile extends Component {
 		firebase
 			.firestore()
 			.collection("reservation")
-			.where("user_id", "==", localStorage.getItem("user"))
+			.where("user_id", "==", Cookies.get('user'))
 			.get()
 			.then((querySnapshot) => {
 				querySnapshot.forEach(function (doc) {
@@ -99,7 +100,7 @@ class Profile extends Component {
 		firebase
 			.firestore()
 			.collection("favourites")
-			.doc(localStorage.getItem("user"))
+			.doc(Cookies.get('user'))
 			.get()
 			.then((querySnapshot) => {
 				this.setState({
@@ -115,7 +116,7 @@ class Profile extends Component {
 		firebase
 			.firestore()
 			.collection("users")
-			.where("email", "==", localStorage.getItem("email"))
+			.where("email", "==", Cookies.get('user'))
 			.get()
 			.then((snapshot) => {
 				snapshot.forEach((doc) => {
@@ -130,9 +131,9 @@ class Profile extends Component {
 	}
 
 	loadUserProfile() {
-		const user = localStorage.getItem("user");
+		const user = Cookies.get('user');
 		this.setState({ user });
-		this.setState({ name: localStorage.getItem("user_name") });
+		this.setState({ name: Cookies.get('user_name') });
 	}
 
 	togglePop = () => {
@@ -175,7 +176,7 @@ class Profile extends Component {
 
 	render() {
 		let { user } = this.state;
-		if (!localStorage.getItem("user")) {
+		if (!Cookies.get('user')) {
 			return <Redirect to="/login" />;
 		}
 
@@ -189,7 +190,7 @@ class Profile extends Component {
 						<div className="profile-div">
 							<img
 								className="profile-picture"
-								src={localStorage.getItem("photoURL")}
+								src={Cookies.get('photoURL')}
 								alt="zdjęcie profilowe"
 							/>
 							<h1>{this.state.name}</h1>
@@ -203,7 +204,7 @@ class Profile extends Component {
 									</tr>
 									<tr className="profile-info">
 										<td className="headline-info">Email</td>
-										<td>{localStorage.getItem("email")}</td>
+										<td>{Cookies.get('email')}</td>
 									</tr>
 									<p style={{ height: 10 }} />
 									<tr className="profile-info">
@@ -258,9 +259,7 @@ class Profile extends Component {
 															{res.status}
 														</p>
 														{!(
-															localStorage.getItem(
-																"user"
-															) ==
+															Cookies.get('user') ==
 															process.env
 																.REACT_APP_ADMIN_ID
 														) &&
@@ -333,7 +332,7 @@ class Profile extends Component {
 								</tbody>
 							</table>
 							{!(
-								localStorage.getItem("user") ==
+								Cookies.get('user') ==
 								process.env.REACT_APP_ADMIN_ID
 							) ? (
 								<div>
@@ -409,9 +408,7 @@ class Profile extends Component {
 												{this.state.Gyms.filter(
 													(gym) =>
 														gym.gymOwner ==
-														localStorage.getItem(
-															"user"
-														)
+														Cookies.get('user')
 												).map((myGyms) => (
 													<tr>
 														<Link

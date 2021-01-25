@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { FaAlignRight } from "react-icons/fa";
 import firebase from "../firebase";
+import Cookies from "js-cookie"
 
 class Nav extends Component {
   constructor(props) {
@@ -23,16 +24,24 @@ class Nav extends Component {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({ user });
-        localStorage.setItem("user", user.uid);
-        localStorage.setItem("email", user.email);
-        localStorage.setItem("photoURL", user.photoURL);
-        localStorage.setItem("user_name", user.displayName);
+        Cookies.set('user', user.uid, { secure: true });
+        Cookies.set('user_name', user.displayName, { secure: true });
+        Cookies.set('photoURL', user.photoURL, { secure: true });
+        Cookies.set('email', user.email, { secure: true });
+        // localStorage.setItem("user", user.uid);
+        // localStorage.setItem("email", user.email);
+        // localStorage.setItem("photoURL", user.photoURL);
+        // localStorage.setItem("user_name", user.displayName);
       } else {
         this.setState({ user: null });
-        localStorage.removeItem("user");
-        localStorage.removeItem("email");
-        localStorage.removeItem("photoURL");
-        localStorage.removeItem("user_name");
+        Cookies.remove('user');
+        Cookies.remoce('user_name');
+        Cookies.remove('email');
+        Cookies.remove('photoURL');
+        // localStorage.removeItem("user");
+        // localStorage.removeItem("email");
+        // localStorage.removeItem("photoURL");
+        // localStorage.removeItem("user_name");
       }
     });
   }
@@ -54,14 +63,14 @@ class Nav extends Component {
     var user = firebase.auth().currentUser;
     if (user != null) {
       user.providerData.forEach(function (profile) {
-        console.log("Sign-in provider: " + profile.providerId);
-        console.log("  Provider-specific UID: " + profile.uid);
-        console.log("  Name: " + profile.displayName);
-        console.log("  Email: " + profile.email);
-        console.log("  Photo URL: " + profile.photoURL);
+        // console.log("Sign-in provider: " + profile.providerId);
+        // console.log("  Provider-specific UID: " + profile.uid);
+        // console.log("  Name: " + profile.displayName);
+        // console.log("  Email: " + profile.email);
+        // console.log("  Photo URL: " + profile.photoURL);
       });
     } else {
-      console.log("user is null :(");
+      console.log("user is null");
     }
 
     return (

@@ -10,6 +10,7 @@ import classnames from "classnames";
 import firebase from "../firebase";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
+import Cookies from "js-cookie"
 
 const db = firebase.firestore();
 
@@ -938,7 +939,7 @@ class GymDetailsEdit extends Component {
 						</div>
 						{/* gymOwner field */}
 
-						{localStorage.getItem("user") ==
+						{Cookies.get('user') ==
 						process.env.REACT_APP_ADMIN_ID ? (
 							<div className="form-group">
 								<label className="form-group-label">

@@ -16,7 +16,7 @@ class ValidateFields {
 	 * Returns the response either error or false if there is no error
 	 */
 	validateEmail(email) {
-		if (validator.isEmpty(email)) {
+		if (!email) {
 			return "Email jest wymagany";
 		} else if (!validator.isEmail(email)) {
 			return "Niepoprawny e-mail";
@@ -54,7 +54,7 @@ class ValidateFields {
 	}
 
 	validatePhoneNumber(phoneNumber) {
-		if (validator.isEmpty(phoneNumber)) {
+		if (!phoneNumber) {
 			return "Telefon jest wymagany";
 		} else if (!validator.isMobilePhone(phoneNumber, "pl-PL")) {
 			return "Niepoprawny telefon";
@@ -91,7 +91,7 @@ class ValidateFields {
 	}
 
 	validateGymZip(gymZip) {
-		if (validator.isEmpty(gymZip)) {
+		if (!gymZip) {
 			return "Kod pocztowy jest wymagany";
 		} else if (!validator.isPostalCode(gymZip, "PL")) {
 			return "Proszę wprowadzić kod pocztowy w poprawnym formacie: 11-111";
@@ -184,7 +184,7 @@ class ValidateFields {
 	}
 
 	validateGymEmail(gymEmail) {
-		if (validator.isEmpty(gymEmail)) {
+		if (!gymEmail) {
 			return "Email jest wymagany";
 		} else if (!validator.isEmail(gymEmail)) {
 			return "Niepoprawny e-mail";
@@ -193,7 +193,7 @@ class ValidateFields {
 	}
 
 	validateGymDescription(gymDescription) {
-		if (validator.isEmpty(gymDescription)) {
+		if (!gymDescription) {
 			return false;
 		}
 		return false;

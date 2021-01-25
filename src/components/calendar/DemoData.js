@@ -1,3 +1,5 @@
+import Cookies from "js-cookie"
+
 const configData = {
   resources: [
     {
@@ -12,7 +14,7 @@ const configData = {
   ],
 };
 
-const bookingData = JSON.parse(localStorage.getItem("events"));
+const bookingData = JSON.parse(Cookies.get('events'));
 
 const dane2 = bookingData ? [...bookingData.values()] : [];
 

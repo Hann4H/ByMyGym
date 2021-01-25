@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import JsonData from "../components/adminTools/JsonData";
 import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
+import Cookies from "js-cookie"
 
 class Admin extends Component {
 	constructor(props) {
@@ -19,7 +20,7 @@ class Admin extends Component {
 	}
 
 	render() {
-		if (localStorage.getItem("user") != process.env.REACT_APP_ADMIN_ID) {
+		if (Cookies.get('user') != process.env.REACT_APP_ADMIN_ID) {
 			return <Redirect to="/noaccess" />;
 		}
 

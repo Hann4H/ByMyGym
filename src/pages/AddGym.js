@@ -3,6 +3,7 @@ import Hero from "../components/Hero";
 import Form from "../components/gymForm";
 import Banner from "../components/Banner";
 import { Redirect } from 'react-router-dom'
+import Cookies from "js-cookie"
 
 class AddGym extends Component {
 
@@ -15,7 +16,7 @@ class AddGym extends Component {
   }
 
   loadUserProfile() {
-    const user = localStorage.getItem("user");
+    const user = Cookies.get('user');
     this.setState({ user });
   }
 

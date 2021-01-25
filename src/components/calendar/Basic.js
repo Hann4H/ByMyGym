@@ -18,6 +18,7 @@ import "react-tabs/style/react-tabs.css";
 import { TimePicker } from "antd";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
+import Cookies from "js-cookie"
 
 import createBrowserHistory from "history/createBrowserHistory";
 
@@ -88,7 +89,7 @@ class Basic extends Component {
 				const events = items.docs.map((doc) => {
 					return { docId: doc.id, ...doc.data() };
 				});
-				const user = localStorage.getItem("user");
+				const user = Cookies.get('user');
 				this.setState({ user });
 				const eventsData = JSON.stringify(events, null, 4);
 				this.setState((events) => ({
@@ -103,7 +104,7 @@ class Basic extends Component {
 			.doc(this.props.gym_id)
 			.get()
 			.then((item) => {
-				if (item.data().gymOwner === localStorage.getItem("user")) {
+				if (item.data().gymOwner === Cookies.get('user')) {
 					this.setState({
 						allFieldsValidated: true,
 						youAdmin: true,
@@ -368,13 +369,13 @@ class Basic extends Component {
 				window.location.reload();
 				window.location.replace("/finishReservation");
 			});
-		}
-		
+		}	
 	};
 
 	newEvent = (schedulerData, slotId, slotName, start, end, type, item) => {
 		let today = new Date();
 		let startDate = new Date(start);
+		console.log(this.state.name)
 
 		if (startDate < today) {
 			confirmAlert({
@@ -385,7 +386,10 @@ class Basic extends Component {
 					},
 				],
 			});
-		} else {
+		} else if (!validateFields.validateEmail(this.state.email.value) && 
+		!validateFields.validateName(this.state.name.value) && 
+		!validateFields.validateSurname(this.state.surname.value) &&
+		!validateFields.validatePhoneNumber(this.state.phoneNumber.value)) {
 			if (this.state.view != 0) {
 				//jeśli kalendarz jest ustawiony na coś co nie jest dniem
 				console.log("this.state.times.length", this.state.times.length);
@@ -453,6 +457,15 @@ class Basic extends Component {
 					],
 				});
 			}
+		} else {
+			confirmAlert({
+				title: "Wprowadź poprawne dane!",
+				buttons: [
+					{
+						label: "OK",
+					},
+				],
+			});
 		}
 	};
 

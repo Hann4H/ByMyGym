@@ -4,6 +4,7 @@ import "firebase/firestore";
 import "firebase/storage";
 import firebase from "../firebase";
 import { confirmAlert } from 'react-confirm-alert';
+import Cookies from "js-cookie"
 
 const db = firebase.firestore();
 
@@ -89,7 +90,7 @@ class GymItem extends Component {
 										więcej informacji
 									</button>
 								</Link>
-								{localStorage.getItem("user") ==
+								{Cookies.get('user') ==
 								process.env.REACT_APP_ADMIN_ID ? (
 									<button
 										onClick={DeleteItemFromFirebase}

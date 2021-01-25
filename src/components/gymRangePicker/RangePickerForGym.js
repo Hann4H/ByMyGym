@@ -13,6 +13,7 @@ import { TimePicker } from "antd";
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import axios from "axios";
+import { validateFields } from "../../Validation";
 
 const db = firebase.firestore();
 
@@ -223,7 +224,11 @@ class RangePickerForGym extends Component {
 	newEvent = () => {
 		const { dates, dateStrings, weekday, times } = this.state;
 
-		if (dates && weekday && times) {
+		if (dates && weekday && times && 
+			!validateFields.validateEmail(this.props.email.value) && 
+			!validateFields.validateName(this.props.name.value) && 
+			!validateFields.validateSurname(this.props.surname.value) &&
+			!validateFields.validatePhoneNumber(this.props.phoneNumber.value)) {
 			let startDate = new Date(dateStrings[0]);
 			const today = new Date();
 			let start = dateStrings[0];

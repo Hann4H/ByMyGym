@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import firebase from "firebase";
 import "../theme/react-week-scheduler.css";
 import { Link } from "react-router-dom";
+import Cookies from "js-cookie"
 // import { Redirect } from 'react-router-dom'
 
 import "../theme/OwnerManager.css";
@@ -18,7 +19,7 @@ class OwnerManager extends Component {
 		const ownedGyms = [];
 
 		db.collection("gyms")
-			.where("gymOwner", "==", localStorage.getItem("user"))
+			.where("gymOwner", "==", Cookies.get('user'))
 			.get()
 			.then((items) => {
 				items.forEach(function (doc) {

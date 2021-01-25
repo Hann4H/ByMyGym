@@ -3,6 +3,7 @@ import firebase from "firebase";
 import "../theme/react-week-scheduler.css";
 import { Link } from "react-router-dom";
 import { Redirect } from 'react-router-dom'
+import Cookies from "js-cookie"
 const db = firebase.firestore();
 
 
@@ -142,7 +143,7 @@ class GymView extends Component {
 
   render() {
 
-    if (localStorage.getItem("user")!=process.env.REACT_APP_ADMIN_ID) {
+    if (Cookies.get('user')!=process.env.REACT_APP_ADMIN_ID) {
       return (
         <Redirect to="/login" />
       )
