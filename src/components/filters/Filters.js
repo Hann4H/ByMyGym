@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import GymItem from "../GymItem";
 import firebase from "../../firebase";
-import FilteredItems from "./FilteredItems";
 import Loading from "../Loading";
 import ReactPaginate from "react-paginate";
 const db = firebase.firestore();
@@ -40,9 +39,6 @@ class Filters extends Component {
 			changingRoomsN: "",
 
 			loading: false,
-
-
-
 			offset: 0,
 			perPage: 5,
 			currentPage: 1,
@@ -50,18 +46,14 @@ class Filters extends Component {
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 
-
 		this.handlePageClick = this.handlePageClick.bind(this);
 		this.receivedData = this.receivedData.bind(this);
 	}
 
 	componentDidMount() {
 		db.collection("gyms")
-			// .orderBy("gymPrice")
 			.orderBy("gymName")
 			.where("accepted", "==", true)
-			// .where("gymPrice", ">=", this.state.gymPriceFrom)
-			// .where("gymPrice", "<=", this.state.gymPriceTo)
 			.get()
 			.then((snapshot) => {
 				const links = snapshot.docs.map((doc) => {
@@ -87,11 +79,17 @@ class Filters extends Component {
 
 		let reservedGymsId = [];
 
-		if (this.state.gymDate !== "" && 
-		this.state.gymTimeFrom !== "" &&
-		this.state.gymTimeTo !== "") {
-			const timeFrom = Date.parse(this.state.gymDate + " " + this.state.gymTimeFrom);
-			const timeTo = Date.parse(this.state.gymDate + " " + this.state.gymTimeTo);
+		if (
+			this.state.gymDate !== "" &&
+			this.state.gymTimeFrom !== "" &&
+			this.state.gymTimeTo !== ""
+		) {
+			const timeFrom = Date.parse(
+				this.state.gymDate + " " + this.state.gymTimeFrom
+			);
+			const timeTo = Date.parse(
+				this.state.gymDate + " " + this.state.gymTimeTo
+			);
 			console.log(timeFrom, timeTo);
 
 			reservations.get().then((snapshot) => {
@@ -99,21 +97,16 @@ class Filters extends Component {
 					const sTime = Date.parse(doc.data().start);
 					const eTime = Date.parse(doc.data().end);
 
-					if ((sTime >= timeFrom && sTime <= timeTo) || 
-						(eTime >= timeFrom && eTime <= timeTo)) {
-							console.log(doc.data())
-							reservedGymsId.push(doc.data().gym_id);
-						}
-
+					if (
+						(sTime >= timeFrom && sTime <= timeTo) ||
+						(eTime >= timeFrom && eTime <= timeTo)
+					) {
+						console.log(doc.data());
+						reservedGymsId.push(doc.data().gym_id);
+					}
 				});
 			});
-
 		}
-
-		console.log(reservedGymsId);
-
-
-		console.log(this.state);
 
 		if (this.state.gymPriceFrom != "" || this.state.gymPriceTo != "") {
 			flt = flt.orderBy("gymPrice");
@@ -157,18 +150,19 @@ class Filters extends Component {
 			);
 		}
 
-		flt.get().then((snapshot) => {
-			const links = snapshot.docs.map((doc) => {
-				if (!reservedGymsId.includes(doc.id)) {
-					return { docId: doc.id, ...doc.data() };
-				} else return null;
+		flt.orderBy("gymName")
+			.get()
+			.then((snapshot) => {
+				const links = snapshot.docs.map((doc) => {
+					if (!reservedGymsId.includes(doc.id)) {
+						return { docId: doc.id, ...doc.data() };
+					} else return null;
+				});
+				this.setState({ data: links });
+				this.receivedData();
+				this.gymData = links;
 			});
-			this.setState({ data: links });
-			this.receivedData();
-			this.gymData = links;
-		});
 	};
-
 
 	////////////////
 
@@ -210,30 +204,33 @@ class Filters extends Component {
 						this.state.offset + this.state.perPage
 					)
 					.map((gym, index) => {
-						if (gym !== null) { return (
-						<GymItem
-							key={gym.id}
-							showCount={false}
-							gym={gym}
-							index={index}
-						/>
-					) } else return (null) })}
+						if (gym !== null) {
+							return (
+								<GymItem
+									key={gym.id}
+									showCount={false}
+									gym={gym}
+									index={index}
+								/>
+							);
+						} else return null;
+					})}
 				<div className="pagination-out">
-				{this.state.loading ? (
-					<ReactPaginate
-						previousLabel={"<"}
-						nextLabel={">"}
-						breakLabel={"..."}
-						breakClassName={"break-me"}
-						pageCount={this.state.pageCount}
-						marginPagesDisplayed={2}
-						pageRangeDisplayed={0}
-						onPageChange={this.handlePageClick}
-						containerClassName={"pagination"}
-						subContainerClassName={"pages pagination"}
-						activeClassName={"active"}
-					/>
-				) : "" };
+					{this.state.loading ? (
+						<ReactPaginate
+							previousLabel={"<"}
+							nextLabel={">"}
+							breakLabel={"..."}
+							breakClassName={"break-me"}
+							pageCount={this.state.pageCount}
+							marginPagesDisplayed={2}
+							pageRangeDisplayed={0}
+							onPageChange={this.handlePageClick}
+							containerClassName={"pagination"}
+							subContainerClassName={"pages pagination"}
+							activeClassName={"active"}
+						/>
+					) : null}
 				</div>
 			</>
 		);
@@ -249,7 +246,10 @@ class Filters extends Component {
 						<div style={{ display: "inline-block" }}>
 							<label style={nameStyle}>
 								Cena (zł):{" "}
-								<label style={textStyle} className="text-style-mob">
+								<label
+									style={textStyle}
+									className="text-style-mob"
+								>
 									od
 									<input
 										className="text-style-mob"
@@ -262,7 +262,10 @@ class Filters extends Component {
 										value={this.state.gymPriceFrom}
 									/>
 								</label>
-								<label style={textStyle} className="text-style-mob">
+								<label
+									style={textStyle}
+									className="text-style-mob"
+								>
 									do
 									<input
 										className="text-style-mob"
@@ -280,7 +283,10 @@ class Filters extends Component {
 						<div>
 							<label style={nameStyle}>
 								Data:{" "}
-								<label style={textStyle} className="text-style-mob">
+								<label
+									style={textStyle}
+									className="text-style-mob"
+								>
 									<input
 										className="text-style-mob"
 										style={textStyle}
@@ -289,14 +295,17 @@ class Filters extends Component {
 										onChange={this.handleChange}
 										value={this.state.gymDate}
 									/>
-								</label>	
+								</label>
 							</label>
-						</div>	
+						</div>
 
 						<div>
 							<label style={nameStyle}>
 								Czas:{" "}
-								<label style={textStyle} className="text-style-mob">
+								<label
+									style={textStyle}
+									className="text-style-mob"
+								>
 									od
 									<input
 										className="text-style-mob"
@@ -308,7 +317,10 @@ class Filters extends Component {
 										value={this.state.gymTimeFrom}
 									/>
 								</label>
-								<label style={textStyle} className="text-style-mob">
+								<label
+									style={textStyle}
+									className="text-style-mob"
+								>
 									do
 									<input
 										className="text-style-mob"
@@ -406,15 +418,6 @@ class Filters extends Component {
 						{this.state.loading ? null : <Loading />}
 					</div>
 					{this.part()}
-					{/* <FilteredItems data={this.state.data} /> */}
-					{/* {this.state.data.map((gym, index) => (
-						<GymItem
-							key={gym.id}
-							showCount={false}
-							gym={gym}
-							index={index}
-						/>
-					))} */}
 				</div>
 			</>
 		);

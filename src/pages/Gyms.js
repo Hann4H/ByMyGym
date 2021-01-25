@@ -16,7 +16,7 @@ class Gyms extends Component {
 			perPage: 8,
 			currentPage: 1,
 			loading: false,
-			openFilter: false
+			openFilter: false,
 		};
 		this.handlePageClick = this.handlePageClick.bind(this);
 		this.handleClickFilterButton = this.handleClickFilterButton.bind(this);
@@ -127,32 +127,27 @@ class Gyms extends Component {
 					<h1>wyszukaj salę</h1>
 					<hr />
 					<div id="search-bar-filters">
-					<button
-						className="filter-button"
-						style={{ marginLeft: "10%" }}
-						type="button"
-						onClick={this.handleClickFilterButton}
-					>
-						FILTRY
-					</button>
-					<Link to="/map">
-					<button
-						className="filter-button"
-						type="button"
-					>
-						MAPA
-					</button>
-					</Link>
-					{this.state.openFilter ? (
-						<Filters />
-					) : (
-						<SearchCSS>
-							<SearchGym />
-						</SearchCSS>
-					)}
-					
+						<button
+							className="filter-button"
+							style={{ marginLeft: "10%" }}
+							type="button"
+							onClick={this.handleClickFilterButton}
+						>
+							{!this.state.openFilter ? "FILTRY" : "WYSZUKIWANIE"}
+						</button>
+						<Link to="/map">
+							<button className="filter-button" type="button">
+								MAPA
+							</button>
+						</Link>
+						{this.state.openFilter ? (
+							<Filters />
+						) : (
+							<SearchCSS>
+								<SearchGym />
+							</SearchCSS>
+						)}
 					</div>
-					
 				</div>
 				<div id="pls" />
 			</div>

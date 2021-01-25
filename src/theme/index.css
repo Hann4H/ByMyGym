@@ -173,7 +173,7 @@
 	display: flex;
 	/* justify-content: center; */
 	/* align-items: center; */
-	width: 5rem;
+	/* width: 5rem; */
 }
 
 .star-ratings-weighed {
@@ -196,9 +196,28 @@
 	transition: color 200ms;
 }
 
+
+.slider-mob{
+	display: none;
+}
 @media screen and (max-width: 768px) {
+	.slider-mob{
+		display: inline;
+		margin-top: 1em;
+	}
+	.slider-comp {
+		display: none;
+	}
 	.gym-name {
 		font-size: 20px;
+		margin-left: 27px;
+	}
+	.heart {
+		height: 23px;
+		margin-top: 3.2rem;
+		margin-left: auto;
+		margin-right: 20px;
+		cursor: pointer;
 	}
 }
 
@@ -450,7 +469,7 @@
 @media screen and (max-width: 567px) {
 	#myimg_none {
 		width: 10rem;
-		margin-left: 5rem;
+		margin-left: 0rem;
 		margin-top: 3rem;
 	}
 	#myimg {
@@ -468,7 +487,7 @@
 		margin-right: auto !important;
 	}
 	#myimg_none {
-		margin-left: 5rem;
+		margin-left: 0rem;
 		margin-top: 3rem;
 	}
 }
@@ -874,6 +893,32 @@ input {
 	font-size: 14px;
 }
 
+.input-n-error textarea {
+	display: block;
+	box-sizing: border-box;
+	/* width: 120%; */
+	border-radius: 3px;
+	border: 1px solid var(--darkOrange);
+	padding: 2px 10px;
+	margin-bottom: 10px;
+	font-size: 14px;
+	width: 18rem;
+	margin-top: 0.5rem;
+}
+
+.form-group textarea {
+	display: block;
+	box-sizing: border-box;
+	width: 100%;
+	border-radius: 3px;
+	border: 1px solid var(--darkOrange);
+	padding: 2px 10px;
+	margin-bottom: 10px;
+	font-size: 14px;
+	/* width: 18rem;
+	margin-top: 0.5rem; */
+}
+
 .container-3 input {
 	display: inline-flex;
 	width: 20px;
@@ -992,11 +1037,11 @@ ul.unstyled {
 
 /* user profile */
 .profile-container {
-	width: 60%;
+	width: 80%;
 	left: 50%;
 	top: 50%;
 	margin-right: -50%;
-	height: 70vh;
+	height: 80vh;
 	overflow-y: scroll;
 	transform: translate(-50%, -50%);
 	position: absolute;
@@ -1016,7 +1061,7 @@ ul.unstyled {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	width: 50%;
+	width: 90%;
 	padding-bottom: 50px;
 }
 
@@ -1094,10 +1139,38 @@ ul.unstyled {
 	height: 20px;
 }
 
+.profile-gyms-show{
+	font-size: 13px;
+	margin-left: 15px;
+	padding-left: 20px;
+	padding-right: 20px;
+	color: var(--mainWhite);
+	height: 20px;
+}
 .profile-bookings-p {
 	font-weight: bold;
 	font-size: 10px;
 	top: 20px;
+}
+
+.profile-bookings-text {
+	display: flex;
+}
+
+.profile-bookings-button {
+	color: var(--mainBlack);
+	background-color: var(--mainWhite);
+	width: 1rem;
+	height: auto;
+	font-size: 8px;
+	margin-bottom: 4px;
+}
+
+.profile-bookings-button:hover {
+	color: var(--mainBlack);
+	background-color: var(--mainWhite);
+	width: 1rem;
+	height: auto;
 }
 
 .profile-bookings-delete {
@@ -1114,7 +1187,26 @@ ul.unstyled {
 	display: inline;
 }
 
+.headline-info {
+	color: rgb(117, 117, 117);
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	padding: 10px;
+}
+
+.user-profile-link {
+	color: var(--darkOrange);
+	text-decoration: underline;
+	padding-top: 40px;
+}
+
+
 @media screen and (max-width: 700px) {
+	.profile-div h1 {
+		min-height: 1rem;
+		font-size: 2rem;
+		margin-left: -2em;
+	}
 	.profile-picture {
 		min-width: 100px;
 		width: 100px;
@@ -1133,7 +1225,7 @@ ul.unstyled {
 		border-radius: 50%;
 		overflow: hidden;
 		margin: 25px;
-		margin-left: 8em;
+		margin-left: -2em;
 	}
 
 	.profile-gym-button {
@@ -1153,9 +1245,9 @@ ul.unstyled {
 	}
 	.profile-container {
 		height: 150vw;
-		width: 120%;
-		left: 42%;
-		top: 50%;
+		width: 100%;
+		left: 50%;
+		top: 60%;
 		position: absolute;
 		background-color: var(--mainWhite);
 		padding: 1rem;
@@ -1214,6 +1306,7 @@ ul.unstyled {
 		padding-bottom: 25px;
 		padding-left: 15px;
 		padding-right: 15px;
+		padding-top: 10px;
 	}
 	.profile-bookings a {
 		color: var(--darkOrange);
@@ -1237,20 +1330,23 @@ ul.unstyled {
 	.text-style-mob {
 		display: block;
 	}
-}
-.headline-info {
-	color: rgb(117, 117, 117);
-	letter-spacing: 1px;
-	text-transform: uppercase;
-	padding: 10px;
-}
 
-.user-profile-link {
-	color: var(--darkOrange);
-	text-decoration: underline;
-	padding-top: 40px;
-}
+	.headline-info {
+		color: rgb(117, 117, 117);
+		letter-spacing: 1px;
+		text-transform: uppercase;
+		padding: 10px;
+		margin-left: -3em;
+	}
+	.profile-gyms-accept-button {
+		display: none;
+	}
 
+	.profile-gyms-show {
+		margin-left: -3em;
+		margin-top: -2em;
+	}
+}
 .błagam {
 	height: 100px;
 	width: 100px;
@@ -1385,8 +1481,8 @@ ul.unstyled {
 
 @media screen and (max-width: 768px) {
 	.leaflet-container {
-		height: 400px;
-		width: 100%;
+		height: 50vh;
+		width: 95%;
 		margin-left: 0.7em;
 	}
 	.map {
@@ -1405,6 +1501,8 @@ ul.unstyled {
 	padding: 0px;
 	height: 2rem;
 	max-width: 5rem;
+	color: var(--mainWhite);
+	margin-left: 1rem;
 }
 
 /* loading */
@@ -1491,8 +1589,8 @@ ul.unstyled {
 }
 
 .range-picker-left {
-	margin-left: 27%;
-	margin-top: 15px;
+	/* margin-left: 27%; */
+	/* margin-top: 15px; */
 }
 
 .form-group-left {
@@ -1531,6 +1629,14 @@ ul.unstyled {
 	margin-top: 15%;
 	/* width: 40%; */
 	/* margin-left: 32rem; */
+}
+
+.gym-profile-mail {
+	color: var(--mainOrange);
+}
+
+.gym-profile-mail:hover {
+	color: var(--darkOrange);
 }
 
 /* calendar */
@@ -1609,7 +1715,7 @@ ul.unstyled {
 	.calendar-position {
 		margin-left: 0em;
 	}
-
+	
 	.calendar {
 		width: 100%;
 		margin-right: 0rem;
@@ -1777,7 +1883,7 @@ ul.unstyled {
 
 @media screen and (max-width: 620px) {
 	.contact-p {
-		width: 40%;
+		width: 100%;
 		margin-left: auto;
 	}
 	.name-input {
@@ -2172,8 +2278,143 @@ input:-webkit-autofill:active {
 		z-index: 10; */
 		color: var(--mainWhite);
 	}
+	.pagination-out {
+		margin-left: 14vw;
+	}
 }
 
 .btn-goTo a {
 	color: var(--mainWhite);
+}
+
+.react-confirm-alert-button-group > button {
+	font-family: "Lato";
+	background: var(--mainOrange) !important;
+	color: var(--mainWhite) !important;
+	text-align: center;
+	letter-spacing: var(--mainSpacing);
+	margin-top: 10px !important;
+	border-radius: 2px !important;
+}
+
+/* .ant-picker-focused {
+	border-color: var(--mainOrange) !important;
+	-webkit-box-shadow: 0 0 0 2px rgba(255, 174, 24, 0.2) !important;
+	box-shadow: 0 0 0 2px rgba(255, 163, 24, 0.2) !important;
+} */
+
+.ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-cell-inner,
+.ant-picker-cell-in-view.ant-picker-cell-range-start .ant-picker-cell-inner,
+.ant-picker-cell-in-view.ant-picker-cell-range-end .ant-picker-cell-inner {
+	background: var(--mainOrange) !important;
+}
+
+.ant-picker:hover,
+.ant-picker-focused {
+	border-color: var(--mainOrange) !important;
+	box-shadow: 0 0 0 2px rgba(255, 163, 24, 0.2) !important;
+}
+
+.ant-picker-ranges .ant-picker-preset > .ant-tag-blue {
+	color: var(--darkOrange) !important;
+	background: #ffece6 !important;
+	border-color: #ffcf91 !important;
+}
+
+.ant-picker-cell-in-view.ant-picker-cell-today .ant-picker-cell-inner::before {
+	border: 1px solid var(--darkOrange) !important;
+	border-top-color: var(--darkOrange) !important;
+	border-right-color: var(--darkOrange) !important;
+	border-bottom-color: var(--darkOrange) !important;
+	border-left-color: var(--darkOrange) !important;
+}
+
+.ant-picker-range .ant-picker-active-bar {
+	background: var(--darkOrange) !important;
+}
+
+.ant-btn-primary {
+	background: var(--mainOrange) !important;
+	border-color: var(--darkOrange) !important;
+}
+
+.ant-btn-primary[disabled],
+.ant-btn-primary[disabled]:hover,
+.ant-btn-primary[disabled]:focus,
+.ant-btn-primary[disabled]:active {
+	color: rgba(0, 0, 0, 0.25) !important;
+	background: #f5f5f5 !important;
+	border-color: #d9d9d9 !important;
+	text-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.ant-picker-cell-in-view.ant-picker-cell-in-range-hover {
+	background: var(--mainOrange) !important;
+}
+
+.ant-picker-cell-inner::after {
+	background: #ffe9c3 !important;
+}
+
+.ant-picker-cell-in-range::before {
+	background: #fff6e6 !important;
+}
+
+.ant-picker-cell-range-start::before {
+	background: #fff6e6 !important;
+}
+
+.ant-picker-cell-range-end::before {
+	background: #fff6e6 !important;
+}
+
+.ant-picker-cell-range-hover-start::before {
+	background: #ffe9c3 !important;
+}
+
+.ant-picker-cell-range-hover::before {
+	background: #ffe9c3 !important;
+}
+
+.ant-picker-cell-range-hover-end::before {
+	background: #ffe9c3 !important;
+}
+
+.ant-picker-time-panel-column
+	> li.ant-picker-time-panel-cell-selected
+	.ant-picker-time-panel-cell-inner {
+	background: #fff6e6 !important;
+}
+
+.ant-picker-header-view button:hover {
+	color: var(--darkOrange) !important;
+}
+
+
+.mobile_pick {
+	display: none;
+}
+
+.calendar-napis {
+	text-align: center;
+	color: var(--darkOrange)
+}
+@media screen and (max-width: 768px) {
+	.react-tabs {
+		display: none;
+	}
+
+	.mobile_pick {
+		display: inline;
+	}
+
+	.mobile-calen {
+		display: none;
+	}
+	.calendar-napis {
+		display: none;
+	}
+
 }

@@ -8,6 +8,9 @@ import TextField from "@material-ui/core/TextField";
 import { validateFields } from "../Validation";
 import classnames from "classnames";
 import firebase from "../firebase";
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
+
 const db = firebase.firestore();
 
 const theme = createMuiTheme({
@@ -212,8 +215,14 @@ class GymDetailsEdit extends Component {
 					gymOwner: this.state.gymOwner.value,
 				})
 				.then(function () {
-					console.log("Changes saved!");
-					alert("Zmiany zostały zapisane.");
+					confirmAlert({
+						title: "Zmiany zostały zapisane.",
+						buttons: [
+							{
+								label: "OK",
+							},
+						],
+					});
 				})
 				.catch(function (error) {
 					console.error("Error saving changes: ", error);
@@ -299,6 +308,7 @@ class GymDetailsEdit extends Component {
 				},
 			}));
 		}
+		window.scrollTo(0, 500);
 	}
 
 	render() {
@@ -886,7 +896,7 @@ class GymDetailsEdit extends Component {
 						{/* gymDescription field */}
 						<div className="form-group">
 							<label className="form-group-label">Opis</label>
-							<input
+							<textarea
 								label="Opis"
 								type="text"
 								name="gymDescription"
@@ -982,18 +992,20 @@ class GymDetailsEdit extends Component {
 						)}
 
 						<br />
-						<button
-							type="submit"
-							className="booking-button"
-							onMouseDown={() =>
-								this.setState({
-									submitCalled: true,
-								})
-							}
-							value="Zapisz"
-						>
-							Zapisz
-						</button>
+						<div style={{ textAlign: "center" }}>
+							<button
+								type="submit"
+								className="booking-button"
+								onMouseDown={() =>
+									this.setState({
+										submitCalled: true,
+									})
+								}
+								value="Zapisz"
+							>
+								Zapisz
+							</button>
+						</div>
 						{/* <br />
                       {allFieldsValidated && (<p>all fields validated</p>)}
                       <br /> */}

@@ -79,9 +79,10 @@ class Slider extends Component {
 		//   { url: require("../img/header_img.png") },
 		// ];
 
-		console.log("photoArray: ", this.state.photoArray);
+		// console.log("photoArray: ", this.state.photoArray);
 		return (
-			<div>
+			<>
+			<div className="slider-comp">
 				{this.state.photoArray.length ? (
 					<SimpleImageSlider
 						width={"70vw"}
@@ -92,6 +93,18 @@ class Slider extends Component {
 					""
 				)}
 			</div>
+			<div className="slider-mob">
+				{this.state.photoArray.length ? (
+					<SimpleImageSlider
+						width={"90vw"}
+						height={200}
+						images={this.state.photoArray}
+					/>
+				) : (
+					""
+				)}
+			</div>
+			</>
 		);
 	}
 }

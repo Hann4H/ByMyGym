@@ -9,10 +9,6 @@ import ShowScheduler from "../components/calendar/ShowScheduler";
 
 import firebase from "../firebase";
 
-import createBrowserHistory from 'history/createBrowserHistory';
-
-const history = createBrowserHistory();
-
 const db = firebase.firestore();
 
 class GymProfile extends Component {
@@ -34,7 +30,6 @@ class GymProfile extends Component {
 			.then((snapshot) => {
 				this.setState({ gymOwner: snapshot.data().gymOwner });
 				console.log("id: " + snapshot.data().gymOwner);
-				history.push(`/gym_profile/${this.props.gym_id}`);
 			})
 			.catch(function (error) {
 				console.log("Error getting documents: ", error);
@@ -46,7 +41,6 @@ class GymProfile extends Component {
 	};
 
 	render() {
-
 		return (
 			<>
 				<div id="idk3"></div>
@@ -55,17 +49,21 @@ class GymProfile extends Component {
 						<Slider dataId={this.props.match.params.id} />
 					</div>
 
-					{localStorage.getItem("user") == this.state.gymOwner ||
-					localStorage.getItem("user") ==
+					{localStorage.getItem("user") != this.state.gymOwner &&
+					localStorage.getItem("user") !=
 						process.env.REACT_APP_ADMIN_ID ? (
+						""
+					) : (
 						<button
 							onClick={this.setEditReadMode}
-							style={{ margin: "5%", float: "left", color: "white" }}
+							style={{
+								margin: "5%",
+								float: "left",
+								color: "white",
+							}}
 						>
 							{this.state.editMode ? "Podgląd" : "Edytuj"}
 						</button>
-					) : (
-						""
 					)}
 
 					{this.state.editMode ? (
