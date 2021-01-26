@@ -27,6 +27,8 @@ Required:
   - `nodemon MailServer.js` for starting the nodemailer backend.<br />
 
   - `npm start` to run the project.<br />
+  
+ You will be able to access it at localhost:3000
 
 ## License
 
