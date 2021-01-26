@@ -60,7 +60,7 @@ class Basic extends Component {
 			phoneNumber: { value: "", validateOnChange: false, error: "" },
 			email: { value: "", validateOnChange: false, error: "" },
 			submitCalled: false,
-			allFieldsValidated: false,
+			allFieldsValidated: true,
 			youAdmin: false,
 			DemoData: {
 				resources: [
