@@ -13,8 +13,7 @@ Firefox 82.0.2, Chrome 86.0.4240.111 or later versions.<br />
 Required:
   - Git
   - npm
-<br />
-
+  
 ### Running the project
 
   - `npm install` for installing the dependencies.<br />
@@ -25,4 +24,4 @@ Required:
 
 ## License
 
-BeMyGym is licensed under the MIT License (MIT)
+BeMyGym is licensed under the [MIT License (MIT)](https://github.com/bsdrm/ByMyGym/blob/master/LICENSE)
