@@ -117,11 +117,11 @@ class ShowScheduler extends Component {
 	};
 
 	onScrollTop = (schedulerData, schedulerContent, maxScrollTop) => {
-		console.log("onScrollTop");
+		// console.log("onScrollTop");
 	};
 
 	onScrollBottom = (schedulerData, schedulerContent, maxScrollTop) => {
-		console.log("onScrollBottom");
+		// console.log("onScrollBottom");
 	};
 
 	toggleExpandFunc = (schedulerData, slotId) => {

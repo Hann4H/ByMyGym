@@ -30,7 +30,7 @@ class Reset extends Component{
             setTimeout(() => {window.location.replace("/login");}, 1000);
           })
           .catch((err) => {
-            if("There is no user record corresponding to this identifier. The user may have been deleted." == err.message) {
+            if("There is no user record corresponding to this identifier. The user may have been deleted." === err.message) {
                 this.setState({ errorMessage: "Nie istnieje użytkownik z tym adresem email" });
               }
           });

@@ -59,7 +59,7 @@ class AgendaResourceEvents extends Component {
     });
 
     let a =
-      slotClickedFunc != undefined ? (
+      slotClickedFunc !== undefined ? (
         <a
           href="/#"
           onClick={() => {

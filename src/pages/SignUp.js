@@ -94,7 +94,7 @@ class SignUp extends Component {
     // this.setUpRecaptcha();
 
     // if(this.state.phoneVer == 'true') {
-    if (this.state.errorCount == null) {
+    if (this.state.errorCount === null) {
       firebase
         .auth()
         .createUserWithEmailAndPassword(this.state.email, this.state.password)

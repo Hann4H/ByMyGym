@@ -16,7 +16,7 @@ export const getSummary = (
 export const getCustomDate = (schedulerData, num, date = undefined) => {
   const { viewType } = schedulerData;
   let selectDate = schedulerData.startDate;
-  if (date != undefined) selectDate = date;
+  if (date !== undefined) selectDate = date;
 
   let startDate =
       num === 0
@@ -96,7 +96,7 @@ export const getDateLabel = (schedulerData, viewType, startDate, endDate) => {
 
   if (
     viewType === ViewTypes.Week ||
-    (start != end &&
+    (start !== end &&
       (viewType === ViewTypes.Custom ||
         viewType === ViewTypes.Custom1 ||
         viewType === ViewTypes.Custom2))

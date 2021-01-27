@@ -231,10 +231,10 @@ class RangePickerForGym extends Component {
 			this.props.phoneNumber
 		);
 
-		console.log(emailError)
+		// console.log(emailError)
 
 		if (dates && weekday && times && 
-			emailError == false && nameError == false && surnameError == false && phoneNumberError == false) {
+			emailError === false && nameError === false && surnameError === false && phoneNumberError === false) {
 			let startDate = new Date(dateStrings[0]);
 			const today = new Date();
 			let start = dateStrings[0];

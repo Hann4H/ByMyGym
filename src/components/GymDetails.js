@@ -33,10 +33,10 @@ class GymDetails extends Component {
 			const cityRef = db.collection("gyms").doc(this.props.dataId);
 			const doc = await cityRef.get();
 			if (!doc.exists) {
-				console.log("No such document!");
+				// console.log("No such document!");
 				window.location.replace("/error");
 			} else {
-				console.log("Document data:", doc.data());
+				// console.log("Document data:", doc.data());
 				this.setState({ data: doc.data() });
 
 				const usersRef = db
@@ -51,7 +51,7 @@ class GymDetails extends Component {
 								.favourites.includes(this.props.dataId)
 						) {
 							this.setState({ faved: true });
-							console.log(this.faved);
+							// console.log(this.faved);
 						} else {
 							this.setState({ faved: false });
 						}
@@ -59,7 +59,7 @@ class GymDetails extends Component {
 				});
 			}
 		} catch (error) {
-			console.log("Wystapił błąd");
+			// console.log("Wystapił błąd");
 			console.log(error);
 		}
 	}

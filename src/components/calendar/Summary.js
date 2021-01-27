@@ -17,7 +17,7 @@ class Summary extends Component {
     const { summary, left, width, top, schedulerData } = this.props;
     const { config } = schedulerData;
     let color = config.summaryColor;
-    if (summary.color != undefined) color = summary.color;
+    if (summary.color !== undefined) color = summary.color;
     let textAlign = "center";
     if (
       config.summaryPos === SummaryPos.TopRight ||
@@ -36,7 +36,7 @@ class Summary extends Component {
       marginLeft: "6px",
       marginRight: "6px",
     };
-    if (summary.fontSize != undefined)
+    if (summary.fontSize !== undefined)
       style = { ...style, fontSize: summary.fontSize };
 
     return (

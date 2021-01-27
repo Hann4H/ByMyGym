@@ -24,7 +24,7 @@ class Localization extends Component {
 		// 	}
 		// });
 
-		console.log("street gymStreetINT:", this.props.gymStreet);
+		// console.log("street gymStreetINT:", this.props.gymStreet);
 
 		let searchControl2 = new ELG.Geocode()
 			.address(this.props.gymStreet)

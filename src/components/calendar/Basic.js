@@ -20,7 +20,7 @@ import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import Cookies from "js-cookie"
 
-import createBrowserHistory from "history/createBrowserHistory";
+import {createBrowserHistory} from "history";
 
 const history = createBrowserHistory();
 const { RangePicker } = TimePicker;
@@ -60,7 +60,7 @@ class Basic extends Component {
 			phoneNumber: { value: "", validateOnChange: false, error: "" },
 			email: { value: "", validateOnChange: false, error: "" },
 			submitCalled: false,
-			allFieldsValidated: true,
+			allFieldsValidated: false,
 			youAdmin: false,
 			DemoData: {
 				resources: [
@@ -143,7 +143,7 @@ class Basic extends Component {
 	//***********/
 
 	onChangeTime = (time, times) => {
-		console.log(times[0]);
+		// console.log(times[0]);
 		this.setState({ times: times });
 		// this.setState({ dateStrings });
 	};
@@ -171,7 +171,7 @@ class Basic extends Component {
 			view.isEventPerspective
 		);
 		this.setState({ view: view.viewType });
-		console.log(this.state.view);
+		// console.log(this.state.view);
 		schedulerData.setEvents(this.state.DemoData.events);
 		this.setState({
 			viewModel: schedulerData,
@@ -383,7 +383,7 @@ class Basic extends Component {
 			phoneNumber.value
 		);
 
-		console.log(emailError)
+		// console.log(emailError)
 
 		if (startDate < today) {
 			confirmAlert({
@@ -394,10 +394,10 @@ class Basic extends Component {
 					},
 				],
 			});
-		} else if (emailError == false && nameError == false && surnameError == false && phoneNumberError == false) {
-			if (this.state.view != 0) {
+		} else if (emailError === false && nameError === false && surnameError === false && phoneNumberError === false) {
+			if (this.state.view !== 0) {
 				//jeśli kalendarz jest ustawiony na coś co nie jest dniem
-				console.log("this.state.times.length", this.state.times.length);
+				// console.log("this.state.times.length", this.state.times.length);
 				if (this.state.times.length == 2) {
 					// jeśli array times nie jest pusty (użytkownik wybrał godzinę pod kalendarzem) to wyświetl alert i kontynuuj
 					confirmAlert({
@@ -538,11 +538,11 @@ class Basic extends Component {
 	};
 
 	onScrollTop = (schedulerData, schedulerContent, maxScrollTop) => {
-		console.log("onScrollTop");
+		// console.log("onScrollTop");
 	};
 
 	onScrollBottom = (schedulerData, schedulerContent, maxScrollTop) => {
-		console.log("onScrollBottom");
+		// console.log("onScrollBottom");
 	};
 
 	toggleExpandFunc = (schedulerData, slotId) => {
@@ -599,7 +599,7 @@ class Basic extends Component {
 			)
 		) {
 			// no errors submit the form
-			console.log("success");
+			// console.log("success");
 			this.setState({ allFieldsValidated: true });
 		} else {
 			// update the state with errors
@@ -873,7 +873,7 @@ class Basic extends Component {
 
 								<TabPanel>
 									<p style={{ height: 10 }} />
-									{!(this.state.view == 0) ? (
+									{!(this.state.view === 0) ? (
 										<div>
 											<p
 												style={{

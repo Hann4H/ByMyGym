@@ -18,7 +18,7 @@ function ListItems(props) {
 			.doc(docId)
 			.delete()
 			.then(function () {
-				console.log("Document successfully deleted! Doc: " + docId);
+				// console.log("Document successfully deleted! Doc: " + docId);
 				window.location.reload(false);
 			})
 			.catch(function (error) {
@@ -28,7 +28,7 @@ function ListItems(props) {
 
 	function ChangeStatus(e) {
 		e.preventDefault();
-		console.log("change status run");
+		// console.log("change status run");
 		db.collection("reservation")
 			.doc(docId)
 			.update({
@@ -38,7 +38,7 @@ function ListItems(props) {
 				resizable: false,
 			})
 			.then(function () {
-				console.log("Status successfully changed! Doc: " + docId);
+				// console.log("Status successfully changed! Doc: " + docId);
 				window.location.reload(false);
 			})
 			.catch(function (error) {
@@ -115,7 +115,7 @@ function ListItems(props) {
 				>
 					Usuń
 				</button>
-				{data.title == 'Zarezerwowane' ? null : (
+				{data.title === 'Zarezerwowane' ? null : (
 					<button
 					style={{ margin: "10px", color: "white" }}
 					onClick={ChangeStatus}
@@ -158,7 +158,7 @@ class BookingView extends Component {
 	}
 
 	render() {
-		if (Cookies.get('user') != process.env.REACT_APP_ADMIN_ID) {
+		if (Cookies.get('user') !== process.env.REACT_APP_ADMIN_ID) {
 			return <Redirect to="/login" />;
 		}
 

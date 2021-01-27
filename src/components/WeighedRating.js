@@ -23,10 +23,10 @@ const WeighedRating = (props) => {
                                 for(var i = 0; i < docSnapshot.data().all.length; i++) {
                                     total += docSnapshot.data().all[i];
                                 }
-                                const avg = total / docSnapshot.data().all.length;
+                                // const avg = total / docSnapshot.data().all.length;
                                 
                                 setStos(total / docSnapshot.data().all.length)
-                                console.log(avg) 
+                                // console.log(avg) 
                             } 
                         });                
                 }, [])

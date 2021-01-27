@@ -29,12 +29,12 @@ const uiConfig = {
       login(e){
           e.preventDefault();
           firebase.auth().signInWithEmailAndPassword(this.state.email,this.state.password).then((u)=>{
-              console.log(u);
+            //   console.log(u);
               window.location.href = "/";
           }).catch((err)=>{
-              if("The password is invalid or the user does not have a password." == err.message) {
+              if("The password is invalid or the user does not have a password." === err.message) {
                 this.setState({ errorMessage: "Nieprawidłowe hasło" });
-              } else if ("Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later." == err.message) {
+              } else if ("Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later." === err.message) {
                 this.setState({ errorMessage: "Zbyt wiele nieudanych prób. Zmień hasło lub spróbuj później." });
               }
           })

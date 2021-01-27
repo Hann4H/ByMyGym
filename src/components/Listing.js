@@ -19,7 +19,7 @@ class Listing extends Component {
       .then((querySnapshot) => {
         const Gyms = [];
         var lastVisible = querySnapshot.docs[querySnapshot.docs.length - 1];
-        console.log("last", lastVisible);
+        // console.log("last", lastVisible);
 
         querySnapshot.forEach(function (doc) {
           Gyms.push({

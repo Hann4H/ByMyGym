@@ -61,7 +61,7 @@ class Profile extends Component {
 			})
 			.then(() => {
 				Gyms.map((gym) => {
-					if (gym.gymOwner == Cookies.get('user')) {
+					if (gym.gymOwner === Cookies.get('user')) {
 						this.setState({ owner: true });
 					}
 				});
@@ -148,7 +148,7 @@ class Profile extends Component {
 			.doc(bookingID)
 			.delete()
 			.then(function () {
-				console.log("Document successfully deleted! Doc: " + bookingID);
+				// console.log("Document successfully deleted! Doc: " + bookingID);
 				window.location.reload(false);
 			})
 			.catch(function (error) {
@@ -227,8 +227,8 @@ class Profile extends Component {
 										).map((res, index) =>
 											this.state.Gyms.filter(
 												(gym) =>
-													gym.docId == res.gym_id &&
-													gym.gymOwner != res.user_id
+													gym.docId === res.gym_id &&
+													gym.gymOwner !== res.user_id
 											).map((filteredName) => (
 												<tr>
 													<Link
@@ -259,7 +259,7 @@ class Profile extends Component {
 															{res.status}
 														</p>
 														{!(
-															Cookies.get('user') ==
+															Cookies.get('user') ===
 															process.env
 																.REACT_APP_ADMIN_ID
 														) &&
@@ -288,7 +288,7 @@ class Profile extends Component {
 														)}
 													<td><button className="profile-bookings-button" onClick={() => this.popAlert(res.bookingID)} style={{ color: 'black' }}>USUŃ</button></td>
 													</td>
-													{res.longStart != null ? (
+													{res.longStart !== null ? (
 														<>
 															<td>
 																Od:{" "}
@@ -309,7 +309,7 @@ class Profile extends Component {
 															</td>
 														</>
 													)}
-													{res.weekdays != null ? (
+													{res.weekdays !== null ? (
 														// res.weekdays.map(w => (
 														//   <tr>{w}</tr>
 														// ))
@@ -332,7 +332,7 @@ class Profile extends Component {
 								</tbody>
 							</table>
 							{!(
-								Cookies.get('user') ==
+								Cookies.get('user') ===
 								process.env.REACT_APP_ADMIN_ID
 							) ? (
 								<div>
@@ -357,7 +357,7 @@ class Profile extends Component {
 													(fav, index) =>
 														this.state.Gyms.filter(
 															(gym) =>
-																gym.docId == fav
+																gym.docId === fav
 														).map(
 															(filteredName) => (
 																<tr>
@@ -407,7 +407,7 @@ class Profile extends Component {
 											<div className="profile-bookings">
 												{this.state.Gyms.filter(
 													(gym) =>
-														gym.gymOwner ==
+														gym.gymOwner ===
 														Cookies.get('user')
 												).map((myGyms) => (
 													<tr>

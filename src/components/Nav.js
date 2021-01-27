@@ -61,7 +61,7 @@ class Nav extends Component {
     if (window.location.pathname === "/gym_profile/login") return null;
 
     var user = firebase.auth().currentUser;
-    if (user != null) {
+    if (user !== null) {
       user.providerData.forEach(function (profile) {
         // console.log("Sign-in provider: " + profile.providerId);
         // console.log("  Provider-specific UID: " + profile.uid);
@@ -70,7 +70,7 @@ class Nav extends Component {
         // console.log("  Photo URL: " + profile.photoURL);
       });
     } else {
-      console.log("user is null");
+      // console.log("user is null");
     }
 
     return (
@@ -119,7 +119,7 @@ class Nav extends Component {
               )}
             </li>
             <li>
-            {this.state.user && this.state.user.uid==process.env.REACT_APP_ADMIN_ID ? (
+            {this.state.user && this.state.user.uid === process.env.REACT_APP_ADMIN_ID ? (
               <Link to="/admin">
                 <button className="nav-button" onClick={this.Toggle}>ADMIN</button>
               </Link>

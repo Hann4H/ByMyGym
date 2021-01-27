@@ -20,7 +20,7 @@ class Admin extends Component {
 	}
 
 	render() {
-		if (Cookies.get('user') != process.env.REACT_APP_ADMIN_ID) {
+		if (Cookies.get('user') !== process.env.REACT_APP_ADMIN_ID) {
 			return <Redirect to="/noaccess" />;
 		}
 

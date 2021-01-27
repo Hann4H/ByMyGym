@@ -38,8 +38,8 @@ export default class SearchGym extends Component {
 
 	handlePriceChange = (event, newValue) => {
 		this.setState({ price: newValue,  });
-		console.log(this.state.price[0]);
-		console.log(this.state.data);
+		// console.log(this.state.price[0]);
+		// console.log(this.state.data);
 	};
 
 	handleResultSelect = (e, { result }) => {
@@ -49,7 +49,7 @@ export default class SearchGym extends Component {
 	handleSearchChange = (e, { value }) => {
 		this.setState({ isLoading: true, value });
 		setTimeout(() => {
-			if (this.state.value.length == 0) {
+			if (this.state.value.length === 0) {
 				db.collection("gyms")
 					.orderBy("gymName")
 					.where("accepted", "==", true)

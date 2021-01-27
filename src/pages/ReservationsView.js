@@ -17,7 +17,7 @@ function ListItems(props) {
       .doc(docId)
       .delete()
       .then(function () {
-        console.log("Document successfully deleted! Doc: " + docId);
+        // console.log("Document successfully deleted! Doc: " + docId);
         window.location.reload(false);
       })
       .catch(function (error) {
@@ -27,7 +27,7 @@ function ListItems(props) {
 
   function ChangeStatus(e) {
     e.preventDefault();
-    console.log("change status run");
+    // console.log("change status run");
     db.collection("reservation")
       .doc(docId)
       .update({
@@ -37,7 +37,7 @@ function ListItems(props) {
         resizable: false,
       })
       .then(function () {
-        console.log("Status successfully changed! Doc: " + docId);
+        // console.log("Status successfully changed! Doc: " + docId);
         window.location.reload(false);
       })
       .catch(function (error) {

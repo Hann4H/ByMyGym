@@ -24,7 +24,7 @@ class GetBookingData extends Component {
         // localStorage.setItem("events", JSON.stringify(events, null, 4));
         this.setState({ events: events });
         this.events = events;
-        console.log("Show booking items: " + JSON.stringify(events, null, 4));
+        // console.log("Show booking items: " + JSON.stringify(events, null, 4));
       });
   }
 

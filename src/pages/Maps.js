@@ -19,9 +19,8 @@ import {
   ComboboxList,
   ComboboxOption,
 } from "@reach/combobox";
-import * as hallsData from "../halls.json"
+// import * as hallsData from "../halls.json"
 import "@reach/combobox/styles.css";
-import Gyms from './Gyms';
 
 const libraries = ["places"];
 const mapContainerStyle = {
@@ -76,8 +75,8 @@ export default function Maps() {
 			});
   }, []);
   
-  console.log("This is Gyms")
-  console.log(Gyms)
+  // console.log("This is Gyms")
+  // console.log(Gyms)
 
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: 'AIzaSyBx1SVzcsi1P1QW4au9tonV12_UzCiu7rk',
@@ -116,7 +115,7 @@ export default function Maps() {
         onLoad={onMapLoad}
       > 
 
-      {console.log(Gyms)}
+      {/* {console.log(Gyms)} */}
        {Gyms.Gyms && Gyms.Gyms.map((gym) => (
           <Marker key={gym.id}
           position={{

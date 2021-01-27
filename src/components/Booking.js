@@ -81,12 +81,12 @@ export function MaterialUIPickers(props) {
       email,
       phoneNumber,
     });
-    console.log(
-      getDaysBetweenDates(
-        new Date(selectedDate_start),
-        new Date(selectedDate_end),
-        weekday
-      )
+    // console.log(
+    //   getDaysBetweenDates(
+    //     new Date(selectedDate_start),
+    //     new Date(selectedDate_end),
+    //     weekday
+    //   )
     );
   }
 

@@ -14,7 +14,7 @@ class GymItem extends Component {
 
 		function DeleteItemFromFirebase(e) {
 			e.preventDefault();
-			console.log("delete function run");
+			// console.log("delete function run");
 			confirmAlert({
 				title: "Czy na pewno chcesz usunąć salę?",
 				buttons: [
@@ -25,7 +25,7 @@ class GymItem extends Component {
 								.doc(docId)
 								.delete()
 								.then(function () {
-									console.log("Document successfully deleted! Doc: " + docId);
+									// console.log("Document successfully deleted! Doc: " + docId);
 									window.location.reload();
 								})
 								.catch(function (error) {
@@ -90,7 +90,7 @@ class GymItem extends Component {
 										więcej informacji
 									</button>
 								</Link>
-								{Cookies.get('user') ==
+								{Cookies.get('user') ===
 								process.env.REACT_APP_ADMIN_ID ? (
 									<button
 										onClick={DeleteItemFromFirebase}

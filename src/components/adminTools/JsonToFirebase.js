@@ -1,8 +1,7 @@
-import React, { useState } from "react";
 import firebase from "../../firebase";
 
 function JsonToFirebase(props) {
-	const [Gyms, setGyms] = useState({});
+	// const [Gyms, setGyms] = useState({});
 
 	const db = firebase.firestore();
 
@@ -23,7 +22,7 @@ function JsonToFirebase(props) {
 	console.log("Dodaję nieistniejące sale...");
 	props.json.map((item) => {
 		if (!props.gymNames.includes(item.properties.nazwa)) {
-			console.log("TAK: ", item.properties.nazwa);
+			// console.log("TAK: ", item.properties.nazwa);
 			db.collection("gyms").add({
 				gymName: item.properties.nazwa,
 				gymStreet: item.properties.adres,

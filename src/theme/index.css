@@ -2423,6 +2423,20 @@ input:-webkit-autofill:active {
 	color: var(--darkOrange) !important;
 }
 
+.ant-picker-input input::placeholder {
+	color: var(--mainWhite) !important;
+	size: 0 !important;
+}
+
+.ant-picker-input::placeholder {
+	color: var(--mainWhite) !important;
+	size: 0 !important;
+}
+
+.ant-picker-input-active input::placeholder {
+	color: var(--mainWhite) !important;
+	size: 0 !important;
+}
 
 .mobile_pick {
 	display: none;

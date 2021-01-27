@@ -12,7 +12,7 @@ export default function ListingImg(props) {
     .child(`${id}/1.png`)
     .getDownloadURL()
     .then((gymURL) => {
-      console.log(gymURL);
+      // console.log(gymURL);
       return gymURL;
     })
     .catch(function(error) {
