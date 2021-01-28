@@ -161,6 +161,7 @@
 
 .gym-prof-header {
 	display: flex;
+	max-width: 80vw;
 }
 
 .heart {
