@@ -20,7 +20,7 @@ import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import Cookies from "js-cookie"
 
-import createBrowserHistory from "history";
+import {createBrowserHistory} from "history";
 
 const history = createBrowserHistory();
 const { RangePicker } = TimePicker;
