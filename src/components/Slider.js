@@ -53,13 +53,13 @@ class Slider extends Component {
 				// if (myArray !== undefined || myArray.length !== 0) {
 					myArray.forEach((entry) => {
 						if (entry.includes('.jpg')) {
-							console.log("YES")
+							// console.log("YES")
 							let myObject = {};
 							myObject.url = entry;
 							photoArray.push(myObject);
 							// let myObject = {};
 							// myObject.url = entry;
-							console.log(myObject)
+							// console.log(myObject)
 							// photoArray.push(entry);
 							// console.log(photoArray)
 						} else {

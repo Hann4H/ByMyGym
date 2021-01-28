@@ -183,8 +183,7 @@ export default function gymForm() {
 	// drag and drop
 	const [imageAsFile, setFiles] = useState([]);
 	const { getRootProps, getInputProps } = useDropzone({
-		accept: "image/*",
-		maxSize: 2000000,
+		accept: "image/jpeg",
 		onDrop: (acceptedFiles) => {
 			setFiles(
 				acceptedFiles.map((file) =>
@@ -509,7 +508,7 @@ export default function gymForm() {
 								marginTop: "0.5rem",
 							}}
 						>
-							Zdjęcie jest wymagane. Limit 2MB
+							Zdjęcie jest wymagane. Rozszerzenie JPG
 						</p>
 					)}
 				</div>

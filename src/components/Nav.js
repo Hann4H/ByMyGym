@@ -30,15 +30,15 @@ class Nav extends Component {
           .get()
           .then((querySnapshot) => {
             querySnapshot.forEach(q => {
-              Cookies.set('user_name', q.data().firstName + ' ' + q.data().surname, { secure: true });
+              Cookies.set('user_name', q.data().firstName + ' ' + q.data().surname, { secure: true, expires: 7 });
             })
           })
         } else {
-          Cookies.set('user_name', user.displayName, { secure: true });
+          Cookies.set('user_name', user.displayName, { secure: true, expires: 7 });
         }
         
-        Cookies.set('photoURL', user.photoURL, { secure: true });
-        Cookies.set('email', user.email, { secure: true });
+        Cookies.set('photoURL', user.photoURL, { secure: true, expires: 7 });
+        Cookies.set('email', user.email, { secure: true, expires: 7 });
         // localStorage.setItem("user", user.uid);
         // localStorage.setItem("email", user.email);
         // localStorage.setItem("photoURL", user.photoURL);
