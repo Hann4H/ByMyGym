@@ -398,8 +398,8 @@ class Basic extends Component {
 					},
 				],
 			});
-		} else if (emailError == false && nameError == false && surnameError == false && phoneNumberError == false) {
-			if (this.state.view != 0) {
+		} else if (this.state.youAdmin || (emailError === false && nameError === false && surnameError === false && phoneNumberError === false)) {
+			if (this.state.view !== 0) {
 				//jeśli kalendarz jest ustawiony na coś co nie jest dniem
 				console.log("this.state.times.length", this.state.times.length);
 				if (this.state.times.length == 2) {

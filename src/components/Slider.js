@@ -17,6 +17,22 @@ class Slider extends Component {
 		this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
 	}
 
+	checkValidUrl = (url) => {
+		//define some image formats 
+		var types = ['png'];
+		
+		//split the url into parts that has dots before them
+		var parts = url.split('.');
+		
+		//get the last part 
+		var extension = parts[parts.length-1];
+		
+		//check if the extension matches list 
+		if(types.indexOf(extension) !== -1) {
+			return true;   
+		}
+	}
+
 	async componentDidMount(props) {
 		this.updateWindowDimensions();
 		window.addEventListener("resize", this.updateWindowDimensions);
@@ -31,13 +47,28 @@ class Slider extends Component {
 				this.setState({ data: doc.data() });
 
 				let myArray = doc.data().gymPhoto;
+				// console.log(myArray)
 				// let photoArray = [{ url: require("../img/logo2.png") }];
 				let photoArray = [];
-				myArray.forEach(function (entry) {
-					let myObject = {};
-					myObject.url = entry;
-					photoArray.push(myObject);
-				});
+				// if (myArray !== undefined || myArray.length !== 0) {
+					myArray.forEach((entry) => {
+						if (entry.includes('.jpg')) {
+							console.log("YES")
+							let myObject = {};
+							myObject.url = entry;
+							photoArray.push(myObject);
+							// let myObject = {};
+							// myObject.url = entry;
+							console.log(myObject)
+							// photoArray.push(entry);
+							// console.log(photoArray)
+						} else {
+							let myObject = {};
+							myObject.url = entry;
+							photoArray.push(myObject);
+						}					
+					});
+				// }
 				this.setState({ photoArray: photoArray });
 			}
 		} catch (error) {
