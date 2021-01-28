@@ -103,11 +103,13 @@ class Profile extends Component {
 			.doc(Cookies.get('user'))
 			.get()
 			.then((querySnapshot) => {
-				this.setState({
-					Favourites: this.state.Favourites.concat(
-						querySnapshot.data().favourites
-					),
-				});
+				if(querySnapshot.exists){
+					this.setState({
+						Favourites: this.state.Favourites.concat(
+							querySnapshot.data().favourites
+						),
+					});
+				}
 			})
 			.catch(function (error) {
 				console.log("Error getting documents: ", error);
@@ -116,7 +118,7 @@ class Profile extends Component {
 		firebase
 			.firestore()
 			.collection("users")
-			.where("email", "==", Cookies.get('user'))
+			.where("email", "==", Cookies.get('email'))
 			.get()
 			.then((snapshot) => {
 				snapshot.forEach((doc) => {
@@ -134,6 +136,7 @@ class Profile extends Component {
 		const user = Cookies.get('user');
 		this.setState({ user });
 		this.setState({ name: Cookies.get('user_name') });
+		console.log(Cookies.get('user_name'))
 	}
 
 	togglePop = () => {
@@ -193,7 +196,7 @@ class Profile extends Component {
 								src={Cookies.get('photoURL')}
 								alt="zdjęcie profilowe"
 							/>
-							<h1>{this.state.name}</h1>
+							<h1>{Cookies.get('user_name')}</h1>
 						</div>
 						<div className="profile-info-table">
 							<table className="table table-borderless">
@@ -231,14 +234,8 @@ class Profile extends Component {
 													gym.gymOwner !== res.user_id
 											).map((filteredName) => (
 												<tr>
-													<Link
-														to={`/gym_profile/${res.gym_id}`}
-													>
-														<td>
-															{
-																filteredName.gymName
-															}
-														</td>
+													<Link to={`/gym_profile/${res.gym_id}`}>
+														<td>{filteredName.gymName}</td>
 													</Link>
 													<td>
 														<p

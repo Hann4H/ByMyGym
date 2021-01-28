@@ -277,12 +277,18 @@ class Basic extends Component {
 				user_id: this.state.user,
 				scored: null,
 			})
-			// .then(() => {
-			// 	axios({
-			// 		method: "POST",
-			// 		url: "/sendNotifs",
-			// 	});
-			// })
+			.then(() => {
+				axios({
+					method: "POST",
+					url: "/sendNotifs",
+					data: {
+						name: "test",
+						surname: "test",
+						gymName: "test",
+						email: "bemygym@gmail.com",
+					},
+				});
+			})
 			.then(() => {
 				window.location.reload();
 				window.location.replace("/finishReservation");
@@ -354,16 +360,16 @@ class Basic extends Component {
 				scored: null,
 			})
 			.then(() => {
-				// axios({
-				// 	method: "POST",
-				// 	url: "/sendNotifs",
-				// 	data: {
-				// 		name: this.state.name.value,
-				// 		surname: this.state.surname.value,
-				// 		gymName: this.state.gymName,
-				// 		email: this.state.ownerMail,
-				// 	},
-				// });
+				axios({
+					method: "POST",
+					url: "/sendNotifs",
+					data: {
+						name: "test",
+						surname: "test",
+						gymName: "test",
+						email: "bemygym@gmail.com",
+					},
+				});
 			})
 			.then(() => {
 				window.location.reload();

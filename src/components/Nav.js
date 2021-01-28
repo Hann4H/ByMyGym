@@ -25,7 +25,18 @@ class Nav extends Component {
       if (user) {
         this.setState({ user });
         Cookies.set('user', user.uid, { secure: true });
-        Cookies.set('user_name', user.displayName, { secure: true });
+        if(user.displayName === null) {
+          firebase.firestore().collection("users").where('email', '==', user.email)
+          .get()
+          .then((querySnapshot) => {
+            querySnapshot.forEach(q => {
+              Cookies.set('user_name', q.data().firstName + ' ' + q.data().surname, { secure: true });
+            })
+          })
+        } else {
+          Cookies.set('user_name', user.displayName, { secure: true });
+        }
+        
         Cookies.set('photoURL', user.photoURL, { secure: true });
         Cookies.set('email', user.email, { secure: true });
         // localStorage.setItem("user", user.uid);
