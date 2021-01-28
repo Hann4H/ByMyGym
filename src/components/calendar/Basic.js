@@ -20,7 +20,7 @@ import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import Cookies from "js-cookie"
 
-import {createBrowserHistory} from "history";
+import createBrowserHistory from "history";
 
 const history = createBrowserHistory();
 const { RangePicker } = TimePicker;
@@ -108,7 +108,10 @@ class Basic extends Component {
 					this.setState({
 						allFieldsValidated: true,
 						youAdmin: true,
-						name: { value: "Ty" },
+						name: { value: "Zarezerwowane" },
+						surname: {value: "przez ciebie"},
+						phoneNumber:{value: "733111222"},
+						email:{value: "twojMail@gmail.com"},
 						ownerMail: item.data().gymOwnerEmail || "",
 						gymName: item.data().gymName,
 					});
@@ -277,18 +280,12 @@ class Basic extends Component {
 				user_id: this.state.user,
 				scored: null,
 			})
-			.then(() => {
-				axios({
-					method: "POST",
-					url: "/sendNotifs",
-					data: {
-						name: "test",
-						surname: "test",
-						gymName: "test",
-						email: "bemygym@gmail.com",
-					},
-				});
-			})
+			// .then(() => {
+			// 	axios({
+			// 		method: "POST",
+			// 		url: "/sendNotifs",
+			// 	});
+			// })
 			.then(() => {
 				window.location.reload();
 				window.location.replace("/finishReservation");
@@ -340,10 +337,11 @@ class Basic extends Component {
 				window.location.replace("/finishReservation");
 			});
 		} else {
+			const temp = this.props.youAdmin?"Zarezerwowane":"Do akceptacji";
 			db.collection("reservation")
 			.add({
 				id: newEvent.id,
-				title: "Do akceptacji",
+				title: temp,
 				start: newEvent.start.substring(0, 16),
 				end: newEvent.end.substring(0, 16),
 				resourceId: newEvent.resourceId,
@@ -360,16 +358,16 @@ class Basic extends Component {
 				scored: null,
 			})
 			.then(() => {
-				axios({
-					method: "POST",
-					url: "/sendNotifs",
-					data: {
-						name: "test",
-						surname: "test",
-						gymName: "test",
-						email: "bemygym@gmail.com",
-					},
-				});
+				// axios({
+				// 	method: "POST",
+				// 	url: "/sendNotifs",
+				// 	data: {
+				// 		name: this.state.name.value,
+				// 		surname: this.state.surname.value,
+				// 		gymName: this.state.gymName,
+				// 		email: this.state.ownerMail,
+				// 	},
+				// });
 			})
 			.then(() => {
 				window.location.reload();
@@ -389,7 +387,7 @@ class Basic extends Component {
 			phoneNumber.value
 		);
 
-		// console.log(emailError)
+		console.log(emailError)
 
 		if (startDate < today) {
 			confirmAlert({
