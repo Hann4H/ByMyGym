@@ -90,7 +90,7 @@ class Filters extends Component {
 			const timeTo = Date.parse(
 				this.state.gymDate + " " + this.state.gymTimeTo
 			);
-			console.log(timeFrom, timeTo);
+			// console.log(timeFrom, timeTo);
 
 			reservations.get().then((snapshot) => {
 				snapshot.docs.map((doc) => {
@@ -101,23 +101,23 @@ class Filters extends Component {
 						(sTime >= timeFrom && sTime <= timeTo) ||
 						(eTime >= timeFrom && eTime <= timeTo)
 					) {
-						console.log(doc.data());
+						// console.log(doc.data());
 						reservedGymsId.push(doc.data().gym_id);
 					}
 				});
 			});
 		}
 
-		if (this.state.gymPriceFrom != "" || this.state.gymPriceTo != "") {
+		if (this.state.gymPriceFrom !== "" || this.state.gymPriceTo !== "") {
 			flt = flt.orderBy("gymPrice");
-			if (this.state.gymPriceFrom != "") {
+			if (this.state.gymPriceFrom !== "") {
 				flt = flt.where(
 					"gymPrice",
 					">=",
 					Number(this.state.gymPriceFrom)
 				);
 			}
-			if (this.state.gymPriceTo != "") {
+			if (this.state.gymPriceTo !== "") {
 				flt = flt.where(
 					"gymPrice",
 					"<=",
@@ -126,23 +126,23 @@ class Filters extends Component {
 			}
 		}
 
-		if (this.state.gymHeightM != "") {
+		if (this.state.gymHeightM !== "") {
 			flt = flt.where("gymHeight", "==", Number(this.state.gymHeightM));
 		}
 
-		if (this.state.gymWidthM != "") {
+		if (this.state.gymWidthM !== "") {
 			flt = flt.where("gymWidth", "==", Number(this.state.gymWidthM));
 		}
 
-		if (this.state.gymLengthM != "") {
+		if (this.state.gymLengthM !== "") {
 			flt = flt.where("gymLength", "==", Number(this.state.gymLengthM));
 		}
 
-		if (this.state.audienceN != "") {
+		if (this.state.audienceN !== "") {
 			flt = flt.where("audience", "==", Number(this.state.audienceN));
 		}
 
-		if (this.state.changingRoomsN != "") {
+		if (this.state.changingRoomsN !== "") {
 			flt = flt.where(
 				"changingRooms",
 				"==",

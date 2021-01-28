@@ -98,7 +98,7 @@ export default class DnDSource {
 
         if (hasConflict) {
           const { conflictOccurred } = props;
-          if (conflictOccurred != undefined) {
+          if (conflictOccurred !== undefined) {
             conflictOccurred(
               schedulerData,
               action,
@@ -148,8 +148,8 @@ export default class DnDSource {
         const { config } = schedulerData;
         return (
           config.movable &&
-          (resourceEvents == undefined || !resourceEvents.groupOnly) &&
-          (item.movable == undefined || item.movable !== false)
+          (resourceEvents === undefined || !resourceEvents.groupOnly) &&
+          (item.movable === undefined || item.movable !== false)
         );
       },
     };

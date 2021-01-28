@@ -3,6 +3,7 @@ import firebase from "firebase";
 import "../theme/react-week-scheduler.css";
 import { Link } from "react-router-dom";
 import { Redirect } from 'react-router-dom'
+import Cookies from "js-cookie"
 const db = firebase.firestore();
 
 
@@ -16,7 +17,7 @@ function ListItems(props) {
       .doc(docId)
       .delete()
       .then(function () {
-        console.log("Document successfully deleted! Doc: " + docId);
+        // console.log("Document successfully deleted! Doc: " + docId);
         window.location.reload(false);
       })
       .catch(function (error) {
@@ -26,7 +27,7 @@ function ListItems(props) {
 
   function ChangeStatus(e) {
     e.preventDefault();
-    console.log("change status run");
+    // console.log("change status run");
     db.collection("reservation")
       .doc(docId)
       .update({
@@ -36,7 +37,7 @@ function ListItems(props) {
         resizable: false,
       })
       .then(function () {
-        console.log("Status successfully changed! Doc: " + docId);
+        // console.log("Status successfully changed! Doc: " + docId);
         window.location.reload(false);
       })
       .catch(function (error) {
@@ -128,7 +129,7 @@ class ReservationsView extends Component {
     const bookingItems = [];
 
     db.collection("gyms")
-      .where("gymOwner", "==", localStorage.getItem("user"))
+      .where("gymOwner", "==", Cookies.get('user'))
       .get()
       .then((items) => {
         items.forEach(function (doc) {

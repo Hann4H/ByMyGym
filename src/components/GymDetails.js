@@ -5,6 +5,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 import { empty } from "svelte/internal";
 import StarRatings from "../components/StarRatings";
 import WeighedRating from "../components/WeighedRating";
+import Cookies from "js-cookie"
 
 const nameStyle = {
 	fontWeight: "bold",
@@ -32,15 +33,15 @@ class GymDetails extends Component {
 			const cityRef = db.collection("gyms").doc(this.props.dataId);
 			const doc = await cityRef.get();
 			if (!doc.exists) {
-				console.log("No such document!");
+				// console.log("No such document!");
 				window.location.replace("/error");
 			} else {
-				console.log("Document data:", doc.data());
+				// console.log("Document data:", doc.data());
 				this.setState({ data: doc.data() });
 
 				const usersRef = db
 					.collection("favourites")
-					.doc(localStorage.getItem("user"));
+					.doc(Cookies.get('user'));
 
 				usersRef.get().then((docSnapshot) => {
 					if (docSnapshot.exists) {
@@ -50,7 +51,7 @@ class GymDetails extends Component {
 								.favourites.includes(this.props.dataId)
 						) {
 							this.setState({ faved: true });
-							console.log(this.faved);
+							// console.log(this.faved);
 						} else {
 							this.setState({ faved: false });
 						}
@@ -58,7 +59,7 @@ class GymDetails extends Component {
 				});
 			}
 		} catch (error) {
-			console.log("Wystapił błąd");
+			// console.log("Wystapił błąd");
 			console.log(error);
 		}
 	}
@@ -66,7 +67,7 @@ class GymDetails extends Component {
 	handleClickDelete() {
 		const usersRef = db
 			.collection("favourites")
-			.doc(localStorage.getItem("user"));
+			.doc(Cookies.get('user'));
 
 		usersRef.get().then((docSnapshot) => {
 			this.setState({ faved: false });
@@ -82,7 +83,7 @@ class GymDetails extends Component {
 		const faves = [];
 		const usersRef = db
 			.collection("favourites")
-			.doc(localStorage.getItem("user"));
+			.doc(Cookies.get('user'));
 
 		usersRef.get().then((docSnapshot) => {
 			if (docSnapshot.exists) {
@@ -140,7 +141,7 @@ class GymDetails extends Component {
 						>
 							{gymName}
 						</h1>
-						{localStorage.getItem("user") && this.state.faved ? (
+						{Cookies.get('user') && this.state.faved ? (
 							<Tooltip title="Usuń z ulubionych" placement="top">
 								<img
 									src={require("../img/heart_full.png")}
@@ -154,7 +155,7 @@ class GymDetails extends Component {
 									className="heart"
 								/>
 							</Tooltip>
-						) : ( [localStorage.getItem("user") ? 
+						) : ( [Cookies.get('user') ? 
 							<>
 							<Tooltip
 								title="Dodaj do ulubionych"

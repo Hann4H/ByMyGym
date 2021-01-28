@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { FaStar } from 'react-icons/fa';
 import firebase from "../firebase";
 import Tooltip from "@material-ui/core/Tooltip";
+import Cookies from "js-cookie"
 
 const db = firebase.firestore();
 
@@ -11,7 +12,7 @@ const StarRatings = (props) => {
     const [hover, setHover] = useState(null);
 
     const scoreRef = db.collection("scores").doc(props.gymID);
-    const userID = localStorage.getItem("user");
+    const userID = Cookies.get('user');
 
     return (
         <div className="star-ratings">

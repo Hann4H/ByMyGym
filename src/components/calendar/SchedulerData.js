@@ -420,7 +420,7 @@ export default class SchedulerData {
     let end = this.localeMoment(this.endDate);
     let dateLabel = start.format("LL");
 
-    if (start != end) dateLabel = `${start.format("LL")}-${end.format("LL")}`;
+    if (start !== end) dateLabel = `${start.format("LL")}-${end.format("LL")}`;
 
     if (!!this.behaviors.getDateLabelFunc)
       dateLabel = this.behaviors.getDateLabelFunc(
@@ -624,12 +624,12 @@ export default class SchedulerData {
   }
 
   _resolveDate(num, date = undefined) {
-    if (date != undefined)
+    if (date !== undefined)
       this.selectDate = this.localeMoment(date).format(DATE_FORMAT);
 
     if (this.viewType === ViewTypes.Week) {
       this.startDate =
-        date != undefined
+        date !== undefined
           ? this.localeMoment(date).startOf("week").format(DATE_FORMAT)
           : this.localeMoment(this.startDate)
               .add(num, "weeks")
@@ -639,7 +639,7 @@ export default class SchedulerData {
         .format(DATE_FORMAT);
     } else if (this.viewType === ViewTypes.Day) {
       this.startDate =
-        date != undefined
+        date !== undefined
           ? this.selectDate
           : this.localeMoment(this.startDate)
               .add(num, "days")
@@ -647,7 +647,7 @@ export default class SchedulerData {
       this.endDate = this.startDate;
     } else if (this.viewType === ViewTypes.Month) {
       this.startDate =
-        date != undefined
+        date !== undefined
           ? this.localeMoment(date).startOf("month").format(DATE_FORMAT)
           : this.localeMoment(this.startDate)
               .add(num, "months")
@@ -657,7 +657,7 @@ export default class SchedulerData {
         .format(DATE_FORMAT);
     } else if (this.viewType === ViewTypes.Quarter) {
       this.startDate =
-        date != undefined
+        date !== undefined
           ? this.localeMoment(date).startOf("quarter").format(DATE_FORMAT)
           : this.localeMoment(this.startDate)
               .add(num, "quarters")
@@ -667,7 +667,7 @@ export default class SchedulerData {
         .format(DATE_FORMAT);
     } else if (this.viewType === ViewTypes.Year) {
       this.startDate =
-        date != undefined
+        date !== undefined
           ? this.localeMoment(date).startOf("year").format(DATE_FORMAT)
           : this.localeMoment(this.startDate)
               .add(num, "years")
@@ -680,7 +680,7 @@ export default class SchedulerData {
       this.viewType === ViewTypes.Custom1 ||
       this.viewType === ViewTypes.Custom2
     ) {
-      if (this.behaviors.getCustomDateFunc != undefined) {
+      if (this.behaviors.getCustomDateFunc !== undefined) {
         let customDate = this.behaviors.getCustomDateFunc(this, num, date);
         this.startDate = customDate.startDate;
         this.endDate = customDate.endDate;

@@ -45,6 +45,7 @@
     "http2": "^3.3.7",
     "imagenation": "^3.1.4",
     "jquery": "^3.5.1",
+    "js-cookie": "^2.2.1",
     "jwks-rsa": "^1.12.1",
     "leaflet": "^1.7.1",
     "mdbootstrap": "^4.18.0",

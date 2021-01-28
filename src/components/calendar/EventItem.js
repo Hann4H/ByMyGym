@@ -75,7 +75,7 @@ class EventItem extends Component {
     ev.stopPropagation();
     let clientX = 0;
     if (supportTouch) {
-      if (ev.changedTouches.length == 0) return;
+      if (ev.changedTouches.length === 0) return;
       const touch = ev.changedTouches[0];
       clientX = touch.pageX;
     } else {
@@ -119,7 +119,7 @@ class EventItem extends Component {
 
     let clientX = 0;
     if (supportTouch) {
-      if (ev.changedTouches.length == 0) return;
+      if (ev.changedTouches.length === 0) return;
       const touch = ev.changedTouches[0];
       clientX = touch.pageX;
     } else {
@@ -192,7 +192,7 @@ class EventItem extends Component {
 
     let clientX = 0;
     if (supportTouch) {
-      if (ev.changedTouches.length == 0) {
+      if (ev.changedTouches.length === 0) {
         this.setState({
           left: left,
           top: top,
@@ -356,7 +356,7 @@ class EventItem extends Component {
     ev.stopPropagation();
     let clientX = 0;
     if (supportTouch) {
-      if (ev.changedTouches.length == 0) return;
+      if (ev.changedTouches.length === 0) return;
       const touch = ev.changedTouches[0];
       clientX = touch.pageX;
     } else {
@@ -462,7 +462,7 @@ class EventItem extends Component {
 
     let clientX = 0;
     if (supportTouch) {
-      if (ev.changedTouches.length == 0) {
+      if (ev.changedTouches.length === 0) {
         this.setState({
           left: left,
           top: top,
@@ -717,8 +717,8 @@ class EventItem extends Component {
     );
 
     return isDragging ? null : schedulerData._isResizing() ||
-      config.eventItemPopoverEnabled == false ||
-      eventItem.showPopover == false ? (
+      config.eventItemPopoverEnabled === false ||
+      eventItem.showPopover === false ? (
       <div>{connectDragPreview(connectDragSource(a))}</div>
     ) : (
       <Popover placement="bottomLeft" content={content} trigger="hover">
@@ -733,8 +733,8 @@ class EventItem extends Component {
     return (
       config.startResizable === true &&
       isInPopover === false &&
-      (eventItem.resizable == undefined || eventItem.resizable !== false) &&
-      (eventItem.startResizable == undefined ||
+      (eventItem.resizable === undefined || eventItem.resizable !== false) &&
+      (eventItem.startResizable === undefined ||
         eventItem.startResizable !== false)
     );
   };
@@ -745,8 +745,8 @@ class EventItem extends Component {
     return (
       config.endResizable === true &&
       isInPopover === false &&
-      (eventItem.resizable == undefined || eventItem.resizable !== false) &&
-      (eventItem.endResizable == undefined || eventItem.endResizable !== false)
+      (eventItem.resizable === undefined || eventItem.resizable !== false) &&
+      (eventItem.endResizable === undefined || eventItem.endResizable !== false)
     );
   };
 

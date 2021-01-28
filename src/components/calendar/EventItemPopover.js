@@ -74,7 +74,7 @@ class EventItemPopover extends Component {
       if (
         viewEventText !== undefined &&
         viewEventClick !== undefined &&
-        (eventItem.clickable1 == undefined || eventItem.clickable1)
+        (eventItem.clickable1 === undefined || eventItem.clickable1)
       ) {
         let col = (
           <Col span={22}>
@@ -92,7 +92,7 @@ class EventItemPopover extends Component {
         if (
           viewEvent2Text !== undefined &&
           viewEvent2Click !== undefined &&
-          (eventItem.clickable2 == undefined || eventItem.clickable2)
+          (eventItem.clickable2 === undefined || eventItem.clickable2)
         ) {
           col = (
             <Col span={22}>
@@ -133,7 +133,7 @@ class EventItemPopover extends Component {
       } else if (
         viewEvent2Text !== undefined &&
         viewEvent2Click !== undefined &&
-        (eventItem.clickable2 == undefined || eventItem.clickable2)
+        (eventItem.clickable2 === undefined || eventItem.clickable2)
       ) {
         let col = (
           <Col span={22}>

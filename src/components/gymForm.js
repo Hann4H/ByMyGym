@@ -83,9 +83,9 @@ export default function gymForm() {
 	firebase.auth().onAuthStateChanged(function (user) {
 		if (user) {
 			setUserUID(user.uid);
-			console.log(user);
+			// console.log(user);
 		} else {
-			console.log("nie pykło");
+			// console.log("nie pykło");
 		}
 	});
 
@@ -97,7 +97,7 @@ export default function gymForm() {
 		setErrors({});
 		event.preventDefault();
 		setErrors(validate(values));
-		console.log(validated(values));
+		// console.log(validated(values));
 
 		if (validated(values) && imageAsFile.length) {
 			setText("DODAWANIE...");
@@ -174,7 +174,7 @@ export default function gymForm() {
 		}));
 	};
 
-	console.log("imageAsFile", imageAsFile);
+	// console.log("imageAsFile", imageAsFile);
 
 	// drag and drop
 
@@ -219,7 +219,7 @@ export default function gymForm() {
 		[imageAsFile]
 	);
 
-	console.log("files 2", imageAsFile);
+	// console.log("files 2", imageAsFile);
 
 	// end Drag and drop
 

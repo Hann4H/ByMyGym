@@ -6,10 +6,9 @@ import Basic from "../components/calendar/Basic";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { DndProvider } from "react-dnd";
 import ShowScheduler from "../components/calendar/ShowScheduler";
+import Cookies from "js-cookie"
 
 import firebase from "../firebase";
-
-const db = firebase.firestore();
 
 class GymProfile extends Component {
 	constructor(props) {
@@ -29,7 +28,7 @@ class GymProfile extends Component {
 			.get()
 			.then((snapshot) => {
 				this.setState({ gymOwner: snapshot.data().gymOwner });
-				console.log("id: " + snapshot.data().gymOwner);
+				// console.log("id: " + snapshot.data().gymOwner);
 			})
 			.catch(function (error) {
 				console.log("Error getting documents: ", error);
@@ -49,8 +48,8 @@ class GymProfile extends Component {
 						<Slider dataId={this.props.match.params.id} />
 					</div>
 
-					{localStorage.getItem("user") != this.state.gymOwner &&
-					localStorage.getItem("user") !=
+					{Cookies.get('user') !== this.state.gymOwner &&
+					Cookies.get('user') !==
 						process.env.REACT_APP_ADMIN_ID ? (
 						""
 					) : (

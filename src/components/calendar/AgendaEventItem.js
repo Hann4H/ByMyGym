@@ -76,7 +76,7 @@ class AgendaEventItem extends Component {
         </span>
       </div>
     );
-    if (eventItemTemplateResolver != undefined)
+    if (eventItemTemplateResolver !== undefined)
       eventItemTemplate = eventItemTemplateResolver(
         schedulerData,
         eventItem,

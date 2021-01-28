@@ -1,3 +1,5 @@
+import Cookies from "js-cookie"
+
 const configData = {
   resources: [
     {
@@ -12,12 +14,12 @@ const configData = {
   ],
 };
 
-const bookingData = JSON.parse(localStorage.getItem("events"));
+const bookingData = JSON.parse(Cookies.get('events'));
 
 const dane2 = bookingData ? [...bookingData.values()] : [];
 
-console.log("booking data: " + typeof bookingData);
-console.log("configData data: " + typeof configData);
+// console.log("booking data: " + typeof bookingData);
+// console.log("configData data: " + typeof configData);
 
 const DemoData = { events: dane2, ...configData };
 // const DemoData = { events: [...bookingData.values()], ...configData };

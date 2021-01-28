@@ -1,15 +1,11 @@
 import React, { Component } from "react";
-import { MuiPickersUtilsProvider } from "@material-ui/pickers";
-import Grid from "@material-ui/core/Grid";
-import { ThemeProvider } from "@material-ui/styles";
-import DateFnsUtils from "@date-io/date-fns";
 import { createMuiTheme } from "@material-ui/core/styles";
-import TextField from "@material-ui/core/TextField";
 import { validateFields } from "../Validation";
 import classnames from "classnames";
 import firebase from "../firebase";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
+import Cookies from "js-cookie"
 
 const db = firebase.firestore();
 
@@ -62,7 +58,7 @@ class GymDetailsEdit extends Component {
 			if (!doc.exists) {
 				console.log("No such document!");
 			} else {
-				console.log("Document data:", doc.data());
+				// console.log("Document data:", doc.data());
 				this.setState({
 					data: doc.data(),
 					gymName: { value: doc.data().gymName },
@@ -938,7 +934,7 @@ class GymDetailsEdit extends Component {
 						</div>
 						{/* gymOwner field */}
 
-						{localStorage.getItem("user") ==
+						{Cookies.get('user') ==
 						process.env.REACT_APP_ADMIN_ID ? (
 							<div className="form-group">
 								<label className="form-group-label">

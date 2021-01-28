@@ -56,7 +56,7 @@ class ResourceView extends Component {
       indents.push(indent);
 
       let a =
-        slotClickedFunc != undefined ? (
+        slotClickedFunc !== undefined ? (
           <span className="slot-cell">
             {indents}
             <a

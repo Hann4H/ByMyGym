@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import firebase from "firebase";
 import "../theme/react-week-scheduler.css";
 import { Link } from "react-router-dom";
+import Cookies from "js-cookie"
 // import { Redirect } from 'react-router-dom'
 
 import "../theme/OwnerManager.css";
@@ -18,7 +19,7 @@ class OwnerManager extends Component {
 		const ownedGyms = [];
 
 		db.collection("gyms")
-			.where("gymOwner", "==", localStorage.getItem("user"))
+			.where("gymOwner", "==", Cookies.get('user'))
 			.get()
 			.then((items) => {
 				items.forEach(function (doc) {
@@ -42,7 +43,7 @@ class OwnerManager extends Component {
 
 	render() {
 		const ChangeStatus = (id) => {
-			console.log(id);
+			// console.log(id);
 			db.collection("reservation")
 				.doc(id)
 				.update({
@@ -52,7 +53,7 @@ class OwnerManager extends Component {
 					resizable: false,
 				})
 				.then(function () {
-					console.log("Status successfully changed! Doc: " + id);
+					// console.log("Status successfully changed! Doc: " + id);
 					window.location.reload(false);
 				})
 				.catch(function (error) {
@@ -65,7 +66,7 @@ class OwnerManager extends Component {
 				.doc(id)
 				.delete()
 				.then(function () {
-					console.log("Document successfully deleted! Doc: " + id);
+					// console.log("Document successfully deleted! Doc: " + id);
 					window.location.reload(false);
 				})
 				.catch(function (error) {
@@ -93,19 +94,19 @@ class OwnerManager extends Component {
 											{r.data().name} {r.data().surname}
 										</span>
 										<span>Status: {r.data().title}</span>
-										{r.data().longStart != null ? (
+										{r.data().longStart !== null ? (
 											<span>
 												Od: {r.data().longStart}
 											</span>
 										) : (
 											<span>Od: {r.data().start}</span>
 										)}
-										{r.data().longEnd != null ? (
+										{r.data().longEnd !== null ? (
 											<span>Do: {r.data().longEnd}</span>
 										) : (
 											<span>Do: {r.data().end}</span>
 										)}
-										{r.data().weekdays != null ? (
+										{r.data().weekdays !== null ? (
 											<span>
 												{r.data().weekdays.join(", ")}
 											</span>

@@ -1,5 +1,7 @@
-import React, { useState }  from 'react'
+import React, { useState, useEffect }  from 'react'
 import { Link } from "react-router-dom";
+
+import firebase from "firebase";
 import {
   GoogleMap,
   useLoadScript,
@@ -17,7 +19,7 @@ import {
   ComboboxList,
   ComboboxOption,
 } from "@reach/combobox";
-import * as hallsData from "../halls.json"
+// import * as hallsData from "../halls.json"
 import "@reach/combobox/styles.css";
 
 const libraries = ["places"];
@@ -35,6 +37,47 @@ const center = {
 };
 
 export default function Maps() {
+  const [Gyms, setGyms] = useState([])
+  
+  useEffect(() => {
+    firebase
+			.firestore()
+			.collection("gyms")
+			.get()
+			.then((querySnapshot) => {
+				const Gyms = [];
+				querySnapshot.forEach(function (doc) {
+					Gyms.push({
+						gymName: doc.data().gymName,
+						gymStreet: doc.data().gymStreet,
+						gymCity: doc.data().gymCity,
+						gymZip: doc.data().gymZip,
+						gymURL: doc.data().gymURL,
+						gymPhone: doc.data().gymPhone,
+						gymEmail: doc.data().gymEmail,
+						gymPhoto: doc.data().gymPhoto,
+						gymDescription: doc.data().gymDescription,
+						gymLat: doc.data().gymLat,
+						gymLng: doc.data().gymLng,
+						gymHeight: doc.data().gymHeight,
+						gymWidth: doc.data().gymWidth,
+						gymLength: doc.data().gymLength,
+						gymPrice: doc.data().gymPrice,
+						id: doc.data().id,
+						docId: doc.id,
+					});
+				});
+				setGyms({ Gyms });
+        // this.setState({ loading: true });
+			})
+			.catch(function (error) {
+				console.log("Error getting documents: ", error);
+			});
+  }, []);
+  
+  // console.log("This is Gyms")
+  // console.log(Gyms)
+
   const { isLoaded, loadError } = useLoadScript({
     googleMapsApiKey: 'AIzaSyBx1SVzcsi1P1QW4au9tonV12_UzCiu7rk',
     libraries,
@@ -59,12 +102,10 @@ export default function Maps() {
 
   return (
     <div>
-
-        
-    <div id="slash"></div>
+ 
       <Locate panTo={panTo} />
-      <Search panTo={panTo} />
-
+      <Search panTo={panTo} /> 
+      
       <GoogleMap
         id="map"
         mapContainerStyle={mapContainerStyle}
@@ -72,15 +113,17 @@ export default function Maps() {
         center={center}
         options={options}
         onLoad={onMapLoad}
-      >
-      {hallsData.features.map((hall)=> (
-          <Marker key={hall.id}
+      > 
+
+      {/* {console.log(Gyms)} */}
+       {Gyms.Gyms && Gyms.Gyms.map((gym) => (
+          <Marker key={gym.id}
           position={{
-              lat: hall.geometry.coordinates[1],
-              lng: hall.geometry.coordinates[0]
+              lat: gym.gymLat,
+              lng: gym.gymLng
           }}
           onClick={() => {
-              setSelectedHall(hall);
+            setSelectedHall(gym)
           }}
           />
       ))}
@@ -88,23 +131,23 @@ export default function Maps() {
       {selectedHall && (
           <InfoWindow 
           position={{
-              lat: selectedHall.geometry.coordinates[1],
-              lng: selectedHall.geometry.coordinates[0]
+              lat: selectedHall.gymLat,
+              lng: selectedHall.gymLng
           }}
           onCloseClick={() => {
               setSelectedHall(null);
       }}
           >
               <div>
-                  <h3>{selectedHall.properties.nazwa}</h3>
-                  <p>{selectedHall.properties.adres}</p>
-                  <p>{selectedHall.properties.telefon}</p>
-                  <p>{selectedHall.properties.url}</p>
-                  <button className="btn-goTo"><Link to={"/gym_profile/" + selectedHall.properties.url2}>Do strony</Link></button>
+                  <h3>{selectedHall.gymName}</h3>
+                  <p>{selectedHall.gymStreet}</p>
+                  <p>{selectedHall.gymPhone}</p>
+                  <p>{selectedHall.gymURL}</p>
+                  <button className="btn-goTo"><Link to={"/gym_profile/" + selectedHall.docId}>Do strony</Link></button>
               </div>
           </InfoWindow>
       )}
-      </GoogleMap>
+      </GoogleMap> 
       <div id="pls"></div>
     </div>
   );
@@ -160,7 +203,6 @@ function Search({ panTo }) {
       console.log(" Error: ", error);
     }
   };
-
   return (
     <div className="SearchMapBox">
       <Combobox onSelect={handleSelect}>

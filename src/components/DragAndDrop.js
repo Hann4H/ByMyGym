@@ -93,7 +93,7 @@ function Previews(props) {
 		[files]
 	);
 
-	console.log("files", files);
+	// console.log("files", files);
 
 	return (
 		<section className="container" style={styleContainer}>

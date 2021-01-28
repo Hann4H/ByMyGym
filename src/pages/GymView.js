@@ -3,6 +3,7 @@ import firebase from "firebase";
 import "../theme/react-week-scheduler.css";
 import { Link } from "react-router-dom";
 import { Redirect } from 'react-router-dom'
+import Cookies from "js-cookie"
 const db = firebase.firestore();
 
 
@@ -12,14 +13,14 @@ function ListItems(props) {
 
   function ChangeStatus(e) {
     e.preventDefault();
-    console.log("change status run");
+    // console.log("change status run");
     db.collection("gyms")
       .doc(docId)
       .update({
         accepted: true,
       })
       .then(function () {
-        console.log("Status successfully changed! Doc: " + docId);
+        // console.log("Status successfully changed! Doc: " + docId);
         window.location.reload(false);
       })
       .catch(function (error) {
@@ -33,7 +34,7 @@ function ListItems(props) {
       .doc(docId)
       .delete()
       .then(function () {
-        console.log("Document successfully deleted! Doc: " + docId);
+        // console.log("Document successfully deleted! Doc: " + docId);
         window.location.reload(false);
       })
       .catch(function (error) {
@@ -142,7 +143,7 @@ class GymView extends Component {
 
   render() {
 
-    if (localStorage.getItem("user")!=process.env.REACT_APP_ADMIN_ID) {
+    if (Cookies.get('user') !== process.env.REACT_APP_ADMIN_ID) {
       return (
         <Redirect to="/login" />
       )

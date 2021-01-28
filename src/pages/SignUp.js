@@ -53,6 +53,7 @@ class SignUp extends Component {
 
   handleChange = (event) => {
     event.preventDefault();
+    this.setState({ errors, [name]: ''});
     const { name, value } = event.target;
     let errors = this.state.errors;
 
@@ -81,6 +82,10 @@ class SignUp extends Component {
         break;
     }
 
+    // console.log(this.state.errors)
+    // console.log(countErrors(this.state.errors))
+    // console.log(validateForm(this.state.errors))
+
     this.setState({ errors, [name]: value }, () => {
       // console.log(errors);
     });
@@ -88,13 +93,14 @@ class SignUp extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
+    // this.setState({ errorCount: null});
     this.setState({ formValid: validateForm(this.state.errors) });
     this.setState({ errorCount: countErrors(this.state.errors) });
 
     // this.setUpRecaptcha();
 
     // if(this.state.phoneVer == 'true') {
-    if (this.state.errorCount == null) {
+    if (this.state.errorCount === null || this.state.errorCount === 0) {
       firebase
         .auth()
         .createUserWithEmailAndPassword(this.state.email, this.state.password)
@@ -114,7 +120,14 @@ class SignUp extends Component {
         })
         .catch(error => {
           if('The email address is already in use by another account.' === error.message) {
-            this.setState({ errorMessage: "Ten email jest już używany przez innego użytkownika!" });
+            // this.setState({ errorMessage: "Ten email jest już używany przez innego użytkownika!" });
+            // this.setState({ errors, [email]: "Ten email jest już używany przez innego użytkownika!" });
+            this.setState(prevState => ({
+              errors: {                  
+                  ...prevState.errors,    
+                  email: 'Ten email jest już używany przez innego użytkownika!'      
+              }
+          }))
           }
           
         })
@@ -177,7 +190,7 @@ class SignUp extends Component {
                 <span className="error">{errors.email}</span>
               )}
             </div>
-            <span className="error-big">{err}</span>
+            {/* <span className="error-big">{err}</span> */}
             <div className="row">
               <TextField
                 type="string"

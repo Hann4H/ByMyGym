@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { FaAlignRight } from "react-icons/fa";
 import firebase from "../firebase";
+import Cookies from "js-cookie"
 
 class Nav extends Component {
   constructor(props) {
@@ -23,16 +24,35 @@ class Nav extends Component {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({ user });
-        localStorage.setItem("user", user.uid);
-        localStorage.setItem("email", user.email);
-        localStorage.setItem("photoURL", user.photoURL);
-        localStorage.setItem("user_name", user.displayName);
+        Cookies.set('user', user.uid, { secure: true });
+        if(user.displayName === null) {
+          firebase.firestore().collection("users").where('email', '==', user.email)
+          .get()
+          .then((querySnapshot) => {
+            querySnapshot.forEach(q => {
+              Cookies.set('user_name', q.data().firstName + ' ' + q.data().surname, { secure: true });
+            })
+          })
+        } else {
+          Cookies.set('user_name', user.displayName, { secure: true });
+        }
+        
+        Cookies.set('photoURL', user.photoURL, { secure: true });
+        Cookies.set('email', user.email, { secure: true });
+        // localStorage.setItem("user", user.uid);
+        // localStorage.setItem("email", user.email);
+        // localStorage.setItem("photoURL", user.photoURL);
+        // localStorage.setItem("user_name", user.displayName);
       } else {
         this.setState({ user: null });
-        localStorage.removeItem("user");
-        localStorage.removeItem("email");
-        localStorage.removeItem("photoURL");
-        localStorage.removeItem("user_name");
+        Cookies.remove('user');
+        Cookies.remoce('user_name');
+        Cookies.remove('email');
+        Cookies.remove('photoURL');
+        // localStorage.removeItem("user");
+        // localStorage.removeItem("email");
+        // localStorage.removeItem("photoURL");
+        // localStorage.removeItem("user_name");
       }
     });
   }
@@ -52,16 +72,16 @@ class Nav extends Component {
     if (window.location.pathname === "/gym_profile/login") return null;
 
     var user = firebase.auth().currentUser;
-    if (user != null) {
+    if (user !== null) {
       user.providerData.forEach(function (profile) {
-        console.log("Sign-in provider: " + profile.providerId);
-        console.log("  Provider-specific UID: " + profile.uid);
-        console.log("  Name: " + profile.displayName);
-        console.log("  Email: " + profile.email);
-        console.log("  Photo URL: " + profile.photoURL);
+        // console.log("Sign-in provider: " + profile.providerId);
+        // console.log("  Provider-specific UID: " + profile.uid);
+        // console.log("  Name: " + profile.displayName);
+        // console.log("  Email: " + profile.email);
+        // console.log("  Photo URL: " + profile.photoURL);
       });
     } else {
-      console.log("user is null :(");
+      // console.log("user is null");
     }
 
     return (
@@ -94,7 +114,7 @@ class Nav extends Component {
             <li>
               {this.state.user ? (
                 <Link to="/add">
-                  <button className="nav-button">DODAJ SALĘ</button>
+                  <button className="nav-button" onClick={this.Toggle}>DODAJ SALĘ</button>
                 </Link>
               ) : (
                 ""
@@ -103,16 +123,16 @@ class Nav extends Component {
             <li>
               {this.state.user ? (
                 <Link to="/profile">
-                  <button className="nav-button">PROFIL</button>
+                  <button className="nav-button" onClick={this.Toggle}>PROFIL</button>
                 </Link>
               ) : (
                 ""
               )}
             </li>
             <li>
-            {this.state.user && this.state.user.uid==process.env.REACT_APP_ADMIN_ID ? (
+            {this.state.user && this.state.user.uid === process.env.REACT_APP_ADMIN_ID ? (
               <Link to="/admin">
-                <button className="nav-button">ADMIN</button>
+                <button className="nav-button" onClick={this.Toggle}>ADMIN</button>
               </Link>
               ) : (
                 ""
