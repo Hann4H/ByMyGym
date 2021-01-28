@@ -120,10 +120,10 @@ class OwnerManager extends Component {
 										<a href={"mailto:" + r.data().email} className="link">
 											Napisz maila
 										</a>
-							}
+										}
 										{r.data().name == "Zarezerwowane" ? null :
 										<span>{r.data().phoneNumber}</span>
-									}
+										}
 										{r.data().name == "Zarezerwowane" ? null :
 										<a href={"tel:" + r.data().phoneNumber} className="link">
 											Zadzwoń
