@@ -20,7 +20,7 @@ import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 import Cookies from "js-cookie"
 
-import {createBrowserHistory} from "history";
+import createBrowserHistory from "history/createBrowserHistory";
 
 const history = createBrowserHistory();
 const { RangePicker } = TimePicker;
@@ -108,7 +108,10 @@ class Basic extends Component {
 					this.setState({
 						allFieldsValidated: true,
 						youAdmin: true,
-						name: { value: "Ty" },
+						name: { value: "Zarezerwowane" },
+						surname: {value: "przez ciebie"},
+						phoneNumber:{value: "733111222"},
+						email:{value: "twojMail@gmail.com"},
 						ownerMail: item.data().gymOwnerEmail || "",
 						gymName: item.data().gymName,
 					});
@@ -143,7 +146,7 @@ class Basic extends Component {
 	//***********/
 
 	onChangeTime = (time, times) => {
-		// console.log(times[0]);
+		console.log(times[0]);
 		this.setState({ times: times });
 		// this.setState({ dateStrings });
 	};
@@ -171,7 +174,7 @@ class Basic extends Component {
 			view.isEventPerspective
 		);
 		this.setState({ view: view.viewType });
-		// console.log(this.state.view);
+		console.log(this.state.view);
 		schedulerData.setEvents(this.state.DemoData.events);
 		this.setState({
 			viewModel: schedulerData,
@@ -277,18 +280,12 @@ class Basic extends Component {
 				user_id: this.state.user,
 				scored: null,
 			})
-			.then(() => {
-				axios({
-					method: "POST",
-					url: "/sendNotifs",
-					data: {
-						name: "test",
-						surname: "test",
-						gymName: "test",
-						email: "bemygym@gmail.com",
-					},
-				});
-			})
+			// .then(() => {
+			// 	axios({
+			// 		method: "POST",
+			// 		url: "/sendNotifs",
+			// 	});
+			// })
 			.then(() => {
 				window.location.reload();
 				window.location.replace("/finishReservation");
@@ -340,10 +337,11 @@ class Basic extends Component {
 				window.location.replace("/finishReservation");
 			});
 		} else {
+			const temp = this.props.youAdmin?"Zarezerwowane":"Do akceptacji";
 			db.collection("reservation")
 			.add({
 				id: newEvent.id,
-				title: "Do akceptacji",
+				title: temp,
 				start: newEvent.start.substring(0, 16),
 				end: newEvent.end.substring(0, 16),
 				resourceId: newEvent.resourceId,
@@ -360,16 +358,16 @@ class Basic extends Component {
 				scored: null,
 			})
 			.then(() => {
-				axios({
-					method: "POST",
-					url: "/sendNotifs",
-					data: {
-						name: "test",
-						surname: "test",
-						gymName: "test",
-						email: "bemygym@gmail.com",
-					},
-				});
+				// axios({
+				// 	method: "POST",
+				// 	url: "/sendNotifs",
+				// 	data: {
+				// 		name: this.state.name.value,
+				// 		surname: this.state.surname.value,
+				// 		gymName: this.state.gymName,
+				// 		email: this.state.ownerMail,
+				// 	},
+				// });
 			})
 			.then(() => {
 				window.location.reload();
@@ -389,7 +387,7 @@ class Basic extends Component {
 			phoneNumber.value
 		);
 
-		// console.log(emailError)
+		console.log(emailError)
 
 		if (startDate < today) {
 			confirmAlert({
@@ -400,10 +398,10 @@ class Basic extends Component {
 					},
 				],
 			});
-		} else if (emailError === false && nameError === false && surnameError === false && phoneNumberError === false) {
-			if (this.state.view !== 0) {
+		} else if (emailError == false && nameError == false && surnameError == false && phoneNumberError == false) {
+			if (this.state.view != 0) {
 				//jeśli kalendarz jest ustawiony na coś co nie jest dniem
-				// console.log("this.state.times.length", this.state.times.length);
+				console.log("this.state.times.length", this.state.times.length);
 				if (this.state.times.length == 2) {
 					// jeśli array times nie jest pusty (użytkownik wybrał godzinę pod kalendarzem) to wyświetl alert i kontynuuj
 					confirmAlert({
@@ -544,11 +542,11 @@ class Basic extends Component {
 	};
 
 	onScrollTop = (schedulerData, schedulerContent, maxScrollTop) => {
-		// console.log("onScrollTop");
+		console.log("onScrollTop");
 	};
 
 	onScrollBottom = (schedulerData, schedulerContent, maxScrollTop) => {
-		// console.log("onScrollBottom");
+		console.log("onScrollBottom");
 	};
 
 	toggleExpandFunc = (schedulerData, slotId) => {
@@ -605,7 +603,7 @@ class Basic extends Component {
 			)
 		) {
 			// no errors submit the form
-			// console.log("success");
+			console.log("success");
 			this.setState({ allFieldsValidated: true });
 		} else {
 			// update the state with errors
@@ -879,7 +877,7 @@ class Basic extends Component {
 
 								<TabPanel>
 									<p style={{ height: 10 }} />
-									{!(this.state.view === 0) ? (
+									{!(this.state.view == 0) ? (
 										<div>
 											<p
 												style={{
