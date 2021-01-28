@@ -161,7 +161,7 @@
 
 .gym-prof-header {
 	display: flex;
-	/* max-width: 80vw; */
+	max-width: 80vw;
 }
 
 .heart {
@@ -784,11 +784,11 @@
 }
 
 .footer {
-	/* height: 7.1rem; */
+	height: 7.1rem;
 	background-color: var(--darkGrey);
 }
 
-/* .footer-credits {
+.footer-credits {
 	font-size: 7px;
 	margin-left: 15rem !important;
 }
@@ -799,7 +799,7 @@
 
 .footer-credits a:hover {
 	color: var(--darkOrange);
-} */
+}
 
 .padder {
 }
