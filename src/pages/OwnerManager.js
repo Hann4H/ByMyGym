@@ -106,7 +106,7 @@ class OwnerManager extends Component {
 										) : (
 											<span>Do: {r.data().end}</span>
 										)}
-										{r.data().weekdays !== null ? (
+										{r.data().weekdays  ? (
 											<span>
 												{r.data().weekdays.join(", ")}
 											</span>
