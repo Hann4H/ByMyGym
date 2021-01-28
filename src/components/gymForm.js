@@ -11,12 +11,8 @@ import { validateFields } from "../Validation";
 import Loading from "./Loading";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
-import Compress from "compress.js"
-
-
-
+// import Compress from "compress.js"
 import { useDropzone } from "react-dropzone";
-
 
 Modal.setAppElement("#root");
 
@@ -184,7 +180,7 @@ export default function gymForm() {
 	const [imageAsFile, setFiles] = useState([]);
 	const { getRootProps, getInputProps } = useDropzone({
 		accept: "image/*",
-		maxSize: 2000000,
+		// maxSize: 2000000,
 		onDrop: (acceptedFiles) => {
 			setFiles(
 				acceptedFiles.map((file) =>
@@ -509,7 +505,7 @@ export default function gymForm() {
 								marginTop: "0.5rem",
 							}}
 						>
-							Zdjęcie jest wymagane. Limit 2MB
+							Zdjęcie jest wymagane.
 						</p>
 					)}
 				</div>
