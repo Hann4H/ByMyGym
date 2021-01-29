@@ -277,13 +277,19 @@ class Basic extends Component {
 				surname: this.state.surname.value,
 				email: this.state.email.value,
 				phoneNumber: this.state.phoneNumber.value,
-				user_id: this.state.user,
+				user_id: this.state.user || null,
 				scored: null,
 			})
 			// .then(() => {
 			// 	axios({
 			// 		method: "POST",
 			// 		url: "/sendNotifs",
+			// 		data: {
+			// 			name: "test",
+			// 			surname: "test",
+			// 			gymName: "test",
+			// 			email: "bemygym@gmail.com",
+			// 		},
 			// 	});
 			// })
 			.then(() => {
@@ -354,21 +360,21 @@ class Basic extends Component {
 				surname: this.state.surname.value,
 				email: this.state.email.value,
 				phoneNumber: this.state.phoneNumber.value,
-				user_id: this.state.user,
+				user_id: this.state.user || null,
 				scored: null,
 			})
-			.then(() => {
-				// axios({
-				// 	method: "POST",
-				// 	url: "/sendNotifs",
-				// 	data: {
-				// 		name: this.state.name.value,
-				// 		surname: this.state.surname.value,
-				// 		gymName: this.state.gymName,
-				// 		email: this.state.ownerMail,
-				// 	},
-				// });
-			})
+			// .then(() => {
+			// 	axios({
+			// 		method: "POST",
+			// 		url: "/sendNotifs",
+			// 		data: {
+			// 			name: "test",
+			// 			surname: "test",
+			// 			gymName: "test",
+			// 			email: "bemygym@gmail.com",
+			// 		},
+			// 	});
+			// })
 			.then(() => {
 				window.location.reload();
 				window.location.replace("/finishReservation");
