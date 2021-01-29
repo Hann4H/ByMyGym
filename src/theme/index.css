@@ -161,6 +161,7 @@
 
 .gym-prof-header {
 	display: flex;
+	max-width: 60vw;
 }
 
 .heart {
@@ -783,8 +784,21 @@
 }
 
 .footer {
-	height: 7rem;
+	height: 7.1rem;
 	background-color: var(--darkGrey);
+}
+
+.footer-credits {
+	font-size: 7px;
+	margin-left: 15rem !important;
+}
+
+.footer-credits a {
+	color: var(--mainOrange);
+}
+
+.footer-credits a:hover {
+	color: var(--darkOrange);
 }
 
 .padder {
@@ -1206,7 +1220,7 @@ ul.unstyled {
 	.profile-div h1 {
 		min-height: 1rem;
 		font-size: 2rem;
-		margin-left: -1.6em;
+		margin-left: 0.0em;
 	}
 	.profile-picture {
 		min-width: 100px;
@@ -1304,10 +1318,10 @@ ul.unstyled {
 	}
 
 	.profile-bookings td {
-		padding-bottom: 9px;
-   		padding-left: 9px;
-    	padding-right: 4px;
-    	padding-top: 3px;
+		padding-bottom: 15px;
+   		padding-left: 15px;
+    	padding-right: 19px;
+    	padding-top: 9px;
 	}
 	.profile-bookings a {
 		color: var(--darkOrange);

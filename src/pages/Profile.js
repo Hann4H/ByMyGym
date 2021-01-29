@@ -255,11 +255,7 @@ class Profile extends Component {
 														>
 															{res.status}
 														</p>
-														{!(
-															Cookies.get('user') ===
-															process.env
-																.REACT_APP_ADMIN_ID
-														) &&
+														{
 														res.start < timeNow &&
 														res.status ===
 															"Zarezerwowane" ? (

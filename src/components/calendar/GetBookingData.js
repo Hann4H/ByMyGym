@@ -20,7 +20,7 @@ class GetBookingData extends Component {
         const events = items.docs.map((doc) => {
           return { docId: doc.id, ...doc.data() };
         });
-        Cookies.set('events', JSON.stringify(events, null, 4), { secure: true });
+        Cookies.set('events', JSON.stringify(events, null, 4), { secure: true, expires: 7 });
         // localStorage.setItem("events", JSON.stringify(events, null, 4));
         this.setState({ events: events });
         this.events = events;

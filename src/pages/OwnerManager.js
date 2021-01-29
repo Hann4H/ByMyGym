@@ -94,42 +94,52 @@ class OwnerManager extends Component {
 											{r.data().name} {r.data().surname}
 										</span>
 										<span>Status: {r.data().title}</span>
-										{r.data().longStart !== null ? (
+										{r.data().longStart  ? (
 											<span>
 												Od: {r.data().longStart}
 											</span>
 										) : (
 											<span>Od: {r.data().start}</span>
 										)}
-										{r.data().longEnd !== null ? (
+										{r.data().longEnd ? (
 											<span>Do: {r.data().longEnd}</span>
 										) : (
 											<span>Do: {r.data().end}</span>
 										)}
-										{r.data().weekdays !== null ? (
+										{r.data().weekdays  ? (
 											<span>
 												{r.data().weekdays.join(", ")}
 											</span>
 										) : (
 											<br />
 										)}
+										{r.data().name == "Zarezerwowane" ? null :
 										<span>{r.data().email}</span>
+										}
+										{r.data().name == "Zarezerwowane" ? null :
 										<a href={"mailto:" + r.data().email} className="link">
 											Napisz maila
 										</a>
+										}
+										{r.data().name == "Zarezerwowane" ? null :
 										<span>{r.data().phoneNumber}</span>
+										}
+										{r.data().name == "Zarezerwowane" ? null :
 										<a href={"tel:" + r.data().phoneNumber} className="link">
 											Zadzwoń
 										</a>
-										<button
-											className="change_status"
-											onClick={function (e) {
-												ChangeStatus(r.id);
-											}}
-										>
-											{" "}
-											Zaakceptuj{" "}
-										</button>
+										}
+										{r.data().title == "Zarezerwowane" ? null : 
+											<button
+												className="change_status"
+												onClick={function (e) {
+													ChangeStatus(r.id);
+												}}
+											>
+												{" "}
+												Zaakceptuj{" "}
+											</button>
+										}
 										<button
 											className="delete_btn"
 											onClick={function (e) {

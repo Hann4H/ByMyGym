@@ -23,6 +23,8 @@
 .gym_name {
     font-size: 30px;
     color:var(--darkOrange);
+    word-break: break-all;
+    text-align: center;
 }
 
 .gym_address {
