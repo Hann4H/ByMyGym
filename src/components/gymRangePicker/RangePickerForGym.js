@@ -194,7 +194,7 @@ class RangePickerForGym extends Component {
 				surname: this.props.surname,
 				email: this.props.email,
 				phoneNumber: this.props.phoneNumber,
-				user_id: this.props.user,
+				user_id: this.props.user || null,
 				scored: null,
 				// rrule: "FREQ=WEEKLY;DTSTART=20210110T013000Z;UNTIL=20210130T023000Z;BYDAY=TU,FR",
 				rrule: rule.toString(),
